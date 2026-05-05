@@ -1,57 +1,56 @@
-import { PageSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
 import siteMetadata from '@/data/site-metadata'
 import { POSTS_PER_PAGE } from '@/data/constants'
+import { getAllBlogPosts } from '@/lib/content/server/blog.server'
+import { notFound } from 'next/navigation'
 
-export async function getStaticPaths() {
-  const { getAllBlogPosts } = await import('@/lib/content/server/blog.server')
+export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
-  }))
 
+  return Array.from({ length: totalPages }, (_, i) => ({
+    page: String(i + 1),
+  }))
+}
+
+export async function generateMetadata() {
   return {
-    paths,
-    fallback: false,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
   }
 }
 
-export async function getStaticProps(context) {
-  const {
-    params: { page },
-  } = context
-  const { getAllBlogPosts } = await import('@/lib/content/server/blog.server')
+export default async function Page({ params }) {
   const posts = await getAllBlogPosts()
-  const pageNumber = parseInt(page)
+
+  const pageNumber = parseInt(params.page)
+
+  if (Number.isNaN(pageNumber) || pageNumber < 1) {
+    notFound()
+  }
+
+  const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE)
+
+  if (pageNumber > totalPages) {
+    notFound()
+  }
+
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
+
   const pagination = {
     currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+    totalPages,
   }
 
-  return {
-    props: {
-      posts,
-      pagination,
-      initialDisplayPosts,
-    },
-  }
-}
-
-export default function PostPage({ posts, initialDisplayPosts, pagination }) {
   return (
-    <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <ListLayout
-        posts={posts}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title="All Posts"
-      />
-    </>
+    <ListLayout
+      posts={posts}
+      initialDisplayPosts={initialDisplayPosts}
+      pagination={pagination}
+      title="All Posts"
+    />
   )
 }

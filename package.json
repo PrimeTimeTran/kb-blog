@@ -7,7 +7,7 @@
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
     "dev2": "concurrently \"node scripts/watch-terms.js\" \"next dev\"",
-    "build": "node scripts/build-terms.js && next build && node ./scripts/generate-sitemap.cjs",
+    "build": "next build && node ./scripts/generate-sitemap.cjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
