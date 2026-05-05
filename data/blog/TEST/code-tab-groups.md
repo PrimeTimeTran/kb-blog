@@ -13,13 +13,13 @@ tags: ['test']
 
 ```tabgroup
 
-!!!!!dart 1
+!!!!!dart foo
 int add(int a, int b) {
   return a + b;
 }
 dart!!!!!
 
-!!!!!dart 2
+!!!!!dart bar
 class User {
   final String name;
 
@@ -29,17 +29,17 @@ class User {
 }
 dart!!!!!
 
-!!!!!dart 3
+!!!!!dart spam
 enum Status { loading, success, error }
 dart!!!!!
 
-!!!!!dart 4
+!!!!!dart ham
 Future<String> fetchData() async {
   return "done";
 }
 dart!!!!!
 
-!!!!!dart 5
+!!!!!dart go/to/jam
 List<int> squares = List.generate(10, (i) => i * i);
 dart!!!!!
 ```
