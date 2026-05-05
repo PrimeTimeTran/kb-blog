@@ -7,9 +7,6 @@ const withBundleAnalyzer = bundleAnalyzer({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  cache: {
-    type: 'filesystem',
-  },
   webpack(config) {
     const originalEmitWarning = process.emitWarning
     config.module.rules.push({
