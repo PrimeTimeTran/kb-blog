@@ -1,0 +1,42 @@
+:root {
+  --navbar-height: 64px;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-gallery-slide-wrapper {
+  position: relative;
+}
+
+.image-gallery-description {
+  position: relative !important;
+  bottom: auto !important;
+  left: auto !important;
+  transform: none !important;
+
+  margin-top: 8px;
+  background: transparent;
+  color: #333;
+  text-align: center;
+}
+/* Animation to slide and fade a panel into view */
+/* SIDEBAR BASE */
+.sidebar {
+  overflow-x: hidden;
+  transition: width 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: width;
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}

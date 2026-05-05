@@ -1,49 +1,47 @@
-import { layouts } from '@/layouts'
-
-import { Image } from '@/components/mdx/Image'
-import { Embed } from '@/components/mdx/Embed'
-import { CallOut } from '@/components/mdx/CallOut'
-import { Snippet } from '@/components/mdx/Snippet'
-import { Pre, TabGroup } from '@/components/mdx/Code'
-import { TOCInline } from '@/components/mdx/TOCInline'
-import { OrderBook } from '@/components/mdx/OrderBook'
-import { CustomLink as Link } from '@/components/mdx/Link'
-import { Term } from '@/components/mdx/Term'
+import { Term } from '@/mdx/components/Term'
+import { Image } from '@/mdx/components/Image'
+import { Embed } from '@/mdx/components/Embed'
+import { CallOut } from '@/mdx/components/CallOut'
+import { Snippet } from '@/mdx/components/Snippet'
+import { Pre, TabGroup } from '@/mdx/components/Code'
+import { TOCInline } from '@/mdx/components/TOCInline'
+import { OrderBook } from '@/mdx/components/OrderBook'
+import { SafeLink as Link } from '@/mdx/components/Link'
+import { TermPeekDefinition } from '@/mdx/components/TermPeekDefinition'
 
 import { BlogNewsletterForm } from '@/components/NewsletterForm'
 import { H1, H2, H3, H4, H5, H6 } from '@/components/HeadingComponents'
 
-export const baseComponents = {
+// Layer A: PURE component map (NO logic)
+const components = {
   h1: H1,
   h2: H2,
   h3: H3,
   h4: H4,
   h5: H5,
   h6: H6,
+  Term,
   Image,
   Embed,
-  Term,
+  a: Link,
   CallOut,
   Snippet,
   pre: Pre,
   TOCInline,
-  a: Link,
   OrderBook,
+  TermPeekDefinition,
   tabGroup: TabGroup,
   TabGroup: TabGroup,
   BlogNewsletterForm,
 }
 
-export function createMDXComponents(registry = {}, embedded, depth = 0, visited = new Set()) {
+export const MDXComponents = Object.fromEntries(
+  Object.entries(components).map(([key, value]) => [key, value?.default ?? value])
+)
+
+// Layer B: runtime factory (safe)
+export function createMDXComponents(registry, depth, visited) {
   return {
-    ...baseComponents,
-    Term: baseComponents.Term, // force explicit binding
-
-    Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
-
-    wrapper: ({ layout, ...rest }) => {
-      const Layout = layouts[layout] || layouts.KBLayout
-      return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />
-    },
+    ...MDXComponents,
   }
 }

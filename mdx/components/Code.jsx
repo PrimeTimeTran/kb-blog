@@ -1,3 +1,4 @@
+'use client'
 import Prism from 'prismjs'
 import React, { useState } from 'react'
 

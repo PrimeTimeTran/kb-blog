@@ -1,36 +1,44 @@
 import Tag from '@/components/Tag'
-import { Link } from '@/components/mdx'
-import { Image } from '@/components/mdx'
+import { SafeLink as Link } from '@/mdx/components/Link'
+import { Image } from '@/mdx/components'
 import PageTitle from '@/components/PageTitle'
+import { useScroll } from '@/lib/context/ScrollContext'
+import { CiCalendarDate } from 'react-icons/ci'
 
 import { discussUrl, editUrl } from '@/lib/utils'
 
-export function BlogHeader({ title, date, shrunk }) {
-  return (
-    <header className="sticky top-13 z-10 border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-black/60 backdrop-blur transition-all duration-300 p-2">
-      <PageTitle
-        className={[
-          'transition-[font-size,line-height,opacity,transform] duration-300 ease-in-out',
-          'text-primary-400 dark:text-primary-600',
+export function BlogHeader({ title, date }) {
+  const { shrunk } = useScroll()
 
-          shrunk
-            ? 'text-xl font-bold leading-7 opacity-90'
-            : 'text-2xl font-extrabold leading-9 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14',
-        ].join(' ')}
+  return (
+    <header
+      className="
+        sticky top-0 z-20
+        border-b border-slate-200/60 dark:border-slate-800/60
+        bg-white/80 dark:bg-black/60 backdrop-blur-md
+        px-4 py-3 text-center
+        transition-colors
+      "
+    >
+      <div
+        className={`
+          transition-all duration-300 ease-in-out
+          text-primary-500 dark:text-primary-400
+          ${shrunk ? 'text-xl leading-snug font-semibold' : 'text-3xl md:text-4xl font-bold leading-tight'}
+        `}
       >
         {title}
-      </PageTitle>
-
-      <div
-        className={[
-          'overflow-hidden transition-all duration-300 ease-in-out',
-          shrunk ? 'max-h-0 -translate-y-1 opacity-0' : 'mt-2 max-h-10 translate-y-0 opacity-100',
-        ].join(' ')}
-      >
-        <time className="text-sm text-gray-500 dark:text-gray-400">
-          {new Date(date).toDateString()}
-        </time>
       </div>
+
+      <time
+        className={`
+          block text-sm text-slate-500 dark:text-slate-400
+          transition-all duration-300 ease-in-out overflow-hidden
+          ${shrunk ? 'max-h-0 opacity-0 -translate-y-1' : 'max-h-6 opacity-100 mt-2'}
+        `}
+      >
+        {new Date(date).toDateString()}
+      </time>
     </header>
   )
 }

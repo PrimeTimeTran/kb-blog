@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from '@/components/mdx'
+import { SafeLink as Link } from '@/mdx/components/Link'
 import headerNavLinks from '@/data/nav-links'
 
 const MobileNav = () => {

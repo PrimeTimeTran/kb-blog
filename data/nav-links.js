@@ -8,7 +8,7 @@ import { SiLibreofficewriter } from 'react-icons/si'
 const headerNavLinks = [
   {
     href: '/kb/tool/0.preview/theme1',
-    title: 'Knowledge Base',
+    title: 'K-Base',
     icon: GiGiftOfKnowledge,
   },
   { href: '/', title: 'Blog', icon: RiBloggerLine },

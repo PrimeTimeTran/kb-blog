@@ -1,8 +1,11 @@
-import { useRouter } from 'next/router'
+'use client'
+import { useRouter } from 'next/navigation'
 import { useRef, useState, useEffect } from 'react'
 
 import KBSidebar from '@/components/KBSidebar'
 import TableOfContents from '@/components/TableOfContents'
+
+import PanelsLayout from '@/layouts/PanelsLayout'
 
 const SCROLL_KEY = 'kb-sidebar-scroll'
 const STORAGE_KEY = 'kb-sidebar-open-map'
@@ -71,31 +74,24 @@ export default function KBLayout({ toc, children, embedded = false, outline }) {
   }
 
   return (
-    <div className="min-h-screen w-full">
-      <div className="grid w-full grid-cols-1 lg:grid-cols-12">
-        {/* LEFT SIDEBAR */}
-        <aside className="col-span-2 hidden min-w-0 lg:block">
-          <div className="sticky top-0 h-screen overflow-y-auto border-r dark:border-slate-800 border-zinc-200">
-            {hydrated && (
-              <div className="animate-in fade-in duration-200">
-                <KBSidebar node={outline} openMap={openMap} setOpenMap={setOpenMap} />
-              </div>
-            )}
+    <PanelsLayout
+      left={
+        hydrated && (
+          <div className="animate-in fade-in duration-200 p-3">
+            <KBSidebar node={outline} openMap={openMap} setOpenMap={setOpenMap} />
           </div>
-        </aside>
-
-        {/* MAIN */}
-        <main className="col-span-1 min-w-0 lg:col-span-7">
-          <div className="prose p-2 dark:prose-invert prose-md">{children}</div>
-        </main>
-
-        {/* RIGHT TOC */}
-        <aside className="hidden min-w-0 border-l border-zinc-200 text-zinc-900 dark:border-zinc-800 dark:text-zinc-100 xl:col-span-3 xl:block">
-          <div className="sticky top-0 h-screen w-full overflow-y-auto overflow-x-hidden px-4 py-4">
-            <TableOfContents toc={toc ?? []} />
-          </div>
-        </aside>
-      </div>
-    </div>
+        )
+      }
+      right={
+        <TableOfContents
+          toc={toc ?? []}
+          className="hidden xl:block p-3 sticky self-start max-h-[calc(100vh-4rem)] overflow-y-auto theme-border-l"
+        />
+      }
+    >
+      <article className="prose p-3 dark:prose-invert prose-md flex-1 min-h-0 overflow-y-auto">
+        {children}
+      </article>
+    </PanelsLayout>
   )
 }

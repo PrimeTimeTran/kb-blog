@@ -25,18 +25,19 @@ function TOCItem({ item, activeId }) {
     </div>
   )
 }
-export default function TableOfContents({ toc = [] }) {
+export default function TableOfContents({ className, toc = [] }) {
   const activeId = useScrollSpy(toc)
 
   if (toc.length === 0) {
-    return <div className="text-sm text-gray-500">No table of contents available.</div>
+    return <div></div>
+    // return <div className="text-sm text-gray-500">No table of contents available.</div>
   }
 
   return (
-    <nav className="text-sm">
+    <aside className={className}>
       {(toc ?? []).map((item) => (
         <TOCItem key={item.url} item={item} activeId={activeId} />
       ))}
-    </nav>
+    </aside>
   )
 }

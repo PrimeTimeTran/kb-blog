@@ -1,37 +1,23 @@
-import React, { useMemo } from 'react'
-import { getMDXComponent } from 'mdx-bundler/client'
-
 import { layouts } from '@/layouts'
-import { log } from '@/lib/debug/logger'
-import { RegistryContext } from '@/lib/hooks/useRegistry'
 
-export default function MDXRenderer({
-  mdxSource,
-  components = {},
-  layout: Layout,
-  layoutProps,
-  ...rest
-}) {
-  const Component = useMemo(() => getMDXComponent(mdxSource), [mdxSource])
+// | Route        | Input type                             |
+// | ------------ | -------------------------------------- |
+// | `/about`     | raw string                             |
+// | `/kb/*`      | bundled MDX object                     |
+// | `/kb/KB-TOC` | partially transformed / broken context |
 
-  log.bundle('Embed:', !!components.Embed)
-  log.bundle('Embed IN MDX:', mdxSource.includes('Embed'))
-  log.bundle('LOWERCASE:', mdxSource.includes('embed'))
-  log.bundle('COMPONENTS KEYS:', Object.keys(components))
+export default function MDXRenderer({ Content, layout: Layout, layoutProps = {} }) {
+  const ResolvedLayout = typeof Layout === 'string' ? layouts[Layout] : Layout
 
-  const WrappedLayout = typeof Layout === 'string' ? layouts[Layout] : Layout
-  const content = (
-    <RegistryContext.Provider value={components.__registry}>
-      <Component components={components} />
-    </RegistryContext.Provider>
-  )
-  // const content = <Component components={components} />
-
-  if (!WrappedLayout) return content
+  if (!ResolvedLayout) {
+    return Content ? <Content /> : null
+  }
 
   return (
-    <WrappedLayout {...layoutProps} {...rest}>
-      {content}
-    </WrappedLayout>
+    <ResolvedLayout {...layoutProps}>
+      <div className="prose dark:prose-invert">
+        <Content />
+      </div>
+    </ResolvedLayout>
   )
 }

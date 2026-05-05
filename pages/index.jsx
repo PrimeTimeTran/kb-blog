@@ -1,11 +1,11 @@
 import { useState, useMemo } from 'react'
 
-import { Link } from '@/components/mdx'
+import { SafeLink as Link } from '@/mdx/components/Link'
 import { PageSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
 import siteMetadata from '@/data/site-metadata'
+import PanelsLayout from '@/layouts/PanelsLayout'
 import NewsletterForm from '@/components/NewsletterForm'
-import SectionContainer from '@/components/SectionContainer'
 
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 
@@ -65,56 +65,55 @@ export default function Home({ posts }) {
   }, [posts, searchTerm, activeTopics])
 
   return (
-    <SectionContainer>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      {/* Posts */}
-      <ListLayout
-        pagination={1}
-        title="Latest"
-        posts={filteredPosts}
-        initialDisplayPosts={[]}
-        subtitle={siteMetadata.description}
-        topics={
-          <div>
-            <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-              Topics
-            </h1>
+    <PanelsLayout mainWide>
+      <main className="flex-1 min-w-0 h-full overflow-y-auto">
+        <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+        <ListLayout
+          pagination={1}
+          title="Latest"
+          posts={filteredPosts}
+          initialDisplayPosts={[]}
+          subtitle={siteMetadata.description}
+          topics={
+            <div>
+              <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+                Topics
+              </h1>
 
-            <div className="my-1 mb-6 flex space-x-2 overflow-x-auto">
-              {(Object.entries(TOPICS) ?? []).map(([topicName, topics]) => (
-                <button
-                  key={topicName}
-                  onClick={() => toggleTopic(topicName)}
-                  className={`${
-                    activeTopics.includes(topicName)
-                      ? 'font-semibold underline text-link-active'
-                      : ' text-meta hover:text-meta-hover'
-                  }`}
-                >
-                  {topicName} <span className="text-gray-500">({topics.length})</span>
-                </button>
-              ))}
+              <div className="my-1 mb-6 flex space-x-2 overflow-x-auto">
+                {(Object.entries(TOPICS) ?? []).map(([topicName, topics]) => (
+                  <button
+                    key={topicName}
+                    onClick={() => toggleTopic(topicName)}
+                    className={`${
+                      activeTopics.includes(topicName)
+                        ? 'font-semibold underline text-link-active'
+                        : ' text-meta hover:text-meta-hover'
+                    }`}
+                  >
+                    {topicName} <span className="text-gray-500">({topics.length})</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        }
-      />
+          }
+        />
 
-      {/* Footer */}
-      <div>
         {posts.length > MAX_DISPLAY && (
-          <div className="flex justify-end text-base font-medium">
+          <div className="flex justify-end mt-6 text-base font-medium">
             <Link href="/blog" className="text-3xl text-primary-500 hover:text-primary-600">
               All Posts →
             </Link>
           </div>
         )}
-
-        {siteMetadata.newsletter.provider !== '' && (
-          <div className="flex justify-center pt-4">
-            <NewsletterForm />
-          </div>
-        )}
-      </div>
-    </SectionContainer>
+        <aside className="flex-1 min-w-0 h-full flex flex-col">
+          {siteMetadata.newsletter.provider !== '' && (
+            <div className="p-4 flex justify-center">
+              <NewsletterForm />
+            </div>
+          )}
+        </aside>
+      </main>
+    </PanelsLayout>
   )
 }

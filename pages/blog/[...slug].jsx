@@ -4,7 +4,6 @@ import MDXRenderer from '@/mdx/Renderer'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
 
-import { baseComponents } from '@/mdx'
 import { log } from '@/lib/debug/logger'
 
 const sanitize = (post) => ({
@@ -71,7 +70,6 @@ export default function Blog({ post, authorDetails, prev, next }) {
       layout={'BlogLayout'}
       frontMatter={frontMatter}
       authorDetails={authorDetails}
-      components={baseComponents}
       layoutProps={{
         frontMatter,
         toc,
@@ -83,7 +81,3 @@ export default function Blog({ post, authorDetails, prev, next }) {
     />
   )
 }
-
-// export default function Page() {
-//   return <div>hi</div>
-// }

@@ -1,5 +1,5 @@
 // components/Term.jsx
-import Link from 'next/link'
+import { SafeLink as Link } from '@/mdx/components/Link'
 
 export function Term({ href, children, short, icon, tone = 'default' }) {
   return (

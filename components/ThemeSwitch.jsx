@@ -12,7 +12,6 @@ const ThemeSwitch = () => {
 
   const onToggleTheme = () => {
     const newTheme = theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark'
-    console.log('Changing theme!')
     logEvent('Changes theme', 'Behavior', 'Style', newTheme)
     setTheme(newTheme)
   }

@@ -1,18438 +1,11734 @@
 export const terms = {
-  "3d-transformations": {
-    "term": "3d transformations",
-    "slug": "/terms/3d-transformations",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "graphics"
-    ],
-    "definition": ""
-  },
-  "a-b-testing": {
-    "term": "a b testing",
-    "slug": "/terms/a-b-testing",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "data_systems"
-    ],
-    "definition": ""
-  },
-  "a-star-search": {
-    "term": "a star search",
-    "slug": "/terms/a-star-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "informed_search"
-    ],
-    "definition": ""
-  },
-  "abductive-reasoning": {
-    "term": "abductive reasoning",
-    "slug": "/terms/abductive-reasoning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "abstract-class": {
-    "term": "abstract class",
-    "slug": "/terms/abstract-class",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "abstraction",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "abstract-classes": {
-    "term": "abstract classes",
-    "slug": "/terms/abstract-classes",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "oop"
-    ],
-    "definition": ""
-  },
-  "abstraction-over-pods": {
-    "term": "abstraction over pods",
-    "slug": "/terms/abstraction-over-pods",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "abstraction": {
-    "term": "abstraction",
-    "slug": "/terms/abstraction",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "abstraction",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "accelerometer": {
-    "term": "accelerometer",
-    "slug": "/terms/accelerometer",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "hardware"
-    ],
-    "definition": ""
-  },
-  "access-control": {
-    "term": "access control",
-    "slug": "/terms/access-control",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "accessibility": {
-    "term": "accessibility",
-    "slug": "/terms/accessibility",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "accuracy": {
-    "term": "accuracy",
-    "slug": "/terms/accuracy",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "acid-properties": {
-    "term": "acid properties",
-    "slug": "/terms/acid-properties",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "action-space": {
-    "term": "action space",
-    "slug": "/terms/action-space",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "activation-function": {
-    "term": "activation function",
-    "slug": "/terms/activation-function",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "activity-selection": {
-    "term": "activity selection",
-    "slug": "/terms/activity-selection",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "greedy",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "adam-optimizer": {
-    "term": "adam optimizer",
-    "slug": "/terms/adam-optimizer",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "add": {
-    "term": "ADD",
-    "slug": "/terms/add",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "addition-rule": {
-    "term": "addition rule",
-    "slug": "/terms/addition-rule",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "adjacency-list": {
-    "term": "adjacency list",
-    "slug": "/terms/adjacency-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "adjacency-matrix": {
-    "term": "adjacency matrix",
-    "slug": "/terms/adjacency-matrix",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "agent": {
-    "term": "agent",
-    "slug": "/terms/agent",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "aggregation-pipeline": {
-    "term": "aggregation pipeline",
-    "slug": "/terms/aggregation-pipeline",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "mongodb_specific"
-    ],
-    "definition": ""
-  },
-  "aggregation": {
-    "term": "aggregation",
-    "slug": "/terms/aggregation",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "class_design",
-      "relationships"
-    ],
-    "definition": ""
-  },
-  "ai-alignment": {
-    "term": "ai alignment",
-    "slug": "/terms/ai-alignment",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "alignment"
-    ],
-    "definition": ""
-  },
-  "aks": {
-    "term": "aks",
-    "slug": "/terms/aks",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "algorithm-correctness": {
-    "term": "algorithm correctness",
-    "slug": "/terms/algorithm-correctness",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "importance"
-    ],
-    "definition": ""
-  },
-  "algorithm-design": {
-    "term": "algorithm design",
-    "slug": "/terms/algorithm-design",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "dsa"
-    ],
-    "definition": ""
-  },
-  "alpha-beta-pruning": {
-    "term": "alpha beta pruning",
-    "slug": "/terms/alpha-beta-pruning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "adversarial_search"
-    ],
-    "definition": ""
-  },
-  "alpha": {
-    "term": "alpha",
-    "slug": "/terms/alpha",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "alternating-series-test": {
-    "term": "alternating series test",
-    "slug": "/terms/alternating-series-test",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "convergence_tests"
-    ],
-    "definition": ""
-  },
-  "alternative-hypothesis": {
-    "term": "alternative hypothesis",
-    "slug": "/terms/alternative-hypothesis",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "amortized-analysis": {
-    "term": "amortized analysis",
-    "slug": "/terms/amortized-analysis",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "anagram": {
-    "term": "anagram",
-    "slug": "/terms/anagram",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "and": {
-    "term": "and",
-    "slug": "/terms/and",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "android-integration": {
-    "term": "android integration",
-    "slug": "/terms/android-integration",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "android": {
-    "term": "android",
-    "slug": "/terms/android",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "angle-between-vectors": {
-    "term": "angle between vectors",
-    "slug": "/terms/angle-between-vectors",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "geometry"
-    ],
-    "definition": ""
-  },
-  "angular": {
-    "term": "angular",
-    "slug": "/terms/angular",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "other_frameworks"
-    ],
-    "definition": ""
-  },
-  "api-routes": {
-    "term": "api routes",
-    "slug": "/terms/api-routes",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "api-server": {
-    "term": "api server",
-    "slug": "/terms/api-server",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "control_plane"
-    ],
-    "definition": ""
-  },
-  "api-versioning": {
-    "term": "api versioning",
-    "slug": "/terms/api-versioning",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "api_design"
-    ],
-    "definition": ""
-  },
-  "api": {
-    "term": "api",
-    "slug": "/terms/api",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "app-router": {
-    "term": "app router",
-    "slug": "/terms/app-router",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "app-store-deployment": {
-    "term": "app store deployment",
-    "slug": "/terms/app-store-deployment",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "apparmor": {
-    "term": "apparmor",
-    "slug": "/terms/apparmor",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "apt": {
-    "term": "apt",
-    "slug": "/terms/apt",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "systems"
-    ],
-    "definition": ""
-  },
-  "arc-length": {
-    "term": "arc length",
-    "slug": "/terms/arc-length",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "physical"
-    ],
-    "definition": ""
-  },
-  "area-between-curves": {
-    "term": "area between curves",
-    "slug": "/terms/area-between-curves",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "area_volume"
-    ],
-    "definition": ""
-  },
-  "area-under-curve": {
-    "term": "area under curve",
-    "slug": "/terms/area-under-curve",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "area_volume"
-    ],
-    "definition": ""
-  },
-  "argo-cd": {
-    "term": "argo cd",
-    "slug": "/terms/argo-cd",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "arima": {
-    "term": "arima",
-    "slug": "/terms/arima",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "models"
-    ],
-    "definition": ""
-  },
-  "array": {
-    "term": "array",
-    "slug": "/terms/array",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "artifact-storage": {
-    "term": "artifact storage",
-    "slug": "/terms/artifact-storage",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "artificial-intelligence": {
-    "term": "artificial intelligence",
-    "slug": "/terms/artificial-intelligence",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "asset-allocation": {
-    "term": "asset allocation",
-    "slug": "/terms/asset-allocation",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "portfolio"
-    ],
-    "definition": ""
-  },
-  "association": {
-    "term": "association",
-    "slug": "/terms/association",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "class_design",
-      "relationships"
-    ],
-    "definition": ""
-  },
-  "asymptotic-analysis": {
-    "term": "asymptotic analysis",
-    "slug": "/terms/asymptotic-analysis",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "complexity",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "async-await": {
-    "term": "async await",
-    "slug": "/terms/async-await",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "async-widget": {
-    "term": "async widget",
-    "slug": "/terms/async-widget",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "atomic-design": {
-    "term": "atomic design",
-    "slug": "/terms/atomic-design",
-    "aliases": [],
-    "tags": [
-      "react",
-      "advanced_react",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "atomic-operations": {
-    "term": "atomic operations",
-    "slug": "/terms/atomic-operations",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "atomicity": {
-    "term": "atomicity",
-    "slug": "/terms/atomicity",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "attention-matrices": {
-    "term": "attention matrices",
-    "slug": "/terms/attention-matrices",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "ai_systems"
-    ],
-    "definition": ""
-  },
-  "attention-mechanism": {
-    "term": "attention mechanism",
-    "slug": "/terms/attention-mechanism",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "transformers"
-    ],
-    "definition": ""
-  },
-  "attribute": {
-    "term": "attribute",
-    "slug": "/terms/attribute",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "auc": {
-    "term": "auc",
-    "slug": "/terms/auc",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "augmented-matrix": {
-    "term": "augmented matrix",
-    "slug": "/terms/augmented-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "authentication-middleware": {
-    "term": "authentication middleware",
-    "slug": "/terms/authentication-middleware",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "middleware",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "authentication": {
-    "term": "authentication",
-    "slug": "/terms/authentication",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "authjs": {
-    "term": "authjs",
-    "slug": "/terms/authjs",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "ecosystem",
-      "integrations"
-    ],
-    "definition": ""
-  },
-  "authorization": {
-    "term": "authorization",
-    "slug": "/terms/authorization",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "auto-scaling": {
-    "term": "auto scaling",
-    "slug": "/terms/auto-scaling",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "automated-deployment": {
-    "term": "automated deployment",
-    "slug": "/terms/automated-deployment",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "autonomous-agent": {
-    "term": "autonomous agent",
-    "slug": "/terms/autonomous-agent",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "agents"
-    ],
-    "definition": ""
-  },
-  "autoregressive-model": {
-    "term": "autoregressive model",
-    "slug": "/terms/autoregressive-model",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "models"
-    ],
-    "definition": ""
-  },
-  "average-case": {
-    "term": "average case",
-    "slug": "/terms/average-case",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "avg": {
-    "term": "avg",
-    "slug": "/terms/avg",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "aws-ecs": {
-    "term": "aws ecs",
-    "slug": "/terms/aws-ecs",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "ecosystems",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "aws": {
-    "term": "aws",
-    "slug": "/terms/aws",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "deployment",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "azure-container-instances": {
-    "term": "azure container instances",
-    "slug": "/terms/azure-container-instances",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "ecosystems",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "b-tree-index": {
-    "term": "b tree index",
-    "slug": "/terms/b-tree-index",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "babel": {
-    "term": "babel",
-    "slug": "/terms/babel",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "backend-for-frontend": {
-    "term": "backend for frontend",
-    "slug": "/terms/backend-for-frontend",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "backend_patterns"
-    ],
-    "definition": ""
-  },
-  "backend": {
-    "term": "backend",
-    "slug": "/terms/backend",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "background-process": {
-    "term": "background process",
-    "slug": "/terms/background-process",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "background-tasks": {
-    "term": "background tasks",
-    "slug": "/terms/background-tasks",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "system"
-    ],
-    "definition": ""
-  },
-  "backpropagation": {
-    "term": "backpropagation",
-    "slug": "/terms/backpropagation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "backtracking": {
-    "term": "backtracking",
-    "slug": "/terms/backtracking",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "recursion"
-    ],
-    "definition": ""
-  },
-  "balance-sheet": {
-    "term": "balance sheet",
-    "slug": "/terms/balance-sheet",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "statements"
-    ],
-    "definition": ""
-  },
-  "balanced-bst": {
-    "term": "balanced bst",
-    "slug": "/terms/balanced-bst",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "binary_search_tree"
-    ],
-    "definition": ""
-  },
-  "base-case": {
-    "term": "base case",
-    "slug": "/terms/base-case",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "recursion"
-    ],
-    "definition": ""
-  },
-  "base-image": {
-    "term": "base image",
-    "slug": "/terms/base-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "bash-automation": {
-    "term": "bash automation",
-    "slug": "/terms/bash-automation",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "bash": {
-    "term": "bash",
-    "slug": "/terms/bash",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "basis-transformation": {
-    "term": "basis transformation",
-    "slug": "/terms/basis-transformation",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "linear_transformations",
-      "representation"
-    ],
-    "definition": ""
-  },
-  "basis-vectors": {
-    "term": "basis vectors",
-    "slug": "/terms/basis-vectors",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "dimension"
-    ],
-    "definition": ""
-  },
-  "basis": {
-    "term": "basis",
-    "slug": "/terms/basis",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "batch-normalization": {
-    "term": "batch normalization",
-    "slug": "/terms/batch-normalization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "bayes-theorem": {
-    "term": "bayes theorem",
-    "slug": "/terms/bayes-theorem",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "bayesian-inference": {
-    "term": "bayesian inference",
-    "slug": "/terms/bayesian-inference",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "bayesian_statistics",
-      "inference"
-    ],
-    "definition": ""
-  },
-  "bayesian-networks": {
-    "term": "bayesian networks",
-    "slug": "/terms/bayesian-networks",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "uncertainty"
-    ],
-    "definition": ""
-  },
-  "bayesian-updating": {
-    "term": "bayesian updating",
-    "slug": "/terms/bayesian-updating",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "bayesian_statistics",
-      "inference"
-    ],
-    "definition": ""
-  },
-  "behavior": {
-    "term": "behavior",
-    "slug": "/terms/behavior",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "bellman-ford": {
-    "term": "bellman ford",
-    "slug": "/terms/bellman-ford",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "bernoulli-distribution": {
-    "term": "bernoulli distribution",
-    "slug": "/terms/bernoulli-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "discrete"
-    ],
-    "definition": ""
-  },
-  "bert": {
-    "term": "bert",
-    "slug": "/terms/bert",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "transformers"
-    ],
-    "definition": ""
-  },
-  "best-case": {
-    "term": "best case",
-    "slug": "/terms/best-case",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "beta": {
-    "term": "beta",
-    "slug": "/terms/beta",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "between": {
-    "term": "between",
-    "slug": "/terms/between",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "bfs": {
-    "term": "bfs",
-    "slug": "/terms/bfs",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "traversal"
-    ],
-    "definition": ""
-  },
-  "bias-variance-tradeoff": {
-    "term": "bias variance tradeoff",
-    "slug": "/terms/bias-variance-tradeoff",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "biconditional": {
-    "term": "biconditional",
-    "slug": "/terms/biconditional",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "propositional_logic"
-    ],
-    "definition": ""
-  },
-  "big-o-notation": {
-    "term": "big o notation",
-    "slug": "/terms/big-o-notation",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "big-omega": {
-    "term": "big omega",
-    "slug": "/terms/big-omega",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "big-theta": {
-    "term": "big theta",
-    "slug": "/terms/big-theta",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "bigtable": {
-    "term": "bigtable",
-    "slug": "/terms/bigtable",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "wide_column"
-    ],
-    "definition": ""
-  },
-  "bijective": {
-    "term": "bijective",
-    "slug": "/terms/bijective",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "bin": {
-    "term": "bin",
-    "slug": "/terms/bin",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "binary-search-tree": {
-    "term": "binary search tree",
-    "slug": "/terms/binary-search-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "binary_search_tree"
-    ],
-    "definition": ""
-  },
-  "binary-search": {
-    "term": "binary search",
-    "slug": "/terms/binary-search",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "searching"
-    ],
-    "definition": ""
-  },
-  "binary-tree": {
-    "term": "binary tree",
-    "slug": "/terms/binary-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "bind-mounts": {
-    "term": "bind mounts",
-    "slug": "/terms/bind-mounts",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "binomial-coefficient": {
-    "term": "binomial coefficient",
-    "slug": "/terms/binomial-coefficient",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "counting"
-    ],
-    "definition": ""
-  },
-  "binomial-distribution": {
-    "term": "binomial distribution",
-    "slug": "/terms/binomial-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "discrete"
-    ],
-    "definition": ""
-  },
-  "bipartite-graph": {
-    "term": "bipartite graph",
-    "slug": "/terms/bipartite-graph",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "bit-manipulation": {
-    "term": "bit manipulation",
-    "slug": "/terms/bit-manipulation",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "bit_manipulation"
-    ],
-    "definition": ""
-  },
-  "bit-masking": {
-    "term": "bit masking",
-    "slug": "/terms/bit-masking",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "bit_manipulation"
-    ],
-    "definition": ""
-  },
-  "bloc": {
-    "term": "bloc",
-    "slug": "/terms/bloc",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "blue-green-deployment": {
-    "term": "blue green deployment",
-    "slug": "/terms/blue-green-deployment",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "deployment_patterns"
-    ],
-    "definition": ""
-  },
-  "bonds": {
-    "term": "bonds",
-    "slug": "/terms/bonds",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "box-model": {
-    "term": "box model",
-    "slug": "/terms/box-model",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "boyce-codd-normal-form": {
-    "term": "boyce codd normal form",
-    "slug": "/terms/boyce-codd-normal-form",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "normalization"
-    ],
-    "definition": ""
-  },
-  "breadth-first-search": {
-    "term": "breadth first search",
-    "slug": "/terms/breadth-first-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "uninformed_search"
-    ],
-    "definition": ""
-  },
-  "bridge-network": {
-    "term": "bridge network",
-    "slug": "/terms/bridge-network",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "bridge": {
-    "term": "bridge",
-    "slug": "/terms/bridge",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "bst-deletion": {
-    "term": "bst deletion",
-    "slug": "/terms/bst-deletion",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "binary_search_tree"
-    ],
-    "definition": ""
-  },
-  "bst-insertion": {
-    "term": "bst insertion",
-    "slug": "/terms/bst-insertion",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "binary_search_tree"
-    ],
-    "definition": ""
-  },
-  "bst-search": {
-    "term": "bst search",
-    "slug": "/terms/bst-search",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "binary_search_tree"
-    ],
-    "definition": ""
-  },
-  "bubble-sort": {
-    "term": "bubble sort",
-    "slug": "/terms/bubble-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "build-context": {
-    "term": "build context",
-    "slug": "/terms/build-context",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "build-image": {
-    "term": "build image",
-    "slug": "/terms/build-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "build-once-run-anywhere": {
-    "term": "build once run anywhere",
-    "slug": "/terms/build-once-run-anywhere",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "build-phase": {
-    "term": "build phase",
-    "slug": "/terms/build-phase",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "pipeline"
-    ],
-    "definition": ""
-  },
-  "build-process": {
-    "term": "build process",
-    "slug": "/terms/build-process",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "deployment",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "build": {
-    "term": "build",
-    "slug": "/terms/build",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "bundle-analysis": {
-    "term": "bundle analysis",
-    "slug": "/terms/bundle-analysis",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "build"
-    ],
-    "definition": ""
-  },
-  "bundling": {
-    "term": "bundling",
-    "slug": "/terms/bundling",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "button": {
-    "term": "button",
-    "slug": "/terms/button",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "input_widgets"
-    ],
-    "definition": ""
-  },
-  "cache": {
-    "term": "cache",
-    "slug": "/terms/cache",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "caching"
-    ],
-    "definition": ""
-  },
-  "caching-behavior": {
-    "term": "caching behavior",
-    "slug": "/terms/caching-behavior",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "caching-layer": {
-    "term": "caching layer",
-    "slug": "/terms/caching-layer",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "caching-layers": {
-    "term": "caching layers",
-    "slug": "/terms/caching-layers",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "caching": {
-    "term": "caching",
-    "slug": "/terms/caching",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "call-option": {
-    "term": "call option",
-    "slug": "/terms/call-option",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "call-stack": {
-    "term": "call stack",
-    "slug": "/terms/call-stack",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "recursion"
-    ],
-    "definition": ""
-  },
-  "camera-access": {
-    "term": "camera access",
-    "slug": "/terms/camera-access",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "capabilities"
-    ],
-    "definition": ""
-  },
-  "camera": {
-    "term": "camera",
-    "slug": "/terms/camera",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "hardware"
-    ],
-    "definition": ""
-  },
-  "canary-deployment": {
-    "term": "canary deployment",
-    "slug": "/terms/canary-deployment",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "deployment_patterns"
-    ],
-    "definition": ""
-  },
-  "cartesian-product": {
-    "term": "cartesian product",
-    "slug": "/terms/cartesian-product",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "cash-flow-statement": {
-    "term": "cash flow statement",
-    "slug": "/terms/cash-flow-statement",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "statements"
-    ],
-    "definition": ""
-  },
-  "cassandra": {
-    "term": "cassandra",
-    "slug": "/terms/cassandra",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "catch-all-routes": {
-    "term": "catch all routes",
-    "slug": "/terms/catch-all-routes",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "dynamic_routing"
-    ],
-    "definition": ""
-  },
-  "categorical-data": {
-    "term": "categorical data",
-    "slug": "/terms/categorical-data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "data_types"
-    ],
-    "definition": ""
-  },
-  "causal-consistency": {
-    "term": "causal consistency",
-    "slug": "/terms/causal-consistency",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "models"
-    ],
-    "definition": ""
-  },
-  "cdn": {
-    "term": "cdn",
-    "slug": "/terms/cdn",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "center": {
-    "term": "center",
-    "slug": "/terms/center",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "basic_widgets"
-    ],
-    "definition": ""
-  },
-  "cgroups": {
-    "term": "cgroups",
-    "slug": "/terms/cgroups",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "containers",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "chain-rule": {
-    "term": "chain rule",
-    "slug": "/terms/chain-rule",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "chaining": {
-    "term": "chaining",
-    "slug": "/terms/chaining",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "change-of-basis": {
-    "term": "change of basis",
-    "slug": "/terms/change-of-basis",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "linear_transformations",
-      "representation"
-    ],
-    "definition": ""
-  },
-  "change-of-variables": {
-    "term": "change of variables",
-    "slug": "/terms/change-of-variables",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "double_integrals"
-    ],
-    "definition": ""
-  },
-  "check-constraint": {
-    "term": "check constraint",
-    "slug": "/terms/check-constraint",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "design_principles"
-    ],
-    "definition": ""
-  },
-  "chi-square-distribution": {
-    "term": "chi square distribution",
-    "slug": "/terms/chi-square-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "continuous"
-    ],
-    "definition": ""
-  },
-  "child-class": {
-    "term": "child class",
-    "slug": "/terms/child-class",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "chmod": {
-    "term": "chmod",
-    "slug": "/terms/chmod",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "cholesky-decomposition": {
-    "term": "cholesky decomposition",
-    "slug": "/terms/cholesky-decomposition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "decomposition",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "chown": {
-    "term": "chown",
-    "slug": "/terms/chown",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "ci-cd-pipelines": {
-    "term": "ci cd pipelines",
-    "slug": "/terms/ci-cd-pipelines",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "integration"
-    ],
-    "definition": ""
-  },
-  "ci-cd": {
-    "term": "ci cd",
-    "slug": "/terms/ci-cd",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "deployment",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "circular-linked-list": {
-    "term": "circular linked list",
-    "slug": "/terms/circular-linked-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "class-component": {
-    "term": "class component",
-    "slug": "/terms/class-component",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "types"
-    ],
-    "definition": ""
-  },
-  "class-diagram": {
-    "term": "class diagram",
-    "slug": "/terms/class-diagram",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "modeling",
-      "uml"
-    ],
-    "definition": ""
-  },
-  "class": {
-    "term": "class",
-    "slug": "/terms/class",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "classes": {
-    "term": "classes",
-    "slug": "/terms/classes",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "classification": {
-    "term": "classification",
-    "slug": "/terms/classification",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "supervised"
-    ],
-    "definition": ""
-  },
-  "clean-architecture": {
-    "term": "clean architecture",
-    "slug": "/terms/clean-architecture",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "client-components": {
-    "term": "client components",
-    "slug": "/terms/client-components",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "client-fetch": {
-    "term": "client fetch",
-    "slug": "/terms/client-fetch",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "client-server-model": {
-    "term": "client server model",
-    "slug": "/terms/client-server-model",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "client-side-rendering": {
-    "term": "client side rendering",
-    "slug": "/terms/client-side-rendering",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "client-side-routing": {
-    "term": "client side routing",
-    "slug": "/terms/client-side-routing",
-    "aliases": [],
-    "tags": [
-      "react",
-      "routing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "closed-form": {
-    "term": "closed form",
-    "slug": "/terms/closed-form",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "closures": {
-    "term": "closures",
-    "slug": "/terms/closures",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "core_js"
-    ],
-    "definition": ""
-  },
-  "cls": {
-    "term": "cls",
-    "slug": "/terms/cls",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "cluster-autoscaler": {
-    "term": "cluster autoscaler",
-    "slug": "/terms/cluster-autoscaler",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "cluster-ip": {
-    "term": "cluster ip",
-    "slug": "/terms/cluster-ip",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "types"
-    ],
-    "definition": ""
-  },
-  "cluster-logs": {
-    "term": "cluster logs",
-    "slug": "/terms/cluster-logs",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "logging"
-    ],
-    "definition": ""
-  },
-  "cluster-sampling": {
-    "term": "cluster sampling",
-    "slug": "/terms/cluster-sampling",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "cluster": {
-    "term": "cluster",
-    "slug": "/terms/cluster",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "cluster_components"
-    ],
-    "definition": ""
-  },
-  "cmd": {
-    "term": "CMD",
-    "slug": "/terms/cmd",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "cms-integration": {
-    "term": "cms integration",
-    "slug": "/terms/cms-integration",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "ecosystem",
-      "integrations"
-    ],
-    "definition": ""
-  },
-  "cni-plugins": {
-    "term": "cni plugins",
-    "slug": "/terms/cni-plugins",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "related_systems"
-    ],
-    "definition": ""
-  },
-  "cnn": {
-    "term": "cnn",
-    "slug": "/terms/cnn",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "code-splitting": {
-    "term": "code splitting",
-    "slug": "/terms/code-splitting",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "coin-change": {
-    "term": "coin change",
-    "slug": "/terms/coin-change",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "collision": {
-    "term": "collision",
-    "slug": "/terms/collision",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "colors": {
-    "term": "colors",
-    "slug": "/terms/colors",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "styling"
-    ],
-    "definition": ""
-  },
-  "column-family": {
-    "term": "column family",
-    "slug": "/terms/column-family",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "wide_column"
-    ],
-    "definition": ""
-  },
-  "column-oriented-storage": {
-    "term": "column oriented storage",
-    "slug": "/terms/column-oriented-storage",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "wide_column"
-    ],
-    "definition": ""
-  },
-  "column": {
-    "term": "column",
-    "slug": "/terms/column",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "columnar-database": {
-    "term": "columnar database",
-    "slug": "/terms/columnar-database",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "databases",
-      "nosql_comparison"
-    ],
-    "definition": ""
-  },
-  "combinations": {
-    "term": "combinations",
-    "slug": "/terms/combinations",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "counting"
-    ],
-    "definition": ""
-  },
-  "commands": {
-    "term": "commands",
-    "slug": "/terms/commands",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "commit-phase": {
-    "term": "commit phase",
-    "slug": "/terms/commit-phase",
-    "aliases": [],
-    "tags": [
-      "react",
-      "rendering_model",
-      "process"
-    ],
-    "definition": ""
-  },
-  "commit": {
-    "term": "commit",
-    "slug": "/terms/commit",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "control"
-    ],
-    "definition": ""
-  },
-  "common-table-expression": {
-    "term": "common table expression",
-    "slug": "/terms/common-table-expression",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "cte"
-    ],
-    "definition": ""
-  },
-  "comparison-test": {
-    "term": "comparison test",
-    "slug": "/terms/comparison-test",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "convergence_tests"
-    ],
-    "definition": ""
-  },
-  "compile-time-polymorphism": {
-    "term": "compile time polymorphism",
-    "slug": "/terms/compile-time-polymorphism",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "compile_time"
-    ],
-    "definition": ""
-  },
-  "complement-rule": {
-    "term": "complement rule",
-    "slug": "/terms/complement-rule",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "complement": {
-    "term": "complement",
-    "slug": "/terms/complement",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "complexity-theory": {
-    "term": "complexity theory",
-    "slug": "/terms/complexity-theory",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cs_theory"
-    ],
-    "definition": ""
-  },
-  "component-architecture": {
-    "term": "component architecture",
-    "slug": "/terms/component-architecture",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "component-based-architecture": {
-    "term": "component based architecture",
-    "slug": "/terms/component-based-architecture",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "component-driven-ui": {
-    "term": "component driven ui",
-    "slug": "/terms/component-driven-ui",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "component-tree": {
-    "term": "component tree",
-    "slug": "/terms/component-tree",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "component": {
-    "term": "component",
-    "slug": "/terms/component",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "components": {
-    "term": "components",
-    "slug": "/terms/components",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "react"
-    ],
-    "definition": ""
-  },
-  "composability": {
-    "term": "composability",
-    "slug": "/terms/composability",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "compositing": {
-    "term": "compositing",
-    "slug": "/terms/compositing",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "pipeline"
-    ],
-    "definition": ""
-  },
-  "composition-of-functions": {
-    "term": "composition of functions",
-    "slug": "/terms/composition-of-functions",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "composition-over-inheritance": {
-    "term": "composition over inheritance",
-    "slug": "/terms/composition-over-inheritance",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "composition": {
-    "term": "composition",
-    "slug": "/terms/composition",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "class_design",
-      "relationships"
-    ],
-    "definition": ""
-  },
-  "compound-index": {
-    "term": "compound index",
-    "slug": "/terms/compound-index",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "computability": {
-    "term": "computability",
-    "slug": "/terms/computability",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cs_theory"
-    ],
-    "definition": ""
-  },
-  "computer-vision": {
-    "term": "computer vision",
-    "slug": "/terms/computer-vision",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "concavity": {
-    "term": "concavity",
-    "slug": "/terms/concavity",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "behavior"
-    ],
-    "definition": ""
-  },
-  "concrete-class": {
-    "term": "concrete class",
-    "slug": "/terms/concrete-class",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "class_design",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "concurrent-rendering": {
-    "term": "concurrent rendering",
-    "slug": "/terms/concurrent-rendering",
-    "aliases": [],
-    "tags": [
-      "react",
-      "advanced_react",
-      "concurrent_react"
-    ],
-    "definition": ""
-  },
-  "conditional-probability": {
-    "term": "conditional probability",
-    "slug": "/terms/conditional-probability",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "conditionals": {
-    "term": "conditionals",
-    "slug": "/terms/conditionals",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "scripting"
-    ],
-    "definition": ""
-  },
-  "confidence-interval": {
-    "term": "confidence interval",
-    "slug": "/terms/confidence-interval",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "estimation"
-    ],
-    "definition": ""
-  },
-  "config-map": {
-    "term": "config map",
-    "slug": "/terms/config-map",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "configuration"
-    ],
-    "definition": ""
-  },
-  "configmap": {
-    "term": "configmap",
-    "slug": "/terms/configmap",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "orchestration",
-      "kubernetes_concepts"
-    ],
-    "definition": ""
-  },
-  "confounding-variables": {
-    "term": "confounding variables",
-    "slug": "/terms/confounding-variables",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "validity"
-    ],
-    "definition": ""
-  },
-  "confusion-matrix": {
-    "term": "confusion matrix",
-    "slug": "/terms/confusion-matrix",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "congruence": {
-    "term": "congruence",
-    "slug": "/terms/congruence",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "modular"
-    ],
-    "definition": ""
-  },
-  "connectivity": {
-    "term": "connectivity",
-    "slug": "/terms/connectivity",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "conservative-field": {
-    "term": "conservative field",
-    "slug": "/terms/conservative-field",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "fields"
-    ],
-    "definition": ""
-  },
-  "consistency-tradeoffs": {
-    "term": "consistency tradeoffs",
-    "slug": "/terms/consistency-tradeoffs",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "differences"
-    ],
-    "definition": ""
-  },
-  "consistency": {
-    "term": "consistency",
-    "slug": "/terms/consistency",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "consistent-hashing": {
-    "term": "consistent hashing",
-    "slug": "/terms/consistent-hashing",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "scaling",
-      "partitioning"
-    ],
-    "definition": ""
-  },
-  "const-constructor": {
-    "term": "const constructor",
-    "slug": "/terms/const-constructor",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "const-widgets": {
-    "term": "const widgets",
-    "slug": "/terms/const-widgets",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "constraints": {
-    "term": "constraints",
-    "slug": "/terms/constraints",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "design_principles"
-    ],
-    "definition": ""
-  },
-  "constructor": {
-    "term": "constructor",
-    "slug": "/terms/constructor",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "container-crash-loops": {
-    "term": "container crash loops",
-    "slug": "/terms/container-crash-loops",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "issues"
-    ],
-    "definition": ""
-  },
-  "container-deployment": {
-    "term": "container deployment",
-    "slug": "/terms/container-deployment",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "devops",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "container-filesystem-layers": {
-    "term": "container filesystem layers",
-    "slug": "/terms/container-filesystem-layers",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "containers",
-      "relation"
-    ],
-    "definition": ""
-  },
-  "container-isolation": {
-    "term": "container isolation",
-    "slug": "/terms/container-isolation",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "container-networking": {
-    "term": "container networking",
-    "slug": "/terms/container-networking",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "container-orchestration": {
-    "term": "container orchestration",
-    "slug": "/terms/container-orchestration",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "container-process": {
-    "term": "container process",
-    "slug": "/terms/container-process",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "container-registry": {
-    "term": "container registry",
-    "slug": "/terms/container-registry",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "container-runtime": {
-    "term": "container runtime",
-    "slug": "/terms/container-runtime",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "worker_node"
-    ],
-    "definition": ""
-  },
-  "container-to-container-communication": {
-    "term": "container to container communication",
-    "slug": "/terms/container-to-container-communication",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "communication"
-    ],
-    "definition": ""
-  },
-  "container": {
-    "term": "container",
-    "slug": "/terms/container",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "containerd": {
-    "term": "containerd",
-    "slug": "/terms/containerd",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "related_systems"
-    ],
-    "definition": ""
-  },
-  "containerization": {
-    "term": "containerization",
-    "slug": "/terms/containerization",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "content-management-systems": {
-    "term": "content management systems",
-    "slug": "/terms/content-management-systems",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "content-security-policy": {
-    "term": "content security policy",
-    "slug": "/terms/content-security-policy",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "context-api": {
-    "term": "context api",
-    "slug": "/terms/context-api",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "state_management",
-      "global_state"
-    ],
-    "definition": ""
-  },
-  "context-free-languages": {
-    "term": "context free languages",
-    "slug": "/terms/context-free-languages",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "languages"
-    ],
-    "definition": ""
-  },
-  "continuity": {
-    "term": "continuity",
-    "slug": "/terms/continuity",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "limits"
-    ],
-    "definition": ""
-  },
-  "continuous-data": {
-    "term": "continuous data",
-    "slug": "/terms/continuous-data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "data_types"
-    ],
-    "definition": ""
-  },
-  "continuous-deployment": {
-    "term": "continuous deployment",
-    "slug": "/terms/continuous-deployment",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "continuous-integration": {
-    "term": "continuous integration",
-    "slug": "/terms/continuous-integration",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "contract": {
-    "term": "contract",
-    "slug": "/terms/contract",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "abstraction",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "control-group": {
-    "term": "control group",
-    "slug": "/terms/control-group",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "control-plane": {
-    "term": "control plane",
-    "slug": "/terms/control-plane",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "controller-manager": {
-    "term": "controller manager",
-    "slug": "/terms/controller-manager",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "control_plane"
-    ],
-    "definition": ""
-  },
-  "controllers": {
-    "term": "controllers",
-    "slug": "/terms/controllers",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "node_ecosystem"
-    ],
-    "definition": ""
-  },
-  "convergence": {
-    "term": "convergence",
-    "slug": "/terms/convergence",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "sequences"
-    ],
-    "definition": ""
-  },
-  "convolutional-neural-network": {
-    "term": "convolutional neural network",
-    "slug": "/terms/convolutional-neural-network",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "cookies": {
-    "term": "cookies",
-    "slug": "/terms/cookies",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "auth"
-    ],
-    "definition": ""
-  },
-  "coordinate-systems": {
-    "term": "coordinate systems",
-    "slug": "/terms/coordinate-systems",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "dimension"
-    ],
-    "definition": ""
-  },
-  "copy": {
-    "term": "COPY",
-    "slug": "/terms/copy",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "core-web-vitals": {
-    "term": "core web vitals",
-    "slug": "/terms/core-web-vitals",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "corporate-bonds": {
-    "term": "corporate bonds",
-    "slug": "/terms/corporate-bonds",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "correlated-subquery": {
-    "term": "correlated subquery",
-    "slug": "/terms/correlated-subquery",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "subqueries"
-    ],
-    "definition": ""
-  },
-  "correlation-matrices": {
-    "term": "correlation matrices",
-    "slug": "/terms/correlation-matrices",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "data_science"
-    ],
-    "definition": ""
-  },
-  "correlation": {
-    "term": "correlation",
-    "slug": "/terms/correlation",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "portfolio"
-    ],
-    "definition": ""
-  },
-  "cors": {
-    "term": "cors",
-    "slug": "/terms/cors",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "count": {
-    "term": "count",
-    "slug": "/terms/count",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "countable-structures": {
-    "term": "countable structures",
-    "slug": "/terms/countable-structures",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "counting-sort": {
-    "term": "counting sort",
-    "slug": "/terms/counting-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "coupon-rate": {
-    "term": "coupon rate",
-    "slug": "/terms/coupon-rate",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "covariance-matrices": {
-    "term": "covariance matrices",
-    "slug": "/terms/covariance-matrices",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "data_science"
-    ],
-    "definition": ""
-  },
-  "covariance": {
-    "term": "covariance",
-    "slug": "/terms/covariance",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "correlation_and_relationships",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "cpi": {
-    "term": "cpi",
-    "slug": "/terms/cpi",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "indicators"
-    ],
-    "definition": ""
-  },
-  "cpu-usage": {
-    "term": "cpu usage",
-    "slug": "/terms/cpu-usage",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "performance",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "cqrs": {
-    "term": "cqrs",
-    "slug": "/terms/cqrs",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "crashloop-backoff": {
-    "term": "crashloop backoff",
-    "slug": "/terms/crashloop-backoff",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "create": {
-    "term": "create",
-    "slug": "/terms/create",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "created": {
-    "term": "created",
-    "slug": "/terms/created",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "credit-rating": {
-    "term": "credit rating",
-    "slug": "/terms/credit-rating",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "critical-css": {
-    "term": "critical css",
-    "slug": "/terms/critical-css",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "rendering_impact"
-    ],
-    "definition": ""
-  },
-  "critical-points": {
-    "term": "critical points",
-    "slug": "/terms/critical-points",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "optimization",
-      "unconstrained"
-    ],
-    "definition": ""
-  },
-  "cron-job": {
-    "term": "cron job",
-    "slug": "/terms/cron-job",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "workload"
-    ],
-    "definition": ""
-  },
-  "cron-jobs": {
-    "term": "cron jobs",
-    "slug": "/terms/cron-jobs",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "cross-join": {
-    "term": "cross join",
-    "slug": "/terms/cross-join",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "types"
-    ],
-    "definition": ""
-  },
-  "cross-platform-development": {
-    "term": "cross platform development",
-    "slug": "/terms/cross-platform-development",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "cross-product": {
-    "term": "cross product",
-    "slug": "/terms/cross-product",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "cross-validation": {
-    "term": "cross validation",
-    "slug": "/terms/cross-validation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "validation"
-    ],
-    "definition": ""
-  },
-  "csrf": {
-    "term": "csrf",
-    "slug": "/terms/csrf",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "css-modules": {
-    "term": "css modules",
-    "slug": "/terms/css-modules",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "options"
-    ],
-    "definition": ""
-  },
-  "css": {
-    "term": "css",
-    "slug": "/terms/css",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "cubit": {
-    "term": "cubit",
-    "slug": "/terms/cubit",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "cupertino-design": {
-    "term": "cupertino design",
-    "slug": "/terms/cupertino-design",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "styling"
-    ],
-    "definition": ""
-  },
-  "curl": {
-    "term": "curl",
-    "slug": "/terms/curl",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "curve-sketching": {
-    "term": "curve sketching",
-    "slug": "/terms/curve-sketching",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "graphing"
-    ],
-    "definition": ""
-  },
-  "custom-hooks": {
-    "term": "custom hooks",
-    "slug": "/terms/custom-hooks",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "advanced_patterns"
-    ],
-    "definition": ""
-  },
-  "cycle-detection": {
-    "term": "cycle detection",
-    "slug": "/terms/cycle-detection",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "cycle": {
-    "term": "cycle",
-    "slug": "/terms/cycle",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "cylindrical-coordinates": {
-    "term": "cylindrical coordinates",
-    "slug": "/terms/cylindrical-coordinates",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "triple_integrals"
-    ],
-    "definition": ""
-  },
-  "cypress": {
-    "term": "cypress",
-    "slug": "/terms/cypress",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "testing"
-    ],
-    "definition": ""
-  },
-  "daemon-set": {
-    "term": "daemon set",
-    "slug": "/terms/daemon-set",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "workload"
-    ],
-    "definition": ""
-  },
-  "daemon": {
-    "term": "daemon",
-    "slug": "/terms/daemon",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "services"
-    ],
-    "definition": ""
-  },
-  "dag": {
-    "term": "dag",
-    "slug": "/terms/dag",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "dart-sdk": {
-    "term": "dart sdk",
-    "slug": "/terms/dart-sdk",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "dart": {
-    "term": "dart",
-    "slug": "/terms/dart",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "data-analysis": {
-    "term": "data analysis",
-    "slug": "/terms/data-analysis",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "data_systems"
-    ],
-    "definition": ""
-  },
-  "data-denormalization": {
-    "term": "data denormalization",
-    "slug": "/terms/data-denormalization",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "data-encapsulation": {
-    "term": "data encapsulation",
-    "slug": "/terms/data-encapsulation",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "data_hiding"
-    ],
-    "definition": ""
-  },
-  "data-fetching": {
-    "term": "data fetching",
-    "slug": "/terms/data-fetching",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "data-integrity": {
-    "term": "data integrity",
-    "slug": "/terms/data-integrity",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "design_principles"
-    ],
-    "definition": ""
-  },
-  "data-layer": {
-    "term": "data layer",
-    "slug": "/terms/data-layer",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "layering"
-    ],
-    "definition": ""
-  },
-  "data-modeling": {
-    "term": "data modeling",
-    "slug": "/terms/data-modeling",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "data_modeling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "data-partitioning": {
-    "term": "data partitioning",
-    "slug": "/terms/data-partitioning",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "scaling",
-      "partitioning"
-    ],
-    "definition": ""
-  },
-  "data-preprocessing": {
-    "term": "data preprocessing",
-    "slug": "/terms/data-preprocessing",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "data-replication": {
-    "term": "data replication",
-    "slug": "/terms/data-replication",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "replication"
-    ],
-    "definition": ""
-  },
-  "data-representation": {
-    "term": "data representation",
-    "slug": "/terms/data-representation",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "data_science"
-    ],
-    "definition": ""
-  },
-  "data-structure-flexibility": {
-    "term": "data structure flexibility",
-    "slug": "/terms/data-structure-flexibility",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "decision_factors"
-    ],
-    "definition": ""
-  },
-  "data-structures": {
-    "term": "data structures",
-    "slug": "/terms/data-structures",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "dsa"
-    ],
-    "definition": ""
-  },
-  "data": {
-    "term": "data",
-    "slug": "/terms/data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "database-persistence": {
-    "term": "database persistence",
-    "slug": "/terms/database-persistence",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "use_cases"
-    ],
-    "definition": ""
-  },
-  "database": {
-    "term": "database",
-    "slug": "/terms/database",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "dataset": {
-    "term": "dataset",
-    "slug": "/terms/dataset",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "dbscan": {
-    "term": "dbscan",
-    "slug": "/terms/dbscan",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "clustering"
-    ],
-    "definition": ""
-  },
-  "de-morgan-laws": {
-    "term": "de morgan laws",
-    "slug": "/terms/de-morgan-laws",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "debugger": {
-    "term": "debugger",
-    "slug": "/terms/debugger",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "decision-theory": {
-    "term": "decision theory",
-    "slug": "/terms/decision-theory",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "decision_making"
-    ],
-    "definition": ""
-  },
-  "decision-tree": {
-    "term": "decision tree",
-    "slug": "/terms/decision-tree",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "declarative-config": {
-    "term": "declarative config",
-    "slug": "/terms/declarative-config",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "declarative-infrastructure": {
-    "term": "declarative infrastructure",
-    "slug": "/terms/declarative-infrastructure",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "declarative-ui": {
-    "term": "declarative ui",
-    "slug": "/terms/declarative-ui",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "decorator-pattern": {
-    "term": "decorator pattern",
-    "slug": "/terms/decorator-pattern",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "decreasing-function": {
-    "term": "decreasing function",
-    "slug": "/terms/decreasing-function",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "behavior"
-    ],
-    "definition": ""
-  },
-  "deductive-reasoning": {
-    "term": "deductive reasoning",
-    "slug": "/terms/deductive-reasoning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "deep-learning": {
-    "term": "deep learning",
-    "slug": "/terms/deep-learning",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "deep-linking": {
-    "term": "deep linking",
-    "slug": "/terms/deep-linking",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "definite-integral": {
-    "term": "definite integral",
-    "slug": "/terms/definite-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "degree": {
-    "term": "degree",
-    "slug": "/terms/degree",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "delete": {
-    "term": "delete",
-    "slug": "/terms/delete",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "denormalization-tradeoffs": {
-    "term": "denormalization tradeoffs",
-    "slug": "/terms/denormalization-tradeoffs",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "denormalization": {
-    "term": "denormalization",
-    "slug": "/terms/denormalization",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "relational_model"
-    ],
-    "definition": ""
-  },
-  "dense-rank": {
-    "term": "dense rank",
-    "slug": "/terms/dense-rank",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "window_functions"
-    ],
-    "definition": ""
-  },
-  "dependencies": {
-    "term": "dependencies",
-    "slug": "/terms/dependencies",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "dependency-array": {
-    "term": "dependency array",
-    "slug": "/terms/dependency-array",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "control"
-    ],
-    "definition": ""
-  },
-  "dependency-injection": {
-    "term": "dependency injection",
-    "slug": "/terms/dependency-injection",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "advanced_oop",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "dependency-inversion-principle": {
-    "term": "dependency inversion principle",
-    "slug": "/terms/dependency-inversion-principle",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "solid"
-    ],
-    "definition": ""
-  },
-  "dependency": {
-    "term": "dependency",
-    "slug": "/terms/dependency",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "class_design",
-      "relationships"
-    ],
-    "definition": ""
-  },
-  "deployment-environments": {
-    "term": "deployment environments",
-    "slug": "/terms/deployment-environments",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "integration"
-    ],
-    "definition": ""
-  },
-  "deployment": {
-    "term": "deployment",
-    "slug": "/terms/deployment",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "deployments",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "depth-first-search": {
-    "term": "depth first search",
-    "slug": "/terms/depth-first-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "uninformed_search"
-    ],
-    "definition": ""
-  },
-  "depth": {
-    "term": "depth",
-    "slug": "/terms/depth",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "deque": {
-    "term": "deque",
-    "slug": "/terms/deque",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "queue"
-    ],
-    "definition": ""
-  },
-  "derivative": {
-    "term": "derivative",
-    "slug": "/terms/derivative",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "desired-state-management": {
-    "term": "desired state management",
-    "slug": "/terms/desired-state-management",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "desired-state": {
-    "term": "desired state",
-    "slug": "/terms/desired-state",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "desktop": {
-    "term": "desktop",
-    "slug": "/terms/desktop",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "determinant": {
-    "term": "determinant",
-    "slug": "/terms/determinant",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "dev": {
-    "term": "dev",
-    "slug": "/terms/dev",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "df": {
-    "term": "df",
-    "slug": "/terms/df",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "dfa": {
-    "term": "dfa",
-    "slug": "/terms/dfa",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "models"
-    ],
-    "definition": ""
-  },
-  "dfs": {
-    "term": "dfs",
-    "slug": "/terms/dfs",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "traversal"
-    ],
-    "definition": ""
-  },
-  "diagonal-matrix": {
-    "term": "diagonal matrix",
-    "slug": "/terms/diagonal-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "diagonalization": {
-    "term": "diagonalization",
-    "slug": "/terms/diagonalization",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "difference-quotient": {
-    "term": "difference quotient",
-    "slug": "/terms/difference-quotient",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "difference": {
-    "term": "difference",
-    "slug": "/terms/difference",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "diffing-algorithm": {
-    "term": "diffing algorithm",
-    "slug": "/terms/diffing-algorithm",
-    "aliases": [],
-    "tags": [
-      "react",
-      "rendering_model",
-      "process"
-    ],
-    "definition": ""
-  },
-  "diffusion-model": {
-    "term": "diffusion model",
-    "slug": "/terms/diffusion-model",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "generative_ai"
-    ],
-    "definition": ""
-  },
-  "dijkstra-algorithm": {
-    "term": "dijkstra algorithm",
-    "slug": "/terms/dijkstra-algorithm",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "dimension": {
-    "term": "dimension",
-    "slug": "/terms/dimension",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "dimension"
-    ],
-    "definition": ""
-  },
-  "dimensionality-reduction": {
-    "term": "dimensionality reduction",
-    "slug": "/terms/dimensionality-reduction",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "machine_learning"
-    ],
-    "definition": ""
-  },
-  "dio": {
-    "term": "dio",
-    "slug": "/terms/dio",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "packages"
-    ],
-    "definition": ""
-  },
-  "direct-proof": {
-    "term": "direct proof",
-    "slug": "/terms/direct-proof",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "directed-graph": {
-    "term": "directed graph",
-    "slug": "/terms/directed-graph",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "direction": {
-    "term": "direction",
-    "slug": "/terms/direction",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "directional-derivative": {
-    "term": "directional derivative",
-    "slug": "/terms/directional-derivative",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "discrete-data": {
-    "term": "discrete data",
-    "slug": "/terms/discrete-data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "data_types"
-    ],
-    "definition": ""
-  },
-  "discrete-mathematics": {
-    "term": "discrete mathematics",
-    "slug": "/terms/discrete-mathematics",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "disjoint-set": {
-    "term": "disjoint set",
-    "slug": "/terms/disjoint-set",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "disk-method": {
-    "term": "disk method",
-    "slug": "/terms/disk-method",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "area_volume"
-    ],
-    "definition": ""
-  },
-  "disk": {
-    "term": "disk",
-    "slug": "/terms/disk",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "distance-formula-in-3d": {
-    "term": "distance formula in 3d",
-    "slug": "/terms/distance-formula-in-3d",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vectors_geometry",
-      "geometry"
-    ],
-    "definition": ""
-  },
-  "distributed-database": {
-    "term": "distributed database",
-    "slug": "/terms/distributed-database",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "distributed-systems": {
-    "term": "distributed systems",
-    "slug": "/terms/distributed-systems",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "foundations",
-      "design_philosophy"
-    ],
-    "definition": ""
-  },
-  "divergence-theorem": {
-    "term": "divergence theorem",
-    "slug": "/terms/divergence-theorem",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "theorems"
-    ],
-    "definition": ""
-  },
-  "divergence": {
-    "term": "divergence",
-    "slug": "/terms/divergence",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "operators"
-    ],
-    "definition": ""
-  },
-  "diversification": {
-    "term": "diversification",
-    "slug": "/terms/diversification",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "portfolio"
-    ],
-    "definition": ""
-  },
-  "dividends": {
-    "term": "dividends",
-    "slug": "/terms/dividends",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "divisibility": {
-    "term": "divisibility",
-    "slug": "/terms/divisibility",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "dnf": {
-    "term": "dnf",
-    "slug": "/terms/dnf",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "systems"
-    ],
-    "definition": ""
-  },
-  "dns-in-cluster": {
-    "term": "dns in cluster",
-    "slug": "/terms/dns-in-cluster",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "dns-in-docker": {
-    "term": "dns in docker",
-    "slug": "/terms/dns-in-docker",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "networking",
-      "communication"
-    ],
-    "definition": ""
-  },
-  "dns-resolution-inside-docker": {
-    "term": "dns resolution inside docker",
-    "slug": "/terms/dns-resolution-inside-docker",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "communication"
-    ],
-    "definition": ""
-  },
-  "dns": {
-    "term": "dns",
-    "slug": "/terms/dns",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "docker-build-pipeline": {
-    "term": "docker build pipeline",
-    "slug": "/terms/docker-build-pipeline",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "docker-build-pipelines": {
-    "term": "docker build pipelines",
-    "slug": "/terms/docker-build-pipelines",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "docker-build": {
-    "term": "docker build",
-    "slug": "/terms/docker-build",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "docker-cli": {
-    "term": "docker cli",
-    "slug": "/terms/docker-cli",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "docker-client": {
-    "term": "docker client",
-    "slug": "/terms/docker-client",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "components"
-    ],
-    "definition": ""
-  },
-  "docker-container": {
-    "term": "docker container",
-    "slug": "/terms/docker-container",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "docker-daemon": {
-    "term": "docker daemon",
-    "slug": "/terms/docker-daemon",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "components"
-    ],
-    "definition": ""
-  },
-  "docker-dependency": {
-    "term": "docker dependency",
-    "slug": "/terms/docker-dependency",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "containers",
-      "relation"
-    ],
-    "definition": ""
-  },
-  "docker-desktop": {
-    "term": "docker desktop",
-    "slug": "/terms/docker-desktop",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "ecosystems",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "docker-engine": {
-    "term": "docker engine",
-    "slug": "/terms/docker-engine",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "components"
-    ],
-    "definition": ""
-  },
-  "docker-exec-shell": {
-    "term": "docker exec shell",
-    "slug": "/terms/docker-exec-shell",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "docker-exec": {
-    "term": "docker exec",
-    "slug": "/terms/docker-exec",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "inspection"
-    ],
-    "definition": ""
-  },
-  "docker-hub": {
-    "term": "docker hub",
-    "slug": "/terms/docker-hub",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "docker-image": {
-    "term": "docker image",
-    "slug": "/terms/docker-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "docker-inspect": {
-    "term": "docker inspect",
-    "slug": "/terms/docker-inspect",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "inspection"
-    ],
-    "definition": ""
-  },
-  "docker-login": {
-    "term": "docker login",
-    "slug": "/terms/docker-login",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "docker-logs": {
-    "term": "docker logs",
-    "slug": "/terms/docker-logs",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "docker-ps": {
-    "term": "docker ps",
-    "slug": "/terms/docker-ps",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "inspection"
-    ],
-    "definition": ""
-  },
-  "docker-pull": {
-    "term": "docker pull",
-    "slug": "/terms/docker-pull",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "docker-push": {
-    "term": "docker push",
-    "slug": "/terms/docker-push",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "docker-registry": {
-    "term": "docker registry",
-    "slug": "/terms/docker-registry",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "components"
-    ],
-    "definition": ""
-  },
-  "docker-run": {
-    "term": "docker run",
-    "slug": "/terms/docker-run",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "docker-runtime-in-k8s": {
-    "term": "docker runtime in k8s",
-    "slug": "/terms/docker-runtime-in-k8s",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "orchestration_bridge",
-      "kubernetes_relation"
-    ],
-    "definition": ""
-  },
-  "docker-stop": {
-    "term": "docker stop",
-    "slug": "/terms/docker-stop",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "docker-swarm": {
-    "term": "docker swarm",
-    "slug": "/terms/docker-swarm",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "orchestration",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "docker-vs-kubernetes": {
-    "term": "docker vs kubernetes",
-    "slug": "/terms/docker-vs-kubernetes",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "orchestration_bridge",
-      "kubernetes_relation"
-    ],
-    "definition": ""
-  },
-  "docker": {
-    "term": "docker",
-    "slug": "/terms/docker",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "related_systems"
-    ],
-    "definition": ""
-  },
-  "dockerfile": {
-    "term": "dockerfile",
-    "slug": "/terms/dockerfile",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "document-database": {
-    "term": "document database",
-    "slug": "/terms/document-database",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "document_db"
-    ],
-    "definition": ""
-  },
-  "document-model": {
-    "term": "document model",
-    "slug": "/terms/document-model",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "dollar-cost-averaging": {
-    "term": "dollar cost averaging",
-    "slug": "/terms/dollar-cost-averaging",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "dom": {
-    "term": "dom",
-    "slug": "/terms/dom",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "dom"
-    ],
-    "definition": ""
-  },
-  "domain-layer": {
-    "term": "domain layer",
-    "slug": "/terms/domain-layer",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "layering"
-    ],
-    "definition": ""
-  },
-  "domain-name": {
-    "term": "domain name",
-    "slug": "/terms/domain-name",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "domain-of-discourse": {
-    "term": "domain of discourse",
-    "slug": "/terms/domain-of-discourse",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "predicate_logic"
-    ],
-    "definition": ""
-  },
-  "domain": {
-    "term": "domain",
-    "slug": "/terms/domain",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "dot-product": {
-    "term": "dot product",
-    "slug": "/terms/dot-product",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "double-integral": {
-    "term": "double integral",
-    "slug": "/terms/double-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "double_integrals"
-    ],
-    "definition": ""
-  },
-  "doubly-linked-list": {
-    "term": "doubly linked list",
-    "slug": "/terms/doubly-linked-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "drawdown": {
-    "term": "drawdown",
-    "slug": "/terms/drawdown",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "dropout": {
-    "term": "dropout",
-    "slug": "/terms/dropout",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "regularization"
-    ],
-    "definition": ""
-  },
-  "du": {
-    "term": "du",
-    "slug": "/terms/du",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "durability": {
-    "term": "durability",
-    "slug": "/terms/durability",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "duration": {
-    "term": "duration",
-    "slug": "/terms/duration",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "dynamic-array": {
-    "term": "dynamic array",
-    "slug": "/terms/dynamic-array",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "dynamic-dispatch": {
-    "term": "dynamic dispatch",
-    "slug": "/terms/dynamic-dispatch",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "dynamic-programming": {
-    "term": "dynamic programming",
-    "slug": "/terms/dynamic-programming",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "fundamentals"
-    ],
-    "definition": ""
-  },
-  "dynamic-routes": {
-    "term": "dynamic routes",
-    "slug": "/terms/dynamic-routes",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "dynamic_routing"
-    ],
-    "definition": ""
-  },
-  "dynamodb": {
-    "term": "dynamodb",
-    "slug": "/terms/dynamodb",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "early-stopping": {
-    "term": "early stopping",
-    "slug": "/terms/early-stopping",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "regularization"
-    ],
-    "definition": ""
-  },
-  "earnings-per-share": {
-    "term": "earnings per share",
-    "slug": "/terms/earnings-per-share",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "ebitda": {
-    "term": "ebitda",
-    "slug": "/terms/ebitda",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "edge-functions": {
-    "term": "edge functions",
-    "slug": "/terms/edge-functions",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "backend_patterns"
-    ],
-    "definition": ""
-  },
-  "edge-runtime-deployment": {
-    "term": "edge runtime deployment",
-    "slug": "/terms/edge-runtime-deployment",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "edge-runtime": {
-    "term": "edge runtime",
-    "slug": "/terms/edge-runtime",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "middleware",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "edge": {
-    "term": "edge",
-    "slug": "/terms/edge",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "edges": {
-    "term": "edges",
-    "slug": "/terms/edges",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "graph_db"
-    ],
-    "definition": ""
-  },
-  "edit-distance": {
-    "term": "edit distance",
-    "slug": "/terms/edit-distance",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "effect-timing": {
-    "term": "effect timing",
-    "slug": "/terms/effect-timing",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "control"
-    ],
-    "definition": ""
-  },
-  "eigen-decomposition": {
-    "term": "eigen decomposition",
-    "slug": "/terms/eigen-decomposition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "eigenvalue": {
-    "term": "eigenvalue",
-    "slug": "/terms/eigenvalue",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "eigenvalues": {
-    "term": "eigenvalues",
-    "slug": "/terms/eigenvalues",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "eigenvector": {
-    "term": "eigenvector",
-    "slug": "/terms/eigenvector",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "eigenvectors": {
-    "term": "eigenvectors",
-    "slug": "/terms/eigenvectors",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "eks": {
-    "term": "eks",
-    "slug": "/terms/eks",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "element-tree": {
-    "term": "element tree",
-    "slug": "/terms/element-tree",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "element": {
-    "term": "element",
-    "slug": "/terms/element",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "embeddings": {
-    "term": "embeddings",
-    "slug": "/terms/embeddings",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "machine_learning"
-    ],
-    "definition": ""
-  },
-  "empty-set": {
-    "term": "empty set",
-    "slug": "/terms/empty-set",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "encapsulation": {
-    "term": "encapsulation",
-    "slug": "/terms/encapsulation",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "principles"
-    ],
-    "definition": ""
-  },
-  "encoding-categorical-variables": {
-    "term": "encoding categorical variables",
-    "slug": "/terms/encoding-categorical-variables",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "feature_engineering",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "entailment": {
-    "term": "entailment",
-    "slug": "/terms/entailment",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "logic"
-    ],
-    "definition": ""
-  },
-  "entity-relationship-diagram": {
-    "term": "entity relationship diagram",
-    "slug": "/terms/entity-relationship-diagram",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "data_modeling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "entity": {
-    "term": "entity",
-    "slug": "/terms/entity",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "relational_model"
-    ],
-    "definition": ""
-  },
-  "entry": {
-    "term": "entry",
-    "slug": "/terms/entry",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "entrypoint": {
-    "term": "ENTRYPOINT",
-    "slug": "/terms/entrypoint",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "env": {
-    "term": "ENV",
-    "slug": "/terms/env",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "environment-consistency": {
-    "term": "environment consistency",
-    "slug": "/terms/environment-consistency",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "environment-parity": {
-    "term": "environment parity",
-    "slug": "/terms/environment-parity",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "environment-variables": {
-    "term": "environment variables",
-    "slug": "/terms/environment-variables",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "configuration"
-    ],
-    "definition": ""
-  },
-  "environment": {
-    "term": "environment",
-    "slug": "/terms/environment",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "ephemeral-storage": {
-    "term": "ephemeral storage",
-    "slug": "/terms/ephemeral-storage",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "equity": {
-    "term": "equity",
-    "slug": "/terms/equity",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "equivalence-relation": {
-    "term": "equivalence relation",
-    "slug": "/terms/equivalence-relation",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "relations"
-    ],
-    "definition": ""
-  },
-  "erd": {
-    "term": "erd",
-    "slug": "/terms/erd",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "data_modeling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "error": {
-    "term": "error",
-    "slug": "/terms/error",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "eslint": {
-    "term": "eslint",
-    "slug": "/terms/eslint",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "etc": {
-    "term": "etc",
-    "slug": "/terms/etc",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "etcd": {
-    "term": "etcd",
-    "slug": "/terms/etcd",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "control_plane"
-    ],
-    "definition": ""
-  },
-  "euclidean-algorithm": {
-    "term": "euclidean algorithm",
-    "slug": "/terms/euclidean-algorithm",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "modular"
-    ],
-    "definition": ""
-  },
-  "event-bubbling": {
-    "term": "event bubbling",
-    "slug": "/terms/event-bubbling",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "dom"
-    ],
-    "definition": ""
-  },
-  "event-delegation": {
-    "term": "event delegation",
-    "slug": "/terms/event-delegation",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "dom"
-    ],
-    "definition": ""
-  },
-  "event-driven-architecture": {
-    "term": "event driven architecture",
-    "slug": "/terms/event-driven-architecture",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "event-handling": {
-    "term": "event handling",
-    "slug": "/terms/event-handling",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "dom"
-    ],
-    "definition": ""
-  },
-  "event-listeners": {
-    "term": "event listeners",
-    "slug": "/terms/event-listeners",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "event-loop": {
-    "term": "event loop",
-    "slug": "/terms/event-loop",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "event-sourcing": {
-    "term": "event sourcing",
-    "slug": "/terms/event-sourcing",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "event": {
-    "term": "event",
-    "slug": "/terms/event",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "eventual-consistency": {
-    "term": "eventual consistency",
-    "slug": "/terms/eventual-consistency",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "models"
-    ],
-    "definition": ""
-  },
-  "everything-is-a-file": {
-    "term": "everything is a file",
-    "slug": "/terms/everything-is-a-file",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "everything-is-a-widget": {
-    "term": "everything is a widget",
-    "slug": "/terms/everything-is-a-widget",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "exec": {
-    "term": "exec",
-    "slug": "/terms/exec",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "execution-plan": {
-    "term": "execution plan",
-    "slug": "/terms/execution-plan",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "expanded": {
-    "term": "expanded",
-    "slug": "/terms/expanded",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "expectation": {
-    "term": "expectation",
-    "slug": "/terms/expectation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "expected-return": {
-    "term": "expected return",
-    "slug": "/terms/expected-return",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "finance"
-    ],
-    "definition": ""
-  },
-  "expected-utility": {
-    "term": "expected utility",
-    "slug": "/terms/expected-utility",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "decision_making"
-    ],
-    "definition": ""
-  },
-  "expectimax": {
-    "term": "expectimax",
-    "slug": "/terms/expectimax",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "adversarial_search"
-    ],
-    "definition": ""
-  },
-  "experiment": {
-    "term": "experiment",
-    "slug": "/terms/experiment",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "expo-go": {
-    "term": "expo go",
-    "slug": "/terms/expo-go",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "expo-router": {
-    "term": "expo router",
-    "slug": "/terms/expo-router",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "navigation",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "expo-sdk": {
-    "term": "expo sdk",
-    "slug": "/terms/expo-sdk",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "expo": {
-    "term": "expo",
-    "slug": "/terms/expo",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "frameworks"
-    ],
-    "definition": ""
-  },
-  "exponential-distribution": {
-    "term": "exponential distribution",
-    "slug": "/terms/exponential-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "continuous"
-    ],
-    "definition": ""
-  },
-  "expose": {
-    "term": "EXPOSE",
-    "slug": "/terms/expose",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "express": {
-    "term": "express",
-    "slug": "/terms/express",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "node_ecosystem"
-    ],
-    "definition": ""
-  },
-  "expression-evaluation": {
-    "term": "expression evaluation",
-    "slug": "/terms/expression-evaluation",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "stack"
-    ],
-    "definition": ""
-  },
-  "external-name": {
-    "term": "external name",
-    "slug": "/terms/external-name",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "types"
-    ],
-    "definition": ""
-  },
-  "external-validity": {
-    "term": "external validity",
-    "slug": "/terms/external-validity",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "validity"
-    ],
-    "definition": ""
-  },
-  "f1-score": {
-    "term": "f1 score",
-    "slug": "/terms/f1-score",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "factorial": {
-    "term": "factorial",
-    "slug": "/terms/factorial",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "counting"
-    ],
-    "definition": ""
-  },
-  "factory-pattern": {
-    "term": "factory pattern",
-    "slug": "/terms/factory-pattern",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "failed": {
-    "term": "failed",
-    "slug": "/terms/failed",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "fast-and-slow-pointers": {
-    "term": "fast and slow pointers",
-    "slug": "/terms/fast-and-slow-pointers",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "fdisk": {
-    "term": "fdisk",
-    "slug": "/terms/fdisk",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "feature-based-structure": {
-    "term": "feature based structure",
-    "slug": "/terms/feature-based-structure",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "feature-engineering": {
-    "term": "feature engineering",
-    "slug": "/terms/feature-engineering",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "feature-extraction": {
-    "term": "feature extraction",
-    "slug": "/terms/feature-extraction",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "supervised"
-    ],
-    "definition": ""
-  },
-  "feature-folders": {
-    "term": "feature folders",
-    "slug": "/terms/feature-folders",
-    "aliases": [],
-    "tags": [
-      "react",
-      "advanced_react",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "feature-scaling": {
-    "term": "feature scaling",
-    "slug": "/terms/feature-scaling",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "feature_engineering",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "feature-vectors": {
-    "term": "feature vectors",
-    "slug": "/terms/feature-vectors",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "machine_learning"
-    ],
-    "definition": ""
-  },
-  "features": {
-    "term": "features",
-    "slug": "/terms/features",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "federal-reserve": {
-    "term": "federal reserve",
-    "slug": "/terms/federal-reserve",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "policy"
-    ],
-    "definition": ""
-  },
-  "feedforward-network": {
-    "term": "feedforward network",
-    "slug": "/terms/feedforward-network",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "fenwick-tree": {
-    "term": "fenwick tree",
-    "slug": "/terms/fenwick-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "fetch": {
-    "term": "fetch",
-    "slug": "/terms/fetch",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "fibonacci-dp": {
-    "term": "fibonacci dp",
-    "slug": "/terms/fibonacci-dp",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "file-based-routing": {
-    "term": "file based routing",
-    "slug": "/terms/file-based-routing",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "file-permissions": {
-    "term": "file permissions",
-    "slug": "/terms/file-permissions",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "file-storage": {
-    "term": "file storage",
-    "slug": "/terms/file-storage",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "use_cases"
-    ],
-    "definition": ""
-  },
-  "file-system": {
-    "term": "file system",
-    "slug": "/terms/file-system",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "capabilities"
-    ],
-    "definition": ""
-  },
-  "filesystem-sandbox": {
-    "term": "filesystem sandbox",
-    "slug": "/terms/filesystem-sandbox",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "filesystem-types": {
-    "term": "filesystem types",
-    "slug": "/terms/filesystem-types",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "filtering": {
-    "term": "filtering",
-    "slug": "/terms/filtering",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "find": {
-    "term": "find",
-    "slug": "/terms/find",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "mongodb_specific"
-    ],
-    "definition": ""
-  },
-  "finite-automata": {
-    "term": "finite automata",
-    "slug": "/terms/finite-automata",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "models"
-    ],
-    "definition": ""
-  },
-  "firebase-firestore": {
-    "term": "firebase firestore",
-    "slug": "/terms/firebase-firestore",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "firebase": {
-    "term": "firebase",
-    "slug": "/terms/firebase",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "packages"
-    ],
-    "definition": ""
-  },
-  "firestore": {
-    "term": "firestore",
-    "slug": "/terms/firestore",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "document_db"
-    ],
-    "definition": ""
-  },
-  "firewall": {
-    "term": "firewall",
-    "slug": "/terms/firewall",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "first-derivative-test": {
-    "term": "first derivative test",
-    "slug": "/terms/first-derivative-test",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "graphing"
-    ],
-    "definition": ""
-  },
-  "first-normal-form": {
-    "term": "first normal form",
-    "slug": "/terms/first-normal-form",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "normalization"
-    ],
-    "definition": ""
-  },
-  "first-order-logic": {
-    "term": "first order logic",
-    "slug": "/terms/first-order-logic",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "logic"
-    ],
-    "definition": ""
-  },
-  "fiscal-policy": {
-    "term": "fiscal policy",
-    "slug": "/terms/fiscal-policy",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "policy"
-    ],
-    "definition": ""
-  },
-  "flat-network": {
-    "term": "flat network",
-    "slug": "/terms/flat-network",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "flatlist-optimization": {
-    "term": "flatlist optimization",
-    "slug": "/terms/flatlist-optimization",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "rendering"
-    ],
-    "definition": ""
-  },
-  "flatlist": {
-    "term": "flatlist",
-    "slug": "/terms/flatlist",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "core_components"
-    ],
-    "definition": ""
-  },
-  "flex": {
-    "term": "flex",
-    "slug": "/terms/flex",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "flexbox-layout": {
-    "term": "flexbox layout",
-    "slug": "/terms/flexbox-layout",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "flexbox": {
-    "term": "flexbox",
-    "slug": "/terms/flexbox",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "flexible-schema": {
-    "term": "flexible schema",
-    "slug": "/terms/flexible-schema",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "foundations",
-      "design_philosophy"
-    ],
-    "definition": ""
-  },
-  "flexible": {
-    "term": "flexible",
-    "slug": "/terms/flexible",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "flipper": {
-    "term": "flipper",
-    "slug": "/terms/flipper",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "floyd-warshall": {
-    "term": "floyd warshall",
-    "slug": "/terms/floyd-warshall",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "flutter-devtools": {
-    "term": "flutter devtools",
-    "slug": "/terms/flutter-devtools",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "debugging"
-    ],
-    "definition": ""
-  },
-  "flutter-sdk": {
-    "term": "flutter sdk",
-    "slug": "/terms/flutter-sdk",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "flutter": {
-    "term": "flutter",
-    "slug": "/terms/flutter",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "flux": {
-    "term": "flux",
-    "slug": "/terms/flux",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "for-all": {
-    "term": "for all",
-    "slug": "/terms/for-all",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "predicate_logic"
-    ],
-    "definition": ""
-  },
-  "force-cache": {
-    "term": "force cache",
-    "slug": "/terms/force-cache",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "caching"
-    ],
-    "definition": ""
-  },
-  "foreign-key": {
-    "term": "foreign key",
-    "slug": "/terms/foreign-key",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "fork": {
-    "term": "fork",
-    "slug": "/terms/fork",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "form": {
-    "term": "form",
-    "slug": "/terms/form",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "input_widgets"
-    ],
-    "definition": ""
-  },
-  "formal-reasoning": {
-    "term": "formal reasoning",
-    "slug": "/terms/formal-reasoning",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "importance"
-    ],
-    "definition": ""
-  },
-  "formal-verification": {
-    "term": "formal verification",
-    "slug": "/terms/formal-verification",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cs_theory"
-    ],
-    "definition": ""
-  },
-  "forms": {
-    "term": "forms",
-    "slug": "/terms/forms",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "foundation-of-computer-science": {
-    "term": "foundation of computer science",
-    "slug": "/terms/foundation-of-computer-science",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "importance"
-    ],
-    "definition": ""
-  },
-  "from": {
-    "term": "FROM",
-    "slug": "/terms/from",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "frontend": {
-    "term": "frontend",
-    "slug": "/terms/frontend",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "full-outer-join": {
-    "term": "full outer join",
-    "slug": "/terms/full-outer-join",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "types"
-    ],
-    "definition": ""
-  },
-  "full-stack-composition": {
-    "term": "full stack composition",
-    "slug": "/terms/full-stack-composition",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "full-stack-framework": {
-    "term": "full stack framework",
-    "slug": "/terms/full-stack-framework",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "full-stack": {
-    "term": "full stack",
-    "slug": "/terms/full-stack",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "full-table-scan": {
-    "term": "full table scan",
-    "slug": "/terms/full-table-scan",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "function": {
-    "term": "function",
-    "slug": "/terms/function",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "functional-component": {
-    "term": "functional component",
-    "slug": "/terms/functional-component",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "types"
-    ],
-    "definition": ""
-  },
-  "functions": {
-    "term": "functions",
-    "slug": "/terms/functions",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "scripting"
-    ],
-    "definition": ""
-  },
-  "fundamental-theorem-of-calculus": {
-    "term": "fundamental theorem of calculus",
-    "slug": "/terms/fundamental-theorem-of-calculus",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "future-builder": {
-    "term": "future builder",
-    "slug": "/terms/future-builder",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "future": {
-    "term": "future",
-    "slug": "/terms/future",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "futures": {
-    "term": "futures",
-    "slug": "/terms/futures",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "game-tree": {
-    "term": "game tree",
-    "slug": "/terms/game-tree",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "adversarial_search"
-    ],
-    "definition": ""
-  },
-  "gan": {
-    "term": "gan",
-    "slug": "/terms/gan",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "generative_models"
-    ],
-    "definition": ""
-  },
-  "gatsby": {
-    "term": "gatsby",
-    "slug": "/terms/gatsby",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "frameworks"
-    ],
-    "definition": ""
-  },
-  "gaussian-elimination": {
-    "term": "gaussian elimination",
-    "slug": "/terms/gaussian-elimination",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "gdp": {
-    "term": "gdp",
-    "slug": "/terms/gdp",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "indicators"
-    ],
-    "definition": ""
-  },
-  "generalization": {
-    "term": "generalization",
-    "slug": "/terms/generalization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "generative-adversarial-network": {
-    "term": "generative adversarial network",
-    "slug": "/terms/generative-adversarial-network",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "generative_models"
-    ],
-    "definition": ""
-  },
-  "generative-ai": {
-    "term": "generative ai",
-    "slug": "/terms/generative-ai",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "generative_ai"
-    ],
-    "definition": ""
-  },
-  "geometric-distribution": {
-    "term": "geometric distribution",
-    "slug": "/terms/geometric-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "discrete"
-    ],
-    "definition": ""
-  },
-  "geometric-series": {
-    "term": "geometric series",
-    "slug": "/terms/geometric-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "series"
-    ],
-    "definition": ""
-  },
-  "geometry-of-vectors": {
-    "term": "geometry of vectors",
-    "slug": "/terms/geometry-of-vectors",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "intuition"
-    ],
-    "definition": ""
-  },
-  "gesture-detector": {
-    "term": "gesture detector",
-    "slug": "/terms/gesture-detector",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "input_widgets"
-    ],
-    "definition": ""
-  },
-  "gesture-handling": {
-    "term": "gesture handling",
-    "slug": "/terms/gesture-handling",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "interaction"
-    ],
-    "definition": ""
-  },
-  "get-server-side-props": {
-    "term": "get server side props",
-    "slug": "/terms/get-server-side-props",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "pages_router"
-    ],
-    "definition": ""
-  },
-  "get-static-props": {
-    "term": "get static props",
-    "slug": "/terms/get-static-props",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "pages_router"
-    ],
-    "definition": ""
-  },
-  "getter": {
-    "term": "getter",
-    "slug": "/terms/getter",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "access_control"
-    ],
-    "definition": ""
-  },
-  "github-actions-docker": {
-    "term": "github actions docker",
-    "slug": "/terms/github-actions-docker",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "github-actions": {
-    "term": "github actions",
-    "slug": "/terms/github-actions",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "gitops": {
-    "term": "gitops",
-    "slug": "/terms/gitops",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "gke": {
-    "term": "gke",
-    "slug": "/terms/gke",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "global-css": {
-    "term": "global css",
-    "slug": "/terms/global-css",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "options"
-    ],
-    "definition": ""
-  },
-  "glove": {
-    "term": "glove",
-    "slug": "/terms/glove",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "embeddings"
-    ],
-    "definition": ""
-  },
-  "go-router": {
-    "term": "go router",
-    "slug": "/terms/go-router",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "goal-stack-planning": {
-    "term": "goal stack planning",
-    "slug": "/terms/goal-stack-planning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "classical_planning"
-    ],
-    "definition": ""
-  },
-  "goal-state": {
-    "term": "goal state",
-    "slug": "/terms/goal-state",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "google-cloud-run": {
-    "term": "google cloud run",
-    "slug": "/terms/google-cloud-run",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "ecosystems",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "google-play-deployment": {
-    "term": "google play deployment",
-    "slug": "/terms/google-play-deployment",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "gps": {
-    "term": "gps",
-    "slug": "/terms/gps",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "hardware"
-    ],
-    "definition": ""
-  },
-  "gpt": {
-    "term": "gpt",
-    "slug": "/terms/gpt",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "transformers"
-    ],
-    "definition": ""
-  },
-  "gradient-descent": {
-    "term": "gradient descent",
-    "slug": "/terms/gradient-descent",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "gradient": {
-    "term": "gradient",
-    "slug": "/terms/gradient",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "grafana": {
-    "term": "grafana",
-    "slug": "/terms/grafana",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "gram-schmidt-process": {
-    "term": "gram schmidt process",
-    "slug": "/terms/gram-schmidt-process",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "orthogonality",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "grammar": {
-    "term": "grammar",
-    "slug": "/terms/grammar",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "languages"
-    ],
-    "definition": ""
-  },
-  "graph-algorithms": {
-    "term": "graph algorithms",
-    "slug": "/terms/graph-algorithms",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "dsa"
-    ],
-    "definition": ""
-  },
-  "graph-database": {
-    "term": "graph database",
-    "slug": "/terms/graph-database",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "graph_db"
-    ],
-    "definition": ""
-  },
-  "graph": {
-    "term": "graph",
-    "slug": "/terms/graph",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "graphql-schema": {
-    "term": "graphql schema",
-    "slug": "/terms/graphql-schema",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "api_design"
-    ],
-    "definition": ""
-  },
-  "graphql": {
-    "term": "graphql",
-    "slug": "/terms/graphql",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "greatest-common-divisor": {
-    "term": "greatest common divisor",
-    "slug": "/terms/greatest-common-divisor",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "greedy-algorithm": {
-    "term": "greedy algorithm",
-    "slug": "/terms/greedy-algorithm",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "greedy",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "greedy-best-first-search": {
-    "term": "greedy best first search",
-    "slug": "/terms/greedy-best-first-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "informed_search"
-    ],
-    "definition": ""
-  },
-  "greeks": {
-    "term": "greeks",
-    "slug": "/terms/greeks",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "green-theorem": {
-    "term": "green theorem",
-    "slug": "/terms/green-theorem",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "theorems"
-    ],
-    "definition": ""
-  },
-  "grid": {
-    "term": "grid",
-    "slug": "/terms/grid",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "gridview": {
-    "term": "gridview",
-    "slug": "/terms/gridview",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "gross-margin": {
-    "term": "gross margin",
-    "slug": "/terms/gross-margin",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "group-by": {
-    "term": "group by",
-    "slug": "/terms/group-by",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "groups": {
-    "term": "groups",
-    "slug": "/terms/groups",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "growth-investing": {
-    "term": "growth investing",
-    "slug": "/terms/growth-investing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "gyroscope": {
-    "term": "gyroscope",
-    "slug": "/terms/gyroscope",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "hardware"
-    ],
-    "definition": ""
-  },
-  "hard-links": {
-    "term": "hard links",
-    "slug": "/terms/hard-links",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "harmonic-series": {
-    "term": "harmonic series",
-    "slug": "/terms/harmonic-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "series"
-    ],
-    "definition": ""
-  },
-  "hash-function": {
-    "term": "hash function",
-    "slug": "/terms/hash-function",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "hash-index": {
-    "term": "hash index",
-    "slug": "/terms/hash-index",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "hash-map-storage": {
-    "term": "hash map storage",
-    "slug": "/terms/hash-map-storage",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "key_value"
-    ],
-    "definition": ""
-  },
-  "hash-map": {
-    "term": "hash map",
-    "slug": "/terms/hash-map",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "hash-set": {
-    "term": "hash set",
-    "slug": "/terms/hash-set",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "hash-table": {
-    "term": "hash table",
-    "slug": "/terms/hash-table",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "hashed-index": {
-    "term": "hashed index",
-    "slug": "/terms/hashed-index",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "having": {
-    "term": "having",
-    "slug": "/terms/having",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "health-checks": {
-    "term": "health checks",
-    "slug": "/terms/health-checks",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "heap-sort": {
-    "term": "heap sort",
-    "slug": "/terms/heap-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "heap": {
-    "term": "heap",
-    "slug": "/terms/heap",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "height": {
-    "term": "height",
-    "slug": "/terms/height",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "helm": {
-    "term": "helm",
-    "slug": "/terms/helm",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "heuristic-search": {
-    "term": "heuristic search",
-    "slug": "/terms/heuristic-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "informed_search"
-    ],
-    "definition": ""
-  },
-  "heuristic": {
-    "term": "heuristic",
-    "slug": "/terms/heuristic",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "hidden-markov-model": {
-    "term": "hidden markov model",
-    "slug": "/terms/hidden-markov-model",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "uncertainty"
-    ],
-    "definition": ""
-  },
-  "hierarchical-clustering": {
-    "term": "hierarchical clustering",
-    "slug": "/terms/hierarchical-clustering",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "clustering"
-    ],
-    "definition": ""
-  },
-  "hierarchical-inheritance": {
-    "term": "hierarchical inheritance",
-    "slug": "/terms/hierarchical-inheritance",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "types"
-    ],
-    "definition": ""
-  },
-  "holdout-validation": {
-    "term": "holdout validation",
-    "slug": "/terms/holdout-validation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "validation"
-    ],
-    "definition": ""
-  },
-  "home-directory": {
-    "term": "home directory",
-    "slug": "/terms/home-directory",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "hook-composition": {
-    "term": "hook composition",
-    "slug": "/terms/hook-composition",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "advanced_patterns"
-    ],
-    "definition": ""
-  },
-  "hooks": {
-    "term": "hooks",
-    "slug": "/terms/hooks",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "react"
-    ],
-    "definition": ""
-  },
-  "horizontal-pod-autoscaler": {
-    "term": "horizontal pod autoscaler",
-    "slug": "/terms/horizontal-pod-autoscaler",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "horizontal-scaling": {
-    "term": "horizontal scaling",
-    "slug": "/terms/horizontal-scaling",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "horizontal-vs-vertical-scaling": {
-    "term": "horizontal vs vertical scaling",
-    "slug": "/terms/horizontal-vs-vertical-scaling",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "differences"
-    ],
-    "definition": ""
-  },
-  "host-based-routing": {
-    "term": "host based routing",
-    "slug": "/terms/host-based-routing",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "ingress"
-    ],
-    "definition": ""
-  },
-  "host-network": {
-    "term": "host network",
-    "slug": "/terms/host-network",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "hosting": {
-    "term": "hosting",
-    "slug": "/terms/hosting",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "hot-reload": {
-    "term": "hot reload",
-    "slug": "/terms/hot-reload",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "html-elements": {
-    "term": "html elements",
-    "slug": "/terms/html-elements",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "html": {
-    "term": "html",
-    "slug": "/terms/html",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "htop": {
-    "term": "htop",
-    "slug": "/terms/htop",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "http": {
-    "term": "http",
-    "slug": "/terms/http",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "packages"
-    ],
-    "definition": ""
-  },
-  "https": {
-    "term": "https",
-    "slug": "/terms/https",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "huffman-encoding": {
-    "term": "huffman encoding",
-    "slug": "/terms/huffman-encoding",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "greedy",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "human-feedback": {
-    "term": "human feedback",
-    "slug": "/terms/human-feedback",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "alignment"
-    ],
-    "definition": ""
-  },
-  "hybrid-rendering-model": {
-    "term": "hybrid rendering model",
-    "slug": "/terms/hybrid-rendering-model",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "hybrid-rendering": {
-    "term": "hybrid rendering",
-    "slug": "/terms/hybrid-rendering",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "hydration-styles": {
-    "term": "hydration styles",
-    "slug": "/terms/hydration-styles",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "rendering_impact"
-    ],
-    "definition": ""
-  },
-  "hydration": {
-    "term": "hydration",
-    "slug": "/terms/hydration",
-    "aliases": [],
-    "tags": [
-      "react",
-      "advanced_react",
-      "server_components"
-    ],
-    "definition": ""
-  },
-  "hyperparameter-tuning": {
-    "term": "hyperparameter tuning",
-    "slug": "/terms/hyperparameter-tuning",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "identity-matrix": {
-    "term": "identity matrix",
-    "slug": "/terms/identity-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "image-build-failures": {
-    "term": "image build failures",
-    "slug": "/terms/image-build-failures",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "issues"
-    ],
-    "definition": ""
-  },
-  "image-cache": {
-    "term": "image cache",
-    "slug": "/terms/image-cache",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image-classification": {
-    "term": "image classification",
-    "slug": "/terms/image-classification",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "image-deployment": {
-    "term": "image deployment",
-    "slug": "/terms/image-deployment",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "image-generation": {
-    "term": "image generation",
-    "slug": "/terms/image-generation",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "generative_ai"
-    ],
-    "definition": ""
-  },
-  "image-optimization": {
-    "term": "image optimization",
-    "slug": "/terms/image-optimization",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "image-repository": {
-    "term": "image repository",
-    "slug": "/terms/image-repository",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image-scanning": {
-    "term": "image scanning",
-    "slug": "/terms/image-scanning",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image-segmentation": {
-    "term": "image segmentation",
-    "slug": "/terms/image-segmentation",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "image-size-optimization": {
-    "term": "image size optimization",
-    "slug": "/terms/image-size-optimization",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "performance",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image-slimming": {
-    "term": "image slimming",
-    "slug": "/terms/image-slimming",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "image-tag": {
-    "term": "image tag",
-    "slug": "/terms/image-tag",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image-tagging": {
-    "term": "image tagging",
-    "slug": "/terms/image-tagging",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "image": {
-    "term": "image",
-    "slug": "/terms/image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "immutability": {
-    "term": "immutability",
-    "slug": "/terms/immutability",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "data_hiding"
-    ],
-    "definition": ""
-  },
-  "immutable-infrastructure": {
-    "term": "immutable infrastructure",
-    "slug": "/terms/immutable-infrastructure",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "immutable-state": {
-    "term": "immutable state",
-    "slug": "/terms/immutable-state",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "implication": {
-    "term": "implication",
-    "slug": "/terms/implication",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "propositional_logic"
-    ],
-    "definition": ""
-  },
-  "implied-volatility": {
-    "term": "implied volatility",
-    "slug": "/terms/implied-volatility",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "in": {
-    "term": "in",
-    "slug": "/terms/in",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "inclusion-exclusion-principle": {
-    "term": "inclusion exclusion principle",
-    "slug": "/terms/inclusion-exclusion-principle",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "principles"
-    ],
-    "definition": ""
-  },
-  "income-statement": {
-    "term": "income statement",
-    "slug": "/terms/income-statement",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "statements"
-    ],
-    "definition": ""
-  },
-  "increasing-function": {
-    "term": "increasing function",
-    "slug": "/terms/increasing-function",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "behavior"
-    ],
-    "definition": ""
-  },
-  "incremental-builds": {
-    "term": "incremental builds",
-    "slug": "/terms/incremental-builds",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "build_process"
-    ],
-    "definition": ""
-  },
-  "incremental-static-regeneration": {
-    "term": "incremental static regeneration",
-    "slug": "/terms/incremental-static-regeneration",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "caching"
-    ],
-    "definition": ""
-  },
-  "indefinite-integral": {
-    "term": "indefinite integral",
-    "slug": "/terms/indefinite-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "index-investing": {
-    "term": "index investing",
-    "slug": "/terms/index-investing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "index-optimization": {
-    "term": "index optimization",
-    "slug": "/terms/index-optimization",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "index": {
-    "term": "index",
-    "slug": "/terms/index",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "indexes": {
-    "term": "indexes",
-    "slug": "/terms/indexes",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "indexing": {
-    "term": "indexing",
-    "slug": "/terms/indexing",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "induction": {
-    "term": "induction",
-    "slug": "/terms/induction",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "inductive-reasoning": {
-    "term": "inductive reasoning",
-    "slug": "/terms/inductive-reasoning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "inductive-step": {
-    "term": "inductive step",
-    "slug": "/terms/inductive-step",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "induction"
-    ],
-    "definition": ""
-  },
-  "inference-rules": {
-    "term": "inference rules",
-    "slug": "/terms/inference-rules",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "inference": {
-    "term": "inference",
-    "slug": "/terms/inference",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "logic"
-    ],
-    "definition": ""
-  },
-  "infinite-limit": {
-    "term": "infinite limit",
-    "slug": "/terms/infinite-limit",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "limits"
-    ],
-    "definition": ""
-  },
-  "inflation": {
-    "term": "inflation",
-    "slug": "/terms/inflation",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "indicators"
-    ],
-    "definition": ""
-  },
-  "inflection-point": {
-    "term": "inflection point",
-    "slug": "/terms/inflection-point",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "behavior"
-    ],
-    "definition": ""
-  },
-  "information-hiding": {
-    "term": "information hiding",
-    "slug": "/terms/information-hiding",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "data_hiding"
-    ],
-    "definition": ""
-  },
-  "ingress-controller": {
-    "term": "ingress controller",
-    "slug": "/terms/ingress-controller",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "ingress"
-    ],
-    "definition": ""
-  },
-  "ingress": {
-    "term": "ingress",
-    "slug": "/terms/ingress",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "networking"
-    ],
-    "definition": ""
-  },
-  "inheritance": {
-    "term": "inheritance",
-    "slug": "/terms/inheritance",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "oop"
-    ],
-    "definition": ""
-  },
-  "init-system": {
-    "term": "init system",
-    "slug": "/terms/init-system",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "services"
-    ],
-    "definition": ""
-  },
-  "initial-conditions": {
-    "term": "initial conditions",
-    "slug": "/terms/initial-conditions",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "initial-state": {
-    "term": "initial state",
-    "slug": "/terms/initial-state",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "injective": {
-    "term": "injective",
-    "slug": "/terms/injective",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "inkwell": {
-    "term": "inkwell",
-    "slug": "/terms/inkwell",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "input_widgets"
-    ],
-    "definition": ""
-  },
-  "inline-styles": {
-    "term": "inline styles",
-    "slug": "/terms/inline-styles",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "system"
-    ],
-    "definition": ""
-  },
-  "inner-join": {
-    "term": "inner join",
-    "slug": "/terms/inner-join",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "types"
-    ],
-    "definition": ""
-  },
-  "inode": {
-    "term": "inode",
-    "slug": "/terms/inode",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "inorder-traversal": {
-    "term": "inorder traversal",
-    "slug": "/terms/inorder-traversal",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "traversals"
-    ],
-    "definition": ""
-  },
-  "insert": {
-    "term": "insert",
-    "slug": "/terms/insert",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "insertion-sort": {
-    "term": "insertion sort",
-    "slug": "/terms/insertion-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "inspect-container-state": {
-    "term": "inspect container state",
-    "slug": "/terms/inspect-container-state",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "instance": {
-    "term": "instance",
-    "slug": "/terms/instance",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "instruction-layers": {
-    "term": "instruction layers",
-    "slug": "/terms/instruction-layers",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "integral-test": {
-    "term": "integral test",
-    "slug": "/terms/integral-test",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "convergence_tests"
-    ],
-    "definition": ""
-  },
-  "integration-by-parts": {
-    "term": "integration by parts",
-    "slug": "/terms/integration-by-parts",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "inter-container-communication": {
-    "term": "inter container communication",
-    "slug": "/terms/inter-container-communication",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "networking",
-      "communication"
-    ],
-    "definition": ""
-  },
-  "interest-rate-risk": {
-    "term": "interest rate risk",
-    "slug": "/terms/interest-rate-risk",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "interest-rates": {
-    "term": "interest rates",
-    "slug": "/terms/interest-rates",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "policy"
-    ],
-    "definition": ""
-  },
-  "interface-segregation-principle": {
-    "term": "interface segregation principle",
-    "slug": "/terms/interface-segregation-principle",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "solid"
-    ],
-    "definition": ""
-  },
-  "interface": {
-    "term": "interface",
-    "slug": "/terms/interface",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "abstraction",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "interfaces": {
-    "term": "interfaces",
-    "slug": "/terms/interfaces",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "oop"
-    ],
-    "definition": ""
-  },
-  "internal-validity": {
-    "term": "internal validity",
-    "slug": "/terms/internal-validity",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "validity"
-    ],
-    "definition": ""
-  },
-  "internet": {
-    "term": "internet",
-    "slug": "/terms/internet",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "interquartile-range": {
-    "term": "interquartile range",
-    "slug": "/terms/interquartile-range",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "dispersion"
-    ],
-    "definition": ""
-  },
-  "intersection": {
-    "term": "intersection",
-    "slug": "/terms/intersection",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "interval-estimation": {
-    "term": "interval estimation",
-    "slug": "/terms/interval-estimation",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "estimation"
-    ],
-    "definition": ""
-  },
-  "interval-scheduling": {
-    "term": "interval scheduling",
-    "slug": "/terms/interval-scheduling",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "greedy",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "inverse-function": {
-    "term": "inverse function",
-    "slug": "/terms/inverse-function",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "inverse": {
-    "term": "inverse",
-    "slug": "/terms/inverse",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "ios-integration": {
-    "term": "ios integration",
-    "slug": "/terms/ios-integration",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "ios": {
-    "term": "ios",
-    "slug": "/terms/ios",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "iostat": {
-    "term": "iostat",
-    "slug": "/terms/iostat",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "performance",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "iot-data-storage": {
-    "term": "iot data storage",
-    "slug": "/terms/iot-data-storage",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "ip-address": {
-    "term": "ip address",
-    "slug": "/terms/ip-address",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "ipo": {
-    "term": "ipo",
-    "slug": "/terms/ipo",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "is-null": {
-    "term": "is null",
-    "slug": "/terms/is-null",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "isolation": {
-    "term": "isolation",
-    "slug": "/terms/isolation",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "isr": {
-    "term": "isr",
-    "slug": "/terms/isr",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "iterated-integral": {
-    "term": "iterated integral",
-    "slug": "/terms/iterated-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "double_integrals"
-    ],
-    "definition": ""
-  },
-  "jacobian": {
-    "term": "jacobian",
-    "slug": "/terms/jacobian",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "triple_integrals"
-    ],
-    "definition": ""
-  },
-  "jamstack": {
-    "term": "jamstack",
-    "slug": "/terms/jamstack",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "javascript": {
-    "term": "javascript",
-    "slug": "/terms/javascript",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "core_js"
-    ],
-    "definition": ""
-  },
-  "jest": {
-    "term": "jest",
-    "slug": "/terms/jest",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "testing"
-    ],
-    "definition": ""
-  },
-  "job": {
-    "term": "job",
-    "slug": "/terms/job",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "workload"
-    ],
-    "definition": ""
-  },
-  "join-condition": {
-    "term": "join condition",
-    "slug": "/terms/join-condition",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "join-keys": {
-    "term": "join keys",
-    "slug": "/terms/join-keys",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "joins-vs-denormalization": {
-    "term": "joins vs denormalization",
-    "slug": "/terms/joins-vs-denormalization",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "differences"
-    ],
-    "definition": ""
-  },
-  "joins": {
-    "term": "joins",
-    "slug": "/terms/joins",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "journalctl": {
-    "term": "journalctl",
-    "slug": "/terms/journalctl",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "js-runtime": {
-    "term": "js runtime",
-    "slug": "/terms/js-runtime",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "json-document": {
-    "term": "json document",
-    "slug": "/terms/json-document",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "document_db"
-    ],
-    "definition": ""
-  },
-  "jsx": {
-    "term": "jsx",
-    "slug": "/terms/jsx",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "jwt": {
-    "term": "jwt",
-    "slug": "/terms/jwt",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "auth"
-    ],
-    "definition": ""
-  },
-  "k-fold-cross-validation": {
-    "term": "k fold cross validation",
-    "slug": "/terms/k-fold-cross-validation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "validation"
-    ],
-    "definition": ""
-  },
-  "k-means-clustering": {
-    "term": "k means clustering",
-    "slug": "/terms/k-means-clustering",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "clustering"
-    ],
-    "definition": ""
-  },
-  "k-nearest-neighbors": {
-    "term": "k nearest neighbors",
-    "slug": "/terms/k-nearest-neighbors",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "kernel": {
-    "term": "kernel",
-    "slug": "/terms/kernel",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "key-based-authentication": {
-    "term": "key based authentication",
-    "slug": "/terms/key-based-authentication",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "key-value-store": {
-    "term": "key value store",
-    "slug": "/terms/key-value-store",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "key_value"
-    ],
-    "definition": ""
-  },
-  "kill": {
-    "term": "kill",
-    "slug": "/terms/kill",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "kind": {
-    "term": "kind",
-    "slug": "/terms/kind",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "kmp-algorithm": {
-    "term": "kmp algorithm",
-    "slug": "/terms/kmp-algorithm",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "knapsack-problem": {
-    "term": "knapsack problem",
-    "slug": "/terms/knapsack-problem",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "knowledge-base": {
-    "term": "knowledge base",
-    "slug": "/terms/knowledge-base",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "logic"
-    ],
-    "definition": ""
-  },
-  "knowledge-representation": {
-    "term": "knowledge representation",
-    "slug": "/terms/knowledge-representation",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "kruskal-algorithm": {
-    "term": "kruskal algorithm",
-    "slug": "/terms/kruskal-algorithm",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "kube-proxy": {
-    "term": "kube proxy",
-    "slug": "/terms/kube-proxy",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "worker_node"
-    ],
-    "definition": ""
-  },
-  "kubectl-apply": {
-    "term": "kubectl apply",
-    "slug": "/terms/kubectl-apply",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "deployment_flow"
-    ],
-    "definition": ""
-  },
-  "kubectl": {
-    "term": "kubectl",
-    "slug": "/terms/kubectl",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "kubelet-runs-container": {
-    "term": "kubelet runs container",
-    "slug": "/terms/kubelet-runs-container",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "deployment_flow"
-    ],
-    "definition": ""
-  },
-  "kubelet": {
-    "term": "kubelet",
-    "slug": "/terms/kubelet",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "worker_node"
-    ],
-    "definition": ""
-  },
-  "kubernetes-networking-model": {
-    "term": "kubernetes networking model",
-    "slug": "/terms/kubernetes-networking-model",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "kubernetes-node-base": {
-    "term": "kubernetes node base",
-    "slug": "/terms/kubernetes-node-base",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "containers",
-      "relation"
-    ],
-    "definition": ""
-  },
-  "kubernetes": {
-    "term": "kubernetes",
-    "slug": "/terms/kubernetes",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "kurtosis": {
-    "term": "kurtosis",
-    "slug": "/terms/kurtosis",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "distribution_shape"
-    ],
-    "definition": ""
-  },
-  "kustomize": {
-    "term": "kustomize",
-    "slug": "/terms/kustomize",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "l1-regularization": {
-    "term": "l1 regularization",
-    "slug": "/terms/l1-regularization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "regularization"
-    ],
-    "definition": ""
-  },
-  "l2-regularization": {
-    "term": "l2 regularization",
-    "slug": "/terms/l2-regularization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "regularization"
-    ],
-    "definition": ""
-  },
-  "labels": {
-    "term": "labels",
-    "slug": "/terms/labels",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "lagrange-multipliers": {
-    "term": "lagrange multipliers",
-    "slug": "/terms/lagrange-multipliers",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "optimization",
-      "constrained"
-    ],
-    "definition": ""
-  },
-  "language-model": {
-    "term": "language model",
-    "slug": "/terms/language-model",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "language_models"
-    ],
-    "definition": ""
-  },
-  "laplacian": {
-    "term": "laplacian",
-    "slug": "/terms/laplacian",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "operators"
-    ],
-    "definition": ""
-  },
-  "lasso-regression": {
-    "term": "lasso regression",
-    "slug": "/terms/lasso-regression",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "latent-spaces": {
-    "term": "latent spaces",
-    "slug": "/terms/latent-spaces",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "ai_systems"
-    ],
-    "definition": ""
-  },
-  "layer-caching": {
-    "term": "layer caching",
-    "slug": "/terms/layer-caching",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "layer-reuse": {
-    "term": "layer reuse",
-    "slug": "/terms/layer-reuse",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "performance",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "layer": {
-    "term": "layer",
-    "slug": "/terms/layer",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "layered-filesystem": {
-    "term": "layered filesystem",
-    "slug": "/terms/layered-filesystem",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "layers": {
-    "term": "layers",
-    "slug": "/terms/layers",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "docker",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "layout-builder": {
-    "term": "layout builder",
-    "slug": "/terms/layout-builder",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "responsiveness"
-    ],
-    "definition": ""
-  },
-  "layout-phase": {
-    "term": "layout phase",
-    "slug": "/terms/layout-phase",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "pipeline"
-    ],
-    "definition": ""
-  },
-  "layout-shift": {
-    "term": "layout shift",
-    "slug": "/terms/layout-shift",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "rendering_impact"
-    ],
-    "definition": ""
-  },
-  "layout": {
-    "term": "layout",
-    "slug": "/terms/layout",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "lazy-loading": {
-    "term": "lazy loading",
-    "slug": "/terms/lazy-loading",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "lazy-rendering": {
-    "term": "lazy rendering",
-    "slug": "/terms/lazy-rendering",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "rendering"
-    ],
-    "definition": ""
-  },
-  "lca": {
-    "term": "lca",
-    "slug": "/terms/lca",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "lcp": {
-    "term": "lcp",
-    "slug": "/terms/lcp",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "leader-follower-model": {
-    "term": "leader follower model",
-    "slug": "/terms/leader-follower-model",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "replication"
-    ],
-    "definition": ""
-  },
-  "leaf-node": {
-    "term": "leaf node",
-    "slug": "/terms/leaf-node",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "least-privilege": {
-    "term": "least privilege",
-    "slug": "/terms/least-privilege",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "least-squares": {
-    "term": "least squares",
-    "slug": "/terms/least-squares",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "projections",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "left-join": {
-    "term": "left join",
-    "slug": "/terms/left-join",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "types"
-    ],
-    "definition": ""
-  },
-  "lemmatization": {
-    "term": "lemmatization",
-    "slug": "/terms/lemmatization",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "level-curves": {
-    "term": "level curves",
-    "slug": "/terms/level-curves",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "level-order-traversal": {
-    "term": "level order traversal",
-    "slug": "/terms/level-order-traversal",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "traversals"
-    ],
-    "definition": ""
-  },
-  "lifting-state-up": {
-    "term": "lifting state up",
-    "slug": "/terms/lifting-state-up",
-    "aliases": [],
-    "tags": [
-      "react",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "like": {
-    "term": "like",
-    "slug": "/terms/like",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "likelihood": {
-    "term": "likelihood",
-    "slug": "/terms/likelihood",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "bayesian_statistics",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "limit-laws": {
-    "term": "limit laws",
-    "slug": "/terms/limit-laws",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "limits"
-    ],
-    "definition": ""
-  },
-  "limit-of-sequence": {
-    "term": "limit of sequence",
-    "slug": "/terms/limit-of-sequence",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "sequences"
-    ],
-    "definition": ""
-  },
-  "limit": {
-    "term": "limit",
-    "slug": "/terms/limit",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "linear-algebra": {
-    "term": "linear algebra",
-    "slug": "/terms/linear-algebra",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "linear-approximation": {
-    "term": "linear approximation",
-    "slug": "/terms/linear-approximation",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "linear-independence": {
-    "term": "linear independence",
-    "slug": "/terms/linear-independence",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "linear-mappings": {
-    "term": "linear mappings",
-    "slug": "/terms/linear-mappings",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "intuition"
-    ],
-    "definition": ""
-  },
-  "linear-regression": {
-    "term": "linear regression",
-    "slug": "/terms/linear-regression",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "linear-relationship": {
-    "term": "linear relationship",
-    "slug": "/terms/linear-relationship",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "correlation_and_relationships",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "linear-search": {
-    "term": "linear search",
-    "slug": "/terms/linear-search",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "searching"
-    ],
-    "definition": ""
-  },
-  "linear-transformation": {
-    "term": "linear transformation",
-    "slug": "/terms/linear-transformation",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "linear_transformations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "lines-in-space": {
-    "term": "lines in space",
-    "slug": "/terms/lines-in-space",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vectors_geometry",
-      "geometry"
-    ],
-    "definition": ""
-  },
-  "linked-list": {
-    "term": "linked list",
-    "slug": "/terms/linked-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "linux-security": {
-    "term": "linux security",
-    "slug": "/terms/linux-security",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "linux": {
-    "term": "linux",
-    "slug": "/terms/linux",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "liskov-substitution-principle": {
-    "term": "liskov substitution principle",
-    "slug": "/terms/liskov-substitution-principle",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "solid"
-    ],
-    "definition": ""
-  },
-  "list-virtualization": {
-    "term": "list virtualization",
-    "slug": "/terms/list-virtualization",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "listview": {
-    "term": "listview",
-    "slug": "/terms/listview",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "load-average": {
-    "term": "load average",
-    "slug": "/terms/load-average",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "performance",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "load-balancer": {
-    "term": "load balancer",
-    "slug": "/terms/load-balancer",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "types"
-    ],
-    "definition": ""
-  },
-  "load-balancing": {
-    "term": "load balancing",
-    "slug": "/terms/load-balancing",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "loading": {
-    "term": "loading",
-    "slug": "/terms/loading",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "local-maxima": {
-    "term": "local maxima",
-    "slug": "/terms/local-maxima",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "optimization",
-      "unconstrained"
-    ],
-    "definition": ""
-  },
-  "local-minima": {
-    "term": "local minima",
-    "slug": "/terms/local-minima",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "optimization",
-      "unconstrained"
-    ],
-    "definition": ""
-  },
-  "location-services": {
-    "term": "location services",
-    "slug": "/terms/location-services",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "capabilities"
-    ],
-    "definition": ""
-  },
-  "locking": {
-    "term": "locking",
-    "slug": "/terms/locking",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "control"
-    ],
-    "definition": ""
-  },
-  "log-aggregation": {
-    "term": "log aggregation",
-    "slug": "/terms/log-aggregation",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "logging"
-    ],
-    "definition": ""
-  },
-  "log-loss": {
-    "term": "log loss",
-    "slug": "/terms/log-loss",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "log-rotation": {
-    "term": "log rotation",
-    "slug": "/terms/log-rotation",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "log-storage": {
-    "term": "log storage",
-    "slug": "/terms/log-storage",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "use_cases"
-    ],
-    "definition": ""
-  },
-  "logic": {
-    "term": "logic",
-    "slug": "/terms/logic",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "logical-equivalence": {
-    "term": "logical equivalence",
-    "slug": "/terms/logical-equivalence",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "logical-operators": {
-    "term": "logical operators",
-    "slug": "/terms/logical-operators",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "propositional_logic"
-    ],
-    "definition": ""
-  },
-  "logical-proofs": {
-    "term": "logical proofs",
-    "slug": "/terms/logical-proofs",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "logistic-regression": {
-    "term": "logistic regression",
-    "slug": "/terms/logistic-regression",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "longest-common-subsequence": {
-    "term": "longest common subsequence",
-    "slug": "/terms/longest-common-subsequence",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "longest-increasing-subsequence": {
-    "term": "longest increasing subsequence",
-    "slug": "/terms/longest-increasing-subsequence",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "classic_problems"
-    ],
-    "definition": ""
-  },
-  "loops": {
-    "term": "loops",
-    "slug": "/terms/loops",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "scripting"
-    ],
-    "definition": ""
-  },
-  "loss-function": {
-    "term": "loss function",
-    "slug": "/terms/loss-function",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "lsblk": {
-    "term": "lsblk",
-    "slug": "/terms/lsblk",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "lstm": {
-    "term": "lstm",
-    "slug": "/terms/lstm",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "lu-decomposition": {
-    "term": "lu decomposition",
-    "slug": "/terms/lu-decomposition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "decomposition",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "machine-learning": {
-    "term": "machine learning",
-    "slug": "/terms/machine-learning",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "maclaurin-series": {
-    "term": "maclaurin series",
-    "slug": "/terms/maclaurin-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "power_series"
-    ],
-    "definition": ""
-  },
-  "magnitude": {
-    "term": "magnitude",
-    "slug": "/terms/magnitude",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "mapping": {
-    "term": "mapping",
-    "slug": "/terms/mapping",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "linear_transformations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "margin-of-error": {
-    "term": "margin of error",
-    "slug": "/terms/margin-of-error",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "estimation"
-    ],
-    "definition": ""
-  },
-  "market-cap": {
-    "term": "market cap",
-    "slug": "/terms/market-cap",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "markov-decision-process": {
-    "term": "markov decision process",
-    "slug": "/terms/markov-decision-process",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "uncertainty"
-    ],
-    "definition": ""
-  },
-  "master-theorem": {
-    "term": "master theorem",
-    "slug": "/terms/master-theorem",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "solving"
-    ],
-    "definition": ""
-  },
-  "material-design": {
-    "term": "material design",
-    "slug": "/terms/material-design",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "styling"
-    ],
-    "definition": ""
-  },
-  "matrix-addition": {
-    "term": "matrix addition",
-    "slug": "/terms/matrix-addition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "matrix-conditioning": {
-    "term": "matrix conditioning",
-    "slug": "/terms/matrix-conditioning",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "advanced_topics",
-      "numerical_linear_algebra"
-    ],
-    "definition": ""
-  },
-  "matrix-multiplication": {
-    "term": "matrix multiplication",
-    "slug": "/terms/matrix-multiplication",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "matrix-representation": {
-    "term": "matrix representation",
-    "slug": "/terms/matrix-representation",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "linear_transformations",
-      "representation"
-    ],
-    "definition": ""
-  },
-  "matrix": {
-    "term": "matrix",
-    "slug": "/terms/matrix",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "max": {
-    "term": "max",
-    "slug": "/terms/max",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "maximum-likelihood-estimation": {
-    "term": "maximum likelihood estimation",
-    "slug": "/terms/maximum-likelihood-estimation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "mean-absolute-error": {
-    "term": "mean absolute error",
-    "slug": "/terms/mean-absolute-error",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "mean-squared-error": {
-    "term": "mean squared error",
-    "slug": "/terms/mean-squared-error",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "model_evaluation",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "mean-value-theorem": {
-    "term": "mean value theorem",
-    "slug": "/terms/mean-value-theorem",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "mean": {
-    "term": "mean",
-    "slug": "/terms/mean",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "central_tendency"
-    ],
-    "definition": ""
-  },
-  "means-ends-analysis": {
-    "term": "means ends analysis",
-    "slug": "/terms/means-ends-analysis",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "classical_planning"
-    ],
-    "definition": ""
-  },
-  "measurement-bias": {
-    "term": "measurement bias",
-    "slug": "/terms/measurement-bias",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "bias"
-    ],
-    "definition": ""
-  },
-  "media-queries": {
-    "term": "media queries",
-    "slug": "/terms/media-queries",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "media-query": {
-    "term": "media query",
-    "slug": "/terms/media-query",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "responsiveness"
-    ],
-    "definition": ""
-  },
-  "median": {
-    "term": "median",
-    "slug": "/terms/median",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "central_tendency"
-    ],
-    "definition": ""
-  },
-  "memo": {
-    "term": "memo",
-    "slug": "/terms/memo",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "memoization": {
-    "term": "memoization",
-    "slug": "/terms/memoization",
-    "aliases": [],
-    "tags": [
-      "react",
-      "rendering_model",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "memory-usage": {
-    "term": "memory usage",
-    "slug": "/terms/memory-usage",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "performance",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "merge-linked-lists": {
-    "term": "merge linked lists",
-    "slug": "/terms/merge-linked-lists",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "merge-sort": {
-    "term": "merge sort",
-    "slug": "/terms/merge-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "method-overloading": {
-    "term": "method overloading",
-    "slug": "/terms/method-overloading",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "compile_time"
-    ],
-    "definition": ""
-  },
-  "method-overriding": {
-    "term": "method overriding",
-    "slug": "/terms/method-overriding",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "method": {
-    "term": "method",
-    "slug": "/terms/method",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "metrics-server": {
-    "term": "metrics server",
-    "slug": "/terms/metrics-server",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "metrics-tracking": {
-    "term": "metrics tracking",
-    "slug": "/terms/metrics-tracking",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "data_systems"
-    ],
-    "definition": ""
-  },
-  "metro-bundler": {
-    "term": "metro bundler",
-    "slug": "/terms/metro-bundler",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "micro-environment-isolation": {
-    "term": "micro environment isolation",
-    "slug": "/terms/micro-environment-isolation",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "microservices": {
-    "term": "microservices",
-    "slug": "/terms/microservices",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "middleware": {
-    "term": "middleware",
-    "slug": "/terms/middleware",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "middleware",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "min": {
-    "term": "min",
-    "slug": "/terms/min",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "mini-batch-gradient-descent": {
-    "term": "mini batch gradient descent",
-    "slug": "/terms/mini-batch-gradient-descent",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "minikube": {
-    "term": "minikube",
-    "slug": "/terms/minikube",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "ecosystem",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "minimal-base-images": {
-    "term": "minimal base images",
-    "slug": "/terms/minimal-base-images",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "minimax": {
-    "term": "minimax",
-    "slug": "/terms/minimax",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "adversarial_search"
-    ],
-    "definition": ""
-  },
-  "minimum-spanning-tree": {
-    "term": "minimum spanning tree",
-    "slug": "/terms/minimum-spanning-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "mixins": {
-    "term": "mixins",
-    "slug": "/terms/mixins",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "dart_language",
-      "oop"
-    ],
-    "definition": ""
-  },
-  "mod": {
-    "term": "mod",
-    "slug": "/terms/mod",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "modular"
-    ],
-    "definition": ""
-  },
-  "mode": {
-    "term": "mode",
-    "slug": "/terms/mode",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "central_tendency"
-    ],
-    "definition": ""
-  },
-  "model-evaluation": {
-    "term": "model evaluation",
-    "slug": "/terms/model-evaluation",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "model-training": {
-    "term": "model training",
-    "slug": "/terms/model-training",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "model": {
-    "term": "model",
-    "slug": "/terms/model",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "modular-arithmetic": {
-    "term": "modular arithmetic",
-    "slug": "/terms/modular-arithmetic",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cryptography"
-    ],
-    "definition": ""
-  },
-  "modular-inverse": {
-    "term": "modular inverse",
-    "slug": "/terms/modular-inverse",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "modular"
-    ],
-    "definition": ""
-  },
-  "momentum-investing": {
-    "term": "momentum investing",
-    "slug": "/terms/momentum-investing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "momentum": {
-    "term": "momentum",
-    "slug": "/terms/momentum",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "monetary-policy": {
-    "term": "monetary policy",
-    "slug": "/terms/monetary-policy",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "policy"
-    ],
-    "definition": ""
-  },
-  "mongodb-query": {
-    "term": "mongodb query",
-    "slug": "/terms/mongodb-query",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "mongodb_specific"
-    ],
-    "definition": ""
-  },
-  "mongodb": {
-    "term": "mongodb",
-    "slug": "/terms/mongodb",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "monolith": {
-    "term": "monolith",
-    "slug": "/terms/monolith",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "monorepo-support": {
-    "term": "monorepo support",
-    "slug": "/terms/monorepo-support",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "monotonic-queue": {
-    "term": "monotonic queue",
-    "slug": "/terms/monotonic-queue",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "queue"
-    ],
-    "definition": ""
-  },
-  "monotonic-stack": {
-    "term": "monotonic stack",
-    "slug": "/terms/monotonic-stack",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "stack"
-    ],
-    "definition": ""
-  },
-  "mount-points": {
-    "term": "mount points",
-    "slug": "/terms/mount-points",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "mount": {
-    "term": "mount",
-    "slug": "/terms/mount",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "mounting": {
-    "term": "mounting",
-    "slug": "/terms/mounting",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "moving-average": {
-    "term": "moving average",
-    "slug": "/terms/moving-average",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "models"
-    ],
-    "definition": ""
-  },
-  "multi-agent-system": {
-    "term": "multi agent system",
-    "slug": "/terms/multi-agent-system",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "agents"
-    ],
-    "definition": ""
-  },
-  "multi-container-pod": {
-    "term": "multi container pod",
-    "slug": "/terms/multi-container-pod",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "multi-document-transaction": {
-    "term": "multi document transaction",
-    "slug": "/terms/multi-document-transaction",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "multi-stage-build": {
-    "term": "multi stage build",
-    "slug": "/terms/multi-stage-build",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "multi-stage-builds": {
-    "term": "multi stage builds",
-    "slug": "/terms/multi-stage-builds",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "multilevel-inheritance": {
-    "term": "multilevel inheritance",
-    "slug": "/terms/multilevel-inheritance",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "types"
-    ],
-    "definition": ""
-  },
-  "multiple-inheritance": {
-    "term": "multiple inheritance",
-    "slug": "/terms/multiple-inheritance",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "types"
-    ],
-    "definition": ""
-  },
-  "multiple-regression": {
-    "term": "multiple regression",
-    "slug": "/terms/multiple-regression",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "correlation_and_relationships",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "multiplication-principle": {
-    "term": "multiplication principle",
-    "slug": "/terms/multiplication-principle",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "principles"
-    ],
-    "definition": ""
-  },
-  "multiplication-rule": {
-    "term": "multiplication rule",
-    "slug": "/terms/multiplication-rule",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "multivariable-function": {
-    "term": "multivariable function",
-    "slug": "/terms/multivariable-function",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "multivariate-data": {
-    "term": "multivariate data",
-    "slug": "/terms/multivariate-data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "multivariate_statistics",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "mvc": {
-    "term": "mvc",
-    "slug": "/terms/mvc",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "mvvm": {
-    "term": "mvvm",
-    "slug": "/terms/mvvm",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "mysql": {
-    "term": "mysql",
-    "slug": "/terms/mysql",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "n-ary-tree": {
-    "term": "n-ary tree",
-    "slug": "/terms/n-ary-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "naive-bayes": {
-    "term": "naive bayes",
-    "slug": "/terms/naive-bayes",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "namespace": {
-    "term": "namespace",
-    "slug": "/terms/namespace",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "cluster_components"
-    ],
-    "definition": ""
-  },
-  "namespaces": {
-    "term": "namespaces",
-    "slug": "/terms/namespaces",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "containers",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "native-component": {
-    "term": "native component",
-    "slug": "/terms/native-component",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "native-modules": {
-    "term": "native modules",
-    "slug": "/terms/native-modules",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "native-plugins": {
-    "term": "native plugins",
-    "slug": "/terms/native-plugins",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "native-ui-abstraction": {
-    "term": "native ui abstraction",
-    "slug": "/terms/native-ui-abstraction",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "natural-language-processing": {
-    "term": "natural language processing",
-    "slug": "/terms/natural-language-processing",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "navigation": {
-    "term": "navigation",
-    "slug": "/terms/navigation",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "navigator-10": {
-    "term": "navigator 1.0",
-    "slug": "/terms/navigator-10",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "navigator-20": {
-    "term": "navigator 2.0",
-    "slug": "/terms/navigator-20",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "navigator": {
-    "term": "navigator",
-    "slug": "/terms/navigator",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "neo4j": {
-    "term": "neo4j",
-    "slug": "/terms/neo4j",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "nested-documents": {
-    "term": "nested documents",
-    "slug": "/terms/nested-documents",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "document_db"
-    ],
-    "definition": ""
-  },
-  "nested-select": {
-    "term": "nested select",
-    "slug": "/terms/nested-select",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "subqueries"
-    ],
-    "definition": ""
-  },
-  "nestjs": {
-    "term": "nestjs",
-    "slug": "/terms/nestjs",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "node_ecosystem"
-    ],
-    "definition": ""
-  },
-  "net-income": {
-    "term": "net income",
-    "slug": "/terms/net-income",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "netlify": {
-    "term": "netlify",
-    "slug": "/terms/netlify",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "deployment",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "netstat": {
-    "term": "netstat",
-    "slug": "/terms/netstat",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "network-policies": {
-    "term": "network policies",
-    "slug": "/terms/network-policies",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "neural-network-weights": {
-    "term": "neural network weights",
-    "slug": "/terms/neural-network-weights",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "ai_systems"
-    ],
-    "definition": ""
-  },
-  "neural-network": {
-    "term": "neural network",
-    "slug": "/terms/neural-network",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "next-auth": {
-    "term": "next auth",
-    "slug": "/terms/next-auth",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "ecosystem",
-      "integrations"
-    ],
-    "definition": ""
-  },
-  "next-build": {
-    "term": "next build",
-    "slug": "/terms/next-build",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "build_process"
-    ],
-    "definition": ""
-  },
-  "next-export": {
-    "term": "next export",
-    "slug": "/terms/next-export",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "build_process"
-    ],
-    "definition": ""
-  },
-  "next-greater-element": {
-    "term": "next greater element",
-    "slug": "/terms/next-greater-element",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "stack"
-    ],
-    "definition": ""
-  },
-  "next-image": {
-    "term": "next image",
-    "slug": "/terms/next-image",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "next-token-prediction": {
-    "term": "next token prediction",
-    "slug": "/terms/next-token-prediction",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "language_models"
-    ],
-    "definition": ""
-  },
-  "nextjs-routing": {
-    "term": "next.js routing",
-    "slug": "/terms/nextjs-routing",
-    "aliases": [],
-    "tags": [
-      "react",
-      "routing",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "nextjs": {
-    "term": "next.js",
-    "slug": "/terms/nextjs",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "nfa": {
-    "term": "nfa",
-    "slug": "/terms/nfa",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "models"
-    ],
-    "definition": ""
-  },
-  "nice": {
-    "term": "nice",
-    "slug": "/terms/nice",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "no-store": {
-    "term": "no store",
-    "slug": "/terms/no-store",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "caching"
-    ],
-    "definition": ""
-  },
-  "node-port": {
-    "term": "node port",
-    "slug": "/terms/node-port",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "types"
-    ],
-    "definition": ""
-  },
-  "node-server": {
-    "term": "node server",
-    "slug": "/terms/node-server",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "node": {
-    "term": "node",
-    "slug": "/terms/node",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "nodejs": {
-    "term": "node.js",
-    "slug": "/terms/nodejs",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "nodes": {
-    "term": "nodes",
-    "slug": "/terms/nodes",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "graph_db"
-    ],
-    "definition": ""
-  },
-  "nomad": {
-    "term": "nomad",
-    "slug": "/terms/nomad",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "orchestration",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "normal-distribution": {
-    "term": "normal distribution",
-    "slug": "/terms/normal-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "continuous"
-    ],
-    "definition": ""
-  },
-  "normalization": {
-    "term": "normalization",
-    "slug": "/terms/normalization",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "relational_model"
-    ],
-    "definition": ""
-  },
-  "nosql": {
-    "term": "nosql",
-    "slug": "/terms/nosql",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "not": {
-    "term": "not",
-    "slug": "/terms/not",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "notifications": {
-    "term": "notifications",
-    "slug": "/terms/notifications",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "native_integration",
-      "capabilities"
-    ],
-    "definition": ""
-  },
-  "null-hypothesis": {
-    "term": "null hypothesis",
-    "slug": "/terms/null-hypothesis",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "numerical-data": {
-    "term": "numerical data",
-    "slug": "/terms/numerical-data",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "data_types"
-    ],
-    "definition": ""
-  },
-  "numerical-methods": {
-    "term": "numerical methods",
-    "slug": "/terms/numerical-methods",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "advanced_topics",
-      "numerical_linear_algebra"
-    ],
-    "definition": ""
-  },
-  "nuxt": {
-    "term": "nuxt",
-    "slug": "/terms/nuxt",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "other_frameworks"
-    ],
-    "definition": ""
-  },
-  "oauth": {
-    "term": "oauth",
-    "slug": "/terms/oauth",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "auth"
-    ],
-    "definition": ""
-  },
-  "object-detection": {
-    "term": "object detection",
-    "slug": "/terms/object-detection",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "object": {
-    "term": "object",
-    "slug": "/terms/object",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "observer-pattern": {
-    "term": "observer pattern",
-    "slug": "/terms/observer-pattern",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "one-hot-encoding": {
-    "term": "one hot encoding",
-    "slug": "/terms/one-hot-encoding",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "feature_engineering",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "one-sided-limit": {
-    "term": "one-sided limit",
-    "slug": "/terms/one-sided-limit",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "limits"
-    ],
-    "definition": ""
-  },
-  "open-addressing": {
-    "term": "open addressing",
-    "slug": "/terms/open-addressing",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "open-closed-principle": {
-    "term": "open closed principle",
-    "slug": "/terms/open-closed-principle",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "solid"
-    ],
-    "definition": ""
-  },
-  "operating-income": {
-    "term": "operating income",
-    "slug": "/terms/operating-income",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "accounting",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "operating-system": {
-    "term": "operating system",
-    "slug": "/terms/operating-system",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "operator-overloading": {
-    "term": "operator overloading",
-    "slug": "/terms/operator-overloading",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "compile_time"
-    ],
-    "definition": ""
-  },
-  "optimal-substructure": {
-    "term": "optimal substructure",
-    "slug": "/terms/optimal-substructure",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "fundamentals"
-    ],
-    "definition": ""
-  },
-  "optimization": {
-    "term": "optimization",
-    "slug": "/terms/optimization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "calculus"
-    ],
-    "definition": ""
-  },
-  "options": {
-    "term": "options",
-    "slug": "/terms/options",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "or": {
-    "term": "or",
-    "slug": "/terms/or",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "filtering"
-    ],
-    "definition": ""
-  },
-  "oracle-database": {
-    "term": "oracle database",
-    "slug": "/terms/oracle-database",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "order-by": {
-    "term": "order by",
-    "slug": "/terms/order-by",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "orthogonal-matrix": {
-    "term": "orthogonal matrix",
-    "slug": "/terms/orthogonal-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "orthogonal-vectors": {
-    "term": "orthogonal vectors",
-    "slug": "/terms/orthogonal-vectors",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "orthogonality",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "orthogonality": {
-    "term": "orthogonality",
-    "slug": "/terms/orthogonality",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "geometry"
-    ],
-    "definition": ""
-  },
-  "orthonormal-basis": {
-    "term": "orthonormal basis",
-    "slug": "/terms/orthonormal-basis",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "orthogonality",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "outcome": {
-    "term": "outcome",
-    "slug": "/terms/outcome",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "over-the-air-updates": {
-    "term": "over the air updates",
-    "slug": "/terms/over-the-air-updates",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "overfitting": {
-    "term": "overfitting",
-    "slug": "/terms/overfitting",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "overlapping-subproblems": {
-    "term": "overlapping subproblems",
-    "slug": "/terms/overlapping-subproblems",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "fundamentals"
-    ],
-    "definition": ""
-  },
-  "overlay-network": {
-    "term": "overlay network",
-    "slug": "/terms/overlay-network",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "ownership": {
-    "term": "ownership",
-    "slug": "/terms/ownership",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "p-series": {
-    "term": "p-series",
-    "slug": "/terms/p-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "series"
-    ],
-    "definition": ""
-  },
-  "p-value": {
-    "term": "p value",
-    "slug": "/terms/p-value",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "package-installation": {
-    "term": "package installation",
-    "slug": "/terms/package-installation",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "pacman": {
-    "term": "pacman",
-    "slug": "/terms/pacman",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "systems"
-    ],
-    "definition": ""
-  },
-  "padding": {
-    "term": "padding",
-    "slug": "/terms/padding",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "basic_widgets"
-    ],
-    "definition": ""
-  },
-  "page": {
-    "term": "page",
-    "slug": "/terms/page",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "pages-router": {
-    "term": "pages router",
-    "slug": "/terms/pages-router",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "pages_router"
-    ],
-    "definition": ""
-  },
-  "paint-phase": {
-    "term": "paint phase",
-    "slug": "/terms/paint-phase",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "pipeline"
-    ],
-    "definition": ""
-  },
-  "palindrome": {
-    "term": "palindrome",
-    "slug": "/terms/palindrome",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "parallel-routes": {
-    "term": "parallel routes",
-    "slug": "/terms/parallel-routes",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "parameter": {
-    "term": "parameter",
-    "slug": "/terms/parameter",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "parameterized-queries": {
-    "term": "parameterized queries",
-    "slug": "/terms/parameterized-queries",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "parent-class": {
-    "term": "parent class",
-    "slug": "/terms/parent-class",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "parent-image": {
-    "term": "parent image",
-    "slug": "/terms/parent-image",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "images",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "parent-process": {
-    "term": "parent process",
-    "slug": "/terms/parent-process",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "partial-derivatives": {
-    "term": "partial derivatives",
-    "slug": "/terms/partial-derivatives",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "calculus"
-    ],
-    "definition": ""
-  },
-  "partial-fractions": {
-    "term": "partial fractions",
-    "slug": "/terms/partial-fractions",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "partition-by": {
-    "term": "partition by",
-    "slug": "/terms/partition-by",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "window_functions"
-    ],
-    "definition": ""
-  },
-  "partition-tolerance": {
-    "term": "partition tolerance",
-    "slug": "/terms/partition-tolerance",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "replication"
-    ],
-    "definition": ""
-  },
-  "partition": {
-    "term": "partition",
-    "slug": "/terms/partition",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "path-based-routing": {
-    "term": "path based routing",
-    "slug": "/terms/path-based-routing",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "ingress"
-    ],
-    "definition": ""
-  },
-  "path": {
-    "term": "path",
-    "slug": "/terms/path",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "pattern-matching": {
-    "term": "pattern matching",
-    "slug": "/terms/pattern-matching",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "paused": {
-    "term": "paused",
-    "slug": "/terms/paused",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "pca": {
-    "term": "pca",
-    "slug": "/terms/pca",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "dimensionality_reduction"
-    ],
-    "definition": ""
-  },
-  "pending": {
-    "term": "pending",
-    "slug": "/terms/pending",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "perceptron": {
-    "term": "perceptron",
-    "slug": "/terms/perceptron",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "performance-overlay": {
-    "term": "performance overlay",
-    "slug": "/terms/performance-overlay",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "debugging"
-    ],
-    "definition": ""
-  },
-  "permissions": {
-    "term": "permissions",
-    "slug": "/terms/permissions",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "system"
-    ],
-    "definition": ""
-  },
-  "permutations": {
-    "term": "permutations",
-    "slug": "/terms/permutations",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "counting"
-    ],
-    "definition": ""
-  },
-  "persistent-storage": {
-    "term": "persistent storage",
-    "slug": "/terms/persistent-storage",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "persistent-volume-claim": {
-    "term": "persistent volume claim",
-    "slug": "/terms/persistent-volume-claim",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "persistent-volume": {
-    "term": "persistent volume",
-    "slug": "/terms/persistent-volume",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "pid": {
-    "term": "pid",
-    "slug": "/terms/pid",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "pigeonhole-principle": {
-    "term": "pigeonhole principle",
-    "slug": "/terms/pigeonhole-principle",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "combinatorics",
-      "principles"
-    ],
-    "definition": ""
-  },
-  "ping": {
-    "term": "ping",
-    "slug": "/terms/ping",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "pipeline": {
-    "term": "pipeline",
-    "slug": "/terms/pipeline",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "devops",
-      "ci_cd"
-    ],
-    "definition": ""
-  },
-  "pipes": {
-    "term": "pipes",
-    "slug": "/terms/pipes",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "planes": {
-    "term": "planes",
-    "slug": "/terms/planes",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vectors_geometry",
-      "geometry"
-    ],
-    "definition": ""
-  },
-  "planning-agent": {
-    "term": "planning agent",
-    "slug": "/terms/planning-agent",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "agents"
-    ],
-    "definition": ""
-  },
-  "planning-problem": {
-    "term": "planning problem",
-    "slug": "/terms/planning-problem",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "classical_planning"
-    ],
-    "definition": ""
-  },
-  "platform-channels": {
-    "term": "platform channels",
-    "slug": "/terms/platform-channels",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "native_integration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "platform-specific-styles": {
-    "term": "platform specific styles",
-    "slug": "/terms/platform-specific-styles",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "system"
-    ],
-    "definition": ""
-  },
-  "pod-abstraction": {
-    "term": "pod abstraction",
-    "slug": "/terms/pod-abstraction",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "orchestration_bridge",
-      "kubernetes_relation"
-    ],
-    "definition": ""
-  },
-  "pod-logs": {
-    "term": "pod logs",
-    "slug": "/terms/pod-logs",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "logging"
-    ],
-    "definition": ""
-  },
-  "pod-security-policies": {
-    "term": "pod security policies",
-    "slug": "/terms/pod-security-policies",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "pod-to-pod-communication": {
-    "term": "pod to pod communication",
-    "slug": "/terms/pod-to-pod-communication",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "pod": {
-    "term": "pod",
-    "slug": "/terms/pod",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "point-estimation": {
-    "term": "point estimation",
-    "slug": "/terms/point-estimation",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "estimation"
-    ],
-    "definition": ""
-  },
-  "poisson-distribution": {
-    "term": "poisson distribution",
-    "slug": "/terms/poisson-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "discrete"
-    ],
-    "definition": ""
-  },
-  "policy-gradient": {
-    "term": "policy gradient",
-    "slug": "/terms/policy-gradient",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "policy": {
-    "term": "policy",
-    "slug": "/terms/policy",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "polymorphism": {
-    "term": "polymorphism",
-    "slug": "/terms/polymorphism",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "foundations",
-      "principles"
-    ],
-    "definition": ""
-  },
-  "polynomial-regression": {
-    "term": "polynomial regression",
-    "slug": "/terms/polynomial-regression",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "population": {
-    "term": "population",
-    "slug": "/terms/population",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "port-conflicts": {
-    "term": "port conflicts",
-    "slug": "/terms/port-conflicts",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "debugging",
-      "issues"
-    ],
-    "definition": ""
-  },
-  "port-mapping": {
-    "term": "port mapping",
-    "slug": "/terms/port-mapping",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "portfolio-optimization": {
-    "term": "portfolio optimization",
-    "slug": "/terms/portfolio-optimization",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "portfolio"
-    ],
-    "definition": ""
-  },
-  "portfolio-variance": {
-    "term": "portfolio variance",
-    "slug": "/terms/portfolio-variance",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "finance"
-    ],
-    "definition": ""
-  },
-  "ports": {
-    "term": "ports",
-    "slug": "/terms/ports",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "positioning": {
-    "term": "positioning",
-    "slug": "/terms/positioning",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "css"
-    ],
-    "definition": ""
-  },
-  "positive-definite-matrices": {
-    "term": "positive definite matrices",
-    "slug": "/terms/positive-definite-matrices",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "advanced_topics",
-      "spectral_theory"
-    ],
-    "definition": ""
-  },
-  "posterior-probability": {
-    "term": "posterior probability",
-    "slug": "/terms/posterior-probability",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "bayesian_statistics",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "postgresql": {
-    "term": "postgresql",
-    "slug": "/terms/postgresql",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "postorder-traversal": {
-    "term": "postorder traversal",
-    "slug": "/terms/postorder-traversal",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "traversals"
-    ],
-    "definition": ""
-  },
-  "power-rule": {
-    "term": "power rule",
-    "slug": "/terms/power-rule",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "power-series": {
-    "term": "power series",
-    "slug": "/terms/power-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "power_series"
-    ],
-    "definition": ""
-  },
-  "power-set": {
-    "term": "power set",
-    "slug": "/terms/power-set",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "ppi": {
-    "term": "ppi",
-    "slug": "/terms/ppi",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "indicators"
-    ],
-    "definition": ""
-  },
-  "precision": {
-    "term": "precision",
-    "slug": "/terms/precision",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "predicate": {
-    "term": "predicate",
-    "slug": "/terms/predicate",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "predicate_logic"
-    ],
-    "definition": ""
-  },
-  "prefetching": {
-    "term": "prefetching",
-    "slug": "/terms/prefetching",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "prefix-sum": {
-    "term": "prefix sum",
-    "slug": "/terms/prefix-sum",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "preorder-traversal": {
-    "term": "preorder traversal",
-    "slug": "/terms/preorder-traversal",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "traversals"
-    ],
-    "definition": ""
-  },
-  "prepared-statements": {
-    "term": "prepared statements",
-    "slug": "/terms/prepared-statements",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "presentation-layer": {
-    "term": "presentation layer",
-    "slug": "/terms/presentation-layer",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "architecture",
-      "layering"
-    ],
-    "definition": ""
-  },
-  "pressable": {
-    "term": "pressable",
-    "slug": "/terms/pressable",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "interaction"
-    ],
-    "definition": ""
-  },
-  "prim-algorithm": {
-    "term": "prim algorithm",
-    "slug": "/terms/prim-algorithm",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "primary-key": {
-    "term": "primary key",
-    "slug": "/terms/primary-key",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "prime-factorization": {
-    "term": "prime factorization",
-    "slug": "/terms/prime-factorization",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cryptography"
-    ],
-    "definition": ""
-  },
-  "prime-numbers": {
-    "term": "prime numbers",
-    "slug": "/terms/prime-numbers",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "number_theory",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "principal-component-analysis": {
-    "term": "principal component analysis",
-    "slug": "/terms/principal-component-analysis",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "dimensionality_reduction"
-    ],
-    "definition": ""
-  },
-  "principal-directions": {
-    "term": "principal directions",
-    "slug": "/terms/principal-directions",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "prior-probability": {
-    "term": "prior probability",
-    "slug": "/terms/prior-probability",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "bayesian_statistics",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "priority-queue": {
-    "term": "priority queue",
-    "slug": "/terms/priority-queue",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "queue"
-    ],
-    "definition": ""
-  },
-  "prisma": {
-    "term": "prisma",
-    "slug": "/terms/prisma",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "ecosystem",
-      "integrations"
-    ],
-    "definition": ""
-  },
-  "private-company": {
-    "term": "private company",
-    "slug": "/terms/private-company",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "private-registry": {
-    "term": "private registry",
-    "slug": "/terms/private-registry",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "registries",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "private": {
-    "term": "private",
-    "slug": "/terms/private",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "access_control"
-    ],
-    "definition": ""
-  },
-  "privilege-escalation": {
-    "term": "privilege escalation",
-    "slug": "/terms/privilege-escalation",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "probabilistic-models": {
-    "term": "probabilistic models",
-    "slug": "/terms/probabilistic-models",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "ml_ai"
-    ],
-    "definition": ""
-  },
-  "probabilistic-reasoning": {
-    "term": "probabilistic reasoning",
-    "slug": "/terms/probabilistic-reasoning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "uncertainty"
-    ],
-    "definition": ""
-  },
-  "probability-distribution": {
-    "term": "probability distribution",
-    "slug": "/terms/probability-distribution",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "probability": {
-    "term": "probability",
-    "slug": "/terms/probability",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "problem-solving": {
-    "term": "problem solving",
-    "slug": "/terms/problem-solving",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "proc": {
-    "term": "proc",
-    "slug": "/terms/proc",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "process": {
-    "term": "process",
-    "slug": "/terms/process",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "product-rule": {
-    "term": "product rule",
-    "slug": "/terms/product-rule",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "progressive-enhancement": {
-    "term": "progressive enhancement",
-    "slug": "/terms/progressive-enhancement",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "projection-matrix": {
-    "term": "projection matrix",
-    "slug": "/terms/projection-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "projections",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "projection": {
-    "term": "projection",
-    "slug": "/terms/projection",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "mongodb_specific"
-    ],
-    "definition": ""
-  },
-  "prometheus": {
-    "term": "prometheus",
-    "slug": "/terms/prometheus",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "observability",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "promises": {
-    "term": "promises",
-    "slug": "/terms/promises",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "core_js"
-    ],
-    "definition": ""
-  },
-  "proof-by-contradiction": {
-    "term": "proof by contradiction",
-    "slug": "/terms/proof-by-contradiction",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "proof-by-contrapositive": {
-    "term": "proof by contrapositive",
-    "slug": "/terms/proof-by-contrapositive",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "proof": {
-    "term": "proof",
-    "slug": "/terms/proof",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "prop-drilling": {
-    "term": "prop drilling",
-    "slug": "/terms/prop-drilling",
-    "aliases": [],
-    "tags": [
-      "react",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "proposition": {
-    "term": "proposition",
-    "slug": "/terms/proposition",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "propositional_logic"
-    ],
-    "definition": ""
-  },
-  "propositional-logic": {
-    "term": "propositional logic",
-    "slug": "/terms/propositional-logic",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "knowledge_representation",
-      "logic"
-    ],
-    "definition": ""
-  },
-  "props": {
-    "term": "props",
-    "slug": "/terms/props",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "protected": {
-    "term": "protected",
-    "slug": "/terms/protected",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "access_control"
-    ],
-    "definition": ""
-  },
-  "prototypes": {
-    "term": "prototypes",
-    "slug": "/terms/prototypes",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "core_js"
-    ],
-    "definition": ""
-  },
-  "provider": {
-    "term": "provider",
-    "slug": "/terms/provider",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "packages"
-    ],
-    "definition": ""
-  },
-  "ps": {
-    "term": "ps",
-    "slug": "/terms/ps",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "pub-package-manager": {
-    "term": "pub package manager",
-    "slug": "/terms/pub-package-manager",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "public-company": {
-    "term": "public company",
-    "slug": "/terms/public-company",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "public": {
-    "term": "public",
-    "slug": "/terms/public",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "access_control"
-    ],
-    "definition": ""
-  },
-  "pull-image": {
-    "term": "pull image",
-    "slug": "/terms/pull-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "pull": {
-    "term": "pull",
-    "slug": "/terms/pull",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "pure-component": {
-    "term": "pure component",
-    "slug": "/terms/pure-component",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "types"
-    ],
-    "definition": ""
-  },
-  "push-image": {
-    "term": "push image",
-    "slug": "/terms/push-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "push-notifications": {
-    "term": "push notifications",
-    "slug": "/terms/push-notifications",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "device_features",
-      "system"
-    ],
-    "definition": ""
-  },
-  "push": {
-    "term": "push",
-    "slug": "/terms/push",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "architecture",
-      "workflow"
-    ],
-    "definition": ""
-  },
-  "put-option": {
-    "term": "put option",
-    "slug": "/terms/put-option",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "q-learning": {
-    "term": "q learning",
-    "slug": "/terms/q-learning",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "qr-decomposition": {
-    "term": "qr decomposition",
-    "slug": "/terms/qr-decomposition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "decomposition",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "quantifiers": {
-    "term": "quantifiers",
-    "slug": "/terms/quantifiers",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "predicate_logic"
-    ],
-    "definition": ""
-  },
-  "quantitative-easing": {
-    "term": "quantitative easing",
-    "slug": "/terms/quantitative-easing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "policy"
-    ],
-    "definition": ""
-  },
-  "query-complexity": {
-    "term": "query complexity",
-    "slug": "/terms/query-complexity",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "decision_factors"
-    ],
-    "definition": ""
-  },
-  "query-language": {
-    "term": "query language",
-    "slug": "/terms/query-language",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "query-optimization": {
-    "term": "query optimization",
-    "slug": "/terms/query-optimization",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "query-planner": {
-    "term": "query planner",
-    "slug": "/terms/query-planner",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "queue": {
-    "term": "queue",
-    "slug": "/terms/queue",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "stacks_and_queues",
-      "queue"
-    ],
-    "definition": ""
-  },
-  "quick-sort": {
-    "term": "quick sort",
-    "slug": "/terms/quick-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "quotient-rule": {
-    "term": "quotient rule",
-    "slug": "/terms/quotient-rule",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "rules"
-    ],
-    "definition": ""
-  },
-  "rabin-karp": {
-    "term": "rabin karp",
-    "slug": "/terms/rabin-karp",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "radius-of-convergence": {
-    "term": "radius of convergence",
-    "slug": "/terms/radius-of-convergence",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "power_series"
-    ],
-    "definition": ""
-  },
-  "radix-sort": {
-    "term": "radix sort",
-    "slug": "/terms/radix-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "random-forest": {
-    "term": "random forest",
-    "slug": "/terms/random-forest",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "random-sampling": {
-    "term": "random sampling",
-    "slug": "/terms/random-sampling",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "random-variable": {
-    "term": "random variable",
-    "slug": "/terms/random-variable",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "randomization": {
-    "term": "randomization",
-    "slug": "/terms/randomization",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "range": {
-    "term": "range",
-    "slug": "/terms/range",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "foundations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "rank": {
-    "term": "rank",
-    "slug": "/terms/rank",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "window_functions"
-    ],
-    "definition": ""
-  },
-  "rate-of-change": {
-    "term": "rate of change",
-    "slug": "/terms/rate-of-change",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "ratio-test": {
-    "term": "ratio test",
-    "slug": "/terms/ratio-test",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "convergence_tests"
-    ],
-    "definition": ""
-  },
-  "rational-agent": {
-    "term": "rational agent",
-    "slug": "/terms/rational-agent",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "rbac": {
-    "term": "rbac",
-    "slug": "/terms/rbac",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "re-render-optimization": {
-    "term": "re-render optimization",
-    "slug": "/terms/re-render-optimization",
-    "aliases": [],
-    "tags": [
-      "react",
-      "performance",
-      "rendering_control"
-    ],
-    "definition": ""
-  },
-  "react-concurrency": {
-    "term": "react concurrency",
-    "slug": "/terms/react-concurrency",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "concurrency"
-    ],
-    "definition": ""
-  },
-  "react-element": {
-    "term": "react element",
-    "slug": "/terms/react-element",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "react-framework": {
-    "term": "react framework",
-    "slug": "/terms/react-framework",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "react-memo": {
-    "term": "react memo",
-    "slug": "/terms/react-memo",
-    "aliases": [],
-    "tags": [
-      "react",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "react-native-cli": {
-    "term": "react native cli",
-    "slug": "/terms/react-native-cli",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "frameworks"
-    ],
-    "definition": ""
-  },
-  "react-native-gesture-handler": {
-    "term": "react native gesture handler",
-    "slug": "/terms/react-native-gesture-handler",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "react-native-reanimated": {
-    "term": "react native reanimated",
-    "slug": "/terms/react-native-reanimated",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "react-native-styles": {
-    "term": "react native styles",
-    "slug": "/terms/react-native-styles",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "system"
-    ],
-    "definition": ""
-  },
-  "react-native": {
-    "term": "react native",
-    "slug": "/terms/react-native",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "react-navigation": {
-    "term": "react navigation",
-    "slug": "/terms/react-navigation",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "ecosystem",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "react-router": {
-    "term": "react router",
-    "slug": "/terms/react-router",
-    "aliases": [],
-    "tags": [
-      "react",
-      "routing",
-      "libraries"
-    ],
-    "definition": ""
-  },
-  "react-server-components": {
-    "term": "react server components",
-    "slug": "/terms/react-server-components",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "streaming"
-    ],
-    "definition": ""
-  },
-  "react-testing-library": {
-    "term": "react testing library",
-    "slug": "/terms/react-testing-library",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "testing"
-    ],
-    "definition": ""
-  },
-  "react": {
-    "term": "react",
-    "slug": "/terms/react",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "reactive-programming": {
-    "term": "reactive programming",
-    "slug": "/terms/reactive-programming",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "read-amplification": {
-    "term": "read amplification",
-    "slug": "/terms/read-amplification",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "read-write-execute": {
-    "term": "read write execute",
-    "slug": "/terms/read-write-execute",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "real-time-apps": {
-    "term": "real time apps",
-    "slug": "/terms/real-time-apps",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "use_cases",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "reanimated": {
-    "term": "reanimated",
-    "slug": "/terms/reanimated",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "rebalancing": {
-    "term": "rebalancing",
-    "slug": "/terms/rebalancing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "portfolio"
-    ],
-    "definition": ""
-  },
-  "recall": {
-    "term": "recall",
-    "slug": "/terms/recall",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "recoil": {
-    "term": "recoil",
-    "slug": "/terms/recoil",
-    "aliases": [],
-    "tags": [
-      "react",
-      "state_management",
-      "global_state"
-    ],
-    "definition": ""
-  },
-  "reconciliation-loop": {
-    "term": "reconciliation loop",
-    "slug": "/terms/reconciliation-loop",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "reconciliation": {
-    "term": "reconciliation",
-    "slug": "/terms/reconciliation",
-    "aliases": [],
-    "tags": [
-      "react",
-      "rendering_model",
-      "process"
-    ],
-    "definition": ""
-  },
-  "recurrence-relation": {
-    "term": "recurrence relation",
-    "slug": "/terms/recurrence-relation",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "recursion-tree-method": {
-    "term": "recursion tree method",
-    "slug": "/terms/recursion-tree-method",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "solving"
-    ],
-    "definition": ""
-  },
-  "recursion-tree": {
-    "term": "recursion tree",
-    "slug": "/terms/recursion-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "recursion"
-    ],
-    "definition": ""
-  },
-  "recursion": {
-    "term": "recursion",
-    "slug": "/terms/recursion",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "recursion"
-    ],
-    "definition": ""
-  },
-  "recursive-cte": {
-    "term": "recursive cte",
-    "slug": "/terms/recursive-cte",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "cte"
-    ],
-    "definition": ""
-  },
-  "redirection": {
-    "term": "redirection",
-    "slug": "/terms/redirection",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "redis": {
-    "term": "redis",
-    "slug": "/terms/redis",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "tools",
-      "databases"
-    ],
-    "definition": ""
-  },
-  "redux": {
-    "term": "redux",
-    "slug": "/terms/redux",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "referential-integrity": {
-    "term": "referential integrity",
-    "slug": "/terms/referential-integrity",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "design_principles"
-    ],
-    "definition": ""
-  },
-  "reflexive": {
-    "term": "reflexive",
-    "slug": "/terms/reflexive",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "relations"
-    ],
-    "definition": ""
-  },
-  "regression": {
-    "term": "regression",
-    "slug": "/terms/regression",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "supervised"
-    ],
-    "definition": ""
-  },
-  "regular-languages": {
-    "term": "regular languages",
-    "slug": "/terms/regular-languages",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "languages"
-    ],
-    "definition": ""
-  },
-  "reinforcement-learning": {
-    "term": "reinforcement learning",
-    "slug": "/terms/reinforcement-learning",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "related-rates": {
-    "term": "related rates",
-    "slug": "/terms/related-rates",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "relation": {
-    "term": "relation",
-    "slug": "/terms/relation",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "relations"
-    ],
-    "definition": ""
-  },
-  "relational-database": {
-    "term": "relational database",
-    "slug": "/terms/relational-database",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "relational_model"
-    ],
-    "definition": ""
-  },
-  "relationship": {
-    "term": "relationship",
-    "slug": "/terms/relationship",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "relational_model"
-    ],
-    "definition": ""
-  },
-  "relu": {
-    "term": "relu",
-    "slug": "/terms/relu",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "remix": {
-    "term": "remix",
-    "slug": "/terms/remix",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "frameworks"
-    ],
-    "definition": ""
-  },
-  "remove": {
-    "term": "remove",
-    "slug": "/terms/remove",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "removed": {
-    "term": "removed",
-    "slug": "/terms/removed",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "render-function": {
-    "term": "render function",
-    "slug": "/terms/render-function",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "render-phase": {
-    "term": "render phase",
-    "slug": "/terms/render-phase",
-    "aliases": [],
-    "tags": [
-      "react",
-      "rendering_model",
-      "process"
-    ],
-    "definition": ""
-  },
-  "render-tree": {
-    "term": "render tree",
-    "slug": "/terms/render-tree",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "rendering-pipeline": {
-    "term": "rendering pipeline",
-    "slug": "/terms/rendering-pipeline",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "rendering": {
-    "term": "rendering",
-    "slug": "/terms/rendering",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "repaint-boundary": {
-    "term": "repaint boundary",
-    "slug": "/terms/repaint-boundary",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "replica-count": {
-    "term": "replica count",
-    "slug": "/terms/replica-count",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "deployments",
-      "scaling"
-    ],
-    "definition": ""
-  },
-  "replica-management": {
-    "term": "replica management",
-    "slug": "/terms/replica-management",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "deployments",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "replica-set": {
-    "term": "replica set",
-    "slug": "/terms/replica-set",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "workload"
-    ],
-    "definition": ""
-  },
-  "replica-sets": {
-    "term": "replica sets",
-    "slug": "/terms/replica-sets",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "repositories": {
-    "term": "repositories",
-    "slug": "/terms/repositories",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "request-interception": {
-    "term": "request interception",
-    "slug": "/terms/request-interception",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "middleware",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "request-response-cycle": {
-    "term": "request response cycle",
-    "slug": "/terms/request-response-cycle",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "internet_basics"
-    ],
-    "definition": ""
-  },
-  "request-waterfall": {
-    "term": "request waterfall",
-    "slug": "/terms/request-waterfall",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "data_flow"
-    ],
-    "definition": ""
-  },
-  "residuals": {
-    "term": "residuals",
-    "slug": "/terms/residuals",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "correlation_and_relationships",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "resnet": {
-    "term": "resnet",
-    "slug": "/terms/resnet",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "models"
-    ],
-    "definition": ""
-  },
-  "resource-limits": {
-    "term": "resource limits",
-    "slug": "/terms/resource-limits",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "performance",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "responsive-design": {
-    "term": "responsive design",
-    "slug": "/terms/responsive-design",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "responsiveness"
-    ],
-    "definition": ""
-  },
-  "rest-api": {
-    "term": "rest api",
-    "slug": "/terms/rest-api",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "rest-architecture": {
-    "term": "rest architecture",
-    "slug": "/terms/rest-architecture",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "api_design"
-    ],
-    "definition": ""
-  },
-  "restart": {
-    "term": "restart",
-    "slug": "/terms/restart",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "revalidate-path": {
-    "term": "revalidate path",
-    "slug": "/terms/revalidate-path",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "caching"
-    ],
-    "definition": ""
-  },
-  "revalidation": {
-    "term": "revalidation",
-    "slug": "/terms/revalidation",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "reversal-linked-list": {
-    "term": "reversal linked list",
-    "slug": "/terms/reversal-linked-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "reward-function": {
-    "term": "reward function",
-    "slug": "/terms/reward-function",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "reward-modeling": {
-    "term": "reward modeling",
-    "slug": "/terms/reward-modeling",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "alignment"
-    ],
-    "definition": ""
-  },
-  "ridge-regression": {
-    "term": "ridge regression",
-    "slug": "/terms/ridge-regression",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "riemann-sum": {
-    "term": "riemann sum",
-    "slug": "/terms/riemann-sum",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "right-join": {
-    "term": "right join",
-    "slug": "/terms/right-join",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "joins",
-      "types"
-    ],
-    "definition": ""
-  },
-  "risk-adjusted-return": {
-    "term": "risk adjusted return",
-    "slug": "/terms/risk-adjusted-return",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "risk-modeling": {
-    "term": "risk modeling",
-    "slug": "/terms/risk-modeling",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "applications",
-      "finance"
-    ],
-    "definition": ""
-  },
-  "risk-sensitive-planning": {
-    "term": "risk sensitive planning",
-    "slug": "/terms/risk-sensitive-planning",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "decision_making"
-    ],
-    "definition": ""
-  },
-  "riverpod": {
-    "term": "riverpod",
-    "slug": "/terms/riverpod",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "rlhf": {
-    "term": "rlhf",
-    "slug": "/terms/rlhf",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "alignment"
-    ],
-    "definition": ""
-  },
-  "rnn": {
-    "term": "rnn",
-    "slug": "/terms/rnn",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "roc-curve": {
-    "term": "roc curve",
-    "slug": "/terms/roc-curve",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "evaluation"
-    ],
-    "definition": ""
-  },
-  "role-based-access-control": {
-    "term": "role based access control",
-    "slug": "/terms/role-based-access-control",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "rollback": {
-    "term": "rollback",
-    "slug": "/terms/rollback",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "deployments",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "rolle-theorem": {
-    "term": "rolle theorem",
-    "slug": "/terms/rolle-theorem",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "rolling-hash": {
-    "term": "rolling hash",
-    "slug": "/terms/rolling-hash",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "hashing",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "rolling-update": {
-    "term": "rolling update",
-    "slug": "/terms/rolling-update",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "devops",
-      "deployment_patterns"
-    ],
-    "definition": ""
-  },
-  "rolling-updates": {
-    "term": "rolling updates",
-    "slug": "/terms/rolling-updates",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "devops",
-      "deployment"
-    ],
-    "definition": ""
-  },
-  "root-directory": {
-    "term": "root directory",
-    "slug": "/terms/root-directory",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "root-node": {
-    "term": "root node",
-    "slug": "/terms/root-node",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "root-test": {
-    "term": "root test",
-    "slug": "/terms/root-test",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "convergence_tests"
-    ],
-    "definition": ""
-  },
-  "rotation-matrices": {
-    "term": "rotation matrices",
-    "slug": "/terms/rotation-matrices",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "graphics"
-    ],
-    "definition": ""
-  },
-  "route-handlers": {
-    "term": "route handlers",
-    "slug": "/terms/route-handlers",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "route-matching": {
-    "term": "route matching",
-    "slug": "/terms/route-matching",
-    "aliases": [],
-    "tags": [
-      "react",
-      "routing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "route-segment": {
-    "term": "route segment",
-    "slug": "/terms/route-segment",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "app_router"
-    ],
-    "definition": ""
-  },
-  "route": {
-    "term": "route",
-    "slug": "/terms/route",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "routing-rules": {
-    "term": "routing rules",
-    "slug": "/terms/routing-rules",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "networking",
-      "ingress"
-    ],
-    "definition": ""
-  },
-  "routing-system": {
-    "term": "routing system",
-    "slug": "/terms/routing-system",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "routing": {
-    "term": "routing",
-    "slug": "/terms/routing",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "node_ecosystem"
-    ],
-    "definition": ""
-  },
-  "row-number": {
-    "term": "row number",
-    "slug": "/terms/row-number",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "window_functions"
-    ],
-    "definition": ""
-  },
-  "row-reduction": {
-    "term": "row reduction",
-    "slug": "/terms/row-reduction",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "row": {
-    "term": "row",
-    "slug": "/terms/row",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "rref": {
-    "term": "rref",
-    "slug": "/terms/rref",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "rsa": {
-    "term": "rsa",
-    "slug": "/terms/rsa",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "cryptography"
-    ],
-    "definition": ""
-  },
-  "run": {
-    "term": "RUN",
-    "slug": "/terms/run",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "running": {
-    "term": "running",
-    "slug": "/terms/running",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "runtime-environment": {
-    "term": "runtime environment",
-    "slug": "/terms/runtime-environment",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "runtime-polymorphism": {
-    "term": "runtime polymorphism",
-    "slug": "/terms/runtime-polymorphism",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "polymorphism",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "runtime": {
-    "term": "runtime",
-    "slug": "/terms/runtime",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "saddle-point": {
-    "term": "saddle point",
-    "slug": "/terms/saddle-point",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "optimization",
-      "unconstrained"
-    ],
-    "definition": ""
-  },
-  "safety-in-ai": {
-    "term": "safety in ai",
-    "slug": "/terms/safety-in-ai",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "alignment"
-    ],
-    "definition": ""
-  },
-  "sample-space": {
-    "term": "sample space",
-    "slug": "/terms/sample-space",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "probability_foundations",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "sample": {
-    "term": "sample",
-    "slug": "/terms/sample",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "sampling-bias": {
-    "term": "sampling bias",
-    "slug": "/terms/sampling-bias",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "bias"
-    ],
-    "definition": ""
-  },
-  "sass": {
-    "term": "sass",
-    "slug": "/terms/sass",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "styling_systems"
-    ],
-    "definition": ""
-  },
-  "savepoint": {
-    "term": "savepoint",
-    "slug": "/terms/savepoint",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "control"
-    ],
-    "definition": ""
-  },
-  "scaffold": {
-    "term": "scaffold",
-    "slug": "/terms/scaffold",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "basic_widgets"
-    ],
-    "definition": ""
-  },
-  "scalability-needs": {
-    "term": "scalability needs",
-    "slug": "/terms/scalability-needs",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "decision_factors"
-    ],
-    "definition": ""
-  },
-  "scalar-field": {
-    "term": "scalar field",
-    "slug": "/terms/scalar-field",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "fields"
-    ],
-    "definition": ""
-  },
-  "scalar-multiplication": {
-    "term": "scalar multiplication",
-    "slug": "/terms/scalar-multiplication",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "scalar": {
-    "term": "scalar",
-    "slug": "/terms/scalar",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "scaling-containers": {
-    "term": "scaling containers",
-    "slug": "/terms/scaling-containers",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "orchestration_bridge",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "scaling": {
-    "term": "scaling",
-    "slug": "/terms/scaling",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "graphics"
-    ],
-    "definition": ""
-  },
-  "scheduler-assigns-pod": {
-    "term": "scheduler assigns pod",
-    "slug": "/terms/scheduler-assigns-pod",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "deployment_flow"
-    ],
-    "definition": ""
-  },
-  "scheduler": {
-    "term": "scheduler",
-    "slug": "/terms/scheduler",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "control_plane"
-    ],
-    "definition": ""
-  },
-  "scheduling": {
-    "term": "scheduling",
-    "slug": "/terms/scheduling",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "schema-design": {
-    "term": "schema design",
-    "slug": "/terms/schema-design",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "data_modeling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "schema-flexibility-vs-rigid-schema": {
-    "term": "schema flexibility vs rigid schema",
-    "slug": "/terms/schema-flexibility-vs-rigid-schema",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "comparison_sql",
-      "differences"
-    ],
-    "definition": ""
-  },
-  "schema-less-database": {
-    "term": "schema-less database",
-    "slug": "/terms/schema-less-database",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "schema": {
-    "term": "schema",
-    "slug": "/terms/schema",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "scope": {
-    "term": "scope",
-    "slug": "/terms/scope",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "core_js"
-    ],
-    "definition": ""
-  },
-  "scripts": {
-    "term": "scripts",
-    "slug": "/terms/scripts",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "scripting"
-    ],
-    "definition": ""
-  },
-  "scrollview": {
-    "term": "scrollview",
-    "slug": "/terms/scrollview",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "core_components"
-    ],
-    "definition": ""
-  },
-  "search-problem": {
-    "term": "search problem",
-    "slug": "/terms/search-problem",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "search-space-reduction": {
-    "term": "search space reduction",
-    "slug": "/terms/search-space-reduction",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "searching"
-    ],
-    "definition": ""
-  },
-  "search": {
-    "term": "search",
-    "slug": "/terms/search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "seasonality": {
-    "term": "seasonality",
-    "slug": "/terms/seasonality",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "second-derivative-test": {
-    "term": "second derivative test",
-    "slug": "/terms/second-derivative-test",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "curve_analysis",
-      "graphing"
-    ],
-    "definition": ""
-  },
-  "second-normal-form": {
-    "term": "second normal form",
-    "slug": "/terms/second-normal-form",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "normalization"
-    ],
-    "definition": ""
-  },
-  "secondary-index": {
-    "term": "secondary index",
-    "slug": "/terms/secondary-index",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "secret": {
-    "term": "secret",
-    "slug": "/terms/secret",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "configuration"
-    ],
-    "definition": ""
-  },
-  "secrets-management": {
-    "term": "secrets management",
-    "slug": "/terms/secrets-management",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "sectionlist": {
-    "term": "sectionlist",
-    "slug": "/terms/sectionlist",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "core_components"
-    ],
-    "definition": ""
-  },
-  "segment-tree": {
-    "term": "segment tree",
-    "slug": "/terms/segment-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "select": {
-    "term": "select",
-    "slug": "/terms/select",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "selection-bias": {
-    "term": "selection bias",
-    "slug": "/terms/selection-bias",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "bias"
-    ],
-    "definition": ""
-  },
-  "selection-sort": {
-    "term": "selection sort",
-    "slug": "/terms/selection-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "searching_and_sorting",
-      "sorting"
-    ],
-    "definition": ""
-  },
-  "self-attention": {
-    "term": "self attention",
-    "slug": "/terms/self-attention",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "transformers"
-    ],
-    "definition": ""
-  },
-  "self-healing-systems": {
-    "term": "self healing systems",
-    "slug": "/terms/self-healing-systems",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "selinux": {
-    "term": "selinux",
-    "slug": "/terms/selinux",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "semantic-html": {
-    "term": "semantic html",
-    "slug": "/terms/semantic-html",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "sentence-embeddings": {
-    "term": "sentence embeddings",
-    "slug": "/terms/sentence-embeddings",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "embeddings"
-    ],
-    "definition": ""
-  },
-  "seo": {
-    "term": "seo",
-    "slug": "/terms/seo",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "html_css",
-      "html"
-    ],
-    "definition": ""
-  },
-  "sequence-diagram": {
-    "term": "sequence diagram",
-    "slug": "/terms/sequence-diagram",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "modeling",
-      "uml"
-    ],
-    "definition": ""
-  },
-  "sequence": {
-    "term": "sequence",
-    "slug": "/terms/sequence",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "sequences"
-    ],
-    "definition": ""
-  },
-  "series": {
-    "term": "series",
-    "slug": "/terms/series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "series"
-    ],
-    "definition": ""
-  },
-  "server-actions": {
-    "term": "server actions",
-    "slug": "/terms/server-actions",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "server-client-boundary": {
-    "term": "server client boundary",
-    "slug": "/terms/server-client-boundary",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "architecture"
-    ],
-    "definition": ""
-  },
-  "server-components": {
-    "term": "server components",
-    "slug": "/terms/server-components",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "server-data-fetching": {
-    "term": "server data fetching",
-    "slug": "/terms/server-data-fetching",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "data_flow"
-    ],
-    "definition": ""
-  },
-  "server-first-rendering": {
-    "term": "server first rendering",
-    "slug": "/terms/server-first-rendering",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "server-side-fetch": {
-    "term": "server side fetch",
-    "slug": "/terms/server-side-fetch",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "data_fetching",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "server-side-rendering": {
-    "term": "server side rendering",
-    "slug": "/terms/server-side-rendering",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "server-side-routing": {
-    "term": "server side routing",
-    "slug": "/terms/server-side-routing",
-    "aliases": [],
-    "tags": [
-      "react",
-      "routing",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "server": {
-    "term": "server",
-    "slug": "/terms/server",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "serverless-functions": {
-    "term": "serverless functions",
-    "slug": "/terms/serverless-functions",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "api_layer",
-      "backend_patterns"
-    ],
-    "definition": ""
-  },
-  "serverless": {
-    "term": "serverless",
-    "slug": "/terms/serverless",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "servers": {
-    "term": "servers",
-    "slug": "/terms/servers",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "integration"
-    ],
-    "definition": ""
-  },
-  "service-account": {
-    "term": "service account",
-    "slug": "/terms/service-account",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "architecture",
-      "cluster_components"
-    ],
-    "definition": ""
-  },
-  "service-discovery": {
-    "term": "service discovery",
-    "slug": "/terms/service-discovery",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "service-exposes-pod": {
-    "term": "service exposes pod",
-    "slug": "/terms/service-exposes-pod",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "deployment_flow"
-    ],
-    "definition": ""
-  },
-  "service-layer": {
-    "term": "service layer",
-    "slug": "/terms/service-layer",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "service-replication": {
-    "term": "service replication",
-    "slug": "/terms/service-replication",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "orchestration_bridge",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "service-status": {
-    "term": "service status",
-    "slug": "/terms/service-status",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "service": {
-    "term": "service",
-    "slug": "/terms/service",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "networking"
-    ],
-    "definition": ""
-  },
-  "services": {
-    "term": "services",
-    "slug": "/terms/services",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "backend",
-      "node_ecosystem"
-    ],
-    "definition": ""
-  },
-  "sessions": {
-    "term": "sessions",
-    "slug": "/terms/sessions",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "auth"
-    ],
-    "definition": ""
-  },
-  "set-identities": {
-    "term": "set identities",
-    "slug": "/terms/set-identities",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "set-theory": {
-    "term": "set theory",
-    "slug": "/terms/set-theory",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "set": {
-    "term": "set",
-    "slug": "/terms/set",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "setstate": {
-    "term": "setstate",
-    "slug": "/terms/setstate",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "basic"
-    ],
-    "definition": ""
-  },
-  "setter": {
-    "term": "setter",
-    "slug": "/terms/setter",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "encapsulation",
-      "access_control"
-    ],
-    "definition": ""
-  },
-  "sharding": {
-    "term": "sharding",
-    "slug": "/terms/sharding",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "scaling",
-      "partitioning"
-    ],
-    "definition": ""
-  },
-  "shared-data-between-containers": {
-    "term": "shared data between containers",
-    "slug": "/terms/shared-data-between-containers",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "use_cases"
-    ],
-    "definition": ""
-  },
-  "shared-network-namespace": {
-    "term": "shared network namespace",
-    "slug": "/terms/shared-network-namespace",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "shared-preferences": {
-    "term": "shared preferences",
-    "slug": "/terms/shared-preferences",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "packages"
-    ],
-    "definition": ""
-  },
-  "shared-storage-volume": {
-    "term": "shared storage volume",
-    "slug": "/terms/shared-storage-volume",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "shares": {
-    "term": "shares",
-    "slug": "/terms/shares",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "sharpe-ratio": {
-    "term": "sharpe ratio",
-    "slug": "/terms/sharpe-ratio",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "shell-method": {
-    "term": "shell method",
-    "slug": "/terms/shell-method",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "area_volume"
-    ],
-    "definition": ""
-  },
-  "shell-scripting": {
-    "term": "shell scripting",
-    "slug": "/terms/shell-scripting",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "shell": {
-    "term": "shell",
-    "slug": "/terms/shell",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "ship-run-anywhere": {
-    "term": "ship run anywhere",
-    "slug": "/terms/ship-run-anywhere",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "shortest-path": {
-    "term": "shortest path",
-    "slug": "/terms/shortest-path",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "graph_theory",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "should-component-update": {
-    "term": "should component update",
-    "slug": "/terms/should-component-update",
-    "aliases": [],
-    "tags": [
-      "react",
-      "performance",
-      "rendering_control"
-    ],
-    "definition": ""
-  },
-  "side-effects": {
-    "term": "side effects",
-    "slug": "/terms/side-effects",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "sigmoid": {
-    "term": "sigmoid",
-    "slug": "/terms/sigmoid",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "significance-level": {
-    "term": "significance level",
-    "slug": "/terms/significance-level",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "simple-linear-regression": {
-    "term": "simple linear regression",
-    "slug": "/terms/simple-linear-regression",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "correlation_and_relationships",
-      "regression"
-    ],
-    "definition": ""
-  },
-  "single-codebase-cross-platform": {
-    "term": "single codebase cross platform",
-    "slug": "/terms/single-codebase-cross-platform",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "single-container-pod": {
-    "term": "single container pod",
-    "slug": "/terms/single-container-pod",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "single-inheritance": {
-    "term": "single inheritance",
-    "slug": "/terms/single-inheritance",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "types"
-    ],
-    "definition": ""
-  },
-  "single-responsibility-principle": {
-    "term": "single responsibility principle",
-    "slug": "/terms/single-responsibility-principle",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "solid"
-    ],
-    "definition": ""
-  },
-  "singleton-pattern": {
-    "term": "singleton pattern",
-    "slug": "/terms/singleton-pattern",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "singly-linked-list": {
-    "term": "singly linked list",
-    "slug": "/terms/singly-linked-list",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "linked_lists",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "skewness": {
-    "term": "skewness",
-    "slug": "/terms/skewness",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "distribution_shape"
-    ],
-    "definition": ""
-  },
-  "sliding-window": {
-    "term": "sliding window",
-    "slug": "/terms/sliding-window",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "sliver": {
-    "term": "sliver",
-    "slug": "/terms/sliver",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "layout_widgets"
-    ],
-    "definition": ""
-  },
-  "slope": {
-    "term": "slope",
-    "slug": "/terms/slope",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "slug-params": {
-    "term": "slug params",
-    "slug": "/terms/slug-params",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "routing",
-      "dynamic_routing"
-    ],
-    "definition": ""
-  },
-  "small-tools-do-one-thing-well": {
-    "term": "small tools do one thing well",
-    "slug": "/terms/small-tools-do-one-thing-well",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "snap": {
-    "term": "snap",
-    "slug": "/terms/snap",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "systems"
-    ],
-    "definition": ""
-  },
-  "sockets": {
-    "term": "sockets",
-    "slug": "/terms/sockets",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "softmax": {
-    "term": "softmax",
-    "slug": "/terms/softmax",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "solution-set": {
-    "term": "solution set",
-    "slug": "/terms/solution-set",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "sorting": {
-    "term": "sorting",
-    "slug": "/terms/sorting",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "applications",
-      "dsa"
-    ],
-    "definition": ""
-  },
-  "sortino-ratio": {
-    "term": "sortino ratio",
-    "slug": "/terms/sortino-ratio",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "space-complexity": {
-    "term": "space complexity",
-    "slug": "/terms/space-complexity",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "spaces": {
-    "term": "spaces",
-    "slug": "/terms/spaces",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "intuition"
-    ],
-    "definition": ""
-  },
-  "span": {
-    "term": "span",
-    "slug": "/terms/span",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "spectral-decomposition": {
-    "term": "spectral decomposition",
-    "slug": "/terms/spectral-decomposition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "eigen",
-      "applications"
-    ],
-    "definition": ""
-  },
-  "spectral-radius": {
-    "term": "spectral radius",
-    "slug": "/terms/spectral-radius",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "advanced_topics",
-      "spectral_theory"
-    ],
-    "definition": ""
-  },
-  "spherical-coordinates": {
-    "term": "spherical coordinates",
-    "slug": "/terms/spherical-coordinates",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "triple_integrals"
-    ],
-    "definition": ""
-  },
-  "sql-injection": {
-    "term": "sql injection",
-    "slug": "/terms/sql-injection",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "sql": {
-    "term": "sql",
-    "slug": "/terms/sql",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "sqlite": {
-    "term": "sqlite",
-    "slug": "/terms/sqlite",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "square-matrix": {
-    "term": "square matrix",
-    "slug": "/terms/square-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "ss": {
-    "term": "ss",
-    "slug": "/terms/ss",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "ssg": {
-    "term": "ssg",
-    "slug": "/terms/ssg",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "ssh-automation": {
-    "term": "ssh automation",
-    "slug": "/terms/ssh-automation",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "devops",
-      "integration"
-    ],
-    "definition": ""
-  },
-  "ssh": {
-    "term": "ssh",
-    "slug": "/terms/ssh",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "ssr": {
-    "term": "ssr",
-    "slug": "/terms/ssr",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "stability": {
-    "term": "stability",
-    "slug": "/terms/stability",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "advanced_topics",
-      "numerical_linear_algebra"
-    ],
-    "definition": ""
-  },
-  "stable-networking": {
-    "term": "stable networking",
-    "slug": "/terms/stable-networking",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "services",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "stack-navigation": {
-    "term": "stack navigation",
-    "slug": "/terms/stack-navigation",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "stack-navigator": {
-    "term": "stack navigator",
-    "slug": "/terms/stack-navigator",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "stack": {
-    "term": "stack",
-    "slug": "/terms/stack",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "basic_widgets"
-    ],
-    "definition": ""
-  },
-  "standard-deviation": {
-    "term": "standard deviation",
-    "slug": "/terms/standard-deviation",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "descriptive_statistics",
-      "dispersion"
-    ],
-    "definition": ""
-  },
-  "standardization": {
-    "term": "standardization",
-    "slug": "/terms/standardization",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "feature_engineering",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "start": {
-    "term": "start",
-    "slug": "/terms/start",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "startup-time-optimization": {
-    "term": "startup time optimization",
-    "slug": "/terms/startup-time-optimization",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "optimization",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "startup-time": {
-    "term": "startup time",
-    "slug": "/terms/startup-time",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "performance",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "state-colocation": {
-    "term": "state colocation",
-    "slug": "/terms/state-colocation",
-    "aliases": [],
-    "tags": [
-      "react",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "state-container-pattern": {
-    "term": "state container pattern",
-    "slug": "/terms/state-container-pattern",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "architecture",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "state-lifting": {
-    "term": "state lifting",
-    "slug": "/terms/state-lifting",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "state-space": {
-    "term": "state space",
-    "slug": "/terms/state-space",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "state": {
-    "term": "state",
-    "slug": "/terms/state",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "stateful-applications": {
-    "term": "stateful applications",
-    "slug": "/terms/stateful-applications",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "use_cases"
-    ],
-    "definition": ""
-  },
-  "stateful-set": {
-    "term": "stateful set",
-    "slug": "/terms/stateful-set",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "core_objects",
-      "workload"
-    ],
-    "definition": ""
-  },
-  "stateful-widget": {
-    "term": "stateful widget",
-    "slug": "/terms/stateful-widget",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "basic"
-    ],
-    "definition": ""
-  },
-  "stateless-widget": {
-    "term": "stateless widget",
-    "slug": "/terms/stateless-widget",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "state_management",
-      "basic"
-    ],
-    "definition": ""
-  },
-  "static-optimization": {
-    "term": "static optimization",
-    "slug": "/terms/static-optimization",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "build"
-    ],
-    "definition": ""
-  },
-  "static-site-generation": {
-    "term": "static site generation",
-    "slug": "/terms/static-site-generation",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "stationarity": {
-    "term": "stationarity",
-    "slug": "/terms/stationarity",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "statistic": {
-    "term": "statistic",
-    "slug": "/terms/statistic",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "statistics": {
-    "term": "statistics",
-    "slug": "/terms/statistics",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "stemming": {
-    "term": "stemming",
-    "slug": "/terms/stemming",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "stochastic-gradient-descent": {
-    "term": "stochastic gradient descent",
-    "slug": "/terms/stochastic-gradient-descent",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "optimization",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "stocks": {
-    "term": "stocks",
-    "slug": "/terms/stocks",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "equity"
-    ],
-    "definition": ""
-  },
-  "stokes-theorem": {
-    "term": "stokes theorem",
-    "slug": "/terms/stokes-theorem",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "theorems"
-    ],
-    "definition": ""
-  },
-  "stop-words": {
-    "term": "stop words",
-    "slug": "/terms/stop-words",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "stop": {
-    "term": "stop",
-    "slug": "/terms/stop",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "containers",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "stopped": {
-    "term": "stopped",
-    "slug": "/terms/stopped",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "storage-class": {
-    "term": "storage class",
-    "slug": "/terms/storage-class",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "strategy-pattern": {
-    "term": "strategy pattern",
-    "slug": "/terms/strategy-pattern",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "design_principles",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "stratified-sampling": {
-    "term": "stratified sampling",
-    "slug": "/terms/stratified-sampling",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "stream-builder": {
-    "term": "stream builder",
-    "slug": "/terms/stream-builder",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "patterns"
-    ],
-    "definition": ""
-  },
-  "stream": {
-    "term": "stream",
-    "slug": "/terms/stream",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "async_programming",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "streaming-rendering": {
-    "term": "streaming rendering",
-    "slug": "/terms/streaming-rendering",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "concurrency"
-    ],
-    "definition": ""
-  },
-  "streaming-ssr": {
-    "term": "streaming ssr",
-    "slug": "/terms/streaming-ssr",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "streaming"
-    ],
-    "definition": ""
-  },
-  "strike-price": {
-    "term": "strike price",
-    "slug": "/terms/strike-price",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "string": {
-    "term": "string",
-    "slug": "/terms/string",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "stripe": {
-    "term": "stripe",
-    "slug": "/terms/stripe",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "ecosystem",
-      "integrations"
-    ],
-    "definition": ""
-  },
-  "strong-consistency": {
-    "term": "strong consistency",
-    "slug": "/terms/strong-consistency",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "consistency",
-      "models"
-    ],
-    "definition": ""
-  },
-  "strong-induction": {
-    "term": "strong induction",
-    "slug": "/terms/strong-induction",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "proof_techniques",
-      "induction"
-    ],
-    "definition": ""
-  },
-  "style-props": {
-    "term": "style props",
-    "slug": "/terms/style-props",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "styled-components": {
-    "term": "styled components",
-    "slug": "/terms/styled-components",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "options"
-    ],
-    "definition": ""
-  },
-  "stylesheet": {
-    "term": "stylesheet",
-    "slug": "/terms/stylesheet",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "styling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "subclass": {
-    "term": "subclass",
-    "slug": "/terms/subclass",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "subquery": {
-    "term": "subquery",
-    "slug": "/terms/subquery",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "subqueries"
-    ],
-    "definition": ""
-  },
-  "subscriptions": {
-    "term": "subscriptions",
-    "slug": "/terms/subscriptions",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "subset": {
-    "term": "subset",
-    "slug": "/terms/subset",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "subspace": {
-    "term": "subspace",
-    "slug": "/terms/subspace",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "substitution-method": {
-    "term": "substitution method",
-    "slug": "/terms/substitution-method",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "recurrence_relations",
-      "solving"
-    ],
-    "definition": ""
-  },
-  "substitution": {
-    "term": "substitution",
-    "slug": "/terms/substitution",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "substring": {
-    "term": "substring",
-    "slug": "/terms/substring",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "succeeded": {
-    "term": "succeeded",
-    "slug": "/terms/succeeded",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "pods",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "sudo": {
-    "term": "sudo",
-    "slug": "/terms/sudo",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "suffix-array": {
-    "term": "suffix array",
-    "slug": "/terms/suffix-array",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "suffix-sum": {
-    "term": "suffix sum",
-    "slug": "/terms/suffix-sum",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "suffix-tree": {
-    "term": "suffix tree",
-    "slug": "/terms/suffix-tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "strings"
-    ],
-    "definition": ""
-  },
-  "sum": {
-    "term": "sum",
-    "slug": "/terms/sum",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "aggregation"
-    ],
-    "definition": ""
-  },
-  "super-keyword": {
-    "term": "super keyword",
-    "slug": "/terms/super-keyword",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "superclass": {
-    "term": "superclass",
-    "slug": "/terms/superclass",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "inheritance",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "support-vector-machine": {
-    "term": "support vector machine",
-    "slug": "/terms/support-vector-machine",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "supervised_learning",
-      "classification"
-    ],
-    "definition": ""
-  },
-  "surface-area": {
-    "term": "surface area",
-    "slug": "/terms/surface-area",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "physical"
-    ],
-    "definition": ""
-  },
-  "surjective": {
-    "term": "surjective",
-    "slug": "/terms/surjective",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "functions"
-    ],
-    "definition": ""
-  },
-  "suspense-boundaries": {
-    "term": "suspense boundaries",
-    "slug": "/terms/suspense-boundaries",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "rendering",
-      "streaming"
-    ],
-    "definition": ""
-  },
-  "suspense": {
-    "term": "suspense",
-    "slug": "/terms/suspense",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "advanced",
-      "concurrency"
-    ],
-    "definition": ""
-  },
-  "svd": {
-    "term": "svd",
-    "slug": "/terms/svd",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "decomposition",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "svelte": {
-    "term": "svelte",
-    "slug": "/terms/svelte",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "other_frameworks"
-    ],
-    "definition": ""
-  },
-  "swap": {
-    "term": "swap",
-    "slug": "/terms/swap",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "swaps": {
-    "term": "swaps",
-    "slug": "/terms/swaps",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "derivatives"
-    ],
-    "definition": ""
-  },
-  "symbolic-links": {
-    "term": "symbolic links",
-    "slug": "/terms/symbolic-links",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "symmetric-matrix": {
-    "term": "symmetric matrix",
-    "slug": "/terms/symmetric-matrix",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "properties"
-    ],
-    "definition": ""
-  },
-  "symmetric": {
-    "term": "symmetric",
-    "slug": "/terms/symmetric",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "relations"
-    ],
-    "definition": ""
-  },
-  "system-calls": {
-    "term": "system calls",
-    "slug": "/terms/system-calls",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "system-of-linear-equations": {
-    "term": "system of linear equations",
-    "slug": "/terms/system-of-linear-equations",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "systems_of_equations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "systematic-sampling": {
-    "term": "systematic sampling",
-    "slug": "/terms/systematic-sampling",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "sampling",
-      "methods"
-    ],
-    "definition": ""
-  },
-  "systemctl": {
-    "term": "systemctl",
-    "slug": "/terms/systemctl",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "commands"
-    ],
-    "definition": ""
-  },
-  "systemd": {
-    "term": "systemd",
-    "slug": "/terms/systemd",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "system_management",
-      "services"
-    ],
-    "definition": ""
-  },
-  "t-distribution": {
-    "term": "t distribution",
-    "slug": "/terms/t-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "continuous"
-    ],
-    "definition": ""
-  },
-  "t-sne": {
-    "term": "t-sne",
-    "slug": "/terms/t-sne",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "dimensionality_reduction"
-    ],
-    "definition": ""
-  },
-  "tab-navigator": {
-    "term": "tab navigator",
-    "slug": "/terms/tab-navigator",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "navigation",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "table": {
-    "term": "table",
-    "slug": "/terms/table",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "tabulation": {
-    "term": "tabulation",
-    "slug": "/terms/tabulation",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "dynamic_programming",
-      "fundamentals"
-    ],
-    "definition": ""
-  },
-  "tag-image": {
-    "term": "tag image",
-    "slug": "/terms/tag-image",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "images",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "tailwind-css": {
-    "term": "tailwind css",
-    "slug": "/terms/tailwind-css",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "styling",
-      "options"
-    ],
-    "definition": ""
-  },
-  "tangent-line": {
-    "term": "tangent line",
-    "slug": "/terms/tangent-line",
-    "aliases": [],
-    "tags": [
-      "calculus_i",
-      "derivatives",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "tangent-plane": {
-    "term": "tangent plane",
-    "slug": "/terms/tangent-plane",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multivariable_functions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "taylor-series": {
-    "term": "taylor series",
-    "slug": "/terms/taylor-series",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "sequences_series",
-      "power_series"
-    ],
-    "definition": ""
-  },
-  "tcp": {
-    "term": "tcp",
-    "slug": "/terms/tcp",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "terminal": {
-    "term": "terminal",
-    "slug": "/terms/terminal",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "terminating": {
-    "term": "terminating",
-    "slug": "/terms/terminating",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "lifecycle",
-      "states"
-    ],
-    "definition": ""
-  },
-  "test-set": {
-    "term": "test set",
-    "slug": "/terms/test-set",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "text-streams": {
-    "term": "text streams",
-    "slug": "/terms/text-streams",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "text-to-image": {
-    "term": "text to image",
-    "slug": "/terms/text-to-image",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "generative_ai"
-    ],
-    "definition": ""
-  },
-  "text": {
-    "term": "text",
-    "slug": "/terms/text",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "basic_widgets"
-    ],
-    "definition": ""
-  },
-  "textfield": {
-    "term": "textfield",
-    "slug": "/terms/textfield",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "widgets",
-      "input_widgets"
-    ],
-    "definition": ""
-  },
-  "textinput": {
-    "term": "textinput",
-    "slug": "/terms/textinput",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "core_components"
-    ],
-    "definition": ""
-  },
-  "theme-data": {
-    "term": "theme data",
-    "slug": "/terms/theme-data",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "styling"
-    ],
-    "definition": ""
-  },
-  "there-exists": {
-    "term": "there exists",
-    "slug": "/terms/there-exists",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "predicate_logic"
-    ],
-    "definition": ""
-  },
-  "third-normal-form": {
-    "term": "third normal form",
-    "slug": "/terms/third-normal-form",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "normalization"
-    ],
-    "definition": ""
-  },
-  "thread": {
-    "term": "thread",
-    "slug": "/terms/thread",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "time-complexity": {
-    "term": "time complexity",
-    "slug": "/terms/time-complexity",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "time-series": {
-    "term": "time series",
-    "slug": "/terms/time-series",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "tmp": {
-    "term": "tmp",
-    "slug": "/terms/tmp",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "tmpfs": {
-    "term": "tmpfs",
-    "slug": "/terms/tmpfs",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "tokenization": {
-    "term": "tokenization",
-    "slug": "/terms/tokenization",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "tool-use": {
-    "term": "tool use",
-    "slug": "/terms/tool-use",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "advanced_ai",
-      "agents"
-    ],
-    "definition": ""
-  },
-  "top": {
-    "term": "top",
-    "slug": "/terms/top",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "processes",
-      "management"
-    ],
-    "definition": ""
-  },
-  "topological-sort": {
-    "term": "topological sort",
-    "slug": "/terms/topological-sort",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "touchableopacity": {
-    "term": "touchableopacity",
-    "slug": "/terms/touchableopacity",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "interaction"
-    ],
-    "definition": ""
-  },
-  "traceroute": {
-    "term": "traceroute",
-    "slug": "/terms/traceroute",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "training-data": {
-    "term": "training data",
-    "slug": "/terms/training-data",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "supervised"
-    ],
-    "definition": ""
-  },
-  "training-set": {
-    "term": "training set",
-    "slug": "/terms/training-set",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "traits": {
-    "term": "traits",
-    "slug": "/terms/traits",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "advanced_oop",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "transaction": {
-    "term": "transaction",
-    "slug": "/terms/transaction",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "transactions",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "transactions": {
-    "term": "transactions",
-    "slug": "/terms/transactions",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "databases",
-      "relational"
-    ],
-    "definition": ""
-  },
-  "transformations": {
-    "term": "transformations",
-    "slug": "/terms/transformations",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "foundations",
-      "intuition"
-    ],
-    "definition": ""
-  },
-  "transformer-architecture": {
-    "term": "transformer architecture",
-    "slug": "/terms/transformer-architecture",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "transformers"
-    ],
-    "definition": ""
-  },
-  "transformer-model": {
-    "term": "transformer model",
-    "slug": "/terms/transformer-model",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "language_models"
-    ],
-    "definition": ""
-  },
-  "transformer": {
-    "term": "transformer",
-    "slug": "/terms/transformer",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "neural_networks",
-      "deep_learning"
-    ],
-    "definition": ""
-  },
-  "transition-model": {
-    "term": "transition model",
-    "slug": "/terms/transition-model",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "foundations",
-      "problem_solving"
-    ],
-    "definition": ""
-  },
-  "transitions": {
-    "term": "transitions",
-    "slug": "/terms/transitions",
-    "aliases": [],
-    "tags": [
-      "react",
-      "advanced_react",
-      "concurrent_react"
-    ],
-    "definition": ""
-  },
-  "transitive": {
-    "term": "transitive",
-    "slug": "/terms/transitive",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "functions_relations",
-      "relations"
-    ],
-    "definition": ""
-  },
-  "translation": {
-    "term": "translation",
-    "slug": "/terms/translation",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "applications",
-      "graphics"
-    ],
-    "definition": ""
-  },
-  "transpose": {
-    "term": "transpose",
-    "slug": "/terms/transpose",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "matrices",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "traversal-queries": {
-    "term": "traversal queries",
-    "slug": "/terms/traversal-queries",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "data_models",
-      "graph_db"
-    ],
-    "definition": ""
-  },
-  "treasury-bonds": {
-    "term": "treasury bonds",
-    "slug": "/terms/treasury-bonds",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "treatment-group": {
-    "term": "treatment group",
-    "slug": "/terms/treatment-group",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "experimental_design",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "tree-diffing": {
-    "term": "tree diffing",
-    "slug": "/terms/tree-diffing",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "tree-shaking": {
-    "term": "tree shaking",
-    "slug": "/terms/tree-shaking",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "optimization",
-      "build"
-    ],
-    "definition": ""
-  },
-  "tree": {
-    "term": "tree",
-    "slug": "/terms/tree",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "trend": {
-    "term": "trend",
-    "slug": "/terms/trend",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "time_series",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "trie": {
-    "term": "trie",
-    "slug": "/terms/trie",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "trees",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "trigonometric-substitution": {
-    "term": "trigonometric substitution",
-    "slug": "/terms/trigonometric-substitution",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "integration",
-      "techniques"
-    ],
-    "definition": ""
-  },
-  "triple-integral": {
-    "term": "triple integral",
-    "slug": "/terms/triple-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "multiple_integrals",
-      "triple_integrals"
-    ],
-    "definition": ""
-  },
-  "truth-tables": {
-    "term": "truth tables",
-    "slug": "/terms/truth-tables",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "logic",
-      "reasoning"
-    ],
-    "definition": ""
-  },
-  "ttfb": {
-    "term": "ttfb",
-    "slug": "/terms/ttfb",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "performance",
-      "metrics"
-    ],
-    "definition": ""
-  },
-  "turing-machine": {
-    "term": "turing machine",
-    "slug": "/terms/turing-machine",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "automata_theory",
-      "models"
-    ],
-    "definition": ""
-  },
-  "two-pointers": {
-    "term": "two pointers",
-    "slug": "/terms/two-pointers",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "arrays_and_strings",
-      "arrays"
-    ],
-    "definition": ""
-  },
-  "type-1-error": {
-    "term": "type 1 error",
-    "slug": "/terms/type-1-error",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "type-2-error": {
-    "term": "type 2 error",
-    "slug": "/terms/type-2-error",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "inferential_statistics",
-      "hypothesis_testing"
-    ],
-    "definition": ""
-  },
-  "typography": {
-    "term": "typography",
-    "slug": "/terms/typography",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ui_system",
-      "styling"
-    ],
-    "definition": ""
-  },
-  "udp": {
-    "term": "udp",
-    "slug": "/terms/udp",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "umap": {
-    "term": "umap",
-    "slug": "/terms/umap",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "unsupervised_learning",
-      "dimensionality_reduction"
-    ],
-    "definition": ""
-  },
-  "umask": {
-    "term": "umask",
-    "slug": "/terms/umask",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "advanced"
-    ],
-    "definition": ""
-  },
-  "uml-diagram": {
-    "term": "uml diagram",
-    "slug": "/terms/uml-diagram",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "modeling",
-      "uml"
-    ],
-    "definition": ""
-  },
-  "underfitting": {
-    "term": "underfitting",
-    "slug": "/terms/underfitting",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "undirected-graph": {
-    "term": "undirected graph",
-    "slug": "/terms/undirected-graph",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "unemployment-rate": {
-    "term": "unemployment rate",
-    "slug": "/terms/unemployment-rate",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "macroeconomics",
-      "indicators"
-    ],
-    "definition": ""
-  },
-  "unidirectional-data-flow": {
-    "term": "unidirectional data flow",
-    "slug": "/terms/unidirectional-data-flow",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "uniform-cost-search": {
-    "term": "uniform cost search",
-    "slug": "/terms/uniform-cost-search",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "search_algorithms",
-      "uninformed_search"
-    ],
-    "definition": ""
-  },
-  "uniform-distribution": {
-    "term": "uniform distribution",
-    "slug": "/terms/uniform-distribution",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "distributions",
-      "continuous"
-    ],
-    "definition": ""
-  },
-  "union-find": {
-    "term": "union find",
-    "slug": "/terms/union-find",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "algorithms"
-    ],
-    "definition": ""
-  },
-  "union": {
-    "term": "union",
-    "slug": "/terms/union",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "unique-constraint": {
-    "term": "unique constraint",
-    "slug": "/terms/unique-constraint",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "schema_design",
-      "design_principles"
-    ],
-    "definition": ""
-  },
-  "unit-vector": {
-    "term": "unit vector",
-    "slug": "/terms/unit-vector",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "universal-set": {
-    "term": "universal set",
-    "slug": "/terms/universal-set",
-    "aliases": [],
-    "tags": [
-      "discrete_math",
-      "sets",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "unix": {
-    "term": "unix",
-    "slug": "/terms/unix",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "unmounting": {
-    "term": "unmounting",
-    "slug": "/terms/unmounting",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "update-operators": {
-    "term": "update operators",
-    "slug": "/terms/update-operators",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "querying",
-      "mongodb_specific"
-    ],
-    "definition": ""
-  },
-  "update": {
-    "term": "update",
-    "slug": "/terms/update",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "updates": {
-    "term": "updates",
-    "slug": "/terms/updates",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "updating": {
-    "term": "updating",
-    "slug": "/terms/updating",
-    "aliases": [],
-    "tags": [
-      "react",
-      "components",
-      "lifecycle"
-    ],
-    "definition": ""
-  },
-  "use-case-diagram": {
-    "term": "use case diagram",
-    "slug": "/terms/use-case-diagram",
-    "aliases": [],
-    "tags": [
-      "oop",
-      "modeling",
-      "uml"
-    ],
-    "definition": ""
-  },
-  "use-client-directive": {
-    "term": "use client directive",
-    "slug": "/terms/use-client-directive",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "usecallback": {
-    "term": "useCallback",
-    "slug": "/terms/usecallback",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "usecontext": {
-    "term": "useContext",
-    "slug": "/terms/usecontext",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "basic_hooks"
-    ],
-    "definition": ""
-  },
-  "useeffect-cleanup": {
-    "term": "useEffect cleanup",
-    "slug": "/terms/useeffect-cleanup",
-    "aliases": [],
-    "tags": [
-      "react",
-      "side_effects",
-      "control"
-    ],
-    "definition": ""
-  },
-  "useeffect": {
-    "term": "useEffect",
-    "slug": "/terms/useeffect",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "basic_hooks"
-    ],
-    "definition": ""
-  },
-  "uselayouteffect": {
-    "term": "useLayoutEffect",
-    "slug": "/terms/uselayouteffect",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "additional_hooks"
-    ],
-    "definition": ""
-  },
-  "usememo": {
-    "term": "useMemo",
-    "slug": "/terms/usememo",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "user-permissions": {
-    "term": "user permissions",
-    "slug": "/terms/user-permissions",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "permissions",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "usereducer": {
-    "term": "useReducer",
-    "slug": "/terms/usereducer",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "state_management",
-      "local_state"
-    ],
-    "definition": ""
-  },
-  "useref": {
-    "term": "useRef",
-    "slug": "/terms/useref",
-    "aliases": [],
-    "tags": [
-      "react",
-      "hooks",
-      "additional_hooks"
-    ],
-    "definition": ""
-  },
-  "usestate": {
-    "term": "useState",
-    "slug": "/terms/usestate",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "state_management",
-      "local_state"
-    ],
-    "definition": ""
-  },
-  "usr": {
-    "term": "usr",
-    "slug": "/terms/usr",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "utility-function": {
-    "term": "utility function",
-    "slug": "/terms/utility-function",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "planning",
-      "decision_making"
-    ],
-    "definition": ""
-  },
-  "v8-engine": {
-    "term": "v8 engine",
-    "slug": "/terms/v8-engine",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "javascript",
-      "runtime"
-    ],
-    "definition": ""
-  },
-  "vae": {
-    "term": "vae",
-    "slug": "/terms/vae",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "generative_models"
-    ],
-    "definition": ""
-  },
-  "validation-set": {
-    "term": "validation set",
-    "slug": "/terms/validation-set",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "foundations",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "value-function": {
-    "term": "value function",
-    "slug": "/terms/value-function",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "machine_learning_bridge",
-      "reinforcement_learning"
-    ],
-    "definition": ""
-  },
-  "value-investing": {
-    "term": "value investing",
-    "slug": "/terms/value-investing",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "strategies"
-    ],
-    "definition": ""
-  },
-  "var": {
-    "term": "var",
-    "slug": "/terms/var",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "filesystem",
-      "structure"
-    ],
-    "definition": ""
-  },
-  "variable": {
-    "term": "variable",
-    "slug": "/terms/variable",
-    "aliases": [],
-    "tags": [
-      "statistics",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "variables": {
-    "term": "variables",
-    "slug": "/terms/variables",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "scripting"
-    ],
-    "definition": ""
-  },
-  "variance": {
-    "term": "variance",
-    "slug": "/terms/variance",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "probability"
-    ],
-    "definition": ""
-  },
-  "variational-autoencoder": {
-    "term": "variational autoencoder",
-    "slug": "/terms/variational-autoencoder",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "advanced_topics",
-      "generative_models"
-    ],
-    "definition": ""
-  },
-  "vector-addition": {
-    "term": "vector addition",
-    "slug": "/terms/vector-addition",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vectors",
-      "operations"
-    ],
-    "definition": ""
-  },
-  "vector-field": {
-    "term": "vector field",
-    "slug": "/terms/vector-field",
-    "aliases": [],
-    "tags": [
-      "calculus_iii",
-      "vector_calculus",
-      "fields"
-    ],
-    "definition": ""
-  },
-  "vector-projection": {
-    "term": "vector projection",
-    "slug": "/terms/vector-projection",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "projections",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "vector-space": {
-    "term": "vector space",
-    "slug": "/terms/vector-space",
-    "aliases": [],
-    "tags": [
-      "linear_algebra",
-      "vector_spaces",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "vector": {
-    "term": "vector",
-    "slug": "/terms/vector",
-    "aliases": [],
-    "tags": [
-      "machine_learning",
-      "mathematics",
-      "linear_algebra"
-    ],
-    "definition": ""
-  },
-  "vercel": {
-    "term": "vercel",
-    "slug": "/terms/vercel",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "deployment",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "vertex": {
-    "term": "vertex",
-    "slug": "/terms/vertex",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "vertical-scaling": {
-    "term": "vertical scaling",
-    "slug": "/terms/vertical-scaling",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "scaling",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "view": {
-    "term": "view",
-    "slug": "/terms/view",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "components",
-      "core_components"
-    ],
-    "definition": ""
-  },
-  "virtual-dom-diffing": {
-    "term": "virtual dom diffing",
-    "slug": "/terms/virtual-dom-diffing",
-    "aliases": [],
-    "tags": [
-      "react",
-      "performance",
-      "rendering_control"
-    ],
-    "definition": ""
-  },
-  "virtual-dom": {
-    "term": "virtual dom",
-    "slug": "/terms/virtual-dom",
-    "aliases": [],
-    "tags": [
-      "react",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "virtualization": {
-    "term": "virtualization",
-    "slug": "/terms/virtualization",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "virtualized-list": {
-    "term": "virtualized list",
-    "slug": "/terms/virtualized-list",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "performance",
-      "rendering"
-    ],
-    "definition": ""
-  },
-  "vision-transformer": {
-    "term": "vision transformer",
-    "slug": "/terms/vision-transformer",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "models"
-    ],
-    "definition": ""
-  },
-  "vite": {
-    "term": "vite",
-    "slug": "/terms/vite",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "vmstat": {
-    "term": "vmstat",
-    "slug": "/terms/vmstat",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "performance",
-      "monitoring"
-    ],
-    "definition": ""
-  },
-  "volatility": {
-    "term": "volatility",
-    "slug": "/terms/volatility",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "investing",
-      "risk"
-    ],
-    "definition": ""
-  },
-  "volume-of-revolution": {
-    "term": "volume of revolution",
-    "slug": "/terms/volume-of-revolution",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "area_volume"
-    ],
-    "definition": ""
-  },
-  "volumes": {
-    "term": "volumes",
-    "slug": "/terms/volumes",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "storage",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "vue": {
-    "term": "vue",
-    "slug": "/terms/vue",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "frontend_frameworks",
-      "other_frameworks"
-    ],
-    "definition": ""
-  },
-  "vulnerabilities": {
-    "term": "vulnerabilities",
-    "slug": "/terms/vulnerabilities",
-    "aliases": [],
-    "tags": [
-      "containerization",
-      "security",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "web-application": {
-    "term": "web application",
-    "slug": "/terms/web-application",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "web-page": {
-    "term": "web page",
-    "slug": "/terms/web-page",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "web": {
-    "term": "web",
-    "slug": "/terms/web",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "ecosystem",
-      "platforms"
-    ],
-    "definition": ""
-  },
-  "webpack": {
-    "term": "webpack",
-    "slug": "/terms/webpack",
-    "aliases": [],
-    "tags": [
-      "react",
-      "ecosystem",
-      "tooling"
-    ],
-    "definition": ""
-  },
-  "website": {
-    "term": "website",
-    "slug": "/terms/website",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "foundations",
-      "web_basics"
-    ],
-    "definition": ""
-  },
-  "weighted-graph": {
-    "term": "weighted graph",
-    "slug": "/terms/weighted-graph",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "graphs",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "wget": {
-    "term": "wget",
-    "slug": "/terms/wget",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "networking",
-      "tools"
-    ],
-    "definition": ""
-  },
-  "where-clause": {
-    "term": "where clause",
-    "slug": "/terms/where-clause",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "queries",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "widget-inspector": {
-    "term": "widget inspector",
-    "slug": "/terms/widget-inspector",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "debugging"
-    ],
-    "definition": ""
-  },
-  "widget-rebuild": {
-    "term": "widget rebuild",
-    "slug": "/terms/widget-rebuild",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "rendering",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "widget-reuse": {
-    "term": "widget reuse",
-    "slug": "/terms/widget-reuse",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "performance",
-      "optimization"
-    ],
-    "definition": ""
-  },
-  "widget-tree": {
-    "term": "widget tree",
-    "slug": "/terms/widget-tree",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "widget": {
-    "term": "widget",
-    "slug": "/terms/widget",
-    "aliases": [],
-    "tags": [
-      "flutter",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "window-function": {
-    "term": "window function",
-    "slug": "/terms/window-function",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "window_functions"
-    ],
-    "definition": ""
-  },
-  "with-clause": {
-    "term": "with clause",
-    "slug": "/terms/with-clause",
-    "aliases": [],
-    "tags": [
-      "sql",
-      "advanced_queries",
-      "cte"
-    ],
-    "definition": ""
-  },
-  "word-embeddings": {
-    "term": "word embeddings",
-    "slug": "/terms/word-embeddings",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "embeddings"
-    ],
-    "definition": ""
-  },
-  "word2vec": {
-    "term": "word2vec",
-    "slug": "/terms/word2vec",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "natural_language_processing",
-      "embeddings"
-    ],
-    "definition": ""
-  },
-  "work-integral": {
-    "term": "work integral",
-    "slug": "/terms/work-integral",
-    "aliases": [],
-    "tags": [
-      "calculus_ii",
-      "applications",
-      "physical"
-    ],
-    "definition": ""
-  },
-  "workdir": {
-    "term": "WORKDIR",
-    "slug": "/terms/workdir",
-    "aliases": [],
-    "tags": [
-      "docker",
-      "dockerfile",
-      "instructions"
-    ],
-    "definition": ""
-  },
-  "worker-node": {
-    "term": "worker node",
-    "slug": "/terms/worker-node",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "foundations",
-      "core_concepts"
-    ],
-    "definition": ""
-  },
-  "worst-case": {
-    "term": "worst case",
-    "slug": "/terms/worst-case",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "foundations",
-      "complexity"
-    ],
-    "definition": ""
-  },
-  "write-amplification": {
-    "term": "write amplification",
-    "slug": "/terms/write-amplification",
-    "aliases": [],
-    "tags": [
-      "nosql",
-      "indexing",
-      "performance"
-    ],
-    "definition": ""
-  },
-  "write-once-run-anywhere": {
-    "term": "write once run anywhere",
-    "slug": "/terms/write-once-run-anywhere",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "foundations",
-      "philosophy"
-    ],
-    "definition": ""
-  },
-  "xor-tricks": {
-    "term": "xor tricks",
-    "slug": "/terms/xor-tricks",
-    "aliases": [],
-    "tags": [
-      "dsa",
-      "advanced_topics",
-      "bit_manipulation"
-    ],
-    "definition": ""
-  },
-  "xss": {
-    "term": "xss",
-    "slug": "/terms/xss",
-    "aliases": [],
-    "tags": [
-      "web_development",
-      "security",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "yaml-manifests": {
-    "term": "yaml manifests",
-    "slug": "/terms/yaml-manifests",
-    "aliases": [],
-    "tags": [
-      "k8s",
-      "configuration",
-      "concepts"
-    ],
-    "definition": ""
-  },
-  "yield-curve": {
-    "term": "yield curve",
-    "slug": "/terms/yield-curve",
-    "aliases": [],
-    "tags": [
-      "finance",
-      "markets",
-      "fixed_income"
-    ],
-    "definition": ""
-  },
-  "yolo": {
-    "term": "yolo",
-    "slug": "/terms/yolo",
-    "aliases": [],
-    "tags": [
-      "ai",
-      "computer_vision",
-      "models"
-    ],
-    "definition": ""
-  },
-  "yum": {
-    "term": "yum",
-    "slug": "/terms/yum",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "package_management",
-      "systems"
-    ],
-    "definition": ""
-  },
-  "zero-bundle-components": {
-    "term": "zero bundle components",
-    "slug": "/terms/zero-bundle-components",
-    "aliases": [],
-    "tags": [
-      "next_js",
-      "server_components",
-      "data_flow"
-    ],
-    "definition": ""
-  },
-  "zsh": {
-    "term": "zsh",
-    "slug": "/terms/zsh",
-    "aliases": [],
-    "tags": [
-      "linux",
-      "shell",
-      "basics"
-    ],
-    "definition": ""
-  },
-  "zustand": {
-    "term": "zustand",
-    "slug": "/terms/zustand",
-    "aliases": [],
-    "tags": [
-      "react_native",
-      "state_management",
-      "global_state"
-    ],
-    "definition": ""
-  }
-};
+  '3d-transformations': {
+    term: '3d transformations',
+    slug: '/terms/3d-transformations',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'graphics'],
+    definition: '',
+  },
+  'a-b-testing': {
+    term: 'a b testing',
+    slug: '/terms/a-b-testing',
+    aliases: [],
+    tags: ['statistics', 'applications', 'data_systems'],
+    definition: '',
+  },
+  'a-star-search': {
+    term: 'a star search',
+    slug: '/terms/a-star-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'informed_search'],
+    definition: '',
+  },
+  'abductive-reasoning': {
+    term: 'abductive reasoning',
+    slug: '/terms/abductive-reasoning',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'reasoning'],
+    definition: '',
+  },
+  'abstract-class': {
+    term: 'abstract class',
+    slug: '/terms/abstract-class',
+    aliases: [],
+    tags: ['oop', 'abstraction', 'concepts'],
+    definition: '',
+  },
+  'abstract-classes': {
+    term: 'abstract classes',
+    slug: '/terms/abstract-classes',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'oop'],
+    definition: '',
+  },
+  'abstraction-over-pods': {
+    term: 'abstraction over pods',
+    slug: '/terms/abstraction-over-pods',
+    aliases: [],
+    tags: ['k8s', 'services', 'concepts'],
+    definition: '',
+  },
+  abstraction: {
+    term: 'abstraction',
+    slug: '/terms/abstraction',
+    aliases: [],
+    tags: ['oop', 'abstraction', 'concepts'],
+    definition: '',
+  },
+  accelerometer: {
+    term: 'accelerometer',
+    slug: '/terms/accelerometer',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'hardware'],
+    definition: '',
+  },
+  'access-control': {
+    term: 'access control',
+    slug: '/terms/access-control',
+    aliases: [],
+    tags: ['linux', 'permissions', 'advanced'],
+    definition: '',
+  },
+  accessibility: {
+    term: 'accessibility',
+    slug: '/terms/accessibility',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  accuracy: {
+    term: 'accuracy',
+    slug: '/terms/accuracy',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  'acid-properties': {
+    term: 'acid properties',
+    slug: '/terms/acid-properties',
+    aliases: [],
+    tags: ['sql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  'action-space': {
+    term: 'action space',
+    slug: '/terms/action-space',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  'activation-function': {
+    term: 'activation function',
+    slug: '/terms/activation-function',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  'activity-selection': {
+    term: 'activity selection',
+    slug: '/terms/activity-selection',
+    aliases: [],
+    tags: ['dsa', 'greedy', 'basics'],
+    definition: '',
+  },
+  'adam-optimizer': {
+    term: 'adam optimizer',
+    slug: '/terms/adam-optimizer',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'algorithms'],
+    definition: '',
+  },
+  add: {
+    term: 'ADD',
+    slug: '/terms/add',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  'addition-rule': {
+    term: 'addition rule',
+    slug: '/terms/addition-rule',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'rules'],
+    definition: '',
+  },
+  'adjacency-list': {
+    term: 'adjacency list',
+    slug: '/terms/adjacency-list',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  'adjacency-matrix': {
+    term: 'adjacency matrix',
+    slug: '/terms/adjacency-matrix',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  agent: {
+    term: 'agent',
+    slug: '/terms/agent',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'aggregation-pipeline': {
+    term: 'aggregation pipeline',
+    slug: '/terms/aggregation-pipeline',
+    aliases: [],
+    tags: ['nosql', 'querying', 'mongodb_specific'],
+    definition: '',
+  },
+  aggregation: {
+    term: 'aggregation',
+    slug: '/terms/aggregation',
+    aliases: [],
+    tags: ['oop', 'class_design', 'relationships'],
+    definition: '',
+  },
+  'ai-alignment': {
+    term: 'ai alignment',
+    slug: '/terms/ai-alignment',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'alignment'],
+    definition: '',
+  },
+  aks: {
+    term: 'aks',
+    slug: '/terms/aks',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'tools'],
+    definition: '',
+  },
+  'algorithm-correctness': {
+    term: 'algorithm correctness',
+    slug: '/terms/algorithm-correctness',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'importance'],
+    definition: '',
+  },
+  'algorithm-design': {
+    term: 'algorithm design',
+    slug: '/terms/algorithm-design',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'dsa'],
+    definition: '',
+  },
+  'alpha-beta-pruning': {
+    term: 'alpha beta pruning',
+    slug: '/terms/alpha-beta-pruning',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'adversarial_search'],
+    definition: '',
+  },
+  alpha: {
+    term: 'alpha',
+    slug: '/terms/alpha',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  'alternating-series-test': {
+    term: 'alternating series test',
+    slug: '/terms/alternating-series-test',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'convergence_tests'],
+    definition: '',
+  },
+  'alternative-hypothesis': {
+    term: 'alternative hypothesis',
+    slug: '/terms/alternative-hypothesis',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  'amortized-analysis': {
+    term: 'amortized analysis',
+    slug: '/terms/amortized-analysis',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  anagram: {
+    term: 'anagram',
+    slug: '/terms/anagram',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'strings'],
+    definition: '',
+  },
+  and: {
+    term: 'and',
+    slug: '/terms/and',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  'android-integration': {
+    term: 'android integration',
+    slug: '/terms/android-integration',
+    aliases: [],
+    tags: ['flutter', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  android: {
+    term: 'android',
+    slug: '/terms/android',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'platforms'],
+    definition: '',
+  },
+  'angle-between-vectors': {
+    term: 'angle between vectors',
+    slug: '/terms/angle-between-vectors',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'geometry'],
+    definition: '',
+  },
+  angular: {
+    term: 'angular',
+    slug: '/terms/angular',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'other_frameworks'],
+    definition: '',
+  },
+  'api-routes': {
+    term: 'api routes',
+    slug: '/terms/api-routes',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'concepts'],
+    definition: '',
+  },
+  'api-server': {
+    term: 'api server',
+    slug: '/terms/api-server',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'control_plane'],
+    definition: '',
+  },
+  'api-versioning': {
+    term: 'api versioning',
+    slug: '/terms/api-versioning',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'api_design'],
+    definition: '',
+  },
+  api: {
+    term: 'api',
+    slug: '/terms/api',
+    aliases: [],
+    tags: ['web_development', 'backend', 'core_concepts'],
+    definition: '',
+  },
+  'app-router': {
+    term: 'app router',
+    slug: '/terms/app-router',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  'app-store-deployment': {
+    term: 'app store deployment',
+    slug: '/terms/app-store-deployment',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'deployment'],
+    definition: '',
+  },
+  apparmor: {
+    term: 'apparmor',
+    slug: '/terms/apparmor',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  apt: {
+    term: 'apt',
+    slug: '/terms/apt',
+    aliases: [],
+    tags: ['linux', 'package_management', 'systems'],
+    definition: '',
+  },
+  'arc-length': {
+    term: 'arc length',
+    slug: '/terms/arc-length',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'physical'],
+    definition: '',
+  },
+  'area-between-curves': {
+    term: 'area between curves',
+    slug: '/terms/area-between-curves',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'area_volume'],
+    definition: '',
+  },
+  'area-under-curve': {
+    term: 'area under curve',
+    slug: '/terms/area-under-curve',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'area_volume'],
+    definition: '',
+  },
+  'argo-cd': {
+    term: 'argo cd',
+    slug: '/terms/argo-cd',
+    aliases: [],
+    tags: ['k8s', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  arima: {
+    term: 'arima',
+    slug: '/terms/arima',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'models'],
+    definition: '',
+  },
+  array: {
+    term: 'array',
+    slug: '/terms/array',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  'artifact-storage': {
+    term: 'artifact storage',
+    slug: '/terms/artifact-storage',
+    aliases: [],
+    tags: ['docker', 'registries', 'concepts'],
+    definition: '',
+  },
+  'artificial-intelligence': {
+    term: 'artificial intelligence',
+    slug: '/terms/artificial-intelligence',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'asset-allocation': {
+    term: 'asset allocation',
+    slug: '/terms/asset-allocation',
+    aliases: [],
+    tags: ['finance', 'investing', 'portfolio'],
+    definition: '',
+  },
+  association: {
+    term: 'association',
+    slug: '/terms/association',
+    aliases: [],
+    tags: ['oop', 'class_design', 'relationships'],
+    definition: '',
+  },
+  'asymptotic-analysis': {
+    term: 'asymptotic analysis',
+    slug: '/terms/asymptotic-analysis',
+    aliases: [],
+    tags: ['discrete_math', 'complexity', 'concepts'],
+    definition: '',
+  },
+  'async-await': {
+    term: 'async await',
+    slug: '/terms/async-await',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'concepts'],
+    definition: '',
+  },
+  'async-widget': {
+    term: 'async widget',
+    slug: '/terms/async-widget',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'patterns'],
+    definition: '',
+  },
+  'atomic-design': {
+    term: 'atomic design',
+    slug: '/terms/atomic-design',
+    aliases: [],
+    tags: ['react', 'advanced_react', 'architecture'],
+    definition: '',
+  },
+  'atomic-operations': {
+    term: 'atomic operations',
+    slug: '/terms/atomic-operations',
+    aliases: [],
+    tags: ['nosql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  atomicity: {
+    term: 'atomicity',
+    slug: '/terms/atomicity',
+    aliases: [],
+    tags: ['sql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  'attention-matrices': {
+    term: 'attention matrices',
+    slug: '/terms/attention-matrices',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'ai_systems'],
+    definition: '',
+  },
+  'attention-mechanism': {
+    term: 'attention mechanism',
+    slug: '/terms/attention-mechanism',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'transformers'],
+    definition: '',
+  },
+  attribute: {
+    term: 'attribute',
+    slug: '/terms/attribute',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  auc: {
+    term: 'auc',
+    slug: '/terms/auc',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  'augmented-matrix': {
+    term: 'augmented matrix',
+    slug: '/terms/augmented-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'concepts'],
+    definition: '',
+  },
+  'authentication-middleware': {
+    term: 'authentication middleware',
+    slug: '/terms/authentication-middleware',
+    aliases: [],
+    tags: ['next_js', 'middleware', 'concepts'],
+    definition: '',
+  },
+  authentication: {
+    term: 'authentication',
+    slug: '/terms/authentication',
+    aliases: [],
+    tags: ['web_development', 'backend', 'core_concepts'],
+    definition: '',
+  },
+  authjs: {
+    term: 'authjs',
+    slug: '/terms/authjs',
+    aliases: [],
+    tags: ['next_js', 'ecosystem', 'integrations'],
+    definition: '',
+  },
+  authorization: {
+    term: 'authorization',
+    slug: '/terms/authorization',
+    aliases: [],
+    tags: ['web_development', 'backend', 'core_concepts'],
+    definition: '',
+  },
+  'auto-scaling': {
+    term: 'auto scaling',
+    slug: '/terms/auto-scaling',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'concepts'],
+    definition: '',
+  },
+  'automated-deployment': {
+    term: 'automated deployment',
+    slug: '/terms/automated-deployment',
+    aliases: [],
+    tags: ['docker', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'autonomous-agent': {
+    term: 'autonomous agent',
+    slug: '/terms/autonomous-agent',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'agents'],
+    definition: '',
+  },
+  'autoregressive-model': {
+    term: 'autoregressive model',
+    slug: '/terms/autoregressive-model',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'models'],
+    definition: '',
+  },
+  'average-case': {
+    term: 'average case',
+    slug: '/terms/average-case',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  avg: {
+    term: 'avg',
+    slug: '/terms/avg',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'aws-ecs': {
+    term: 'aws ecs',
+    slug: '/terms/aws-ecs',
+    aliases: [],
+    tags: ['containerization', 'ecosystems', 'platforms'],
+    definition: '',
+  },
+  aws: {
+    term: 'aws',
+    slug: '/terms/aws',
+    aliases: [],
+    tags: ['web_development', 'deployment', 'platforms'],
+    definition: '',
+  },
+  'azure-container-instances': {
+    term: 'azure container instances',
+    slug: '/terms/azure-container-instances',
+    aliases: [],
+    tags: ['containerization', 'ecosystems', 'platforms'],
+    definition: '',
+  },
+  'b-tree-index': {
+    term: 'b tree index',
+    slug: '/terms/b-tree-index',
+    aliases: [],
+    tags: ['sql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  babel: {
+    term: 'babel',
+    slug: '/terms/babel',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'backend-for-frontend': {
+    term: 'backend for frontend',
+    slug: '/terms/backend-for-frontend',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'backend_patterns'],
+    definition: '',
+  },
+  backend: {
+    term: 'backend',
+    slug: '/terms/backend',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  'background-process': {
+    term: 'background process',
+    slug: '/terms/background-process',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  'background-tasks': {
+    term: 'background tasks',
+    slug: '/terms/background-tasks',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'system'],
+    definition: '',
+  },
+  backpropagation: {
+    term: 'backpropagation',
+    slug: '/terms/backpropagation',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'architecture'],
+    definition: '',
+  },
+  backtracking: {
+    term: 'backtracking',
+    slug: '/terms/backtracking',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'recursion'],
+    definition: '',
+  },
+  'balance-sheet': {
+    term: 'balance sheet',
+    slug: '/terms/balance-sheet',
+    aliases: [],
+    tags: ['finance', 'accounting', 'statements'],
+    definition: '',
+  },
+  'balanced-bst': {
+    term: 'balanced bst',
+    slug: '/terms/balanced-bst',
+    aliases: [],
+    tags: ['dsa', 'trees', 'binary_search_tree'],
+    definition: '',
+  },
+  'base-case': {
+    term: 'base case',
+    slug: '/terms/base-case',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'recursion'],
+    definition: '',
+  },
+  'base-image': {
+    term: 'base image',
+    slug: '/terms/base-image',
+    aliases: [],
+    tags: ['docker', 'images', 'concepts'],
+    definition: '',
+  },
+  'bash-automation': {
+    term: 'bash automation',
+    slug: '/terms/bash-automation',
+    aliases: [],
+    tags: ['linux', 'devops', 'tooling'],
+    definition: '',
+  },
+  bash: {
+    term: 'bash',
+    slug: '/terms/bash',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  'basis-transformation': {
+    term: 'basis transformation',
+    slug: '/terms/basis-transformation',
+    aliases: [],
+    tags: ['linear_algebra', 'linear_transformations', 'representation'],
+    definition: '',
+  },
+  'basis-vectors': {
+    term: 'basis vectors',
+    slug: '/terms/basis-vectors',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'dimension'],
+    definition: '',
+  },
+  basis: {
+    term: 'basis',
+    slug: '/terms/basis',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'concepts'],
+    definition: '',
+  },
+  'batch-normalization': {
+    term: 'batch normalization',
+    slug: '/terms/batch-normalization',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'architecture'],
+    definition: '',
+  },
+  'bayes-theorem': {
+    term: 'bayes theorem',
+    slug: '/terms/bayes-theorem',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  'bayesian-inference': {
+    term: 'bayesian inference',
+    slug: '/terms/bayesian-inference',
+    aliases: [],
+    tags: ['statistics', 'bayesian_statistics', 'inference'],
+    definition: '',
+  },
+  'bayesian-networks': {
+    term: 'bayesian networks',
+    slug: '/terms/bayesian-networks',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'uncertainty'],
+    definition: '',
+  },
+  'bayesian-updating': {
+    term: 'bayesian updating',
+    slug: '/terms/bayesian-updating',
+    aliases: [],
+    tags: ['statistics', 'bayesian_statistics', 'inference'],
+    definition: '',
+  },
+  behavior: {
+    term: 'behavior',
+    slug: '/terms/behavior',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'bellman-ford': {
+    term: 'bellman ford',
+    slug: '/terms/bellman-ford',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  'bernoulli-distribution': {
+    term: 'bernoulli distribution',
+    slug: '/terms/bernoulli-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'discrete'],
+    definition: '',
+  },
+  bert: {
+    term: 'bert',
+    slug: '/terms/bert',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'transformers'],
+    definition: '',
+  },
+  'best-case': {
+    term: 'best case',
+    slug: '/terms/best-case',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  beta: {
+    term: 'beta',
+    slug: '/terms/beta',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  between: {
+    term: 'between',
+    slug: '/terms/between',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  bfs: {
+    term: 'bfs',
+    slug: '/terms/bfs',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'traversal'],
+    definition: '',
+  },
+  'bias-variance-tradeoff': {
+    term: 'bias variance tradeoff',
+    slug: '/terms/bias-variance-tradeoff',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'metrics'],
+    definition: '',
+  },
+  biconditional: {
+    term: 'biconditional',
+    slug: '/terms/biconditional',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'propositional_logic'],
+    definition: '',
+  },
+  'big-o-notation': {
+    term: 'big o notation',
+    slug: '/terms/big-o-notation',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  'big-omega': {
+    term: 'big omega',
+    slug: '/terms/big-omega',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  'big-theta': {
+    term: 'big theta',
+    slug: '/terms/big-theta',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  bigtable: {
+    term: 'bigtable',
+    slug: '/terms/bigtable',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'wide_column'],
+    definition: '',
+  },
+  bijective: {
+    term: 'bijective',
+    slug: '/terms/bijective',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'functions'],
+    definition: '',
+  },
+  bin: {
+    term: 'bin',
+    slug: '/terms/bin',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  'binary-search-tree': {
+    term: 'binary search tree',
+    slug: '/terms/binary-search-tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'binary_search_tree'],
+    definition: '',
+  },
+  'binary-search': {
+    term: 'binary search',
+    slug: '/terms/binary-search',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'searching'],
+    definition: '',
+  },
+  'binary-tree': {
+    term: 'binary tree',
+    slug: '/terms/binary-tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  'bind-mounts': {
+    term: 'bind mounts',
+    slug: '/terms/bind-mounts',
+    aliases: [],
+    tags: ['docker', 'storage', 'concepts'],
+    definition: '',
+  },
+  'binomial-coefficient': {
+    term: 'binomial coefficient',
+    slug: '/terms/binomial-coefficient',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'counting'],
+    definition: '',
+  },
+  'binomial-distribution': {
+    term: 'binomial distribution',
+    slug: '/terms/binomial-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'discrete'],
+    definition: '',
+  },
+  'bipartite-graph': {
+    term: 'bipartite graph',
+    slug: '/terms/bipartite-graph',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'advanced'],
+    definition: '',
+  },
+  'bit-manipulation': {
+    term: 'bit manipulation',
+    slug: '/terms/bit-manipulation',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'bit_manipulation'],
+    definition: '',
+  },
+  'bit-masking': {
+    term: 'bit masking',
+    slug: '/terms/bit-masking',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'bit_manipulation'],
+    definition: '',
+  },
+  bloc: {
+    term: 'bloc',
+    slug: '/terms/bloc',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'advanced'],
+    definition: '',
+  },
+  'blue-green-deployment': {
+    term: 'blue green deployment',
+    slug: '/terms/blue-green-deployment',
+    aliases: [],
+    tags: ['k8s', 'devops', 'deployment_patterns'],
+    definition: '',
+  },
+  bonds: {
+    term: 'bonds',
+    slug: '/terms/bonds',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'box-model': {
+    term: 'box model',
+    slug: '/terms/box-model',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  'boyce-codd-normal-form': {
+    term: 'boyce codd normal form',
+    slug: '/terms/boyce-codd-normal-form',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'normalization'],
+    definition: '',
+  },
+  'breadth-first-search': {
+    term: 'breadth first search',
+    slug: '/terms/breadth-first-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'uninformed_search'],
+    definition: '',
+  },
+  'bridge-network': {
+    term: 'bridge network',
+    slug: '/terms/bridge-network',
+    aliases: [],
+    tags: ['docker', 'networking', 'concepts'],
+    definition: '',
+  },
+  bridge: {
+    term: 'bridge',
+    slug: '/terms/bridge',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  'bst-deletion': {
+    term: 'bst deletion',
+    slug: '/terms/bst-deletion',
+    aliases: [],
+    tags: ['dsa', 'trees', 'binary_search_tree'],
+    definition: '',
+  },
+  'bst-insertion': {
+    term: 'bst insertion',
+    slug: '/terms/bst-insertion',
+    aliases: [],
+    tags: ['dsa', 'trees', 'binary_search_tree'],
+    definition: '',
+  },
+  'bst-search': {
+    term: 'bst search',
+    slug: '/terms/bst-search',
+    aliases: [],
+    tags: ['dsa', 'trees', 'binary_search_tree'],
+    definition: '',
+  },
+  'bubble-sort': {
+    term: 'bubble sort',
+    slug: '/terms/bubble-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'build-context': {
+    term: 'build context',
+    slug: '/terms/build-context',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'concepts'],
+    definition: '',
+  },
+  'build-image': {
+    term: 'build image',
+    slug: '/terms/build-image',
+    aliases: [],
+    tags: ['docker', 'images', 'lifecycle'],
+    definition: '',
+  },
+  'build-once-run-anywhere': {
+    term: 'build once run anywhere',
+    slug: '/terms/build-once-run-anywhere',
+    aliases: [],
+    tags: ['docker', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'build-phase': {
+    term: 'build phase',
+    slug: '/terms/build-phase',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'pipeline'],
+    definition: '',
+  },
+  'build-process': {
+    term: 'build process',
+    slug: '/terms/build-process',
+    aliases: [],
+    tags: ['web_development', 'deployment', 'concepts'],
+    definition: '',
+  },
+  build: {
+    term: 'build',
+    slug: '/terms/build',
+    aliases: [],
+    tags: ['docker', 'architecture', 'workflow'],
+    definition: '',
+  },
+  'bundle-analysis': {
+    term: 'bundle analysis',
+    slug: '/terms/bundle-analysis',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'build'],
+    definition: '',
+  },
+  bundling: {
+    term: 'bundling',
+    slug: '/terms/bundling',
+    aliases: [],
+    tags: ['web_development', 'performance', 'optimization'],
+    definition: '',
+  },
+  button: {
+    term: 'button',
+    slug: '/terms/button',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'input_widgets'],
+    definition: '',
+  },
+  cache: {
+    term: 'cache',
+    slug: '/terms/cache',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'caching'],
+    definition: '',
+  },
+  'caching-behavior': {
+    term: 'caching behavior',
+    slug: '/terms/caching-behavior',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'concepts'],
+    definition: '',
+  },
+  'caching-layer': {
+    term: 'caching layer',
+    slug: '/terms/caching-layer',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'applications'],
+    definition: '',
+  },
+  'caching-layers': {
+    term: 'caching layers',
+    slug: '/terms/caching-layers',
+    aliases: [],
+    tags: ['containerization', 'docker', 'concepts'],
+    definition: '',
+  },
+  caching: {
+    term: 'caching',
+    slug: '/terms/caching',
+    aliases: [],
+    tags: ['web_development', 'performance', 'optimization'],
+    definition: '',
+  },
+  'call-option': {
+    term: 'call option',
+    slug: '/terms/call-option',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  'call-stack': {
+    term: 'call stack',
+    slug: '/terms/call-stack',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'recursion'],
+    definition: '',
+  },
+  'camera-access': {
+    term: 'camera access',
+    slug: '/terms/camera-access',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'capabilities'],
+    definition: '',
+  },
+  camera: {
+    term: 'camera',
+    slug: '/terms/camera',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'hardware'],
+    definition: '',
+  },
+  'canary-deployment': {
+    term: 'canary deployment',
+    slug: '/terms/canary-deployment',
+    aliases: [],
+    tags: ['k8s', 'devops', 'deployment_patterns'],
+    definition: '',
+  },
+  'cartesian-product': {
+    term: 'cartesian product',
+    slug: '/terms/cartesian-product',
+    aliases: [],
+    tags: ['sql', 'joins', 'concepts'],
+    definition: '',
+  },
+  'cash-flow-statement': {
+    term: 'cash flow statement',
+    slug: '/terms/cash-flow-statement',
+    aliases: [],
+    tags: ['finance', 'accounting', 'statements'],
+    definition: '',
+  },
+  cassandra: {
+    term: 'cassandra',
+    slug: '/terms/cassandra',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  'catch-all-routes': {
+    term: 'catch all routes',
+    slug: '/terms/catch-all-routes',
+    aliases: [],
+    tags: ['next_js', 'routing', 'dynamic_routing'],
+    definition: '',
+  },
+  'categorical-data': {
+    term: 'categorical data',
+    slug: '/terms/categorical-data',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'data_types'],
+    definition: '',
+  },
+  'causal-consistency': {
+    term: 'causal consistency',
+    slug: '/terms/causal-consistency',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'models'],
+    definition: '',
+  },
+  cdn: {
+    term: 'cdn',
+    slug: '/terms/cdn',
+    aliases: [],
+    tags: ['web_development', 'performance', 'optimization'],
+    definition: '',
+  },
+  center: {
+    term: 'center',
+    slug: '/terms/center',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'basic_widgets'],
+    definition: '',
+  },
+  cgroups: {
+    term: 'cgroups',
+    slug: '/terms/cgroups',
+    aliases: [],
+    tags: ['linux', 'containers', 'concepts'],
+    definition: '',
+  },
+  'chain-rule': {
+    term: 'chain rule',
+    slug: '/terms/chain-rule',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'rules'],
+    definition: '',
+  },
+  chaining: {
+    term: 'chaining',
+    slug: '/terms/chaining',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'techniques'],
+    definition: '',
+  },
+  'change-of-basis': {
+    term: 'change of basis',
+    slug: '/terms/change-of-basis',
+    aliases: [],
+    tags: ['linear_algebra', 'linear_transformations', 'representation'],
+    definition: '',
+  },
+  'change-of-variables': {
+    term: 'change of variables',
+    slug: '/terms/change-of-variables',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'double_integrals'],
+    definition: '',
+  },
+  'check-constraint': {
+    term: 'check constraint',
+    slug: '/terms/check-constraint',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'design_principles'],
+    definition: '',
+  },
+  'chi-square-distribution': {
+    term: 'chi square distribution',
+    slug: '/terms/chi-square-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'continuous'],
+    definition: '',
+  },
+  'child-class': {
+    term: 'child class',
+    slug: '/terms/child-class',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'basics'],
+    definition: '',
+  },
+  chmod: {
+    term: 'chmod',
+    slug: '/terms/chmod',
+    aliases: [],
+    tags: ['linux', 'permissions', 'basics'],
+    definition: '',
+  },
+  'cholesky-decomposition': {
+    term: 'cholesky decomposition',
+    slug: '/terms/cholesky-decomposition',
+    aliases: [],
+    tags: ['linear_algebra', 'decomposition', 'methods'],
+    definition: '',
+  },
+  chown: {
+    term: 'chown',
+    slug: '/terms/chown',
+    aliases: [],
+    tags: ['linux', 'permissions', 'basics'],
+    definition: '',
+  },
+  'ci-cd-pipelines': {
+    term: 'ci cd pipelines',
+    slug: '/terms/ci-cd-pipelines',
+    aliases: [],
+    tags: ['linux', 'devops', 'integration'],
+    definition: '',
+  },
+  'ci-cd': {
+    term: 'ci cd',
+    slug: '/terms/ci-cd',
+    aliases: [],
+    tags: ['web_development', 'deployment', 'concepts'],
+    definition: '',
+  },
+  'circular-linked-list': {
+    term: 'circular linked list',
+    slug: '/terms/circular-linked-list',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'basics'],
+    definition: '',
+  },
+  'class-component': {
+    term: 'class component',
+    slug: '/terms/class-component',
+    aliases: [],
+    tags: ['react', 'components', 'types'],
+    definition: '',
+  },
+  'class-diagram': {
+    term: 'class diagram',
+    slug: '/terms/class-diagram',
+    aliases: [],
+    tags: ['oop', 'modeling', 'uml'],
+    definition: '',
+  },
+  class: {
+    term: 'class',
+    slug: '/terms/class',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  classes: {
+    term: 'classes',
+    slug: '/terms/classes',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'basics'],
+    definition: '',
+  },
+  classification: {
+    term: 'classification',
+    slug: '/terms/classification',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'supervised'],
+    definition: '',
+  },
+  'clean-architecture': {
+    term: 'clean architecture',
+    slug: '/terms/clean-architecture',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'client-components': {
+    term: 'client components',
+    slug: '/terms/client-components',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'concepts'],
+    definition: '',
+  },
+  'client-fetch': {
+    term: 'client fetch',
+    slug: '/terms/client-fetch',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'patterns'],
+    definition: '',
+  },
+  'client-server-model': {
+    term: 'client server model',
+    slug: '/terms/client-server-model',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'client-side-rendering': {
+    term: 'client side rendering',
+    slug: '/terms/client-side-rendering',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'strategies'],
+    definition: '',
+  },
+  'client-side-routing': {
+    term: 'client side routing',
+    slug: '/terms/client-side-routing',
+    aliases: [],
+    tags: ['react', 'routing', 'concepts'],
+    definition: '',
+  },
+  'closed-form': {
+    term: 'closed form',
+    slug: '/terms/closed-form',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'concepts'],
+    definition: '',
+  },
+  closures: {
+    term: 'closures',
+    slug: '/terms/closures',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'core_js'],
+    definition: '',
+  },
+  cls: {
+    term: 'cls',
+    slug: '/terms/cls',
+    aliases: [],
+    tags: ['web_development', 'performance', 'metrics'],
+    definition: '',
+  },
+  'cluster-autoscaler': {
+    term: 'cluster autoscaler',
+    slug: '/terms/cluster-autoscaler',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'tools'],
+    definition: '',
+  },
+  'cluster-ip': {
+    term: 'cluster ip',
+    slug: '/terms/cluster-ip',
+    aliases: [],
+    tags: ['k8s', 'services', 'types'],
+    definition: '',
+  },
+  'cluster-logs': {
+    term: 'cluster logs',
+    slug: '/terms/cluster-logs',
+    aliases: [],
+    tags: ['k8s', 'observability', 'logging'],
+    definition: '',
+  },
+  'cluster-sampling': {
+    term: 'cluster sampling',
+    slug: '/terms/cluster-sampling',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'methods'],
+    definition: '',
+  },
+  cluster: {
+    term: 'cluster',
+    slug: '/terms/cluster',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'cluster_components'],
+    definition: '',
+  },
+  cmd: {
+    term: 'CMD',
+    slug: '/terms/cmd',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  'cms-integration': {
+    term: 'cms integration',
+    slug: '/terms/cms-integration',
+    aliases: [],
+    tags: ['next_js', 'ecosystem', 'integrations'],
+    definition: '',
+  },
+  'cni-plugins': {
+    term: 'cni plugins',
+    slug: '/terms/cni-plugins',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'related_systems'],
+    definition: '',
+  },
+  cnn: {
+    term: 'cnn',
+    slug: '/terms/cnn',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  'code-splitting': {
+    term: 'code splitting',
+    slug: '/terms/code-splitting',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'performance'],
+    definition: '',
+  },
+  'coin-change': {
+    term: 'coin change',
+    slug: '/terms/coin-change',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  collision: {
+    term: 'collision',
+    slug: '/terms/collision',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'basics'],
+    definition: '',
+  },
+  colors: {
+    term: 'colors',
+    slug: '/terms/colors',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'styling'],
+    definition: '',
+  },
+  'column-family': {
+    term: 'column family',
+    slug: '/terms/column-family',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'wide_column'],
+    definition: '',
+  },
+  'column-oriented-storage': {
+    term: 'column oriented storage',
+    slug: '/terms/column-oriented-storage',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'wide_column'],
+    definition: '',
+  },
+  column: {
+    term: 'column',
+    slug: '/terms/column',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'columnar-database': {
+    term: 'columnar database',
+    slug: '/terms/columnar-database',
+    aliases: [],
+    tags: ['sql', 'databases', 'nosql_comparison'],
+    definition: '',
+  },
+  combinations: {
+    term: 'combinations',
+    slug: '/terms/combinations',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'counting'],
+    definition: '',
+  },
+  commands: {
+    term: 'commands',
+    slug: '/terms/commands',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  'commit-phase': {
+    term: 'commit phase',
+    slug: '/terms/commit-phase',
+    aliases: [],
+    tags: ['react', 'rendering_model', 'process'],
+    definition: '',
+  },
+  commit: {
+    term: 'commit',
+    slug: '/terms/commit',
+    aliases: [],
+    tags: ['sql', 'transactions', 'control'],
+    definition: '',
+  },
+  'common-table-expression': {
+    term: 'common table expression',
+    slug: '/terms/common-table-expression',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'cte'],
+    definition: '',
+  },
+  'comparison-test': {
+    term: 'comparison test',
+    slug: '/terms/comparison-test',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'convergence_tests'],
+    definition: '',
+  },
+  'compile-time-polymorphism': {
+    term: 'compile time polymorphism',
+    slug: '/terms/compile-time-polymorphism',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'compile_time'],
+    definition: '',
+  },
+  'complement-rule': {
+    term: 'complement rule',
+    slug: '/terms/complement-rule',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'rules'],
+    definition: '',
+  },
+  complement: {
+    term: 'complement',
+    slug: '/terms/complement',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'operations'],
+    definition: '',
+  },
+  'complexity-theory': {
+    term: 'complexity theory',
+    slug: '/terms/complexity-theory',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cs_theory'],
+    definition: '',
+  },
+  'component-architecture': {
+    term: 'component architecture',
+    slug: '/terms/component-architecture',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'component-based-architecture': {
+    term: 'component based architecture',
+    slug: '/terms/component-based-architecture',
+    aliases: [],
+    tags: ['react', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'component-driven-ui': {
+    term: 'component driven ui',
+    slug: '/terms/component-driven-ui',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'component-tree': {
+    term: 'component tree',
+    slug: '/terms/component-tree',
+    aliases: [],
+    tags: ['react', 'components', 'structure'],
+    definition: '',
+  },
+  component: {
+    term: 'component',
+    slug: '/terms/component',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  components: {
+    term: 'components',
+    slug: '/terms/components',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'react'],
+    definition: '',
+  },
+  composability: {
+    term: 'composability',
+    slug: '/terms/composability',
+    aliases: [],
+    tags: ['linux', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  compositing: {
+    term: 'compositing',
+    slug: '/terms/compositing',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'pipeline'],
+    definition: '',
+  },
+  'composition-of-functions': {
+    term: 'composition of functions',
+    slug: '/terms/composition-of-functions',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'functions'],
+    definition: '',
+  },
+  'composition-over-inheritance': {
+    term: 'composition over inheritance',
+    slug: '/terms/composition-over-inheritance',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  composition: {
+    term: 'composition',
+    slug: '/terms/composition',
+    aliases: [],
+    tags: ['oop', 'class_design', 'relationships'],
+    definition: '',
+  },
+  'compound-index': {
+    term: 'compound index',
+    slug: '/terms/compound-index',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  computability: {
+    term: 'computability',
+    slug: '/terms/computability',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cs_theory'],
+    definition: '',
+  },
+  'computer-vision': {
+    term: 'computer vision',
+    slug: '/terms/computer-vision',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'basics'],
+    definition: '',
+  },
+  concavity: {
+    term: 'concavity',
+    slug: '/terms/concavity',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'behavior'],
+    definition: '',
+  },
+  'concrete-class': {
+    term: 'concrete class',
+    slug: '/terms/concrete-class',
+    aliases: [],
+    tags: ['oop', 'class_design', 'structure'],
+    definition: '',
+  },
+  'concurrent-rendering': {
+    term: 'concurrent rendering',
+    slug: '/terms/concurrent-rendering',
+    aliases: [],
+    tags: ['react', 'advanced_react', 'concurrent_react'],
+    definition: '',
+  },
+  'conditional-probability': {
+    term: 'conditional probability',
+    slug: '/terms/conditional-probability',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  conditionals: {
+    term: 'conditionals',
+    slug: '/terms/conditionals',
+    aliases: [],
+    tags: ['linux', 'shell', 'scripting'],
+    definition: '',
+  },
+  'confidence-interval': {
+    term: 'confidence interval',
+    slug: '/terms/confidence-interval',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'estimation'],
+    definition: '',
+  },
+  'config-map': {
+    term: 'config map',
+    slug: '/terms/config-map',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'configuration'],
+    definition: '',
+  },
+  configmap: {
+    term: 'configmap',
+    slug: '/terms/configmap',
+    aliases: [],
+    tags: ['containerization', 'orchestration', 'kubernetes_concepts'],
+    definition: '',
+  },
+  'confounding-variables': {
+    term: 'confounding variables',
+    slug: '/terms/confounding-variables',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'validity'],
+    definition: '',
+  },
+  'confusion-matrix': {
+    term: 'confusion matrix',
+    slug: '/terms/confusion-matrix',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'metrics'],
+    definition: '',
+  },
+  congruence: {
+    term: 'congruence',
+    slug: '/terms/congruence',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'modular'],
+    definition: '',
+  },
+  connectivity: {
+    term: 'connectivity',
+    slug: '/terms/connectivity',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'properties'],
+    definition: '',
+  },
+  'conservative-field': {
+    term: 'conservative field',
+    slug: '/terms/conservative-field',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'fields'],
+    definition: '',
+  },
+  'consistency-tradeoffs': {
+    term: 'consistency tradeoffs',
+    slug: '/terms/consistency-tradeoffs',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'differences'],
+    definition: '',
+  },
+  consistency: {
+    term: 'consistency',
+    slug: '/terms/consistency',
+    aliases: [],
+    tags: ['sql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  'consistent-hashing': {
+    term: 'consistent hashing',
+    slug: '/terms/consistent-hashing',
+    aliases: [],
+    tags: ['nosql', 'scaling', 'partitioning'],
+    definition: '',
+  },
+  'const-constructor': {
+    term: 'const constructor',
+    slug: '/terms/const-constructor',
+    aliases: [],
+    tags: ['flutter', 'performance', 'optimization'],
+    definition: '',
+  },
+  'const-widgets': {
+    term: 'const widgets',
+    slug: '/terms/const-widgets',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'optimization'],
+    definition: '',
+  },
+  constraints: {
+    term: 'constraints',
+    slug: '/terms/constraints',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'design_principles'],
+    definition: '',
+  },
+  constructor: {
+    term: 'constructor',
+    slug: '/terms/constructor',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'container-crash-loops': {
+    term: 'container crash loops',
+    slug: '/terms/container-crash-loops',
+    aliases: [],
+    tags: ['docker', 'debugging', 'issues'],
+    definition: '',
+  },
+  'container-deployment': {
+    term: 'container deployment',
+    slug: '/terms/container-deployment',
+    aliases: [],
+    tags: ['docker', 'devops', 'deployment'],
+    definition: '',
+  },
+  'container-filesystem-layers': {
+    term: 'container filesystem layers',
+    slug: '/terms/container-filesystem-layers',
+    aliases: [],
+    tags: ['linux', 'containers', 'relation'],
+    definition: '',
+  },
+  'container-isolation': {
+    term: 'container isolation',
+    slug: '/terms/container-isolation',
+    aliases: [],
+    tags: ['containerization', 'security', 'concepts'],
+    definition: '',
+  },
+  'container-networking': {
+    term: 'container networking',
+    slug: '/terms/container-networking',
+    aliases: [],
+    tags: ['docker', 'networking', 'concepts'],
+    definition: '',
+  },
+  'container-orchestration': {
+    term: 'container orchestration',
+    slug: '/terms/container-orchestration',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'container-process': {
+    term: 'container process',
+    slug: '/terms/container-process',
+    aliases: [],
+    tags: ['docker', 'containers', 'runtime'],
+    definition: '',
+  },
+  'container-registry': {
+    term: 'container registry',
+    slug: '/terms/container-registry',
+    aliases: [],
+    tags: ['containerization', 'devops', 'deployment'],
+    definition: '',
+  },
+  'container-runtime': {
+    term: 'container runtime',
+    slug: '/terms/container-runtime',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'worker_node'],
+    definition: '',
+  },
+  'container-to-container-communication': {
+    term: 'container to container communication',
+    slug: '/terms/container-to-container-communication',
+    aliases: [],
+    tags: ['docker', 'networking', 'communication'],
+    definition: '',
+  },
+  container: {
+    term: 'container',
+    slug: '/terms/container',
+    aliases: [],
+    tags: ['docker', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  containerd: {
+    term: 'containerd',
+    slug: '/terms/containerd',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'related_systems'],
+    definition: '',
+  },
+  containerization: {
+    term: 'containerization',
+    slug: '/terms/containerization',
+    aliases: [],
+    tags: ['docker', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'content-management-systems': {
+    term: 'content management systems',
+    slug: '/terms/content-management-systems',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'applications'],
+    definition: '',
+  },
+  'content-security-policy': {
+    term: 'content security policy',
+    slug: '/terms/content-security-policy',
+    aliases: [],
+    tags: ['web_development', 'security', 'basics'],
+    definition: '',
+  },
+  'context-api': {
+    term: 'context api',
+    slug: '/terms/context-api',
+    aliases: [],
+    tags: ['react_native', 'state_management', 'global_state'],
+    definition: '',
+  },
+  'context-free-languages': {
+    term: 'context free languages',
+    slug: '/terms/context-free-languages',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'languages'],
+    definition: '',
+  },
+  continuity: {
+    term: 'continuity',
+    slug: '/terms/continuity',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'limits'],
+    definition: '',
+  },
+  'continuous-data': {
+    term: 'continuous data',
+    slug: '/terms/continuous-data',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'data_types'],
+    definition: '',
+  },
+  'continuous-deployment': {
+    term: 'continuous deployment',
+    slug: '/terms/continuous-deployment',
+    aliases: [],
+    tags: ['k8s', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'continuous-integration': {
+    term: 'continuous integration',
+    slug: '/terms/continuous-integration',
+    aliases: [],
+    tags: ['containerization', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  contract: {
+    term: 'contract',
+    slug: '/terms/contract',
+    aliases: [],
+    tags: ['oop', 'abstraction', 'concepts'],
+    definition: '',
+  },
+  'control-group': {
+    term: 'control group',
+    slug: '/terms/control-group',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'concepts'],
+    definition: '',
+  },
+  'control-plane': {
+    term: 'control plane',
+    slug: '/terms/control-plane',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'controller-manager': {
+    term: 'controller manager',
+    slug: '/terms/controller-manager',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'control_plane'],
+    definition: '',
+  },
+  controllers: {
+    term: 'controllers',
+    slug: '/terms/controllers',
+    aliases: [],
+    tags: ['web_development', 'backend', 'node_ecosystem'],
+    definition: '',
+  },
+  convergence: {
+    term: 'convergence',
+    slug: '/terms/convergence',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'sequences'],
+    definition: '',
+  },
+  'convolutional-neural-network': {
+    term: 'convolutional neural network',
+    slug: '/terms/convolutional-neural-network',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  cookies: {
+    term: 'cookies',
+    slug: '/terms/cookies',
+    aliases: [],
+    tags: ['web_development', 'security', 'auth'],
+    definition: '',
+  },
+  'coordinate-systems': {
+    term: 'coordinate systems',
+    slug: '/terms/coordinate-systems',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'dimension'],
+    definition: '',
+  },
+  copy: {
+    term: 'COPY',
+    slug: '/terms/copy',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  'core-web-vitals': {
+    term: 'core web vitals',
+    slug: '/terms/core-web-vitals',
+    aliases: [],
+    tags: ['web_development', 'performance', 'metrics'],
+    definition: '',
+  },
+  'corporate-bonds': {
+    term: 'corporate bonds',
+    slug: '/terms/corporate-bonds',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'correlated-subquery': {
+    term: 'correlated subquery',
+    slug: '/terms/correlated-subquery',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'subqueries'],
+    definition: '',
+  },
+  'correlation-matrices': {
+    term: 'correlation matrices',
+    slug: '/terms/correlation-matrices',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'data_science'],
+    definition: '',
+  },
+  correlation: {
+    term: 'correlation',
+    slug: '/terms/correlation',
+    aliases: [],
+    tags: ['finance', 'investing', 'portfolio'],
+    definition: '',
+  },
+  cors: {
+    term: 'cors',
+    slug: '/terms/cors',
+    aliases: [],
+    tags: ['web_development', 'security', 'basics'],
+    definition: '',
+  },
+  count: {
+    term: 'count',
+    slug: '/terms/count',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'countable-structures': {
+    term: 'countable structures',
+    slug: '/terms/countable-structures',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'counting-sort': {
+    term: 'counting sort',
+    slug: '/terms/counting-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'coupon-rate': {
+    term: 'coupon rate',
+    slug: '/terms/coupon-rate',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'covariance-matrices': {
+    term: 'covariance matrices',
+    slug: '/terms/covariance-matrices',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'data_science'],
+    definition: '',
+  },
+  covariance: {
+    term: 'covariance',
+    slug: '/terms/covariance',
+    aliases: [],
+    tags: ['statistics', 'correlation_and_relationships', 'concepts'],
+    definition: '',
+  },
+  cpi: {
+    term: 'cpi',
+    slug: '/terms/cpi',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'indicators'],
+    definition: '',
+  },
+  'cpu-usage': {
+    term: 'cpu usage',
+    slug: '/terms/cpu-usage',
+    aliases: [],
+    tags: ['linux', 'performance', 'monitoring'],
+    definition: '',
+  },
+  cqrs: {
+    term: 'cqrs',
+    slug: '/terms/cqrs',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'patterns'],
+    definition: '',
+  },
+  'crashloop-backoff': {
+    term: 'crashloop backoff',
+    slug: '/terms/crashloop-backoff',
+    aliases: [],
+    tags: ['k8s', 'pods', 'lifecycle'],
+    definition: '',
+  },
+  create: {
+    term: 'create',
+    slug: '/terms/create',
+    aliases: [],
+    tags: ['docker', 'containers', 'lifecycle'],
+    definition: '',
+  },
+  created: {
+    term: 'created',
+    slug: '/terms/created',
+    aliases: [],
+    tags: ['containerization', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'credit-rating': {
+    term: 'credit rating',
+    slug: '/terms/credit-rating',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'critical-css': {
+    term: 'critical css',
+    slug: '/terms/critical-css',
+    aliases: [],
+    tags: ['next_js', 'styling', 'rendering_impact'],
+    definition: '',
+  },
+  'critical-points': {
+    term: 'critical points',
+    slug: '/terms/critical-points',
+    aliases: [],
+    tags: ['calculus_iii', 'optimization', 'unconstrained'],
+    definition: '',
+  },
+  'cron-job': {
+    term: 'cron job',
+    slug: '/terms/cron-job',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'workload'],
+    definition: '',
+  },
+  'cron-jobs': {
+    term: 'cron jobs',
+    slug: '/terms/cron-jobs',
+    aliases: [],
+    tags: ['linux', 'devops', 'tooling'],
+    definition: '',
+  },
+  'cross-join': {
+    term: 'cross join',
+    slug: '/terms/cross-join',
+    aliases: [],
+    tags: ['sql', 'joins', 'types'],
+    definition: '',
+  },
+  'cross-platform-development': {
+    term: 'cross platform development',
+    slug: '/terms/cross-platform-development',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'cross-product': {
+    term: 'cross product',
+    slug: '/terms/cross-product',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'operations'],
+    definition: '',
+  },
+  'cross-validation': {
+    term: 'cross validation',
+    slug: '/terms/cross-validation',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'validation'],
+    definition: '',
+  },
+  csrf: {
+    term: 'csrf',
+    slug: '/terms/csrf',
+    aliases: [],
+    tags: ['web_development', 'security', 'basics'],
+    definition: '',
+  },
+  'css-modules': {
+    term: 'css modules',
+    slug: '/terms/css-modules',
+    aliases: [],
+    tags: ['next_js', 'styling', 'options'],
+    definition: '',
+  },
+  css: {
+    term: 'css',
+    slug: '/terms/css',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  cubit: {
+    term: 'cubit',
+    slug: '/terms/cubit',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'advanced'],
+    definition: '',
+  },
+  'cupertino-design': {
+    term: 'cupertino design',
+    slug: '/terms/cupertino-design',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'styling'],
+    definition: '',
+  },
+  curl: {
+    term: 'curl',
+    slug: '/terms/curl',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  'curve-sketching': {
+    term: 'curve sketching',
+    slug: '/terms/curve-sketching',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'graphing'],
+    definition: '',
+  },
+  'custom-hooks': {
+    term: 'custom hooks',
+    slug: '/terms/custom-hooks',
+    aliases: [],
+    tags: ['react', 'hooks', 'advanced_patterns'],
+    definition: '',
+  },
+  'cycle-detection': {
+    term: 'cycle detection',
+    slug: '/terms/cycle-detection',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'advanced'],
+    definition: '',
+  },
+  cycle: {
+    term: 'cycle',
+    slug: '/terms/cycle',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'properties'],
+    definition: '',
+  },
+  'cylindrical-coordinates': {
+    term: 'cylindrical coordinates',
+    slug: '/terms/cylindrical-coordinates',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'triple_integrals'],
+    definition: '',
+  },
+  cypress: {
+    term: 'cypress',
+    slug: '/terms/cypress',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'testing'],
+    definition: '',
+  },
+  'daemon-set': {
+    term: 'daemon set',
+    slug: '/terms/daemon-set',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'workload'],
+    definition: '',
+  },
+  daemon: {
+    term: 'daemon',
+    slug: '/terms/daemon',
+    aliases: [],
+    tags: ['linux', 'system_management', 'services'],
+    definition: '',
+  },
+  dag: {
+    term: 'dag',
+    slug: '/terms/dag',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'advanced'],
+    definition: '',
+  },
+  'dart-sdk': {
+    term: 'dart sdk',
+    slug: '/terms/dart-sdk',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  dart: {
+    term: 'dart',
+    slug: '/terms/dart',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'basics'],
+    definition: '',
+  },
+  'data-analysis': {
+    term: 'data analysis',
+    slug: '/terms/data-analysis',
+    aliases: [],
+    tags: ['statistics', 'applications', 'data_systems'],
+    definition: '',
+  },
+  'data-denormalization': {
+    term: 'data denormalization',
+    slug: '/terms/data-denormalization',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'patterns'],
+    definition: '',
+  },
+  'data-encapsulation': {
+    term: 'data encapsulation',
+    slug: '/terms/data-encapsulation',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'data_hiding'],
+    definition: '',
+  },
+  'data-fetching': {
+    term: 'data fetching',
+    slug: '/terms/data-fetching',
+    aliases: [],
+    tags: ['react', 'side_effects', 'concepts'],
+    definition: '',
+  },
+  'data-integrity': {
+    term: 'data integrity',
+    slug: '/terms/data-integrity',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'design_principles'],
+    definition: '',
+  },
+  'data-layer': {
+    term: 'data layer',
+    slug: '/terms/data-layer',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'layering'],
+    definition: '',
+  },
+  'data-modeling': {
+    term: 'data modeling',
+    slug: '/terms/data-modeling',
+    aliases: [],
+    tags: ['sql', 'data_modeling', 'concepts'],
+    definition: '',
+  },
+  'data-partitioning': {
+    term: 'data partitioning',
+    slug: '/terms/data-partitioning',
+    aliases: [],
+    tags: ['nosql', 'scaling', 'partitioning'],
+    definition: '',
+  },
+  'data-preprocessing': {
+    term: 'data preprocessing',
+    slug: '/terms/data-preprocessing',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'workflow'],
+    definition: '',
+  },
+  'data-replication': {
+    term: 'data replication',
+    slug: '/terms/data-replication',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'replication'],
+    definition: '',
+  },
+  'data-representation': {
+    term: 'data representation',
+    slug: '/terms/data-representation',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'data_science'],
+    definition: '',
+  },
+  'data-structure-flexibility': {
+    term: 'data structure flexibility',
+    slug: '/terms/data-structure-flexibility',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'decision_factors'],
+    definition: '',
+  },
+  'data-structures': {
+    term: 'data structures',
+    slug: '/terms/data-structures',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'dsa'],
+    definition: '',
+  },
+  data: {
+    term: 'data',
+    slug: '/terms/data',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'database-persistence': {
+    term: 'database persistence',
+    slug: '/terms/database-persistence',
+    aliases: [],
+    tags: ['k8s', 'storage', 'use_cases'],
+    definition: '',
+  },
+  database: {
+    term: 'database',
+    slug: '/terms/database',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  dataset: {
+    term: 'dataset',
+    slug: '/terms/dataset',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  dbscan: {
+    term: 'dbscan',
+    slug: '/terms/dbscan',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'clustering'],
+    definition: '',
+  },
+  'de-morgan-laws': {
+    term: 'de morgan laws',
+    slug: '/terms/de-morgan-laws',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'properties'],
+    definition: '',
+  },
+  debugger: {
+    term: 'debugger',
+    slug: '/terms/debugger',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'decision-theory': {
+    term: 'decision theory',
+    slug: '/terms/decision-theory',
+    aliases: [],
+    tags: ['ai', 'planning', 'decision_making'],
+    definition: '',
+  },
+  'decision-tree': {
+    term: 'decision tree',
+    slug: '/terms/decision-tree',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  'declarative-config': {
+    term: 'declarative config',
+    slug: '/terms/declarative-config',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'concepts'],
+    definition: '',
+  },
+  'declarative-infrastructure': {
+    term: 'declarative infrastructure',
+    slug: '/terms/declarative-infrastructure',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'declarative-ui': {
+    term: 'declarative ui',
+    slug: '/terms/declarative-ui',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'decorator-pattern': {
+    term: 'decorator pattern',
+    slug: '/terms/decorator-pattern',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'patterns'],
+    definition: '',
+  },
+  'decreasing-function': {
+    term: 'decreasing function',
+    slug: '/terms/decreasing-function',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'behavior'],
+    definition: '',
+  },
+  'deductive-reasoning': {
+    term: 'deductive reasoning',
+    slug: '/terms/deductive-reasoning',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'reasoning'],
+    definition: '',
+  },
+  'deep-learning': {
+    term: 'deep learning',
+    slug: '/terms/deep-learning',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  'deep-linking': {
+    term: 'deep linking',
+    slug: '/terms/deep-linking',
+    aliases: [],
+    tags: ['react_native', 'navigation', 'concepts'],
+    definition: '',
+  },
+  'definite-integral': {
+    term: 'definite integral',
+    slug: '/terms/definite-integral',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'basics'],
+    definition: '',
+  },
+  degree: {
+    term: 'degree',
+    slug: '/terms/degree',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'properties'],
+    definition: '',
+  },
+  delete: {
+    term: 'delete',
+    slug: '/terms/delete',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'denormalization-tradeoffs': {
+    term: 'denormalization tradeoffs',
+    slug: '/terms/denormalization-tradeoffs',
+    aliases: [],
+    tags: ['sql', 'performance', 'optimization'],
+    definition: '',
+  },
+  denormalization: {
+    term: 'denormalization',
+    slug: '/terms/denormalization',
+    aliases: [],
+    tags: ['sql', 'foundations', 'relational_model'],
+    definition: '',
+  },
+  'dense-rank': {
+    term: 'dense rank',
+    slug: '/terms/dense-rank',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'window_functions'],
+    definition: '',
+  },
+  dependencies: {
+    term: 'dependencies',
+    slug: '/terms/dependencies',
+    aliases: [],
+    tags: ['linux', 'package_management', 'concepts'],
+    definition: '',
+  },
+  'dependency-array': {
+    term: 'dependency array',
+    slug: '/terms/dependency-array',
+    aliases: [],
+    tags: ['react', 'side_effects', 'control'],
+    definition: '',
+  },
+  'dependency-injection': {
+    term: 'dependency injection',
+    slug: '/terms/dependency-injection',
+    aliases: [],
+    tags: ['oop', 'advanced_oop', 'concepts'],
+    definition: '',
+  },
+  'dependency-inversion-principle': {
+    term: 'dependency inversion principle',
+    slug: '/terms/dependency-inversion-principle',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'solid'],
+    definition: '',
+  },
+  dependency: {
+    term: 'dependency',
+    slug: '/terms/dependency',
+    aliases: [],
+    tags: ['oop', 'class_design', 'relationships'],
+    definition: '',
+  },
+  'deployment-environments': {
+    term: 'deployment environments',
+    slug: '/terms/deployment-environments',
+    aliases: [],
+    tags: ['linux', 'devops', 'integration'],
+    definition: '',
+  },
+  deployment: {
+    term: 'deployment',
+    slug: '/terms/deployment',
+    aliases: [],
+    tags: ['k8s', 'deployments', 'concepts'],
+    definition: '',
+  },
+  'depth-first-search': {
+    term: 'depth first search',
+    slug: '/terms/depth-first-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'uninformed_search'],
+    definition: '',
+  },
+  depth: {
+    term: 'depth',
+    slug: '/terms/depth',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  deque: {
+    term: 'deque',
+    slug: '/terms/deque',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'queue'],
+    definition: '',
+  },
+  derivative: {
+    term: 'derivative',
+    slug: '/terms/derivative',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'basics'],
+    definition: '',
+  },
+  'desired-state-management': {
+    term: 'desired state management',
+    slug: '/terms/desired-state-management',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'desired-state': {
+    term: 'desired state',
+    slug: '/terms/desired-state',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'concepts'],
+    definition: '',
+  },
+  desktop: {
+    term: 'desktop',
+    slug: '/terms/desktop',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'platforms'],
+    definition: '',
+  },
+  determinant: {
+    term: 'determinant',
+    slug: '/terms/determinant',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'operations'],
+    definition: '',
+  },
+  dev: {
+    term: 'dev',
+    slug: '/terms/dev',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  df: {
+    term: 'df',
+    slug: '/terms/df',
+    aliases: [],
+    tags: ['linux', 'storage', 'tools'],
+    definition: '',
+  },
+  dfa: {
+    term: 'dfa',
+    slug: '/terms/dfa',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'models'],
+    definition: '',
+  },
+  dfs: {
+    term: 'dfs',
+    slug: '/terms/dfs',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'traversal'],
+    definition: '',
+  },
+  'diagonal-matrix': {
+    term: 'diagonal matrix',
+    slug: '/terms/diagonal-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'properties'],
+    definition: '',
+  },
+  diagonalization: {
+    term: 'diagonalization',
+    slug: '/terms/diagonalization',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'applications'],
+    definition: '',
+  },
+  'difference-quotient': {
+    term: 'difference quotient',
+    slug: '/terms/difference-quotient',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'basics'],
+    definition: '',
+  },
+  difference: {
+    term: 'difference',
+    slug: '/terms/difference',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'operations'],
+    definition: '',
+  },
+  'diffing-algorithm': {
+    term: 'diffing algorithm',
+    slug: '/terms/diffing-algorithm',
+    aliases: [],
+    tags: ['react', 'rendering_model', 'process'],
+    definition: '',
+  },
+  'diffusion-model': {
+    term: 'diffusion model',
+    slug: '/terms/diffusion-model',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'generative_ai'],
+    definition: '',
+  },
+  'dijkstra-algorithm': {
+    term: 'dijkstra algorithm',
+    slug: '/terms/dijkstra-algorithm',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  dimension: {
+    term: 'dimension',
+    slug: '/terms/dimension',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'dimension'],
+    definition: '',
+  },
+  'dimensionality-reduction': {
+    term: 'dimensionality reduction',
+    slug: '/terms/dimensionality-reduction',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'machine_learning'],
+    definition: '',
+  },
+  dio: {
+    term: 'dio',
+    slug: '/terms/dio',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'packages'],
+    definition: '',
+  },
+  'direct-proof': {
+    term: 'direct proof',
+    slug: '/terms/direct-proof',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'methods'],
+    definition: '',
+  },
+  'directed-graph': {
+    term: 'directed graph',
+    slug: '/terms/directed-graph',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  direction: {
+    term: 'direction',
+    slug: '/terms/direction',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'basics'],
+    definition: '',
+  },
+  'directional-derivative': {
+    term: 'directional derivative',
+    slug: '/terms/directional-derivative',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'advanced'],
+    definition: '',
+  },
+  'discrete-data': {
+    term: 'discrete data',
+    slug: '/terms/discrete-data',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'data_types'],
+    definition: '',
+  },
+  'discrete-mathematics': {
+    term: 'discrete mathematics',
+    slug: '/terms/discrete-mathematics',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'disjoint-set': {
+    term: 'disjoint set',
+    slug: '/terms/disjoint-set',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  'disk-method': {
+    term: 'disk method',
+    slug: '/terms/disk-method',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'area_volume'],
+    definition: '',
+  },
+  disk: {
+    term: 'disk',
+    slug: '/terms/disk',
+    aliases: [],
+    tags: ['linux', 'storage', 'concepts'],
+    definition: '',
+  },
+  'distance-formula-in-3d': {
+    term: 'distance formula in 3d',
+    slug: '/terms/distance-formula-in-3d',
+    aliases: [],
+    tags: ['calculus_iii', 'vectors_geometry', 'geometry'],
+    definition: '',
+  },
+  'distributed-database': {
+    term: 'distributed database',
+    slug: '/terms/distributed-database',
+    aliases: [],
+    tags: ['nosql', 'scaling', 'concepts'],
+    definition: '',
+  },
+  'distributed-systems': {
+    term: 'distributed systems',
+    slug: '/terms/distributed-systems',
+    aliases: [],
+    tags: ['nosql', 'foundations', 'design_philosophy'],
+    definition: '',
+  },
+  'divergence-theorem': {
+    term: 'divergence theorem',
+    slug: '/terms/divergence-theorem',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'theorems'],
+    definition: '',
+  },
+  divergence: {
+    term: 'divergence',
+    slug: '/terms/divergence',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'operators'],
+    definition: '',
+  },
+  diversification: {
+    term: 'diversification',
+    slug: '/terms/diversification',
+    aliases: [],
+    tags: ['finance', 'investing', 'portfolio'],
+    definition: '',
+  },
+  dividends: {
+    term: 'dividends',
+    slug: '/terms/dividends',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  divisibility: {
+    term: 'divisibility',
+    slug: '/terms/divisibility',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'concepts'],
+    definition: '',
+  },
+  dnf: {
+    term: 'dnf',
+    slug: '/terms/dnf',
+    aliases: [],
+    tags: ['linux', 'package_management', 'systems'],
+    definition: '',
+  },
+  'dns-in-cluster': {
+    term: 'dns in cluster',
+    slug: '/terms/dns-in-cluster',
+    aliases: [],
+    tags: ['k8s', 'networking', 'concepts'],
+    definition: '',
+  },
+  'dns-in-docker': {
+    term: 'dns in docker',
+    slug: '/terms/dns-in-docker',
+    aliases: [],
+    tags: ['containerization', 'networking', 'communication'],
+    definition: '',
+  },
+  'dns-resolution-inside-docker': {
+    term: 'dns resolution inside docker',
+    slug: '/terms/dns-resolution-inside-docker',
+    aliases: [],
+    tags: ['docker', 'networking', 'communication'],
+    definition: '',
+  },
+  dns: {
+    term: 'dns',
+    slug: '/terms/dns',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  'docker-build-pipeline': {
+    term: 'docker build pipeline',
+    slug: '/terms/docker-build-pipeline',
+    aliases: [],
+    tags: ['containerization', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'docker-build-pipelines': {
+    term: 'docker build pipelines',
+    slug: '/terms/docker-build-pipelines',
+    aliases: [],
+    tags: ['docker', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'docker-build': {
+    term: 'docker build',
+    slug: '/terms/docker-build',
+    aliases: [],
+    tags: ['containerization', 'docker', 'commands'],
+    definition: '',
+  },
+  'docker-cli': {
+    term: 'docker cli',
+    slug: '/terms/docker-cli',
+    aliases: [],
+    tags: ['docker', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'docker-client': {
+    term: 'docker client',
+    slug: '/terms/docker-client',
+    aliases: [],
+    tags: ['docker', 'architecture', 'components'],
+    definition: '',
+  },
+  'docker-container': {
+    term: 'docker container',
+    slug: '/terms/docker-container',
+    aliases: [],
+    tags: ['containerization', 'docker', 'basics'],
+    definition: '',
+  },
+  'docker-daemon': {
+    term: 'docker daemon',
+    slug: '/terms/docker-daemon',
+    aliases: [],
+    tags: ['docker', 'architecture', 'components'],
+    definition: '',
+  },
+  'docker-dependency': {
+    term: 'docker dependency',
+    slug: '/terms/docker-dependency',
+    aliases: [],
+    tags: ['linux', 'containers', 'relation'],
+    definition: '',
+  },
+  'docker-desktop': {
+    term: 'docker desktop',
+    slug: '/terms/docker-desktop',
+    aliases: [],
+    tags: ['containerization', 'ecosystems', 'platforms'],
+    definition: '',
+  },
+  'docker-engine': {
+    term: 'docker engine',
+    slug: '/terms/docker-engine',
+    aliases: [],
+    tags: ['docker', 'architecture', 'components'],
+    definition: '',
+  },
+  'docker-exec-shell': {
+    term: 'docker exec shell',
+    slug: '/terms/docker-exec-shell',
+    aliases: [],
+    tags: ['docker', 'debugging', 'tools'],
+    definition: '',
+  },
+  'docker-exec': {
+    term: 'docker exec',
+    slug: '/terms/docker-exec',
+    aliases: [],
+    tags: ['docker', 'containers', 'inspection'],
+    definition: '',
+  },
+  'docker-hub': {
+    term: 'docker hub',
+    slug: '/terms/docker-hub',
+    aliases: [],
+    tags: ['docker', 'registries', 'concepts'],
+    definition: '',
+  },
+  'docker-image': {
+    term: 'docker image',
+    slug: '/terms/docker-image',
+    aliases: [],
+    tags: ['docker', 'images', 'concepts'],
+    definition: '',
+  },
+  'docker-inspect': {
+    term: 'docker inspect',
+    slug: '/terms/docker-inspect',
+    aliases: [],
+    tags: ['docker', 'containers', 'inspection'],
+    definition: '',
+  },
+  'docker-login': {
+    term: 'docker login',
+    slug: '/terms/docker-login',
+    aliases: [],
+    tags: ['docker', 'registries', 'operations'],
+    definition: '',
+  },
+  'docker-logs': {
+    term: 'docker logs',
+    slug: '/terms/docker-logs',
+    aliases: [],
+    tags: ['docker', 'debugging', 'tools'],
+    definition: '',
+  },
+  'docker-ps': {
+    term: 'docker ps',
+    slug: '/terms/docker-ps',
+    aliases: [],
+    tags: ['docker', 'containers', 'inspection'],
+    definition: '',
+  },
+  'docker-pull': {
+    term: 'docker pull',
+    slug: '/terms/docker-pull',
+    aliases: [],
+    tags: ['docker', 'registries', 'operations'],
+    definition: '',
+  },
+  'docker-push': {
+    term: 'docker push',
+    slug: '/terms/docker-push',
+    aliases: [],
+    tags: ['docker', 'registries', 'operations'],
+    definition: '',
+  },
+  'docker-registry': {
+    term: 'docker registry',
+    slug: '/terms/docker-registry',
+    aliases: [],
+    tags: ['docker', 'architecture', 'components'],
+    definition: '',
+  },
+  'docker-run': {
+    term: 'docker run',
+    slug: '/terms/docker-run',
+    aliases: [],
+    tags: ['containerization', 'docker', 'commands'],
+    definition: '',
+  },
+  'docker-runtime-in-k8s': {
+    term: 'docker runtime in k8s',
+    slug: '/terms/docker-runtime-in-k8s',
+    aliases: [],
+    tags: ['docker', 'orchestration_bridge', 'kubernetes_relation'],
+    definition: '',
+  },
+  'docker-stop': {
+    term: 'docker stop',
+    slug: '/terms/docker-stop',
+    aliases: [],
+    tags: ['containerization', 'docker', 'commands'],
+    definition: '',
+  },
+  'docker-swarm': {
+    term: 'docker swarm',
+    slug: '/terms/docker-swarm',
+    aliases: [],
+    tags: ['containerization', 'orchestration', 'tools'],
+    definition: '',
+  },
+  'docker-vs-kubernetes': {
+    term: 'docker vs kubernetes',
+    slug: '/terms/docker-vs-kubernetes',
+    aliases: [],
+    tags: ['docker', 'orchestration_bridge', 'kubernetes_relation'],
+    definition: '',
+  },
+  docker: {
+    term: 'docker',
+    slug: '/terms/docker',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'related_systems'],
+    definition: '',
+  },
+  dockerfile: {
+    term: 'dockerfile',
+    slug: '/terms/dockerfile',
+    aliases: [],
+    tags: ['containerization', 'docker', 'basics'],
+    definition: '',
+  },
+  'document-database': {
+    term: 'document database',
+    slug: '/terms/document-database',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'document_db'],
+    definition: '',
+  },
+  'document-model': {
+    term: 'document model',
+    slug: '/terms/document-model',
+    aliases: [],
+    tags: ['nosql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'dollar-cost-averaging': {
+    term: 'dollar cost averaging',
+    slug: '/terms/dollar-cost-averaging',
+    aliases: [],
+    tags: ['finance', 'investing', 'strategies'],
+    definition: '',
+  },
+  dom: {
+    term: 'dom',
+    slug: '/terms/dom',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'dom'],
+    definition: '',
+  },
+  'domain-layer': {
+    term: 'domain layer',
+    slug: '/terms/domain-layer',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'layering'],
+    definition: '',
+  },
+  'domain-name': {
+    term: 'domain name',
+    slug: '/terms/domain-name',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'domain-of-discourse': {
+    term: 'domain of discourse',
+    slug: '/terms/domain-of-discourse',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'predicate_logic'],
+    definition: '',
+  },
+  domain: {
+    term: 'domain',
+    slug: '/terms/domain',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'functions'],
+    definition: '',
+  },
+  'dot-product': {
+    term: 'dot product',
+    slug: '/terms/dot-product',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  'double-integral': {
+    term: 'double integral',
+    slug: '/terms/double-integral',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'double_integrals'],
+    definition: '',
+  },
+  'doubly-linked-list': {
+    term: 'doubly linked list',
+    slug: '/terms/doubly-linked-list',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'basics'],
+    definition: '',
+  },
+  drawdown: {
+    term: 'drawdown',
+    slug: '/terms/drawdown',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  dropout: {
+    term: 'dropout',
+    slug: '/terms/dropout',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'regularization'],
+    definition: '',
+  },
+  du: {
+    term: 'du',
+    slug: '/terms/du',
+    aliases: [],
+    tags: ['linux', 'storage', 'tools'],
+    definition: '',
+  },
+  durability: {
+    term: 'durability',
+    slug: '/terms/durability',
+    aliases: [],
+    tags: ['sql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  duration: {
+    term: 'duration',
+    slug: '/terms/duration',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'dynamic-array': {
+    term: 'dynamic array',
+    slug: '/terms/dynamic-array',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  'dynamic-dispatch': {
+    term: 'dynamic dispatch',
+    slug: '/terms/dynamic-dispatch',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'runtime'],
+    definition: '',
+  },
+  'dynamic-programming': {
+    term: 'dynamic programming',
+    slug: '/terms/dynamic-programming',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'fundamentals'],
+    definition: '',
+  },
+  'dynamic-routes': {
+    term: 'dynamic routes',
+    slug: '/terms/dynamic-routes',
+    aliases: [],
+    tags: ['next_js', 'routing', 'dynamic_routing'],
+    definition: '',
+  },
+  dynamodb: {
+    term: 'dynamodb',
+    slug: '/terms/dynamodb',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  'early-stopping': {
+    term: 'early stopping',
+    slug: '/terms/early-stopping',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'regularization'],
+    definition: '',
+  },
+  'earnings-per-share': {
+    term: 'earnings per share',
+    slug: '/terms/earnings-per-share',
+    aliases: [],
+    tags: ['finance', 'accounting', 'metrics'],
+    definition: '',
+  },
+  ebitda: {
+    term: 'ebitda',
+    slug: '/terms/ebitda',
+    aliases: [],
+    tags: ['finance', 'accounting', 'metrics'],
+    definition: '',
+  },
+  'edge-functions': {
+    term: 'edge functions',
+    slug: '/terms/edge-functions',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'backend_patterns'],
+    definition: '',
+  },
+  'edge-runtime-deployment': {
+    term: 'edge runtime deployment',
+    slug: '/terms/edge-runtime-deployment',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'platforms'],
+    definition: '',
+  },
+  'edge-runtime': {
+    term: 'edge runtime',
+    slug: '/terms/edge-runtime',
+    aliases: [],
+    tags: ['next_js', 'middleware', 'concepts'],
+    definition: '',
+  },
+  edge: {
+    term: 'edge',
+    slug: '/terms/edge',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  edges: {
+    term: 'edges',
+    slug: '/terms/edges',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'graph_db'],
+    definition: '',
+  },
+  'edit-distance': {
+    term: 'edit distance',
+    slug: '/terms/edit-distance',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  'effect-timing': {
+    term: 'effect timing',
+    slug: '/terms/effect-timing',
+    aliases: [],
+    tags: ['react', 'side_effects', 'control'],
+    definition: '',
+  },
+  'eigen-decomposition': {
+    term: 'eigen decomposition',
+    slug: '/terms/eigen-decomposition',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'concepts'],
+    definition: '',
+  },
+  eigenvalue: {
+    term: 'eigenvalue',
+    slug: '/terms/eigenvalue',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'concepts'],
+    definition: '',
+  },
+  eigenvalues: {
+    term: 'eigenvalues',
+    slug: '/terms/eigenvalues',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  eigenvector: {
+    term: 'eigenvector',
+    slug: '/terms/eigenvector',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'concepts'],
+    definition: '',
+  },
+  eigenvectors: {
+    term: 'eigenvectors',
+    slug: '/terms/eigenvectors',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  eks: {
+    term: 'eks',
+    slug: '/terms/eks',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'tools'],
+    definition: '',
+  },
+  'element-tree': {
+    term: 'element tree',
+    slug: '/terms/element-tree',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  element: {
+    term: 'element',
+    slug: '/terms/element',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'basics'],
+    definition: '',
+  },
+  embeddings: {
+    term: 'embeddings',
+    slug: '/terms/embeddings',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'machine_learning'],
+    definition: '',
+  },
+  'empty-set': {
+    term: 'empty set',
+    slug: '/terms/empty-set',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'basics'],
+    definition: '',
+  },
+  encapsulation: {
+    term: 'encapsulation',
+    slug: '/terms/encapsulation',
+    aliases: [],
+    tags: ['oop', 'foundations', 'principles'],
+    definition: '',
+  },
+  'encoding-categorical-variables': {
+    term: 'encoding categorical variables',
+    slug: '/terms/encoding-categorical-variables',
+    aliases: [],
+    tags: ['machine_learning', 'feature_engineering', 'techniques'],
+    definition: '',
+  },
+  entailment: {
+    term: 'entailment',
+    slug: '/terms/entailment',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'logic'],
+    definition: '',
+  },
+  'entity-relationship-diagram': {
+    term: 'entity relationship diagram',
+    slug: '/terms/entity-relationship-diagram',
+    aliases: [],
+    tags: ['sql', 'data_modeling', 'concepts'],
+    definition: '',
+  },
+  entity: {
+    term: 'entity',
+    slug: '/terms/entity',
+    aliases: [],
+    tags: ['sql', 'foundations', 'relational_model'],
+    definition: '',
+  },
+  entry: {
+    term: 'entry',
+    slug: '/terms/entry',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'basics'],
+    definition: '',
+  },
+  entrypoint: {
+    term: 'ENTRYPOINT',
+    slug: '/terms/entrypoint',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  env: {
+    term: 'ENV',
+    slug: '/terms/env',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  'environment-consistency': {
+    term: 'environment consistency',
+    slug: '/terms/environment-consistency',
+    aliases: [],
+    tags: ['docker', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'environment-parity': {
+    term: 'environment parity',
+    slug: '/terms/environment-parity',
+    aliases: [],
+    tags: ['containerization', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'environment-variables': {
+    term: 'environment variables',
+    slug: '/terms/environment-variables',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'configuration'],
+    definition: '',
+  },
+  environment: {
+    term: 'environment',
+    slug: '/terms/environment',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'ephemeral-storage': {
+    term: 'ephemeral storage',
+    slug: '/terms/ephemeral-storage',
+    aliases: [],
+    tags: ['k8s', 'storage', 'concepts'],
+    definition: '',
+  },
+  equity: {
+    term: 'equity',
+    slug: '/terms/equity',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'equivalence-relation': {
+    term: 'equivalence relation',
+    slug: '/terms/equivalence-relation',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'relations'],
+    definition: '',
+  },
+  erd: {
+    term: 'erd',
+    slug: '/terms/erd',
+    aliases: [],
+    tags: ['sql', 'data_modeling', 'concepts'],
+    definition: '',
+  },
+  error: {
+    term: 'error',
+    slug: '/terms/error',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  eslint: {
+    term: 'eslint',
+    slug: '/terms/eslint',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  etc: {
+    term: 'etc',
+    slug: '/terms/etc',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  etcd: {
+    term: 'etcd',
+    slug: '/terms/etcd',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'control_plane'],
+    definition: '',
+  },
+  'euclidean-algorithm': {
+    term: 'euclidean algorithm',
+    slug: '/terms/euclidean-algorithm',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'modular'],
+    definition: '',
+  },
+  'event-bubbling': {
+    term: 'event bubbling',
+    slug: '/terms/event-bubbling',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'dom'],
+    definition: '',
+  },
+  'event-delegation': {
+    term: 'event delegation',
+    slug: '/terms/event-delegation',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'dom'],
+    definition: '',
+  },
+  'event-driven-architecture': {
+    term: 'event driven architecture',
+    slug: '/terms/event-driven-architecture',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'patterns'],
+    definition: '',
+  },
+  'event-handling': {
+    term: 'event handling',
+    slug: '/terms/event-handling',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'dom'],
+    definition: '',
+  },
+  'event-listeners': {
+    term: 'event listeners',
+    slug: '/terms/event-listeners',
+    aliases: [],
+    tags: ['react', 'side_effects', 'concepts'],
+    definition: '',
+  },
+  'event-loop': {
+    term: 'event loop',
+    slug: '/terms/event-loop',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'concepts'],
+    definition: '',
+  },
+  'event-sourcing': {
+    term: 'event sourcing',
+    slug: '/terms/event-sourcing',
+    aliases: [],
+    tags: ['nosql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  event: {
+    term: 'event',
+    slug: '/terms/event',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'basics'],
+    definition: '',
+  },
+  'eventual-consistency': {
+    term: 'eventual consistency',
+    slug: '/terms/eventual-consistency',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'models'],
+    definition: '',
+  },
+  'everything-is-a-file': {
+    term: 'everything is a file',
+    slug: '/terms/everything-is-a-file',
+    aliases: [],
+    tags: ['linux', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'everything-is-a-widget': {
+    term: 'everything is a widget',
+    slug: '/terms/everything-is-a-widget',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  exec: {
+    term: 'exec',
+    slug: '/terms/exec',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  'execution-plan': {
+    term: 'execution plan',
+    slug: '/terms/execution-plan',
+    aliases: [],
+    tags: ['sql', 'indexing', 'performance'],
+    definition: '',
+  },
+  expanded: {
+    term: 'expanded',
+    slug: '/terms/expanded',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  expectation: {
+    term: 'expectation',
+    slug: '/terms/expectation',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  'expected-return': {
+    term: 'expected return',
+    slug: '/terms/expected-return',
+    aliases: [],
+    tags: ['statistics', 'applications', 'finance'],
+    definition: '',
+  },
+  'expected-utility': {
+    term: 'expected utility',
+    slug: '/terms/expected-utility',
+    aliases: [],
+    tags: ['ai', 'planning', 'decision_making'],
+    definition: '',
+  },
+  expectimax: {
+    term: 'expectimax',
+    slug: '/terms/expectimax',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'adversarial_search'],
+    definition: '',
+  },
+  experiment: {
+    term: 'experiment',
+    slug: '/terms/experiment',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'concepts'],
+    definition: '',
+  },
+  'expo-go': {
+    term: 'expo go',
+    slug: '/terms/expo-go',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'expo-router': {
+    term: 'expo router',
+    slug: '/terms/expo-router',
+    aliases: [],
+    tags: ['react_native', 'navigation', 'libraries'],
+    definition: '',
+  },
+  'expo-sdk': {
+    term: 'expo sdk',
+    slug: '/terms/expo-sdk',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'libraries'],
+    definition: '',
+  },
+  expo: {
+    term: 'expo',
+    slug: '/terms/expo',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'frameworks'],
+    definition: '',
+  },
+  'exponential-distribution': {
+    term: 'exponential distribution',
+    slug: '/terms/exponential-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'continuous'],
+    definition: '',
+  },
+  expose: {
+    term: 'EXPOSE',
+    slug: '/terms/expose',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  express: {
+    term: 'express',
+    slug: '/terms/express',
+    aliases: [],
+    tags: ['web_development', 'backend', 'node_ecosystem'],
+    definition: '',
+  },
+  'expression-evaluation': {
+    term: 'expression evaluation',
+    slug: '/terms/expression-evaluation',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'stack'],
+    definition: '',
+  },
+  'external-name': {
+    term: 'external name',
+    slug: '/terms/external-name',
+    aliases: [],
+    tags: ['k8s', 'services', 'types'],
+    definition: '',
+  },
+  'external-validity': {
+    term: 'external validity',
+    slug: '/terms/external-validity',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'validity'],
+    definition: '',
+  },
+  'f1-score': {
+    term: 'f1 score',
+    slug: '/terms/f1-score',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  factorial: {
+    term: 'factorial',
+    slug: '/terms/factorial',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'counting'],
+    definition: '',
+  },
+  'factory-pattern': {
+    term: 'factory pattern',
+    slug: '/terms/factory-pattern',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'patterns'],
+    definition: '',
+  },
+  failed: {
+    term: 'failed',
+    slug: '/terms/failed',
+    aliases: [],
+    tags: ['k8s', 'pods', 'lifecycle'],
+    definition: '',
+  },
+  'fast-and-slow-pointers': {
+    term: 'fast and slow pointers',
+    slug: '/terms/fast-and-slow-pointers',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'techniques'],
+    definition: '',
+  },
+  fdisk: {
+    term: 'fdisk',
+    slug: '/terms/fdisk',
+    aliases: [],
+    tags: ['linux', 'storage', 'tools'],
+    definition: '',
+  },
+  'feature-based-structure': {
+    term: 'feature based structure',
+    slug: '/terms/feature-based-structure',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'feature-engineering': {
+    term: 'feature engineering',
+    slug: '/terms/feature-engineering',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'workflow'],
+    definition: '',
+  },
+  'feature-extraction': {
+    term: 'feature extraction',
+    slug: '/terms/feature-extraction',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'supervised'],
+    definition: '',
+  },
+  'feature-folders': {
+    term: 'feature folders',
+    slug: '/terms/feature-folders',
+    aliases: [],
+    tags: ['react', 'advanced_react', 'architecture'],
+    definition: '',
+  },
+  'feature-scaling': {
+    term: 'feature scaling',
+    slug: '/terms/feature-scaling',
+    aliases: [],
+    tags: ['machine_learning', 'feature_engineering', 'techniques'],
+    definition: '',
+  },
+  'feature-vectors': {
+    term: 'feature vectors',
+    slug: '/terms/feature-vectors',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'machine_learning'],
+    definition: '',
+  },
+  features: {
+    term: 'features',
+    slug: '/terms/features',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'federal-reserve': {
+    term: 'federal reserve',
+    slug: '/terms/federal-reserve',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'policy'],
+    definition: '',
+  },
+  'feedforward-network': {
+    term: 'feedforward network',
+    slug: '/terms/feedforward-network',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'architecture'],
+    definition: '',
+  },
+  'fenwick-tree': {
+    term: 'fenwick tree',
+    slug: '/terms/fenwick-tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'advanced'],
+    definition: '',
+  },
+  fetch: {
+    term: 'fetch',
+    slug: '/terms/fetch',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'patterns'],
+    definition: '',
+  },
+  'fibonacci-dp': {
+    term: 'fibonacci dp',
+    slug: '/terms/fibonacci-dp',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  'file-based-routing': {
+    term: 'file based routing',
+    slug: '/terms/file-based-routing',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'file-permissions': {
+    term: 'file permissions',
+    slug: '/terms/file-permissions',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  'file-storage': {
+    term: 'file storage',
+    slug: '/terms/file-storage',
+    aliases: [],
+    tags: ['k8s', 'storage', 'use_cases'],
+    definition: '',
+  },
+  'file-system': {
+    term: 'file system',
+    slug: '/terms/file-system',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'capabilities'],
+    definition: '',
+  },
+  'filesystem-sandbox': {
+    term: 'filesystem sandbox',
+    slug: '/terms/filesystem-sandbox',
+    aliases: [],
+    tags: ['docker', 'containers', 'runtime'],
+    definition: '',
+  },
+  'filesystem-types': {
+    term: 'filesystem types',
+    slug: '/terms/filesystem-types',
+    aliases: [],
+    tags: ['linux', 'storage', 'concepts'],
+    definition: '',
+  },
+  filtering: {
+    term: 'filtering',
+    slug: '/terms/filtering',
+    aliases: [],
+    tags: ['nosql', 'querying', 'concepts'],
+    definition: '',
+  },
+  find: {
+    term: 'find',
+    slug: '/terms/find',
+    aliases: [],
+    tags: ['nosql', 'querying', 'mongodb_specific'],
+    definition: '',
+  },
+  'finite-automata': {
+    term: 'finite automata',
+    slug: '/terms/finite-automata',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'models'],
+    definition: '',
+  },
+  'firebase-firestore': {
+    term: 'firebase firestore',
+    slug: '/terms/firebase-firestore',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  firebase: {
+    term: 'firebase',
+    slug: '/terms/firebase',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'packages'],
+    definition: '',
+  },
+  firestore: {
+    term: 'firestore',
+    slug: '/terms/firestore',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'document_db'],
+    definition: '',
+  },
+  firewall: {
+    term: 'firewall',
+    slug: '/terms/firewall',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  'first-derivative-test': {
+    term: 'first derivative test',
+    slug: '/terms/first-derivative-test',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'graphing'],
+    definition: '',
+  },
+  'first-normal-form': {
+    term: 'first normal form',
+    slug: '/terms/first-normal-form',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'normalization'],
+    definition: '',
+  },
+  'first-order-logic': {
+    term: 'first order logic',
+    slug: '/terms/first-order-logic',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'logic'],
+    definition: '',
+  },
+  'fiscal-policy': {
+    term: 'fiscal policy',
+    slug: '/terms/fiscal-policy',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'policy'],
+    definition: '',
+  },
+  'flat-network': {
+    term: 'flat network',
+    slug: '/terms/flat-network',
+    aliases: [],
+    tags: ['k8s', 'networking', 'concepts'],
+    definition: '',
+  },
+  'flatlist-optimization': {
+    term: 'flatlist optimization',
+    slug: '/terms/flatlist-optimization',
+    aliases: [],
+    tags: ['react_native', 'performance', 'rendering'],
+    definition: '',
+  },
+  flatlist: {
+    term: 'flatlist',
+    slug: '/terms/flatlist',
+    aliases: [],
+    tags: ['react_native', 'components', 'core_components'],
+    definition: '',
+  },
+  flex: {
+    term: 'flex',
+    slug: '/terms/flex',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  'flexbox-layout': {
+    term: 'flexbox layout',
+    slug: '/terms/flexbox-layout',
+    aliases: [],
+    tags: ['react_native', 'styling', 'concepts'],
+    definition: '',
+  },
+  flexbox: {
+    term: 'flexbox',
+    slug: '/terms/flexbox',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  'flexible-schema': {
+    term: 'flexible schema',
+    slug: '/terms/flexible-schema',
+    aliases: [],
+    tags: ['nosql', 'foundations', 'design_philosophy'],
+    definition: '',
+  },
+  flexible: {
+    term: 'flexible',
+    slug: '/terms/flexible',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  flipper: {
+    term: 'flipper',
+    slug: '/terms/flipper',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'floyd-warshall': {
+    term: 'floyd warshall',
+    slug: '/terms/floyd-warshall',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  'flutter-devtools': {
+    term: 'flutter devtools',
+    slug: '/terms/flutter-devtools',
+    aliases: [],
+    tags: ['flutter', 'performance', 'debugging'],
+    definition: '',
+  },
+  'flutter-sdk': {
+    term: 'flutter sdk',
+    slug: '/terms/flutter-sdk',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  flutter: {
+    term: 'flutter',
+    slug: '/terms/flutter',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  flux: {
+    term: 'flux',
+    slug: '/terms/flux',
+    aliases: [],
+    tags: ['k8s', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'for-all': {
+    term: 'for all',
+    slug: '/terms/for-all',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'predicate_logic'],
+    definition: '',
+  },
+  'force-cache': {
+    term: 'force cache',
+    slug: '/terms/force-cache',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'caching'],
+    definition: '',
+  },
+  'foreign-key': {
+    term: 'foreign key',
+    slug: '/terms/foreign-key',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  fork: {
+    term: 'fork',
+    slug: '/terms/fork',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  form: {
+    term: 'form',
+    slug: '/terms/form',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'input_widgets'],
+    definition: '',
+  },
+  'formal-reasoning': {
+    term: 'formal reasoning',
+    slug: '/terms/formal-reasoning',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'importance'],
+    definition: '',
+  },
+  'formal-verification': {
+    term: 'formal verification',
+    slug: '/terms/formal-verification',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cs_theory'],
+    definition: '',
+  },
+  forms: {
+    term: 'forms',
+    slug: '/terms/forms',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  'foundation-of-computer-science': {
+    term: 'foundation of computer science',
+    slug: '/terms/foundation-of-computer-science',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'importance'],
+    definition: '',
+  },
+  from: {
+    term: 'FROM',
+    slug: '/terms/from',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  frontend: {
+    term: 'frontend',
+    slug: '/terms/frontend',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  'full-outer-join': {
+    term: 'full outer join',
+    slug: '/terms/full-outer-join',
+    aliases: [],
+    tags: ['sql', 'joins', 'types'],
+    definition: '',
+  },
+  'full-stack-composition': {
+    term: 'full stack composition',
+    slug: '/terms/full-stack-composition',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'architecture'],
+    definition: '',
+  },
+  'full-stack-framework': {
+    term: 'full stack framework',
+    slug: '/terms/full-stack-framework',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'full-stack': {
+    term: 'full stack',
+    slug: '/terms/full-stack',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  'full-table-scan': {
+    term: 'full table scan',
+    slug: '/terms/full-table-scan',
+    aliases: [],
+    tags: ['sql', 'indexing', 'performance'],
+    definition: '',
+  },
+  function: {
+    term: 'function',
+    slug: '/terms/function',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'functions'],
+    definition: '',
+  },
+  'functional-component': {
+    term: 'functional component',
+    slug: '/terms/functional-component',
+    aliases: [],
+    tags: ['react', 'components', 'types'],
+    definition: '',
+  },
+  functions: {
+    term: 'functions',
+    slug: '/terms/functions',
+    aliases: [],
+    tags: ['linux', 'shell', 'scripting'],
+    definition: '',
+  },
+  'fundamental-theorem-of-calculus': {
+    term: 'fundamental theorem of calculus',
+    slug: '/terms/fundamental-theorem-of-calculus',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'basics'],
+    definition: '',
+  },
+  'future-builder': {
+    term: 'future builder',
+    slug: '/terms/future-builder',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'patterns'],
+    definition: '',
+  },
+  future: {
+    term: 'future',
+    slug: '/terms/future',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'concepts'],
+    definition: '',
+  },
+  futures: {
+    term: 'futures',
+    slug: '/terms/futures',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  'game-tree': {
+    term: 'game tree',
+    slug: '/terms/game-tree',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'adversarial_search'],
+    definition: '',
+  },
+  gan: {
+    term: 'gan',
+    slug: '/terms/gan',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'generative_models'],
+    definition: '',
+  },
+  gatsby: {
+    term: 'gatsby',
+    slug: '/terms/gatsby',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'frameworks'],
+    definition: '',
+  },
+  'gaussian-elimination': {
+    term: 'gaussian elimination',
+    slug: '/terms/gaussian-elimination',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'methods'],
+    definition: '',
+  },
+  gdp: {
+    term: 'gdp',
+    slug: '/terms/gdp',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'indicators'],
+    definition: '',
+  },
+  generalization: {
+    term: 'generalization',
+    slug: '/terms/generalization',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'generative-adversarial-network': {
+    term: 'generative adversarial network',
+    slug: '/terms/generative-adversarial-network',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'generative_models'],
+    definition: '',
+  },
+  'generative-ai': {
+    term: 'generative ai',
+    slug: '/terms/generative-ai',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'generative_ai'],
+    definition: '',
+  },
+  'geometric-distribution': {
+    term: 'geometric distribution',
+    slug: '/terms/geometric-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'discrete'],
+    definition: '',
+  },
+  'geometric-series': {
+    term: 'geometric series',
+    slug: '/terms/geometric-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'series'],
+    definition: '',
+  },
+  'geometry-of-vectors': {
+    term: 'geometry of vectors',
+    slug: '/terms/geometry-of-vectors',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'intuition'],
+    definition: '',
+  },
+  'gesture-detector': {
+    term: 'gesture detector',
+    slug: '/terms/gesture-detector',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'input_widgets'],
+    definition: '',
+  },
+  'gesture-handling': {
+    term: 'gesture handling',
+    slug: '/terms/gesture-handling',
+    aliases: [],
+    tags: ['react_native', 'components', 'interaction'],
+    definition: '',
+  },
+  'get-server-side-props': {
+    term: 'get server side props',
+    slug: '/terms/get-server-side-props',
+    aliases: [],
+    tags: ['next_js', 'routing', 'pages_router'],
+    definition: '',
+  },
+  'get-static-props': {
+    term: 'get static props',
+    slug: '/terms/get-static-props',
+    aliases: [],
+    tags: ['next_js', 'routing', 'pages_router'],
+    definition: '',
+  },
+  getter: {
+    term: 'getter',
+    slug: '/terms/getter',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'access_control'],
+    definition: '',
+  },
+  'github-actions-docker': {
+    term: 'github actions docker',
+    slug: '/terms/github-actions-docker',
+    aliases: [],
+    tags: ['docker', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  'github-actions': {
+    term: 'github actions',
+    slug: '/terms/github-actions',
+    aliases: [],
+    tags: ['containerization', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  gitops: {
+    term: 'gitops',
+    slug: '/terms/gitops',
+    aliases: [],
+    tags: ['k8s', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  gke: {
+    term: 'gke',
+    slug: '/terms/gke',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'tools'],
+    definition: '',
+  },
+  'global-css': {
+    term: 'global css',
+    slug: '/terms/global-css',
+    aliases: [],
+    tags: ['next_js', 'styling', 'options'],
+    definition: '',
+  },
+  glove: {
+    term: 'glove',
+    slug: '/terms/glove',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'embeddings'],
+    definition: '',
+  },
+  'go-router': {
+    term: 'go router',
+    slug: '/terms/go-router',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'tools'],
+    definition: '',
+  },
+  'goal-stack-planning': {
+    term: 'goal stack planning',
+    slug: '/terms/goal-stack-planning',
+    aliases: [],
+    tags: ['ai', 'planning', 'classical_planning'],
+    definition: '',
+  },
+  'goal-state': {
+    term: 'goal state',
+    slug: '/terms/goal-state',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  'google-cloud-run': {
+    term: 'google cloud run',
+    slug: '/terms/google-cloud-run',
+    aliases: [],
+    tags: ['containerization', 'ecosystems', 'platforms'],
+    definition: '',
+  },
+  'google-play-deployment': {
+    term: 'google play deployment',
+    slug: '/terms/google-play-deployment',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'deployment'],
+    definition: '',
+  },
+  gps: {
+    term: 'gps',
+    slug: '/terms/gps',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'hardware'],
+    definition: '',
+  },
+  gpt: {
+    term: 'gpt',
+    slug: '/terms/gpt',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'transformers'],
+    definition: '',
+  },
+  'gradient-descent': {
+    term: 'gradient descent',
+    slug: '/terms/gradient-descent',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'algorithms'],
+    definition: '',
+  },
+  gradient: {
+    term: 'gradient',
+    slug: '/terms/gradient',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'basics'],
+    definition: '',
+  },
+  grafana: {
+    term: 'grafana',
+    slug: '/terms/grafana',
+    aliases: [],
+    tags: ['k8s', 'observability', 'monitoring'],
+    definition: '',
+  },
+  'gram-schmidt-process': {
+    term: 'gram schmidt process',
+    slug: '/terms/gram-schmidt-process',
+    aliases: [],
+    tags: ['linear_algebra', 'orthogonality', 'concepts'],
+    definition: '',
+  },
+  grammar: {
+    term: 'grammar',
+    slug: '/terms/grammar',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'languages'],
+    definition: '',
+  },
+  'graph-algorithms': {
+    term: 'graph algorithms',
+    slug: '/terms/graph-algorithms',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'dsa'],
+    definition: '',
+  },
+  'graph-database': {
+    term: 'graph database',
+    slug: '/terms/graph-database',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'graph_db'],
+    definition: '',
+  },
+  graph: {
+    term: 'graph',
+    slug: '/terms/graph',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  'graphql-schema': {
+    term: 'graphql schema',
+    slug: '/terms/graphql-schema',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'api_design'],
+    definition: '',
+  },
+  graphql: {
+    term: 'graphql',
+    slug: '/terms/graphql',
+    aliases: [],
+    tags: ['web_development', 'backend', 'core_concepts'],
+    definition: '',
+  },
+  'greatest-common-divisor': {
+    term: 'greatest common divisor',
+    slug: '/terms/greatest-common-divisor',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'concepts'],
+    definition: '',
+  },
+  'greedy-algorithm': {
+    term: 'greedy algorithm',
+    slug: '/terms/greedy-algorithm',
+    aliases: [],
+    tags: ['dsa', 'greedy', 'basics'],
+    definition: '',
+  },
+  'greedy-best-first-search': {
+    term: 'greedy best first search',
+    slug: '/terms/greedy-best-first-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'informed_search'],
+    definition: '',
+  },
+  greeks: {
+    term: 'greeks',
+    slug: '/terms/greeks',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  'green-theorem': {
+    term: 'green theorem',
+    slug: '/terms/green-theorem',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'theorems'],
+    definition: '',
+  },
+  grid: {
+    term: 'grid',
+    slug: '/terms/grid',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  gridview: {
+    term: 'gridview',
+    slug: '/terms/gridview',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  'gross-margin': {
+    term: 'gross margin',
+    slug: '/terms/gross-margin',
+    aliases: [],
+    tags: ['finance', 'accounting', 'metrics'],
+    definition: '',
+  },
+  'group-by': {
+    term: 'group by',
+    slug: '/terms/group-by',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  groups: {
+    term: 'groups',
+    slug: '/terms/groups',
+    aliases: [],
+    tags: ['linux', 'permissions', 'basics'],
+    definition: '',
+  },
+  'growth-investing': {
+    term: 'growth investing',
+    slug: '/terms/growth-investing',
+    aliases: [],
+    tags: ['finance', 'investing', 'strategies'],
+    definition: '',
+  },
+  gyroscope: {
+    term: 'gyroscope',
+    slug: '/terms/gyroscope',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'hardware'],
+    definition: '',
+  },
+  'hard-links': {
+    term: 'hard links',
+    slug: '/terms/hard-links',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  'harmonic-series': {
+    term: 'harmonic series',
+    slug: '/terms/harmonic-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'series'],
+    definition: '',
+  },
+  'hash-function': {
+    term: 'hash function',
+    slug: '/terms/hash-function',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'basics'],
+    definition: '',
+  },
+  'hash-index': {
+    term: 'hash index',
+    slug: '/terms/hash-index',
+    aliases: [],
+    tags: ['sql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  'hash-map-storage': {
+    term: 'hash map storage',
+    slug: '/terms/hash-map-storage',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'key_value'],
+    definition: '',
+  },
+  'hash-map': {
+    term: 'hash map',
+    slug: '/terms/hash-map',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'basics'],
+    definition: '',
+  },
+  'hash-set': {
+    term: 'hash set',
+    slug: '/terms/hash-set',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'basics'],
+    definition: '',
+  },
+  'hash-table': {
+    term: 'hash table',
+    slug: '/terms/hash-table',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'basics'],
+    definition: '',
+  },
+  'hashed-index': {
+    term: 'hashed index',
+    slug: '/terms/hashed-index',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  having: {
+    term: 'having',
+    slug: '/terms/having',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'health-checks': {
+    term: 'health checks',
+    slug: '/terms/health-checks',
+    aliases: [],
+    tags: ['k8s', 'observability', 'monitoring'],
+    definition: '',
+  },
+  'heap-sort': {
+    term: 'heap sort',
+    slug: '/terms/heap-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  heap: {
+    term: 'heap',
+    slug: '/terms/heap',
+    aliases: [],
+    tags: ['dsa', 'trees', 'advanced'],
+    definition: '',
+  },
+  height: {
+    term: 'height',
+    slug: '/terms/height',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  helm: {
+    term: 'helm',
+    slug: '/terms/helm',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'tools'],
+    definition: '',
+  },
+  'heuristic-search': {
+    term: 'heuristic search',
+    slug: '/terms/heuristic-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'informed_search'],
+    definition: '',
+  },
+  heuristic: {
+    term: 'heuristic',
+    slug: '/terms/heuristic',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'hidden-markov-model': {
+    term: 'hidden markov model',
+    slug: '/terms/hidden-markov-model',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'uncertainty'],
+    definition: '',
+  },
+  'hierarchical-clustering': {
+    term: 'hierarchical clustering',
+    slug: '/terms/hierarchical-clustering',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'clustering'],
+    definition: '',
+  },
+  'hierarchical-inheritance': {
+    term: 'hierarchical inheritance',
+    slug: '/terms/hierarchical-inheritance',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'types'],
+    definition: '',
+  },
+  'holdout-validation': {
+    term: 'holdout validation',
+    slug: '/terms/holdout-validation',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'validation'],
+    definition: '',
+  },
+  'home-directory': {
+    term: 'home directory',
+    slug: '/terms/home-directory',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  'hook-composition': {
+    term: 'hook composition',
+    slug: '/terms/hook-composition',
+    aliases: [],
+    tags: ['react', 'hooks', 'advanced_patterns'],
+    definition: '',
+  },
+  hooks: {
+    term: 'hooks',
+    slug: '/terms/hooks',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'react'],
+    definition: '',
+  },
+  'horizontal-pod-autoscaler': {
+    term: 'horizontal pod autoscaler',
+    slug: '/terms/horizontal-pod-autoscaler',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'tools'],
+    definition: '',
+  },
+  'horizontal-scaling': {
+    term: 'horizontal scaling',
+    slug: '/terms/horizontal-scaling',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'concepts'],
+    definition: '',
+  },
+  'horizontal-vs-vertical-scaling': {
+    term: 'horizontal vs vertical scaling',
+    slug: '/terms/horizontal-vs-vertical-scaling',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'differences'],
+    definition: '',
+  },
+  'host-based-routing': {
+    term: 'host based routing',
+    slug: '/terms/host-based-routing',
+    aliases: [],
+    tags: ['k8s', 'networking', 'ingress'],
+    definition: '',
+  },
+  'host-network': {
+    term: 'host network',
+    slug: '/terms/host-network',
+    aliases: [],
+    tags: ['docker', 'networking', 'concepts'],
+    definition: '',
+  },
+  hosting: {
+    term: 'hosting',
+    slug: '/terms/hosting',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'hot-reload': {
+    term: 'hot reload',
+    slug: '/terms/hot-reload',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'html-elements': {
+    term: 'html elements',
+    slug: '/terms/html-elements',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  html: {
+    term: 'html',
+    slug: '/terms/html',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  htop: {
+    term: 'htop',
+    slug: '/terms/htop',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  http: {
+    term: 'http',
+    slug: '/terms/http',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'packages'],
+    definition: '',
+  },
+  https: {
+    term: 'https',
+    slug: '/terms/https',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'huffman-encoding': {
+    term: 'huffman encoding',
+    slug: '/terms/huffman-encoding',
+    aliases: [],
+    tags: ['dsa', 'greedy', 'basics'],
+    definition: '',
+  },
+  'human-feedback': {
+    term: 'human feedback',
+    slug: '/terms/human-feedback',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'alignment'],
+    definition: '',
+  },
+  'hybrid-rendering-model': {
+    term: 'hybrid rendering model',
+    slug: '/terms/hybrid-rendering-model',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'hybrid-rendering': {
+    term: 'hybrid rendering',
+    slug: '/terms/hybrid-rendering',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'hydration-styles': {
+    term: 'hydration styles',
+    slug: '/terms/hydration-styles',
+    aliases: [],
+    tags: ['next_js', 'styling', 'rendering_impact'],
+    definition: '',
+  },
+  hydration: {
+    term: 'hydration',
+    slug: '/terms/hydration',
+    aliases: [],
+    tags: ['react', 'advanced_react', 'server_components'],
+    definition: '',
+  },
+  'hyperparameter-tuning': {
+    term: 'hyperparameter tuning',
+    slug: '/terms/hyperparameter-tuning',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'workflow'],
+    definition: '',
+  },
+  'identity-matrix': {
+    term: 'identity matrix',
+    slug: '/terms/identity-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'properties'],
+    definition: '',
+  },
+  'image-build-failures': {
+    term: 'image build failures',
+    slug: '/terms/image-build-failures',
+    aliases: [],
+    tags: ['docker', 'debugging', 'issues'],
+    definition: '',
+  },
+  'image-cache': {
+    term: 'image cache',
+    slug: '/terms/image-cache',
+    aliases: [],
+    tags: ['docker', 'images', 'concepts'],
+    definition: '',
+  },
+  'image-classification': {
+    term: 'image classification',
+    slug: '/terms/image-classification',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'basics'],
+    definition: '',
+  },
+  'image-deployment': {
+    term: 'image deployment',
+    slug: '/terms/image-deployment',
+    aliases: [],
+    tags: ['containerization', 'devops', 'deployment'],
+    definition: '',
+  },
+  'image-generation': {
+    term: 'image generation',
+    slug: '/terms/image-generation',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'generative_ai'],
+    definition: '',
+  },
+  'image-optimization': {
+    term: 'image optimization',
+    slug: '/terms/image-optimization',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'performance'],
+    definition: '',
+  },
+  'image-repository': {
+    term: 'image repository',
+    slug: '/terms/image-repository',
+    aliases: [],
+    tags: ['docker', 'registries', 'concepts'],
+    definition: '',
+  },
+  'image-scanning': {
+    term: 'image scanning',
+    slug: '/terms/image-scanning',
+    aliases: [],
+    tags: ['containerization', 'security', 'concepts'],
+    definition: '',
+  },
+  'image-segmentation': {
+    term: 'image segmentation',
+    slug: '/terms/image-segmentation',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'basics'],
+    definition: '',
+  },
+  'image-size-optimization': {
+    term: 'image size optimization',
+    slug: '/terms/image-size-optimization',
+    aliases: [],
+    tags: ['docker', 'performance', 'concepts'],
+    definition: '',
+  },
+  'image-slimming': {
+    term: 'image slimming',
+    slug: '/terms/image-slimming',
+    aliases: [],
+    tags: ['docker', 'images', 'optimization'],
+    definition: '',
+  },
+  'image-tag': {
+    term: 'image tag',
+    slug: '/terms/image-tag',
+    aliases: [],
+    tags: ['docker', 'images', 'concepts'],
+    definition: '',
+  },
+  'image-tagging': {
+    term: 'image tagging',
+    slug: '/terms/image-tagging',
+    aliases: [],
+    tags: ['containerization', 'docker', 'concepts'],
+    definition: '',
+  },
+  image: {
+    term: 'image',
+    slug: '/terms/image',
+    aliases: [],
+    tags: ['docker', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  immutability: {
+    term: 'immutability',
+    slug: '/terms/immutability',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'data_hiding'],
+    definition: '',
+  },
+  'immutable-infrastructure': {
+    term: 'immutable infrastructure',
+    slug: '/terms/immutable-infrastructure',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'immutable-state': {
+    term: 'immutable state',
+    slug: '/terms/immutable-state',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'patterns'],
+    definition: '',
+  },
+  implication: {
+    term: 'implication',
+    slug: '/terms/implication',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'propositional_logic'],
+    definition: '',
+  },
+  'implied-volatility': {
+    term: 'implied volatility',
+    slug: '/terms/implied-volatility',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  in: {
+    term: 'in',
+    slug: '/terms/in',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  'inclusion-exclusion-principle': {
+    term: 'inclusion exclusion principle',
+    slug: '/terms/inclusion-exclusion-principle',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'principles'],
+    definition: '',
+  },
+  'income-statement': {
+    term: 'income statement',
+    slug: '/terms/income-statement',
+    aliases: [],
+    tags: ['finance', 'accounting', 'statements'],
+    definition: '',
+  },
+  'increasing-function': {
+    term: 'increasing function',
+    slug: '/terms/increasing-function',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'behavior'],
+    definition: '',
+  },
+  'incremental-builds': {
+    term: 'incremental builds',
+    slug: '/terms/incremental-builds',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'build_process'],
+    definition: '',
+  },
+  'incremental-static-regeneration': {
+    term: 'incremental static regeneration',
+    slug: '/terms/incremental-static-regeneration',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'caching'],
+    definition: '',
+  },
+  'indefinite-integral': {
+    term: 'indefinite integral',
+    slug: '/terms/indefinite-integral',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'basics'],
+    definition: '',
+  },
+  'index-investing': {
+    term: 'index investing',
+    slug: '/terms/index-investing',
+    aliases: [],
+    tags: ['finance', 'investing', 'strategies'],
+    definition: '',
+  },
+  'index-optimization': {
+    term: 'index optimization',
+    slug: '/terms/index-optimization',
+    aliases: [],
+    tags: ['sql', 'performance', 'optimization'],
+    definition: '',
+  },
+  index: {
+    term: 'index',
+    slug: '/terms/index',
+    aliases: [],
+    tags: ['sql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  indexes: {
+    term: 'indexes',
+    slug: '/terms/indexes',
+    aliases: [],
+    tags: ['web_development', 'databases', 'relational'],
+    definition: '',
+  },
+  indexing: {
+    term: 'indexing',
+    slug: '/terms/indexing',
+    aliases: [],
+    tags: ['nosql', 'querying', 'concepts'],
+    definition: '',
+  },
+  induction: {
+    term: 'induction',
+    slug: '/terms/induction',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'methods'],
+    definition: '',
+  },
+  'inductive-reasoning': {
+    term: 'inductive reasoning',
+    slug: '/terms/inductive-reasoning',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'reasoning'],
+    definition: '',
+  },
+  'inductive-step': {
+    term: 'inductive step',
+    slug: '/terms/inductive-step',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'induction'],
+    definition: '',
+  },
+  'inference-rules': {
+    term: 'inference rules',
+    slug: '/terms/inference-rules',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'reasoning'],
+    definition: '',
+  },
+  inference: {
+    term: 'inference',
+    slug: '/terms/inference',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'logic'],
+    definition: '',
+  },
+  'infinite-limit': {
+    term: 'infinite limit',
+    slug: '/terms/infinite-limit',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'limits'],
+    definition: '',
+  },
+  inflation: {
+    term: 'inflation',
+    slug: '/terms/inflation',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'indicators'],
+    definition: '',
+  },
+  'inflection-point': {
+    term: 'inflection point',
+    slug: '/terms/inflection-point',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'behavior'],
+    definition: '',
+  },
+  'information-hiding': {
+    term: 'information hiding',
+    slug: '/terms/information-hiding',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'data_hiding'],
+    definition: '',
+  },
+  'ingress-controller': {
+    term: 'ingress controller',
+    slug: '/terms/ingress-controller',
+    aliases: [],
+    tags: ['k8s', 'networking', 'ingress'],
+    definition: '',
+  },
+  ingress: {
+    term: 'ingress',
+    slug: '/terms/ingress',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'networking'],
+    definition: '',
+  },
+  inheritance: {
+    term: 'inheritance',
+    slug: '/terms/inheritance',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'oop'],
+    definition: '',
+  },
+  'init-system': {
+    term: 'init system',
+    slug: '/terms/init-system',
+    aliases: [],
+    tags: ['linux', 'system_management', 'services'],
+    definition: '',
+  },
+  'initial-conditions': {
+    term: 'initial conditions',
+    slug: '/terms/initial-conditions',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'concepts'],
+    definition: '',
+  },
+  'initial-state': {
+    term: 'initial state',
+    slug: '/terms/initial-state',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  injective: {
+    term: 'injective',
+    slug: '/terms/injective',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'functions'],
+    definition: '',
+  },
+  inkwell: {
+    term: 'inkwell',
+    slug: '/terms/inkwell',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'input_widgets'],
+    definition: '',
+  },
+  'inline-styles': {
+    term: 'inline styles',
+    slug: '/terms/inline-styles',
+    aliases: [],
+    tags: ['react_native', 'styling', 'system'],
+    definition: '',
+  },
+  'inner-join': {
+    term: 'inner join',
+    slug: '/terms/inner-join',
+    aliases: [],
+    tags: ['sql', 'joins', 'types'],
+    definition: '',
+  },
+  inode: {
+    term: 'inode',
+    slug: '/terms/inode',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  'inorder-traversal': {
+    term: 'inorder traversal',
+    slug: '/terms/inorder-traversal',
+    aliases: [],
+    tags: ['dsa', 'trees', 'traversals'],
+    definition: '',
+  },
+  insert: {
+    term: 'insert',
+    slug: '/terms/insert',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'insertion-sort': {
+    term: 'insertion sort',
+    slug: '/terms/insertion-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'inspect-container-state': {
+    term: 'inspect container state',
+    slug: '/terms/inspect-container-state',
+    aliases: [],
+    tags: ['docker', 'debugging', 'tools'],
+    definition: '',
+  },
+  instance: {
+    term: 'instance',
+    slug: '/terms/instance',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'instruction-layers': {
+    term: 'instruction layers',
+    slug: '/terms/instruction-layers',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'concepts'],
+    definition: '',
+  },
+  'integral-test': {
+    term: 'integral test',
+    slug: '/terms/integral-test',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'convergence_tests'],
+    definition: '',
+  },
+  'integration-by-parts': {
+    term: 'integration by parts',
+    slug: '/terms/integration-by-parts',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'techniques'],
+    definition: '',
+  },
+  'inter-container-communication': {
+    term: 'inter container communication',
+    slug: '/terms/inter-container-communication',
+    aliases: [],
+    tags: ['containerization', 'networking', 'communication'],
+    definition: '',
+  },
+  'interest-rate-risk': {
+    term: 'interest rate risk',
+    slug: '/terms/interest-rate-risk',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'interest-rates': {
+    term: 'interest rates',
+    slug: '/terms/interest-rates',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'policy'],
+    definition: '',
+  },
+  'interface-segregation-principle': {
+    term: 'interface segregation principle',
+    slug: '/terms/interface-segregation-principle',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'solid'],
+    definition: '',
+  },
+  interface: {
+    term: 'interface',
+    slug: '/terms/interface',
+    aliases: [],
+    tags: ['oop', 'abstraction', 'concepts'],
+    definition: '',
+  },
+  interfaces: {
+    term: 'interfaces',
+    slug: '/terms/interfaces',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'oop'],
+    definition: '',
+  },
+  'internal-validity': {
+    term: 'internal validity',
+    slug: '/terms/internal-validity',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'validity'],
+    definition: '',
+  },
+  internet: {
+    term: 'internet',
+    slug: '/terms/internet',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'interquartile-range': {
+    term: 'interquartile range',
+    slug: '/terms/interquartile-range',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'dispersion'],
+    definition: '',
+  },
+  intersection: {
+    term: 'intersection',
+    slug: '/terms/intersection',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'operations'],
+    definition: '',
+  },
+  'interval-estimation': {
+    term: 'interval estimation',
+    slug: '/terms/interval-estimation',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'estimation'],
+    definition: '',
+  },
+  'interval-scheduling': {
+    term: 'interval scheduling',
+    slug: '/terms/interval-scheduling',
+    aliases: [],
+    tags: ['dsa', 'greedy', 'basics'],
+    definition: '',
+  },
+  'inverse-function': {
+    term: 'inverse function',
+    slug: '/terms/inverse-function',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'functions'],
+    definition: '',
+  },
+  inverse: {
+    term: 'inverse',
+    slug: '/terms/inverse',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'operations'],
+    definition: '',
+  },
+  'ios-integration': {
+    term: 'ios integration',
+    slug: '/terms/ios-integration',
+    aliases: [],
+    tags: ['flutter', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  ios: {
+    term: 'ios',
+    slug: '/terms/ios',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'platforms'],
+    definition: '',
+  },
+  iostat: {
+    term: 'iostat',
+    slug: '/terms/iostat',
+    aliases: [],
+    tags: ['linux', 'performance', 'monitoring'],
+    definition: '',
+  },
+  'iot-data-storage': {
+    term: 'iot data storage',
+    slug: '/terms/iot-data-storage',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'applications'],
+    definition: '',
+  },
+  'ip-address': {
+    term: 'ip address',
+    slug: '/terms/ip-address',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  ipo: {
+    term: 'ipo',
+    slug: '/terms/ipo',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'is-null': {
+    term: 'is null',
+    slug: '/terms/is-null',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  isolation: {
+    term: 'isolation',
+    slug: '/terms/isolation',
+    aliases: [],
+    tags: ['docker', 'containers', 'runtime'],
+    definition: '',
+  },
+  isr: {
+    term: 'isr',
+    slug: '/terms/isr',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'strategies'],
+    definition: '',
+  },
+  'iterated-integral': {
+    term: 'iterated integral',
+    slug: '/terms/iterated-integral',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'double_integrals'],
+    definition: '',
+  },
+  jacobian: {
+    term: 'jacobian',
+    slug: '/terms/jacobian',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'triple_integrals'],
+    definition: '',
+  },
+  jamstack: {
+    term: 'jamstack',
+    slug: '/terms/jamstack',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'patterns'],
+    definition: '',
+  },
+  javascript: {
+    term: 'javascript',
+    slug: '/terms/javascript',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'core_js'],
+    definition: '',
+  },
+  jest: {
+    term: 'jest',
+    slug: '/terms/jest',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'testing'],
+    definition: '',
+  },
+  job: {
+    term: 'job',
+    slug: '/terms/job',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'workload'],
+    definition: '',
+  },
+  'join-condition': {
+    term: 'join condition',
+    slug: '/terms/join-condition',
+    aliases: [],
+    tags: ['sql', 'joins', 'concepts'],
+    definition: '',
+  },
+  'join-keys': {
+    term: 'join keys',
+    slug: '/terms/join-keys',
+    aliases: [],
+    tags: ['sql', 'joins', 'concepts'],
+    definition: '',
+  },
+  'joins-vs-denormalization': {
+    term: 'joins vs denormalization',
+    slug: '/terms/joins-vs-denormalization',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'differences'],
+    definition: '',
+  },
+  joins: {
+    term: 'joins',
+    slug: '/terms/joins',
+    aliases: [],
+    tags: ['web_development', 'databases', 'relational'],
+    definition: '',
+  },
+  journalctl: {
+    term: 'journalctl',
+    slug: '/terms/journalctl',
+    aliases: [],
+    tags: ['linux', 'system_management', 'commands'],
+    definition: '',
+  },
+  'js-runtime': {
+    term: 'js runtime',
+    slug: '/terms/js-runtime',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'json-document': {
+    term: 'json document',
+    slug: '/terms/json-document',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'document_db'],
+    definition: '',
+  },
+  jsx: {
+    term: 'jsx',
+    slug: '/terms/jsx',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  jwt: {
+    term: 'jwt',
+    slug: '/terms/jwt',
+    aliases: [],
+    tags: ['web_development', 'security', 'auth'],
+    definition: '',
+  },
+  'k-fold-cross-validation': {
+    term: 'k fold cross validation',
+    slug: '/terms/k-fold-cross-validation',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'validation'],
+    definition: '',
+  },
+  'k-means-clustering': {
+    term: 'k means clustering',
+    slug: '/terms/k-means-clustering',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'clustering'],
+    definition: '',
+  },
+  'k-nearest-neighbors': {
+    term: 'k nearest neighbors',
+    slug: '/terms/k-nearest-neighbors',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  kernel: {
+    term: 'kernel',
+    slug: '/terms/kernel',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'key-based-authentication': {
+    term: 'key based authentication',
+    slug: '/terms/key-based-authentication',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  'key-value-store': {
+    term: 'key value store',
+    slug: '/terms/key-value-store',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'key_value'],
+    definition: '',
+  },
+  kill: {
+    term: 'kill',
+    slug: '/terms/kill',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  kind: {
+    term: 'kind',
+    slug: '/terms/kind',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'tools'],
+    definition: '',
+  },
+  'kmp-algorithm': {
+    term: 'kmp algorithm',
+    slug: '/terms/kmp-algorithm',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'strings'],
+    definition: '',
+  },
+  'knapsack-problem': {
+    term: 'knapsack problem',
+    slug: '/terms/knapsack-problem',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  'knowledge-base': {
+    term: 'knowledge base',
+    slug: '/terms/knowledge-base',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'logic'],
+    definition: '',
+  },
+  'knowledge-representation': {
+    term: 'knowledge representation',
+    slug: '/terms/knowledge-representation',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'kruskal-algorithm': {
+    term: 'kruskal algorithm',
+    slug: '/terms/kruskal-algorithm',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'advanced'],
+    definition: '',
+  },
+  'kube-proxy': {
+    term: 'kube proxy',
+    slug: '/terms/kube-proxy',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'worker_node'],
+    definition: '',
+  },
+  'kubectl-apply': {
+    term: 'kubectl apply',
+    slug: '/terms/kubectl-apply',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'deployment_flow'],
+    definition: '',
+  },
+  kubectl: {
+    term: 'kubectl',
+    slug: '/terms/kubectl',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'tools'],
+    definition: '',
+  },
+  'kubelet-runs-container': {
+    term: 'kubelet runs container',
+    slug: '/terms/kubelet-runs-container',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'deployment_flow'],
+    definition: '',
+  },
+  kubelet: {
+    term: 'kubelet',
+    slug: '/terms/kubelet',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'worker_node'],
+    definition: '',
+  },
+  'kubernetes-networking-model': {
+    term: 'kubernetes networking model',
+    slug: '/terms/kubernetes-networking-model',
+    aliases: [],
+    tags: ['k8s', 'networking', 'concepts'],
+    definition: '',
+  },
+  'kubernetes-node-base': {
+    term: 'kubernetes node base',
+    slug: '/terms/kubernetes-node-base',
+    aliases: [],
+    tags: ['linux', 'containers', 'relation'],
+    definition: '',
+  },
+  kubernetes: {
+    term: 'kubernetes',
+    slug: '/terms/kubernetes',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  kurtosis: {
+    term: 'kurtosis',
+    slug: '/terms/kurtosis',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'distribution_shape'],
+    definition: '',
+  },
+  kustomize: {
+    term: 'kustomize',
+    slug: '/terms/kustomize',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'tools'],
+    definition: '',
+  },
+  'l1-regularization': {
+    term: 'l1 regularization',
+    slug: '/terms/l1-regularization',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'regularization'],
+    definition: '',
+  },
+  'l2-regularization': {
+    term: 'l2 regularization',
+    slug: '/terms/l2-regularization',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'regularization'],
+    definition: '',
+  },
+  labels: {
+    term: 'labels',
+    slug: '/terms/labels',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'lagrange-multipliers': {
+    term: 'lagrange multipliers',
+    slug: '/terms/lagrange-multipliers',
+    aliases: [],
+    tags: ['calculus_iii', 'optimization', 'constrained'],
+    definition: '',
+  },
+  'language-model': {
+    term: 'language model',
+    slug: '/terms/language-model',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'language_models'],
+    definition: '',
+  },
+  laplacian: {
+    term: 'laplacian',
+    slug: '/terms/laplacian',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'operators'],
+    definition: '',
+  },
+  'lasso-regression': {
+    term: 'lasso regression',
+    slug: '/terms/lasso-regression',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'regression'],
+    definition: '',
+  },
+  'latent-spaces': {
+    term: 'latent spaces',
+    slug: '/terms/latent-spaces',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'ai_systems'],
+    definition: '',
+  },
+  'layer-caching': {
+    term: 'layer caching',
+    slug: '/terms/layer-caching',
+    aliases: [],
+    tags: ['docker', 'images', 'optimization'],
+    definition: '',
+  },
+  'layer-reuse': {
+    term: 'layer reuse',
+    slug: '/terms/layer-reuse',
+    aliases: [],
+    tags: ['docker', 'performance', 'concepts'],
+    definition: '',
+  },
+  layer: {
+    term: 'layer',
+    slug: '/terms/layer',
+    aliases: [],
+    tags: ['docker', 'images', 'concepts'],
+    definition: '',
+  },
+  'layered-filesystem': {
+    term: 'layered filesystem',
+    slug: '/terms/layered-filesystem',
+    aliases: [],
+    tags: ['docker', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  layers: {
+    term: 'layers',
+    slug: '/terms/layers',
+    aliases: [],
+    tags: ['containerization', 'docker', 'concepts'],
+    definition: '',
+  },
+  'layout-builder': {
+    term: 'layout builder',
+    slug: '/terms/layout-builder',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'responsiveness'],
+    definition: '',
+  },
+  'layout-phase': {
+    term: 'layout phase',
+    slug: '/terms/layout-phase',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'pipeline'],
+    definition: '',
+  },
+  'layout-shift': {
+    term: 'layout shift',
+    slug: '/terms/layout-shift',
+    aliases: [],
+    tags: ['next_js', 'styling', 'rendering_impact'],
+    definition: '',
+  },
+  layout: {
+    term: 'layout',
+    slug: '/terms/layout',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  'lazy-loading': {
+    term: 'lazy loading',
+    slug: '/terms/lazy-loading',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'performance'],
+    definition: '',
+  },
+  'lazy-rendering': {
+    term: 'lazy rendering',
+    slug: '/terms/lazy-rendering',
+    aliases: [],
+    tags: ['react_native', 'performance', 'rendering'],
+    definition: '',
+  },
+  lca: {
+    term: 'lca',
+    slug: '/terms/lca',
+    aliases: [],
+    tags: ['dsa', 'trees', 'advanced'],
+    definition: '',
+  },
+  lcp: {
+    term: 'lcp',
+    slug: '/terms/lcp',
+    aliases: [],
+    tags: ['web_development', 'performance', 'metrics'],
+    definition: '',
+  },
+  'leader-follower-model': {
+    term: 'leader follower model',
+    slug: '/terms/leader-follower-model',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'replication'],
+    definition: '',
+  },
+  'leaf-node': {
+    term: 'leaf node',
+    slug: '/terms/leaf-node',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  'least-privilege': {
+    term: 'least privilege',
+    slug: '/terms/least-privilege',
+    aliases: [],
+    tags: ['containerization', 'security', 'concepts'],
+    definition: '',
+  },
+  'least-squares': {
+    term: 'least squares',
+    slug: '/terms/least-squares',
+    aliases: [],
+    tags: ['linear_algebra', 'projections', 'concepts'],
+    definition: '',
+  },
+  'left-join': {
+    term: 'left join',
+    slug: '/terms/left-join',
+    aliases: [],
+    tags: ['sql', 'joins', 'types'],
+    definition: '',
+  },
+  lemmatization: {
+    term: 'lemmatization',
+    slug: '/terms/lemmatization',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'basics'],
+    definition: '',
+  },
+  'level-curves': {
+    term: 'level curves',
+    slug: '/terms/level-curves',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'basics'],
+    definition: '',
+  },
+  'level-order-traversal': {
+    term: 'level order traversal',
+    slug: '/terms/level-order-traversal',
+    aliases: [],
+    tags: ['dsa', 'trees', 'traversals'],
+    definition: '',
+  },
+  'lifting-state-up': {
+    term: 'lifting state up',
+    slug: '/terms/lifting-state-up',
+    aliases: [],
+    tags: ['react', 'state_management', 'patterns'],
+    definition: '',
+  },
+  like: {
+    term: 'like',
+    slug: '/terms/like',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  likelihood: {
+    term: 'likelihood',
+    slug: '/terms/likelihood',
+    aliases: [],
+    tags: ['statistics', 'bayesian_statistics', 'concepts'],
+    definition: '',
+  },
+  'limit-laws': {
+    term: 'limit laws',
+    slug: '/terms/limit-laws',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'limits'],
+    definition: '',
+  },
+  'limit-of-sequence': {
+    term: 'limit of sequence',
+    slug: '/terms/limit-of-sequence',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'sequences'],
+    definition: '',
+  },
+  limit: {
+    term: 'limit',
+    slug: '/terms/limit',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'linear-algebra': {
+    term: 'linear algebra',
+    slug: '/terms/linear-algebra',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'linear-approximation': {
+    term: 'linear approximation',
+    slug: '/terms/linear-approximation',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'advanced'],
+    definition: '',
+  },
+  'linear-independence': {
+    term: 'linear independence',
+    slug: '/terms/linear-independence',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'concepts'],
+    definition: '',
+  },
+  'linear-mappings': {
+    term: 'linear mappings',
+    slug: '/terms/linear-mappings',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'intuition'],
+    definition: '',
+  },
+  'linear-regression': {
+    term: 'linear regression',
+    slug: '/terms/linear-regression',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'regression'],
+    definition: '',
+  },
+  'linear-relationship': {
+    term: 'linear relationship',
+    slug: '/terms/linear-relationship',
+    aliases: [],
+    tags: ['statistics', 'correlation_and_relationships', 'concepts'],
+    definition: '',
+  },
+  'linear-search': {
+    term: 'linear search',
+    slug: '/terms/linear-search',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'searching'],
+    definition: '',
+  },
+  'linear-transformation': {
+    term: 'linear transformation',
+    slug: '/terms/linear-transformation',
+    aliases: [],
+    tags: ['linear_algebra', 'linear_transformations', 'concepts'],
+    definition: '',
+  },
+  'lines-in-space': {
+    term: 'lines in space',
+    slug: '/terms/lines-in-space',
+    aliases: [],
+    tags: ['calculus_iii', 'vectors_geometry', 'geometry'],
+    definition: '',
+  },
+  'linked-list': {
+    term: 'linked list',
+    slug: '/terms/linked-list',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'basics'],
+    definition: '',
+  },
+  'linux-security': {
+    term: 'linux security',
+    slug: '/terms/linux-security',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  linux: {
+    term: 'linux',
+    slug: '/terms/linux',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'liskov-substitution-principle': {
+    term: 'liskov substitution principle',
+    slug: '/terms/liskov-substitution-principle',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'solid'],
+    definition: '',
+  },
+  'list-virtualization': {
+    term: 'list virtualization',
+    slug: '/terms/list-virtualization',
+    aliases: [],
+    tags: ['flutter', 'performance', 'optimization'],
+    definition: '',
+  },
+  listview: {
+    term: 'listview',
+    slug: '/terms/listview',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  'load-average': {
+    term: 'load average',
+    slug: '/terms/load-average',
+    aliases: [],
+    tags: ['linux', 'performance', 'monitoring'],
+    definition: '',
+  },
+  'load-balancer': {
+    term: 'load balancer',
+    slug: '/terms/load-balancer',
+    aliases: [],
+    tags: ['k8s', 'services', 'types'],
+    definition: '',
+  },
+  'load-balancing': {
+    term: 'load balancing',
+    slug: '/terms/load-balancing',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'concepts'],
+    definition: '',
+  },
+  loading: {
+    term: 'loading',
+    slug: '/terms/loading',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  'local-maxima': {
+    term: 'local maxima',
+    slug: '/terms/local-maxima',
+    aliases: [],
+    tags: ['calculus_iii', 'optimization', 'unconstrained'],
+    definition: '',
+  },
+  'local-minima': {
+    term: 'local minima',
+    slug: '/terms/local-minima',
+    aliases: [],
+    tags: ['calculus_iii', 'optimization', 'unconstrained'],
+    definition: '',
+  },
+  'location-services': {
+    term: 'location services',
+    slug: '/terms/location-services',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'capabilities'],
+    definition: '',
+  },
+  locking: {
+    term: 'locking',
+    slug: '/terms/locking',
+    aliases: [],
+    tags: ['sql', 'transactions', 'control'],
+    definition: '',
+  },
+  'log-aggregation': {
+    term: 'log aggregation',
+    slug: '/terms/log-aggregation',
+    aliases: [],
+    tags: ['k8s', 'observability', 'logging'],
+    definition: '',
+  },
+  'log-loss': {
+    term: 'log loss',
+    slug: '/terms/log-loss',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'metrics'],
+    definition: '',
+  },
+  'log-rotation': {
+    term: 'log rotation',
+    slug: '/terms/log-rotation',
+    aliases: [],
+    tags: ['linux', 'devops', 'tooling'],
+    definition: '',
+  },
+  'log-storage': {
+    term: 'log storage',
+    slug: '/terms/log-storage',
+    aliases: [],
+    tags: ['docker', 'storage', 'use_cases'],
+    definition: '',
+  },
+  logic: {
+    term: 'logic',
+    slug: '/terms/logic',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'logical-equivalence': {
+    term: 'logical equivalence',
+    slug: '/terms/logical-equivalence',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'reasoning'],
+    definition: '',
+  },
+  'logical-operators': {
+    term: 'logical operators',
+    slug: '/terms/logical-operators',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'propositional_logic'],
+    definition: '',
+  },
+  'logical-proofs': {
+    term: 'logical proofs',
+    slug: '/terms/logical-proofs',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'reasoning'],
+    definition: '',
+  },
+  'logistic-regression': {
+    term: 'logistic regression',
+    slug: '/terms/logistic-regression',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  'longest-common-subsequence': {
+    term: 'longest common subsequence',
+    slug: '/terms/longest-common-subsequence',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  'longest-increasing-subsequence': {
+    term: 'longest increasing subsequence',
+    slug: '/terms/longest-increasing-subsequence',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'classic_problems'],
+    definition: '',
+  },
+  loops: {
+    term: 'loops',
+    slug: '/terms/loops',
+    aliases: [],
+    tags: ['linux', 'shell', 'scripting'],
+    definition: '',
+  },
+  'loss-function': {
+    term: 'loss function',
+    slug: '/terms/loss-function',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'architecture'],
+    definition: '',
+  },
+  lsblk: {
+    term: 'lsblk',
+    slug: '/terms/lsblk',
+    aliases: [],
+    tags: ['linux', 'storage', 'tools'],
+    definition: '',
+  },
+  lstm: {
+    term: 'lstm',
+    slug: '/terms/lstm',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  'lu-decomposition': {
+    term: 'lu decomposition',
+    slug: '/terms/lu-decomposition',
+    aliases: [],
+    tags: ['linear_algebra', 'decomposition', 'methods'],
+    definition: '',
+  },
+  'machine-learning': {
+    term: 'machine learning',
+    slug: '/terms/machine-learning',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'maclaurin-series': {
+    term: 'maclaurin series',
+    slug: '/terms/maclaurin-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'power_series'],
+    definition: '',
+  },
+  magnitude: {
+    term: 'magnitude',
+    slug: '/terms/magnitude',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'basics'],
+    definition: '',
+  },
+  mapping: {
+    term: 'mapping',
+    slug: '/terms/mapping',
+    aliases: [],
+    tags: ['linear_algebra', 'linear_transformations', 'concepts'],
+    definition: '',
+  },
+  'margin-of-error': {
+    term: 'margin of error',
+    slug: '/terms/margin-of-error',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'estimation'],
+    definition: '',
+  },
+  'market-cap': {
+    term: 'market cap',
+    slug: '/terms/market-cap',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'markov-decision-process': {
+    term: 'markov decision process',
+    slug: '/terms/markov-decision-process',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'uncertainty'],
+    definition: '',
+  },
+  'master-theorem': {
+    term: 'master theorem',
+    slug: '/terms/master-theorem',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'solving'],
+    definition: '',
+  },
+  'material-design': {
+    term: 'material design',
+    slug: '/terms/material-design',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'styling'],
+    definition: '',
+  },
+  'matrix-addition': {
+    term: 'matrix addition',
+    slug: '/terms/matrix-addition',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'operations'],
+    definition: '',
+  },
+  'matrix-conditioning': {
+    term: 'matrix conditioning',
+    slug: '/terms/matrix-conditioning',
+    aliases: [],
+    tags: ['linear_algebra', 'advanced_topics', 'numerical_linear_algebra'],
+    definition: '',
+  },
+  'matrix-multiplication': {
+    term: 'matrix multiplication',
+    slug: '/terms/matrix-multiplication',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  'matrix-representation': {
+    term: 'matrix representation',
+    slug: '/terms/matrix-representation',
+    aliases: [],
+    tags: ['linear_algebra', 'linear_transformations', 'representation'],
+    definition: '',
+  },
+  matrix: {
+    term: 'matrix',
+    slug: '/terms/matrix',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  max: {
+    term: 'max',
+    slug: '/terms/max',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'maximum-likelihood-estimation': {
+    term: 'maximum likelihood estimation',
+    slug: '/terms/maximum-likelihood-estimation',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  'mean-absolute-error': {
+    term: 'mean absolute error',
+    slug: '/terms/mean-absolute-error',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'metrics'],
+    definition: '',
+  },
+  'mean-squared-error': {
+    term: 'mean squared error',
+    slug: '/terms/mean-squared-error',
+    aliases: [],
+    tags: ['machine_learning', 'model_evaluation', 'metrics'],
+    definition: '',
+  },
+  'mean-value-theorem': {
+    term: 'mean value theorem',
+    slug: '/terms/mean-value-theorem',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'applications'],
+    definition: '',
+  },
+  mean: {
+    term: 'mean',
+    slug: '/terms/mean',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'central_tendency'],
+    definition: '',
+  },
+  'means-ends-analysis': {
+    term: 'means ends analysis',
+    slug: '/terms/means-ends-analysis',
+    aliases: [],
+    tags: ['ai', 'planning', 'classical_planning'],
+    definition: '',
+  },
+  'measurement-bias': {
+    term: 'measurement bias',
+    slug: '/terms/measurement-bias',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'bias'],
+    definition: '',
+  },
+  'media-queries': {
+    term: 'media queries',
+    slug: '/terms/media-queries',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  'media-query': {
+    term: 'media query',
+    slug: '/terms/media-query',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'responsiveness'],
+    definition: '',
+  },
+  median: {
+    term: 'median',
+    slug: '/terms/median',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'central_tendency'],
+    definition: '',
+  },
+  memo: {
+    term: 'memo',
+    slug: '/terms/memo',
+    aliases: [],
+    tags: ['react_native', 'performance', 'optimization'],
+    definition: '',
+  },
+  memoization: {
+    term: 'memoization',
+    slug: '/terms/memoization',
+    aliases: [],
+    tags: ['react', 'rendering_model', 'optimization'],
+    definition: '',
+  },
+  'memory-usage': {
+    term: 'memory usage',
+    slug: '/terms/memory-usage',
+    aliases: [],
+    tags: ['linux', 'performance', 'monitoring'],
+    definition: '',
+  },
+  'merge-linked-lists': {
+    term: 'merge linked lists',
+    slug: '/terms/merge-linked-lists',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'techniques'],
+    definition: '',
+  },
+  'merge-sort': {
+    term: 'merge sort',
+    slug: '/terms/merge-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'method-overloading': {
+    term: 'method overloading',
+    slug: '/terms/method-overloading',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'compile_time'],
+    definition: '',
+  },
+  'method-overriding': {
+    term: 'method overriding',
+    slug: '/terms/method-overriding',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'runtime'],
+    definition: '',
+  },
+  method: {
+    term: 'method',
+    slug: '/terms/method',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'metrics-server': {
+    term: 'metrics server',
+    slug: '/terms/metrics-server',
+    aliases: [],
+    tags: ['k8s', 'observability', 'monitoring'],
+    definition: '',
+  },
+  'metrics-tracking': {
+    term: 'metrics tracking',
+    slug: '/terms/metrics-tracking',
+    aliases: [],
+    tags: ['statistics', 'applications', 'data_systems'],
+    definition: '',
+  },
+  'metro-bundler': {
+    term: 'metro bundler',
+    slug: '/terms/metro-bundler',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'micro-environment-isolation': {
+    term: 'micro environment isolation',
+    slug: '/terms/micro-environment-isolation',
+    aliases: [],
+    tags: ['containerization', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  microservices: {
+    term: 'microservices',
+    slug: '/terms/microservices',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'patterns'],
+    definition: '',
+  },
+  middleware: {
+    term: 'middleware',
+    slug: '/terms/middleware',
+    aliases: [],
+    tags: ['next_js', 'middleware', 'concepts'],
+    definition: '',
+  },
+  min: {
+    term: 'min',
+    slug: '/terms/min',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'mini-batch-gradient-descent': {
+    term: 'mini batch gradient descent',
+    slug: '/terms/mini-batch-gradient-descent',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'algorithms'],
+    definition: '',
+  },
+  minikube: {
+    term: 'minikube',
+    slug: '/terms/minikube',
+    aliases: [],
+    tags: ['k8s', 'ecosystem', 'tools'],
+    definition: '',
+  },
+  'minimal-base-images': {
+    term: 'minimal base images',
+    slug: '/terms/minimal-base-images',
+    aliases: [],
+    tags: ['docker', 'images', 'optimization'],
+    definition: '',
+  },
+  minimax: {
+    term: 'minimax',
+    slug: '/terms/minimax',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'adversarial_search'],
+    definition: '',
+  },
+  'minimum-spanning-tree': {
+    term: 'minimum spanning tree',
+    slug: '/terms/minimum-spanning-tree',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'advanced'],
+    definition: '',
+  },
+  mixins: {
+    term: 'mixins',
+    slug: '/terms/mixins',
+    aliases: [],
+    tags: ['flutter', 'dart_language', 'oop'],
+    definition: '',
+  },
+  mod: {
+    term: 'mod',
+    slug: '/terms/mod',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'modular'],
+    definition: '',
+  },
+  mode: {
+    term: 'mode',
+    slug: '/terms/mode',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'central_tendency'],
+    definition: '',
+  },
+  'model-evaluation': {
+    term: 'model evaluation',
+    slug: '/terms/model-evaluation',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'workflow'],
+    definition: '',
+  },
+  'model-training': {
+    term: 'model training',
+    slug: '/terms/model-training',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'workflow'],
+    definition: '',
+  },
+  model: {
+    term: 'model',
+    slug: '/terms/model',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'modular-arithmetic': {
+    term: 'modular arithmetic',
+    slug: '/terms/modular-arithmetic',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cryptography'],
+    definition: '',
+  },
+  'modular-inverse': {
+    term: 'modular inverse',
+    slug: '/terms/modular-inverse',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'modular'],
+    definition: '',
+  },
+  'momentum-investing': {
+    term: 'momentum investing',
+    slug: '/terms/momentum-investing',
+    aliases: [],
+    tags: ['finance', 'investing', 'strategies'],
+    definition: '',
+  },
+  momentum: {
+    term: 'momentum',
+    slug: '/terms/momentum',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'algorithms'],
+    definition: '',
+  },
+  'monetary-policy': {
+    term: 'monetary policy',
+    slug: '/terms/monetary-policy',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'policy'],
+    definition: '',
+  },
+  'mongodb-query': {
+    term: 'mongodb query',
+    slug: '/terms/mongodb-query',
+    aliases: [],
+    tags: ['nosql', 'querying', 'mongodb_specific'],
+    definition: '',
+  },
+  mongodb: {
+    term: 'mongodb',
+    slug: '/terms/mongodb',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  monolith: {
+    term: 'monolith',
+    slug: '/terms/monolith',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'monorepo-support': {
+    term: 'monorepo support',
+    slug: '/terms/monorepo-support',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'architecture'],
+    definition: '',
+  },
+  'monotonic-queue': {
+    term: 'monotonic queue',
+    slug: '/terms/monotonic-queue',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'queue'],
+    definition: '',
+  },
+  'monotonic-stack': {
+    term: 'monotonic stack',
+    slug: '/terms/monotonic-stack',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'stack'],
+    definition: '',
+  },
+  'mount-points': {
+    term: 'mount points',
+    slug: '/terms/mount-points',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  mount: {
+    term: 'mount',
+    slug: '/terms/mount',
+    aliases: [],
+    tags: ['linux', 'storage', 'concepts'],
+    definition: '',
+  },
+  mounting: {
+    term: 'mounting',
+    slug: '/terms/mounting',
+    aliases: [],
+    tags: ['react', 'components', 'lifecycle'],
+    definition: '',
+  },
+  'moving-average': {
+    term: 'moving average',
+    slug: '/terms/moving-average',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'models'],
+    definition: '',
+  },
+  'multi-agent-system': {
+    term: 'multi agent system',
+    slug: '/terms/multi-agent-system',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'agents'],
+    definition: '',
+  },
+  'multi-container-pod': {
+    term: 'multi container pod',
+    slug: '/terms/multi-container-pod',
+    aliases: [],
+    tags: ['k8s', 'pods', 'concepts'],
+    definition: '',
+  },
+  'multi-document-transaction': {
+    term: 'multi document transaction',
+    slug: '/terms/multi-document-transaction',
+    aliases: [],
+    tags: ['nosql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  'multi-stage-build': {
+    term: 'multi stage build',
+    slug: '/terms/multi-stage-build',
+    aliases: [],
+    tags: ['docker', 'images', 'optimization'],
+    definition: '',
+  },
+  'multi-stage-builds': {
+    term: 'multi stage builds',
+    slug: '/terms/multi-stage-builds',
+    aliases: [],
+    tags: ['containerization', 'optimization', 'performance'],
+    definition: '',
+  },
+  'multilevel-inheritance': {
+    term: 'multilevel inheritance',
+    slug: '/terms/multilevel-inheritance',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'types'],
+    definition: '',
+  },
+  'multiple-inheritance': {
+    term: 'multiple inheritance',
+    slug: '/terms/multiple-inheritance',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'types'],
+    definition: '',
+  },
+  'multiple-regression': {
+    term: 'multiple regression',
+    slug: '/terms/multiple-regression',
+    aliases: [],
+    tags: ['statistics', 'correlation_and_relationships', 'regression'],
+    definition: '',
+  },
+  'multiplication-principle': {
+    term: 'multiplication principle',
+    slug: '/terms/multiplication-principle',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'principles'],
+    definition: '',
+  },
+  'multiplication-rule': {
+    term: 'multiplication rule',
+    slug: '/terms/multiplication-rule',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'rules'],
+    definition: '',
+  },
+  'multivariable-function': {
+    term: 'multivariable function',
+    slug: '/terms/multivariable-function',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'basics'],
+    definition: '',
+  },
+  'multivariate-data': {
+    term: 'multivariate data',
+    slug: '/terms/multivariate-data',
+    aliases: [],
+    tags: ['statistics', 'multivariate_statistics', 'concepts'],
+    definition: '',
+  },
+  mvc: {
+    term: 'mvc',
+    slug: '/terms/mvc',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'patterns'],
+    definition: '',
+  },
+  mvvm: {
+    term: 'mvvm',
+    slug: '/terms/mvvm',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'patterns'],
+    definition: '',
+  },
+  mysql: {
+    term: 'mysql',
+    slug: '/terms/mysql',
+    aliases: [],
+    tags: ['sql', 'databases', 'relational'],
+    definition: '',
+  },
+  'n-ary-tree': {
+    term: 'n-ary tree',
+    slug: '/terms/n-ary-tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  'naive-bayes': {
+    term: 'naive bayes',
+    slug: '/terms/naive-bayes',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  namespace: {
+    term: 'namespace',
+    slug: '/terms/namespace',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'cluster_components'],
+    definition: '',
+  },
+  namespaces: {
+    term: 'namespaces',
+    slug: '/terms/namespaces',
+    aliases: [],
+    tags: ['linux', 'containers', 'concepts'],
+    definition: '',
+  },
+  'native-component': {
+    term: 'native component',
+    slug: '/terms/native-component',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'native-modules': {
+    term: 'native modules',
+    slug: '/terms/native-modules',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  'native-plugins': {
+    term: 'native plugins',
+    slug: '/terms/native-plugins',
+    aliases: [],
+    tags: ['flutter', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  'native-ui-abstraction': {
+    term: 'native ui abstraction',
+    slug: '/terms/native-ui-abstraction',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'natural-language-processing': {
+    term: 'natural language processing',
+    slug: '/terms/natural-language-processing',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'basics'],
+    definition: '',
+  },
+  navigation: {
+    term: 'navigation',
+    slug: '/terms/navigation',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'concepts'],
+    definition: '',
+  },
+  'navigator-10': {
+    term: 'navigator 1.0',
+    slug: '/terms/navigator-10',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'tools'],
+    definition: '',
+  },
+  'navigator-20': {
+    term: 'navigator 2.0',
+    slug: '/terms/navigator-20',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'tools'],
+    definition: '',
+  },
+  navigator: {
+    term: 'navigator',
+    slug: '/terms/navigator',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'concepts'],
+    definition: '',
+  },
+  neo4j: {
+    term: 'neo4j',
+    slug: '/terms/neo4j',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  'nested-documents': {
+    term: 'nested documents',
+    slug: '/terms/nested-documents',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'document_db'],
+    definition: '',
+  },
+  'nested-select': {
+    term: 'nested select',
+    slug: '/terms/nested-select',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'subqueries'],
+    definition: '',
+  },
+  nestjs: {
+    term: 'nestjs',
+    slug: '/terms/nestjs',
+    aliases: [],
+    tags: ['web_development', 'backend', 'node_ecosystem'],
+    definition: '',
+  },
+  'net-income': {
+    term: 'net income',
+    slug: '/terms/net-income',
+    aliases: [],
+    tags: ['finance', 'accounting', 'metrics'],
+    definition: '',
+  },
+  netlify: {
+    term: 'netlify',
+    slug: '/terms/netlify',
+    aliases: [],
+    tags: ['web_development', 'deployment', 'platforms'],
+    definition: '',
+  },
+  netstat: {
+    term: 'netstat',
+    slug: '/terms/netstat',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  'network-policies': {
+    term: 'network policies',
+    slug: '/terms/network-policies',
+    aliases: [],
+    tags: ['k8s', 'security', 'concepts'],
+    definition: '',
+  },
+  'neural-network-weights': {
+    term: 'neural network weights',
+    slug: '/terms/neural-network-weights',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'ai_systems'],
+    definition: '',
+  },
+  'neural-network': {
+    term: 'neural network',
+    slug: '/terms/neural-network',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  'next-auth': {
+    term: 'next auth',
+    slug: '/terms/next-auth',
+    aliases: [],
+    tags: ['next_js', 'ecosystem', 'integrations'],
+    definition: '',
+  },
+  'next-build': {
+    term: 'next build',
+    slug: '/terms/next-build',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'build_process'],
+    definition: '',
+  },
+  'next-export': {
+    term: 'next export',
+    slug: '/terms/next-export',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'build_process'],
+    definition: '',
+  },
+  'next-greater-element': {
+    term: 'next greater element',
+    slug: '/terms/next-greater-element',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'stack'],
+    definition: '',
+  },
+  'next-image': {
+    term: 'next image',
+    slug: '/terms/next-image',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'performance'],
+    definition: '',
+  },
+  'next-token-prediction': {
+    term: 'next token prediction',
+    slug: '/terms/next-token-prediction',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'language_models'],
+    definition: '',
+  },
+  'nextjs-routing': {
+    term: 'next.js routing',
+    slug: '/terms/nextjs-routing',
+    aliases: [],
+    tags: ['react', 'routing', 'libraries'],
+    definition: '',
+  },
+  nextjs: {
+    term: 'next.js',
+    slug: '/terms/nextjs',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  nfa: {
+    term: 'nfa',
+    slug: '/terms/nfa',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'models'],
+    definition: '',
+  },
+  nice: {
+    term: 'nice',
+    slug: '/terms/nice',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  'no-store': {
+    term: 'no store',
+    slug: '/terms/no-store',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'caching'],
+    definition: '',
+  },
+  'node-port': {
+    term: 'node port',
+    slug: '/terms/node-port',
+    aliases: [],
+    tags: ['k8s', 'services', 'types'],
+    definition: '',
+  },
+  'node-server': {
+    term: 'node server',
+    slug: '/terms/node-server',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'platforms'],
+    definition: '',
+  },
+  node: {
+    term: 'node',
+    slug: '/terms/node',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  nodejs: {
+    term: 'node.js',
+    slug: '/terms/nodejs',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'runtime'],
+    definition: '',
+  },
+  nodes: {
+    term: 'nodes',
+    slug: '/terms/nodes',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'graph_db'],
+    definition: '',
+  },
+  nomad: {
+    term: 'nomad',
+    slug: '/terms/nomad',
+    aliases: [],
+    tags: ['containerization', 'orchestration', 'tools'],
+    definition: '',
+  },
+  'normal-distribution': {
+    term: 'normal distribution',
+    slug: '/terms/normal-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'continuous'],
+    definition: '',
+  },
+  normalization: {
+    term: 'normalization',
+    slug: '/terms/normalization',
+    aliases: [],
+    tags: ['sql', 'foundations', 'relational_model'],
+    definition: '',
+  },
+  nosql: {
+    term: 'nosql',
+    slug: '/terms/nosql',
+    aliases: [],
+    tags: ['nosql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  not: {
+    term: 'not',
+    slug: '/terms/not',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  notifications: {
+    term: 'notifications',
+    slug: '/terms/notifications',
+    aliases: [],
+    tags: ['react_native', 'native_integration', 'capabilities'],
+    definition: '',
+  },
+  'null-hypothesis': {
+    term: 'null hypothesis',
+    slug: '/terms/null-hypothesis',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  'numerical-data': {
+    term: 'numerical data',
+    slug: '/terms/numerical-data',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'data_types'],
+    definition: '',
+  },
+  'numerical-methods': {
+    term: 'numerical methods',
+    slug: '/terms/numerical-methods',
+    aliases: [],
+    tags: ['linear_algebra', 'advanced_topics', 'numerical_linear_algebra'],
+    definition: '',
+  },
+  nuxt: {
+    term: 'nuxt',
+    slug: '/terms/nuxt',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'other_frameworks'],
+    definition: '',
+  },
+  oauth: {
+    term: 'oauth',
+    slug: '/terms/oauth',
+    aliases: [],
+    tags: ['web_development', 'security', 'auth'],
+    definition: '',
+  },
+  'object-detection': {
+    term: 'object detection',
+    slug: '/terms/object-detection',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'basics'],
+    definition: '',
+  },
+  object: {
+    term: 'object',
+    slug: '/terms/object',
+    aliases: [],
+    tags: ['oop', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'observer-pattern': {
+    term: 'observer pattern',
+    slug: '/terms/observer-pattern',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'patterns'],
+    definition: '',
+  },
+  'one-hot-encoding': {
+    term: 'one hot encoding',
+    slug: '/terms/one-hot-encoding',
+    aliases: [],
+    tags: ['machine_learning', 'feature_engineering', 'techniques'],
+    definition: '',
+  },
+  'one-sided-limit': {
+    term: 'one-sided limit',
+    slug: '/terms/one-sided-limit',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'limits'],
+    definition: '',
+  },
+  'open-addressing': {
+    term: 'open addressing',
+    slug: '/terms/open-addressing',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'techniques'],
+    definition: '',
+  },
+  'open-closed-principle': {
+    term: 'open closed principle',
+    slug: '/terms/open-closed-principle',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'solid'],
+    definition: '',
+  },
+  'operating-income': {
+    term: 'operating income',
+    slug: '/terms/operating-income',
+    aliases: [],
+    tags: ['finance', 'accounting', 'metrics'],
+    definition: '',
+  },
+  'operating-system': {
+    term: 'operating system',
+    slug: '/terms/operating-system',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'operator-overloading': {
+    term: 'operator overloading',
+    slug: '/terms/operator-overloading',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'compile_time'],
+    definition: '',
+  },
+  'optimal-substructure': {
+    term: 'optimal substructure',
+    slug: '/terms/optimal-substructure',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'fundamentals'],
+    definition: '',
+  },
+  optimization: {
+    term: 'optimization',
+    slug: '/terms/optimization',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'calculus'],
+    definition: '',
+  },
+  options: {
+    term: 'options',
+    slug: '/terms/options',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  or: {
+    term: 'or',
+    slug: '/terms/or',
+    aliases: [],
+    tags: ['sql', 'queries', 'filtering'],
+    definition: '',
+  },
+  'oracle-database': {
+    term: 'oracle database',
+    slug: '/terms/oracle-database',
+    aliases: [],
+    tags: ['sql', 'databases', 'relational'],
+    definition: '',
+  },
+  'order-by': {
+    term: 'order by',
+    slug: '/terms/order-by',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'orthogonal-matrix': {
+    term: 'orthogonal matrix',
+    slug: '/terms/orthogonal-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'properties'],
+    definition: '',
+  },
+  'orthogonal-vectors': {
+    term: 'orthogonal vectors',
+    slug: '/terms/orthogonal-vectors',
+    aliases: [],
+    tags: ['linear_algebra', 'orthogonality', 'concepts'],
+    definition: '',
+  },
+  orthogonality: {
+    term: 'orthogonality',
+    slug: '/terms/orthogonality',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'geometry'],
+    definition: '',
+  },
+  'orthonormal-basis': {
+    term: 'orthonormal basis',
+    slug: '/terms/orthonormal-basis',
+    aliases: [],
+    tags: ['linear_algebra', 'orthogonality', 'concepts'],
+    definition: '',
+  },
+  outcome: {
+    term: 'outcome',
+    slug: '/terms/outcome',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'basics'],
+    definition: '',
+  },
+  'over-the-air-updates': {
+    term: 'over the air updates',
+    slug: '/terms/over-the-air-updates',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'deployment'],
+    definition: '',
+  },
+  overfitting: {
+    term: 'overfitting',
+    slug: '/terms/overfitting',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'overlapping-subproblems': {
+    term: 'overlapping subproblems',
+    slug: '/terms/overlapping-subproblems',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'fundamentals'],
+    definition: '',
+  },
+  'overlay-network': {
+    term: 'overlay network',
+    slug: '/terms/overlay-network',
+    aliases: [],
+    tags: ['docker', 'networking', 'concepts'],
+    definition: '',
+  },
+  ownership: {
+    term: 'ownership',
+    slug: '/terms/ownership',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  'p-series': {
+    term: 'p-series',
+    slug: '/terms/p-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'series'],
+    definition: '',
+  },
+  'p-value': {
+    term: 'p value',
+    slug: '/terms/p-value',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  'package-installation': {
+    term: 'package installation',
+    slug: '/terms/package-installation',
+    aliases: [],
+    tags: ['linux', 'package_management', 'concepts'],
+    definition: '',
+  },
+  pacman: {
+    term: 'pacman',
+    slug: '/terms/pacman',
+    aliases: [],
+    tags: ['linux', 'package_management', 'systems'],
+    definition: '',
+  },
+  padding: {
+    term: 'padding',
+    slug: '/terms/padding',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'basic_widgets'],
+    definition: '',
+  },
+  page: {
+    term: 'page',
+    slug: '/terms/page',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  'pages-router': {
+    term: 'pages router',
+    slug: '/terms/pages-router',
+    aliases: [],
+    tags: ['next_js', 'routing', 'pages_router'],
+    definition: '',
+  },
+  'paint-phase': {
+    term: 'paint phase',
+    slug: '/terms/paint-phase',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'pipeline'],
+    definition: '',
+  },
+  palindrome: {
+    term: 'palindrome',
+    slug: '/terms/palindrome',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'strings'],
+    definition: '',
+  },
+  'parallel-routes': {
+    term: 'parallel routes',
+    slug: '/terms/parallel-routes',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  parameter: {
+    term: 'parameter',
+    slug: '/terms/parameter',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'parameterized-queries': {
+    term: 'parameterized queries',
+    slug: '/terms/parameterized-queries',
+    aliases: [],
+    tags: ['sql', 'security', 'concepts'],
+    definition: '',
+  },
+  'parent-class': {
+    term: 'parent class',
+    slug: '/terms/parent-class',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'basics'],
+    definition: '',
+  },
+  'parent-image': {
+    term: 'parent image',
+    slug: '/terms/parent-image',
+    aliases: [],
+    tags: ['containerization', 'images', 'concepts'],
+    definition: '',
+  },
+  'parent-process': {
+    term: 'parent process',
+    slug: '/terms/parent-process',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  'partial-derivatives': {
+    term: 'partial derivatives',
+    slug: '/terms/partial-derivatives',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'calculus'],
+    definition: '',
+  },
+  'partial-fractions': {
+    term: 'partial fractions',
+    slug: '/terms/partial-fractions',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'techniques'],
+    definition: '',
+  },
+  'partition-by': {
+    term: 'partition by',
+    slug: '/terms/partition-by',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'window_functions'],
+    definition: '',
+  },
+  'partition-tolerance': {
+    term: 'partition tolerance',
+    slug: '/terms/partition-tolerance',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'replication'],
+    definition: '',
+  },
+  partition: {
+    term: 'partition',
+    slug: '/terms/partition',
+    aliases: [],
+    tags: ['linux', 'storage', 'concepts'],
+    definition: '',
+  },
+  'path-based-routing': {
+    term: 'path based routing',
+    slug: '/terms/path-based-routing',
+    aliases: [],
+    tags: ['k8s', 'networking', 'ingress'],
+    definition: '',
+  },
+  path: {
+    term: 'path',
+    slug: '/terms/path',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'properties'],
+    definition: '',
+  },
+  'pattern-matching': {
+    term: 'pattern matching',
+    slug: '/terms/pattern-matching',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'strings'],
+    definition: '',
+  },
+  paused: {
+    term: 'paused',
+    slug: '/terms/paused',
+    aliases: [],
+    tags: ['containerization', 'lifecycle', 'states'],
+    definition: '',
+  },
+  pca: {
+    term: 'pca',
+    slug: '/terms/pca',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'dimensionality_reduction'],
+    definition: '',
+  },
+  pending: {
+    term: 'pending',
+    slug: '/terms/pending',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'states'],
+    definition: '',
+  },
+  perceptron: {
+    term: 'perceptron',
+    slug: '/terms/perceptron',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  'performance-overlay': {
+    term: 'performance overlay',
+    slug: '/terms/performance-overlay',
+    aliases: [],
+    tags: ['flutter', 'performance', 'debugging'],
+    definition: '',
+  },
+  permissions: {
+    term: 'permissions',
+    slug: '/terms/permissions',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'system'],
+    definition: '',
+  },
+  permutations: {
+    term: 'permutations',
+    slug: '/terms/permutations',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'counting'],
+    definition: '',
+  },
+  'persistent-storage': {
+    term: 'persistent storage',
+    slug: '/terms/persistent-storage',
+    aliases: [],
+    tags: ['docker', 'storage', 'concepts'],
+    definition: '',
+  },
+  'persistent-volume-claim': {
+    term: 'persistent volume claim',
+    slug: '/terms/persistent-volume-claim',
+    aliases: [],
+    tags: ['k8s', 'storage', 'concepts'],
+    definition: '',
+  },
+  'persistent-volume': {
+    term: 'persistent volume',
+    slug: '/terms/persistent-volume',
+    aliases: [],
+    tags: ['k8s', 'storage', 'concepts'],
+    definition: '',
+  },
+  pid: {
+    term: 'pid',
+    slug: '/terms/pid',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  'pigeonhole-principle': {
+    term: 'pigeonhole principle',
+    slug: '/terms/pigeonhole-principle',
+    aliases: [],
+    tags: ['discrete_math', 'combinatorics', 'principles'],
+    definition: '',
+  },
+  ping: {
+    term: 'ping',
+    slug: '/terms/ping',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  pipeline: {
+    term: 'pipeline',
+    slug: '/terms/pipeline',
+    aliases: [],
+    tags: ['containerization', 'devops', 'ci_cd'],
+    definition: '',
+  },
+  pipes: {
+    term: 'pipes',
+    slug: '/terms/pipes',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  planes: {
+    term: 'planes',
+    slug: '/terms/planes',
+    aliases: [],
+    tags: ['calculus_iii', 'vectors_geometry', 'geometry'],
+    definition: '',
+  },
+  'planning-agent': {
+    term: 'planning agent',
+    slug: '/terms/planning-agent',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'agents'],
+    definition: '',
+  },
+  'planning-problem': {
+    term: 'planning problem',
+    slug: '/terms/planning-problem',
+    aliases: [],
+    tags: ['ai', 'planning', 'classical_planning'],
+    definition: '',
+  },
+  'platform-channels': {
+    term: 'platform channels',
+    slug: '/terms/platform-channels',
+    aliases: [],
+    tags: ['flutter', 'native_integration', 'concepts'],
+    definition: '',
+  },
+  'platform-specific-styles': {
+    term: 'platform specific styles',
+    slug: '/terms/platform-specific-styles',
+    aliases: [],
+    tags: ['react_native', 'styling', 'system'],
+    definition: '',
+  },
+  'pod-abstraction': {
+    term: 'pod abstraction',
+    slug: '/terms/pod-abstraction',
+    aliases: [],
+    tags: ['docker', 'orchestration_bridge', 'kubernetes_relation'],
+    definition: '',
+  },
+  'pod-logs': {
+    term: 'pod logs',
+    slug: '/terms/pod-logs',
+    aliases: [],
+    tags: ['k8s', 'observability', 'logging'],
+    definition: '',
+  },
+  'pod-security-policies': {
+    term: 'pod security policies',
+    slug: '/terms/pod-security-policies',
+    aliases: [],
+    tags: ['k8s', 'security', 'concepts'],
+    definition: '',
+  },
+  'pod-to-pod-communication': {
+    term: 'pod to pod communication',
+    slug: '/terms/pod-to-pod-communication',
+    aliases: [],
+    tags: ['k8s', 'networking', 'concepts'],
+    definition: '',
+  },
+  pod: {
+    term: 'pod',
+    slug: '/terms/pod',
+    aliases: [],
+    tags: ['k8s', 'pods', 'concepts'],
+    definition: '',
+  },
+  'point-estimation': {
+    term: 'point estimation',
+    slug: '/terms/point-estimation',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'estimation'],
+    definition: '',
+  },
+  'poisson-distribution': {
+    term: 'poisson distribution',
+    slug: '/terms/poisson-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'discrete'],
+    definition: '',
+  },
+  'policy-gradient': {
+    term: 'policy gradient',
+    slug: '/terms/policy-gradient',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'reinforcement_learning'],
+    definition: '',
+  },
+  policy: {
+    term: 'policy',
+    slug: '/terms/policy',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'reinforcement_learning'],
+    definition: '',
+  },
+  polymorphism: {
+    term: 'polymorphism',
+    slug: '/terms/polymorphism',
+    aliases: [],
+    tags: ['oop', 'foundations', 'principles'],
+    definition: '',
+  },
+  'polynomial-regression': {
+    term: 'polynomial regression',
+    slug: '/terms/polynomial-regression',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'regression'],
+    definition: '',
+  },
+  population: {
+    term: 'population',
+    slug: '/terms/population',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'port-conflicts': {
+    term: 'port conflicts',
+    slug: '/terms/port-conflicts',
+    aliases: [],
+    tags: ['docker', 'debugging', 'issues'],
+    definition: '',
+  },
+  'port-mapping': {
+    term: 'port mapping',
+    slug: '/terms/port-mapping',
+    aliases: [],
+    tags: ['docker', 'networking', 'concepts'],
+    definition: '',
+  },
+  'portfolio-optimization': {
+    term: 'portfolio optimization',
+    slug: '/terms/portfolio-optimization',
+    aliases: [],
+    tags: ['finance', 'investing', 'portfolio'],
+    definition: '',
+  },
+  'portfolio-variance': {
+    term: 'portfolio variance',
+    slug: '/terms/portfolio-variance',
+    aliases: [],
+    tags: ['statistics', 'applications', 'finance'],
+    definition: '',
+  },
+  ports: {
+    term: 'ports',
+    slug: '/terms/ports',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  positioning: {
+    term: 'positioning',
+    slug: '/terms/positioning',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'css'],
+    definition: '',
+  },
+  'positive-definite-matrices': {
+    term: 'positive definite matrices',
+    slug: '/terms/positive-definite-matrices',
+    aliases: [],
+    tags: ['linear_algebra', 'advanced_topics', 'spectral_theory'],
+    definition: '',
+  },
+  'posterior-probability': {
+    term: 'posterior probability',
+    slug: '/terms/posterior-probability',
+    aliases: [],
+    tags: ['statistics', 'bayesian_statistics', 'concepts'],
+    definition: '',
+  },
+  postgresql: {
+    term: 'postgresql',
+    slug: '/terms/postgresql',
+    aliases: [],
+    tags: ['sql', 'databases', 'relational'],
+    definition: '',
+  },
+  'postorder-traversal': {
+    term: 'postorder traversal',
+    slug: '/terms/postorder-traversal',
+    aliases: [],
+    tags: ['dsa', 'trees', 'traversals'],
+    definition: '',
+  },
+  'power-rule': {
+    term: 'power rule',
+    slug: '/terms/power-rule',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'rules'],
+    definition: '',
+  },
+  'power-series': {
+    term: 'power series',
+    slug: '/terms/power-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'power_series'],
+    definition: '',
+  },
+  'power-set': {
+    term: 'power set',
+    slug: '/terms/power-set',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'properties'],
+    definition: '',
+  },
+  ppi: {
+    term: 'ppi',
+    slug: '/terms/ppi',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'indicators'],
+    definition: '',
+  },
+  precision: {
+    term: 'precision',
+    slug: '/terms/precision',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  predicate: {
+    term: 'predicate',
+    slug: '/terms/predicate',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'predicate_logic'],
+    definition: '',
+  },
+  prefetching: {
+    term: 'prefetching',
+    slug: '/terms/prefetching',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'performance'],
+    definition: '',
+  },
+  'prefix-sum': {
+    term: 'prefix sum',
+    slug: '/terms/prefix-sum',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  'preorder-traversal': {
+    term: 'preorder traversal',
+    slug: '/terms/preorder-traversal',
+    aliases: [],
+    tags: ['dsa', 'trees', 'traversals'],
+    definition: '',
+  },
+  'prepared-statements': {
+    term: 'prepared statements',
+    slug: '/terms/prepared-statements',
+    aliases: [],
+    tags: ['sql', 'security', 'concepts'],
+    definition: '',
+  },
+  'presentation-layer': {
+    term: 'presentation layer',
+    slug: '/terms/presentation-layer',
+    aliases: [],
+    tags: ['flutter', 'architecture', 'layering'],
+    definition: '',
+  },
+  pressable: {
+    term: 'pressable',
+    slug: '/terms/pressable',
+    aliases: [],
+    tags: ['react_native', 'components', 'interaction'],
+    definition: '',
+  },
+  'prim-algorithm': {
+    term: 'prim algorithm',
+    slug: '/terms/prim-algorithm',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'advanced'],
+    definition: '',
+  },
+  'primary-key': {
+    term: 'primary key',
+    slug: '/terms/primary-key',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'prime-factorization': {
+    term: 'prime factorization',
+    slug: '/terms/prime-factorization',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cryptography'],
+    definition: '',
+  },
+  'prime-numbers': {
+    term: 'prime numbers',
+    slug: '/terms/prime-numbers',
+    aliases: [],
+    tags: ['discrete_math', 'number_theory', 'concepts'],
+    definition: '',
+  },
+  'principal-component-analysis': {
+    term: 'principal component analysis',
+    slug: '/terms/principal-component-analysis',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'dimensionality_reduction'],
+    definition: '',
+  },
+  'principal-directions': {
+    term: 'principal directions',
+    slug: '/terms/principal-directions',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'applications'],
+    definition: '',
+  },
+  'prior-probability': {
+    term: 'prior probability',
+    slug: '/terms/prior-probability',
+    aliases: [],
+    tags: ['statistics', 'bayesian_statistics', 'concepts'],
+    definition: '',
+  },
+  'priority-queue': {
+    term: 'priority queue',
+    slug: '/terms/priority-queue',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'queue'],
+    definition: '',
+  },
+  prisma: {
+    term: 'prisma',
+    slug: '/terms/prisma',
+    aliases: [],
+    tags: ['next_js', 'ecosystem', 'integrations'],
+    definition: '',
+  },
+  'private-company': {
+    term: 'private company',
+    slug: '/terms/private-company',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'private-registry': {
+    term: 'private registry',
+    slug: '/terms/private-registry',
+    aliases: [],
+    tags: ['docker', 'registries', 'concepts'],
+    definition: '',
+  },
+  private: {
+    term: 'private',
+    slug: '/terms/private',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'access_control'],
+    definition: '',
+  },
+  'privilege-escalation': {
+    term: 'privilege escalation',
+    slug: '/terms/privilege-escalation',
+    aliases: [],
+    tags: ['linux', 'permissions', 'advanced'],
+    definition: '',
+  },
+  'probabilistic-models': {
+    term: 'probabilistic models',
+    slug: '/terms/probabilistic-models',
+    aliases: [],
+    tags: ['statistics', 'applications', 'ml_ai'],
+    definition: '',
+  },
+  'probabilistic-reasoning': {
+    term: 'probabilistic reasoning',
+    slug: '/terms/probabilistic-reasoning',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'uncertainty'],
+    definition: '',
+  },
+  'probability-distribution': {
+    term: 'probability distribution',
+    slug: '/terms/probability-distribution',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  probability: {
+    term: 'probability',
+    slug: '/terms/probability',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'basics'],
+    definition: '',
+  },
+  'problem-solving': {
+    term: 'problem solving',
+    slug: '/terms/problem-solving',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  proc: {
+    term: 'proc',
+    slug: '/terms/proc',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  process: {
+    term: 'process',
+    slug: '/terms/process',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  'product-rule': {
+    term: 'product rule',
+    slug: '/terms/product-rule',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'rules'],
+    definition: '',
+  },
+  'progressive-enhancement': {
+    term: 'progressive enhancement',
+    slug: '/terms/progressive-enhancement',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'projection-matrix': {
+    term: 'projection matrix',
+    slug: '/terms/projection-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'projections', 'concepts'],
+    definition: '',
+  },
+  projection: {
+    term: 'projection',
+    slug: '/terms/projection',
+    aliases: [],
+    tags: ['nosql', 'querying', 'mongodb_specific'],
+    definition: '',
+  },
+  prometheus: {
+    term: 'prometheus',
+    slug: '/terms/prometheus',
+    aliases: [],
+    tags: ['k8s', 'observability', 'monitoring'],
+    definition: '',
+  },
+  promises: {
+    term: 'promises',
+    slug: '/terms/promises',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'core_js'],
+    definition: '',
+  },
+  'proof-by-contradiction': {
+    term: 'proof by contradiction',
+    slug: '/terms/proof-by-contradiction',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'methods'],
+    definition: '',
+  },
+  'proof-by-contrapositive': {
+    term: 'proof by contrapositive',
+    slug: '/terms/proof-by-contrapositive',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'methods'],
+    definition: '',
+  },
+  proof: {
+    term: 'proof',
+    slug: '/terms/proof',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'prop-drilling': {
+    term: 'prop drilling',
+    slug: '/terms/prop-drilling',
+    aliases: [],
+    tags: ['react', 'state_management', 'patterns'],
+    definition: '',
+  },
+  proposition: {
+    term: 'proposition',
+    slug: '/terms/proposition',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'propositional_logic'],
+    definition: '',
+  },
+  'propositional-logic': {
+    term: 'propositional logic',
+    slug: '/terms/propositional-logic',
+    aliases: [],
+    tags: ['ai', 'knowledge_representation', 'logic'],
+    definition: '',
+  },
+  props: {
+    term: 'props',
+    slug: '/terms/props',
+    aliases: [],
+    tags: ['react', 'components', 'structure'],
+    definition: '',
+  },
+  protected: {
+    term: 'protected',
+    slug: '/terms/protected',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'access_control'],
+    definition: '',
+  },
+  prototypes: {
+    term: 'prototypes',
+    slug: '/terms/prototypes',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'core_js'],
+    definition: '',
+  },
+  provider: {
+    term: 'provider',
+    slug: '/terms/provider',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'packages'],
+    definition: '',
+  },
+  ps: {
+    term: 'ps',
+    slug: '/terms/ps',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  'pub-package-manager': {
+    term: 'pub package manager',
+    slug: '/terms/pub-package-manager',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  'public-company': {
+    term: 'public company',
+    slug: '/terms/public-company',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  public: {
+    term: 'public',
+    slug: '/terms/public',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'access_control'],
+    definition: '',
+  },
+  'pull-image': {
+    term: 'pull image',
+    slug: '/terms/pull-image',
+    aliases: [],
+    tags: ['docker', 'images', 'lifecycle'],
+    definition: '',
+  },
+  pull: {
+    term: 'pull',
+    slug: '/terms/pull',
+    aliases: [],
+    tags: ['docker', 'architecture', 'workflow'],
+    definition: '',
+  },
+  'pure-component': {
+    term: 'pure component',
+    slug: '/terms/pure-component',
+    aliases: [],
+    tags: ['react', 'components', 'types'],
+    definition: '',
+  },
+  'push-image': {
+    term: 'push image',
+    slug: '/terms/push-image',
+    aliases: [],
+    tags: ['docker', 'images', 'lifecycle'],
+    definition: '',
+  },
+  'push-notifications': {
+    term: 'push notifications',
+    slug: '/terms/push-notifications',
+    aliases: [],
+    tags: ['react_native', 'device_features', 'system'],
+    definition: '',
+  },
+  push: {
+    term: 'push',
+    slug: '/terms/push',
+    aliases: [],
+    tags: ['docker', 'architecture', 'workflow'],
+    definition: '',
+  },
+  'put-option': {
+    term: 'put option',
+    slug: '/terms/put-option',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  'q-learning': {
+    term: 'q learning',
+    slug: '/terms/q-learning',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'reinforcement_learning'],
+    definition: '',
+  },
+  'qr-decomposition': {
+    term: 'qr decomposition',
+    slug: '/terms/qr-decomposition',
+    aliases: [],
+    tags: ['linear_algebra', 'decomposition', 'methods'],
+    definition: '',
+  },
+  quantifiers: {
+    term: 'quantifiers',
+    slug: '/terms/quantifiers',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'predicate_logic'],
+    definition: '',
+  },
+  'quantitative-easing': {
+    term: 'quantitative easing',
+    slug: '/terms/quantitative-easing',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'policy'],
+    definition: '',
+  },
+  'query-complexity': {
+    term: 'query complexity',
+    slug: '/terms/query-complexity',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'decision_factors'],
+    definition: '',
+  },
+  'query-language': {
+    term: 'query language',
+    slug: '/terms/query-language',
+    aliases: [],
+    tags: ['nosql', 'querying', 'concepts'],
+    definition: '',
+  },
+  'query-optimization': {
+    term: 'query optimization',
+    slug: '/terms/query-optimization',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'performance'],
+    definition: '',
+  },
+  'query-planner': {
+    term: 'query planner',
+    slug: '/terms/query-planner',
+    aliases: [],
+    tags: ['sql', 'indexing', 'performance'],
+    definition: '',
+  },
+  queue: {
+    term: 'queue',
+    slug: '/terms/queue',
+    aliases: [],
+    tags: ['dsa', 'stacks_and_queues', 'queue'],
+    definition: '',
+  },
+  'quick-sort': {
+    term: 'quick sort',
+    slug: '/terms/quick-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'quotient-rule': {
+    term: 'quotient rule',
+    slug: '/terms/quotient-rule',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'rules'],
+    definition: '',
+  },
+  'rabin-karp': {
+    term: 'rabin karp',
+    slug: '/terms/rabin-karp',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'strings'],
+    definition: '',
+  },
+  'radius-of-convergence': {
+    term: 'radius of convergence',
+    slug: '/terms/radius-of-convergence',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'power_series'],
+    definition: '',
+  },
+  'radix-sort': {
+    term: 'radix sort',
+    slug: '/terms/radix-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'random-forest': {
+    term: 'random forest',
+    slug: '/terms/random-forest',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  'random-sampling': {
+    term: 'random sampling',
+    slug: '/terms/random-sampling',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'methods'],
+    definition: '',
+  },
+  'random-variable': {
+    term: 'random variable',
+    slug: '/terms/random-variable',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'basics'],
+    definition: '',
+  },
+  randomization: {
+    term: 'randomization',
+    slug: '/terms/randomization',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'concepts'],
+    definition: '',
+  },
+  range: {
+    term: 'range',
+    slug: '/terms/range',
+    aliases: [],
+    tags: ['calculus_i', 'foundations', 'functions'],
+    definition: '',
+  },
+  rank: {
+    term: 'rank',
+    slug: '/terms/rank',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'window_functions'],
+    definition: '',
+  },
+  'rate-of-change': {
+    term: 'rate of change',
+    slug: '/terms/rate-of-change',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'basics'],
+    definition: '',
+  },
+  'ratio-test': {
+    term: 'ratio test',
+    slug: '/terms/ratio-test',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'convergence_tests'],
+    definition: '',
+  },
+  'rational-agent': {
+    term: 'rational agent',
+    slug: '/terms/rational-agent',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  rbac: {
+    term: 'rbac',
+    slug: '/terms/rbac',
+    aliases: [],
+    tags: ['k8s', 'security', 'concepts'],
+    definition: '',
+  },
+  're-render-optimization': {
+    term: 're-render optimization',
+    slug: '/terms/re-render-optimization',
+    aliases: [],
+    tags: ['react', 'performance', 'rendering_control'],
+    definition: '',
+  },
+  'react-concurrency': {
+    term: 'react concurrency',
+    slug: '/terms/react-concurrency',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'concurrency'],
+    definition: '',
+  },
+  'react-element': {
+    term: 'react element',
+    slug: '/terms/react-element',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'react-framework': {
+    term: 'react framework',
+    slug: '/terms/react-framework',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'react-memo': {
+    term: 'react memo',
+    slug: '/terms/react-memo',
+    aliases: [],
+    tags: ['react', 'performance', 'optimization'],
+    definition: '',
+  },
+  'react-native-cli': {
+    term: 'react native cli',
+    slug: '/terms/react-native-cli',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'frameworks'],
+    definition: '',
+  },
+  'react-native-gesture-handler': {
+    term: 'react native gesture handler',
+    slug: '/terms/react-native-gesture-handler',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'libraries'],
+    definition: '',
+  },
+  'react-native-reanimated': {
+    term: 'react native reanimated',
+    slug: '/terms/react-native-reanimated',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'libraries'],
+    definition: '',
+  },
+  'react-native-styles': {
+    term: 'react native styles',
+    slug: '/terms/react-native-styles',
+    aliases: [],
+    tags: ['react_native', 'styling', 'system'],
+    definition: '',
+  },
+  'react-native': {
+    term: 'react native',
+    slug: '/terms/react-native',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'react-navigation': {
+    term: 'react navigation',
+    slug: '/terms/react-navigation',
+    aliases: [],
+    tags: ['react_native', 'ecosystem', 'libraries'],
+    definition: '',
+  },
+  'react-router': {
+    term: 'react router',
+    slug: '/terms/react-router',
+    aliases: [],
+    tags: ['react', 'routing', 'libraries'],
+    definition: '',
+  },
+  'react-server-components': {
+    term: 'react server components',
+    slug: '/terms/react-server-components',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'streaming'],
+    definition: '',
+  },
+  'react-testing-library': {
+    term: 'react testing library',
+    slug: '/terms/react-testing-library',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'testing'],
+    definition: '',
+  },
+  react: {
+    term: 'react',
+    slug: '/terms/react',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'reactive-programming': {
+    term: 'reactive programming',
+    slug: '/terms/reactive-programming',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'patterns'],
+    definition: '',
+  },
+  'read-amplification': {
+    term: 'read amplification',
+    slug: '/terms/read-amplification',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'performance'],
+    definition: '',
+  },
+  'read-write-execute': {
+    term: 'read write execute',
+    slug: '/terms/read-write-execute',
+    aliases: [],
+    tags: ['linux', 'permissions', 'basics'],
+    definition: '',
+  },
+  'real-time-apps': {
+    term: 'real time apps',
+    slug: '/terms/real-time-apps',
+    aliases: [],
+    tags: ['nosql', 'use_cases', 'applications'],
+    definition: '',
+  },
+  reanimated: {
+    term: 'reanimated',
+    slug: '/terms/reanimated',
+    aliases: [],
+    tags: ['react_native', 'performance', 'optimization'],
+    definition: '',
+  },
+  rebalancing: {
+    term: 'rebalancing',
+    slug: '/terms/rebalancing',
+    aliases: [],
+    tags: ['finance', 'investing', 'portfolio'],
+    definition: '',
+  },
+  recall: {
+    term: 'recall',
+    slug: '/terms/recall',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  recoil: {
+    term: 'recoil',
+    slug: '/terms/recoil',
+    aliases: [],
+    tags: ['react', 'state_management', 'global_state'],
+    definition: '',
+  },
+  'reconciliation-loop': {
+    term: 'reconciliation loop',
+    slug: '/terms/reconciliation-loop',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  reconciliation: {
+    term: 'reconciliation',
+    slug: '/terms/reconciliation',
+    aliases: [],
+    tags: ['react', 'rendering_model', 'process'],
+    definition: '',
+  },
+  'recurrence-relation': {
+    term: 'recurrence relation',
+    slug: '/terms/recurrence-relation',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'concepts'],
+    definition: '',
+  },
+  'recursion-tree-method': {
+    term: 'recursion tree method',
+    slug: '/terms/recursion-tree-method',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'solving'],
+    definition: '',
+  },
+  'recursion-tree': {
+    term: 'recursion tree',
+    slug: '/terms/recursion-tree',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'recursion'],
+    definition: '',
+  },
+  recursion: {
+    term: 'recursion',
+    slug: '/terms/recursion',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'recursion'],
+    definition: '',
+  },
+  'recursive-cte': {
+    term: 'recursive cte',
+    slug: '/terms/recursive-cte',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'cte'],
+    definition: '',
+  },
+  redirection: {
+    term: 'redirection',
+    slug: '/terms/redirection',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  redis: {
+    term: 'redis',
+    slug: '/terms/redis',
+    aliases: [],
+    tags: ['nosql', 'tools', 'databases'],
+    definition: '',
+  },
+  redux: {
+    term: 'redux',
+    slug: '/terms/redux',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'advanced'],
+    definition: '',
+  },
+  'referential-integrity': {
+    term: 'referential integrity',
+    slug: '/terms/referential-integrity',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'design_principles'],
+    definition: '',
+  },
+  reflexive: {
+    term: 'reflexive',
+    slug: '/terms/reflexive',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'relations'],
+    definition: '',
+  },
+  regression: {
+    term: 'regression',
+    slug: '/terms/regression',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'supervised'],
+    definition: '',
+  },
+  'regular-languages': {
+    term: 'regular languages',
+    slug: '/terms/regular-languages',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'languages'],
+    definition: '',
+  },
+  'reinforcement-learning': {
+    term: 'reinforcement learning',
+    slug: '/terms/reinforcement-learning',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'reinforcement_learning'],
+    definition: '',
+  },
+  'related-rates': {
+    term: 'related rates',
+    slug: '/terms/related-rates',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'applications'],
+    definition: '',
+  },
+  relation: {
+    term: 'relation',
+    slug: '/terms/relation',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'relations'],
+    definition: '',
+  },
+  'relational-database': {
+    term: 'relational database',
+    slug: '/terms/relational-database',
+    aliases: [],
+    tags: ['sql', 'foundations', 'relational_model'],
+    definition: '',
+  },
+  relationship: {
+    term: 'relationship',
+    slug: '/terms/relationship',
+    aliases: [],
+    tags: ['sql', 'foundations', 'relational_model'],
+    definition: '',
+  },
+  relu: {
+    term: 'relu',
+    slug: '/terms/relu',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  remix: {
+    term: 'remix',
+    slug: '/terms/remix',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'frameworks'],
+    definition: '',
+  },
+  remove: {
+    term: 'remove',
+    slug: '/terms/remove',
+    aliases: [],
+    tags: ['docker', 'containers', 'lifecycle'],
+    definition: '',
+  },
+  removed: {
+    term: 'removed',
+    slug: '/terms/removed',
+    aliases: [],
+    tags: ['containerization', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'render-function': {
+    term: 'render function',
+    slug: '/terms/render-function',
+    aliases: [],
+    tags: ['react', 'components', 'structure'],
+    definition: '',
+  },
+  'render-phase': {
+    term: 'render phase',
+    slug: '/terms/render-phase',
+    aliases: [],
+    tags: ['react', 'rendering_model', 'process'],
+    definition: '',
+  },
+  'render-tree': {
+    term: 'render tree',
+    slug: '/terms/render-tree',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'rendering-pipeline': {
+    term: 'rendering pipeline',
+    slug: '/terms/rendering-pipeline',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  rendering: {
+    term: 'rendering',
+    slug: '/terms/rendering',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'repaint-boundary': {
+    term: 'repaint boundary',
+    slug: '/terms/repaint-boundary',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'optimization'],
+    definition: '',
+  },
+  'replica-count': {
+    term: 'replica count',
+    slug: '/terms/replica-count',
+    aliases: [],
+    tags: ['k8s', 'deployments', 'scaling'],
+    definition: '',
+  },
+  'replica-management': {
+    term: 'replica management',
+    slug: '/terms/replica-management',
+    aliases: [],
+    tags: ['k8s', 'deployments', 'concepts'],
+    definition: '',
+  },
+  'replica-set': {
+    term: 'replica set',
+    slug: '/terms/replica-set',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'workload'],
+    definition: '',
+  },
+  'replica-sets': {
+    term: 'replica sets',
+    slug: '/terms/replica-sets',
+    aliases: [],
+    tags: ['containerization', 'scaling', 'concepts'],
+    definition: '',
+  },
+  repositories: {
+    term: 'repositories',
+    slug: '/terms/repositories',
+    aliases: [],
+    tags: ['linux', 'package_management', 'concepts'],
+    definition: '',
+  },
+  'request-interception': {
+    term: 'request interception',
+    slug: '/terms/request-interception',
+    aliases: [],
+    tags: ['next_js', 'middleware', 'concepts'],
+    definition: '',
+  },
+  'request-response-cycle': {
+    term: 'request response cycle',
+    slug: '/terms/request-response-cycle',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'internet_basics'],
+    definition: '',
+  },
+  'request-waterfall': {
+    term: 'request waterfall',
+    slug: '/terms/request-waterfall',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'data_flow'],
+    definition: '',
+  },
+  residuals: {
+    term: 'residuals',
+    slug: '/terms/residuals',
+    aliases: [],
+    tags: ['statistics', 'correlation_and_relationships', 'regression'],
+    definition: '',
+  },
+  resnet: {
+    term: 'resnet',
+    slug: '/terms/resnet',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'models'],
+    definition: '',
+  },
+  'resource-limits': {
+    term: 'resource limits',
+    slug: '/terms/resource-limits',
+    aliases: [],
+    tags: ['docker', 'performance', 'concepts'],
+    definition: '',
+  },
+  'responsive-design': {
+    term: 'responsive design',
+    slug: '/terms/responsive-design',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'responsiveness'],
+    definition: '',
+  },
+  'rest-api': {
+    term: 'rest api',
+    slug: '/terms/rest-api',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'concepts'],
+    definition: '',
+  },
+  'rest-architecture': {
+    term: 'rest architecture',
+    slug: '/terms/rest-architecture',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'api_design'],
+    definition: '',
+  },
+  restart: {
+    term: 'restart',
+    slug: '/terms/restart',
+    aliases: [],
+    tags: ['docker', 'containers', 'lifecycle'],
+    definition: '',
+  },
+  'revalidate-path': {
+    term: 'revalidate path',
+    slug: '/terms/revalidate-path',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'caching'],
+    definition: '',
+  },
+  revalidation: {
+    term: 'revalidation',
+    slug: '/terms/revalidation',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'patterns'],
+    definition: '',
+  },
+  'reversal-linked-list': {
+    term: 'reversal linked list',
+    slug: '/terms/reversal-linked-list',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'techniques'],
+    definition: '',
+  },
+  'reward-function': {
+    term: 'reward function',
+    slug: '/terms/reward-function',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'reinforcement_learning'],
+    definition: '',
+  },
+  'reward-modeling': {
+    term: 'reward modeling',
+    slug: '/terms/reward-modeling',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'alignment'],
+    definition: '',
+  },
+  'ridge-regression': {
+    term: 'ridge regression',
+    slug: '/terms/ridge-regression',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'regression'],
+    definition: '',
+  },
+  'riemann-sum': {
+    term: 'riemann sum',
+    slug: '/terms/riemann-sum',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'basics'],
+    definition: '',
+  },
+  'right-join': {
+    term: 'right join',
+    slug: '/terms/right-join',
+    aliases: [],
+    tags: ['sql', 'joins', 'types'],
+    definition: '',
+  },
+  'risk-adjusted-return': {
+    term: 'risk adjusted return',
+    slug: '/terms/risk-adjusted-return',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  'risk-modeling': {
+    term: 'risk modeling',
+    slug: '/terms/risk-modeling',
+    aliases: [],
+    tags: ['statistics', 'applications', 'finance'],
+    definition: '',
+  },
+  'risk-sensitive-planning': {
+    term: 'risk sensitive planning',
+    slug: '/terms/risk-sensitive-planning',
+    aliases: [],
+    tags: ['ai', 'planning', 'decision_making'],
+    definition: '',
+  },
+  riverpod: {
+    term: 'riverpod',
+    slug: '/terms/riverpod',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'advanced'],
+    definition: '',
+  },
+  rlhf: {
+    term: 'rlhf',
+    slug: '/terms/rlhf',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'alignment'],
+    definition: '',
+  },
+  rnn: {
+    term: 'rnn',
+    slug: '/terms/rnn',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  'roc-curve': {
+    term: 'roc curve',
+    slug: '/terms/roc-curve',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'evaluation'],
+    definition: '',
+  },
+  'role-based-access-control': {
+    term: 'role based access control',
+    slug: '/terms/role-based-access-control',
+    aliases: [],
+    tags: ['k8s', 'security', 'concepts'],
+    definition: '',
+  },
+  rollback: {
+    term: 'rollback',
+    slug: '/terms/rollback',
+    aliases: [],
+    tags: ['k8s', 'deployments', 'concepts'],
+    definition: '',
+  },
+  'rolle-theorem': {
+    term: 'rolle theorem',
+    slug: '/terms/rolle-theorem',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'applications'],
+    definition: '',
+  },
+  'rolling-hash': {
+    term: 'rolling hash',
+    slug: '/terms/rolling-hash',
+    aliases: [],
+    tags: ['dsa', 'hashing', 'techniques'],
+    definition: '',
+  },
+  'rolling-update': {
+    term: 'rolling update',
+    slug: '/terms/rolling-update',
+    aliases: [],
+    tags: ['k8s', 'devops', 'deployment_patterns'],
+    definition: '',
+  },
+  'rolling-updates': {
+    term: 'rolling updates',
+    slug: '/terms/rolling-updates',
+    aliases: [],
+    tags: ['docker', 'devops', 'deployment'],
+    definition: '',
+  },
+  'root-directory': {
+    term: 'root directory',
+    slug: '/terms/root-directory',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  'root-node': {
+    term: 'root node',
+    slug: '/terms/root-node',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  'root-test': {
+    term: 'root test',
+    slug: '/terms/root-test',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'convergence_tests'],
+    definition: '',
+  },
+  'rotation-matrices': {
+    term: 'rotation matrices',
+    slug: '/terms/rotation-matrices',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'graphics'],
+    definition: '',
+  },
+  'route-handlers': {
+    term: 'route handlers',
+    slug: '/terms/route-handlers',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'concepts'],
+    definition: '',
+  },
+  'route-matching': {
+    term: 'route matching',
+    slug: '/terms/route-matching',
+    aliases: [],
+    tags: ['react', 'routing', 'concepts'],
+    definition: '',
+  },
+  'route-segment': {
+    term: 'route segment',
+    slug: '/terms/route-segment',
+    aliases: [],
+    tags: ['next_js', 'routing', 'app_router'],
+    definition: '',
+  },
+  route: {
+    term: 'route',
+    slug: '/terms/route',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'concepts'],
+    definition: '',
+  },
+  'routing-rules': {
+    term: 'routing rules',
+    slug: '/terms/routing-rules',
+    aliases: [],
+    tags: ['k8s', 'networking', 'ingress'],
+    definition: '',
+  },
+  'routing-system': {
+    term: 'routing system',
+    slug: '/terms/routing-system',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  routing: {
+    term: 'routing',
+    slug: '/terms/routing',
+    aliases: [],
+    tags: ['web_development', 'backend', 'node_ecosystem'],
+    definition: '',
+  },
+  'row-number': {
+    term: 'row number',
+    slug: '/terms/row-number',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'window_functions'],
+    definition: '',
+  },
+  'row-reduction': {
+    term: 'row reduction',
+    slug: '/terms/row-reduction',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'methods'],
+    definition: '',
+  },
+  row: {
+    term: 'row',
+    slug: '/terms/row',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  rref: {
+    term: 'rref',
+    slug: '/terms/rref',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'methods'],
+    definition: '',
+  },
+  rsa: {
+    term: 'rsa',
+    slug: '/terms/rsa',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'cryptography'],
+    definition: '',
+  },
+  run: {
+    term: 'RUN',
+    slug: '/terms/run',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  running: {
+    term: 'running',
+    slug: '/terms/running',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'runtime-environment': {
+    term: 'runtime environment',
+    slug: '/terms/runtime-environment',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'runtime'],
+    definition: '',
+  },
+  'runtime-polymorphism': {
+    term: 'runtime polymorphism',
+    slug: '/terms/runtime-polymorphism',
+    aliases: [],
+    tags: ['oop', 'polymorphism', 'runtime'],
+    definition: '',
+  },
+  runtime: {
+    term: 'runtime',
+    slug: '/terms/runtime',
+    aliases: [],
+    tags: ['containerization', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'saddle-point': {
+    term: 'saddle point',
+    slug: '/terms/saddle-point',
+    aliases: [],
+    tags: ['calculus_iii', 'optimization', 'unconstrained'],
+    definition: '',
+  },
+  'safety-in-ai': {
+    term: 'safety in ai',
+    slug: '/terms/safety-in-ai',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'alignment'],
+    definition: '',
+  },
+  'sample-space': {
+    term: 'sample space',
+    slug: '/terms/sample-space',
+    aliases: [],
+    tags: ['statistics', 'probability_foundations', 'basics'],
+    definition: '',
+  },
+  sample: {
+    term: 'sample',
+    slug: '/terms/sample',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'sampling-bias': {
+    term: 'sampling bias',
+    slug: '/terms/sampling-bias',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'bias'],
+    definition: '',
+  },
+  sass: {
+    term: 'sass',
+    slug: '/terms/sass',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'styling_systems'],
+    definition: '',
+  },
+  savepoint: {
+    term: 'savepoint',
+    slug: '/terms/savepoint',
+    aliases: [],
+    tags: ['sql', 'transactions', 'control'],
+    definition: '',
+  },
+  scaffold: {
+    term: 'scaffold',
+    slug: '/terms/scaffold',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'basic_widgets'],
+    definition: '',
+  },
+  'scalability-needs': {
+    term: 'scalability needs',
+    slug: '/terms/scalability-needs',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'decision_factors'],
+    definition: '',
+  },
+  'scalar-field': {
+    term: 'scalar field',
+    slug: '/terms/scalar-field',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'fields'],
+    definition: '',
+  },
+  'scalar-multiplication': {
+    term: 'scalar multiplication',
+    slug: '/terms/scalar-multiplication',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'operations'],
+    definition: '',
+  },
+  scalar: {
+    term: 'scalar',
+    slug: '/terms/scalar',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'scaling-containers': {
+    term: 'scaling containers',
+    slug: '/terms/scaling-containers',
+    aliases: [],
+    tags: ['docker', 'orchestration_bridge', 'concepts'],
+    definition: '',
+  },
+  scaling: {
+    term: 'scaling',
+    slug: '/terms/scaling',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'graphics'],
+    definition: '',
+  },
+  'scheduler-assigns-pod': {
+    term: 'scheduler assigns pod',
+    slug: '/terms/scheduler-assigns-pod',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'deployment_flow'],
+    definition: '',
+  },
+  scheduler: {
+    term: 'scheduler',
+    slug: '/terms/scheduler',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'control_plane'],
+    definition: '',
+  },
+  scheduling: {
+    term: 'scheduling',
+    slug: '/terms/scheduling',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'schema-design': {
+    term: 'schema design',
+    slug: '/terms/schema-design',
+    aliases: [],
+    tags: ['sql', 'data_modeling', 'concepts'],
+    definition: '',
+  },
+  'schema-flexibility-vs-rigid-schema': {
+    term: 'schema flexibility vs rigid schema',
+    slug: '/terms/schema-flexibility-vs-rigid-schema',
+    aliases: [],
+    tags: ['nosql', 'comparison_sql', 'differences'],
+    definition: '',
+  },
+  'schema-less-database': {
+    term: 'schema-less database',
+    slug: '/terms/schema-less-database',
+    aliases: [],
+    tags: ['nosql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  schema: {
+    term: 'schema',
+    slug: '/terms/schema',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  scope: {
+    term: 'scope',
+    slug: '/terms/scope',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'core_js'],
+    definition: '',
+  },
+  scripts: {
+    term: 'scripts',
+    slug: '/terms/scripts',
+    aliases: [],
+    tags: ['linux', 'shell', 'scripting'],
+    definition: '',
+  },
+  scrollview: {
+    term: 'scrollview',
+    slug: '/terms/scrollview',
+    aliases: [],
+    tags: ['react_native', 'components', 'core_components'],
+    definition: '',
+  },
+  'search-problem': {
+    term: 'search problem',
+    slug: '/terms/search-problem',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'search-space-reduction': {
+    term: 'search space reduction',
+    slug: '/terms/search-space-reduction',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'searching'],
+    definition: '',
+  },
+  search: {
+    term: 'search',
+    slug: '/terms/search',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  seasonality: {
+    term: 'seasonality',
+    slug: '/terms/seasonality',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'concepts'],
+    definition: '',
+  },
+  'second-derivative-test': {
+    term: 'second derivative test',
+    slug: '/terms/second-derivative-test',
+    aliases: [],
+    tags: ['calculus_i', 'curve_analysis', 'graphing'],
+    definition: '',
+  },
+  'second-normal-form': {
+    term: 'second normal form',
+    slug: '/terms/second-normal-form',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'normalization'],
+    definition: '',
+  },
+  'secondary-index': {
+    term: 'secondary index',
+    slug: '/terms/secondary-index',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'concepts'],
+    definition: '',
+  },
+  secret: {
+    term: 'secret',
+    slug: '/terms/secret',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'configuration'],
+    definition: '',
+  },
+  'secrets-management': {
+    term: 'secrets management',
+    slug: '/terms/secrets-management',
+    aliases: [],
+    tags: ['k8s', 'security', 'concepts'],
+    definition: '',
+  },
+  sectionlist: {
+    term: 'sectionlist',
+    slug: '/terms/sectionlist',
+    aliases: [],
+    tags: ['react_native', 'components', 'core_components'],
+    definition: '',
+  },
+  'segment-tree': {
+    term: 'segment tree',
+    slug: '/terms/segment-tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'advanced'],
+    definition: '',
+  },
+  select: {
+    term: 'select',
+    slug: '/terms/select',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'selection-bias': {
+    term: 'selection bias',
+    slug: '/terms/selection-bias',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'bias'],
+    definition: '',
+  },
+  'selection-sort': {
+    term: 'selection sort',
+    slug: '/terms/selection-sort',
+    aliases: [],
+    tags: ['dsa', 'searching_and_sorting', 'sorting'],
+    definition: '',
+  },
+  'self-attention': {
+    term: 'self attention',
+    slug: '/terms/self-attention',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'transformers'],
+    definition: '',
+  },
+  'self-healing-systems': {
+    term: 'self healing systems',
+    slug: '/terms/self-healing-systems',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  selinux: {
+    term: 'selinux',
+    slug: '/terms/selinux',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  'semantic-html': {
+    term: 'semantic html',
+    slug: '/terms/semantic-html',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  'sentence-embeddings': {
+    term: 'sentence embeddings',
+    slug: '/terms/sentence-embeddings',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'embeddings'],
+    definition: '',
+  },
+  seo: {
+    term: 'seo',
+    slug: '/terms/seo',
+    aliases: [],
+    tags: ['web_development', 'html_css', 'html'],
+    definition: '',
+  },
+  'sequence-diagram': {
+    term: 'sequence diagram',
+    slug: '/terms/sequence-diagram',
+    aliases: [],
+    tags: ['oop', 'modeling', 'uml'],
+    definition: '',
+  },
+  sequence: {
+    term: 'sequence',
+    slug: '/terms/sequence',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'sequences'],
+    definition: '',
+  },
+  series: {
+    term: 'series',
+    slug: '/terms/series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'series'],
+    definition: '',
+  },
+  'server-actions': {
+    term: 'server actions',
+    slug: '/terms/server-actions',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'concepts'],
+    definition: '',
+  },
+  'server-client-boundary': {
+    term: 'server client boundary',
+    slug: '/terms/server-client-boundary',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'architecture'],
+    definition: '',
+  },
+  'server-components': {
+    term: 'server components',
+    slug: '/terms/server-components',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'concepts'],
+    definition: '',
+  },
+  'server-data-fetching': {
+    term: 'server data fetching',
+    slug: '/terms/server-data-fetching',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'data_flow'],
+    definition: '',
+  },
+  'server-first-rendering': {
+    term: 'server first rendering',
+    slug: '/terms/server-first-rendering',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'server-side-fetch': {
+    term: 'server side fetch',
+    slug: '/terms/server-side-fetch',
+    aliases: [],
+    tags: ['next_js', 'data_fetching', 'patterns'],
+    definition: '',
+  },
+  'server-side-rendering': {
+    term: 'server side rendering',
+    slug: '/terms/server-side-rendering',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'server-side-routing': {
+    term: 'server side routing',
+    slug: '/terms/server-side-routing',
+    aliases: [],
+    tags: ['react', 'routing', 'concepts'],
+    definition: '',
+  },
+  server: {
+    term: 'server',
+    slug: '/terms/server',
+    aliases: [],
+    tags: ['web_development', 'backend', 'core_concepts'],
+    definition: '',
+  },
+  'serverless-functions': {
+    term: 'serverless functions',
+    slug: '/terms/serverless-functions',
+    aliases: [],
+    tags: ['next_js', 'api_layer', 'backend_patterns'],
+    definition: '',
+  },
+  serverless: {
+    term: 'serverless',
+    slug: '/terms/serverless',
+    aliases: [],
+    tags: ['web_development', 'architecture', 'patterns'],
+    definition: '',
+  },
+  servers: {
+    term: 'servers',
+    slug: '/terms/servers',
+    aliases: [],
+    tags: ['linux', 'devops', 'integration'],
+    definition: '',
+  },
+  'service-account': {
+    term: 'service account',
+    slug: '/terms/service-account',
+    aliases: [],
+    tags: ['k8s', 'architecture', 'cluster_components'],
+    definition: '',
+  },
+  'service-discovery': {
+    term: 'service discovery',
+    slug: '/terms/service-discovery',
+    aliases: [],
+    tags: ['k8s', 'services', 'concepts'],
+    definition: '',
+  },
+  'service-exposes-pod': {
+    term: 'service exposes pod',
+    slug: '/terms/service-exposes-pod',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'deployment_flow'],
+    definition: '',
+  },
+  'service-layer': {
+    term: 'service layer',
+    slug: '/terms/service-layer',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'service-replication': {
+    term: 'service replication',
+    slug: '/terms/service-replication',
+    aliases: [],
+    tags: ['docker', 'orchestration_bridge', 'concepts'],
+    definition: '',
+  },
+  'service-status': {
+    term: 'service status',
+    slug: '/terms/service-status',
+    aliases: [],
+    tags: ['linux', 'system_management', 'commands'],
+    definition: '',
+  },
+  service: {
+    term: 'service',
+    slug: '/terms/service',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'networking'],
+    definition: '',
+  },
+  services: {
+    term: 'services',
+    slug: '/terms/services',
+    aliases: [],
+    tags: ['web_development', 'backend', 'node_ecosystem'],
+    definition: '',
+  },
+  sessions: {
+    term: 'sessions',
+    slug: '/terms/sessions',
+    aliases: [],
+    tags: ['web_development', 'security', 'auth'],
+    definition: '',
+  },
+  'set-identities': {
+    term: 'set identities',
+    slug: '/terms/set-identities',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'properties'],
+    definition: '',
+  },
+  'set-theory': {
+    term: 'set theory',
+    slug: '/terms/set-theory',
+    aliases: [],
+    tags: ['discrete_math', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  set: {
+    term: 'set',
+    slug: '/terms/set',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'basics'],
+    definition: '',
+  },
+  setstate: {
+    term: 'setstate',
+    slug: '/terms/setstate',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'basic'],
+    definition: '',
+  },
+  setter: {
+    term: 'setter',
+    slug: '/terms/setter',
+    aliases: [],
+    tags: ['oop', 'encapsulation', 'access_control'],
+    definition: '',
+  },
+  sharding: {
+    term: 'sharding',
+    slug: '/terms/sharding',
+    aliases: [],
+    tags: ['nosql', 'scaling', 'partitioning'],
+    definition: '',
+  },
+  'shared-data-between-containers': {
+    term: 'shared data between containers',
+    slug: '/terms/shared-data-between-containers',
+    aliases: [],
+    tags: ['docker', 'storage', 'use_cases'],
+    definition: '',
+  },
+  'shared-network-namespace': {
+    term: 'shared network namespace',
+    slug: '/terms/shared-network-namespace',
+    aliases: [],
+    tags: ['k8s', 'pods', 'concepts'],
+    definition: '',
+  },
+  'shared-preferences': {
+    term: 'shared preferences',
+    slug: '/terms/shared-preferences',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'packages'],
+    definition: '',
+  },
+  'shared-storage-volume': {
+    term: 'shared storage volume',
+    slug: '/terms/shared-storage-volume',
+    aliases: [],
+    tags: ['k8s', 'pods', 'concepts'],
+    definition: '',
+  },
+  shares: {
+    term: 'shares',
+    slug: '/terms/shares',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'sharpe-ratio': {
+    term: 'sharpe ratio',
+    slug: '/terms/sharpe-ratio',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  'shell-method': {
+    term: 'shell method',
+    slug: '/terms/shell-method',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'area_volume'],
+    definition: '',
+  },
+  'shell-scripting': {
+    term: 'shell scripting',
+    slug: '/terms/shell-scripting',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  shell: {
+    term: 'shell',
+    slug: '/terms/shell',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'ship-run-anywhere': {
+    term: 'ship run anywhere',
+    slug: '/terms/ship-run-anywhere',
+    aliases: [],
+    tags: ['containerization', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'shortest-path': {
+    term: 'shortest path',
+    slug: '/terms/shortest-path',
+    aliases: [],
+    tags: ['discrete_math', 'graph_theory', 'algorithms'],
+    definition: '',
+  },
+  'should-component-update': {
+    term: 'should component update',
+    slug: '/terms/should-component-update',
+    aliases: [],
+    tags: ['react', 'performance', 'rendering_control'],
+    definition: '',
+  },
+  'side-effects': {
+    term: 'side effects',
+    slug: '/terms/side-effects',
+    aliases: [],
+    tags: ['react', 'side_effects', 'concepts'],
+    definition: '',
+  },
+  sigmoid: {
+    term: 'sigmoid',
+    slug: '/terms/sigmoid',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  'significance-level': {
+    term: 'significance level',
+    slug: '/terms/significance-level',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  'simple-linear-regression': {
+    term: 'simple linear regression',
+    slug: '/terms/simple-linear-regression',
+    aliases: [],
+    tags: ['statistics', 'correlation_and_relationships', 'regression'],
+    definition: '',
+  },
+  'single-codebase-cross-platform': {
+    term: 'single codebase cross platform',
+    slug: '/terms/single-codebase-cross-platform',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'single-container-pod': {
+    term: 'single container pod',
+    slug: '/terms/single-container-pod',
+    aliases: [],
+    tags: ['k8s', 'pods', 'concepts'],
+    definition: '',
+  },
+  'single-inheritance': {
+    term: 'single inheritance',
+    slug: '/terms/single-inheritance',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'types'],
+    definition: '',
+  },
+  'single-responsibility-principle': {
+    term: 'single responsibility principle',
+    slug: '/terms/single-responsibility-principle',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'solid'],
+    definition: '',
+  },
+  'singleton-pattern': {
+    term: 'singleton pattern',
+    slug: '/terms/singleton-pattern',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'patterns'],
+    definition: '',
+  },
+  'singly-linked-list': {
+    term: 'singly linked list',
+    slug: '/terms/singly-linked-list',
+    aliases: [],
+    tags: ['dsa', 'linked_lists', 'basics'],
+    definition: '',
+  },
+  skewness: {
+    term: 'skewness',
+    slug: '/terms/skewness',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'distribution_shape'],
+    definition: '',
+  },
+  'sliding-window': {
+    term: 'sliding window',
+    slug: '/terms/sliding-window',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  sliver: {
+    term: 'sliver',
+    slug: '/terms/sliver',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'layout_widgets'],
+    definition: '',
+  },
+  slope: {
+    term: 'slope',
+    slug: '/terms/slope',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'basics'],
+    definition: '',
+  },
+  'slug-params': {
+    term: 'slug params',
+    slug: '/terms/slug-params',
+    aliases: [],
+    tags: ['next_js', 'routing', 'dynamic_routing'],
+    definition: '',
+  },
+  'small-tools-do-one-thing-well': {
+    term: 'small tools do one thing well',
+    slug: '/terms/small-tools-do-one-thing-well',
+    aliases: [],
+    tags: ['linux', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  snap: {
+    term: 'snap',
+    slug: '/terms/snap',
+    aliases: [],
+    tags: ['linux', 'package_management', 'systems'],
+    definition: '',
+  },
+  sockets: {
+    term: 'sockets',
+    slug: '/terms/sockets',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  softmax: {
+    term: 'softmax',
+    slug: '/terms/softmax',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'basics'],
+    definition: '',
+  },
+  'solution-set': {
+    term: 'solution set',
+    slug: '/terms/solution-set',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'concepts'],
+    definition: '',
+  },
+  sorting: {
+    term: 'sorting',
+    slug: '/terms/sorting',
+    aliases: [],
+    tags: ['discrete_math', 'applications', 'dsa'],
+    definition: '',
+  },
+  'sortino-ratio': {
+    term: 'sortino ratio',
+    slug: '/terms/sortino-ratio',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  'space-complexity': {
+    term: 'space complexity',
+    slug: '/terms/space-complexity',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  spaces: {
+    term: 'spaces',
+    slug: '/terms/spaces',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'intuition'],
+    definition: '',
+  },
+  span: {
+    term: 'span',
+    slug: '/terms/span',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'concepts'],
+    definition: '',
+  },
+  'spectral-decomposition': {
+    term: 'spectral decomposition',
+    slug: '/terms/spectral-decomposition',
+    aliases: [],
+    tags: ['linear_algebra', 'eigen', 'applications'],
+    definition: '',
+  },
+  'spectral-radius': {
+    term: 'spectral radius',
+    slug: '/terms/spectral-radius',
+    aliases: [],
+    tags: ['linear_algebra', 'advanced_topics', 'spectral_theory'],
+    definition: '',
+  },
+  'spherical-coordinates': {
+    term: 'spherical coordinates',
+    slug: '/terms/spherical-coordinates',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'triple_integrals'],
+    definition: '',
+  },
+  'sql-injection': {
+    term: 'sql injection',
+    slug: '/terms/sql-injection',
+    aliases: [],
+    tags: ['sql', 'security', 'concepts'],
+    definition: '',
+  },
+  sql: {
+    term: 'sql',
+    slug: '/terms/sql',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  sqlite: {
+    term: 'sqlite',
+    slug: '/terms/sqlite',
+    aliases: [],
+    tags: ['sql', 'databases', 'relational'],
+    definition: '',
+  },
+  'square-matrix': {
+    term: 'square matrix',
+    slug: '/terms/square-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'basics'],
+    definition: '',
+  },
+  ss: {
+    term: 'ss',
+    slug: '/terms/ss',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  ssg: {
+    term: 'ssg',
+    slug: '/terms/ssg',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'strategies'],
+    definition: '',
+  },
+  'ssh-automation': {
+    term: 'ssh automation',
+    slug: '/terms/ssh-automation',
+    aliases: [],
+    tags: ['linux', 'devops', 'integration'],
+    definition: '',
+  },
+  ssh: {
+    term: 'ssh',
+    slug: '/terms/ssh',
+    aliases: [],
+    tags: ['linux', 'security', 'concepts'],
+    definition: '',
+  },
+  ssr: {
+    term: 'ssr',
+    slug: '/terms/ssr',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'strategies'],
+    definition: '',
+  },
+  stability: {
+    term: 'stability',
+    slug: '/terms/stability',
+    aliases: [],
+    tags: ['linear_algebra', 'advanced_topics', 'numerical_linear_algebra'],
+    definition: '',
+  },
+  'stable-networking': {
+    term: 'stable networking',
+    slug: '/terms/stable-networking',
+    aliases: [],
+    tags: ['k8s', 'services', 'concepts'],
+    definition: '',
+  },
+  'stack-navigation': {
+    term: 'stack navigation',
+    slug: '/terms/stack-navigation',
+    aliases: [],
+    tags: ['flutter', 'navigation', 'concepts'],
+    definition: '',
+  },
+  'stack-navigator': {
+    term: 'stack navigator',
+    slug: '/terms/stack-navigator',
+    aliases: [],
+    tags: ['react_native', 'navigation', 'concepts'],
+    definition: '',
+  },
+  stack: {
+    term: 'stack',
+    slug: '/terms/stack',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'basic_widgets'],
+    definition: '',
+  },
+  'standard-deviation': {
+    term: 'standard deviation',
+    slug: '/terms/standard-deviation',
+    aliases: [],
+    tags: ['statistics', 'descriptive_statistics', 'dispersion'],
+    definition: '',
+  },
+  standardization: {
+    term: 'standardization',
+    slug: '/terms/standardization',
+    aliases: [],
+    tags: ['machine_learning', 'feature_engineering', 'techniques'],
+    definition: '',
+  },
+  start: {
+    term: 'start',
+    slug: '/terms/start',
+    aliases: [],
+    tags: ['docker', 'containers', 'lifecycle'],
+    definition: '',
+  },
+  'startup-time-optimization': {
+    term: 'startup time optimization',
+    slug: '/terms/startup-time-optimization',
+    aliases: [],
+    tags: ['containerization', 'optimization', 'performance'],
+    definition: '',
+  },
+  'startup-time': {
+    term: 'startup time',
+    slug: '/terms/startup-time',
+    aliases: [],
+    tags: ['docker', 'performance', 'concepts'],
+    definition: '',
+  },
+  'state-colocation': {
+    term: 'state colocation',
+    slug: '/terms/state-colocation',
+    aliases: [],
+    tags: ['react', 'state_management', 'patterns'],
+    definition: '',
+  },
+  'state-container-pattern': {
+    term: 'state container pattern',
+    slug: '/terms/state-container-pattern',
+    aliases: [],
+    tags: ['react_native', 'architecture', 'patterns'],
+    definition: '',
+  },
+  'state-lifting': {
+    term: 'state lifting',
+    slug: '/terms/state-lifting',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'patterns'],
+    definition: '',
+  },
+  'state-space': {
+    term: 'state space',
+    slug: '/terms/state-space',
+    aliases: [],
+    tags: ['ai', 'foundations', 'concepts'],
+    definition: '',
+  },
+  state: {
+    term: 'state',
+    slug: '/terms/state',
+    aliases: [],
+    tags: ['react', 'components', 'structure'],
+    definition: '',
+  },
+  'stateful-applications': {
+    term: 'stateful applications',
+    slug: '/terms/stateful-applications',
+    aliases: [],
+    tags: ['k8s', 'storage', 'use_cases'],
+    definition: '',
+  },
+  'stateful-set': {
+    term: 'stateful set',
+    slug: '/terms/stateful-set',
+    aliases: [],
+    tags: ['k8s', 'core_objects', 'workload'],
+    definition: '',
+  },
+  'stateful-widget': {
+    term: 'stateful widget',
+    slug: '/terms/stateful-widget',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'basic'],
+    definition: '',
+  },
+  'stateless-widget': {
+    term: 'stateless widget',
+    slug: '/terms/stateless-widget',
+    aliases: [],
+    tags: ['flutter', 'state_management', 'basic'],
+    definition: '',
+  },
+  'static-optimization': {
+    term: 'static optimization',
+    slug: '/terms/static-optimization',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'build'],
+    definition: '',
+  },
+  'static-site-generation': {
+    term: 'static site generation',
+    slug: '/terms/static-site-generation',
+    aliases: [],
+    tags: ['next_js', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  stationarity: {
+    term: 'stationarity',
+    slug: '/terms/stationarity',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'concepts'],
+    definition: '',
+  },
+  statistic: {
+    term: 'statistic',
+    slug: '/terms/statistic',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  statistics: {
+    term: 'statistics',
+    slug: '/terms/statistics',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  stemming: {
+    term: 'stemming',
+    slug: '/terms/stemming',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'basics'],
+    definition: '',
+  },
+  'stochastic-gradient-descent': {
+    term: 'stochastic gradient descent',
+    slug: '/terms/stochastic-gradient-descent',
+    aliases: [],
+    tags: ['machine_learning', 'optimization', 'algorithms'],
+    definition: '',
+  },
+  stocks: {
+    term: 'stocks',
+    slug: '/terms/stocks',
+    aliases: [],
+    tags: ['finance', 'markets', 'equity'],
+    definition: '',
+  },
+  'stokes-theorem': {
+    term: 'stokes theorem',
+    slug: '/terms/stokes-theorem',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'theorems'],
+    definition: '',
+  },
+  'stop-words': {
+    term: 'stop words',
+    slug: '/terms/stop-words',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'basics'],
+    definition: '',
+  },
+  stop: {
+    term: 'stop',
+    slug: '/terms/stop',
+    aliases: [],
+    tags: ['docker', 'containers', 'lifecycle'],
+    definition: '',
+  },
+  stopped: {
+    term: 'stopped',
+    slug: '/terms/stopped',
+    aliases: [],
+    tags: ['containerization', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'storage-class': {
+    term: 'storage class',
+    slug: '/terms/storage-class',
+    aliases: [],
+    tags: ['k8s', 'storage', 'concepts'],
+    definition: '',
+  },
+  'strategy-pattern': {
+    term: 'strategy pattern',
+    slug: '/terms/strategy-pattern',
+    aliases: [],
+    tags: ['oop', 'design_principles', 'patterns'],
+    definition: '',
+  },
+  'stratified-sampling': {
+    term: 'stratified sampling',
+    slug: '/terms/stratified-sampling',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'methods'],
+    definition: '',
+  },
+  'stream-builder': {
+    term: 'stream builder',
+    slug: '/terms/stream-builder',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'patterns'],
+    definition: '',
+  },
+  stream: {
+    term: 'stream',
+    slug: '/terms/stream',
+    aliases: [],
+    tags: ['flutter', 'async_programming', 'concepts'],
+    definition: '',
+  },
+  'streaming-rendering': {
+    term: 'streaming rendering',
+    slug: '/terms/streaming-rendering',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'concurrency'],
+    definition: '',
+  },
+  'streaming-ssr': {
+    term: 'streaming ssr',
+    slug: '/terms/streaming-ssr',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'streaming'],
+    definition: '',
+  },
+  'strike-price': {
+    term: 'strike price',
+    slug: '/terms/strike-price',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  string: {
+    term: 'string',
+    slug: '/terms/string',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'strings'],
+    definition: '',
+  },
+  stripe: {
+    term: 'stripe',
+    slug: '/terms/stripe',
+    aliases: [],
+    tags: ['next_js', 'ecosystem', 'integrations'],
+    definition: '',
+  },
+  'strong-consistency': {
+    term: 'strong consistency',
+    slug: '/terms/strong-consistency',
+    aliases: [],
+    tags: ['nosql', 'consistency', 'models'],
+    definition: '',
+  },
+  'strong-induction': {
+    term: 'strong induction',
+    slug: '/terms/strong-induction',
+    aliases: [],
+    tags: ['discrete_math', 'proof_techniques', 'induction'],
+    definition: '',
+  },
+  'style-props': {
+    term: 'style props',
+    slug: '/terms/style-props',
+    aliases: [],
+    tags: ['react_native', 'styling', 'concepts'],
+    definition: '',
+  },
+  'styled-components': {
+    term: 'styled components',
+    slug: '/terms/styled-components',
+    aliases: [],
+    tags: ['next_js', 'styling', 'options'],
+    definition: '',
+  },
+  stylesheet: {
+    term: 'stylesheet',
+    slug: '/terms/stylesheet',
+    aliases: [],
+    tags: ['react_native', 'styling', 'concepts'],
+    definition: '',
+  },
+  subclass: {
+    term: 'subclass',
+    slug: '/terms/subclass',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'basics'],
+    definition: '',
+  },
+  subquery: {
+    term: 'subquery',
+    slug: '/terms/subquery',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'subqueries'],
+    definition: '',
+  },
+  subscriptions: {
+    term: 'subscriptions',
+    slug: '/terms/subscriptions',
+    aliases: [],
+    tags: ['react', 'side_effects', 'concepts'],
+    definition: '',
+  },
+  subset: {
+    term: 'subset',
+    slug: '/terms/subset',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'basics'],
+    definition: '',
+  },
+  subspace: {
+    term: 'subspace',
+    slug: '/terms/subspace',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'concepts'],
+    definition: '',
+  },
+  'substitution-method': {
+    term: 'substitution method',
+    slug: '/terms/substitution-method',
+    aliases: [],
+    tags: ['discrete_math', 'recurrence_relations', 'solving'],
+    definition: '',
+  },
+  substitution: {
+    term: 'substitution',
+    slug: '/terms/substitution',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'techniques'],
+    definition: '',
+  },
+  substring: {
+    term: 'substring',
+    slug: '/terms/substring',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'strings'],
+    definition: '',
+  },
+  succeeded: {
+    term: 'succeeded',
+    slug: '/terms/succeeded',
+    aliases: [],
+    tags: ['k8s', 'pods', 'lifecycle'],
+    definition: '',
+  },
+  sudo: {
+    term: 'sudo',
+    slug: '/terms/sudo',
+    aliases: [],
+    tags: ['linux', 'permissions', 'advanced'],
+    definition: '',
+  },
+  'suffix-array': {
+    term: 'suffix array',
+    slug: '/terms/suffix-array',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'strings'],
+    definition: '',
+  },
+  'suffix-sum': {
+    term: 'suffix sum',
+    slug: '/terms/suffix-sum',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  'suffix-tree': {
+    term: 'suffix tree',
+    slug: '/terms/suffix-tree',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'strings'],
+    definition: '',
+  },
+  sum: {
+    term: 'sum',
+    slug: '/terms/sum',
+    aliases: [],
+    tags: ['sql', 'queries', 'aggregation'],
+    definition: '',
+  },
+  'super-keyword': {
+    term: 'super keyword',
+    slug: '/terms/super-keyword',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'concepts'],
+    definition: '',
+  },
+  superclass: {
+    term: 'superclass',
+    slug: '/terms/superclass',
+    aliases: [],
+    tags: ['oop', 'inheritance', 'basics'],
+    definition: '',
+  },
+  'support-vector-machine': {
+    term: 'support vector machine',
+    slug: '/terms/support-vector-machine',
+    aliases: [],
+    tags: ['machine_learning', 'supervised_learning', 'classification'],
+    definition: '',
+  },
+  'surface-area': {
+    term: 'surface area',
+    slug: '/terms/surface-area',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'physical'],
+    definition: '',
+  },
+  surjective: {
+    term: 'surjective',
+    slug: '/terms/surjective',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'functions'],
+    definition: '',
+  },
+  'suspense-boundaries': {
+    term: 'suspense boundaries',
+    slug: '/terms/suspense-boundaries',
+    aliases: [],
+    tags: ['next_js', 'rendering', 'streaming'],
+    definition: '',
+  },
+  suspense: {
+    term: 'suspense',
+    slug: '/terms/suspense',
+    aliases: [],
+    tags: ['next_js', 'advanced', 'concurrency'],
+    definition: '',
+  },
+  svd: {
+    term: 'svd',
+    slug: '/terms/svd',
+    aliases: [],
+    tags: ['linear_algebra', 'decomposition', 'methods'],
+    definition: '',
+  },
+  svelte: {
+    term: 'svelte',
+    slug: '/terms/svelte',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'other_frameworks'],
+    definition: '',
+  },
+  swap: {
+    term: 'swap',
+    slug: '/terms/swap',
+    aliases: [],
+    tags: ['linux', 'storage', 'concepts'],
+    definition: '',
+  },
+  swaps: {
+    term: 'swaps',
+    slug: '/terms/swaps',
+    aliases: [],
+    tags: ['finance', 'markets', 'derivatives'],
+    definition: '',
+  },
+  'symbolic-links': {
+    term: 'symbolic links',
+    slug: '/terms/symbolic-links',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'concepts'],
+    definition: '',
+  },
+  'symmetric-matrix': {
+    term: 'symmetric matrix',
+    slug: '/terms/symmetric-matrix',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'properties'],
+    definition: '',
+  },
+  symmetric: {
+    term: 'symmetric',
+    slug: '/terms/symmetric',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'relations'],
+    definition: '',
+  },
+  'system-calls': {
+    term: 'system calls',
+    slug: '/terms/system-calls',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'system-of-linear-equations': {
+    term: 'system of linear equations',
+    slug: '/terms/system-of-linear-equations',
+    aliases: [],
+    tags: ['linear_algebra', 'systems_of_equations', 'concepts'],
+    definition: '',
+  },
+  'systematic-sampling': {
+    term: 'systematic sampling',
+    slug: '/terms/systematic-sampling',
+    aliases: [],
+    tags: ['statistics', 'sampling', 'methods'],
+    definition: '',
+  },
+  systemctl: {
+    term: 'systemctl',
+    slug: '/terms/systemctl',
+    aliases: [],
+    tags: ['linux', 'system_management', 'commands'],
+    definition: '',
+  },
+  systemd: {
+    term: 'systemd',
+    slug: '/terms/systemd',
+    aliases: [],
+    tags: ['linux', 'system_management', 'services'],
+    definition: '',
+  },
+  't-distribution': {
+    term: 't distribution',
+    slug: '/terms/t-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'continuous'],
+    definition: '',
+  },
+  't-sne': {
+    term: 't-sne',
+    slug: '/terms/t-sne',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'dimensionality_reduction'],
+    definition: '',
+  },
+  'tab-navigator': {
+    term: 'tab navigator',
+    slug: '/terms/tab-navigator',
+    aliases: [],
+    tags: ['react_native', 'navigation', 'concepts'],
+    definition: '',
+  },
+  table: {
+    term: 'table',
+    slug: '/terms/table',
+    aliases: [],
+    tags: ['sql', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  tabulation: {
+    term: 'tabulation',
+    slug: '/terms/tabulation',
+    aliases: [],
+    tags: ['dsa', 'dynamic_programming', 'fundamentals'],
+    definition: '',
+  },
+  'tag-image': {
+    term: 'tag image',
+    slug: '/terms/tag-image',
+    aliases: [],
+    tags: ['docker', 'images', 'lifecycle'],
+    definition: '',
+  },
+  'tailwind-css': {
+    term: 'tailwind css',
+    slug: '/terms/tailwind-css',
+    aliases: [],
+    tags: ['next_js', 'styling', 'options'],
+    definition: '',
+  },
+  'tangent-line': {
+    term: 'tangent line',
+    slug: '/terms/tangent-line',
+    aliases: [],
+    tags: ['calculus_i', 'derivatives', 'basics'],
+    definition: '',
+  },
+  'tangent-plane': {
+    term: 'tangent plane',
+    slug: '/terms/tangent-plane',
+    aliases: [],
+    tags: ['calculus_iii', 'multivariable_functions', 'advanced'],
+    definition: '',
+  },
+  'taylor-series': {
+    term: 'taylor series',
+    slug: '/terms/taylor-series',
+    aliases: [],
+    tags: ['calculus_ii', 'sequences_series', 'power_series'],
+    definition: '',
+  },
+  tcp: {
+    term: 'tcp',
+    slug: '/terms/tcp',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  terminal: {
+    term: 'terminal',
+    slug: '/terms/terminal',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  terminating: {
+    term: 'terminating',
+    slug: '/terms/terminating',
+    aliases: [],
+    tags: ['k8s', 'lifecycle', 'states'],
+    definition: '',
+  },
+  'test-set': {
+    term: 'test set',
+    slug: '/terms/test-set',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'text-streams': {
+    term: 'text streams',
+    slug: '/terms/text-streams',
+    aliases: [],
+    tags: ['linux', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'text-to-image': {
+    term: 'text to image',
+    slug: '/terms/text-to-image',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'generative_ai'],
+    definition: '',
+  },
+  text: {
+    term: 'text',
+    slug: '/terms/text',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'basic_widgets'],
+    definition: '',
+  },
+  textfield: {
+    term: 'textfield',
+    slug: '/terms/textfield',
+    aliases: [],
+    tags: ['flutter', 'widgets', 'input_widgets'],
+    definition: '',
+  },
+  textinput: {
+    term: 'textinput',
+    slug: '/terms/textinput',
+    aliases: [],
+    tags: ['react_native', 'components', 'core_components'],
+    definition: '',
+  },
+  'theme-data': {
+    term: 'theme data',
+    slug: '/terms/theme-data',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'styling'],
+    definition: '',
+  },
+  'there-exists': {
+    term: 'there exists',
+    slug: '/terms/there-exists',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'predicate_logic'],
+    definition: '',
+  },
+  'third-normal-form': {
+    term: 'third normal form',
+    slug: '/terms/third-normal-form',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'normalization'],
+    definition: '',
+  },
+  thread: {
+    term: 'thread',
+    slug: '/terms/thread',
+    aliases: [],
+    tags: ['linux', 'processes', 'concepts'],
+    definition: '',
+  },
+  'time-complexity': {
+    term: 'time complexity',
+    slug: '/terms/time-complexity',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  'time-series': {
+    term: 'time series',
+    slug: '/terms/time-series',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'concepts'],
+    definition: '',
+  },
+  tmp: {
+    term: 'tmp',
+    slug: '/terms/tmp',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  tmpfs: {
+    term: 'tmpfs',
+    slug: '/terms/tmpfs',
+    aliases: [],
+    tags: ['docker', 'storage', 'concepts'],
+    definition: '',
+  },
+  tokenization: {
+    term: 'tokenization',
+    slug: '/terms/tokenization',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'basics'],
+    definition: '',
+  },
+  'tool-use': {
+    term: 'tool use',
+    slug: '/terms/tool-use',
+    aliases: [],
+    tags: ['ai', 'advanced_ai', 'agents'],
+    definition: '',
+  },
+  top: {
+    term: 'top',
+    slug: '/terms/top',
+    aliases: [],
+    tags: ['linux', 'processes', 'management'],
+    definition: '',
+  },
+  'topological-sort': {
+    term: 'topological sort',
+    slug: '/terms/topological-sort',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  touchableopacity: {
+    term: 'touchableopacity',
+    slug: '/terms/touchableopacity',
+    aliases: [],
+    tags: ['react_native', 'components', 'interaction'],
+    definition: '',
+  },
+  traceroute: {
+    term: 'traceroute',
+    slug: '/terms/traceroute',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  'training-data': {
+    term: 'training data',
+    slug: '/terms/training-data',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'supervised'],
+    definition: '',
+  },
+  'training-set': {
+    term: 'training set',
+    slug: '/terms/training-set',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  traits: {
+    term: 'traits',
+    slug: '/terms/traits',
+    aliases: [],
+    tags: ['oop', 'advanced_oop', 'concepts'],
+    definition: '',
+  },
+  transaction: {
+    term: 'transaction',
+    slug: '/terms/transaction',
+    aliases: [],
+    tags: ['sql', 'transactions', 'concepts'],
+    definition: '',
+  },
+  transactions: {
+    term: 'transactions',
+    slug: '/terms/transactions',
+    aliases: [],
+    tags: ['web_development', 'databases', 'relational'],
+    definition: '',
+  },
+  transformations: {
+    term: 'transformations',
+    slug: '/terms/transformations',
+    aliases: [],
+    tags: ['linear_algebra', 'foundations', 'intuition'],
+    definition: '',
+  },
+  'transformer-architecture': {
+    term: 'transformer architecture',
+    slug: '/terms/transformer-architecture',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'transformers'],
+    definition: '',
+  },
+  'transformer-model': {
+    term: 'transformer model',
+    slug: '/terms/transformer-model',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'language_models'],
+    definition: '',
+  },
+  transformer: {
+    term: 'transformer',
+    slug: '/terms/transformer',
+    aliases: [],
+    tags: ['machine_learning', 'neural_networks', 'deep_learning'],
+    definition: '',
+  },
+  'transition-model': {
+    term: 'transition model',
+    slug: '/terms/transition-model',
+    aliases: [],
+    tags: ['ai', 'foundations', 'problem_solving'],
+    definition: '',
+  },
+  transitions: {
+    term: 'transitions',
+    slug: '/terms/transitions',
+    aliases: [],
+    tags: ['react', 'advanced_react', 'concurrent_react'],
+    definition: '',
+  },
+  transitive: {
+    term: 'transitive',
+    slug: '/terms/transitive',
+    aliases: [],
+    tags: ['discrete_math', 'functions_relations', 'relations'],
+    definition: '',
+  },
+  translation: {
+    term: 'translation',
+    slug: '/terms/translation',
+    aliases: [],
+    tags: ['linear_algebra', 'applications', 'graphics'],
+    definition: '',
+  },
+  transpose: {
+    term: 'transpose',
+    slug: '/terms/transpose',
+    aliases: [],
+    tags: ['linear_algebra', 'matrices', 'operations'],
+    definition: '',
+  },
+  'traversal-queries': {
+    term: 'traversal queries',
+    slug: '/terms/traversal-queries',
+    aliases: [],
+    tags: ['nosql', 'data_models', 'graph_db'],
+    definition: '',
+  },
+  'treasury-bonds': {
+    term: 'treasury bonds',
+    slug: '/terms/treasury-bonds',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  'treatment-group': {
+    term: 'treatment group',
+    slug: '/terms/treatment-group',
+    aliases: [],
+    tags: ['statistics', 'experimental_design', 'concepts'],
+    definition: '',
+  },
+  'tree-diffing': {
+    term: 'tree diffing',
+    slug: '/terms/tree-diffing',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'optimization'],
+    definition: '',
+  },
+  'tree-shaking': {
+    term: 'tree shaking',
+    slug: '/terms/tree-shaking',
+    aliases: [],
+    tags: ['next_js', 'optimization', 'build'],
+    definition: '',
+  },
+  tree: {
+    term: 'tree',
+    slug: '/terms/tree',
+    aliases: [],
+    tags: ['dsa', 'trees', 'basics'],
+    definition: '',
+  },
+  trend: {
+    term: 'trend',
+    slug: '/terms/trend',
+    aliases: [],
+    tags: ['statistics', 'time_series', 'concepts'],
+    definition: '',
+  },
+  trie: {
+    term: 'trie',
+    slug: '/terms/trie',
+    aliases: [],
+    tags: ['dsa', 'trees', 'advanced'],
+    definition: '',
+  },
+  'trigonometric-substitution': {
+    term: 'trigonometric substitution',
+    slug: '/terms/trigonometric-substitution',
+    aliases: [],
+    tags: ['calculus_ii', 'integration', 'techniques'],
+    definition: '',
+  },
+  'triple-integral': {
+    term: 'triple integral',
+    slug: '/terms/triple-integral',
+    aliases: [],
+    tags: ['calculus_iii', 'multiple_integrals', 'triple_integrals'],
+    definition: '',
+  },
+  'truth-tables': {
+    term: 'truth tables',
+    slug: '/terms/truth-tables',
+    aliases: [],
+    tags: ['discrete_math', 'logic', 'reasoning'],
+    definition: '',
+  },
+  ttfb: {
+    term: 'ttfb',
+    slug: '/terms/ttfb',
+    aliases: [],
+    tags: ['web_development', 'performance', 'metrics'],
+    definition: '',
+  },
+  'turing-machine': {
+    term: 'turing machine',
+    slug: '/terms/turing-machine',
+    aliases: [],
+    tags: ['discrete_math', 'automata_theory', 'models'],
+    definition: '',
+  },
+  'two-pointers': {
+    term: 'two pointers',
+    slug: '/terms/two-pointers',
+    aliases: [],
+    tags: ['dsa', 'arrays_and_strings', 'arrays'],
+    definition: '',
+  },
+  'type-1-error': {
+    term: 'type 1 error',
+    slug: '/terms/type-1-error',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  'type-2-error': {
+    term: 'type 2 error',
+    slug: '/terms/type-2-error',
+    aliases: [],
+    tags: ['statistics', 'inferential_statistics', 'hypothesis_testing'],
+    definition: '',
+  },
+  typography: {
+    term: 'typography',
+    slug: '/terms/typography',
+    aliases: [],
+    tags: ['flutter', 'ui_system', 'styling'],
+    definition: '',
+  },
+  udp: {
+    term: 'udp',
+    slug: '/terms/udp',
+    aliases: [],
+    tags: ['linux', 'networking', 'concepts'],
+    definition: '',
+  },
+  umap: {
+    term: 'umap',
+    slug: '/terms/umap',
+    aliases: [],
+    tags: ['machine_learning', 'unsupervised_learning', 'dimensionality_reduction'],
+    definition: '',
+  },
+  umask: {
+    term: 'umask',
+    slug: '/terms/umask',
+    aliases: [],
+    tags: ['linux', 'permissions', 'advanced'],
+    definition: '',
+  },
+  'uml-diagram': {
+    term: 'uml diagram',
+    slug: '/terms/uml-diagram',
+    aliases: [],
+    tags: ['oop', 'modeling', 'uml'],
+    definition: '',
+  },
+  underfitting: {
+    term: 'underfitting',
+    slug: '/terms/underfitting',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'undirected-graph': {
+    term: 'undirected graph',
+    slug: '/terms/undirected-graph',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  'unemployment-rate': {
+    term: 'unemployment rate',
+    slug: '/terms/unemployment-rate',
+    aliases: [],
+    tags: ['finance', 'macroeconomics', 'indicators'],
+    definition: '',
+  },
+  'unidirectional-data-flow': {
+    term: 'unidirectional data flow',
+    slug: '/terms/unidirectional-data-flow',
+    aliases: [],
+    tags: ['react', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'uniform-cost-search': {
+    term: 'uniform cost search',
+    slug: '/terms/uniform-cost-search',
+    aliases: [],
+    tags: ['ai', 'search_algorithms', 'uninformed_search'],
+    definition: '',
+  },
+  'uniform-distribution': {
+    term: 'uniform distribution',
+    slug: '/terms/uniform-distribution',
+    aliases: [],
+    tags: ['statistics', 'distributions', 'continuous'],
+    definition: '',
+  },
+  'union-find': {
+    term: 'union find',
+    slug: '/terms/union-find',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'algorithms'],
+    definition: '',
+  },
+  union: {
+    term: 'union',
+    slug: '/terms/union',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'operations'],
+    definition: '',
+  },
+  'unique-constraint': {
+    term: 'unique constraint',
+    slug: '/terms/unique-constraint',
+    aliases: [],
+    tags: ['sql', 'schema_design', 'design_principles'],
+    definition: '',
+  },
+  'unit-vector': {
+    term: 'unit vector',
+    slug: '/terms/unit-vector',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'basics'],
+    definition: '',
+  },
+  'universal-set': {
+    term: 'universal set',
+    slug: '/terms/universal-set',
+    aliases: [],
+    tags: ['discrete_math', 'sets', 'basics'],
+    definition: '',
+  },
+  unix: {
+    term: 'unix',
+    slug: '/terms/unix',
+    aliases: [],
+    tags: ['linux', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  unmounting: {
+    term: 'unmounting',
+    slug: '/terms/unmounting',
+    aliases: [],
+    tags: ['react', 'components', 'lifecycle'],
+    definition: '',
+  },
+  'update-operators': {
+    term: 'update operators',
+    slug: '/terms/update-operators',
+    aliases: [],
+    tags: ['nosql', 'querying', 'mongodb_specific'],
+    definition: '',
+  },
+  update: {
+    term: 'update',
+    slug: '/terms/update',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  updates: {
+    term: 'updates',
+    slug: '/terms/updates',
+    aliases: [],
+    tags: ['linux', 'package_management', 'concepts'],
+    definition: '',
+  },
+  updating: {
+    term: 'updating',
+    slug: '/terms/updating',
+    aliases: [],
+    tags: ['react', 'components', 'lifecycle'],
+    definition: '',
+  },
+  'use-case-diagram': {
+    term: 'use case diagram',
+    slug: '/terms/use-case-diagram',
+    aliases: [],
+    tags: ['oop', 'modeling', 'uml'],
+    definition: '',
+  },
+  'use-client-directive': {
+    term: 'use client directive',
+    slug: '/terms/use-client-directive',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'concepts'],
+    definition: '',
+  },
+  usecallback: {
+    term: 'useCallback',
+    slug: '/terms/usecallback',
+    aliases: [],
+    tags: ['react_native', 'performance', 'optimization'],
+    definition: '',
+  },
+  usecontext: {
+    term: 'useContext',
+    slug: '/terms/usecontext',
+    aliases: [],
+    tags: ['react', 'hooks', 'basic_hooks'],
+    definition: '',
+  },
+  'useeffect-cleanup': {
+    term: 'useEffect cleanup',
+    slug: '/terms/useeffect-cleanup',
+    aliases: [],
+    tags: ['react', 'side_effects', 'control'],
+    definition: '',
+  },
+  useeffect: {
+    term: 'useEffect',
+    slug: '/terms/useeffect',
+    aliases: [],
+    tags: ['react', 'hooks', 'basic_hooks'],
+    definition: '',
+  },
+  uselayouteffect: {
+    term: 'useLayoutEffect',
+    slug: '/terms/uselayouteffect',
+    aliases: [],
+    tags: ['react', 'hooks', 'additional_hooks'],
+    definition: '',
+  },
+  usememo: {
+    term: 'useMemo',
+    slug: '/terms/usememo',
+    aliases: [],
+    tags: ['react_native', 'performance', 'optimization'],
+    definition: '',
+  },
+  'user-permissions': {
+    term: 'user permissions',
+    slug: '/terms/user-permissions',
+    aliases: [],
+    tags: ['linux', 'permissions', 'basics'],
+    definition: '',
+  },
+  usereducer: {
+    term: 'useReducer',
+    slug: '/terms/usereducer',
+    aliases: [],
+    tags: ['react_native', 'state_management', 'local_state'],
+    definition: '',
+  },
+  useref: {
+    term: 'useRef',
+    slug: '/terms/useref',
+    aliases: [],
+    tags: ['react', 'hooks', 'additional_hooks'],
+    definition: '',
+  },
+  usestate: {
+    term: 'useState',
+    slug: '/terms/usestate',
+    aliases: [],
+    tags: ['react_native', 'state_management', 'local_state'],
+    definition: '',
+  },
+  usr: {
+    term: 'usr',
+    slug: '/terms/usr',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  'utility-function': {
+    term: 'utility function',
+    slug: '/terms/utility-function',
+    aliases: [],
+    tags: ['ai', 'planning', 'decision_making'],
+    definition: '',
+  },
+  'v8-engine': {
+    term: 'v8 engine',
+    slug: '/terms/v8-engine',
+    aliases: [],
+    tags: ['web_development', 'javascript', 'runtime'],
+    definition: '',
+  },
+  vae: {
+    term: 'vae',
+    slug: '/terms/vae',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'generative_models'],
+    definition: '',
+  },
+  'validation-set': {
+    term: 'validation set',
+    slug: '/terms/validation-set',
+    aliases: [],
+    tags: ['machine_learning', 'foundations', 'concepts'],
+    definition: '',
+  },
+  'value-function': {
+    term: 'value function',
+    slug: '/terms/value-function',
+    aliases: [],
+    tags: ['ai', 'machine_learning_bridge', 'reinforcement_learning'],
+    definition: '',
+  },
+  'value-investing': {
+    term: 'value investing',
+    slug: '/terms/value-investing',
+    aliases: [],
+    tags: ['finance', 'investing', 'strategies'],
+    definition: '',
+  },
+  var: {
+    term: 'var',
+    slug: '/terms/var',
+    aliases: [],
+    tags: ['linux', 'filesystem', 'structure'],
+    definition: '',
+  },
+  variable: {
+    term: 'variable',
+    slug: '/terms/variable',
+    aliases: [],
+    tags: ['statistics', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  variables: {
+    term: 'variables',
+    slug: '/terms/variables',
+    aliases: [],
+    tags: ['linux', 'shell', 'scripting'],
+    definition: '',
+  },
+  variance: {
+    term: 'variance',
+    slug: '/terms/variance',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'probability'],
+    definition: '',
+  },
+  'variational-autoencoder': {
+    term: 'variational autoencoder',
+    slug: '/terms/variational-autoencoder',
+    aliases: [],
+    tags: ['machine_learning', 'advanced_topics', 'generative_models'],
+    definition: '',
+  },
+  'vector-addition': {
+    term: 'vector addition',
+    slug: '/terms/vector-addition',
+    aliases: [],
+    tags: ['linear_algebra', 'vectors', 'operations'],
+    definition: '',
+  },
+  'vector-field': {
+    term: 'vector field',
+    slug: '/terms/vector-field',
+    aliases: [],
+    tags: ['calculus_iii', 'vector_calculus', 'fields'],
+    definition: '',
+  },
+  'vector-projection': {
+    term: 'vector projection',
+    slug: '/terms/vector-projection',
+    aliases: [],
+    tags: ['linear_algebra', 'projections', 'concepts'],
+    definition: '',
+  },
+  'vector-space': {
+    term: 'vector space',
+    slug: '/terms/vector-space',
+    aliases: [],
+    tags: ['linear_algebra', 'vector_spaces', 'concepts'],
+    definition: '',
+  },
+  vector: {
+    term: 'vector',
+    slug: '/terms/vector',
+    aliases: [],
+    tags: ['machine_learning', 'mathematics', 'linear_algebra'],
+    definition: '',
+  },
+  vercel: {
+    term: 'vercel',
+    slug: '/terms/vercel',
+    aliases: [],
+    tags: ['next_js', 'deployment', 'platforms'],
+    definition: '',
+  },
+  vertex: {
+    term: 'vertex',
+    slug: '/terms/vertex',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  'vertical-scaling': {
+    term: 'vertical scaling',
+    slug: '/terms/vertical-scaling',
+    aliases: [],
+    tags: ['k8s', 'scaling', 'concepts'],
+    definition: '',
+  },
+  view: {
+    term: 'view',
+    slug: '/terms/view',
+    aliases: [],
+    tags: ['react_native', 'components', 'core_components'],
+    definition: '',
+  },
+  'virtual-dom-diffing': {
+    term: 'virtual dom diffing',
+    slug: '/terms/virtual-dom-diffing',
+    aliases: [],
+    tags: ['react', 'performance', 'rendering_control'],
+    definition: '',
+  },
+  'virtual-dom': {
+    term: 'virtual dom',
+    slug: '/terms/virtual-dom',
+    aliases: [],
+    tags: ['react', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  virtualization: {
+    term: 'virtualization',
+    slug: '/terms/virtualization',
+    aliases: [],
+    tags: ['containerization', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'virtualized-list': {
+    term: 'virtualized list',
+    slug: '/terms/virtualized-list',
+    aliases: [],
+    tags: ['react_native', 'performance', 'rendering'],
+    definition: '',
+  },
+  'vision-transformer': {
+    term: 'vision transformer',
+    slug: '/terms/vision-transformer',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'models'],
+    definition: '',
+  },
+  vite: {
+    term: 'vite',
+    slug: '/terms/vite',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  vmstat: {
+    term: 'vmstat',
+    slug: '/terms/vmstat',
+    aliases: [],
+    tags: ['linux', 'performance', 'monitoring'],
+    definition: '',
+  },
+  volatility: {
+    term: 'volatility',
+    slug: '/terms/volatility',
+    aliases: [],
+    tags: ['finance', 'investing', 'risk'],
+    definition: '',
+  },
+  'volume-of-revolution': {
+    term: 'volume of revolution',
+    slug: '/terms/volume-of-revolution',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'area_volume'],
+    definition: '',
+  },
+  volumes: {
+    term: 'volumes',
+    slug: '/terms/volumes',
+    aliases: [],
+    tags: ['docker', 'storage', 'concepts'],
+    definition: '',
+  },
+  vue: {
+    term: 'vue',
+    slug: '/terms/vue',
+    aliases: [],
+    tags: ['web_development', 'frontend_frameworks', 'other_frameworks'],
+    definition: '',
+  },
+  vulnerabilities: {
+    term: 'vulnerabilities',
+    slug: '/terms/vulnerabilities',
+    aliases: [],
+    tags: ['containerization', 'security', 'concepts'],
+    definition: '',
+  },
+  'web-application': {
+    term: 'web application',
+    slug: '/terms/web-application',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  'web-page': {
+    term: 'web page',
+    slug: '/terms/web-page',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  web: {
+    term: 'web',
+    slug: '/terms/web',
+    aliases: [],
+    tags: ['flutter', 'ecosystem', 'platforms'],
+    definition: '',
+  },
+  webpack: {
+    term: 'webpack',
+    slug: '/terms/webpack',
+    aliases: [],
+    tags: ['react', 'ecosystem', 'tooling'],
+    definition: '',
+  },
+  website: {
+    term: 'website',
+    slug: '/terms/website',
+    aliases: [],
+    tags: ['web_development', 'foundations', 'web_basics'],
+    definition: '',
+  },
+  'weighted-graph': {
+    term: 'weighted graph',
+    slug: '/terms/weighted-graph',
+    aliases: [],
+    tags: ['dsa', 'graphs', 'basics'],
+    definition: '',
+  },
+  wget: {
+    term: 'wget',
+    slug: '/terms/wget',
+    aliases: [],
+    tags: ['linux', 'networking', 'tools'],
+    definition: '',
+  },
+  'where-clause': {
+    term: 'where clause',
+    slug: '/terms/where-clause',
+    aliases: [],
+    tags: ['sql', 'queries', 'basics'],
+    definition: '',
+  },
+  'widget-inspector': {
+    term: 'widget inspector',
+    slug: '/terms/widget-inspector',
+    aliases: [],
+    tags: ['flutter', 'performance', 'debugging'],
+    definition: '',
+  },
+  'widget-rebuild': {
+    term: 'widget rebuild',
+    slug: '/terms/widget-rebuild',
+    aliases: [],
+    tags: ['flutter', 'rendering', 'optimization'],
+    definition: '',
+  },
+  'widget-reuse': {
+    term: 'widget reuse',
+    slug: '/terms/widget-reuse',
+    aliases: [],
+    tags: ['flutter', 'performance', 'optimization'],
+    definition: '',
+  },
+  'widget-tree': {
+    term: 'widget tree',
+    slug: '/terms/widget-tree',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  widget: {
+    term: 'widget',
+    slug: '/terms/widget',
+    aliases: [],
+    tags: ['flutter', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'window-function': {
+    term: 'window function',
+    slug: '/terms/window-function',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'window_functions'],
+    definition: '',
+  },
+  'with-clause': {
+    term: 'with clause',
+    slug: '/terms/with-clause',
+    aliases: [],
+    tags: ['sql', 'advanced_queries', 'cte'],
+    definition: '',
+  },
+  'word-embeddings': {
+    term: 'word embeddings',
+    slug: '/terms/word-embeddings',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'embeddings'],
+    definition: '',
+  },
+  word2vec: {
+    term: 'word2vec',
+    slug: '/terms/word2vec',
+    aliases: [],
+    tags: ['ai', 'natural_language_processing', 'embeddings'],
+    definition: '',
+  },
+  'work-integral': {
+    term: 'work integral',
+    slug: '/terms/work-integral',
+    aliases: [],
+    tags: ['calculus_ii', 'applications', 'physical'],
+    definition: '',
+  },
+  workdir: {
+    term: 'WORKDIR',
+    slug: '/terms/workdir',
+    aliases: [],
+    tags: ['docker', 'dockerfile', 'instructions'],
+    definition: '',
+  },
+  'worker-node': {
+    term: 'worker node',
+    slug: '/terms/worker-node',
+    aliases: [],
+    tags: ['k8s', 'foundations', 'core_concepts'],
+    definition: '',
+  },
+  'worst-case': {
+    term: 'worst case',
+    slug: '/terms/worst-case',
+    aliases: [],
+    tags: ['dsa', 'foundations', 'complexity'],
+    definition: '',
+  },
+  'write-amplification': {
+    term: 'write amplification',
+    slug: '/terms/write-amplification',
+    aliases: [],
+    tags: ['nosql', 'indexing', 'performance'],
+    definition: '',
+  },
+  'write-once-run-anywhere': {
+    term: 'write once run anywhere',
+    slug: '/terms/write-once-run-anywhere',
+    aliases: [],
+    tags: ['react_native', 'foundations', 'philosophy'],
+    definition: '',
+  },
+  'xor-tricks': {
+    term: 'xor tricks',
+    slug: '/terms/xor-tricks',
+    aliases: [],
+    tags: ['dsa', 'advanced_topics', 'bit_manipulation'],
+    definition: '',
+  },
+  xss: {
+    term: 'xss',
+    slug: '/terms/xss',
+    aliases: [],
+    tags: ['web_development', 'security', 'basics'],
+    definition: '',
+  },
+  'yaml-manifests': {
+    term: 'yaml manifests',
+    slug: '/terms/yaml-manifests',
+    aliases: [],
+    tags: ['k8s', 'configuration', 'concepts'],
+    definition: '',
+  },
+  'yield-curve': {
+    term: 'yield curve',
+    slug: '/terms/yield-curve',
+    aliases: [],
+    tags: ['finance', 'markets', 'fixed_income'],
+    definition: '',
+  },
+  yolo: {
+    term: 'yolo',
+    slug: '/terms/yolo',
+    aliases: [],
+    tags: ['ai', 'computer_vision', 'models'],
+    definition: '',
+  },
+  yum: {
+    term: 'yum',
+    slug: '/terms/yum',
+    aliases: [],
+    tags: ['linux', 'package_management', 'systems'],
+    definition: '',
+  },
+  'zero-bundle-components': {
+    term: 'zero bundle components',
+    slug: '/terms/zero-bundle-components',
+    aliases: [],
+    tags: ['next_js', 'server_components', 'data_flow'],
+    definition: '',
+  },
+  zsh: {
+    term: 'zsh',
+    slug: '/terms/zsh',
+    aliases: [],
+    tags: ['linux', 'shell', 'basics'],
+    definition: '',
+  },
+  zustand: {
+    term: 'zustand',
+    slug: '/terms/zustand',
+    aliases: [],
+    tags: ['react_native', 'state_management', 'global_state'],
+    definition: '',
+  },
+}

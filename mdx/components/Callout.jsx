@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import { CgDanger } from 'react-icons/cg'
 import { AiOutlineBug } from 'react-icons/ai'

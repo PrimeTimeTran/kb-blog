@@ -24,8 +24,6 @@ export default async function TermPage({ params }) {
     )
   }
 
-  console.log({ term, backlinks })
-
   return (
     <article className="mx-auto max-w-3xl p-8">
       {/* HEADER */}

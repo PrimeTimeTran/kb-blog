@@ -1,27 +1,15 @@
-import { BlogSEO } from '@/components/SEO'
-import siteMetadata from '@/data/site-metadata'
-import useScrollShrink from '@/lib/hooks/useScrollShrink'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { BlogSidebarLeft, BlogContent } from '@/components/blog'
+import TableOfContents from '@/components/TableOfContents'
 
-import { BlogSidebarLeft, BlogContent, BlogSidebarRight } from '@/components/blog'
+import PanelsLayout from './PanelsLayout'
 
 export default function BlogLayout({ toc, next, prev, children, frontMatter, authorDetails }) {
   const { slug, fileName, tags } = frontMatter
 
-  const shrunk = useScrollShrink(40)
-
   return (
-    <div className="flex w-screen justify-between">
-      <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
-        authorDetails={authorDetails}
-        {...frontMatter}
-      />
-
-      <ScrollTopAndComment />
-
-      <div className="min-h-screen">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 xl:grid-cols-[1fr_3fr_1fr]">
+    <PanelsLayout
+      left={
+        <aside className="flex-3 min-w-0 flex h-full overflow-hidden p-3">
           <BlogSidebarLeft
             authorDetails={authorDetails}
             tags={tags}
@@ -30,14 +18,17 @@ export default function BlogLayout({ toc, next, prev, children, frontMatter, aut
             slug={slug}
             fileName={fileName}
           />
-
-          <BlogContent frontMatter={frontMatter} toc={toc} shrunk={shrunk}>
-            {children}
-          </BlogContent>
-
-          <BlogSidebarRight toc={toc} />
-        </div>
-      </div>
-    </div>
+        </aside>
+      }
+      right={<TableOfContents toc={toc} className="h-full overflow-y-auto theme-border-l p-3" />}
+    >
+      <BlogContent
+        toc={toc}
+        frontMatter={frontMatter}
+        // className="flex-6 min-w-0 h-full overflow-y-auto p-3 scrollbar"
+      >
+        {children}
+      </BlogContent>
+    </PanelsLayout>
   )
 }

@@ -25,7 +25,6 @@ const ScrollTopAndComment = () => {
   }
 
   const handleScrollTop = () => {
-    console.log('Clicked')
     window.scrollTo({ top: 0 })
   }
   const handleScrollToComment = () => {

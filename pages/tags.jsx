@@ -1,6 +1,6 @@
 import React from 'react'
 import Tag from '@/components/Tag'
-import { Link } from '@/components/mdx'
+import { SafeLink as Link } from '@/mdx/components/Link'
 import { getAllTags } from '@/lib/tags'
 import { PageSEO } from '@/components/SEO'
 import kebabCase from '@/lib/utils/kebab-case'
@@ -15,6 +15,8 @@ import { SiThealgorithms } from 'react-icons/si'
 import { MdOutlineSecurity } from 'react-icons/md'
 import { LiaToolsSolid } from 'react-icons/lia'
 import { FaLaptopCode } from 'react-icons/fa6'
+
+import { PageLayout } from '../layouts/PageLayout'
 
 import {
   dsa,
@@ -88,90 +90,92 @@ export default function Tags({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
 
   return (
-    <SectionContainer>
-      <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
-      <div className="space-y-2 pt-6 md:space-y-5">
-        <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
-          Tags
-        </h1>
-        <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{siteMetadata.tags}</p>
-      </div>
-      <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-12 md:flex-row md:items-center">
-        <div className="w-full">
-          <Category
-            title="Maths"
-            icon={TbMathSymbols}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={maths}
-          />
-          <Category
-            title="Finance"
-            icon={CiMoneyBill}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={finance}
-          />
-          <Category
-            title="Frameworks"
-            icon={SiFramework}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={frameworks}
-          />
-          <Category
-            title="Tech"
-            icon={FaLaptopCode}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={tech}
-          />
-          <Category
-            title="Databases"
-            icon={TbDatabaseSearch}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={databases}
-          />
-          <Category
-            title="DevOps"
-            icon={GrSystem}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={devops}
-          />
-          <Category
-            title="Data Structures & Algorithms"
-            icon={SiThealgorithms}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={dsa}
-          />
-          <Category
-            title="Security"
-            icon={MdOutlineSecurity}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={security}
-          />
-          <Category
-            title="Tools"
-            icon={LiaToolsSolid}
-            tags={tags}
-            sortedTags={sortedTags}
-            filter={tools}
-          />
+    <PageLayout>
+      <SectionContainer className="">
+        <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
+        <div className="space-y-2 pt-6 md:space-y-5">
+          <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+            Tags
+          </h1>
+          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">{siteMetadata.tags}</p>
+        </div>
+        <div className="flex flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:mt-12 md:flex-row md:items-center overflow-auto">
           <div className="w-full">
-            <h1 className="text-2xl font-bold">Misc</h1>
-            <div className="flex flex-wrap">
-              {(sortedTags ?? []).map((t) => {
-                if (misc.includes(t.toLowerCase())) return null
-                return renderTags(tags, t)
-              })}
+            <Category
+              title="Maths"
+              icon={TbMathSymbols}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={maths}
+            />
+            <Category
+              title="Finance"
+              icon={CiMoneyBill}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={finance}
+            />
+            <Category
+              title="Frameworks"
+              icon={SiFramework}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={frameworks}
+            />
+            <Category
+              title="Tech"
+              icon={FaLaptopCode}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={tech}
+            />
+            <Category
+              title="Databases"
+              icon={TbDatabaseSearch}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={databases}
+            />
+            <Category
+              title="DevOps"
+              icon={GrSystem}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={devops}
+            />
+            <Category
+              title="Data Structures & Algorithms"
+              icon={SiThealgorithms}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={dsa}
+            />
+            <Category
+              title="Security"
+              icon={MdOutlineSecurity}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={security}
+            />
+            <Category
+              title="Tools"
+              icon={LiaToolsSolid}
+              tags={tags}
+              sortedTags={sortedTags}
+              filter={tools}
+            />
+            <div className="w-full">
+              <h1 className="text-2xl font-bold">Misc</h1>
+              <div className="flex flex-wrap">
+                {(sortedTags ?? []).map((t) => {
+                  if (misc.includes(t.toLowerCase())) return null
+                  return renderTags(tags, t)
+                })}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </SectionContainer>
+      </SectionContainer>
+    </PageLayout>
   )
 }

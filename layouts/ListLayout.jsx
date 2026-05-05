@@ -1,8 +1,9 @@
+'use client'
 import { useState, useMemo } from 'react'
 import { FiCalendar } from 'react-icons/fi'
 
 import Tag from '@/components/Tag'
-import { Link } from '@/components/mdx'
+import { SafeLink as Link } from '@/mdx/components/Link'
 import formatDate from '@/lib/utils/formate-date'
 import Pagination from '@/components/Pagination'
 import { buildContentUrl } from '@/lib/content/core/url'

@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/inline-script-id */
-
 import '@/css/prism.css'
 import '@/css/tailwind.css'
 import 'katex/dist/katex.css'
+import '@/css/app.css'
 
 // Core languages
 import 'prismjs'
@@ -24,14 +24,14 @@ import { ThemeProvider } from 'next-themes'
 import '@fontsource/inter/variable-full.css'
 
 import siteMetadata from '@/data/site-metadata'
-import Analytics from '@/components/analytics'
+// import Analytics from '@/components/analytics'
+// import { ClientReload } from '@/components/ClientReload'
+// import PreviewTailwind from './PreviewTailwind'
+// import PreviewDesignSystem from './PreviewDesignSystem'
 import AppLayout from '@/layouts/AppLayout'
-import { ClientReload } from '@/components/ClientReload'
-import PreviewTailwind from './PreviewTailwind'
-import PreviewDesignSystem from './PreviewDesignSystem'
 
-const isDevelopment = process.env.NODE_ENV === 'development'
-const isSocket = process.env.SOCKET
+// const isDevelopment = process.env.NODE_ENV === 'development'
+// const isSocket = process.env.SOCKET
 
 export default function App({ Component, pageProps }) {
   // 💡 IDEA: Debug styling/tailwind easier
@@ -69,10 +69,3 @@ export default function App({ Component, pageProps }) {
     </ThemeProvider>
   )
 }
-
-// export default function App({ Component, pageProps }) {
-//   return (
-//       {isDevelopment && isSocket && <ClientReload />}
-//       <Analytics />
-//   )
-// }
