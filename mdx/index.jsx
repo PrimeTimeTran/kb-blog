@@ -37,10 +37,7 @@ export const baseComponents = {
 export function createMDXComponents(registry = {}, embedded, depth = 0, visited = new Set()) {
   return {
     ...baseComponents,
-    Term: baseComponents.Term, // force explicit binding
-
     Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
-
     wrapper: ({ layout, ...rest }) => {
       const Layout = layouts[layout] || layouts.KBLayout
       return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />

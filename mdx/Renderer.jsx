@@ -25,7 +25,6 @@ export default function MDXRenderer({
       <Component components={components} />
     </RegistryContext.Provider>
   )
-  // const content = <Component components={components} />
 
   if (!WrappedLayout) return content
 
