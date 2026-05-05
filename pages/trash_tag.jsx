@@ -10,7 +10,7 @@ import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { ROOT } from '@/lib/content/core/constants.js'
 
 export async function getStaticPaths() {
-  const { getAllTags } = await import('@/lib/tags')
+  const { getAllTags } = await import('@/lib/content/server/tag/getAllTags')
   const tags = await getAllTags('blog')
 
   return {

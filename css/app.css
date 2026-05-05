@@ -8,21 +8,6 @@ body {
   overflow: hidden;
 }
 
-.image-gallery-slide-wrapper {
-  position: relative;
-}
-
-.image-gallery-description {
-  position: relative !important;
-  bottom: auto !important;
-  left: auto !important;
-  transform: none !important;
-
-  margin-top: 8px;
-  background: transparent;
-  color: #333;
-  text-align: center;
-}
 /* Animation to slide and fade a panel into view */
 /* SIDEBAR BASE */
 .sidebar {
@@ -39,4 +24,28 @@ body {
   50% {
     transform: scale(1.08);
   }
+}
+
+.image-gallery {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.image-gallery-slide-wrapper {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.image-gallery-slides {
+  justify-content: center !important;
+}
+
+.image-gallery-content {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.my-gallery img {
+  object-fit: contain;
+  max-height: 70vh;
 }

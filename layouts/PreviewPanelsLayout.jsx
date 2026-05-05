@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { TiTags } from 'react-icons/ti'
@@ -287,7 +289,7 @@ export default function PanelsLayout({ left, right, children }) {
         )}
 
         {/* MAIN */}
-        <main className="flex-1 min-w-0 px-6 overflow-y-auto">{children}</main>
+        <main className="flex-1 min-w-0 px-6 overflow-y-auto h-screen">{children}</main>
 
         {state.dock.right && (
           <div className="flex shrink-0 bg-red-400">

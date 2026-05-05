@@ -2,11 +2,9 @@
 import { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-import { Navbar } from '@/components/Navbar'
-import { useScrollShrink } from '@/lib/hooks/useScrollShrink'
 import { ScrollSpyProvider } from '@/components/providers/ScrollSpyProvider'
 
-export default function PanelsLayout({ mainWide, left, right, children }) {
+export default function PanelsLayout({ left, right, children, isSingleCol, className }) {
   const [state, setState] = useState({
     dock: {
       left: true,
@@ -21,10 +19,11 @@ export default function PanelsLayout({ mainWide, left, right, children }) {
       right: { open: false, width: 320 },
     },
   })
+
   const scrollRef = useRef()
-  const shrunk = useScrollShrink(scrollRef, 40)
 
   const update = (fn) => setState((s) => ({ ...s, ...fn(s) }))
+
   const leftDockRef = useRef()
   const startLeftResize = (e) => {
     const startX = e.clientX
@@ -130,17 +129,22 @@ export default function PanelsLayout({ mainWide, left, right, children }) {
     window.addEventListener('mousemove', onMove)
     window.addEventListener('mouseup', onUp)
   }
+  {
+    /* <div className={`flex flex-1 flex-col min-h-0 h-full w-full ${className}`}>
+  <div className="flex min-h-0 flex-1 w-full ">
+    <div className="flex-3 min-w-0 h-full">
+    <main className={ isSingleCol ? 'w-full min-h-screen overflow-y-auto no-scrollbar px-64' : 'flex-6 min-w-0 min-h-0 overflow-y-auto no-scrollbar' } >
+    <div className="flex-3 min-w-0 h-full"> */
+  }
 
   return (
-    // <div className="flex flex-1 flex-col min-h-0">
-    <div className="flex flex-1 flex-col min-h-0 h-full">
-      <Navbar className="h-14 sticky top-0 z-10 flex justify-around theme-border-b px-3 bg-white dark:bg-black" />
+    <div className={`flex flex-col md:flex-row flex-1 min-h-0 h-full w-full ${className}`}>
       <ScrollSpyProvider scrollRef={scrollRef}>
-        <div className="flex min-h-0 flex-1">
+        <div className="flex min-h-0 flex-1 w-full ">
           {/* LEFT DOCK */}
-          {state.dock.left && (
-            <div
-              className="flex-3 min-w-0 flex h-full "
+          {!isSingleCol && state.dock.left && (
+            <aside
+              className="hidden md:flex md:flex-3 min-w-0 h-full"
               ref={leftDockRef}
               style={{
                 width: state.dock.leftCollapsed ? 64 : state.dock.leftWidth,
@@ -161,20 +165,24 @@ export default function PanelsLayout({ mainWide, left, right, children }) {
                   className="w-1 cursor-col-resize hover:bg-slate-300"
                 />
               )}
-            </div>
+            </aside>
           )}
 
           {/* MAIN */}
           <main
             ref={scrollRef}
-            className={`${mainWide ? 'flex-10' : 'flex-6'} min-w-0 min-h-0 overflow-y-auto px-6 no-scrollbar`}
+            className={
+              isSingleCol
+                ? 'w-full min-h-screen overflow-y-auto no-scrollbar md:px-24 lg:px-32 xl:px-64'
+                : 'flex-6 min-w-0 min-h-0 overflow-y-auto no-scrollbar'
+            }
           >
             {children}
           </main>
 
           {/* RIGHT DOCK */}
-          {state.dock.right && (
-            <div className="flex-3 min-w-0 flex h-full">
+          {!isSingleCol && state.dock.right && (
+            <div className="hidden md:flex md:flex-3 min-w-0 h-full">
               {/* RESIZER */}
               {!state.dock.rightCollapsed && (
                 <div

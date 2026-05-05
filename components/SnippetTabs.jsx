@@ -91,7 +91,6 @@ export default function SnippetTabs({ snippets = [] }) {
                   {snippet.fileName}
                 </div>
               )}
-
               <SyntaxHighlighter
                 wrapLongLines
                 style={oneDark}

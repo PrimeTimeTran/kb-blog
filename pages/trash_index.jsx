@@ -64,7 +64,7 @@ export default function Home({ posts }) {
     return result
   }, [posts, searchTerm, activeTopics])
   return (
-    <PanelsLayout mainWide>
+    <PanelsLayout isSingleCol>
       <main className="flex-1 min-w-0 h-full overflow-y-auto">
         <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
         <ListLayout

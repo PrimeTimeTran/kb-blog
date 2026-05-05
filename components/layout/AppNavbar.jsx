@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 import Logo from '@/data/logo.svg'
 import { SafeLink as Link } from '@/mdx/components/Link'
@@ -11,12 +11,15 @@ import MobileNav from '@/components/MobileNav'
 import ThemeSwitch from '@/components/ThemeSwitch'
 
 export function Navbar({ className }) {
-  const router = useRouter()
-  const currentRoute = router.asPath
-  const isHome = currentRoute === '/'
+  const pathName = usePathname()
 
   return (
-    <header className={className}>
+    <header
+      className={
+        className ||
+        'h-14 sticky top-0 z-10 flex justify-around theme-border-b px-3 bg-white dark:bg-black py-2'
+      }
+    >
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center">
           <Logo />
@@ -29,7 +32,7 @@ export function Navbar({ className }) {
         <div className="hidden sm:flex">
           <div className="hidden sm:flex">
             {(headerNavLinks ?? []).map((link) => {
-              const isActive = currentRoute === link.href
+              const isActive = pathName == link.href
               const Icon = link.icon
 
               return (

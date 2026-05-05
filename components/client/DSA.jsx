@@ -1,46 +1,14 @@
+'use client'
 import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import siteMetadata from '@/data/site-metadata.js'
+// import siteMetadata from '@/data/site-metadata.js'
 import SolutionSnippet from '@/components/Solution.jsx'
-import solutions from '@/lib/dsa/problems/solutions.js'
-import SectionContainer from '@/components/SectionContainer'
+// import solutions from '@/lib/dsa/problems/solutions.js'
 import allProblems from '@/lib/dsa/problems/problems-all.json'
-import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js'
-import { buttonVariants } from '@/lib/ui/buttonVariants'
-
-const problemCategories = [
-  'String',
-  'Array',
-  'Binary Search',
-  'Matrix',
-  'Linked List',
-  'Tree',
-  'Interval',
-  'Graph',
-  'Union Find',
-  'Priority Queue',
-  'Greedy',
-  'Backtracking',
-  'Dynamic Programming',
-  'Dynamic Programming (2D)',
-  'Bit Manipulation',
-  'Prefix Sum',
-  'Digit DP',
-  'Stack',
-  'Deque',
-  'Monotonic Stack',
-  'Monotonic Queue',
-]
-
-const tags = (allProblems ?? []).map((problem) => problem.tags).flat()
-const uniqueTags = Array.from(new Set(tags))
-
-const orderedTags = (problemCategories ?? []).filter((cat) => uniqueTags.includes(cat))
+// import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js'
+import { buttonVariants } from '@/components/ui/buttonVariants'
 
 const tagCounts = {}
-orderedTags.forEach((tag) => {
-  tagCounts[tag] = (allProblems ?? []).filter((problem) => problem.tags.includes(tag)).length
-})
 
 function shuffleArray(arr, seed) {
   let current = seed
@@ -59,7 +27,13 @@ function shuffleArray(arr, seed) {
   return copy
 }
 
-export default function DSA() {
+export default function DSAClient({
+  lists: { listPareto, listBlind75, neetCode150, neetCode250 },
+  problems,
+  solutions,
+  orderedTags,
+  tagCounts,
+}) {
   const sidebarRef = useRef(null)
   const [sortBy, setSortBy] = useState('none')
   const [shuffleSeed, setShuffleSeed] = useState(0)
@@ -266,38 +240,32 @@ export default function DSA() {
   const hasSolution = (problem) => {
     return solutions.find((s) => s.id === problem.lc.id)
   }
-
   return (
-    <SectionContainer>
-      <div>
-        <div className="flex flex-col space-y-2 pt-6 md:space-y-5">
-          <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
-            Data Structures & Algorithms
-          </h1>
-
-          <div className="flex w-full flex-wrap gap-2">
-            {(orderedTags ?? []).map((tag) => {
-              const active = selectedTags.includes(tag)
-              // return <div>di</div>
-
-              return (
-                <button
-                  key={tag}
-                  type="button"
-                  onClick={() => onTagSelect(tag)}
-                  className={buttonVariants({
-                    tone: 'default',
-                    active,
-                  })}
-                >
-                  <span>
-                    {tag.toUpperCase()}
-                    <span className="ml-1 text-gray-400">({tagCounts[tag]})</span>
-                  </span>
-                </button>
-              )
-            })}
-          </div>
+    <>
+      <div className="flex flex-col space-y-2 pt-6 md:space-y-5">
+        <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
+          Data Structures & Algorithms
+        </h1>
+        <div className="flex w-full flex-wrap gap-2">
+          {(orderedTags ?? []).map((tag) => {
+            const active = selectedTags.includes(tag)
+            return (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => onTagSelect(tag)}
+                className={buttonVariants({
+                  tone: 'default',
+                  active,
+                })}
+              >
+                <span>
+                  {tag.toUpperCase()}
+                  <span className="ml-1 text-gray-400">({tagCounts[tag]})</span>
+                </span>
+              </button>
+            )
+          })}
         </div>
       </div>
       <hr className="my-3 border-gray-600" />
@@ -379,7 +347,6 @@ export default function DSA() {
         </div>
       </div>
       <hr className="my-3 border-gray-600" />
-
       <div className="flex items-center justify-between gap-4 flex-wrap">
         {/* LEFT */}
         <div className="flex items-center gap-2 flex-wrap">
@@ -475,7 +442,7 @@ export default function DSA() {
             <a
               href={problem.url}
               target="_blank"
-              className="gap-2 text-2xl text-meta dark:text-meta group"
+              className="gap-2 text-lg text-meta dark:text-meta group"
               rel="noreferrer"
               onClick={() => markAttempted(problem)}
             >
@@ -521,6 +488,6 @@ export default function DSA() {
             return <SolutionSnippet solution={solution} key={idx} />
           })}
       </div>
-    </SectionContainer>
+    </>
   )
 }

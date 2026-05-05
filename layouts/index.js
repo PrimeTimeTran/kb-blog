@@ -2,7 +2,6 @@ import KBLayout from './KBLayout'
 import ListLayout from './ListLayout'
 import PostLayout from './PostLayout'
 import BlogLayout from './BlogLayout'
-import PageLayout from './PageLayout'
 import AboutLayout from './AboutLayout'
 import PanelsLayout from './PanelsLayout'
 import AuthorLayout from './AuthorLayout'
@@ -13,7 +12,6 @@ export const layouts = {
   KBLayout,
   ListLayout,
   PostLayout,
-  PageLayout,
   PanelsLayout,
   AboutLayout,
   AuthorLayout,

@@ -32,8 +32,6 @@ import AppLayout from '@/layouts/AppLayout'
 
 // const isDevelopment = process.env.NODE_ENV === 'development'
 // const isSocket = process.env.SOCKET
-import Prism from '@/lib/prism'
-globalThis.Prism = Prism
 
 export default function App({ Component, pageProps }) {
   console.log('_App')

@@ -1,7 +1,7 @@
 'use client'
 import { useRef } from 'react'
 
-import Footer from '@/components/Footer'
+import Footer from '@/components/layout/AppFooter'
 import Comments from '@/components/comments'
 import { BlogHeader, BlogFooter } from './blocks'
 
