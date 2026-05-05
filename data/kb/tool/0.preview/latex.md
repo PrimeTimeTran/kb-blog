@@ -1,7 +1,5 @@
 # Latex Preview
 
-Confirm Latex Syntax
-
 ## Latex snippet on the left
 
 $\sum_{n=1}^{\infty} C_n x^n$

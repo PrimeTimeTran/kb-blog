@@ -10,8 +10,6 @@ isDev: true
 
 # Theme 2
 
-Confirm Markdown, Obsidian, MDX are wired up correctly
-
 ## Table of Contents (TOC)
 
 - [[#Markdown Elements]]

@@ -1,5 +1,3 @@
-Test text search(Grep/RG) consistently.
-
 1. API (Application Programming Interface)
 2. Algorithm
 3. Abstraction

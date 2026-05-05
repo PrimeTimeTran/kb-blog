@@ -1,5 +1,3 @@
-Test text search(Grep/RG) consistently.
-
 1. Backend
 2. Binary
 3. Bit

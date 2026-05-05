@@ -1,35 +1,134 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "future builder"
-slug: "future-builder"
+status: 'draft'
+term: 'future builder'
+slug: 'future-builder'
 aliases: []
-tags: ["flutter","async_programming","patterns"]
-domain: "flutter"
-structure: "async_programming"
-concept: "patterns"
-category: "flutter"
-subCategory: "async_programming"
+tags: ['flutter', 'async_programming', 'patterns']
+domain: 'flutter'
+structure: 'async_programming'
+concept: 'patterns'
+category: 'flutter'
+subCategory: 'async_programming'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["event-loop","async-await","future","stream"]
-related: ["async-widget","stream-builder"]
-seeAlso: ["inheritance","mixins","composition-over-inheritance","stack","http","responsive-design","declarative-ui","redux","text","navigation","platform-channels","ios-integration","android-integration","feature-based-structure","flutter","dart","widget","element-tree","render-tree","widget-tree","everything-is-a-widget","single-codebase-cross-platform","classes","interfaces","abstract-classes","center","padding","scaffold","textfield","form","button","gesture-detector","inkwell","flex","expanded","flexible","listview","gridview","sliver","setstate","stateful-widget","stateless-widget","provider","riverpod","bloc","cubit","reactive-programming","immutable-state","state-lifting","build-phase","layout-phase","paint-phase","compositing","const-widgets","repaint-boundary","widget-rebuild","tree-diffing","route","navigator","stack-navigation","navigator-10","navigator-20","go-router","material-design","cupertino-design","theme-data","colors","typography","media-query","layout-builder","mvc","mvvm","clean-architecture","presentation-layer","domain-layer","data-layer","const-constructor","widget-reuse","list-virtualization","flutter-devtools","widget-inspector","performance-overlay","flutter-sdk","dart-sdk","pub-package-manager","hot-reload","ios","android","web","desktop","dio","firebase","shared-preferences","native-plugins"]
+leadsTo: ['event-loop', 'async-await', 'future', 'stream']
+related: ['async-widget', 'stream-builder']
+seeAlso:
+  [
+    'inheritance',
+    'mixins',
+    'composition-over-inheritance',
+    'stack',
+    'http',
+    'responsive-design',
+    'declarative-ui',
+    'redux',
+    'text',
+    'navigation',
+    'platform-channels',
+    'ios-integration',
+    'android-integration',
+    'feature-based-structure',
+    'flutter',
+    'dart',
+    'widget',
+    'element-tree',
+    'render-tree',
+    'widget-tree',
+    'everything-is-a-widget',
+    'single-codebase-cross-platform',
+    'classes',
+    'interfaces',
+    'abstract-classes',
+    'center',
+    'padding',
+    'scaffold',
+    'textfield',
+    'form',
+    'button',
+    'gesture-detector',
+    'inkwell',
+    'flex',
+    'expanded',
+    'flexible',
+    'listview',
+    'gridview',
+    'sliver',
+    'setstate',
+    'stateful-widget',
+    'stateless-widget',
+    'provider',
+    'riverpod',
+    'bloc',
+    'cubit',
+    'reactive-programming',
+    'immutable-state',
+    'state-lifting',
+    'build-phase',
+    'layout-phase',
+    'paint-phase',
+    'compositing',
+    'const-widgets',
+    'repaint-boundary',
+    'widget-rebuild',
+    'tree-diffing',
+    'route',
+    'navigator',
+    'stack-navigation',
+    'navigator-10',
+    'navigator-20',
+    'go-router',
+    'material-design',
+    'cupertino-design',
+    'theme-data',
+    'colors',
+    'typography',
+    'media-query',
+    'layout-builder',
+    'mvc',
+    'mvvm',
+    'clean-architecture',
+    'presentation-layer',
+    'domain-layer',
+    'data-layer',
+    'const-constructor',
+    'widget-reuse',
+    'list-virtualization',
+    'flutter-devtools',
+    'widget-inspector',
+    'performance-overlay',
+    'flutter-sdk',
+    'dart-sdk',
+    'pub-package-manager',
+    'hot-reload',
+    'ios',
+    'android',
+    'web',
+    'desktop',
+    'dio',
+    'firebase',
+    'shared-preferences',
+    'native-plugins',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.900Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.900Z'
+definition: ''
 lockedFields: []
 ---
 
 # FUTURE BUILDER
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 async-widget, stream-builder

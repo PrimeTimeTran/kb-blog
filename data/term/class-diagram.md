@@ -1,35 +1,93 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "class diagram"
-slug: "class-diagram"
+status: 'draft'
+term: 'class diagram'
+slug: 'class-diagram'
 aliases: []
-tags: ["oop","modeling","uml"]
-domain: "oop"
-structure: "modeling"
-concept: "uml"
-category: "oop"
-subCategory: "modeling"
+tags: ['oop', 'modeling', 'uml']
+domain: 'oop'
+structure: 'modeling'
+concept: 'uml'
+category: 'oop'
+subCategory: 'modeling'
 prerequisites: []
 buildsUpon: []
 leadsTo: []
-related: ["uml-diagram","sequence-diagram","use-case-diagram"]
-seeAlso: ["object","class","instance","method","attribute","constructor","behavior","encapsulation","abstraction","polymorphism","interface","abstract-class","concrete-class","association","aggregation","composition","dependency","public","private","protected","getter","setter","information-hiding","data-encapsulation","immutability","parent-class","child-class","superclass","subclass","single-inheritance","multiple-inheritance","multilevel-inheritance","hierarchical-inheritance","method-overriding","method-overloading","super-keyword","runtime-polymorphism","dynamic-dispatch","compile-time-polymorphism","operator-overloading","contract","single-responsibility-principle","open-closed-principle","liskov-substitution-principle","interface-segregation-principle","dependency-inversion-principle","singleton-pattern","factory-pattern","observer-pattern","strategy-pattern","decorator-pattern","traits","dependency-injection"]
+related: ['uml-diagram', 'sequence-diagram', 'use-case-diagram']
+seeAlso:
+  [
+    'object',
+    'class',
+    'instance',
+    'method',
+    'attribute',
+    'constructor',
+    'behavior',
+    'encapsulation',
+    'abstraction',
+    'polymorphism',
+    'interface',
+    'abstract-class',
+    'concrete-class',
+    'association',
+    'aggregation',
+    'composition',
+    'dependency',
+    'public',
+    'private',
+    'protected',
+    'getter',
+    'setter',
+    'information-hiding',
+    'data-encapsulation',
+    'immutability',
+    'parent-class',
+    'child-class',
+    'superclass',
+    'subclass',
+    'single-inheritance',
+    'multiple-inheritance',
+    'multilevel-inheritance',
+    'hierarchical-inheritance',
+    'method-overriding',
+    'method-overloading',
+    'super-keyword',
+    'runtime-polymorphism',
+    'dynamic-dispatch',
+    'compile-time-polymorphism',
+    'operator-overloading',
+    'contract',
+    'single-responsibility-principle',
+    'open-closed-principle',
+    'liskov-substitution-principle',
+    'interface-segregation-principle',
+    'dependency-inversion-principle',
+    'singleton-pattern',
+    'factory-pattern',
+    'observer-pattern',
+    'strategy-pattern',
+    'decorator-pattern',
+    'traits',
+    'dependency-injection',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.852Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.852Z'
+definition: ''
 lockedFields: []
 ---
 
 # CLASS DIAGRAM
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 uml-diagram, sequence-diagram, use-case-diagram

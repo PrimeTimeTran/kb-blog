@@ -1,35 +1,112 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "nestjs"
-slug: "nestjs"
+status: 'draft'
+term: 'nestjs'
+slug: 'nestjs'
 aliases: []
-tags: ["web_development","backend","node_ecosystem"]
-domain: "web_development"
-structure: "backend"
-concept: "node_ecosystem"
-category: "web_development"
-subCategory: "backend"
+tags: ['web_development', 'backend', 'node_ecosystem']
+domain: 'web_development'
+structure: 'backend'
+concept: 'node_ecosystem'
+category: 'web_development'
+subCategory: 'backend'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["server","api","graphql","authentication","authorization"]
-related: ["express","routing","controllers","services"]
-seeAlso: ["components","internet","https","domain-name","hosting","client-server-model","request-response-cycle","web-page","website","web-application","frontend","backend","full-stack","html","semantic-html","html-elements","forms","accessibility","seo","css","box-model","flexbox","grid","media-queries","positioning","sass","javascript","closures","scope","prototypes","promises","dom","event-handling","event-bubbling","event-delegation","nodejs","v8-engine","runtime-environment","hooks","vue","nuxt","svelte","angular","joins","indexes","transactions","monolith","microservices","serverless","jamstack","rest-architecture","graphql-schema","api-versioning","caching","cdn","bundling","core-web-vitals","ttfb","lcp","cls","xss","csrf","cors","content-security-policy","jwt","sessions","cookies","oauth","ci-cd","build-process","netlify","aws"]
+leadsTo: ['server', 'api', 'graphql', 'authentication', 'authorization']
+related: ['express', 'routing', 'controllers', 'services']
+seeAlso:
+  [
+    'components',
+    'internet',
+    'https',
+    'domain-name',
+    'hosting',
+    'client-server-model',
+    'request-response-cycle',
+    'web-page',
+    'website',
+    'web-application',
+    'frontend',
+    'backend',
+    'full-stack',
+    'html',
+    'semantic-html',
+    'html-elements',
+    'forms',
+    'accessibility',
+    'seo',
+    'css',
+    'box-model',
+    'flexbox',
+    'grid',
+    'media-queries',
+    'positioning',
+    'sass',
+    'javascript',
+    'closures',
+    'scope',
+    'prototypes',
+    'promises',
+    'dom',
+    'event-handling',
+    'event-bubbling',
+    'event-delegation',
+    'nodejs',
+    'v8-engine',
+    'runtime-environment',
+    'hooks',
+    'vue',
+    'nuxt',
+    'svelte',
+    'angular',
+    'joins',
+    'indexes',
+    'transactions',
+    'monolith',
+    'microservices',
+    'serverless',
+    'jamstack',
+    'rest-architecture',
+    'graphql-schema',
+    'api-versioning',
+    'caching',
+    'cdn',
+    'bundling',
+    'core-web-vitals',
+    'ttfb',
+    'lcp',
+    'cls',
+    'xss',
+    'csrf',
+    'cors',
+    'content-security-policy',
+    'jwt',
+    'sessions',
+    'cookies',
+    'oauth',
+    'ci-cd',
+    'build-process',
+    'netlify',
+    'aws',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.885Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.885Z'
+definition: ''
 lockedFields: []
 ---
 
 # NESTJS
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 express, routing, controllers, services

@@ -1,5 +1,3 @@
-Test text search(Grep/RG) consistently.
-
 1. Cache
 2. Class
 3. Compiler

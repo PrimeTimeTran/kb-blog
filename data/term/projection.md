@@ -1,35 +1,97 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "projection"
-slug: "projection"
+status: 'draft'
+term: 'projection'
+slug: 'projection'
 aliases: []
-tags: ["nosql","querying","mongodb_specific"]
-domain: "nosql"
-structure: "querying"
-concept: "mongodb_specific"
-category: "nosql"
-subCategory: "querying"
+tags: ['nosql', 'querying', 'mongodb_specific']
+domain: 'nosql'
+structure: 'querying'
+concept: 'mongodb_specific'
+category: 'nosql'
+subCategory: 'querying'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["query-language","filtering","indexing"]
-related: ["aggregation-pipeline","mongodb-query","find","update-operators"]
-seeAlso: ["mongodb","document-database","key-value-store","redis","query-optimization","nosql","schema-less-database","document-model","column-family","graph-database","eventual-consistency","flexible-schema","distributed-systems","json-document","firestore","nested-documents","dynamodb","hash-map-storage","cassandra","bigtable","column-oriented-storage","nodes","edges","neo4j","traversal-queries","strong-consistency","causal-consistency","data-replication","sharding","partition-tolerance","leader-follower-model","distributed-database","data-partitioning","consistent-hashing","secondary-index","compound-index","hashed-index","read-amplification","write-amplification","atomic-operations","multi-document-transaction","event-sourcing","real-time-apps","content-management-systems","iot-data-storage","caching-layer","cqrs","event-driven-architecture","data-denormalization","firebase-firestore","schema-flexibility-vs-rigid-schema","horizontal-vs-vertical-scaling","joins-vs-denormalization","consistency-tradeoffs","query-complexity","scalability-needs","data-structure-flexibility"]
-useCases: ["high-usage-context"]
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.837Z"
-definition: ""
+leadsTo: ['query-language', 'filtering', 'indexing']
+related: ['aggregation-pipeline', 'mongodb-query', 'find', 'update-operators']
+seeAlso:
+  [
+    'mongodb',
+    'document-database',
+    'key-value-store',
+    'redis',
+    'query-optimization',
+    'nosql',
+    'schema-less-database',
+    'document-model',
+    'column-family',
+    'graph-database',
+    'eventual-consistency',
+    'flexible-schema',
+    'distributed-systems',
+    'json-document',
+    'firestore',
+    'nested-documents',
+    'dynamodb',
+    'hash-map-storage',
+    'cassandra',
+    'bigtable',
+    'column-oriented-storage',
+    'nodes',
+    'edges',
+    'neo4j',
+    'traversal-queries',
+    'strong-consistency',
+    'causal-consistency',
+    'data-replication',
+    'sharding',
+    'partition-tolerance',
+    'leader-follower-model',
+    'distributed-database',
+    'data-partitioning',
+    'consistent-hashing',
+    'secondary-index',
+    'compound-index',
+    'hashed-index',
+    'read-amplification',
+    'write-amplification',
+    'atomic-operations',
+    'multi-document-transaction',
+    'event-sourcing',
+    'real-time-apps',
+    'content-management-systems',
+    'iot-data-storage',
+    'caching-layer',
+    'cqrs',
+    'event-driven-architecture',
+    'data-denormalization',
+    'firebase-firestore',
+    'schema-flexibility-vs-rigid-schema',
+    'horizontal-vs-vertical-scaling',
+    'joins-vs-denormalization',
+    'consistency-tradeoffs',
+    'query-complexity',
+    'scalability-needs',
+    'data-structure-flexibility',
+  ]
+useCases: ['high-usage-context']
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.837Z'
+definition: ''
 lockedFields: []
 ---
 
 # PROJECTION
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 aggregation-pipeline, mongodb-query, find, update-operators

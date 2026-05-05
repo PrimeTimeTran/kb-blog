@@ -14,9 +14,9 @@ At a technical level, AI systems are typically:
 
 > Build systems that **approximate intelligent behavior** in a way that is:
 
-* automated
-* scalable
-* adaptable to new inputs
+- automated
+- scalable
+- adaptable to new inputs
 
 ---
 
@@ -26,9 +26,9 @@ At a technical level, AI systems are typically:
 
 Systems that learn patterns from data.
 
-* [[atom/CS/AI/ML/core/supervised/overview|supervised learning]]
-* [[atom/CS/AI/ML/core/unsupervised/overview|unsupervised learning]]
-* [[atom/CS/AI/ML/core/reinforcement/overview|reinforcement learning]]
+- [[atom/CS/AI/ML/core/supervised/overview|supervised learning]]
+- [[atom/CS/AI/ML/core/unsupervised/overview|unsupervised learning]]
+- [[atom/CS/AI/ML/core/reinforcement/overview|reinforcement learning]]
 
 Most modern AI is ML-based.
 
@@ -38,10 +38,10 @@ Most modern AI is ML-based.
 
 Rule-based reasoning systems.
 
-* logic systems
-* knowledge graphs
-* rule engines
-* theorem proving
+- logic systems
+- knowledge graphs
+- rule engines
+- theorem proving
 
 > “If-then” reasoning over explicit knowledge
 
@@ -51,9 +51,9 @@ Rule-based reasoning systems.
 
 A subset of ML using neural networks with multiple layers.
 
-* CNNs (vision)
-* RNNs (sequences)
-* [[atom/CS/AI/transformers|Transformers]] (language, general-purpose modeling)
+- CNNs (vision)
+- RNNs (sequences)
+- [[atom/CS/AI/transformers|Transformers]] (language, general-purpose modeling)
 
 ---
 
@@ -61,10 +61,10 @@ A subset of ML using neural networks with multiple layers.
 
 Learning via reward signals through interaction with an environment.
 
-* agent
-* environment
-* reward function
-* policy learning
+- agent
+- environment
+- reward function
+- policy learning
 
 ---
 
@@ -72,9 +72,9 @@ Learning via reward signals through interaction with an environment.
 
 AI systems that model uncertainty explicitly.
 
-* Bayesian networks
-* probabilistic inference
-* stochastic processes
+- Bayesian networks
+- probabilistic inference
+- stochastic processes
 
 ---
 
@@ -99,9 +99,9 @@ $$
 
 Where:
 
-* $x$ = data / state
-* $y$ = prediction / action
-* $f$ = learned model or rule system
+- $x$ = data / state
+- $y$ = prediction / action
+- $f$ = learned model or rule system
 
 ---
 
@@ -119,9 +119,9 @@ Representation of learned or encoded behavior.
 
 Defines what “good behavior” means:
 
-* [[loss-function]] (ML)
-* [[reward-functions]] (RL)
-* [[logical-correctness]] (symbolic AI)
+- [[loss-function]] (ML)
+- [[reward-functions]] (RL)
+- [[logical-correctness]] (symbolic AI)
 
 ### Optimization / Inference
 
@@ -133,20 +133,20 @@ Mechanism for producing outputs or improving performance.
 
 ### Narrow AI (Weak AI)
 
-* specialized systems
-* e.g., image classifiers, chatbots, recommendation systems
+- specialized systems
+- e.g., image classifiers, chatbots, recommendation systems
 
 ### General AI (AGI)
 
-* hypothetical systems capable of general reasoning across domains
+- hypothetical systems capable of general reasoning across domains
 
 ---
 
 ## AI vs ML vs DL (Relationship)
 
-* **AI** → broad field of intelligent systems
-* **ML** → subset of AI focused on learning from data
-* **DL** → subset of ML using neural networks
+- **AI** → broad field of intelligent systems
+- **ML** → subset of AI focused on learning from data
+- **DL** → subset of ML using neural networks
 
 ---
 
@@ -154,16 +154,16 @@ Mechanism for producing outputs or improving performance.
 
 ### Symbolic Era (1950s–1990s)
 
-* logic-based reasoning
-* brittle systems
+- logic-based reasoning
+- brittle systems
 
 ### Statistical Learning Era (1990s–2010s)
 
-* ML replaces hand-coded rules
+- ML replaces hand-coded rules
 
 ### Deep Learning Era (2010s–present)
 
-* representation learning from large-scale data
+- representation learning from large-scale data
 
 ---
 
@@ -171,10 +171,10 @@ Mechanism for producing outputs or improving performance.
 
 AI systems are constrained by:
 
-* data quality
-* generalization ability
-* compute limits
-* objective mismatch (loss ≠ real-world goal)
+- data quality
+- generalization ability
+- compute limits
+- objective mismatch (loss ≠ real-world goal)
 
 ---
 
@@ -189,4 +189,5 @@ AI systems are constrained by:
 Artificial Intelligence is a broad field encompassing methods for building systems that perform intelligent tasks. It includes machine learning, symbolic reasoning, deep learning, and reinforcement learning, all unified by the idea of transforming input data into meaningful outputs through models, objectives, and optimization or inference processes.
 
 # Related
+
 - [[hub/CS/AI|AI]]

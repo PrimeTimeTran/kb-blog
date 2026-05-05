@@ -10,7 +10,10 @@ isDev: true
 
 # Theme 1
 
-Confirm Markdown, Obsidian, MDX are wired up correctly
+![[theme2.md]]
+
+> [!success]- Success Callout
+> ![[theme2.md]]
 
 ## Table of Contents (TOC)
 

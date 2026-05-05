@@ -1,35 +1,133 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "tree diffing"
-slug: "tree-diffing"
+status: 'draft'
+term: 'tree diffing'
+slug: 'tree-diffing'
 aliases: []
-tags: ["flutter","rendering","optimization"]
-domain: "flutter"
-structure: "rendering"
-concept: "optimization"
-category: "flutter"
-subCategory: "rendering"
+tags: ['flutter', 'rendering', 'optimization']
+domain: 'flutter'
+structure: 'rendering'
+concept: 'optimization'
+category: 'flutter'
+subCategory: 'rendering'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["build-phase","layout-phase","paint-phase","compositing"]
-related: ["const-widgets","repaint-boundary","widget-rebuild"]
-seeAlso: ["inheritance","mixins","composition-over-inheritance","stack","http","responsive-design","event-loop","async-await","declarative-ui","redux","text","navigation","platform-channels","ios-integration","android-integration","feature-based-structure","flutter","dart","widget","element-tree","render-tree","widget-tree","everything-is-a-widget","single-codebase-cross-platform","classes","future","stream","interfaces","abstract-classes","center","padding","scaffold","textfield","form","button","gesture-detector","inkwell","flex","expanded","flexible","listview","gridview","sliver","setstate","stateful-widget","stateless-widget","provider","riverpod","bloc","cubit","reactive-programming","immutable-state","state-lifting","route","navigator","stack-navigation","navigator-10","navigator-20","go-router","async-widget","future-builder","stream-builder","material-design","cupertino-design","theme-data","colors","typography","media-query","layout-builder","mvc","mvvm","clean-architecture","presentation-layer","domain-layer","data-layer","const-constructor","widget-reuse","list-virtualization","flutter-devtools","widget-inspector","performance-overlay","flutter-sdk","dart-sdk","pub-package-manager","hot-reload","ios","android","web","desktop","dio","firebase","shared-preferences","native-plugins"]
+leadsTo: ['build-phase', 'layout-phase', 'paint-phase', 'compositing']
+related: ['const-widgets', 'repaint-boundary', 'widget-rebuild']
+seeAlso:
+  [
+    'inheritance',
+    'mixins',
+    'composition-over-inheritance',
+    'stack',
+    'http',
+    'responsive-design',
+    'event-loop',
+    'async-await',
+    'declarative-ui',
+    'redux',
+    'text',
+    'navigation',
+    'platform-channels',
+    'ios-integration',
+    'android-integration',
+    'feature-based-structure',
+    'flutter',
+    'dart',
+    'widget',
+    'element-tree',
+    'render-tree',
+    'widget-tree',
+    'everything-is-a-widget',
+    'single-codebase-cross-platform',
+    'classes',
+    'future',
+    'stream',
+    'interfaces',
+    'abstract-classes',
+    'center',
+    'padding',
+    'scaffold',
+    'textfield',
+    'form',
+    'button',
+    'gesture-detector',
+    'inkwell',
+    'flex',
+    'expanded',
+    'flexible',
+    'listview',
+    'gridview',
+    'sliver',
+    'setstate',
+    'stateful-widget',
+    'stateless-widget',
+    'provider',
+    'riverpod',
+    'bloc',
+    'cubit',
+    'reactive-programming',
+    'immutable-state',
+    'state-lifting',
+    'route',
+    'navigator',
+    'stack-navigation',
+    'navigator-10',
+    'navigator-20',
+    'go-router',
+    'async-widget',
+    'future-builder',
+    'stream-builder',
+    'material-design',
+    'cupertino-design',
+    'theme-data',
+    'colors',
+    'typography',
+    'media-query',
+    'layout-builder',
+    'mvc',
+    'mvvm',
+    'clean-architecture',
+    'presentation-layer',
+    'domain-layer',
+    'data-layer',
+    'const-constructor',
+    'widget-reuse',
+    'list-virtualization',
+    'flutter-devtools',
+    'widget-inspector',
+    'performance-overlay',
+    'flutter-sdk',
+    'dart-sdk',
+    'pub-package-manager',
+    'hot-reload',
+    'ios',
+    'android',
+    'web',
+    'desktop',
+    'dio',
+    'firebase',
+    'shared-preferences',
+    'native-plugins',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.899Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.899Z'
+definition: ''
 lockedFields: []
 ---
 
 # TREE DIFFING
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 const-widgets, repaint-boundary, widget-rebuild

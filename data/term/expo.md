@@ -1,35 +1,106 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "expo"
-slug: "expo"
+status: 'draft'
+term: 'expo'
+slug: 'expo'
 aliases: []
-tags: ["react_native","ecosystem","frameworks"]
-domain: "react_native"
-structure: "ecosystem"
-concept: "frameworks"
-category: "react_native"
-subCategory: "ecosystem"
+tags: ['react_native', 'ecosystem', 'frameworks']
+domain: 'react_native'
+structure: 'ecosystem'
+concept: 'frameworks'
+category: 'react_native'
+subCategory: 'ecosystem'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["metro-bundler","react-navigation","react-native-reanimated","react-native-gesture-handler","expo-sdk","expo-go","debugger","flipper"]
-related: ["react-native-cli"]
-seeAlso: ["usestate","usereducer","usememo","usecallback","context-api","zustand","component-architecture","react-native","native-component","bridge","js-runtime","rendering-pipeline","write-once-run-anywhere","native-ui-abstraction","cross-platform-development","component-driven-ui","view","scrollview","textinput","flatlist","sectionlist","touchableopacity","pressable","gesture-handling","stylesheet","flexbox-layout","style-props","react-native-styles","inline-styles","platform-specific-styles","stack-navigator","tab-navigator","deep-linking","expo-router","native-modules","camera-access","location-services","file-system","notifications","virtualized-list","flatlist-optimization","lazy-rendering","memo","reanimated","camera","gps","accelerometer","gyroscope","push-notifications","background-tasks","permissions","service-layer","state-container-pattern","app-store-deployment","google-play-deployment","over-the-air-updates"]
-useCases: ["high-usage-context"]
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.893Z"
-definition: ""
+leadsTo:
+  [
+    'metro-bundler',
+    'react-navigation',
+    'react-native-reanimated',
+    'react-native-gesture-handler',
+    'expo-sdk',
+    'expo-go',
+    'debugger',
+    'flipper',
+  ]
+related: ['react-native-cli']
+seeAlso:
+  [
+    'usestate',
+    'usereducer',
+    'usememo',
+    'usecallback',
+    'context-api',
+    'zustand',
+    'component-architecture',
+    'react-native',
+    'native-component',
+    'bridge',
+    'js-runtime',
+    'rendering-pipeline',
+    'write-once-run-anywhere',
+    'native-ui-abstraction',
+    'cross-platform-development',
+    'component-driven-ui',
+    'view',
+    'scrollview',
+    'textinput',
+    'flatlist',
+    'sectionlist',
+    'touchableopacity',
+    'pressable',
+    'gesture-handling',
+    'stylesheet',
+    'flexbox-layout',
+    'style-props',
+    'react-native-styles',
+    'inline-styles',
+    'platform-specific-styles',
+    'stack-navigator',
+    'tab-navigator',
+    'deep-linking',
+    'expo-router',
+    'native-modules',
+    'camera-access',
+    'location-services',
+    'file-system',
+    'notifications',
+    'virtualized-list',
+    'flatlist-optimization',
+    'lazy-rendering',
+    'memo',
+    'reanimated',
+    'camera',
+    'gps',
+    'accelerometer',
+    'gyroscope',
+    'push-notifications',
+    'background-tasks',
+    'permissions',
+    'service-layer',
+    'state-container-pattern',
+    'app-store-deployment',
+    'google-play-deployment',
+    'over-the-air-updates',
+  ]
+useCases: ['high-usage-context']
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.893Z'
+definition: ''
 lockedFields: []
 ---
 
 # EXPO
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 react-native-cli

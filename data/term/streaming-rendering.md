@@ -1,35 +1,123 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "streaming rendering"
-slug: "streaming-rendering"
+status: 'draft'
+term: 'streaming rendering'
+slug: 'streaming-rendering'
 aliases: []
-tags: ["next_js","advanced","concurrency"]
-domain: "next_js"
-structure: "advanced"
-concept: "concurrency"
-category: "next_js"
-subCategory: "advanced"
+tags: ['next_js', 'advanced', 'concurrency']
+domain: 'next_js'
+structure: 'advanced'
+concept: 'concurrency'
+category: 'next_js'
+subCategory: 'advanced'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["monorepo-support","server-client-boundary","full-stack-composition"]
-related: ["suspense","react-concurrency"]
-seeAlso: ["tailwind-css","css-modules","styled-components","nextjs","app-router","pages-router","server-components","ssr","ssg","isr","rest-api","middleware","lazy-loading","code-splitting","vercel","dynamic-routes","streaming-ssr","react-server-components","server-actions","react-framework","full-stack-framework","server-side-rendering","static-site-generation","hybrid-rendering","routing-system","file-based-routing","hybrid-rendering-model","server-first-rendering","progressive-enhancement","layout","page","loading","error","route-segment","parallel-routes","get-server-side-props","get-static-props","api-routes","catch-all-routes","slug-params","client-side-rendering","suspense-boundaries","client-components","use-client-directive","server-data-fetching","zero-bundle-components","request-waterfall","fetch","server-side-fetch","client-fetch","revalidation","cache","force-cache","no-store","revalidate-path","incremental-static-regeneration","route-handlers","backend-for-frontend","edge-functions","serverless-functions","global-css","critical-css","layout-shift","hydration-styles","image-optimization","next-image","prefetching","bundle-analysis","tree-shaking","static-optimization","edge-runtime","request-interception","authentication-middleware","node-server","edge-runtime-deployment","next-build","next-export","incremental-builds","prisma","authjs","next-auth","stripe","cms-integration"]
+leadsTo: ['monorepo-support', 'server-client-boundary', 'full-stack-composition']
+related: ['suspense', 'react-concurrency']
+seeAlso:
+  [
+    'tailwind-css',
+    'css-modules',
+    'styled-components',
+    'nextjs',
+    'app-router',
+    'pages-router',
+    'server-components',
+    'ssr',
+    'ssg',
+    'isr',
+    'rest-api',
+    'middleware',
+    'lazy-loading',
+    'code-splitting',
+    'vercel',
+    'dynamic-routes',
+    'streaming-ssr',
+    'react-server-components',
+    'server-actions',
+    'react-framework',
+    'full-stack-framework',
+    'server-side-rendering',
+    'static-site-generation',
+    'hybrid-rendering',
+    'routing-system',
+    'file-based-routing',
+    'hybrid-rendering-model',
+    'server-first-rendering',
+    'progressive-enhancement',
+    'layout',
+    'page',
+    'loading',
+    'error',
+    'route-segment',
+    'parallel-routes',
+    'get-server-side-props',
+    'get-static-props',
+    'api-routes',
+    'catch-all-routes',
+    'slug-params',
+    'client-side-rendering',
+    'suspense-boundaries',
+    'client-components',
+    'use-client-directive',
+    'server-data-fetching',
+    'zero-bundle-components',
+    'request-waterfall',
+    'fetch',
+    'server-side-fetch',
+    'client-fetch',
+    'revalidation',
+    'cache',
+    'force-cache',
+    'no-store',
+    'revalidate-path',
+    'incremental-static-regeneration',
+    'route-handlers',
+    'backend-for-frontend',
+    'edge-functions',
+    'serverless-functions',
+    'global-css',
+    'critical-css',
+    'layout-shift',
+    'hydration-styles',
+    'image-optimization',
+    'next-image',
+    'prefetching',
+    'bundle-analysis',
+    'tree-shaking',
+    'static-optimization',
+    'edge-runtime',
+    'request-interception',
+    'authentication-middleware',
+    'node-server',
+    'edge-runtime-deployment',
+    'next-build',
+    'next-export',
+    'incremental-builds',
+    'prisma',
+    'authjs',
+    'next-auth',
+    'stripe',
+    'cms-integration',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.915Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.915Z'
+definition: ''
 lockedFields: []
 ---
 
 # STREAMING RENDERING
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 suspense, react-concurrency

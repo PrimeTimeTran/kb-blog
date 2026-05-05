@@ -1,35 +1,104 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "query complexity"
-slug: "query-complexity"
+status: 'draft'
+term: 'query complexity'
+slug: 'query-complexity'
 aliases: []
-tags: ["nosql","comparison_sql","decision_factors"]
-domain: "nosql"
-structure: "comparison_sql"
-concept: "decision_factors"
-category: "nosql"
-subCategory: "comparison_sql"
+tags: ['nosql', 'comparison_sql', 'decision_factors']
+domain: 'nosql'
+structure: 'comparison_sql'
+concept: 'decision_factors'
+category: 'nosql'
+subCategory: 'comparison_sql'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["schema-flexibility-vs-rigid-schema","horizontal-vs-vertical-scaling","joins-vs-denormalization","consistency-tradeoffs"]
-related: ["scalability-needs","data-structure-flexibility"]
-seeAlso: ["projection","mongodb","document-database","key-value-store","redis","query-optimization","nosql","schema-less-database","document-model","column-family","graph-database","eventual-consistency","flexible-schema","distributed-systems","json-document","firestore","nested-documents","dynamodb","hash-map-storage","cassandra","bigtable","column-oriented-storage","nodes","edges","neo4j","traversal-queries","query-language","aggregation-pipeline","filtering","indexing","mongodb-query","find","update-operators","strong-consistency","causal-consistency","data-replication","sharding","partition-tolerance","leader-follower-model","distributed-database","data-partitioning","consistent-hashing","secondary-index","compound-index","hashed-index","read-amplification","write-amplification","atomic-operations","multi-document-transaction","event-sourcing","real-time-apps","content-management-systems","iot-data-storage","caching-layer","cqrs","event-driven-architecture","data-denormalization","firebase-firestore"]
+leadsTo:
+  [
+    'schema-flexibility-vs-rigid-schema',
+    'horizontal-vs-vertical-scaling',
+    'joins-vs-denormalization',
+    'consistency-tradeoffs',
+  ]
+related: ['scalability-needs', 'data-structure-flexibility']
+seeAlso:
+  [
+    'projection',
+    'mongodb',
+    'document-database',
+    'key-value-store',
+    'redis',
+    'query-optimization',
+    'nosql',
+    'schema-less-database',
+    'document-model',
+    'column-family',
+    'graph-database',
+    'eventual-consistency',
+    'flexible-schema',
+    'distributed-systems',
+    'json-document',
+    'firestore',
+    'nested-documents',
+    'dynamodb',
+    'hash-map-storage',
+    'cassandra',
+    'bigtable',
+    'column-oriented-storage',
+    'nodes',
+    'edges',
+    'neo4j',
+    'traversal-queries',
+    'query-language',
+    'aggregation-pipeline',
+    'filtering',
+    'indexing',
+    'mongodb-query',
+    'find',
+    'update-operators',
+    'strong-consistency',
+    'causal-consistency',
+    'data-replication',
+    'sharding',
+    'partition-tolerance',
+    'leader-follower-model',
+    'distributed-database',
+    'data-partitioning',
+    'consistent-hashing',
+    'secondary-index',
+    'compound-index',
+    'hashed-index',
+    'read-amplification',
+    'write-amplification',
+    'atomic-operations',
+    'multi-document-transaction',
+    'event-sourcing',
+    'real-time-apps',
+    'content-management-systems',
+    'iot-data-storage',
+    'caching-layer',
+    'cqrs',
+    'event-driven-architecture',
+    'data-denormalization',
+    'firebase-firestore',
+  ]
 useCases: []
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.911Z"
-definition: ""
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.911Z'
+definition: ''
 lockedFields: []
 ---
 
 # QUERY COMPLEXITY
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 scalability-needs, data-structure-flexibility

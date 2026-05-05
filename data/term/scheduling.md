@@ -1,35 +1,143 @@
 ---
 draft: false
 final: false
-status: "draft"
-term: "scheduling"
-slug: "scheduling"
+status: 'draft'
+term: 'scheduling'
+slug: 'scheduling'
 aliases: []
-tags: ["k8s","lifecycle","states"]
-domain: "k8s"
-structure: "lifecycle"
-concept: "states"
-category: "k8s"
-subCategory: "lifecycle"
+tags: ['k8s', 'lifecycle', 'states']
+domain: 'k8s'
+structure: 'lifecycle'
+concept: 'states'
+category: 'k8s'
+subCategory: 'lifecycle'
 prerequisites: []
 buildsUpon: []
-leadsTo: ["kubectl-apply","scheduler-assigns-pod","kubelet-runs-container","service-exposes-pod"]
-related: ["running","pending","terminating"]
-seeAlso: ["deployment","environment-variables","docker","rollback","horizontal-scaling","vertical-scaling","load-balancing","immutable-infrastructure","service-discovery","ephemeral-storage","kubernetes","pod","service","ingress","secret","namespace","auto-scaling","continuous-deployment","blue-green-deployment","container-runtime","database-persistence","container-orchestration","containerd","cluster","node","control-plane","worker-node","declarative-infrastructure","desired-state-management","self-healing-systems","reconciliation-loop","api-server","etcd","scheduler","controller-manager","kubelet","kube-proxy","service-account","replica-set","stateful-set","daemon-set","job","cron-job","cluster-ip","node-port","load-balancer","config-map","single-container-pod","multi-container-pod","shared-network-namespace","shared-storage-volume","succeeded","failed","crashloop-backoff","rolling-update","replica-management","horizontal-pod-autoscaler","replica-count","stable-networking","abstraction-over-pods","external-name","kubernetes-networking-model","flat-network","pod-to-pod-communication","dns-in-cluster","ingress-controller","routing-rules","path-based-routing","host-based-routing","persistent-volume","persistent-volume-claim","storage-class","file-storage","stateful-applications","cluster-autoscaler","yaml-manifests","declarative-config","desired-state","kubectl","helm","kustomize","pod-logs","cluster-logs","log-aggregation","metrics-server","prometheus","grafana","health-checks","rbac","role-based-access-control","network-policies","pod-security-policies","secrets-management","gitops","argo-cd","flux","canary-deployment","minikube","kind","eks","gke","aks","cni-plugins"]
-useCases: ["high-usage-context"]
-createdAt: ""
-updatedAt: "2026-05-03T22:01:16.935Z"
-definition: ""
+leadsTo: ['kubectl-apply', 'scheduler-assigns-pod', 'kubelet-runs-container', 'service-exposes-pod']
+related: ['running', 'pending', 'terminating']
+seeAlso:
+  [
+    'deployment',
+    'environment-variables',
+    'docker',
+    'rollback',
+    'horizontal-scaling',
+    'vertical-scaling',
+    'load-balancing',
+    'immutable-infrastructure',
+    'service-discovery',
+    'ephemeral-storage',
+    'kubernetes',
+    'pod',
+    'service',
+    'ingress',
+    'secret',
+    'namespace',
+    'auto-scaling',
+    'continuous-deployment',
+    'blue-green-deployment',
+    'container-runtime',
+    'database-persistence',
+    'container-orchestration',
+    'containerd',
+    'cluster',
+    'node',
+    'control-plane',
+    'worker-node',
+    'declarative-infrastructure',
+    'desired-state-management',
+    'self-healing-systems',
+    'reconciliation-loop',
+    'api-server',
+    'etcd',
+    'scheduler',
+    'controller-manager',
+    'kubelet',
+    'kube-proxy',
+    'service-account',
+    'replica-set',
+    'stateful-set',
+    'daemon-set',
+    'job',
+    'cron-job',
+    'cluster-ip',
+    'node-port',
+    'load-balancer',
+    'config-map',
+    'single-container-pod',
+    'multi-container-pod',
+    'shared-network-namespace',
+    'shared-storage-volume',
+    'succeeded',
+    'failed',
+    'crashloop-backoff',
+    'rolling-update',
+    'replica-management',
+    'horizontal-pod-autoscaler',
+    'replica-count',
+    'stable-networking',
+    'abstraction-over-pods',
+    'external-name',
+    'kubernetes-networking-model',
+    'flat-network',
+    'pod-to-pod-communication',
+    'dns-in-cluster',
+    'ingress-controller',
+    'routing-rules',
+    'path-based-routing',
+    'host-based-routing',
+    'persistent-volume',
+    'persistent-volume-claim',
+    'storage-class',
+    'file-storage',
+    'stateful-applications',
+    'cluster-autoscaler',
+    'yaml-manifests',
+    'declarative-config',
+    'desired-state',
+    'kubectl',
+    'helm',
+    'kustomize',
+    'pod-logs',
+    'cluster-logs',
+    'log-aggregation',
+    'metrics-server',
+    'prometheus',
+    'grafana',
+    'health-checks',
+    'rbac',
+    'role-based-access-control',
+    'network-policies',
+    'pod-security-policies',
+    'secrets-management',
+    'gitops',
+    'argo-cd',
+    'flux',
+    'canary-deployment',
+    'minikube',
+    'kind',
+    'eks',
+    'gke',
+    'aks',
+    'cni-plugins',
+  ]
+useCases: ['high-usage-context']
+createdAt: ''
+updatedAt: '2026-05-03T22:01:16.935Z'
+definition: ''
 lockedFields: []
 ---
 
 # SCHEDULING
 
 ## Definition
+
 TODO
 
 ## Intuition
+
 TODO
 
 ## Related
+
 running, pending, terminating
