@@ -2,6 +2,15 @@
 import Prism from 'prismjs'
 import React, { useState } from 'react'
 
+import 'prismjs'
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-dart'
+import 'prismjs/components/prism-rust'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
+
 import { LANG_MAP } from '@/data/constants'
 
 function extractText(node) {

@@ -1,5 +1,8 @@
 'use client'
 
+import Prism from '@/lib/prism'
+globalThis.Prism = Prism
+
 export default function AppLayout({ children }) {
   console.log('AppLayout')
   return (

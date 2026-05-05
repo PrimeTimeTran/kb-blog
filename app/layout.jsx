@@ -1,12 +1,12 @@
 // Core languages
-// import 'prismjs'
-// import 'prismjs/components/prism-go'
-// import 'prismjs/components/prism-ruby'
-// import 'prismjs/components/prism-dart'
-// import 'prismjs/components/prism-rust'
-// import 'prismjs/components/prism-python'
-// import 'prismjs/components/prism-javascript'
-// import 'prismjs/components/prism-typescript'
+import 'prismjs'
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-dart'
+import 'prismjs/components/prism-rust'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
 
 import '@/css/prism.css'
 import '@/css/tailwind.css'
@@ -20,6 +20,9 @@ import { RegistryProvider } from '@/lib/providers/RegistryProvider'
 import ScrollSpyWrapper from '@/components/providers/ScrollSpyWrapper'
 
 import { buildKbRegistry } from '@/lib/content/server/kb.server'
+
+import Prism from '@/lib/prism'
+globalThis.Prism = Prism
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],

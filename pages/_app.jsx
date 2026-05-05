@@ -6,17 +6,17 @@ import '@/css/app.css'
 
 // Core languages
 import 'prismjs'
-// import 'prismjs/components/prism-go'
-// import 'prismjs/components/prism-ruby'
-// import 'prismjs/components/prism-dart'
-// import 'prismjs/components/prism-rust'
-// import 'prismjs/components/prism-python'
-// import 'prismjs/components/prism-javascript'
-// import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-dart'
+import 'prismjs/components/prism-rust'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
 
 // Plugins
-// import 'prismjs/plugins/line-numbers/prism-line-numbers'
-// import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 import Head from 'next/head'
 import Script from 'next/script'
@@ -32,6 +32,8 @@ import AppLayout from '@/layouts/AppLayout'
 
 // const isDevelopment = process.env.NODE_ENV === 'development'
 // const isSocket = process.env.SOCKET
+import Prism from '@/lib/prism'
+globalThis.Prism = Prism
 
 export default function App({ Component, pageProps }) {
   console.log('_App')
