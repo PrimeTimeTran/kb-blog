@@ -92,7 +92,7 @@ export function TabGroup({ tabs }) {
   if (!parsed?.length) return null
 
   return (
-    <div className="not-prose overflow-hidden bg-slate-50 dark:bg-[#0d1117] text-slate-200">
+    <div className="not-prose bg-slate-50 dark:bg-[#0d1117] text-slate-200 bg-red-500">
       <div className="px-4 py-2 font-mono text-xs text-slate-400 border-l-2 border-blue-500 bg-blue-500/10">
         <div className="flex gap-1">
           {(parsed ?? []).map((tab, i) => {
@@ -122,7 +122,7 @@ export function TabGroup({ tabs }) {
       </div>
 
       {/* Panels */}
-      <div className="max-h-[600px]  overflow-auto bg-slate-100 transition-colors duration-200 dark:bg-slate-950">
+      <div className="bg-slate-100 transition-colors duration-200 dark:bg-slate-950 ">
         <div className="relative">
           {(parsed ?? []).map((tab, i) => {
             const isActive = i === active

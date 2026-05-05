@@ -3,8 +3,8 @@ import TableOfContents from '@/components/TableOfContents'
 
 import PanelsLayout from './PanelsLayout'
 
-export default function BlogLayout({ toc, next, prev, children, frontMatter, authorDetails }) {
-  const { slug, fileName, tags } = frontMatter
+export default function BlogLayout(props) {
+  const { authorDetails, prev, next, toc, slug, fileName, tags } = props.frontMatter
 
   return (
     <PanelsLayout
@@ -24,10 +24,10 @@ export default function BlogLayout({ toc, next, prev, children, frontMatter, aut
     >
       <BlogContent
         toc={toc}
-        frontMatter={frontMatter}
+        // frontMatter={frontMatter}
         // className="flex-6 min-w-0 h-full overflow-y-auto p-3 scrollbar"
       >
-        {children}
+        {/* {children} */}
       </BlogContent>
     </PanelsLayout>
   )

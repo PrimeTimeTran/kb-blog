@@ -14,6 +14,7 @@ export function Navbar({ className }) {
   const router = useRouter()
   const currentRoute = router.asPath
   const isHome = currentRoute === '/'
+
   return (
     <header className={className}>
       <Link href="/" aria-label={siteMetadata.headerTitle}>

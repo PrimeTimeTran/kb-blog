@@ -11,6 +11,7 @@ import { TermPeekDefinition } from '@/mdx/components/TermPeekDefinition'
 
 import { BlogNewsletterForm } from '@/components/NewsletterForm'
 import { H1, H2, H3, H4, H5, H6 } from '@/components/HeadingComponents'
+import { layouts } from '@/layouts'
 
 // Layer A: PURE component map (NO logic)
 const components = {
@@ -40,8 +41,13 @@ export const MDXComponents = Object.fromEntries(
 )
 
 // Layer B: runtime factory (safe)
-export function createMDXComponents(registry, depth, visited) {
+export function createMDXComponents(registry, depth, visited, embedded) {
   return {
     ...MDXComponents,
+    Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
+    // wrapper: ({ layout, ...rest }) => {
+    //   const Layout = layouts[layout] || layouts.KBLayout
+    //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />
+    // },
   }
 }

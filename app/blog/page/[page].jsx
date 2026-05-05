@@ -36,8 +36,8 @@ export async function getStaticProps(context) {
   return {
     props: {
       posts,
-      initialDisplayPosts,
       pagination,
+      initialDisplayPosts,
     },
   }
 }

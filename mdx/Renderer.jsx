@@ -8,16 +8,13 @@ import { layouts } from '@/layouts'
 
 export default function MDXRenderer({ Content, layout: Layout, layoutProps = {} }) {
   const ResolvedLayout = typeof Layout === 'string' ? layouts[Layout] : Layout
-
   if (!ResolvedLayout) {
     return Content ? <Content /> : null
   }
 
   return (
     <ResolvedLayout {...layoutProps}>
-      <div className="prose dark:prose-invert">
-        <Content />
-      </div>
+      <div className="prose dark:prose-invert">{Content}</div>
     </ResolvedLayout>
   )
 }

@@ -1,5 +1,7 @@
-import { useScrollSpy } from '@/lib/hooks/useScrollSpy'
+'use client'
+
 import { getHeadingClass } from '@/lib/theme/theme.cjs'
+import { useScroll } from '@/components/providers/ScrollSpyProvider'
 
 function TOCItem({ item, activeId }) {
   const isActive = activeId === item.url
@@ -26,16 +28,15 @@ function TOCItem({ item, activeId }) {
   )
 }
 export default function TableOfContents({ className, toc = [] }) {
-  const activeId = useScrollSpy(toc)
+  const { activeId } = useScroll()
 
   if (toc.length === 0) {
     return <div></div>
-    // return <div className="text-sm text-gray-500">No table of contents available.</div>
   }
 
   return (
     <aside className={className}>
-      {(toc ?? []).map((item) => (
+      {toc.map((item) => (
         <TOCItem key={item.url} item={item} activeId={activeId} />
       ))}
     </aside>

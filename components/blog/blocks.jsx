@@ -1,14 +1,15 @@
 import Tag from '@/components/Tag'
 import { SafeLink as Link } from '@/mdx/components/Link'
+import { useScroll } from '@/components/providers/ScrollSpyProvider'
+
 import { Image } from '@/mdx/components'
 import PageTitle from '@/components/PageTitle'
-import { useScroll } from '@/lib/context/ScrollContext'
 import { CiCalendarDate } from 'react-icons/ci'
 
 import { discussUrl, editUrl } from '@/lib/utils'
 
 export function BlogHeader({ title, date }) {
-  const { shrunk } = useScroll()
+  const { activeId, shrunk } = useScroll()
 
   return (
     <header
@@ -60,36 +61,37 @@ export function BlogFooter({ slug, fileName }) {
    Author Block
 ------------------------------ */
 export function AuthorBlock({ authors = [] }) {
-  return (
-    <dl className="border-slate-200 pb-10 pt-6 dark:border-slate-800 xl:border-b">
-      <dt className="sr-only">Authors</dt>
-      <dd>
-        <ul className="space-y-6 xl:block">
-          {(authors ?? []).map((author, idx) => (
-            <li key={idx} className="flex items-center space-x-3">
-              {author.frontMatter?.avatar && (
-                <Image
-                  src={author.frontMatter.avatar}
-                  width={38}
-                  height={38}
-                  alt="avatar"
-                  className="h-10 w-10 rounded-full"
-                />
-              )}
-              <div className="text-sm">
-                <div className="font-medium text-gray-900 dark:text-gray-100">{author.name}</div>
-                {author.twitter && (
-                  <Link href={author.twitter} className="text-primary-500">
-                    @{author.twitter.split('/').pop()}
-                  </Link>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </dd>
-    </dl>
-  )
+  return <div>hi</div>
+  // return (
+  //   <dl className="border-slate-200 pb-10 pt-6 dark:border-slate-800 xl:border-b">
+  //     <dt className="sr-only">Authors</dt>
+  //     <dd>
+  //       <ul className="space-y-6 xl:block">
+  //         {(authors ?? []).map((author, idx) => (
+  //           <li key={idx} className="flex items-center space-x-3">
+  //             {author.frontMatter?.avatar && (
+  //               <Image
+  //                 src={author.frontMatter.avatar}
+  //                 width={38}
+  //                 height={38}
+  //                 alt="avatar"
+  //                 className="h-10 w-10 rounded-full"
+  //               />
+  //             )}
+  //             <div className="text-sm">
+  //               <div className="font-medium text-gray-900 dark:text-gray-100">{author.name}</div>
+  //               {author.twitter && (
+  //                 <Link href={author.twitter} className="text-primary-500">
+  //                   @{author.twitter.split('/').pop()}
+  //                 </Link>
+  //               )}
+  //             </div>
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     </dd>
+  //   </dl>
+  // )
 }
 
 /* -----------------------------

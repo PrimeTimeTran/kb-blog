@@ -1,10 +1,15 @@
-import MDXRenderer from '@/mdx/Renderer'
-import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
+import AuthorLayout from '@/layouts/AuthorLayout'
 
-export default async function About() {
-  const data = await getContentBySlug('authors', 'default')
+export default async function Page() {
+  const { getContentBySlug } = await import('@/lib/content/core/get-content-by-slug')
 
-  if (!data?.mdxSource) return null
+  const response = await getContentBySlug('authors', 'default')
 
-  return <MDXRenderer mdxSource={data.mdxSource} frontMatter={data.frontMatter} />
+  if (!response) return null
+
+  return (
+    <AuthorLayout>
+      <response.Content />
+    </AuthorLayout>
+  )
 }
