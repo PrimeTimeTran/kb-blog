@@ -19,6 +19,7 @@
   "dependencies": {
     "@fontsource/inter": "4.5.2",
     "@mailchimp/mailchimp_marketing": "^3.0.58",
+    "@material/material-color-utilities": "^0.4.0",
     "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@tailwindcss/forms": "^0.4.0",
@@ -26,6 +27,8 @@
     "builtin-modules": "^5.1.0",
     "chalk": "^5.6.2",
     "chokidar": "^5.0.0",
+    "clsx": "^2.1.1",
+    "cn": "^0.1.1",
     "concurrently": "^9.2.1",
     "esbuild": "^0.19.12",
     "eslint-plugin-tailwindcss": "^3.18.3",
@@ -33,6 +36,7 @@
     "github-slugger": "^1.5.0",
     "gray-matter": "^4.0.2",
     "image-size": "1.0.0",
+    "lucide-react": "^1.14.0",
     "next": "^15.5.15",
     "next-contentlayer2": "^0.5.8",
     "next-themes": "^0.4.6",
@@ -59,6 +63,8 @@
     "remark-parse": "^11.0.0",
     "sharp": "^0.32.6",
     "slugify": "^1.6.9",
+    "tailwind-merge": "^3.5.0",
+    "ts-morph": "^28.0.0",
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {

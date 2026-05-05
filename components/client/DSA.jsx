@@ -6,7 +6,7 @@ import SolutionSnippet from '@/components/Solution.jsx'
 // import solutions from '@/lib/dsa/problems/solutions.js'
 import allProblems from '@/lib/dsa/problems/problems-all.json'
 // import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js'
-import { buttonVariants } from '@/components/ui/buttonVariants'
+import { buttonVariants } from '@/components/buttonVariants'
 
 const tagCounts = {}
 
