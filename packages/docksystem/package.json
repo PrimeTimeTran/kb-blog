@@ -1,26 +1,25 @@
 {
   "name": "@primetimetran/docksystem",
   "version": "1.0.0",
+  "type": "module",
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     }
   },
   "files": [
     "dist"
   ],
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "scripts": {
-    "build": "tsup"
+    "build": "unbuild"
   },
   "devDependencies": {
-    "tsup": "^8.5.1",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "unbuild": "^3.6.1"
   }
 }

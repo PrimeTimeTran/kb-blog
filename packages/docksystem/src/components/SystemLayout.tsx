@@ -1,14 +1,58 @@
 'use client'
-import { useRef } from 'react'
 
-import DockOverlay from './DockLayout'
+import React, { useRef, JSX, MouseEvent } from 'react'
+import DockOverlay from './DockOverlay'
 import { useDock } from '../context/DockProvider'
 
-export default function OverlayLayout({ left, right, children, className }) {
-  const scrollRef = useRef()
-  const dock = useDock()
+// 1. Define strict interfaces for the Dock state regions
+interface RegionState {
+  open: boolean
+  width: number | string
+}
+
+interface DockContextState {
+  state: {
+    regions: {
+      left: RegionState
+      right: RegionState
+      leftOverlay: RegionState
+      rightOverlay: RegionState
+    }
+  }
+  startResize: (args: { name: 'left' | 'right'; key: 'width' }) => void
+  toggle: (name: 'leftOverlay' | 'rightOverlay' | 'left' | 'right') => void
+}
+
+// 2. Define props for the SystemLayout component
+interface SystemLayoutProps {
+  left?: React.ReactNode
+  right?: React.ReactNode
+  children: React.ReactNode
+  className?: string
+}
+
+export default function SystemLayout({
+  left,
+  right,
+  children,
+  className = '',
+}: SystemLayoutProps): JSX.Element {
+  // Properly typing the HTMLDivElement for the scroll container
+  const scrollRef = useRef<HTMLDivElement | null>(null)
+
+  // Cast useDock to our explicit TypeScript definition
+  const dock = useDock() as DockContextState
 
   const isSingleColumn = !left && !right
+
+  // Mouse event handler properly typed for the resizer bar
+  const handleLeftResize = (e: MouseEvent<HTMLDivElement>): void => {
+    dock.startResize({ name: 'left', key: 'width' })
+  }
+
+  const handleRightResize = (e: MouseEvent<HTMLDivElement>): void => {
+    dock.startResize({ name: 'right', key: 'width' })
+  }
 
   return (
     <div className={`flex flex-col md:flex-row flex-1 min-h-0 w-full ${className}`}>
@@ -21,10 +65,10 @@ export default function OverlayLayout({ left, right, children, className }) {
             }}
             className="w-64 shrink-0 overflow-hidden transition-all duration-200"
           >
-            {left}{' '}
+            {left}
             {dock.state.regions.left.open && (
               <div
-                onMouseDown={(e) => dock.startResize({ name: 'left', key: 'width' })}
+                onMouseDown={handleLeftResize}
                 className="w-1 cursor-col-resize hover:bg-slate-300"
               />
             )}
@@ -51,13 +95,15 @@ export default function OverlayLayout({ left, right, children, className }) {
           >
             {dock.state.regions.right.open && (
               <div
-                onMouseDown={(e) => dock.startResize({ name: 'right', key: 'width' })}
+                onMouseDown={handleRightResize}
                 className="w-1 cursor-col-resize hover:bg-slate-300"
               />
             )}
             {right}
           </aside>
         )}
+
+        {/* OVERLAYS */}
         <DockOverlay
           side="left"
           open={dock.state.regions.leftOverlay.open}
@@ -66,6 +112,7 @@ export default function OverlayLayout({ left, right, children, className }) {
         >
           {left}
         </DockOverlay>
+
         <DockOverlay
           side="right"
           open={dock.state.regions.rightOverlay.open}

@@ -1,13 +1,13 @@
 import { BlogSidebarLeft, BlogContent } from '@/components/blog'
 import TableOfContents from '@/components/TableOfContents'
 
-import PanelsLayout from './PanelsLayout'
+import { DockLayout } from '../packages/docksystem/src'
 
 export default function BlogLayout(props) {
   const { authorDetails, prev, next, toc, slug, fileName, tags } = props.frontMatter
 
   return (
-    <PanelsLayout
+    <DockLayout
       left={
         <aside className="flex-3 min-w-0 flex h-full overflow-hidden p-3">
           <BlogSidebarLeft
@@ -29,6 +29,6 @@ export default function BlogLayout(props) {
       >
         {/* {children} */}
       </BlogContent>
-    </PanelsLayout>
+    </DockLayout>
   )
 }

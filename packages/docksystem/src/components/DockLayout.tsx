@@ -1,14 +1,16 @@
-// 1. Server Components (MDX)
-// 2. Client state injection (Dock)
-// 3. React.lazy dynamic import
-// Each one has its own boundary rules.
-
 'use client'
 
-import Layout from './Layout'
+import { JSX, ReactNode } from 'react'
+import Layout from './SystemLayout'
 import DockSlip from './DockSlip'
 
-export default function DockLayout({ children }) {
+// 1. Define strict type requirements for the component props
+interface DockLayoutProps {
+  /** Main view content or sub-page elements injected between the slots */
+  children: ReactNode
+}
+
+export default function DockLayout({ children }: DockLayoutProps): JSX.Element {
   return (
     <Layout left={<DockSlip name="left" />} right={<DockSlip name="right" />}>
       {children}

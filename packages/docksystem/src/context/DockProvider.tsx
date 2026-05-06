@@ -1,50 +1,95 @@
-/**
- * @typedef {Object} DockAPI
- * @property {{ left: any, right: any, overlay: any }} state
- * @property {() => void} toggleLeft
- * @property {() => void} toggleRight
- * @property {() => void} openLeftOverlay
- * @property {() => void} closeLeftOverlay
- * @property {(side: string, width: number) => void} setWidth
- * @property {(name: string, node: any) => void} setSlot
- * @property {(name: string) => any} getSlot
- */
-
 'use client'
 
-import { createContext, useContext, useRef, useState } from 'react'
+import { createContext, useContext, useRef, useState, useMemo, JSX, ReactNode } from 'react'
 import { useDockSystem } from './useDockSystem'
 
-const DockContext = createContext(null)
-
-export function DockProvider({ children }) {
-  const layout = useDockSystem()
-
-  const slotsRef = useRef({})
-
-  const [, forceRender] = useState(0)
-
-  const setSlot = (name, node) => {
-    slotsRef.current[name] = node
-    forceRender((x) => x + 1)
-  }
-
-  const clearSlot = (name) => {
-    delete slotsRef.current[name]
-    forceRender((x) => x + 1)
-  }
-
-  const getSlot = (name) => slotsRef.current[name]
-  const value = {
-    ...layout,
-    setSlot,
-    clearSlot,
-    getSlot,
-  }
-  return <DockContext.Provider value={{ ...value }}>{children}</DockContext.Provider>
+interface DockSystemLayout {
+  state: any
+  startResize: (args: { name: string; key: 'width' | 'height' }) => void
+  toggle: (name: string) => void
+  setOverlay: (active: string | null) => void
 }
 
-/** @returns {DockAPI} */
-export function useDock() {
-  return useContext(DockContext)
+interface DockContextType extends DockSystemLayout {
+  setSlot: (name: string, node: ReactNode) => void
+  clearSlot: (name: string) => void
+  getSlot: (name: string) => ReactNode | undefined
+}
+
+export const DockContext = createContext<DockContextType | null>(null)
+
+interface DockProviderProps {
+  children: ReactNode
+}
+
+export function DockProvider({ children }: DockProviderProps): JSX.Element {
+  const layout = useDockSystem()
+  const slotsRef = useRef<Record<string, ReactNode>>({})
+  const [, forceRender] = useState<number>(0)
+
+  // 1. Keep functions stable with useCallback definitions or stable closures
+  const setSlot = useMemo(
+    () =>
+      (name: string, node: ReactNode): void => {
+        // Only update and trigger a re-render if the slot content actually changed
+        if (slotsRef.current[name] !== node) {
+          slotsRef.current[name] = node
+          forceRender((x) => x + 1)
+        }
+      },
+    []
+  )
+
+  const clearSlot = useMemo(
+    () =>
+      (name: string): void => {
+        if (name in slotsRef.current) {
+          delete slotsRef.current[name]
+          forceRender((x) => x + 1)
+        }
+      },
+    []
+  )
+
+  const getSlot = useMemo(
+    () =>
+      (name: string): ReactNode | undefined => {
+        return slotsRef.current[name]
+      },
+    []
+  )
+
+  // 2. CRITICAL: Memoize the final context value!
+  // This object will ONLY change if the layout state itself changes,
+  // breaking the infinite re-render loop completely.
+  const contextValue = useMemo<DockContextType>(
+    () => ({
+      state: layout.state,
+      startResize: layout.startResize,
+      toggle: layout.toggle,
+      setOverlay: layout.setOverlay,
+      setSlot,
+      clearSlot,
+      getSlot,
+    }),
+    [
+      layout.state,
+      layout.startResize,
+      layout.toggle,
+      layout.setOverlay,
+      setSlot,
+      clearSlot,
+      getSlot,
+    ]
+  )
+
+  return <DockContext.Provider value={contextValue}>{children}</DockContext.Provider>
+}
+
+export function useDock(): DockContextType {
+  const context = useContext(DockContext)
+  if (!context) {
+    throw new Error('useDock must be used within a DockProvider')
+  }
+  return context
 }
