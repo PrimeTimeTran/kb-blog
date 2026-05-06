@@ -1,6 +1,5 @@
 import { PageSEO } from '@/components/SEO'
-import PanelsLayout from '@/layouts/PanelsLayout'
-// import PreviewPanelsLayout from '@/layouts/PreviewPanelsLayout'
+import { DockLayout } from '../packages/docksystem/src'
 import siteMetadata from '@/data/site-metadata'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
@@ -12,7 +11,7 @@ export default async function HomePage() {
   const posts = (await getAllBlogPosts()) || []
 
   return (
-    <PanelsLayout isSingleCol>
+    <DockLayout isSingleCol>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <HomeClient posts={posts} />
       {posts.length > MAX_DISPLAY && (
@@ -27,6 +26,6 @@ export default async function HomePage() {
           <NewsletterForm />
         </div>
       )}
-    </PanelsLayout>
+    </DockLayout>
   )
 }

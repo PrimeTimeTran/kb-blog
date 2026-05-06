@@ -1,5 +1,6 @@
 export { DockProvider, useDock } from './context/DockProvider'
 export { default as DockOverlay } from './components/DockOverlay'
+export { default as VersionBanner } from './components/VersionBanner'
 
 export { default as Dock } from './components/Dock'
 export { default as DockSlip } from './components/DockSlip'

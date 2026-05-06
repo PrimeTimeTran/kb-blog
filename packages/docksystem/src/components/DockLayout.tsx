@@ -1,7 +1,7 @@
 'use client'
 
 import { JSX, ReactNode } from 'react'
-import Layout from './SystemLayout'
+import SystemLayout from './SystemLayout'
 import DockSlip from './DockSlip'
 
 // 1. Define strict type requirements for the component props
@@ -12,8 +12,8 @@ interface DockLayoutProps {
 
 export default function DockLayout({ children }: DockLayoutProps): JSX.Element {
   return (
-    <Layout left={<DockSlip name="left" />} right={<DockSlip name="right" />}>
+    <SystemLayout left={<DockSlip name="left" />} right={<DockSlip name="right" />}>
       {children}
-    </Layout>
+    </SystemLayout>
   )
 }

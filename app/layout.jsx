@@ -77,7 +77,7 @@ export default async function RootLayout({ children }) {
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white flex flex-col h-screen w-full overflow-hidden p-2">
+      <body className="h-screen w-screen overflow-hidden bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
           <DockProvider>
             <AppShell>

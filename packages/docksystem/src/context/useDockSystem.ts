@@ -57,6 +57,10 @@ function reducer(state: DockSystemState, action: DockSystemAction): DockSystemSt
       const { name } = action
       if (!state.regions[name]) return state
 
+      console.log(name)
+      console.log('prevOpen', state.regions[name].open)
+      console.log('newOpen', !state.regions[name].open)
+
       return {
         ...state,
         regions: {
