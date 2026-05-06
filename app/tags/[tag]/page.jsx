@@ -8,7 +8,7 @@ import kebabCase from '@/lib/utils/kebab-case'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { ROOT } from '@/lib/content/core/constants.js'
 import { getAllTags } from '@/lib/content/server/tag/getAllTags'
-import PanelsLayout from '@/layouts/PanelsLayout'
+import PanelsLayout from '@/layouts/OverlayLayout'
 
 // optional: keep if you still want dynamic RSS generation at build/runtime
 export async function generateStaticParams() {
@@ -73,7 +73,7 @@ export default async function Page({ params }) {
   }
 
   return (
-    <PanelsLayout isSingleCol>
+    <PanelsLayout>
       <ListLayout posts={filteredPosts} title={title} />
     </PanelsLayout>
   )

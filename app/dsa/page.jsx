@@ -1,4 +1,4 @@
-import PanelsLayout from '@/layouts/PanelsLayout'
+import PanelsLayout from '@/layouts/OverlayLayout'
 import DSAClient from '@/components/client/DSA'
 
 import allProblems from '@/lib/dsa/problems/problems-all.json'
@@ -56,7 +56,7 @@ export default function DSAPage() {
   const tagCounts = computeTagCounts(problems, orderedTags)
 
   return (
-    <PanelsLayout isSingleCol>
+    <PanelsLayout>
       <DSAClient
         problems={problems}
         solutions={solutions}

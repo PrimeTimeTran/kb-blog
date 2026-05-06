@@ -1,6 +1,17 @@
 :root {
   --navbar-height: 64px;
 }
+:root {
+  --katex-color: black;
+}
+
+.dark {
+  --katex-color: white;
+}
+
+.katex {
+  color: var(--katex-color);
+}
 
 html,
 body {
@@ -48,4 +59,8 @@ body {
 .my-gallery img {
   object-fit: contain;
   max-height: 70vh;
+}
+
+aside {
+  transition: width 200ms ease;
 }

@@ -31,7 +31,7 @@ export default function TableOfContents({ className, toc = [] }) {
   const { activeId } = useScroll()
 
   if (toc.length === 0) {
-    return <div></div>
+    return <div>Empty TOC</div>
   }
 
   return (

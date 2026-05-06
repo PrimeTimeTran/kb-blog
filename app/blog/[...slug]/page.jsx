@@ -1,7 +1,7 @@
 // import generateRss from '@/lib/generate-rss'
 import TOCBubbler from '@/components/providers/TOCBubbler'
 
-import PanelsLayout from '@/layouts/PanelsLayout'
+import PanelsLayout from '@/layouts/OverlayLayout'
 import TableOfContents from '@/components/TableOfContents'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { BlogContent } from '@/components/blog'
@@ -47,7 +47,6 @@ export default async function BlogPage({ params }) {
         frontMatter={frontMatter}
         // className="flex-6 min-w-0 h-full overflow-y-auto p-3 scrollbar"
       >
-        
         <post.Content />
       </BlogContent>
       <TOCBubbler toc={toc} />

@@ -1,32 +1,32 @@
+// Architecture 1:
+// page -> layout(sidebar) -> docklayout
+// because sidebar state is persistent.
+// app/kb/[...slug]/page.jsx
+// Success: Renders content(MDX) from data fetching
+// app/kb/layout.jsx
+// Success: Renders layout using DockerLayout successfully.
+//  Failure: Does not have initial sidebar left outline/index....
+
 import { notFound } from 'next/navigation'
-import { getAllKbSlugs } from '@/lib/content/core/kb'
 import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
-import { getKbTree } from '@/lib/content/server/kb.server'
 
-import KBLayout from '@/layouts/KBLayout'
+import { Dock } from '../../../packages/docksystem/src'
+import TableOfContents from '@/components/TableOfContents'
 
-export async function generateStaticParams() {
-  const slugs = await getAllKbSlugs()
-
-  return (slugs ?? []).map((slug) => ({
-    slug: slug.split('/'),
-  }))
-}
-
+// route: dock-system 3.a Dock component docks client content to layout
 export default async function Page({ params }) {
   const { slug } = await params
-
   const slugPath = Array.isArray(slug) ? slug.join('/') : slug
-  const kbItem = await getContentBySlug('kb', slugPath)
 
+  const kbItem = await getContentBySlug('kb', slugPath)
   if (!kbItem) notFound()
 
-  const outline = await getKbTree()
-
-  const { frontMatter, toc } = kbItem
   return (
-    <KBLayout outline={outline} toc={toc} frontMatter={frontMatter}>
+    <>
+      <Dock name="right">
+        <TableOfContents toc={kbItem.toc} />
+      </Dock>
       <kbItem.Content />
-    </KBLayout>
+    </>
   )
 }

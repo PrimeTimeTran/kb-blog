@@ -7,7 +7,7 @@ import { SiLibreofficewriter } from 'react-icons/si'
 
 const headerNavLinks = [
   {
-    href: '/kb/0.preview/0.theme1',
+    href: '/kb/0.mdx-pipeline-preview/latex#matrix-example',
     title: 'K-Base',
     icon: GiGiftOfKnowledge,
   },

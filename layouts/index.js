@@ -1,15 +1,15 @@
-import KBLayout from './KBLayout'
+import BaseLayout from './BaseLayout'
 import ListLayout from './ListLayout'
 import PostLayout from './PostLayout'
 import BlogLayout from './BlogLayout'
 import AboutLayout from './AboutLayout'
-import PanelsLayout from './PanelsLayout'
+import PanelsLayout from './OverlayLayout'
 import AuthorLayout from './AuthorLayout'
 import ThreeColumnLayout from './ThreeColumnLayout'
 
 export const layouts = {
   BlogLayout,
-  KBLayout,
+  BaseLayout,
   ListLayout,
   PostLayout,
   PanelsLayout,

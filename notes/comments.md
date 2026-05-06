@@ -6,7 +6,9 @@ summary: ''
 tags: ['']
 ---
 
-TODO:
+// route: 2 Gotta write a blog post about this.
+
+<!-- TODO:
 [ ]
 NOTE:
 USEFUL:
@@ -19,4 +21,4 @@ INCOMPLETE:
 BUG:
 SEE NOTES:
 POST:
-[x]
+[x] -->

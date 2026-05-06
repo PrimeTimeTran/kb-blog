@@ -1,11 +1,22 @@
+import 'prismjs'
+import 'prismjs/components/prism-go'
+import 'prismjs/components/prism-ruby'
+import 'prismjs/components/prism-dart'
+import 'prismjs/components/prism-rust'
+import 'prismjs/components/prism-python'
+import 'prismjs/components/prism-javascript'
+import 'prismjs/components/prism-typescript'
+
 import siteMetadata from '@/data/site-metadata'
 import { Space_Grotesk } from 'next/font/google'
 import { ThemeProviders } from './theme-providers'
+
+import { DockProvider } from '../packages/docksystem/src'
 import { RegistryProvider } from '@/lib/providers/RegistryProvider'
 import ScrollSpyWrapper from '@/components/providers/ScrollSpyWrapper'
 
-import { buildKbRegistry } from '@/lib/content/server/kb.server'
 import { AppShell } from '@/components/layout/AppShell'
+import { buildKbRegistry } from '@/lib/content/server/kb.server'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -14,6 +25,8 @@ const space_grotesk = Space_Grotesk({
 })
 
 export const metadata = {
+  authors: [{ name: 'Loi Tran' }],
+  creator: 'Loi Tran',
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
@@ -41,18 +54,20 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
       'max-image-preview': 'large',
-      'max-snippet': -1,
     },
   },
-  twitter: {
-    title: siteMetadata.title,
-    card: 'summary_large_image',
-    images: [siteMetadata.socialBanner],
+  themeColor: '#0f172a',
+  icons: {
+    icon: [
+      { url: '/public/static/favicons/favicon.ico' },
+      { url: '/public/static/images/favicon.png', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-touch-icon.png' }],
+    shortcut: ['/public/static/favicons/favicon.ico'],
   },
 }
-
+// route: dock-system 1.a DockProvider wraps client
 export default async function RootLayout({ children }) {
   const registry = await buildKbRegistry()
 
@@ -62,18 +77,16 @@ export default async function RootLayout({ children }) {
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
-        <div className="flex flex-col h-screen w-full overflow-hidden p-2">
-          <ThemeProviders>
+      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white flex flex-col h-screen w-full overflow-hidden p-2">
+        <ThemeProviders>
+          <DockProvider>
             <AppShell>
               <ScrollSpyWrapper>
-                <RegistryProvider registry={registry}>
-                  <main className="flex-1 min-h-0">{children}</main>
-                </RegistryProvider>
+                <RegistryProvider registry={registry}>{children}</RegistryProvider>
               </ScrollSpyWrapper>
             </AppShell>
-          </ThemeProviders>
-        </div>
+          </DockProvider>
+        </ThemeProviders>
       </body>
     </html>
   )
