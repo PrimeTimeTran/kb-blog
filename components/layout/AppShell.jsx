@@ -1,3 +1,7 @@
+// Latex support
+import 'katex/dist/katex.css'
+import 'katex/dist/katex.min.css'
+
 // Core languages
 import 'prismjs'
 import 'prismjs/components/prism-go'
@@ -10,7 +14,7 @@ import 'prismjs/components/prism-typescript'
 
 import '@/css/prism.css'
 import '@/css/tailwind.css'
-import 'katex/dist/katex.css'
+
 import '@/css/app.css'
 import '@/css/theme.css'
 
