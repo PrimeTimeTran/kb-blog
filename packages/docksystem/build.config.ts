@@ -1,9 +1,10 @@
-'use client'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  entries: ['./src/index'],
+  entries: ['src/index'],
+  clean: true,
   declaration: true,
+  failOnWarn: false,
   rollup: {
     emitCJS: true,
     esbuild: {
@@ -14,5 +15,5 @@ export default defineBuildConfig({
       banner: "'use client';",
     },
   },
-  externals: ['react', 'react-dom', 'react/jsx-runtime'],
+  externals: ['react', 'react-dom', 'react/jsx-runtime', 'next', 'next/navigation'],
 })

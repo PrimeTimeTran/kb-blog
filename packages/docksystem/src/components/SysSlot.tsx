@@ -4,7 +4,7 @@ import { useEffect, JSX, ReactNode } from 'react'
 import { useDock } from '../context/DockProvider'
 
 // 1. Define explicit types for the component props
-interface DockSlotProps {
+interface SysSlotProps {
   /** The target region name where this component should register itself */
   name?: 'left' | 'right' | 'leftOverlay' | 'rightOverlay' | string
   /** The React nodes to be rendered dynamically inside the designated slot */
@@ -12,13 +12,13 @@ interface DockSlotProps {
   pathname: string
 }
 
-export function DockSlot({
+export function SysSlot({
   pathname = '',
   name = 'right',
   children,
-}: DockSlotProps): JSX.Element | null {
+}: SysSlotProps): JSX.Element | null {
   const dock = useDock()
-  console.log('DockSlot pathname', pathname)
+  console.log('SysSlot pathname', pathname)
 
   useEffect(() => {
     // Register the layout fragment into the context provider registry

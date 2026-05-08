@@ -1,8 +1,11 @@
 'use client'
 
 import React, { useRef, JSX, MouseEvent } from 'react'
-import { DockOverlay } from './DockOverlay'
 import { useDock } from '../context/DockProvider'
+import { SysOverlay } from './SysOverlay'
+import { SysOverlays } from './SysOverlays'
+
+import { type OverlayInstance } from '../system.types'
 
 // 1. Define strict interfaces for the Dock state regions
 interface RegionState {
@@ -33,14 +36,7 @@ interface DockShellProps {
   className?: string
 }
 
-export function DockShell({
-  left,
-  leftOverlay,
-  right,
-  rightOverlay,
-  children,
-  className = '',
-}: DockShellProps): JSX.Element {
+export function DockShell({ left, right, children, className = '' }: DockShellProps): JSX.Element {
   // Properly typing the HTMLDivElement for the scroll container
   const scrollRef = useRef<HTMLDivElement | null>(null)
 
@@ -48,7 +44,6 @@ export function DockShell({
   const dock = useDock() as DockContextState
 
   console.log('SYSTEM LAYOUT RENDER')
-  console.log('RIGHT OPEN:', dock.state.regions.right.open)
 
   const isSingleColumn = !left && !right
 
@@ -62,7 +57,7 @@ export function DockShell({
   }
 
   return (
-    <div className={`flex h-full w-full ${className}`}>
+    <div id="sys-shell-root" className="flex h-full w-full">
       {/* LEFT DOCK */}
       {!isSingleColumn && (
         <aside
@@ -82,13 +77,8 @@ export function DockShell({
       )}
 
       {/* MAIN */}
-      <main
-        ref={scrollRef}
-        className={`no-scrollbar flex-1 min-w-0 min-h-0 overflow-y-auto ${
-          isSingleColumn ? 'px-24' : ''
-        }`}
-      >
-        <div className="max-w-3xl mx-auto px-6">{children}</div>
+      <main ref={scrollRef} className={`no-scrollbar flex-1 min-w-0 min-h-0 overflow-y-auto`}>
+        {children}
       </main>
 
       {/* RIGHT DOCK */}
@@ -108,25 +98,6 @@ export function DockShell({
           {right}
         </aside>
       )}
-
-      {/* OVERLAYS */}
-      <DockOverlay
-        side="left"
-        open={dock.state.regions.leftOverlay.open}
-        width={dock.state.regions.leftOverlay.width}
-        onClose={() => dock.toggle('leftOverlay')}
-      >
-        {leftOverlay}
-      </DockOverlay>
-
-      <DockOverlay
-        side="right"
-        open={dock.state.regions.rightOverlay.open}
-        width={dock.state.regions.rightOverlay.width}
-        onClose={() => dock.toggle('rightOverlay')}
-      >
-        {rightOverlay}
-      </DockOverlay>
     </div>
   )
 }

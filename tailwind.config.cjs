@@ -12,12 +12,14 @@ module.exports = {
   darkMode: 'class',
 
   content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+
     './pages/**/*.{js,jsx,ts,tsx}',
     './components/**/*.{js,jsx,ts,tsx}',
     './layouts/**/*.{js,jsx,ts,tsx}',
     './lib/**/*.{js,jsx,ts,tsx}',
     './data/**/*.{mdx,md}',
-    './css/**/*.{css}',
+    './packages/**/*.{js,ts,jsx,tsx}',
   ],
 
   safelist,

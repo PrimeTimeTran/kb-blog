@@ -1,4 +1,3 @@
-import { DockLayout } from '../packages/docksystem/src'
 import DSAClient from '@/components/client/DSA'
 
 import allProblems from '@/lib/dsa/problems/problems-all.json'

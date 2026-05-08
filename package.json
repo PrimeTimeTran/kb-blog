@@ -75,6 +75,8 @@
     "@next/eslint-plugin-next": "^16.2.4",
     "@svgr/webpack": "^6.5.1",
     "@tailwindcss/postcss": "^4.2.4",
+    "@typescript-eslint/eslint-plugin": "^8.59.2",
+    "@typescript-eslint/parser": "^8.59.2",
     "autoprefixer": "10.4.5",
     "cross-env": "^7.0.3",
     "dedent": "^0.7.0",
@@ -96,7 +98,8 @@
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.4.0",
     "tailwindcss": "^4.2.4",
-    "tsconfig-paths": "^4.2.0"
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^6.0.3"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [

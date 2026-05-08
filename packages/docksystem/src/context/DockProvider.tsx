@@ -11,38 +11,21 @@ import {
   useCallback,
   useEffect,
 } from 'react'
-import { useDockSystem } from './useDockSystem'
+import { useSys } from './useSys'
+import { SystemContextType } from '../system.types'
 
-interface DockSystemLayout {
-  state: any
-  startResize: (args: { name: string; key: 'width' | 'height' }) => void
-  toggle: (name: string) => void
-  setOverlay: (active: string | null) => void
-}
-
-interface DockContextType extends DockSystemLayout {
-  setSlot: (name: string, node: ReactNode) => void
-  clearSlot: (name: string) => void
-  getSlot: (name: string) => ReactNode | undefined
-}
-
-export const DockContext = createContext<DockContextType | null>(null)
+export const DockContext = createContext<SystemContextType | null>(null)
 
 interface DockProviderProps {
   children: ReactNode
 }
 
 export function DockProvider({ children }: DockProviderProps): JSX.Element {
-  console.log('DockProvider')
-  const layout = useDockSystem()
+  const layout = useSys()
   const slotsRef = useRef<Record<string, ReactNode>>({})
   const [, forceRender] = useState(0)
-
-  // 1. Keep functions stable with useCallback definitions or stable closures
   const setSlot = useCallback((name: string, node: ReactNode) => {
     const prev = slotsRef.current[name]
-
-    // shallow guard (optional but useful)
     if (prev === node) return
 
     slotsRef.current[name] = node
@@ -60,15 +43,21 @@ export function DockProvider({ children }: DockProviderProps): JSX.Element {
     return slotsRef.current[name]
   }, [])
 
-  const contextValue = useMemo<DockContextType>(
+  const contextValue = useMemo<SystemContextType>(
     () => ({
       state: layout.state,
-      startResize: layout.startResize,
       toggle: layout.toggle,
       setOverlay: layout.setOverlay,
+      startResize: layout.startResize,
       setSlot,
       clearSlot,
       getSlot,
+      layers: layout.layers,
+      layer: {
+        toggle: layout.toggle,
+        register: layout.register,
+        toggle: layout.toggleLayer,
+      },
     }),
     [
       layout.state,
@@ -88,7 +77,7 @@ export function DockProvider({ children }: DockProviderProps): JSX.Element {
   return <DockContext.Provider value={contextValue}>{children}</DockContext.Provider>
 }
 
-export function useDock(): DockContextType {
+export function useDock(): SystemContextType {
   const context = useContext(DockContext)
   if (!context) {
     throw new Error('useDock must be used within a DockProvider')

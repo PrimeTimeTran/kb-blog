@@ -8,7 +8,6 @@ import kebabCase from '@/lib/utils/kebab-case'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { ROOT } from '@/lib/content/core/constants.js'
 import { getAllTags } from '@/lib/content/server/tag/getAllTags'
-import { DockLayout } from '../packages/docksystem/src'
 
 // optional: keep if you still want dynamic RSS generation at build/runtime
 export async function generateStaticParams() {

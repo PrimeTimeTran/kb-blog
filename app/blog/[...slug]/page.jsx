@@ -1,7 +1,6 @@
 // import generateRss from '@/lib/generate-rss'
 import TOCBubbler from '@/components/providers/TOCBubbler'
 
-import { DockLayout } from '../packages/docksystem/src'
 import TableOfContents from '@/components/TableOfContents'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
 import { BlogContent } from '@/components/blog'
@@ -38,7 +37,7 @@ export default async function BlogPage({ params }) {
   const { mdxSource, toc, frontMatter } = post
 
   return (
-    <DockLayout
+    <div
       left={<div>left sidebar</div>}
       right={<TableOfContents toc={toc} className="h-full overflow-y-auto theme-border-l p-3" />}
     >
@@ -50,7 +49,7 @@ export default async function BlogPage({ params }) {
         <post.Content />
       </BlogContent>
       <TOCBubbler toc={toc} />
-    </DockLayout>
+    </div>
     // <MDXRenderer
     //   mdxSource={mdxSource}
     //   layout={'BlogLayout'}

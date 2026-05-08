@@ -1,41 +1,50 @@
 'use client'
 import { useEffect } from 'react'
+
 import { useDock } from '../context/DockProvider'
 import packageJson from '../../package.json'
 
-export function SystemDebug() {
+export function SysDebugPanel() {
   const dock = useDock()
+
   useEffect(() => {
-    dock?.state?.overlays?.push({
-      id: 'cp1',
+    dock.layer.register({
+      id: 'leftSingleton',
       type: 'singleton',
       placement: 'left',
       open: false,
-      node: <CommandPalette />,
+      node: <ChatPanel />,
     })
-    dock?.state?.overlays?.push({
-      id: 'cp2',
-      type: 'singleton',
-      placement: 'right',
+    dock.layer.register({
+      id: 'leftStack',
+      type: 'stack',
+      placement: 'left',
       open: false,
-      node: <CommandPalette />,
+      node: <ChatPanel />,
     })
-    dock?.state?.overlays?.push({
-      id: 'ca1',
+    dock.layer.register({
+      id: 'centerSingleton',
       type: 'singleton',
       placement: 'center',
       open: false,
-      node: <ChatPanel />,
+      node: <CommandPalette />,
     })
-    dock?.state?.overlays?.push({
-      id: 'ca2',
+    dock.layer.register({
+      id: 'rightSingleton',
       type: 'singleton',
-      placement: 'bottom',
+      placement: 'right',
       open: false,
       node: <ChatPanel />,
     })
-    dock?.state?.overlays?.push({
-      id: 'i1',
+    dock.layer.register({
+      id: 'rightStack',
+      type: 'stack',
+      placement: 'right',
+      open: false,
+      node: <ChatPanel />,
+    })
+    dock.layer.register({
+      id: 'bottomSingleton',
       type: 'singleton',
       placement: 'bottom',
       open: false,
@@ -44,13 +53,13 @@ export function SystemDebug() {
   }, [])
 
   return (
-    <div className="fixed bottom-4 right-4 z-9999">
+    <div className="fixed bottom-4 right-4 z-[99999]">
       <div className="w-72 rounded-2xl border border-white/10 bg-zinc-900/90 p-4 shadow-2xl backdrop-blur">
         {/* HEADER */}
         <div className="mb-4 flex items-center justify-between">
           <div>
             <h1 className="text-sm font-semibold text-white">
-              Dock Debug Panel v{packageJson.version}
+              System Debug v{packageJson.version}
             </h1>
             <p className="text-xs text-zinc-400">Quick overlay + region controls</p>
           </div>
@@ -68,14 +77,14 @@ export function SystemDebug() {
 
           <div className="grid grid-cols-2 gap-2">
             <button
-              onClick={() => dock.region.toggle('left')}
+              onClick={() => dock.toggle('left')}
               className="rounded-lg border border-white/10 bg-zinc-800 px-3 py-2 text-left text-sm text-white transition hover:bg-zinc-700"
             >
               Toggle Left
             </button>
 
             <button
-              onClick={() => dock.region.toggle('right')}
+              onClick={() => dock.toggle('right')}
               className="rounded-lg border border-white/10 bg-zinc-800 px-3 py-2 text-left text-sm text-white transition hover:bg-zinc-700"
             >
               Toggle Right
@@ -90,39 +99,52 @@ export function SystemDebug() {
           </div>
 
           <div className="flex flex-col gap-2">
+            {/* LEFT — SINGLETON */}
             <button
-              onClick={() => dock.layer.toggle('cp1')}
-              className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-2 text-left text-sm text-blue-200 transition hover:bg-blue-500/20"
+              onClick={() => dock.layer.toggle('leftSingleton')}
+              className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-2 text-left text-sm text-blue-200 hover:bg-blue-500/20"
             >
-              Left Overlay
+              Left Singleton
             </button>
 
+            {/* LEFT — STACK */}
             <button
-              onClick={() => dock.layer.toggle('cp2')}
-              className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-left text-sm text-emerald-200 transition hover:bg-emerald-500/20"
+              onClick={() => dock.layer.toggle('leftStack')}
+              className="rounded-lg border border-blue-500/20 bg-blue-500/10 px-3 py-2 text-left text-sm text-blue-200 hover:bg-blue-500/20"
             >
-              Right Overlay
+              Left Stack
             </button>
 
+            {/* CENTER — SINGLETON (Command Palette) */}
             <button
-              onClick={() => dock.layer.toggle('ca1')}
-              className="rounded-lg border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-left text-sm text-violet-200 transition hover:bg-violet-500/20"
+              onClick={() => dock.layer.toggle('centerSingleton')}
+              className="rounded-lg border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-left text-sm text-emerald-200 hover:bg-emerald-500/20"
             >
-              Center Command Palette
+              Center Singleton (Command)
             </button>
 
+            {/* RIGHT — SINGLETON */}
             <button
-              onClick={() => dock.layer.toggle('ca2')}
-              className="rounded-lg border border-orange-500/20 bg-orange-500/10 px-3 py-2 text-left text-sm text-orange-200 transition hover:bg-orange-500/20"
+              onClick={() => dock.layer.toggle('rightSingleton')}
+              className="rounded-lg border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-left text-sm text-violet-200 hover:bg-violet-500/20"
             >
-              Bottom Chat
+              Right Singleton
             </button>
 
+            {/* RIGHT — STACK */}
             <button
-              onClick={() => dock.layer.toggle('i1')}
-              className="rounded-lg border border-pink-500/20 bg-pink-500/10 px-3 py-2 text-left text-sm text-pink-200 transition hover:bg-pink-500/20"
+              onClick={() => dock.layer.toggle('rightStack')}
+              className="rounded-lg border border-violet-500/20 bg-violet-500/10 px-3 py-2 text-left text-sm text-violet-200 hover:bg-violet-500/20"
             >
-              Inspector
+              Right Stack
+            </button>
+
+            {/* BOTTOM — SINGLETON (Inspector) */}
+            <button
+              onClick={() => dock.layer.toggle('bottomSingleton')}
+              className="rounded-lg border border-pink-500/20 bg-pink-500/10 px-3 py-2 text-left text-sm text-pink-200 hover:bg-pink-500/20"
+            >
+              Bottom Inspector
             </button>
           </div>
         </div>
@@ -130,7 +152,7 @@ export function SystemDebug() {
     </div>
   )
 }
-function ChatPanel() {
+export function ChatPanel() {
   const dock = useDock()
   return (
     <div className="flex flex-col h-full">
@@ -141,7 +163,7 @@ function ChatPanel() {
     </div>
   )
 }
-function CommandPalette() {
+export function CommandPalette() {
   return (
     <div className="flex flex-col bg-zinc-900 text-white rounded-lg shadow-xl">
       <input className="p-3 bg-transparent outline-none" />
@@ -149,7 +171,7 @@ function CommandPalette() {
     </div>
   )
 }
-function Inspector() {
+export function Inspector() {
   return (
     <div className="flex flex-col h-full">
       <div className="flex-1 overflow-y-auto">messages...</div>

@@ -4,12 +4,12 @@ import { JSX } from 'react'
 import { useDock } from '../context/DockProvider'
 
 // 1. Define strict type requirements for the props
-interface DockSlipProps {
-  /** The unique identifier matching a previously registered DockSlot name */
+interface SysSlipProps {
+  /** The unique identifier matching a previously registered SysSlot name */
   name: 'left' | 'right' | 'leftOverlay' | 'rightOverlay' | string
 }
 
-export function DockSlip({ name }: DockSlipProps): JSX.Element | null {
+export function SysSlip({ name }: SysSlipProps): JSX.Element | null {
   // No more 'as any' bypass needed — the hook types are fully resolved!
   const dock = useDock()
 

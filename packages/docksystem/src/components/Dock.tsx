@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useDock } from '../context/DockProvider'
 import { JSX, ReactNode } from 'react'
-import { DockSlot } from './DockSlot'
+import { SysSlot } from './SysSlot'
 
 interface DockProps {
   name: 'left' | 'right' | 'leftOverlay' | 'rightOverlay' | string
@@ -23,8 +23,8 @@ export function Dock({ name, children }: DockProps): JSX.Element {
   }, [pathname, name])
 
   return (
-    <DockSlot pathname={pathname} name={name}>
+    <SysSlot pathname={pathname} name={name}>
       {children}
-    </DockSlot>
+    </SysSlot>
   )
 }

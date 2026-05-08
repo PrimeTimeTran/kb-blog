@@ -11,7 +11,10 @@ export default async function HomePage() {
   const posts = (await getAllBlogPosts()) || []
 
   return (
-    <DockShell isSingleCol>
+    <DockShell
+      left={<h1>Dock Shell app/page left </h1>}
+      right={<h1>Dock Shell app/page right </h1>}
+    >
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <HomeClient posts={posts} />
       {posts.length > MAX_DISPLAY && (
