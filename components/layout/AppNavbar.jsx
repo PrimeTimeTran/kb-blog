@@ -6,14 +6,12 @@ import Logo from '@/data/logo.svg'
 import { SafeLink as Link } from '@/mdx/components/Link'
 import headerNavLinks from '@/data/nav-links'
 import siteMetadata from '@/data/site-metadata'
-// import { useDock } from '../../packages/docksystem/src'
 
 import MobileNav from '@/components/MobileNav'
 import ThemeSwitch from '@/components/ThemeSwitch'
 
 export function Navbar({ className }) {
   const pathName = usePathname()
-  // const dock = useDock()
   return (
     <header
       className={
@@ -46,7 +44,7 @@ export function Navbar({ className }) {
                 <button onClick={() => dock.toggle('rightOverlay')}>Toggle Right Overlay</button>
               </div>
             </div> */}
-            {/* {(headerNavLinks ?? []).map((link) => {
+            {(headerNavLinks ?? []).map((link) => {
               const isActive = pathName == link.href
               const Icon = link.icon
 
@@ -64,7 +62,7 @@ export function Navbar({ className }) {
                   {link.title}
                 </Link>
               )
-            })} */}
+            })}
           </div>
         </div>
         <ThemeSwitch />

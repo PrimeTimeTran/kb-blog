@@ -23,6 +23,13 @@
     ],
     "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "../../../reference/system-todos-tree-comments.ts",
+    "../../../reference/system-vscode-intellisense-property-testing.tsx"
+  ],
   "exclude": ["node_modules"]
 }
