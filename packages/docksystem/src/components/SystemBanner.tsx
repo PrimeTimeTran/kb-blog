@@ -1,10 +1,10 @@
-// components/VersionBanner.tsx
+// components/SystemBanner.tsx
 'use client'
 
 // Direct import from the root directory
 import packageJson from '../../package.json'
 
-export default function VersionBanner() {
+export function SystemBanner() {
   return (
     <div
       style={{

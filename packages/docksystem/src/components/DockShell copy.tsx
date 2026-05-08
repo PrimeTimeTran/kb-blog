@@ -1,9 +1,8 @@
 'use client'
 
 import React, { useRef, JSX, MouseEvent } from 'react'
-import DockOverlay from './DockOverlay'
+import { DockOverlay } from './DockOverlay'
 import { useDock } from '../context/DockProvider'
-import VersionBanner from './VersionBanner'
 
 // 1. Define strict interfaces for the Dock state regions
 interface RegionState {
@@ -24,8 +23,8 @@ interface DockContextState {
   toggle: (name: 'leftOverlay' | 'rightOverlay' | 'left' | 'right') => void
 }
 
-// 2. Define props for the SystemLayout component
-interface SystemLayoutProps {
+// 2. Define props for the DockShell component
+interface DockShellProps {
   left?: React.ReactNode
   leftOverlay?: React.ReactNode
   right?: React.ReactNode
@@ -34,19 +33,22 @@ interface SystemLayoutProps {
   className?: string
 }
 
-export default function SystemLayout({
+export function DockShell({
   left,
   leftOverlay,
   right,
   rightOverlay,
   children,
   className = '',
-}: SystemLayoutProps): JSX.Element {
+}: DockShellProps): JSX.Element {
   // Properly typing the HTMLDivElement for the scroll container
   const scrollRef = useRef<HTMLDivElement | null>(null)
 
   // Cast useDock to our explicit TypeScript definition
   const dock = useDock() as DockContextState
+
+  console.log('SYSTEM LAYOUT RENDER')
+  console.log('RIGHT OPEN:', dock.state.regions.right.open)
 
   const isSingleColumn = !left && !right
 

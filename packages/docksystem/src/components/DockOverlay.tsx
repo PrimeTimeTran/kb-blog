@@ -18,7 +18,7 @@ interface DockOverlayProps {
   children: ReactNode
 }
 
-export default function DockOverlay({
+export function DockOverlay({
   side,
   open,
   width,

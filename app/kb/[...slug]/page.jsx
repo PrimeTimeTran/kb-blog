@@ -10,9 +10,7 @@
 import { notFound } from 'next/navigation'
 import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
 
-import { Dock } from '../../../packages/docksystem/src'
-import TableOfContents from '@/components/TableOfContents'
-
+import TOC from './client'
 // route: dock-system 3.a Dock component docks client content to layout
 export default async function Page({ params }) {
   const { slug } = await params
@@ -23,10 +21,8 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <Dock name="right">
-        <TableOfContents toc={kbItem.toc} />
-      </Dock>
       <kbItem.Content />
+      <TOC toc={kbItem.toc} />
     </>
   )
 }

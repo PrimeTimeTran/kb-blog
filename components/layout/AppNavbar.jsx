@@ -6,14 +6,14 @@ import Logo from '@/data/logo.svg'
 import { SafeLink as Link } from '@/mdx/components/Link'
 import headerNavLinks from '@/data/nav-links'
 import siteMetadata from '@/data/site-metadata'
-import { useDock } from '../../packages/docksystem/src'
+// import { useDock } from '../../packages/docksystem/src'
 
 import MobileNav from '@/components/MobileNav'
 import ThemeSwitch from '@/components/ThemeSwitch'
 
 export function Navbar({ className }) {
   const pathName = usePathname()
-  const dock = useDock()
+  // const dock = useDock()
   return (
     <header
       className={
@@ -32,7 +32,7 @@ export function Navbar({ className }) {
       <div className="flex items-center">
         <div className="hidden sm:flex">
           <div className="hidden sm:flex">
-            <div>
+            {/* <div>
               <h1>Docks</h1>
               <div className="bg-blue-500">
                 <button onClick={() => dock.toggle('left')}>Toggle Left</button>
@@ -45,7 +45,7 @@ export function Navbar({ className }) {
                 <button onClick={() => dock.toggle('leftOverlay')}>Toggle Left Overlay</button>
                 <button onClick={() => dock.toggle('rightOverlay')}>Toggle Right Overlay</button>
               </div>
-            </div>
+            </div> */}
             {/* {(headerNavLinks ?? []).map((link) => {
               const isActive = pathName == link.href
               const Icon = link.icon

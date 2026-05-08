@@ -9,7 +9,7 @@ interface DockSlipProps {
   name: 'left' | 'right' | 'leftOverlay' | 'rightOverlay' | string
 }
 
-export default function DockSlip({ name }: DockSlipProps): JSX.Element | null {
+export function DockSlip({ name }: DockSlipProps): JSX.Element | null {
   // No more 'as any' bypass needed — the hook types are fully resolved!
   const dock = useDock()
 

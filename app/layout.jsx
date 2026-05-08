@@ -11,12 +11,13 @@ import siteMetadata from '@/data/site-metadata'
 import { Space_Grotesk } from 'next/font/google'
 import { ThemeProviders } from './theme-providers'
 
-import { DockProvider } from '../packages/docksystem/src'
 import { RegistryProvider } from '@/lib/providers/RegistryProvider'
 import ScrollSpyWrapper from '@/components/providers/ScrollSpyWrapper'
+import { buildKbRegistry } from '@/lib/content/server/kb.server'
 
 import { AppShell } from '@/components/layout/AppShell'
-import { buildKbRegistry } from '@/lib/content/server/kb.server'
+
+import { SystemShell } from '../packages/docksystem/src'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -67,7 +68,7 @@ export const metadata = {
     shortcut: ['/public/static/favicons/favicon.ico'],
   },
 }
-// route: dock-system 1.a DockProvider wraps client
+// route: dock-system 1.a DockSystem wraps client
 export default async function RootLayout({ children }) {
   const registry = await buildKbRegistry()
 
@@ -79,13 +80,13 @@ export default async function RootLayout({ children }) {
     >
       <body className="h-screen w-screen overflow-hidden bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
-          <DockProvider>
-            <AppShell>
-              <ScrollSpyWrapper>
-                <RegistryProvider registry={registry}>{children}</RegistryProvider>
-              </ScrollSpyWrapper>
-            </AppShell>
-          </DockProvider>
+          <RegistryProvider registry={registry}>
+            <ScrollSpyWrapper>
+              <AppShell>
+                <SystemShell>{children}</SystemShell>
+              </AppShell>
+            </ScrollSpyWrapper>
+          </RegistryProvider>
         </ThemeProviders>
       </body>
     </html>

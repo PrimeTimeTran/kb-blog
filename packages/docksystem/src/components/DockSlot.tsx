@@ -9,10 +9,16 @@ interface DockSlotProps {
   name?: 'left' | 'right' | 'leftOverlay' | 'rightOverlay' | string
   /** The React nodes to be rendered dynamically inside the designated slot */
   children: ReactNode
+  pathname: string
 }
 
-export default function DockSlot({ name = 'right', children }: DockSlotProps): JSX.Element | null {
+export function DockSlot({
+  pathname = '',
+  name = 'right',
+  children,
+}: DockSlotProps): JSX.Element | null {
   const dock = useDock()
+  console.log('DockSlot pathname', pathname)
 
   useEffect(() => {
     // Register the layout fragment into the context provider registry
@@ -22,7 +28,7 @@ export default function DockSlot({ name = 'right', children }: DockSlotProps): J
     return () => {
       dock.clearSlot(name)
     }
-  }, [name, children, dock])
+  }, [pathname, name, children, dock])
 
   // This is a utility management component that pipes UI layouts
   // upstream; it renders nothing directly to the native DOM tree here.

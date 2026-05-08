@@ -112,61 +112,62 @@ interface ResizeArgs {
   key: 'width' | 'height'
 }
 
-export function useDockSystem() {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  export function useDockSystem() {
+    console.log('useDockSystem')
+    const [state, dispatch] = useReducer(reducer, initialState)
 
-  // Critical fix: Keep state in a ref to avoid recreating the mousemove events on every render
-  const stateRef = useRef(state)
-  useEffect(() => {
-    stateRef.current = state
-  }, [state])
+    // Critical fix: Keep state in a ref to avoid recreating the mousemove events on every render
+    const stateRef = useRef(state)
+    useEffect(() => {
+      stateRef.current = state
+    }, [state])
 
-  const startResize = useCallback(
-    ({ name, key }: ResizeArgs) =>
-      (e: React.MouseEvent | MouseEvent) => {
-        e.preventDefault()
+    const startResize = useCallback(
+      ({ name, key }: ResizeArgs) =>
+        (e: React.MouseEvent | MouseEvent) => {
+          e.preventDefault()
 
-        const isHeight = key === 'height'
-        const startPos = isHeight ? e.clientY : e.clientX
+          const isHeight = key === 'height'
+          const startPos = isHeight ? e.clientY : e.clientX
 
-        // Always read the freshest value from the ref to avoid stale rendering boundaries
-        const startValue = (stateRef.current.regions[name]?.[key] as number) || 0
+          // Always read the freshest value from the ref to avoid stale rendering boundaries
+          const startValue = (stateRef.current.regions[name]?.[key] as number) || 0
 
-        const onMove = (moveEvent: MouseEvent) => {
-          const currentPos = isHeight ? moveEvent.clientY : moveEvent.clientX
-          const delta = currentPos - startPos
+          const onMove = (moveEvent: MouseEvent) => {
+            const currentPos = isHeight ? moveEvent.clientY : moveEvent.clientX
+            const delta = currentPos - startPos
 
-          // Invert the delta calculation if tracking the right sidebar resizing inward
-          const directionMultiplier = name === 'right' || name === 'rightOverlay' ? -1 : 1
-          const next = Math.max(120, startValue + delta * directionMultiplier)
+            // Invert the delta calculation if tracking the right sidebar resizing inward
+            const directionMultiplier = name === 'right' || name === 'rightOverlay' ? -1 : 1
+            const next = Math.max(120, startValue + delta * directionMultiplier)
 
-          dispatch({
-            type: 'SET_SIZE',
-            name,
-            key,
-            value: next,
-          })
-        }
+            dispatch({
+              type: 'SET_SIZE',
+              name,
+              key,
+              value: next,
+            })
+          }
 
-        const onUp = () => {
-          window.removeEventListener('mousemove', onMove)
-          window.removeEventListener('mouseup', onUp)
-        }
+          const onUp = () => {
+            window.removeEventListener('mousemove', onMove)
+            window.removeEventListener('mouseup', onUp)
+          }
 
-        window.addEventListener('mousemove', onMove)
-        window.addEventListener('mouseup', onUp)
-      },
-    [dispatch] // Stable dependency array means startResize won't toggle identities
-  )
+          window.addEventListener('mousemove', onMove)
+          window.addEventListener('mouseup', onUp)
+        },
+      [dispatch] // Stable dependency array means startResize won't toggle identities
+    )
 
-  return {
-    state,
-    startResize,
-    toggle: useCallback((name: string) => {
-      dispatch({ type: 'TOGGLE_REGION', name })
-    }, []),
-    setOverlay: useCallback((active: string | null) => {
-      dispatch({ type: 'SET_OVERLAY', active })
-    }, []),
+    return {
+      state,
+      startResize,
+      toggle: useCallback((name: string) => {
+        dispatch({ type: 'TOGGLE_REGION', name })
+      }, []),
+      setOverlay: useCallback((active: string | null) => {
+        dispatch({ type: 'SET_OVERLAY', active })
+      }, []),
+    }
   }
-}

@@ -1,6 +1,16 @@
 'use client'
 
-import { createContext, useContext, useRef, useState, useMemo, JSX, ReactNode } from 'react'
+import {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  useMemo,
+  JSX,
+  ReactNode,
+  useCallback,
+  useEffect,
+} from 'react'
 import { useDockSystem } from './useDockSystem'
 
 interface DockSystemLayout {
@@ -23,45 +33,33 @@ interface DockProviderProps {
 }
 
 export function DockProvider({ children }: DockProviderProps): JSX.Element {
+  console.log('DockProvider')
   const layout = useDockSystem()
   const slotsRef = useRef<Record<string, ReactNode>>({})
-  const [, forceRender] = useState<number>(0)
+  const [, forceRender] = useState(0)
 
   // 1. Keep functions stable with useCallback definitions or stable closures
-  const setSlot = useMemo(
-    () =>
-      (name: string, node: ReactNode): void => {
-        // Only update and trigger a re-render if the slot content actually changed
-        if (slotsRef.current[name] !== node) {
-          slotsRef.current[name] = node
-          forceRender((x) => x + 1)
-        }
-      },
-    []
-  )
+  const setSlot = useCallback((name: string, node: ReactNode) => {
+    const prev = slotsRef.current[name]
 
-  const clearSlot = useMemo(
-    () =>
-      (name: string): void => {
-        if (name in slotsRef.current) {
-          delete slotsRef.current[name]
-          forceRender((x) => x + 1)
-        }
-      },
-    []
-  )
+    // shallow guard (optional but useful)
+    if (prev === node) return
 
-  const getSlot = useMemo(
-    () =>
-      (name: string): ReactNode | undefined => {
-        return slotsRef.current[name]
-      },
-    []
-  )
+    slotsRef.current[name] = node
+    forceRender((x) => x + 1)
+  }, [])
 
-  // 2. CRITICAL: Memoize the final context value!
-  // This object will ONLY change if the layout state itself changes,
-  // breaking the infinite re-render loop completely.
+  const clearSlot = useCallback((name: string) => {
+    if (!(name in slotsRef.current)) return
+
+    delete slotsRef.current[name]
+    forceRender((x) => x + 1)
+  }, [])
+
+  const getSlot = useCallback((name: string): ReactNode | undefined => {
+    return slotsRef.current[name]
+  }, [])
+
   const contextValue = useMemo<DockContextType>(
     () => ({
       state: layout.state,
@@ -82,6 +80,10 @@ export function DockProvider({ children }: DockProviderProps): JSX.Element {
       getSlot,
     ]
   )
+
+  useEffect(() => {
+    console.log('DOCK PROVIDER MOUNTED')
+  }, [])
 
   return <DockContext.Provider value={contextValue}>{children}</DockContext.Provider>
 }
