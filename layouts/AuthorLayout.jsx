@@ -1,7 +1,51 @@
+'use client'
+import { useState } from "react";
 import { PageSEO } from '@/components/SEO'
-import { Navbar } from '@/components/layout/AppNavbar'
-import SocialIcon from '@/components/social-icons'
 import { Image } from '@/mdx/components'
+import SocialIcon from '@/components/social-icons'
+import { Navbar } from '@/components/layout/AppNavbar'
+
+
+function ContentTabs({ children }) {
+  const [tab, setTab] = useState("intro");
+
+  return (
+    <div className="relative w-2/3 flex flex-col items-center px-16">
+
+      {/* Tabs */}
+      <div className="flex gap-6 border-b border-white/10 mb-10 text-sm text-neutral-400">
+        {[
+          { id: "intro", label: "Introduction" },
+          // { id: "notes", label: "Notes" },
+          // { id: "extras", label: "Extras" },
+        ].map((t) => (
+          <button
+            key={t.id}
+            onClick={() => setTab(t.id)}
+            className={`pb-3 transition ${tab === t.id
+              ? "text-white border-b border-white"
+              : "hover:text-white"
+              }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
+      {/* content column */}
+      <div className="max-w-2xl space-y-8 text-neutral-300 leading-relaxed text-[15px]">
+        <div className="space-y-6">
+          {tab === "intro" && children}
+          {/* {tab === "notes" && <div>Notes content here</div>} */}
+          {/* {tab === "extras" && <div>Extras content here</div>} */}
+        </div>
+      </div>
+
+      {/* subtle light wash */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
+    </div>
+  );
+}
 
 export default function AuthorLayout({ children, frontMatter }) {
   const {
@@ -45,18 +89,10 @@ export default function AuthorLayout({ children, frontMatter }) {
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="relative w-2/3 flex justify-center items-center px-16">
-          {/* content column */}
-          <div className="max-w-2xl space-y-8 text-neutral-300 leading-relaxed text-[15px]">
-            {/* top intro accent */}
-            <div className="text-xs tracking-widest text-neutral-500 uppercase">Introduction</div>
+        <ContentTabs>
+          <div className="flex flex-col justify-center items-center space-y-6">{children}</div>
+        </ContentTabs>
 
-            <div className="space-y-6">{children}</div>
-          </div>
-
-          {/* subtle light wash */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent pointer-events-none" />
-        </div>
       </div>
     </div>
   )

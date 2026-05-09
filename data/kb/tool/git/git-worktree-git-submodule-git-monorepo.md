@@ -1,10 +1,10 @@
 ---
 draft: false
 slug: atom/git-worktree-submodule-monorepo
-date: '2026-05-03'
-title: 'Git Worktree vs Git Submodule vs Monorepo'
-summary: 'Three different ways to structure multi-context development in Git: worktrees for parallel branches, submodules for pinned external repos, and monorepos for unified multi-project codebases. Each trades off isolation, complexity, and workflow speed.'
-tags: ['git', 'version-control', 'architecture', 'dev-tools']
+date: "2026-05-03"
+title: "Git Worktree vs Git Submodule vs Monorepo"
+summary: "Three different ways to structure multi-context development in Git: worktrees for parallel branches, submodules for pinned external repos, and monorepos for unified multi-project codebases. Each trades off isolation, complexity, and workflow speed."
+tags: ["git", "version-control", "architecture", "dev-tools"]
 ---
 
 # Git Worktree vs Git Submodule vs Monorepo (Atom Note)

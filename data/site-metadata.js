@@ -6,7 +6,6 @@ const siteMetadata = {
     'Writing to improve myself and help others do the same. Sharing my thoughts on tech, finance, sports, and more.',
   tags: 'Filter content by tags such as tech, finance, sports, and more.',
   dsa: 'A collection of data structures and algorithms problems with solutions, categorized by topic. Also features so that you can practice spaced repetition and randomization of practice problems',
-  language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://kb-blog-primetimetran.vercel.app',
   siteRepo: 'https://github.com/PrimeTimeTran/kb-blog',

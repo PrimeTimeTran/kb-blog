@@ -2,13 +2,13 @@
 draft: false
 slug: preview/theme1
 date: '2026-04-30'
-title: 'Preview: Theme 2'
+title: 'Preview: Theme 1'
 summary: ''
 tags: ['KB/MD/Obsidian/Blog']
 isDev: true
 ---
 
-# Theme 2
+# Theme 1
 
 ## Table of Contents (TOC)
 
@@ -89,17 +89,15 @@ This line has an ~~strikethrough~~.
 ```
 
 #### MDX & KB Obsidian
-
-```html showLineNumbers
-<html>
-  <head></head>
-</html>
+```js showLineNumbers
+function helloWorld() {
+    console.log('Hi')
+}
 ```
 
 #### Code Tab Group
-
 - starts with <code>\`\`\`tabgroup</code> and ends with <code>\`\`\`</code>
-- define each language with opening ...py` and closing`...`
+- define each language with opening `:::py`  and closing `:::`
 
 > [!tip]- Create Code Tab Group
 > ![[kb-dsl-code-tab-group]]
@@ -127,56 +125,56 @@ This line has an ~~strikethrough~~.
 > 3. Bullet 3
 
 > [!success]- Success Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!question]- Question Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!warning]- Warning Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!failure]- Failure Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!danger]- Danger Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!bug]- Bug Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!example]- Example Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 > [!quote]- Quote Callout
-> ![[theme1.md]]
+> ![[theme2.md]]
 
 ## Links
 
 - External(Note) Links
-  - [[theme1.md]]
-    - theme1.md note
-  - [[theme1.md]]
-    - theme1.md with capitalized display text.
-  - [[theme1.md#Markdown Elements|Another Note]]
-    - theme1.md and section.
-  - [[theme1#Lists|theme1 > Lists]]
-    - `note#Header|Display Text`
-    - Aliased with ending `|`
-  - [[theme1#Block Quote|theme1 > Block Quote > Single]]
-    - "Breadcrumbs"
-  - [[theme1#Code|theme1 > Code]]
-    - "Note with Heading"
-  - [[theme1#Code#Code Block|theme1 > Code > Code Block]]
-    - "Note with Heading breadcrumb"
-  - [[tool/obsidian/preview/theme1.md]]
-    - Path link.
-  - [[tool/obsidian/preview/theme1.md|Theme 2 Preview]]
-    - Path link aliased.
+    - [[theme2.md]]
+        - theme2.md note
+    - [[Theme2.md]]
+        - theme2.md with capitalized display text.
+    - [[theme2.md#Markdown Elements|Another Note]]
+        - theme2.md and section.
+    - [[theme2#Lists|theme2 > Lists]]
+        - `note#Header|Display Text`
+        - Aliased with ending `|`
+    - [[theme2#Block Quote|theme2 > Block Quote > Single]]
+        - "Breadcrumbs"
+    - [[theme2#Code|theme2 > Code]]
+        - "Note with Heading"
+    - [[theme2#Code#Code Block|theme2 > Code > Code Block]]
+        - "Note with Heading breadcrumb"
+    - [[tool/obsidian/preview/theme2.md]]
+        - Path link.
+    - [[tool/obsidian/preview/theme2.md|Theme 2 Preview]]
+        - Path link aliased.
 - External(Web) Links
-  - Link to URL: [OpenAI](https://openai.com)
-  - Link with titles: [Wikipedia](https://wikipedia.org 'Free encyclopedia')
-  - Reference link: [Google][2]
-
+    - Link to URL: [OpenAI](https://openai.com)
+    - Link with titles: [Wikipedia](https://wikipedia.org 'Free encyclopedia')
+    - Reference link: [Google][2]
+  - 
 # Reference
 
 [^1]: https://www.markdownguide.org/basic-syntax/#code

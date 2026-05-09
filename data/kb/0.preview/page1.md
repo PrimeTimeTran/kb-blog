@@ -8,7 +8,9 @@ tags: ['KB/MD/Obsidian/Blog']
 isDev: true
 ---
 
+
 # Page 1
 
 - [[page2]]
 - [[page3]]
+

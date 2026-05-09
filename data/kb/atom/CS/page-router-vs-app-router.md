@@ -13,8 +13,8 @@ tags: ['tech', 'nextjs']
 
 Next.js has two routing systems:
 
-- **Pages Router** → legacy, function-based data fetching
-- **App Router** → modern, component + server-first model
+* **Pages Router** → legacy, function-based data fetching
+* **App Router** → modern, component + server-first model
 
 They solve the same problem (routing + rendering), but with different mental models.
 
@@ -28,31 +28,31 @@ They solve the same problem (routing + rendering), but with different mental mod
 
 ### Key features
 
-- File-based routing in `/pages`
-- Data fetching via lifecycle functions:
-  - `getStaticProps` (SSG)
-  - `getServerSideProps` (SSR)
-  - `getStaticPaths` (dynamic SSG)
+* File-based routing in `/pages`
+* Data fetching via lifecycle functions:
 
-- API routes in `/pages/api`
+  * `getStaticProps` (SSG)
+  * `getServerSideProps` (SSR)
+  * `getStaticPaths` (dynamic SSG)
+* API routes in `/pages/api`
 
 ### How rendering works
 
-- Next.js precomputes data → sends JSON (`/_next/data/...`)
-- Client hydrates page using that JSON
-- Navigation triggers background data fetch
+* Next.js precomputes data → sends JSON (`/_next/data/...`)
+* Client hydrates page using that JSON
+* Navigation triggers background data fetch
 
 ### Strengths
 
-- Simple mental model
-- Stable and widely supported
-- Great for traditional SSR/SSG apps
+* Simple mental model
+* Stable and widely supported
+* Great for traditional SSR/SSG apps
 
 ### Limitations
 
-- Rigid data-fetching model
-- Layout duplication issues (`_app`, `_document`)
-- Less control over streaming + server composition
+* Rigid data-fetching model
+* Layout duplication issues (`_app`, `_document`)
+* Less control over streaming + server composition
 
 ---
 
@@ -64,38 +64,38 @@ They solve the same problem (routing + rendering), but with different mental mod
 
 ### Key features
 
-- File-based routing in `/app`
-- Server Components by default
-- Data fetching via `fetch()` (with caching rules)
-- Route Handlers (`app/api/*`)
-- Built-in layouts (`layout.tsx`)
-- Streaming + Suspense support
+* File-based routing in `/app`
+* Server Components by default
+* Data fetching via `fetch()` (with caching rules)
+* Route Handlers (`app/api/*`)
+* Built-in layouts (`layout.tsx`)
+* Streaming + Suspense support
 
 ### Key primitives
 
-- `generateStaticParams` → replaces `getStaticPaths`
-- `revalidate` → replaces ISR
-- `generateMetadata` → replaces `<Head>`
-- `notFound()` / `redirect()` → server navigation control
+* `generateStaticParams` → replaces `getStaticPaths`
+* `revalidate` → replaces ISR
+* `generateMetadata` → replaces `<Head>`
+* `notFound()` / `redirect()` → server navigation control
 
 ### How rendering works
 
-- Server renders components directly
-- Client receives streamed React payload (not JSON page blobs)
-- Data + UI composition happen together
+* Server renders components directly
+* Client receives streamed React payload (not JSON page blobs)
+* Data + UI composition happen together
 
 ### Strengths
 
-- More flexible architecture
-- Better performance (streaming, partial rendering)
-- Unified data + UI model
-- Nested layouts without duplication
+* More flexible architecture
+* Better performance (streaming, partial rendering)
+* Unified data + UI model
+* Nested layouts without duplication
 
 ### Tradeoffs
 
-- More conceptual complexity
-- Caching model takes time to learn
-- Some ecosystem friction (older libs assume Pages Router)
+* More conceptual complexity
+* Caching model takes time to learn
+* Some ecosystem friction (older libs assume Pages Router)
 
 ---
 
@@ -128,5 +128,5 @@ They solve the same problem (routing + rendering), but with different mental mod
 
 ## Rule of Thumb
 
-- Use **App Router** for new projects
-- Keep **Pages Router** only for legacy compatibility or incremental migration
+* Use **App Router** for new projects
+* Keep **Pages Router** only for legacy compatibility or incremental migration
