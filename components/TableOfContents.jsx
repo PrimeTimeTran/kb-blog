@@ -1,7 +1,7 @@
 'use client'
 
-import { getHeadingClass } from '@/lib/theme/theme.cjs'
-import { useScroll } from '@/components/providers/ScrollSpyProvider'
+import { getHeadingClass } from '../lib/theme/theme.cjs'
+import { useScroll } from '../components/providers/ScrollSpyProvider'
 
 function TOCItem({ item, activeId }) {
   const isActive = activeId === item.url
@@ -11,16 +11,14 @@ function TOCItem({ item, activeId }) {
 
   return (
     <div
-      className={`border-l-2 transition ${
-        isActive ? 'border-blue-500 bg-blue-500/10' : 'border-transparent hover:bg-white/5'
-      }`}
+      className={`border-l-2 transition ${isActive ? 'border-blue-500 bg-blue-500/10' : 'border-transparent hover:bg-white/5'
+        }`}
       style={{ paddingLeft: `${level * 16}px` }}
     >
       <a
         href={item.url}
-        className={`block w-full truncate px-2 py-1 transition ${colorClass} ${
-          isActive ? 'font-bold text-zinc-500 dark:text-zinc-100' : ''
-        }`}
+        className={`block w-full truncate px-2 py-1 transition ${colorClass} ${isActive ? 'font-bold text-zinc-500 dark:text-zinc-100' : ''
+          }`}
       >
         {item.value}
       </a>

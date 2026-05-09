@@ -2,11 +2,11 @@
 import { useState, useMemo } from 'react'
 import { FiCalendar } from 'react-icons/fi'
 
-import Tag from '@/components/Tag'
-import { SafeLink as Link } from '@/mdx/components/Link'
-import formatDate from '@/lib/utils/formate-date'
-import Pagination from '@/components/Pagination'
-import { buildContentUrl } from '@/lib/content/core/url'
+import Tag from '../components/Tag'
+import { SafeLink as Link } from '../mdx/components/Link'
+import formatDate from '../lib/utils/formate-date'
+import Pagination from '../components/Pagination'
+import { buildContentUrl } from '../lib/content/core/url'
 
 export default function ListLayout({
   title,
@@ -48,7 +48,7 @@ export default function ListLayout({
   }, [displayPosts])
 
   const sortOrder = ''
-  const setSortOrder = () => {}
+  const setSortOrder = () => { }
 
   return (
     <>

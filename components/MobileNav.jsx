@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { SafeLink as Link } from '@/mdx/components/Link'
-import headerNavLinks from '@/data/nav-links'
+import { SafeLink as Link } from '../mdx/components/Link'
+import headerNavLinks from '../data/nav-links'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
@@ -39,9 +39,8 @@ const MobileNav = () => {
         </svg>
       </button>
       <div
-        className={`fixed left-0 top-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed left-0 top-0 z-10 h-full w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${navShow ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="flex justify-end">
           <button

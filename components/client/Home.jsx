@@ -1,9 +1,9 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import ListLayout from '@/layouts/ListLayout'
-import { TOPICS } from '@/data/constants'
-import siteMetadata from '@/data/site-metadata'
+import ListLayout from '../../layouts/ListLayout'
+import { TOPICS } from '../../data/constants'
+import siteMetadata from '../../data/site-metadata'
 
 export default function HomeClient({ posts }) {
   const [searchTerm, setSearchTerm] = useState('')

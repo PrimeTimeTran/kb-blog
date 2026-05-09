@@ -1,7 +1,7 @@
-import ListLayout from '@/layouts/ListLayout'
-import siteMetadata from '@/data/site-metadata'
-import { POSTS_PER_PAGE } from '@/data/constants'
-import { getAllBlogPosts } from '@/lib/content/server/blog.server'
+import ListLayout from '../../../layouts/ListLayout'
+import siteMetadata from '../../../data/site-metadata'
+import { POSTS_PER_PAGE } from '../../../data/constants'
+import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {

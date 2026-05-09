@@ -4,18 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "dev": "next dev",
-    "dev2": "concurrently \"node scripts/watch-terms.js\" \"next dev\"",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev",
+    "dev:watch": "concurrently \"node scripts/watch-terms.js\" \"next dev\"",
+    "dev:socket": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
     "build": "next build && node ./scripts/generate-sitemap.cjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
+    "build:terms": "node scripts/build-terms.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prepare": "husky install",
     "lint:fix": "eslint . --fix",
     "lint:strict": "eslint . --max-warnings=0",
-    "build:terms": "node scripts/build-terms.js",
-    "dev:debug": "NODE_OPTIONS='--inspect' next dev"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
@@ -23,7 +23,7 @@
     "@material/material-color-utilities": "^0.4.0",
     "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
-    "@primetimetran/beeline": "workspace:^1.1.0",
+    "@primetimetran/beeline": "file:/Users/future/KB/project/pkg/beeline/.release/primetimetran-beeline-1.0.12.tgz",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "builtin-modules": "^5.1.0",
@@ -67,7 +67,6 @@
     "sharp": "^0.32.6",
     "slugify": "^1.6.9",
     "tailwind-merge": "^3.5.0",
-    "ts-morph": "^28.0.0",
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
@@ -100,6 +99,8 @@
     "socket.io": "^4.4.0",
     "socket.io-client": "^4.4.0",
     "tailwindcss": "^4.2.4",
+    "ts-morph": "^28.0.0",
+    "ts-path-alias-fixer": "^1.1.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^6.0.3"
   },

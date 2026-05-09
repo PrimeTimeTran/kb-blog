@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useScroll } from '@/components/providers/ScrollSpyProvider'
+import { useScroll } from './ScrollSpyProvider'
 
 export default function TOCBubbler({ toc }) {
   const { setToc } = useScroll()

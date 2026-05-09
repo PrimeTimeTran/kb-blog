@@ -1,4 +1,4 @@
-import { SafeLink as Link } from '@/mdx/components/Link'
+import { SafeLink as Link } from '../mdx/components/Link'
 
 export default function Pagination({ totalPages, currentPage }) {
   const prevPage = parseInt(currentPage) - 1 > 0

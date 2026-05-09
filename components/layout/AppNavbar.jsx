@@ -2,13 +2,14 @@
 
 import { usePathname } from 'next/navigation'
 
-import Logo from '@/data/logo.svg'
-import { SafeLink as Link } from '@/mdx/components/Link'
-import headerNavLinks from '@/data/nav-links'
-import siteMetadata from '@/data/site-metadata'
+// import Logo from '../../data/logo.svg'
+import Logo from '../../data/logo.svg?react'
+import { SafeLink as Link } from '../../mdx/components/Link'
+import headerNavLinks from '../../data/nav-links'
+import siteMetadata from '../../data/site-metadata'
 
-import MobileNav from '@/components/MobileNav'
-import ThemeSwitch from '@/components/ThemeSwitch'
+import MobileNav from '../../components/MobileNav'
+import ThemeSwitch from '../../components/ThemeSwitch'
 
 export function Navbar({ className }) {
   const pathName = usePathname()
@@ -39,8 +40,8 @@ export function Navbar({ className }) {
                   key={link.title}
                   href={link.href}
                   className={`p-4 font-medium transition-colors flex items-center gap-2 ${isActive
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-meta hover:text-primary-500 dark:text-meta hover:dark:text-primary-400'
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-meta hover:text-primary-500 dark:text-meta hover:dark:text-primary-400'
                     }`}
                 >
                   {Icon && <Icon className="w-4 h-4" />}

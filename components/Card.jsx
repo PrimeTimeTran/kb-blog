@@ -1,12 +1,11 @@
-import { Image } from '@/mdx/components'
-import { SafeLink as Link } from '@/mdx/components/Link'
+import { Image } from '../mdx/components'
+import { SafeLink as Link } from '../mdx/components/Link'
 
 const Card = ({ title, description, imgSrc, href, tech }) => (
   <div className="md p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
     <div
-      className={`${
-        imgSrc && 'h-full'
-      } overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
+      className={`${imgSrc && 'h-full'
+        } overflow-hidden rounded-md border-2 border-gray-200 border-opacity-60 dark:border-gray-700`}
     >
       {imgSrc &&
         (href ? (

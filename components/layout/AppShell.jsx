@@ -12,19 +12,21 @@ import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 
-import '@/css/prism.css'
-import '@/css/tailwind.css'
+import '../../css/prism.css'
+import '../../css/tailwind.css'
 
-import '@/css/app.css'
-import '@/css/theme.css'
+import '../../css/app.css'
+import '../../css/theme.css'
 
 import { ThemeProviders } from '../../app/theme-providers'
 
-import { RegistryProvider } from '@/lib/providers/RegistryProvider'
-import ScrollSpyWrapper from '@/components/providers/ScrollSpyWrapper'
-import { buildKbRegistry } from '@/lib/content/server/kb.server'
+import { RegistryProvider } from '../../lib/providers/RegistryProvider'
+import ScrollSpyWrapper from '../../components/providers/ScrollSpyWrapper'
+import { buildKbRegistry } from '../../lib/content/server/kb.server'
 
-import { Navbar } from '@/components/layout/AppNavbar'
+import { Navbar } from '../../components/layout/AppNavbar'
+
+
 
 export async function AppShell({ children }) {
   const registry = await buildKbRegistry()

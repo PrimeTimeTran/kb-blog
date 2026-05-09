@@ -1,21 +1,21 @@
-import siteMetadata from '@/data/site-metadata'
+import siteMetadata from '../../data/site-metadata'
 import dynamic from 'next/dynamic'
 
 const UtterancesComponent = dynamic(
   () => {
-    return import('@/components/comments/Utterances')
+    return import('../comments/Utterances')
   },
   { ssr: false }
 )
 const GiscusComponent = dynamic(
   () => {
-    return import('@/components/comments/Giscus')
+    return import('../comments/Giscus')
   },
   { ssr: false }
 )
 const DisqusComponent = dynamic(
   () => {
-    return import('@/components/comments/Disqus')
+    return import('../comments/Disqus')
   },
   { ssr: false }
 )

@@ -1,6 +1,6 @@
-import { SafeLink as Link } from '@/mdx/components/Link'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/site-metadata'
+import { SafeLink as Link } from '../mdx/components/Link'
+import { PageSEO } from '../components/SEO'
+import siteMetadata from '../data/site-metadata'
 
 export default function FourZeroFour() {
   return (

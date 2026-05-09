@@ -4,7 +4,7 @@ import { CgDanger } from 'react-icons/cg'
 import { AiOutlineBug } from 'react-icons/ai'
 import { MdOutlineTipsAndUpdates } from 'react-icons/md'
 
-import { callOutTheme } from '@/lib/theme/theme.cjs'
+import { callOutTheme } from '../../lib/theme/theme.cjs'
 
 // 💡 Reference: Icons
 // https://react-icons.github.io/react-icons/icons/ai/
@@ -76,9 +76,8 @@ export function CallOut({
 
         {collapsible && (
           <span
-            className={`text-lg transition-transform duration-200 ${
-              open ? 'rotate-0' : '-rotate-90'
-            }`}
+            className={`text-lg transition-transform duration-200 ${open ? 'rotate-0' : '-rotate-90'
+              }`}
           >
             ▾
           </span>

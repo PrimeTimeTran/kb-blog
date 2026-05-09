@@ -6,11 +6,11 @@ import { useSys } from '@primetimetran/beeline'
 export function RouteSync({ slug, toc }: { slug: string; toc: any }) {
   const sys = useSys(() => {})
   useEffect(() => {
-    sys.dispatch({
+    sys.onPageEvent({
       type: 'PATH_CHANGE',
-      slug,
-      toc,
+      state: { slug, toc },
     })
+    console.log('page change')
   }, [slug, toc])
 
   return null

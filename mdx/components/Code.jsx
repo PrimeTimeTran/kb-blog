@@ -11,7 +11,7 @@ import 'prismjs/components/prism-python'
 import 'prismjs/components/prism-javascript'
 import 'prismjs/components/prism-typescript'
 
-import { LANG_MAP } from '@/data/constants'
+import { LANG_MAP } from '../../data/constants'
 
 function extractText(node) {
   if (typeof node === 'string') return node
@@ -67,11 +67,10 @@ export function Pre(props) {
         : 'border-l-4 border-l-transparent'
       return `
         <div class="flex px-4 border-l-4  ${bgClass}">
-          ${
-            showLineNumbers
-              ? `<span class="mr-4 w-8 shrink-0 text-right opacity-20 select-none font-mono">${lineNumber}</span>`
-              : ''
-          }
+          ${showLineNumbers
+          ? `<span class="mr-4 w-8 shrink-0 text-right opacity-20 select-none font-mono">${lineNumber}</span>`
+          : ''
+        }
           <span class="flex-1 whitespace-pre">${line || ' '}</span>
         </div>
       `.trim()

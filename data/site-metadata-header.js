@@ -1,4 +1,4 @@
-import siteMetadata from '@/data/site-metadata'
+import siteMetadata from '../data/site-metadata'
 
 export const siteMetaDataHeader = {
   authors: [{ name: 'Loi Tran' }],

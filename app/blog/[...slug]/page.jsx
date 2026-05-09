@@ -1,12 +1,12 @@
 // import generateRss from '@/lib/generate-rss'
-import TOCBubbler from '@/components/providers/TOCBubbler'
+import TOCBubbler from '../../../components/providers/TOCBubbler'
+import { DockShell } from '@primetimetran/beeline'
+import TableOfContents from '../../../components/TableOfContents'
+import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
+import { BlogContent } from '../../../components/blog'
+import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
-import TableOfContents from '@/components/TableOfContents'
-import { getAllBlogPosts } from '@/lib/content/server/blog.server'
-import { BlogContent } from '@/components/blog'
-import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
-
-import { log } from '@/lib/debug/logger'
+import { log } from '../../../lib/debug/logger'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -35,32 +35,16 @@ export default async function BlogPage({ params }) {
 
   const authorDetails = await getContentBySlug('authors', 'default')
   const { mdxSource, toc, frontMatter } = post
-
+  console.log({ toc })
   return (
-    <div
-      left={<div>left sidebar</div>}
-      right={<TableOfContents toc={toc} className="h-full overflow-y-auto theme-border-l p-3" />}
-    >
+    <div>
       <BlogContent
         toc={toc}
         frontMatter={frontMatter}
-        // className="flex-6 min-w-0 h-full overflow-y-auto p-3 scrollbar"
       >
         <post.Content />
       </BlogContent>
-      <TOCBubbler toc={toc} />
+      <TableOfContents toc={toc} className="h-full overflow-y-auto theme-border-l p-3" />
     </div>
-    // <MDXRenderer
-    //   mdxSource={mdxSource}
-    //   layout={'BlogLayout'}
-    //   layoutProps={{
-    //     toc,
-    //     prev,
-    //     next,
-    //     post,
-    //     frontMatter,
-    //     authorDetails,
-    //   }}
-    // />
   )
 }

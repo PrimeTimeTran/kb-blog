@@ -6,8 +6,8 @@ import { GoProjectSymlink } from 'react-icons/go'
 import { GiGiftOfKnowledge } from 'react-icons/gi'
 import { SiLibreofficewriter } from 'react-icons/si'
 
-import { terms } from '@/data/generated/terms'
-import { termBacklinks } from '@/data/generated/backlinks'
+import { terms } from '../../../data/generated/terms'
+import { termBacklinks } from '../../../data/generated/backlinks'
 
 export default async function TermPage({ params }) {
   let { slug } = await params

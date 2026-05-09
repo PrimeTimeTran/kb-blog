@@ -1,4 +1,4 @@
-import siteMetadata from '@/data/site-metadata'
+import siteMetadata from '../data/site-metadata'
 import { useEffect, useState } from 'react'
 
 const ScrollTopAndComment = () => {
@@ -18,10 +18,10 @@ const ScrollTopAndComment = () => {
     const author = document.getElementById('authorSidebar')
     const toc = document.getElementById('tocSidebar')
 
-    ;[author, toc].forEach((el) => {
-      if (!el) return
-      el.classList.toggle('sidebar-collapsed')
-    })
+      ;[author, toc].forEach((el) => {
+        if (!el) return
+        el.classList.toggle('sidebar-collapsed')
+      })
   }
 
   const handleScrollTop = () => {
@@ -32,9 +32,8 @@ const ScrollTopAndComment = () => {
   }
   return (
     <div
-      className={`fixed bottom-8 right-8 z-50 flex-col gap-3 ${
-        show ? 'md:flex' : 'hidden md:hidden'
-      }`}
+      className={`fixed bottom-8 right-8 z-50 flex-col gap-3 ${show ? 'md:flex' : 'hidden md:hidden'
+        }`}
     >
       <button
         aria-label="Toggle Sidebars"

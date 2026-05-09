@@ -1,7 +1,8 @@
 import { Space_Grotesk } from 'next/font/google'
 import { SystemShell } from '@primetimetran/beeline'
-import { AppShell } from '@/components/layout/AppShell'
-import { siteMetaDataHeader } from '@/data/site-metadata-header'
+import { AppShell } from '../components/layout/AppShell'
+import { siteMetaDataHeader } from '../data/site-metadata-header'
+import { RouteSync } from './RouteSync'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -18,13 +19,12 @@ export default async function RootLayout({ children }) {
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body>
+      <body className='mx-4'>
+        <RouteSync />
         <AppShell>
           <SystemShell isDebug>
             <div className='pt-8'>{children}</div>
           </SystemShell>
-          {/* <SystemShell>{children}</SystemShell> */}
-          {/* <SystemShell isDebug>{children}</SystemShell> */}
         </AppShell>
       </body>
     </html>

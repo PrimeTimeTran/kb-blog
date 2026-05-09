@@ -1,21 +1,22 @@
 'use client'
 
 import React from 'react'
-import Tag from '@/components/Tag'
-import { SafeLink as Link } from '@/mdx/components/Link'
-import kebabCase from '@/lib/utils/kebab-case'
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/site-metadata'
-import SectionContainer from '@/components/SectionContainer'
-import { TbMathSymbols } from 'react-icons/tb'
-import { CiMoneyBill } from 'react-icons/ci'
-import { SiFramework } from 'react-icons/si'
 import { GrSystem } from 'react-icons/gr'
-import { TbDatabaseSearch } from 'react-icons/tb'
+import { SiFramework } from 'react-icons/si'
+import { CiMoneyBill } from 'react-icons/ci'
+import { FaLaptopCode } from 'react-icons/fa6'
+import { TbMathSymbols } from 'react-icons/tb'
+import { LiaToolsSolid } from 'react-icons/lia'
 import { SiThealgorithms } from 'react-icons/si'
 import { MdOutlineSecurity } from 'react-icons/md'
-import { LiaToolsSolid } from 'react-icons/lia'
-import { FaLaptopCode } from 'react-icons/fa6'
+import { TbDatabaseSearch } from 'react-icons/tb'
+
+import Tag from '../../components/Tag'
+import { PageSEO } from '../../components/SEO'
+import kebabCase from '../../lib/utils/kebab-case'
+import siteMetadata from '../../data/site-metadata'
+import { SafeLink as Link } from '../../mdx/components/Link'
+import SectionContainer from '../../components/SectionContainer'
 
 import {
   dsa,
@@ -68,9 +69,8 @@ function Category({ title, tags, sortedTags, filter, icon }) {
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${
-          open ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-        }`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'
+          }`}
       >
         <div className="flex flex-wrap">{(categoryTags ?? []).map((t) => renderTags(tags, t))}</div>
       </div>

@@ -1,4 +1,4 @@
-import { layouts } from '@/layouts'
+import { layouts } from '../layouts'
 
 // | Route        | Input type                             |
 // | ------------ | -------------------------------------- |

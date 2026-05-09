@@ -1,9 +1,9 @@
 'use client'
 import { useState } from "react";
-import { PageSEO } from '@/components/SEO'
-import { Image } from '@/mdx/components'
-import SocialIcon from '@/components/social-icons'
-import { Navbar } from '@/components/layout/AppNavbar'
+import { PageSEO } from '../components/SEO'
+import { Image } from '../mdx/components'
+import SocialIcon from '../components/social-icons'
+import { Navbar } from '../components/layout/AppNavbar'
 
 
 function ContentTabs({ children }) {

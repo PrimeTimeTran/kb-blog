@@ -1,10 +1,10 @@
-import DSAClient from '@/components/client/DSA'
+import DSAClient from '../../components/client/DSA'
 
-import allProblems from '@/lib/dsa/problems/problems-all.json'
-import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js'
+import allProblems from '../../lib/dsa/problems/problems-all.json'
+import { listPareto, listBlind75, neetCode150, neetCode250 } from '../../lib/dsa/problems/lists.js'
 
-import solutions from '@/lib/dsa/problems/solutions.js'
-// import siteMetadata from '@/data/site-metadata.js'
+import solutions from '../../lib/dsa/problems/solutions.js'
+// import siteMetadata from '../../data/site-metadata.js'
 
 function computeTags(problems) {
   const tags = problems.map((p) => p.tags).flat()

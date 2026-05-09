@@ -3,7 +3,7 @@ import Plausible from './Plausible'
 import SimpleAnalytics from './SimpleAnalytics'
 import Umami from './Umami'
 import Posthog from './Posthog'
-import siteMetadata from '@/data/site-metadata'
+import siteMetadata from '../data/site-metadata'
 
 const isProduction = process.env.NODE_ENV === 'production'
 

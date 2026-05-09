@@ -1,12 +1,12 @@
 'use client'
 import React, { useEffect, useMemo, useState, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-// import siteMetadata from '@/data/site-metadata.js'
-import SolutionSnippet from '@/components/Solution.jsx'
-// import solutions from '@/lib/dsa/problems/solutions.js'
-import allProblems from '@/lib/dsa/problems/problems-all.json'
-// import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js'
-import { buttonVariants } from '@/components/buttonVariants'
+// import siteMetadata from '../data/site-metadata.js'
+import SolutionSnippet from '../Solution.jsx'
+// import solutions from '../lib/dsa/problems/solutions.js'
+import allProblems from '../../lib/dsa/problems/problems-all.json'
+// import { listPareto, listBlind75, neetCode150, neetCode250 } from '../lib/dsa/problems/lists.js'
+import { buttonVariants } from '../buttonVariants'
 
 const tagCounts = {}
 
@@ -21,7 +21,7 @@ function shuffleArray(arr, seed) {
 
   for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1))
-    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+      ;[copy[i], copy[j]] = [copy[j], copy[i]]
   }
 
   return copy
@@ -242,7 +242,7 @@ export default function DSAClient({
   }
   return (
     <>
-      <div className="flex flex-col space-y-2 pt-6 md:space-y-5">
+      <div className="flex flex-col justify-center items-center space-y-2 pt-6 md:space-y-5 px-16 ">
         <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
           Data Structures & Algorithms
         </h1>
@@ -276,11 +276,10 @@ export default function DSAClient({
           <button
             type="button"
             onClick={() => setSelectedTags([])}
-            className={`px-2 py-1 text-xs rounded transition-colors ${
-              selectedTags.length === 0
-                ? 'invisible'
-                : 'bg-yellow-600 text-white hover:bg-yellow-500 dark:bg-yellow-700 dark:hover:bg-yellow-600'
-            }`}
+            className={`px-2 py-1 text-xs rounded transition-colors ${selectedTags.length === 0
+              ? 'invisible'
+              : 'bg-yellow-600 text-white hover:bg-yellow-500 dark:bg-yellow-700 dark:hover:bg-yellow-600'
+              }`}
           >
             Clear Tags
           </button>
@@ -289,33 +288,30 @@ export default function DSAClient({
           <div className="flex items-center gap-1 ml-2">
             <button
               onClick={() => togglePremium('all')}
-              className={`px-2 py-1 text-xs rounded transition-colors ${
-                selectedPremium === 'all'
-                  ? 'bg-green-600 text-white dark:bg-green-500'
-                  : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-              }`}
+              className={`px-2 py-1 text-xs rounded transition-colors ${selectedPremium === 'all'
+                ? 'bg-green-600 text-white dark:bg-green-500'
+                : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
+                }`}
             >
               All
             </button>
 
             <button
               onClick={() => togglePremium('free')}
-              className={`px-2 py-1 text-xs rounded transition-colors ${
-                selectedPremium === 'free'
-                  ? 'bg-green-600 text-white dark:bg-green-500'
-                  : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-              }`}
+              className={`px-2 py-1 text-xs rounded transition-colors ${selectedPremium === 'free'
+                ? 'bg-green-600 text-white dark:bg-green-500'
+                : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
+                }`}
             >
               Free 🆓
             </button>
 
             <button
               onClick={() => togglePremium('premium')}
-              className={`px-2 py-1 text-xs rounded transition-colors ${
-                selectedPremium === 'premium'
-                  ? 'bg-green-600 text-white dark:bg-green-500'
-                  : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-              }`}
+              className={`px-2 py-1 text-xs rounded transition-colors ${selectedPremium === 'premium'
+                ? 'bg-green-600 text-white dark:bg-green-500'
+                : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
+                }`}
             >
               Premium 💵
             </button>
@@ -449,11 +445,10 @@ export default function DSAClient({
               <div className="flex items-start gap-2 w-full group-hover:text-link">
                 <span className="w-12 text-right">{i + 1}. </span>
                 <span
-                  className={` ${
-                    randomlySelected.includes(problem.lc.id)
-                      ? 'line-through decoration-amber-300 dark:decoration-slate-600'
-                      : ''
-                  }`}
+                  className={` ${randomlySelected.includes(problem.lc.id)
+                    ? 'line-through decoration-amber-300 dark:decoration-slate-600'
+                    : ''
+                    }`}
                 >
                   {problem.title}
                 </span>
@@ -470,9 +465,8 @@ export default function DSAClient({
       </AnimatePresence>
       <div
         ref={sidebarRef}
-        className={`fixed right-0 top-0 h-full w-1/3 overflow-y-auto border bg-white py-2 transition-transform duration-300 ease-in-out dark:bg-gray-900 ${
-          isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        className={`fixed right-0 top-0 h-full w-1/3 overflow-y-auto border bg-white py-2 transition-transform duration-300 ease-in-out dark:bg-gray-900 ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'
+          }`}
       >
         <div className="mb-2 flex justify-end">
           <button

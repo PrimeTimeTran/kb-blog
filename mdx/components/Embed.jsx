@@ -3,10 +3,10 @@
 import { run } from '@mdx-js/mdx'
 import { useEffect, useState } from 'react'
 
-import { MDXComponents } from '@/mdx'
+import { MDXComponents } from '../'
 import { compile } from '@mdx-js/mdx'
 import * as runtime from 'react/jsx-runtime'
-import { useRegistry } from '@/lib/providers/RegistryProvider'
+import { useRegistry } from '../../lib/providers/RegistryProvider'
 
 export async function compileToComponent(source, options = {}) {
   const { registry = {}, remarkPlugins = [], rehypePlugins = [] } = options

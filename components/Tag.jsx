@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import kebabCase from '@/lib/utils/kebab-case'
+import kebabCase from '../lib/utils/kebab-case'
 
 const Tag = ({ text }) => {
   return (

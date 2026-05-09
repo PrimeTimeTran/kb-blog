@@ -1,6 +1,6 @@
-import SocialIcon from '@/components/social-icons'
-import { Image } from '@/mdx/components'
-import { PageSEO } from '@/components/SEO'
+import SocialIcon from '../components/social-icons'
+import { Image } from '../mdx/components'
+import { PageSEO } from '../components/SEO'
 
 export default function AboutLayout({ navbar, children, frontMatter }) {
   const { name, avatar, occupation, company, email, twitter, linkedin, github } = frontMatter

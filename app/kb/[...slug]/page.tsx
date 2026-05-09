@@ -8,11 +8,10 @@
 //  Failure: Does not have initial sidebar left outline/index....
 
 import { notFound } from 'next/navigation'
-import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
+import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
 import TOC from './client'
-import { RouteSync } from './router-sync';
-
+import { RouteSync } from './router-sync'
 
 export default async function Page({ params }) {
   const { slug } = await params

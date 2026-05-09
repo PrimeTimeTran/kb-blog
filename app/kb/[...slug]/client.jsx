@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import TableOfContents from '@/components/TableOfContents'
+import TableOfContents from '../../../components/TableOfContents'
 import { useDock } from '@primetimetran/beeline'
 import { usePathname } from 'next/navigation'
 

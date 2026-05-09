@@ -14,3 +14,26 @@
   - [ ] - Tag suggestions. Suggest tags which are manually reviewed
 
 ## Blocked
+
+```jsx
+'use client'
+// ./app/shell/layout.tsx
+export default function Layout({ children }) {
+  return (
+    <div>
+      <div>Left</div>
+      {children}
+    </div>
+  )
+}
+
+
+export default function Layout({ children }) {
+  return (
+    <div>
+      {children}
+      <div></div>
+    </div>
+  )
+}
+```

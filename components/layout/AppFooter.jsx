@@ -1,6 +1,6 @@
-import { SafeLink as Link } from '@/mdx/components/Link'
-import siteMetadata from '@/data/site-metadata'
-import SocialIcon from '@/components/social-icons'
+import { SafeLink as Link } from '../../mdx/components/Link'
+import siteMetadata from '../../data/site-metadata'
+import SocialIcon from '../../components/social-icons'
 
 export default function Footer() {
   return (

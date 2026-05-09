@@ -1,4 +1,4 @@
-import { headingTheme } from '@/lib/theme/theme.cjs'
+import { headingTheme } from '../lib/theme/theme.cjs'
 
 export const H1 = (props) => <h1 className={headingTheme.h1} {...props} />
 export const H2 = (props) => <h2 className={headingTheme.h2} {...props} />
