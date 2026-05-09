@@ -72,8 +72,6 @@ export default async function Page({ params }) {
   }
 
   return (
-    <PanelsLayout>
-      <ListLayout posts={filteredPosts} title={title} />
-    </PanelsLayout>
+    <ListLayout posts={filteredPosts} title={title} />
   )
 }

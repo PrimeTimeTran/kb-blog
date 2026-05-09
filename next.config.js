@@ -28,6 +28,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  transpilePackages: ['@primetimetran/beeline'],
 }
 
-export default withBundleAnalyzer(nextConfig)
+const config = withBundleAnalyzer(nextConfig)
+
+export default config

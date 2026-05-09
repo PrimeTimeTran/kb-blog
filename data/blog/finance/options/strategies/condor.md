@@ -6,8 +6,6 @@ summary: 'Condors: Balancing Risk and Reward in Options Trading. Learn how condo
 tags: ['finance', 'options', 'investment strategies', 'condor']
 ---
 
-import { ProjectionChart } from 'components/mdx/ProjectionChart'
-
 # Introduction
 
 Options trading offers a variety of strategies for investors seeking to manage risk and generate returns. The condor is a popular non-directional strategy that allows traders to profit from low volatility while limiting both risk and reward.
@@ -41,8 +39,6 @@ Condors are part of a family of spread strategies designed to profit from specif
 # Conclusion
 
 Condors are a sophisticated tool for options traders who want to profit from range-bound markets while keeping risk in check. Understanding how to structure and manage condors can help diversify your options portfolio and improve your risk-adjusted returns.
-
-<ProjectionChart text="Hello from a React component!" />
 
 # Short Iron Condor(Short Volatility[Neutral])
 

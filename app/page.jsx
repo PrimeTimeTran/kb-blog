@@ -1,5 +1,5 @@
 import { PageSEO } from '@/components/SEO'
-import { DockShell } from '../packages/docksystem/src'
+import { DockShell } from '@primetimetran/beeline'
 import siteMetadata from '@/data/site-metadata'
 import NewsletterForm from '@/components/NewsletterForm'
 import { getAllBlogPosts } from '@/lib/content/server/blog.server'
@@ -11,10 +11,7 @@ export default async function HomePage() {
   const posts = (await getAllBlogPosts()) || []
 
   return (
-    <DockShell
-      left={<h1>Dock Shell app/page left </h1>}
-      right={<h1>Dock Shell app/page right </h1>}
-    >
+    <DockShell>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <HomeClient posts={posts} />
       {posts.length > MAX_DISPLAY && (

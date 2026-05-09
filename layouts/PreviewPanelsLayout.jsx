@@ -68,11 +68,10 @@ function Sidebar({ currentRoute, collapsed, isRight = false }) {
               }}
               className={`
           whitespace-nowrap transition-all duration-150
-          ${
-            collapsed
-              ? 'opacity-0 -translate-x-2 w-0 overflow-hidden'
-              : 'opacity-100 translate-x-0 w-auto'
-          }
+          ${collapsed
+                  ? 'opacity-0 -translate-x-2 w-0 overflow-hidden'
+                  : 'opacity-100 translate-x-0 w-auto'
+                }
         `}
             >
               {item.label}
@@ -225,15 +224,15 @@ export default function PanelsLayout({ left, right, children }) {
               },
             }))
           }
-          // onClick={() =>
-          //   setState((s) => ({
-          //     ...s,
-          //     overlay: {
-          //       ...s.overlay,
-          //       leftOpen: true,
-          //     },
-          //   }))
-          // }
+        // onClick={() =>
+        //   setState((s) => ({
+        //     ...s,
+        //     overlay: {
+        //       ...s.overlay,
+        //       leftOpen: true,
+        //     },
+        //   }))
+        // }
         >
           ☰
         </button>
@@ -364,7 +363,7 @@ export default function PanelsLayout({ left, right, children }) {
               />
 
               <motion.div
-                className="fixed right-0 inset-y-0 z-[9999] flex bg-green-500/30 z-50 border-l flex"
+                className="fixed right-0 inset-y-0 z-[99] flex bg-green-500/30 z-50 border-l flex"
                 style={{ width: state.overlay.right.width }}
                 initial={{ x: 320 }}
                 animate={{ x: 0 }}

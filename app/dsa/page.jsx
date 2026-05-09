@@ -55,20 +55,18 @@ export default function DSAPage() {
   const tagCounts = computeTagCounts(problems, orderedTags)
 
   return (
-    <PanelsLayout>
-      <DSAClient
-        problems={problems}
-        solutions={solutions}
-        lists={{
-          listPareto,
-          listBlind75,
-          neetCode150,
-          neetCode250,
-        }}
-        tags={orderedTags}
-        orderedTags={orderedTags}
-        tagCounts={tagCounts}
-      />
-    </PanelsLayout>
+    <DSAClient
+      problems={problems}
+      solutions={solutions}
+      lists={{
+        listPareto,
+        listBlind75,
+        neetCode150,
+        neetCode250,
+      }}
+      tags={orderedTags}
+      orderedTags={orderedTags}
+      tagCounts={tagCounts}
+    />
   )
 }

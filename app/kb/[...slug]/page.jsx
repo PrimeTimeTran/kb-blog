@@ -11,18 +11,21 @@ import { notFound } from 'next/navigation'
 import { getContentBySlug } from '@/lib/content/core/get-content-by-slug'
 
 import TOC from './client'
-// route: dock-system 3.a Dock component docks client content to layout
+import { RouteSync } from './router-sync';
+
+
 export default async function Page({ params }) {
   const { slug } = await params
   const slugPath = Array.isArray(slug) ? slug.join('/') : slug
 
-  const kbItem = await getContentBySlug('kb', slugPath)
-  if (!kbItem) notFound()
+  const KBItem = await getContentBySlug('kb', slugPath)
+  if (!KBItem) notFound()
 
   return (
     <>
-      <kbItem.Content />
-      <TOC toc={kbItem.toc} />
+      <RouteSync slug={slugPath} toc={KBItem.toc} />
+      <KBItem.Content />
+      {/* <TOC toc={KBItem.toc} /> */}
     </>
   )
 }

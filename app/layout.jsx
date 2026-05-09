@@ -17,7 +17,7 @@ import { buildKbRegistry } from '@/lib/content/server/kb.server'
 
 import { AppShell } from '@/components/layout/AppShell'
 
-import { SystemShell } from '../packages/docksystem/src'
+import { SystemShell } from '@primetimetran/beeline'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -58,7 +58,6 @@ export const metadata = {
       'max-image-preview': 'large',
     },
   },
-  themeColor: '#0f172a',
   icons: {
     icon: [
       { url: '/public/static/favicons/favicon.ico' },
@@ -84,6 +83,8 @@ export default async function RootLayout({ children }) {
             <ScrollSpyWrapper>
               <AppShell>
                 <SystemShell isDebug>{children}</SystemShell>
+                {/* <SystemShell>{children}</SystemShell> */}
+                {/* <SystemShell isDebug>{children}</SystemShell> */}
               </AppShell>
             </ScrollSpyWrapper>
           </RegistryProvider>

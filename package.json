@@ -14,7 +14,8 @@
     "prepare": "husky install",
     "lint:fix": "eslint . --fix",
     "lint:strict": "eslint . --max-warnings=0",
-    "build:terms": "node scripts/build-terms.js"
+    "build:terms": "node scripts/build-terms.js",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
@@ -22,6 +23,7 @@
     "@material/material-color-utilities": "^0.4.0",
     "@mdx-js/mdx": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
+    "@primetimetran/beeline": "workspace:^1.1.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/typography": "^0.5.0",
     "builtin-modules": "^5.1.0",

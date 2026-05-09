@@ -1,17 +1,15 @@
 // app/kb/layout.jsx
 import KBSidebar from '@/components/KBSidebar'
 import { getKbTree } from '@/lib/content/server/kb.server'
-import { DockShell, Dock } from '../../packages/docksystem/src'
+import { DockShell } from '@primetimetran/beeline'
 
 // route: dock-system 2.a DockShell wraps client
 export default async function Layout({ children }) {
   const kbIndex = await getKbTree()
 
   return (
-    <DockShell>
-      <Dock name="left">
-        <KBSidebar index={kbIndex} />
-      </Dock>
+    // <DockShell left={<KBSidebar index={kbIndex} />} right={<KBSidebar index={kbIndex} />}>
+    <DockShell left={<KBSidebar index={kbIndex} />}>
       <article className="prose p-3 dark:prose-invert prose-md">{children}</article>
     </DockShell>
   )
