@@ -16,14 +16,14 @@ export default async function RootLayout({ children }) {
   return (
     <html
       lang={metadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
+      className={`${space_grotesk.variable} h-full scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className='mx-4'>
+      <body className='h-full overflow-hidden mx-4'>
         <RouteSync />
         <AppShell>
           <SystemShell isDebug>
-            <div className='pt-8'>{children}</div>
+            <div className='h-full overflow-y-auto pt-8'>{children}</div>
           </SystemShell>
         </AppShell>
       </body>

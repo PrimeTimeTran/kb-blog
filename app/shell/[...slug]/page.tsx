@@ -1,11 +1,14 @@
 'use client'
 
 import { useState } from 'react'
+import { use } from 'react'
+
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { CounterControls } from '../CounterControls'
 
-export default function Page() {
+export default function Page({ params }) {
+  const useParams = use(params)
   const pathname = usePathname()
   const newPage = crypto.randomUUID()
 

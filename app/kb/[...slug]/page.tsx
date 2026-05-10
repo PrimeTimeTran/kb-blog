@@ -1,30 +1,32 @@
-// Architecture 1:
-// page -> layout(sidebar) -> docklayout
-// because sidebar state is persistent.
-// app/kb/[...slug]/page.jsx
-// Success: Renders content(MDX) from data fetching
-// app/kb/layout.jsx
-// Success: Renders layout using DockerLayout successfully.
-//  Failure: Does not have initial sidebar left outline/index....
-
 import { notFound } from 'next/navigation'
 import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
-import TOC from './client'
-import { RouteSync } from './router-sync'
+import { ResizableColumn } from '../ResizableColumn'
+import TableOfContents from '../../../components/TableOfContents'
 
-export default async function Page({ params }) {
+type PageProps = {
+  params: {
+    slug: string[]
+  }
+}
+
+export default async function Page({ params }: PageProps) {
   const { slug } = await params
   const slugPath = Array.isArray(slug) ? slug.join('/') : slug
 
   const KBItem = await getContentBySlug('kb', slugPath)
   if (!KBItem) notFound()
-
   return (
-    <>
-      <RouteSync slug={slugPath} toc={KBItem.toc} />
-      <KBItem.Content />
-      {/* <TOC toc={KBItem.toc} /> */}
-    </>
+    <div className="flex h-full min-h-0 w-full">
+      <div className="flex-1 min-w-0 min-h-0 overflow-y-auto no-scrollbar">
+        <div className="prose dark:prose-invert mx-16">
+          <KBItem.Content />
+        </div>
+      </div>
+
+      <ResizableColumn side="right">
+        <TableOfContents toc={KBItem.toc} />
+      </ResizableColumn>
+    </div>
   )
 }

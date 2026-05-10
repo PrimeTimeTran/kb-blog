@@ -1,7 +1,7 @@
 'use client'
 
 import { getHeadingClass } from '../lib/theme/theme.cjs'
-import { useScroll } from '../components/providers/ScrollSpyProvider'
+import { useScroll } from '../providers/ScrollSpyProvider'
 
 function TOCItem({ item, activeId }) {
   const isActive = activeId === item.url
@@ -25,7 +25,7 @@ function TOCItem({ item, activeId }) {
     </div>
   )
 }
-export default function TableOfContents({ className, toc = [] }) {
+export default function TableOfContents({ toc = [] }) {
   const { activeId } = useScroll()
 
   if (toc.length === 0) {
@@ -33,7 +33,7 @@ export default function TableOfContents({ className, toc = [] }) {
   }
 
   return (
-    <aside className={className}>
+    <aside>
       {toc.map((item) => (
         <TOCItem key={item.url} item={item} activeId={activeId} />
       ))}

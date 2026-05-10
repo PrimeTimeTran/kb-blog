@@ -1,6 +1,6 @@
 import Tag from '../../components/Tag'
 import { SafeLink as Link } from '../../mdx/components/Link'
-import { useScroll } from '../../components/providers/ScrollSpyProvider'
+import { useScroll } from '../../providers/ScrollSpyProvider'
 
 import { Image } from '../../mdx/components'
 import PageTitle from '../../components/PageTitle'

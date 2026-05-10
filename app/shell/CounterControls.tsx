@@ -1,13 +1,13 @@
 'use client'
 
-type Props = {
+type CounterControlsProps = {
   count: number
   inc: () => void
   dec: () => void
   reset: () => void
 }
 
-export function CounterControls({ count, inc, dec, reset }: Props) {
+export function CounterControls({ count, inc, dec, reset }: CounterControlsProps) {
   const baseBtn =
     'h-8 px-2 text-sm rounded-md border transition ' +
     'border-gray-300 dark:border-gray-600 ' +

@@ -1,20 +1,16 @@
-'use client'
-
 import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-
-export default function KBSidebarClient({ index }) {
-  const [openMap, setOpenMap] = useState({})
-  return <SidebarNode node={index} openMap={openMap} setOpenMap={setOpenMap} />
-}
+import { sortTree } from '../../lib/sort-tree'
 
 export function SidebarNode({ node = [], openMap, setOpenMap }) {
   if (!Array.isArray(node)) return null
 
+  const sorted = sortTree(node)
+
   return (
     <ul className="pl-1">
-      {(node ?? []).map((item) => (
+      {sorted.map((item) => (
         <SidebarItem
           key={item.slug || item.name}
           item={item}
@@ -31,7 +27,6 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
 
   const hasChildren = Array.isArray(item.children) && item.children.length > 0
 
-  // ✅ NEW: file is the source of truth
   const href = item.file ? `/kb/${item.file}` : null
 
   const id = item.file || item.name
@@ -74,11 +69,10 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
         {href ? (
           <Link scroll={false} href={href} className="flex flex-1 items-center">
             <span
-              className={`w-full text-sm transition-colors ${
-                router.asPath === href
-                  ? 'font-semibold text-blue-600'
-                  : 'text-zinc-700 dark:text-zinc-300'
-              }`}
+              className={`w-full text-sm transition-colors ${router.asPath === href
+                ? 'font-semibold text-blue-600'
+                : 'text-zinc-700 dark:text-zinc-300'
+                }`}
             >
               {item.name}
             </span>
@@ -96,4 +90,9 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
       )}
     </li>
   )
+}
+
+export default function KBSidebar({ data }) {
+  const [openMap, setOpenMap] = useState({})
+  return <SidebarNode node={data} openMap={openMap} setOpenMap={setOpenMap} />
 }

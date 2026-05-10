@@ -3,8 +3,10 @@ import globals from 'globals'
 import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import next from '@next/eslint-plugin-next'
+import tseslint from 'typescript-eslint'
 
 export default [
+  ...tseslint.configs.recommended,
   js.configs.recommended,
   next.configs.recommended,
 
@@ -15,6 +17,7 @@ export default [
     files: ['pages/**/*', 'components/**/*', 'app/**/*', 'lib/**/*', '**/*.{js,jsx,ts,tsx}'],
 
     languageOptions: {
+      parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
       parserOptions: {
@@ -39,6 +42,8 @@ export default [
       'react/react-in-jsx-scope': 'off',
       'react/no-unescaped-entities': 'off',
       'react/prop-types': 'warn',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/explicit-module-boundary-types': 'warn',
     },
   },
 

@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from 'react'
 
-import { useScrollState } from '../../lib/hooks/useScrollState'
+import { useScrollState } from '../hooks/useScrollState'
 
 const ScrollContext = createContext(null)
 
