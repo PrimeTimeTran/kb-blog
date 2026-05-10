@@ -220,3 +220,29 @@ If you want to navigate this system intentionally, you can approach it from diff
 This is the web, treated as a system—not a surface.
 
 And this is an attempt to make that system visible.
+
+- “Web Intent — Designing Systems for Future Composition”
+- “The Intent Behind Web Primitives”
+- “Why Reusable Primitives Matter”
+
+# System = how it works (technical curiosity)
+
+## System — how it works
+
+- “peak under the hood”
+- “how this is built internally”
+- “mechanics & structure”
+
+# Publishing = how it reaches people (distribution / communication curiosity)
+## Publishing — how it spreads
+- “see how it spreads”
+- “how this is distributed”
+- “how this becomes readable”
+- “how this gets used”
+
+Intent = why it exists (strategy / direction curiosity)
+
+- "see where it’s going"
+- “why this matters long-term”
+- “what this unlocks”
+- “where this is heading”

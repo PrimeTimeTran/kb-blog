@@ -28,114 +28,234 @@ type: introduction
 next:
   publishing:
     label: 'Explore publishing'
-    path: '/web/publishing'
     intent: 'how ideas become content'
 
   architecture:
     label: 'Explore architecture'
-    path: '/web/architecture'
     intent: 'how the system is built'
 
   overview:
     label: 'See full model'
-    path: '/web/overview'
     intent: 'how everything connects'
 ---
 
-## The Web as a System of Primitives
+# Web Architecture — Persistent Layouts, Route Boundaries, and UI State
 
-Most web applications are not built from “features” first. They are built from **primitives**—small structural decisions that determine how everything else behaves.
+Modern web frameworks do not merely render pages. They define **lifecycles**.
 
-In modern frameworks like Next.js (App Router), three of these primitives matter more than most:
+In systems like Next.js App Router, architecture is shaped less by components themselves and more by:
 
-- **Layout**: persistent structure
-- **Page**: content resolution
-- **Template**: transient behavior per navigation
+- persistence boundaries
+- rendering ownership
+- data lifecycles
+- recomposition behavior
+- server/client execution constraints
 
-Understanding the difference between them is less about React and more about _how systems behave over time_.
+What appears to be “just a sidebar” or “just a layout” is often the result of multiple interacting systems:
+
+- routing
+- rendering
+- hydration
+- caching
+- state persistence
+- async execution
+
+The challenge is no longer simply building UI.
+
+It is deciding:
+
+> what survives navigation, what recomputes, and who owns the boundary between them.
 
 ---
 
-## Layout: Persistence
+# Layout as a Persistence Boundary
 
-A `layout.tsx` defines what _does not change_.
+A `layout.tsx` is not merely visual structure.
 
-It is the stable frame:
+In App Router, it is a **persistent execution boundary**.
 
-- navigation
-- sidebars
-- global state
+Everything rendered inside a layout is intentionally preserved across navigation:
+
+- React state
 - providers
-- long-lived UI
+- async data
+- scroll regions
+- interaction state
+- mounted component trees
 
-If something should survive navigation, it belongs here.
+This changes how architecture must be designed.
 
-Think of layout as **memory**.
+A sidebar rendered inside a layout is no longer “just shared UI.” It becomes:
 
-It accumulates state and resists reset.
+- long-lived state
+- shared infrastructure
+- route-stable structure
+
+That persistence is extremely powerful.
+
+It allows systems like:
+
+- knowledge base trees
+- resizable application shells
+- persistent editors
+- navigation memory
+- long-lived workspace state
+
+without rebuilding the interface on every route change.
 
 ---
 
-## Page: Resolution
+# Pages as Resolution Layers
 
-A `page.tsx` is where content is resolved.
+Pages serve a different role.
 
-It answers a single question:
+A `page.tsx` is not persistent infrastructure. It is a **resolution layer**.
 
-> “What should exist at this route?”
+Its purpose is to answer:
 
-Pages are:
+> “What content belongs at this route?”
 
-- stateless by default
-- disposable on navigation
-- focused on output, not continuity
+This distinction matters because pages are disposable.
 
-If layout is memory, page is **content lookup**.
+When navigation occurs:
+
+- pages remount
+- local state resets
+- async work reruns
+- route-specific UI recomposes
+
+This makes pages ideal for:
+
+- route content
+- document rendering
+- per-route enhancements
+- contextual UI
+
+but poor places for:
+
+- shared application state
+- long-lived interaction systems
+- persistent navigation structure
 
 ---
 
-## Template: Recomposition
+# The Hidden Constraint: Server vs Client Boundaries
 
-A `template.tsx` is the most misunderstood primitive.
+One of the most important architectural constraints in App Router is that layouts often need to be both:
 
-It exists for one reason:
+- server-rendered
+- interactive
 
-> to re-run UI logic on every navigation.
+But these responsibilities conflict.
 
-Unlike layouts, templates are not persistent. They are _reconstructed_.
+For example:
 
-This makes them ideal for:
+- async data fetching requires Server Components
+- resizing, drag state, and interaction require Client Components
 
-- animations
+This forces an architectural split.
+
+A common pattern becomes:
+
+```tsx
+// layout.tsx
+export default async function Layout({ children }) {
+  const data = await getSharedData()
+
+  return <LayoutClient data={data}>{children}</LayoutClient>
+}
+```
+
+Here:
+
+- the server layout owns data resolution
+- the client layout owns interaction behavior
+
+This is not accidental complexity.
+
+It is a direct consequence of separating:
+
+- execution environment
+- persistence
+- interactivity
+
+---
+
+# Shared Layout Systems Across Route Boundaries
+
+One subtle challenge appears when building multi-column systems.
+
+Consider:
+
+- a persistent left sidebar
+- route-owned center content
+- a contextual right sidebar
+
+The left column naturally belongs inside `layout.tsx`.
+
+But the right column often depends on route-specific data:
+
+- table of contents
+- document metadata
+- editor state
+- contextual tools
+
+That means the right side frequently must be rendered from the page itself.
+
+The result is a split layout system:
+
+```text
+layout.tsx
+  └── persistent structure
+
+page.tsx
+  └── route-specific structural augmentation
+```
+
+At first this feels wrong.
+
+But it reflects a deeper truth:
+
+> in App Router, layout ownership is distributed across routing boundaries.
+
+---
+
+# Templates and Recomposed UI
+
+`template.tsx` exists to intentionally break persistence.
+
+Unlike layouts:
+
+- templates remount on navigation
+- local state resets
+- effects rerun
+- animations restart
+
+This makes templates ideal for:
+
 - transitions
-- resetting local state
-- per-route effects
+- route animations
+- temporary interaction state
+- per-navigation recomposition
 
----
-
-## A Simple Example: Route Transitions
-
-A practical use of `template` is animating between routes.
-
-Because templates remount, they naturally restart animations.
+A route transition animation becomes almost trivial:
 
 ```tsx
 'use client'
 
 import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function Template({ children }) {
   const pathname = usePathname()
 
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -8 }}
-        transition={{ duration: 0.2 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
         {children}
       </motion.div>
@@ -143,3 +263,41 @@ export default function Template({ children }: { children: React.ReactNode }) {
   )
 }
 ```
+
+The important insight is not the animation itself.
+
+It is that App Router exposes recomposition as an architectural primitive.
+
+---
+
+# Architecture as Lifecycle Design
+
+Most frontend discussions focus on components.
+
+But modern application architecture is increasingly about:
+
+- persistence
+- ownership
+- recomposition
+- execution boundaries
+- state lifetime
+
+The important question is no longer:
+
+> “What component should render this?”
+
+It is:
+
+> “What should survive navigation, and who should own it?”
+
+That distinction determines:
+
+- performance
+- mental model
+- state consistency
+- rendering behavior
+- system flexibility
+
+In systems like App Router, layout primitives are not merely organizational tools.
+
+They are lifecycle primitives.

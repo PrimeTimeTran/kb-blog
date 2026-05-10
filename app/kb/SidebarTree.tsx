@@ -92,7 +92,7 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
   )
 }
 
-export default function KBSidebar({ data }) {
+export default function SidebarTree({ data }) {
   const [openMap, setOpenMap] = useState({})
   return <SidebarNode node={data} openMap={openMap} setOpenMap={setOpenMap} />
 }

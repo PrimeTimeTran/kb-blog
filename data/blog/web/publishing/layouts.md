@@ -2,11 +2,8 @@
 draft: false
 date: 2026-05-10
 title: 'Layout as Thought: From Print to the Web'
-
 summary: 'How publishing systems—from capital letters to web layouts—encode structure for how humans think, read, and navigate ideas.'
-
 tags: ['publishing', 'typography', 'web', 'layout', 'systems', 'history']
-
 series:
   id: web-primitives
   title: Web Primitives
@@ -30,17 +27,14 @@ type: essay
 next:
   publishing:
     label: 'Explore publishing'
-    path: '/web/publishing'
     intent: 'how ideas become content'
 
   architecture:
     label: 'Explore architecture'
-    path: '/web/architecture'
     intent: 'how systems are built'
 
   overview:
     label: 'See full model'
-    path: '/web/overview'
     intent: 'how everything connects'
 ---
 

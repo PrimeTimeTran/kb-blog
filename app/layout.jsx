@@ -1,6 +1,6 @@
 import { Space_Grotesk } from 'next/font/google'
 import { SystemShell } from '@primetimetran/beeline'
-import { AppShell } from '../components/layout/AppShell'
+import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
 import { RouteSync } from './RouteSync'
 

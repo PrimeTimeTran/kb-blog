@@ -4,7 +4,6 @@ import TableOfContents from '../../../components/TableOfContents'
 import { ResizableColumn } from '../ResizableColumn'
 
 // Note:
-// Used for SSR, data fetching, and async await use(which warns in page components)
 export function PageClient({ children, toc }) {
   return (
     <div className="flex h-full min-h-0 w-full">

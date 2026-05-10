@@ -8,7 +8,15 @@
         "name": "next"
       }
     ],
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@/components/*": ["./components/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/providers/*": ["./providers/*"],
+      "@/data/*": ["./data/*"],
+      "@/app/*": ["./app/*"]
+    }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/sort-tree.js"]
 }
