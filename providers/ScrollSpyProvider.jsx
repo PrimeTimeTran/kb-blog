@@ -8,6 +8,7 @@ const ScrollContext = createContext(null)
 
 export function ScrollSpyProvider({ children, scrollRef }) {
   const [toc, setToc] = useState([])
+
   const { activeId, shrunk } = useScrollState(scrollRef, toc)
 
   return (

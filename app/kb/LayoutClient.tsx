@@ -23,7 +23,7 @@
 //    - Children represent route-owned content injected via Next.js routing
 //
 // 4. Performance consideration:
-//    - Layout state (column resizing, sidebar structure) is decoupled from page content
+//    - Layout state (column resizing, s`idebar structure) is decoupled from page content
 //    - Prevents unnecessary re-renders or refetching when navigating between pages
 //
 // In short:
@@ -32,15 +32,8 @@
 'use client'
 
 import SidebarTree from './SidebarTree'
-import { ResizableColumn } from './ResizableColumn'
+import { Layout3ColumnLeft } from '@/components/layout/Layout3ColumnLeft'
 
 export default function LayoutClient({ data, children }) {
-  return (
-    <div className="flex h-full w-full min-h-0 overflow-hidden">
-      <ResizableColumn side="left">
-        <SidebarTree data={data} />
-      </ResizableColumn>
-      {children}
-    </div>
-  )
+  return <Layout3ColumnLeft leftCol={<SidebarTree data={data} />}>{children}</Layout3ColumnLeft>
 }

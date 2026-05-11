@@ -5,9 +5,7 @@ import NewsletterForm from '../components/NewsletterForm'
 import { getAllBlogPosts } from '../lib/content/server/blog.server'
 
 import PageClient from './PageClient'
-import { ClientRegister } from './ClientRegister'
 import { CenterRegion } from '@/components/layout/CenterRegion'
-import { ReadingSurface } from '@/components/layout/ReadingSurface'
 
 export default async function Page({ children, left, right }) {
   const posts = (await getAllBlogPosts()) || []

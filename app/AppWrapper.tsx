@@ -1,11 +1,11 @@
 'use client'
 
-import { ClientRegister } from './ClientRegister'
+import { RegisterSysOverlays } from './RegisterSysOverlays'
 
 export default function AppWrappeer({ children }) {
   return (
     <>
-      <ClientRegister />
+      <RegisterSysOverlays />
       {children}
     </>
   )

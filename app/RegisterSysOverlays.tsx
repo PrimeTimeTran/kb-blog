@@ -94,7 +94,7 @@ export function Inspector() {
     </div>
   )
 }
-export function ClientRegister({}: {}) {
+export function RegisterSysOverlays({}: {}) {
   const dock = useDock()
 
   useEffect(() => {
@@ -103,7 +103,7 @@ export function ClientRegister({}: {}) {
       nature: 'singleton',
       position: 'right',
 
-      open: false,
+      open: true,
 
       trigger: {
         type: 'floating',

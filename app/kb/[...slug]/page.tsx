@@ -16,10 +16,9 @@
 import { notFound } from 'next/navigation'
 
 // import { TocSchema } from '@repo/core'
-
+import { Layout3ColumnRight } from '@/components/layout/Layout3ColumnRight'
 import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
-import { ResizableColumn } from '../ResizableColumn'
 import TableOfContents from '../../../components/TableOfContents'
 
 type PageProps = {
@@ -37,23 +36,10 @@ export default async function Page({ params }: PageProps) {
   // TODO: Type this and throw an error.
   // "Handling it" is like ignoring fire alarms.
   // const toc = TocSchema.parse(KBItem.toc)
-
   if (!KBItem) notFound()
   return (
-    <div className="flex h-full w-full min-h-0">
-      {/* CENTER */}
-      <div className="flex-1 min-w-0 overflow-y-auto no-scrollbar prose dark:prose-invert">
-        <KBItem.Content />
-      </div>
-
-      {/* RIGHT */}
-      {KBItem.toc && (
-        <ResizableColumn side="right">
-          <div className="h-full w-64 shrink-0 overflow-y-auto">
-            <TableOfContents toc={KBItem.toc} />
-          </div>
-        </ResizableColumn>
-      )}
-    </div>
+    <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
+      <KBItem.Content />
+    </Layout3ColumnRight>
   )
 }

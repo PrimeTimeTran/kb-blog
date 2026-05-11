@@ -26,8 +26,8 @@ export function ResizableColumn({ side, children }: ResizableColumnProps) {
   return (
     <div
       className={`
-        flex h-full shrink-0 overflow-hidden
-        ${isLeft ? 'left-sidebar' : 'right-sidebar'}
+        flex h-full shrink-0
+        ${isLeft ? ' overflow-hidden left-sidebar' : 'right-sidebar'}
       `}
       style={{
         width: layout[side],

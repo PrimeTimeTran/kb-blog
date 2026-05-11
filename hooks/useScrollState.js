@@ -29,7 +29,7 @@ export function useScrollState(ref, toc = [], threshold = 40) {
     const elements = toc
       .map((item) => {
         const id = item.url.replace('#', '')
-        return document.getElementById(id)
+        return root.querySelector(`#${id}`)
       })
       .filter(Boolean)
 
@@ -42,12 +42,11 @@ export function useScrollState(ref, toc = [], threshold = 40) {
           .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
 
         if (visible.length) {
-          const newId = `#${visible[0].target.id}`
-          setActiveId(newId)
+          setActiveId(`#${visible[0].target.id}`)
         }
       },
       {
-        root,
+        root, // MUST be the scroll container
         rootMargin: '0px 0px -70% 0px',
         threshold: 0.1,
       }
