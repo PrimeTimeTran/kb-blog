@@ -20,6 +20,7 @@ import { Layout3ColumnRight } from '@/components/layout/Layout3ColumnRight'
 import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
 import TableOfContents from '../../../components/TableOfContents'
+import { Layout3ColumnCenter } from '@/components/layout/Layout3ColumnCenter'
 
 type PageProps = {
   params: {
@@ -39,7 +40,9 @@ export default async function Page({ params }: PageProps) {
   if (!KBItem) notFound()
   return (
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
-      <KBItem.Content />
+      <Layout3ColumnCenter>
+        <KBItem.Content />
+      </Layout3ColumnCenter>
     </Layout3ColumnRight>
   )
 }

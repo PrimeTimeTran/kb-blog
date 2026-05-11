@@ -85,7 +85,7 @@
  */
 
 'use client'
-
+import { useEffect } from 'react'
 import { getHeadingClass } from '@/lib/theme/theme.cjs'
 import { useScroll } from '../providers/ScrollSpyProvider'
 
@@ -97,19 +97,16 @@ function TOCItem({ item, activeId }) {
   const colorClass = getHeadingClass(level)
   return (
     <div
-      className={`border-l-2 transition ${isActive
-        ? 'border-blue-500 bg-blue-500/10'
-        : 'border-transparent hover:bg-white/5'
-        }`}
+      className={`border-l-2 transition ${
+        isActive ? 'border-blue-500 bg-blue-500/10' : 'border-transparent hover:bg-white/5'
+      }`}
       style={{ paddingLeft: `${indent}px` }}
     >
       <a
         href={item.url}
-        className={`block w-full truncate px-2 py-1 transition ${colorClass
-          } ${isActive
-            ? 'font-bold text-zinc-500 dark:text-zinc-100'
-            : ''
-          }`}
+        className={`block w-full truncate px-2 py-1 transition ${colorClass} ${
+          isActive ? 'font-bold text-zinc-500 dark:text-zinc-100' : ''
+        }`}
       >
         {item.value}
       </a>
@@ -117,7 +114,11 @@ function TOCItem({ item, activeId }) {
   )
 }
 export default function TableOfContents({ toc = [] }) {
-  const { activeId } = useScroll()
+  const { activeId, setToc } = useScroll()
+
+  useEffect(() => {
+    setToc(toc)
+  }, [toc, setToc])
 
   if (toc.length === 0) {
     return <div>Empty TOC</div>

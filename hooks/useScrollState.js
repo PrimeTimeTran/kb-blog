@@ -26,6 +26,8 @@ export function useScrollState(ref, toc = [], threshold = 40) {
     const root = ref?.current
     if (!root || !toc.length) return
 
+    console.log('hi')
+
     const elements = toc
       .map((item) => {
         const id = item.url.replace('#', '')
@@ -34,6 +36,8 @@ export function useScrollState(ref, toc = [], threshold = 40) {
       .filter(Boolean)
 
     if (!elements.length) return
+
+    console.log('observer ready')
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -44,9 +48,11 @@ export function useScrollState(ref, toc = [], threshold = 40) {
         if (visible.length) {
           setActiveId(`#${visible[0].target.id}`)
         }
+
+        console.log('IntersectionObserver')
       },
       {
-        root, // MUST be the scroll container
+        root,
         rootMargin: '0px 0px -70% 0px',
         threshold: 0.1,
       }
@@ -55,7 +61,7 @@ export function useScrollState(ref, toc = [], threshold = 40) {
     elements.forEach((el) => observer.observe(el))
 
     return () => observer.disconnect()
-  }, [toc, ref])
+  }, [toc, ref?.current]) // 🔥 IMPORTANT CHANGE
 
   return { activeId, shrunk }
 }
