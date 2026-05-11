@@ -4,6 +4,7 @@ import react from 'eslint-plugin-react'
 import reactHooks from 'eslint-plugin-react-hooks'
 import next from '@next/eslint-plugin-next'
 import tseslint from 'typescript-eslint'
+import prettier from 'eslint-config-prettier'
 
 export default [
   ...tseslint.configs.recommended,
@@ -36,6 +37,7 @@ export default [
     },
 
     rules: {
+      ...prettier.rules,
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-unused-vars': 'warn',

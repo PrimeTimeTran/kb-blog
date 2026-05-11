@@ -167,7 +167,9 @@ const __dirname = path.dirname(__filename)
 
 const nextConfig = {
   reactStrictMode: true,
-
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   webpack(config) {
     // ─────────────────────────────
     // SVG (keep ONE system only)
@@ -193,10 +195,6 @@ const nextConfig = {
     // }
 
     return config
-  },
-
-  typescript: {
-    ignoreBuildErrors: true,
   },
 }
 

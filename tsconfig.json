@@ -18,5 +18,6 @@
       "@/app/*": ["./app/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/sort-tree.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/sort-tree.js"],
+  "exclude": ["node_modules", ".next"]
 }

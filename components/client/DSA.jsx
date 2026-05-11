@@ -6,7 +6,7 @@ import SolutionSnippet from '../Solution.jsx'
 // import solutions from '../lib/dsa/problems/solutions.js'
 import allProblems from '../../lib/dsa/problems/problems-all.json'
 // import { listPareto, listBlind75, neetCode150, neetCode250 } from '../lib/dsa/problems/lists.js'
-import { buttonVariants } from '../buttonVariants'
+import { buttonVariants } from '../buttonVariants.js'
 
 const tagCounts = {}
 
@@ -242,7 +242,7 @@ export default function DSAClient({
   }
   return (
     <>
-      <div className="flex flex-col justify-center items-center space-y-2 pt-6 md:space-y-5 px-16 ">
+      <div className="flex flex-col space-y-2 md:space-y-5">
         <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
           Data Structures & Algorithms
         </h1>

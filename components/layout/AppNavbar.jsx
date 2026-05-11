@@ -2,7 +2,6 @@
 
 import { usePathname } from 'next/navigation'
 
-// import Logo from '../../data/logo.svg'
 import Logo from '../../data/logo.svg?react'
 import { SafeLink as Link } from '../../mdx/components/Link'
 import headerNavLinks from '../../data/nav-links'
@@ -13,39 +12,50 @@ import ThemeSwitch from '../../components/ThemeSwitch'
 
 export function Navbar({ className }) {
   const pathName = usePathname()
+
+  function checkKbRoute(link) {
+    try {
+      return link.href.substring(0, 3) === '/kb' && pathName.substring(0, 3) === '/kb'
+    } catch (error) {
+      console.log('link parse error', error)
+    }
+  }
   return (
-    <header
+    <nav
       className={
         className ||
-        'h-14 sticky top-0 z-10 flex justify-around theme-border-b px-3 bg-white dark:bg-black py-2'
+        'h-14 sticky top-0 z-10 flex items-center justify-between border-b px-2 sm:px-3 bg-white dark:bg-black'
       }
     >
       <Link href="/" aria-label={siteMetadata.headerTitle}>
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <Logo />
-          <div className="ml-3 hidden text-2xl font-semibold sm:block">
+
+          <div className="hidden sm:block text-lg md:text-2xl font-semibold">
             {siteMetadata.headerTitle}
           </div>
         </div>
       </Link>
       <div className="flex items-center">
         <div className="hidden sm:flex">
-          <div className="hidden sm:flex">
+          <div className="hidden md:flex items-center">
             {(headerNavLinks ?? []).map((link) => {
-              const isActive = pathName == link.href
+              const isKbRoute = checkKbRoute(link, pathName)
+              const isActive = pathName == link.href || isKbRoute
               const Icon = link.icon
 
               return (
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`p-4 font-medium transition-colors flex items-center gap-2 ${isActive
-                    ? 'text-primary-600 dark:text-primary-400'
-                    : 'text-meta hover:text-primary-500 dark:text-meta hover:dark:text-primary-400'
-                    }`}
+                  className={`px-2 sm:px-3 py-2 text-sm sm:text-base font-medium flex items-center gap-1 sm:gap-2 transition-colors ${
+                    isActive
+                      ? 'text-primary-600 dark:text-primary-400'
+                      : 'text-meta hover:text-primary-500 dark:text-meta hover:dark:text-primary-400'
+                  }`}
                 >
                   {Icon && <Icon className="w-4 h-4" />}
-                  {link.title}
+                  <span className="hidden lg:inline">{link.title}</span>
                 </Link>
               )
             })}
@@ -54,6 +64,6 @@ export function Navbar({ className }) {
         <ThemeSwitch />
         <MobileNav />
       </div>
-    </header>
+    </nav>
   )
 }

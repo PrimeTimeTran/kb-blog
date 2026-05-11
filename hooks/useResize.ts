@@ -12,13 +12,18 @@ export function useResize(side) {
     const onMove = (ev) => {
       const delta = ev.clientX - startX
 
-      const nextWidth = isRight
-        ? startWidth - delta // 🔥 invert for right
-        : startWidth + delta // normal for left
+      const viewportWidth = window.innerWidth
+
+      const nextWidth = isRight ? startWidth - delta : startWidth + delta
+
+      const min = 180
+      const max = viewportWidth * 0.5
+
+      const clamped = Math.min(Math.max(min, nextWidth), max)
 
       setLayout((prev) => ({
         ...prev,
-        [side]: Math.max(180, nextWidth),
+        [side]: clamped,
       }))
     }
 

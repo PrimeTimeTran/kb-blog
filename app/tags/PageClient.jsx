@@ -16,7 +16,6 @@ import { PageSEO } from '../../components/SEO'
 import kebabCase from '../../lib/utils/kebab-case'
 import siteMetadata from '../../data/site-metadata'
 import { SafeLink as Link } from '../../mdx/components/Link'
-import SectionContainer from '../../components/SectionContainer'
 
 import {
   dsa,
@@ -79,12 +78,12 @@ function Category({ title, tags, sortedTags, filter, icon }) {
   )
 }
 
-export default function TagsClient({ tags, className }) {
+export default function PageClient({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (
-    <div className={` ${className}`}>
+    <div>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
-      <div className="space-y-2 pt-6 md:space-y-5">
+      <div className="space-y-2 md:space-y-5">
         <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
           Tags
         </h1>

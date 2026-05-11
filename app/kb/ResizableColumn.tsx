@@ -21,17 +21,23 @@ type ResizableColumnProps = {
 export function ResizableColumn({ side, children }: ResizableColumnProps) {
   const { layout } = useLayout()
   const resize = useResize(side)
-
   const isLeft = side === 'left'
 
   return (
-    <div className="flex h-full shrink-0 overflow-hidden" style={{ width: layout[side] }}>
-      {/* LEFT HANDLE */}
+    <div
+      className={`
+        flex h-full shrink-0 overflow-hidden
+        ${isLeft ? 'left-sidebar' : 'right-sidebar'}
+      `}
+      style={{
+        width: layout[side],
+        flexShrink: 0,
+      }}
+    >
       {!isLeft && <Resizer onMouseDown={resize} />}
 
-      <div className="flex-1 h-full overflow-hidden">{children}</div>
+      <div className="flex-1 min-w-0 h-full overflow-hidden">{children}</div>
 
-      {/* RIGHT HANDLE */}
       {isLeft && <Resizer onMouseDown={resize} />}
     </div>
   )

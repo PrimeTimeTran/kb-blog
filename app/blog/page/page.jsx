@@ -44,7 +44,6 @@ export default async function Page({ params }) {
     currentPage: pageNumber,
     totalPages,
   }
-
   return (
     <ListLayout
       posts={posts}

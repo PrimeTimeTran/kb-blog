@@ -1,11 +1,11 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import ListLayout from '../../layouts/ListLayout'
-import { TOPICS } from '../../data/constants'
-import siteMetadata from '../../data/site-metadata'
+import ListLayout from '../layouts/ListLayout'
+import { TOPICS } from '../data/constants'
+import siteMetadata from '../data/site-metadata'
 
-export default function HomeClient({ posts }) {
+export default function PageClient({ posts }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [activeTopics, setActiveTopics] = useState([])
 
@@ -53,7 +53,7 @@ export default function HomeClient({ posts }) {
       initialDisplayPosts={[]}
       subtitle={siteMetadata.description}
       topics={
-        <div>
+        <div className='w-full'>
           <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
             Topics
           </h1>

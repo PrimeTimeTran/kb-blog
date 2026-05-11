@@ -19,12 +19,14 @@ export default async function RootLayout({ children }) {
       className={`${space_grotesk.variable} h-full scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className='h-full overflow-hidden mx-4'>
+      <body className="h-full overflow-hidden">
         <RouteSync />
         <AppShell>
-          <SystemShell isDebug>
-            <div className='h-full overflow-y-auto pt-8'>{children}</div>
-          </SystemShell>
+          <div className="px-4 h-full">
+            <SystemShell isDebug>
+              <div className="h-full overflow-y-auto pt-16">{children}</div>
+            </SystemShell>
+          </div>
         </AppShell>
       </body>
     </html>

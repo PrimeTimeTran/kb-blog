@@ -23,8 +23,11 @@ import { getKbTree } from '../../lib/content/server/kb.server'
 // rather than per-page, while still participating in Next.js layout composition.
 //
 // In effect, this is a hybrid "layout + data boundary" rather than a pure UI layout component.
-export default async function Layout({ children }) {
-  const data = await getKbTree()
+
+export default async function Layout({ children, params }) {
+  // Keep this has as an example of props/params/slug from Layout
+  // const slugPath = params?.slug?.join('/') ?? null
+    const data = await getKbTree()
 
   return <LayoutClient data={data}>{children}</LayoutClient>
 }
