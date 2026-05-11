@@ -1,5 +1,4 @@
 import { ResizableColumn } from '@/app/kb/ResizableColumn'
-import { Layout3ColumnCenter } from './Layout3ColumnCenter'
 
 export async function Layout3ColumnRight({ children, rightCol }) {
   return (
@@ -8,7 +7,7 @@ export async function Layout3ColumnRight({ children, rightCol }) {
       {children}
       {/* RIGHT */}
       <ResizableColumn side="right">
-        <div className="h-full shrink-0 overflow-y-auto">{rightCol}</div>
+        <div className="flex flex-1 min-h-0 overflow-hidden">{rightCol}</div>
       </ResizableColumn>
     </div>
   )

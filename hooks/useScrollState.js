@@ -31,7 +31,7 @@ export function useScrollState(ref, toc = [], threshold = 40) {
     const elements = toc
       .map((item) => {
         const id = item.url.replace('#', '')
-        return root.querySelector(`#${id}`)
+        return document.getElementById(id)
       })
       .filter(Boolean)
 
