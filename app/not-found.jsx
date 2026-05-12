@@ -1,4 +1,4 @@
-import { SafeLink as Link } from '../mdx/components/Link'
+import { SafeLink as Link } from '../components/mdx/Link'
 import { PageSEO } from '../components/SEO'
 import siteMetadata from '../data/site-metadata'
 

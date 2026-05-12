@@ -1,16 +1,16 @@
-import { Term } from './components/Term'
-import { Image } from './components/Image'
-import { Embed } from './components/Embed'
-import { CallOut } from './components/CallOut'
-import { Snippet } from './components/Snippet'
-import { Pre, TabGroup } from './components/Code'
-import { TOCInline } from './components/TOCInline'
-import { OrderBook } from './components/OrderBook'
-import { SafeLink as Link } from './components/Link'
-import { TermPeekDefinition } from './components/TermPeekDefinition'
+import { Term } from './Term'
+import { Image } from './Image'
+import { Embed } from './Embed'
+import { CallOut } from './Callout'
+import { Snippet } from './Snippet'
+import { Pre, TabGroup } from './Code'
+import { TOCInline } from './TOCInline'
+import { OrderBook } from './OrderBook'
+import { SafeLink as Link } from './Link'
+import { TermPeekDefinition } from './TermPeekDefinition'
 
-import { BlogNewsletterForm } from '../components/NewsletterForm'
-import { H1, H2, H3, H4, H5, H6 } from '../components/HeadingComponents'
+import { BlogNewsletterForm } from '../NewsletterForm'
+import { H1, H2, H3, H4, H5, H6 } from '../HeadingComponents'
 
 // Layer A: PURE component map (NO logic)
 const components = {

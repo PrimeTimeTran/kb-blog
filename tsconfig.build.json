@@ -30,6 +30,7 @@
       "@/hooks/*": ["./hooks/*"],
       "@/layouts/*": ["./layouts/*"],
       "@/lib/*": ["./lib/*"],
+      "@/mdx/*": ["./components/mdx/*"],
       "@/providers/*": ["./providers/*"]
     }
   },

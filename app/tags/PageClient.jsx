@@ -15,7 +15,6 @@ import { TagList, Category } from './Tag'
 import { PageSEO } from '../../components/SEO'
 import siteMetadata from '@/data/site-metadata'
 import kebabCase from '../../lib/utils/kebab-case'
-import { SafeLink as Link } from '../../mdx/components/Link'
 
 import {
   dsa,

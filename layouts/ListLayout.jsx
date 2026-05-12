@@ -5,7 +5,7 @@ import { FiCalendar } from 'react-icons/fi'
 import { TagLink } from '../app/tags/Tag'
 import formatDate from '../lib/utils/formate-date'
 import Pagination from '../components/Pagination'
-import { SafeLink as Link } from '../mdx/components/Link'
+import { SafeLink as Link } from '../components/mdx/Link'
 import { buildContentUrl } from '../lib/content/core/url'
 
 export default function ListLayout({

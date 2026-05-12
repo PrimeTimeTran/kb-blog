@@ -1,10 +1,10 @@
 import { Tag } from '../../app/tags/Tag'
-import { SafeLink as Link } from '../../mdx/components/Link'
+import { SafeLink as Link } from '../mdx/Link'
 import { useScroll } from '@/providers/ScrollSpyProvider'
 
-import { Image } from '../../mdx/components'
-import { CiCalendarDate } from 'react-icons/ci'
-import PageTitle from '../../components/PageTitle'
+// import { Image } from '../mdx'
+// import { CiCalendarDate } from 'react-icons/ci'
+// import PageTitle from '../../components/PageTitle'
 
 import { discussUrl, editUrl } from '../../lib/utils'
 

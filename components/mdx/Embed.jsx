@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import * as runtime from 'react/jsx-runtime'
 import { run, compile } from '@mdx-js/mdx'
 
-import { MDXComponents } from '../'
+import * as MDXComponents from './createMDXComponents'
 import { useRegistry } from '@/providers/RegistryProvider'
 
 export async function compileToComponent(source, options = {}) {

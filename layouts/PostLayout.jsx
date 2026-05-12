@@ -1,6 +1,6 @@
 'use client'
 import { useEffect } from 'react'
-import { SafeLink as Link } from '../mdx/components/Link'
+import { SafeLink as Link } from '../components/mdx/Link'
 import PageTitle from '../components/PageTitle'
 import SectionContainer from '../components/SectionContainer'
 import { BlogSEO } from '../components/SEO'

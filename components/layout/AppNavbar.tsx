@@ -9,7 +9,8 @@ import siteMetadata from '@/data/site-metadata'
 
 import MobileNav from '../MobileNav'
 import ThemeSwitch from '../ThemeSwitch'
-import { SafeLink as Link } from '../../mdx/components/Link'
+
+import { SafeLink as Link } from '../mdx/Link'
 
 export function Navbar({}) {
   const pathName = usePathname()

@@ -1,4 +1,4 @@
-import { SafeLink as Link } from '../../mdx/components/Link'
+import { SafeLink as Link } from '../mdx/Link'
 import siteMetadata from '@/data/site-metadata'
 import SocialIcon from '../social-icons'
 
