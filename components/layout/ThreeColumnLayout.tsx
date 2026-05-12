@@ -1,6 +1,6 @@
 'use client'
 
-import { ResizableColumn } from '@/app/kb/ResizableColumn'
+import { ResizableColumn } from '@/components/layout/ResizableColumn'
 
 import { useScroll } from '@/providers/ScrollSpyProvider'
 

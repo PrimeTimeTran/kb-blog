@@ -2,8 +2,8 @@
 
 import React from 'react'
 import { ReactNode } from 'react'
-import { useLayout } from '../../providers/LayoutProvider'
-import { useResize } from '../../hooks/useResize'
+import { useResize } from '@/hooks/useResize'
+import { useLayout } from '@/providers/LayoutProvider'
 
 function Resizer({ onMouseDown }) {
   return (
@@ -25,14 +25,8 @@ export function ResizableColumn({ side, children }: ResizableColumnProps) {
 
   return (
     <div
-      className={`
-        flex h-full shrink-0
-        ${isLeft ? ' overflow-hidden left-sidebar' : 'right-sidebar'}
-      `}
-      style={{
-        width: layout[side],
-        flexShrink: 0,
-      }}
+      className={`flex h-full shrink-0 ${isLeft ? ' overflow-hidden left-sidebar' : 'right-sidebar'}`}
+      style={{ width: layout[side], flexShrink: 0 }}
     >
       {!isLeft && <Resizer onMouseDown={resize} />}
 

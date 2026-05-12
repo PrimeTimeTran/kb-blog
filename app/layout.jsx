@@ -1,8 +1,8 @@
-import { Space_Grotesk } from 'next/font/google'
 import { SystemShell } from '@primetimetran/beeline'
+
+import { Space_Grotesk } from 'next/font/google'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
-import { RouteSync } from './RouteSync'
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -12,7 +12,7 @@ const space_grotesk = Space_Grotesk({
 
 export const metadata = siteMetaDataHeader
 
-export default async function RootLayout({ children }) {
+export default async function Layout({ children }) {
   return (
     <html
       lang={metadata.language}
@@ -20,13 +20,10 @@ export default async function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="h-full overflow-hidden">
-        <RouteSync />
         <AppShell>
-          <div className="px-4 h-full">
-            <SystemShell isDebug>
-              <div className="h-full overflow-y-auto">{children}</div>
-            </SystemShell>
-          </div>
+          <SystemShell isDebug>
+            <div className="h-full overflow-y-auto px-4">{children}</div>
+          </SystemShell>
         </AppShell>
       </body>
     </html>

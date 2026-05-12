@@ -20,10 +20,10 @@ import '../../css/theme.css'
 
 import { ThemeProviders } from '../../app/theme-providers'
 
-import { RegistryProvider } from '../../lib/providers/RegistryProvider'
-import { ScrollSpyProvider } from '../../providers/ScrollSpyProvider'
+import { RegistryProvider } from '@/providers/RegistryProvider'
+import { ScrollSpyProvider } from '@/providers/ScrollSpyProvider'
 import { buildKbRegistry } from '../../lib/content/server/kb.server'
-import { LayoutProvider } from '../../providers/LayoutProvider'
+import { LayoutProvider } from '@/providers/LayoutProvider'
 
 import { Navbar } from './AppNavbar'
 

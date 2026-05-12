@@ -1,5 +1,5 @@
 'use client'
-import { ResizableColumn } from './ResizableColumn'
+import { ResizableColumn } from '../../components/layout/ResizableColumn'
 import TableOfContents from '@/components/TableOfContents'
 import { CenterRegion } from '@/components/layout/CenterRegion'
 

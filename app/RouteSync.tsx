@@ -4,7 +4,9 @@ import { useEffect } from 'react'
 import { useSys } from '@primetimetran/beeline'
 
 export function RouteSync({ slug, toc }: { slug: string; toc: any }) {
-  const sys = useSys(() => {})
+  const sys = useSys(() => {
+    console.log('RouteSync')
+  })
   useEffect(() => {
     sys.onPageEvent({
       type: 'PATH_CHANGE',

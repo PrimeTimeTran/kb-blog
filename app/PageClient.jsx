@@ -68,21 +68,11 @@ export default function PageClient({ posts }) {
             subtitle={siteMetadata.description}
             topics={
               <div className="w-full">
-                <h1
-                  className="
-                text-2xl font-extrabold tracking-tight
-                text-(--on-surface)
-              "
-                >
+                <h1 className="text-2xl font-extrabold tracking-tight text-(--on-surface)">
                   Topics
                 </h1>
 
-                {/* topic row */}
-                <div
-                  className="
-                    my-2 mb-6 flex space-x-2 overflow-x-auto
-                  "
-                >
+                <div className="my-2 mb-6 flex space-x-2 overflow-x-auto">
                   {Object.entries(TOPICS).map(([topicName, topics]) => {
                     const active = activeTopics.includes(topicName)
                     return (
@@ -91,37 +81,6 @@ export default function PageClient({ posts }) {
                         onClick={() => toggleTopic(topicName)}
                         text={`${topicName} (${topics.length})`}
                       />
-                    )
-                    return (
-                      <button
-                        key={topicName}
-                        onClick={() => toggleTopic(topicName)}
-                        className={`
-                          px-2 py-1 rounded-md text-sm transition-all whitespace-nowrap
-
-                          ${
-                            active
-                              ? `
-                                bg-(--secondary)
-                                text-(--on-secondary)
-                                font-semibold
-                              `
-                              : `
-                                bg-(--secondary-container)
-                                text-(--on-secondary-container)
-
-                                hover:bg-(--surface)
-                                hover:text-(--on-surface)
-
-                                hover:shadow-sm
-                                hover:ring-1 hover:ring-(--outline-variant)
-                              `
-                          }
-                        `}
-                      >
-                        {topicName}
-                        <span className="text-(--on-surface-variant) ml-1">({topics.length})</span>
-                      </button>
                     )
                   })}
                 </div>
