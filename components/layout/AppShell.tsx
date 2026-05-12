@@ -21,7 +21,7 @@ import '../../css/theme.css'
 import { ThemeProviders } from '../../app/theme-providers'
 
 import { RegistryProvider } from '@/providers/RegistryProvider'
-import { ScrollSpyProvider } from '@/providers/ScrollSpyProvider'
+import { ScrollProvider } from '@/providers/ScrollProvider'
 import { buildKbRegistry } from '../../lib/content/server/kb.server'
 import { LayoutProvider } from '@/providers/LayoutProvider'
 
@@ -35,7 +35,7 @@ export async function AppShell({ children }) {
       <RegistryProvider registry={registry}>
         <ThemeProviders>
           <LayoutProvider>
-            <ScrollSpyProvider>
+            <ScrollProvider>
               <link
                 rel="apple-touch-icon"
                 sizes="76x76"
@@ -65,7 +65,7 @@ export async function AppShell({ children }) {
               <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
               <Navbar />
               {children}
-            </ScrollSpyProvider>
+            </ScrollProvider>
           </LayoutProvider>
         </ThemeProviders>
       </RegistryProvider>

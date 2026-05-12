@@ -10,7 +10,7 @@ export default function BlogContent({ frontMatter, children }) {
   return (
     <>
       <BlogHeader title={title} date={date} />
-      {children}
+      <article className="prose dark:prose-invert">{children}</article>
       <BlogFooter />
       <Comments />
       <AppFooter />

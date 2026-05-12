@@ -2,7 +2,7 @@
 
 import { ResizableColumn } from '@/components/layout/ResizableColumn'
 
-import { useScroll } from '@/providers/ScrollSpyProvider'
+import { useScroll } from '@/providers/ScrollProvider'
 
 export function Layout3ColumnLeft({ children, leftCol }) {
   return (

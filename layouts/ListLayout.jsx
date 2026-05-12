@@ -51,28 +51,29 @@ export default function ListLayout({
   const setSortOrder = () => {}
 
   return (
-    <div>
-      <div>
-        <div className="space-y-2 pb-8 md:space-y-5 w-full">
-          <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-(--on-surface) sm:text-4xl md:text-4xl">
-            {title}
-          </h1>
+    <div className="flex h-full min-h-0">
+      <div className="flex-1 min-w-0">
+        <div>
+          <div className="space-y-2 pb-8 md:space-y-5 w-full">
+            <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-(--on-surface) sm:text-4xl md:text-4xl">
+              {title}
+            </h1>
 
-          <p className="text-lg text-(--on-surface-variant)">{subtitle}</p>
+            <p className="text-lg text-(--on-surface-variant)">{subtitle}</p>
 
-          {topics}
+            {topics}
 
-          {/* SEARCH + SORT ROW */}
-          <div className="flex items-start justify-between gap-4 w-full relative max-w-lg">
-            {/* Search */}
-            <div className="flex-1 pl-2">
-              <input
-                aria-label="Search articles"
-                type="text"
-                value={searchValue}
-                onChange={(e) => setSearchValue(e.target.value)}
-                placeholder="Search articles"
-                className="
+            {/* SEARCH + SORT ROW */}
+            <div className="flex items-start justify-between gap-4 w-full relative max-w-lg">
+              {/* Search */}
+              <div className="flex-1 pl-2">
+                <input
+                  aria-label="Search articles"
+                  type="text"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                  placeholder="Search articles"
+                  className="
                   block w-full rounded-md px-4 py-2
                   bg-(--surface)
                   text-(--on-surface)
@@ -80,11 +81,11 @@ export default function ListLayout({
                   placeholder:text-(--on-surface-variant)
                   focus:outline-none focus:ring-2 focus:ring-(--primary)
                 "
-              />
-            </div>
+                />
+              </div>
 
-            {/* Sort */}
-            {/* <div className="flex flex-col items-end shrink-0">
+              {/* Sort */}
+              {/* <div className="flex flex-col items-end shrink-0">
               <h2 className="text-xs font-semibold text-(--on-surface-variant) mb-1">Sort</h2>
 
               <div className="flex space-x-2">
@@ -117,65 +118,65 @@ export default function ListLayout({
                 </button>
               </div>
             </div> */}
+            </div>
           </div>
-        </div>
 
-        <ul className="h-full w-full">
-          {!sortedPosts.length && (
-            <p className="py-6 text-(--on-surface-variant) opacity-70">No posts found.</p>
-          )}
+          <ul className="h-full w-full">
+            {!sortedPosts.length && (
+              <p className="py-6 text-(--on-surface-variant) opacity-70">No posts found.</p>
+            )}
 
-          {sortedPosts.map((post) => {
-            const { slug, date, title, summary, tags = [] } = post
+            {sortedPosts.map((post) => {
+              const { slug, date, title, summary, tags = [] } = post
 
-            return (
-              <li key={slug} className="py-4 w-full group">
-                <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                  {/* DATE */}
-                  <dl>
-                    <dd className="text-sm flex items-center space-x-3 text-(--on-surface-variant) opacity-80">
-                      <FiCalendar className="text-(--primary) opacity-80" />
-                      <time dateTime={date}>{formatDate(date)}</time>
-                    </dd>
-                  </dl>
+              return (
+                <li key={slug} className="py-4 w-full group">
+                  <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
+                    {/* DATE */}
+                    <dl>
+                      <dd className="text-sm flex items-center space-x-3 text-(--on-surface-variant) opacity-80">
+                        <FiCalendar className="text-(--primary) opacity-80" />
+                        <time dateTime={date}>{formatDate(date)}</time>
+                      </dd>
+                    </dl>
 
-                  {/* CONTENT */}
-                  <div className="space-y-3 xl:col-span-3 w-full">
-                    <h3 className="text-2xl font-bold tracking-tight">
-                      <Link
-                        href={buildContentUrl('blog', slug)}
-                        className="
+                    {/* CONTENT */}
+                    <div className="space-y-3 xl:col-span-3 w-full">
+                      <h3 className="text-2xl font-bold tracking-tight">
+                        <Link
+                          href={buildContentUrl('blog', slug)}
+                          className="
                           block w-full text-3xl font-semibold
                           transition-colors
                           group-hover:text-(--primary)
                         "
-                      >
-                        {title}
-                      </Link>
-                    </h3>
+                        >
+                          {title}
+                        </Link>
+                      </h3>
 
-                    <p className="text-(--on-surface-variant) opacity-80">{summary}</p>
+                      <p className="text-(--on-surface-variant) opacity-80">{summary}</p>
 
-                    {/* TAGS */}
-                    <div className="flex flex-wrap gap-2">
-                      {tags.map((tag) => (
-                        <TagLink key={tag} text={tag} />
-                      ))}
+                      {/* TAGS */}
+                      <div className="flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                          <TagLink key={tag} text={tag} />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
 
-                {/* DIVIDER */}
-                <hr className="my-6 border-(--outline-variant) opacity-50 transition-colors duration-200 group-hover:border-(--primary)" />
-              </li>
-            )
-          })}
-        </ul>
+                  {/* DIVIDER */}
+                  <hr className="my-6 border-(--outline-variant) opacity-50 transition-colors duration-200 group-hover:border-(--primary)" />
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+        {pagination?.totalPages > 1 && !searchValue && (
+          <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+        )}
       </div>
-
-      {pagination?.totalPages > 1 && !searchValue && (
-        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-      )}
     </div>
   )
 }

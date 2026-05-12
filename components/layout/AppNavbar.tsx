@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation'
 
-import { useScroll } from '@/providers/ScrollSpyProvider'
+import { useScroll } from '@/providers/ScrollProvider'
 
 import headerNavLinks from '@/data/nav-links'
 import siteMetadata from '@/data/site-metadata'

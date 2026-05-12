@@ -87,7 +87,7 @@
 'use client'
 import { useEffect } from 'react'
 import { getHeadingClass } from '@/lib/theme/theme.cjs'
-import { useScroll } from '../providers/ScrollSpyProvider'
+import { useScroll } from '../providers/ScrollProvider'
 
 // Prior, Active, Upcoming items indicated by scroll spy.
 function TOCItem({ item, activeId, index, items }) {

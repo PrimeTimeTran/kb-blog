@@ -1,6 +1,6 @@
 import { Tag } from '../../app/tags/Tag'
 import { SafeLink as Link } from '../mdx/Link'
-import { useScroll } from '@/providers/ScrollSpyProvider'
+import { useScroll } from '@/providers/ScrollProvider'
 
 // import { Image } from '../mdx'
 // import { CiCalendarDate } from 'react-icons/ci'
