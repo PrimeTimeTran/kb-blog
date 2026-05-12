@@ -167,6 +167,8 @@ const __dirname = path.dirname(__filename)
 
 const nextConfig = {
   reactStrictMode: true,
+  // Note: Fixes vercel deploy --prebuilt
+  output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -197,5 +199,4 @@ const nextConfig = {
     return config
   },
 }
-
 export default nextConfig
