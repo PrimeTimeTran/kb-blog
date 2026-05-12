@@ -24,7 +24,7 @@ export default async function RootLayout({ children }) {
         <AppShell>
           <div className="px-4 h-full">
             <SystemShell isDebug>
-              <div className="h-full overflow-y-auto pt-2">{children}</div>
+              <div className="h-full overflow-y-auto">{children}</div>
             </SystemShell>
           </div>
         </AppShell>

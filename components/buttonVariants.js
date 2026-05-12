@@ -1,7 +1,5 @@
-// lib/ui/buttonVariants.js
-
 export function buttonVariants({ active = false, tone = 'default', size = 'xs' } = {}) {
-  const base = 'px-2 py-1 text-xs rounded transition-all font-medium border'
+  const base = 'px-2 py-1 rounded transition-all font-medium border focus:outline-none'
 
   const sizes = {
     xs: 'text-xs',
@@ -10,58 +8,51 @@ export function buttonVariants({ active = false, tone = 'default', size = 'xs' }
   }
 
   const variants = {
-    // primary nav / sort active
     primary: active
       ? `
-    bg-primary-600 text-white
-    border-primary-600
-    shadow-sm
-    ring-2 ring-primary-200
-    dark:bg-primary-500 dark:ring-primary-400
-  `
+        bg-[var(--primary)] text-[var(--on-primary)]
+        border-[var(--primary)]
+        shadow-sm
+        ring-2 ring-[var(--primary-container)]
+      `
       : `
-    bg-white text-gray-700
-    border-gray-200
-    hover:bg-gray-100
-    dark:bg-gray-800 dark:text-gray-300
-    dark:border-gray-700 dark:hover:bg-gray-700
-  `,
+        bg-[var(--surface)] text-[var(--on-surface)]
+        border-[var(--outline-variant)]
+        hover:bg-[var(--surface-variant)]
+      `,
 
-    // difficulty buttons
     difficulty: {
       active: `
-    bg-green-600 text-white
-    border-green-600
-    shadow-sm
-    ring-2 ring-green-300
-    dark:bg-green-500 dark:ring-green-400
-  `,
+        bg-[var(--success)] text-[var(--on-success)]
+        border-[var(--success)]
+        shadow-sm
+        ring-2 ring-[var(--success-container)]
+      `,
       inactive: `
-    bg-white text-gray-700
-    border-gray-200
-    hover:bg-gray-100
-    dark:bg-gray-800 dark:text-gray-300
-    dark:border-gray-700 dark:hover:bg-gray-700
-  `,
+        bg-[var(--surface)] text-[var(--on-surface)]
+        border-[var(--outline-variant)]
+        hover:bg-[var(--surface-variant)]
+      `,
     },
 
-    action:
-      'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-gray-700',
+    action: `
+      bg-[var(--surface)] text-[var(--on-surface)]
+      border-[var(--outline-variant)]
+      hover:bg-[var(--surface-variant)]
+    `,
+
     list: {
       active: `
-    bg-primary-600 text-white
-    border-primary-600
-    shadow-sm
-    ring-2 ring-primary-200
-    dark:bg-primary-500 dark:border-primary-500 dark:ring-primary-400
-  `,
+        bg-[var(--primary)] text-[var(--on-primary)]
+        border-[var(--primary)]
+        shadow-sm
+        ring-2 ring-[var(--primary-container)]
+      `,
       inactive: `
-    bg-white text-gray-700
-    border border-gray-200
-    hover:bg-gray-100
-    dark:bg-gray-800 dark:text-gray-300
-    dark:border-gray-700 dark:hover:bg-gray-700
-  `,
+        bg-[var(--surface)] text-[var(--on-surface)]
+        border-[var(--outline-variant)]
+        hover:bg-[var(--surface-variant)]
+      `,
     },
   }
 
@@ -76,7 +67,5 @@ export function buttonVariants({ active = false, tone = 'default', size = 'xs' }
           : variants.list.inactive
         : variants[tone] || variants.primary
 
-  const resolved = v
-
-  return [base, sizes[size], resolved].join(' ')
+  return [base, sizes[size], v].join(' ')
 }

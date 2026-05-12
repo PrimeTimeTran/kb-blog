@@ -1,15 +1,27 @@
-import Tag from '../../components/Tag'
+import { Tag } from '../../app/tags/Tag'
 import { SafeLink as Link } from '../../mdx/components/Link'
 import { useScroll } from '../../providers/ScrollSpyProvider'
 
 import { Image } from '../../mdx/components'
-import PageTitle from '../../components/PageTitle'
 import { CiCalendarDate } from 'react-icons/ci'
+import PageTitle from '../../components/PageTitle'
 
 import { discussUrl, editUrl } from '../../lib/utils'
 
+export function ScrollProgressBar() {
+  const { scrollProgress } = useScroll()
+  return (
+    <div className="h-1 w-full bg-gray-200 dark:bg-gray-800">
+      <div
+        className="h-full bg-primary transition-all"
+        style={{ width: `${scrollProgress * 100}%` }}
+      />
+    </div>
+  )
+}
+
 export function BlogHeader({ title, date }) {
-  const { activeId, shrunk } = useScroll()
+  const { shrunk } = useScroll()
 
   return (
     <header

@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Blog & Knowledge for Tech, Finance, Sports & More',
+  title: 'Blog, KBase, Projects in Tech, Finance, Sports',
   author: 'Loi Tran',
-  headerTitle: 'PrimeTimeTran',
+  headerTitle: 'Loi Tran',
   description:
     'Writing to improve myself and help others do the same. Sharing my thoughts on tech, finance, sports, and more.',
   tags: 'Filter content by tags such as tech, finance, sports, and more.',

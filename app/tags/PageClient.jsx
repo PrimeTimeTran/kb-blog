@@ -11,10 +11,10 @@ import { SiThealgorithms } from 'react-icons/si'
 import { MdOutlineSecurity } from 'react-icons/md'
 import { TbDatabaseSearch } from 'react-icons/tb'
 
-import Tag from '../../components/Tag'
+import { TagList, Category } from './Tag'
 import { PageSEO } from '../../components/SEO'
+import siteMetadata from '@/data/site-metadata'
 import kebabCase from '../../lib/utils/kebab-case'
-import siteMetadata from '../../data/site-metadata'
 import { SafeLink as Link } from '../../mdx/components/Link'
 
 import {
@@ -28,55 +28,7 @@ import {
   security,
   databases,
   frameworks,
-} from '../../data/constants'
-
-function renderTags(tags, t) {
-  return (
-    <div key={t} className="my-1 mr-5 ">
-      <Tag text={t} />
-      <Link
-        href={`/tags/${kebabCase(t)}`}
-        className="-ml-2 text-sm font-semibold uppercase text-gray-600 dark:text-gray-300"
-      >
-        {` (${tags[t]})`}
-      </Link>
-    </div>
-  )
-}
-
-function Category({ title, tags, sortedTags, filter, icon }) {
-  const [open, setOpen] = React.useState(true)
-  const categoryTags = (sortedTags ?? [])?.filter((t) => {
-    return filter.includes(t.toLowerCase())
-  })
-  const Icon = icon
-  return (
-    <div className="w-full group">
-      <button className="w-full text-left" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
-        <div className="flex items-center justify-between w-full">
-          <div className="flex items-center gap-2">
-            {Icon && <Icon className="w-5 h-5" />}
-            <h1 className="block w-full text-3xl font-semibold  transition-colors group-hover:text-link">
-              {title}
-            </h1>
-          </div>
-
-          <span className="ml-2 text-lg text-gray-600">
-            ({categoryTags.length}) {open ? '▲' : '▼'}
-          </span>
-        </div>
-      </button>
-
-      <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[500px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-          }`}
-      >
-        <div className="flex flex-wrap">{(categoryTags ?? []).map((t) => renderTags(tags, t))}</div>
-      </div>
-      <hr className="my-2" />
-    </div>
-  )
-}
+} from '@/data/constants'
 
 export default function PageClient({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
@@ -159,7 +111,7 @@ export default function PageClient({ tags }) {
             <div className="flex flex-wrap">
               {(sortedTags ?? []).map((t) => {
                 if (misc.includes(t.toLowerCase())) return null
-                return renderTags(tags, t)
+                return TagList(tags, t)
               })}
             </div>
           </div>

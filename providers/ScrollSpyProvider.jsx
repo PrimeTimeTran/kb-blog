@@ -5,13 +5,15 @@ import { useScrollState } from '../hooks/useScrollState'
 const ScrollContext = createContext(undefined)
 
 export function ScrollSpyProvider({ children }) {
-  const scrollRef = useRef(null)
+  const [scrollEl, setScrollEl] = useState(null)
   const [toc, setToc] = useState([])
 
-  const { activeId, shrunk } = useScrollState(scrollRef, toc)
+  const { shrunk, activeId, scrollProgress } = useScrollState(scrollEl, toc)
 
   return (
-    <ScrollContext.Provider value={{ activeId, shrunk, toc, setToc, scrollRef }}>
+    <ScrollContext.Provider
+      value={{ activeId, shrunk, toc, setToc, scrollEl, setScrollEl, scrollProgress }}
+    >
       {children}
     </ScrollContext.Provider>
   )

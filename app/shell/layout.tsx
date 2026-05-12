@@ -17,7 +17,7 @@ export default function Layout({ children }) {
 
       {/* CENTER */}
       <div className="flex justify-center px-6 py-10">
-        <div className="w-full max-w-5xl grid grid-cols-[1fr_240px] gap-8">{children}</div>
+        <div className="w-full grid grid-cols-[1fr_240px] gap-8">{children}</div>
       </div>
 
       {/* RIGHT PLACEHOLDER */}

@@ -23,9 +23,9 @@ import { ThemeProviders } from '../../app/theme-providers'
 import { RegistryProvider } from '../../lib/providers/RegistryProvider'
 import { ScrollSpyProvider } from '../../providers/ScrollSpyProvider'
 import { buildKbRegistry } from '../../lib/content/server/kb.server'
-import { LayoutProvider } from '../../providers/LayoutProvider';
+import { LayoutProvider } from '../../providers/LayoutProvider'
 
-import { Navbar } from '../../components/layout/AppNavbar'
+import { Navbar } from './AppNavbar'
 
 export async function AppShell({ children }) {
   const registry = await buildKbRegistry()
@@ -39,24 +39,24 @@ export async function AppShell({ children }) {
               <link
                 rel="apple-touch-icon"
                 sizes="76x76"
-                href={`${basePath}/static/favicons/apple-touch-icon.png`}
+                href={`${basePath}/static/favicons/loi-tran.png`}
               />
               <link
                 rel="icon"
                 type="image/png"
                 sizes="32x32"
-                href={`${basePath}/static/favicons/favicon-32x32.png`}
+                href={`${basePath}/static/favicons/loi-tran.png`}
               />
               <link
                 rel="icon"
                 type="image/png"
                 sizes="16x16"
-                href={`${basePath}/static/favicons/favicon-16x16.png`}
+                href={`${basePath}/static/favicons/loi-tran.png`}
               />
-              <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
+              <link rel="manifest" href={`${basePath}/static/favicons/loi-tran.png`} />
               <link
                 rel="mask-icon"
-                href={`${basePath}/static/favicons/safari-pinned-tab.svg`}
+                href={`${basePath}/static/favicons/loi-tran.png`}
                 color="#5bbad5"
               />
               <meta name="msapplication-TileColor" content="#000000" />
@@ -68,9 +68,7 @@ export async function AppShell({ children }) {
             </ScrollSpyProvider>
           </LayoutProvider>
         </ThemeProviders>
-
       </RegistryProvider>
     </>
-
   )
 }

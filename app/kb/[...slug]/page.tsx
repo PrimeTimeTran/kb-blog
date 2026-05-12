@@ -16,11 +16,11 @@
 import { notFound } from 'next/navigation'
 
 // import { TocSchema } from '@repo/core'
-import { Layout3ColumnRight } from '@/components/layout/Layout3ColumnRight'
+import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
+
 import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
 
 import TableOfContents from '../../../components/TableOfContents'
-import { Layout3ColumnCenter } from '@/components/layout/Layout3ColumnCenter'
 
 type PageProps = {
   params: {
@@ -41,7 +41,11 @@ export default async function Page({ params }: PageProps) {
   return (
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
       <Layout3ColumnCenter>
-        <KBItem.Content />
+        <div className="w-full max-w-none mx-0 px-3">
+          <div className="prose dark:prose-invert">
+            <KBItem.Content />
+          </div>
+        </div>
       </Layout3ColumnCenter>
     </Layout3ColumnRight>
   )

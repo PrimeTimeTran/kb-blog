@@ -89,30 +89,45 @@ import { useEffect } from 'react'
 import { getHeadingClass } from '@/lib/theme/theme.cjs'
 import { useScroll } from '../providers/ScrollSpyProvider'
 
-function TOCItem({ item, activeId }) {
+// Prior, Active, Upcoming items indicated by scroll spy.
+function TOCItem({ item, activeId, index, items }) {
   const isActive = activeId === item.url
+
+  const activeIndex = items?.findIndex((i) => i.url === activeId) ?? -1
+  const isPassed = activeIndex !== -1 && index < activeIndex
 
   const level = item.depth ?? 1
   const indent = (level - 1) * 16
   const colorClass = getHeadingClass(level)
+
   return (
     <div
-      className={`border-l-2 transition ${
-        isActive ? 'border-blue-500 bg-blue-500/10' : 'border-transparent hover:bg-white/5'
-      }`}
-      style={{ paddingLeft: `${indent}px` }}
+      className="
+        border-l-2
+        transition-all
+        hover:bg-(--surface-variant)
+      "
+      style={{
+        paddingLeft: `${indent}px`,
+        borderColor: isActive ? 'var(--primary)' : 'var(--outline-variant)',
+        backgroundColor: isActive ? 'var(--primary-container)' : 'transparent',
+        opacity: isPassed ? 0.45 : 1,
+      }}
     >
       <a
         href={item.url}
-        className={`block w-full truncate px-2 py-1 transition ${colorClass} ${
-          isActive ? 'font-bold text-zinc-500 dark:text-zinc-100' : ''
-        }`}
+        className={`
+          block w-full truncate px-2 py-1 transition-all
+          ${colorClass}
+          ${isActive ? 'font-bold text-(--on-primary-container)' : ''}
+        `}
       >
         {item.value}
       </a>
     </div>
   )
 }
+
 export default function TableOfContents({ toc = [] }) {
   const { activeId, setToc } = useScroll()
 
@@ -126,8 +141,8 @@ export default function TableOfContents({ toc = [] }) {
 
   return (
     <aside>
-      {toc.map((item) => (
-        <TOCItem key={item.url} item={item} activeId={activeId} />
+      {toc.map((item, index) => (
+        <TOCItem key={item.url} item={item} activeId={activeId} index={index} items={toc} />
       ))}
     </aside>
   )

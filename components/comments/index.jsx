@@ -1,4 +1,4 @@
-import siteMetadata from '../../data/site-metadata'
+import siteMetadata from '@/data/site-metadata'
 import dynamic from 'next/dynamic'
 
 const UtterancesComponent = dynamic(

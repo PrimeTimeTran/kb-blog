@@ -1,9 +1,18 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import ListLayout from '../layouts/ListLayout'
+import {
+  Layout3ColumnLeft,
+  Layout3ColumnRight,
+  Layout3ColumnCenter,
+} from '@/components/layout/ThreeColumnLayout'
+
 import { TOPICS } from '../data/constants'
+import { Tag } from './tags/Tag'
+import ListLayout from '../layouts/ListLayout'
+import { MAX_DISPLAY } from '../data/constants'
 import siteMetadata from '../data/site-metadata'
+import NewsletterForm from '../components/NewsletterForm'
 
 export default function PageClient({ posts }) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -46,35 +55,105 @@ export default function PageClient({ posts }) {
   }, [posts, searchTerm, activeTopics])
 
   return (
-    <ListLayout
-      pagination={1}
-      title="Latest"
-      posts={filteredPosts}
-      initialDisplayPosts={[]}
-      subtitle={siteMetadata.description}
-      topics={
-        <div className='w-full'>
-          <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
-            Topics
-          </h1>
+    // TODO:
+    // Add a categories/series groups
+    <Layout3ColumnLeft leftCol={<h1 />}>
+      <Layout3ColumnRight rightCol={<h1 />}>
+        <Layout3ColumnCenter>
+          <ListLayout
+            pagination={1}
+            title="Latest"
+            posts={filteredPosts}
+            initialDisplayPosts={[]}
+            subtitle={siteMetadata.description}
+            topics={
+              <div className="w-full">
+                <h1
+                  className="
+                text-2xl font-extrabold tracking-tight
+                text-(--on-surface)
+              "
+                >
+                  Topics
+                </h1>
 
-          <div className="my-1 mb-6 flex space-x-2 overflow-x-auto">
-            {Object.entries(TOPICS).map(([topicName, topics]) => (
-              <button
-                key={topicName}
-                onClick={() => toggleTopic(topicName)}
-                className={
-                  activeTopics.includes(topicName)
-                    ? 'font-semibold underline text-link-active'
-                    : 'text-meta hover:text-meta-hover'
-                }
+                {/* topic row */}
+                <div
+                  className="
+                    my-2 mb-6 flex space-x-2 overflow-x-auto
+                  "
+                >
+                  {Object.entries(TOPICS).map(([topicName, topics]) => {
+                    const active = activeTopics.includes(topicName)
+                    return (
+                      <Tag
+                        active={active}
+                        onClick={() => toggleTopic(topicName)}
+                        text={`${topicName} (${topics.length})`}
+                      />
+                    )
+                    return (
+                      <button
+                        key={topicName}
+                        onClick={() => toggleTopic(topicName)}
+                        className={`
+                          px-2 py-1 rounded-md text-sm transition-all whitespace-nowrap
+
+                          ${
+                            active
+                              ? `
+                                bg-(--secondary)
+                                text-(--on-secondary)
+                                font-semibold
+                              `
+                              : `
+                                bg-(--secondary-container)
+                                text-(--on-secondary-container)
+
+                                hover:bg-(--surface)
+                                hover:text-(--on-surface)
+
+                                hover:shadow-sm
+                                hover:ring-1 hover:ring-(--outline-variant)
+                              `
+                          }
+                        `}
+                      >
+                        {topicName}
+                        <span className="text-(--on-surface-variant) ml-1">({topics.length})</span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            }
+          />
+
+          {/* All posts link */}
+          {posts.length > MAX_DISPLAY && (
+            <div className="flex justify-end mt-6 text-base font-medium">
+              <a
+                href="/blog"
+                className="
+                text-2xl font-semibold
+                text-(--primary)
+                hover:text-(--on-primary-container)
+                transition-colors
+              "
               >
-                {topicName} <span className="text-gray-500">({topics.length})</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      }
-    />
+                All Posts →
+              </a>
+            </div>
+          )}
+
+          {/* Newsletter */}
+          {siteMetadata.newsletter.provider !== '' && (
+            <div className="p-4 flex justify-center">
+              <NewsletterForm />
+            </div>
+          )}
+        </Layout3ColumnCenter>
+      </Layout3ColumnRight>
+    </Layout3ColumnLeft>
   )
 }

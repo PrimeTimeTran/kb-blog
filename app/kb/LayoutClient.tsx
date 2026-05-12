@@ -32,7 +32,7 @@
 'use client'
 
 import SidebarTree from './SidebarTree'
-import { Layout3ColumnLeft } from '@/components/layout/Layout3ColumnLeft'
+import { Layout3ColumnLeft } from '@/components/layout/ThreeColumnLayout'
 
 export default function LayoutClient({ data, children }) {
   return <Layout3ColumnLeft leftCol={<SidebarTree data={data} />}>{children}</Layout3ColumnLeft>

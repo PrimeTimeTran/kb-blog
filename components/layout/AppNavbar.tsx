@@ -2,16 +2,18 @@
 
 import { usePathname } from 'next/navigation'
 
-import Logo from '../../data/logo.svg?react'
+import { useScroll } from '@/providers/ScrollSpyProvider'
+
+import headerNavLinks from '@/data/nav-links'
+import siteMetadata from '@/data/site-metadata'
+
+import MobileNav from '../MobileNav'
+import ThemeSwitch from '../ThemeSwitch'
 import { SafeLink as Link } from '../../mdx/components/Link'
-import headerNavLinks from '../../data/nav-links'
-import siteMetadata from '../../data/site-metadata'
 
-import MobileNav from '../../components/MobileNav'
-import ThemeSwitch from '../../components/ThemeSwitch'
-
-export function Navbar({ className }) {
+export function Navbar({}) {
   const pathName = usePathname()
+  const { scrollProgress } = useScroll()
 
   function checkKbRoute(link) {
     try {
@@ -21,15 +23,14 @@ export function Navbar({ className }) {
     }
   }
   return (
-    <nav
-      className={
-        className ||
-        'h-14 sticky top-0 z-10 flex items-center justify-between border-b px-2 sm:px-3 bg-white dark:bg-black'
-      }
-    >
+    <nav className="h-14 sticky top-0 z-10 flex items-center justify-between px-2 sm:px-3 bg-white dark:bg-black border-b border-[var(--outline-variant)]">
+      {/* TODO: Make a better icon 
+          https://www.canva.com/design/DAHJZ2uqiWQ/AJFhQIonTYZ9OMnINFHzmw/edit?ui=eyJHIjp7IkQiOnsiRCI6eyJBPyI6IkYifX19fQ
+          https://www.remove.bg/upload
+      */}
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center gap-2">
-          <Logo />
+          <img src="/static/favicons/loi-tran.png" alt="Logo" className="h-6 w-6" />
 
           <div className="hidden sm:block text-lg md:text-2xl font-semibold">
             {siteMetadata.headerTitle}
@@ -49,9 +50,7 @@ export function Navbar({ className }) {
                   key={link.title}
                   href={link.href}
                   className={`px-2 sm:px-3 py-2 text-sm sm:text-base font-medium flex items-center gap-1 sm:gap-2 transition-colors ${
-                    isActive
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-meta hover:text-primary-500 dark:text-meta hover:dark:text-primary-400'
+                    isActive ? 'text-nav-active' : 'text-nav'
                   }`}
                 >
                   {Icon && <Icon className="w-4 h-4" />}
@@ -63,6 +62,18 @@ export function Navbar({ className }) {
         </div>
         <ThemeSwitch />
         <MobileNav />
+      </div>
+      <div className="absolute bottom-0 left-0 h-[2px] w-full">
+        <div
+          className="h-full relative overflow-hidden animate-pulse-soft-glow"
+          style={{
+            width: `${scrollProgress * 100}%`,
+            backgroundColor: 'var(--primary)',
+            transition: 'width 120ms linear',
+          }}
+        >
+          <div className="absolute inset-0 animate-shimmer" />
+        </div>
       </div>
     </nav>
   )

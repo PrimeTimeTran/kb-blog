@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 
-import { images } from '../../data/images'
+import { images } from '@/data/images'
 
 import LightBox from '../../components/client/Project'
 
@@ -15,16 +15,18 @@ export default function Page() {
       <div className="shrink-0 flex border-b">
         <button
           onClick={() => setTab('main')}
-          className={`px-4 py-2 text-sm ${tab === 'main' ? 'border-b-2 border-black font-semibold' : ''
-            }`}
+          className={`px-4 py-2 text-sm ${
+            tab === 'main' ? 'border-b-2 border-black font-semibold' : ''
+          }`}
         >
           Main
         </button>
 
         <button
           onClick={() => setTab('images')}
-          className={`px-4 py-2 text-sm ${tab === 'images' ? 'border-b-2 border-black font-semibold' : ''
-            }`}
+          className={`px-4 py-2 text-sm ${
+            tab === 'images' ? 'border-b-2 border-black font-semibold' : ''
+          }`}
         >
           Images
         </button>

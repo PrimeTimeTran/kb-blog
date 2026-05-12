@@ -2,31 +2,31 @@
 
 import { useEffect, useState } from 'react'
 
-export function useScrollState(ref, toc = [], threshold = 40) {
-  const [activeId, setActiveId] = useState(null)
+export function useScrollState(el, toc = [], threshold = 40) {
   const [shrunk, setShrunk] = useState(false)
+  const [activeId, setActiveId] = useState(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
-  // SHRINK (scroll-based)
+  // Header Shrink/Progress Bar
   useEffect(() => {
-    const el = ref?.current
     if (!el) return
 
     const onScroll = () => {
-      setShrunk(el.scrollTop > threshold)
+      const scrollTop = el.scrollTop
+      const height = el.scrollHeight - el.clientHeight
+      setScrollProgress(scrollTop / height)
+      setShrunk(scrollTop > threshold)
     }
 
-    onScroll()
     el.addEventListener('scroll', onScroll)
+    onScroll()
 
     return () => el.removeEventListener('scroll', onScroll)
-  }, [ref, threshold])
+  }, [el, threshold])
 
-  // SCROLLSPY (intersection-based)
+  // Highlight Table of Contents
   useEffect(() => {
-    const root = ref?.current
-    if (!root || !toc.length) return
-
-    console.log('hi')
+    if (!el || !toc.length) return
 
     const elements = toc
       .map((item) => {
@@ -37,8 +37,6 @@ export function useScrollState(ref, toc = [], threshold = 40) {
 
     if (!elements.length) return
 
-    console.log('observer ready')
-
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
@@ -48,20 +46,18 @@ export function useScrollState(ref, toc = [], threshold = 40) {
         if (visible.length) {
           setActiveId(`#${visible[0].target.id}`)
         }
-
-        console.log('IntersectionObserver')
       },
       {
-        root,
+        root: el,
         rootMargin: '0px 0px -70% 0px',
         threshold: 0.1,
       }
     )
 
-    elements.forEach((el) => observer.observe(el))
+    elements.forEach((node) => observer.observe(node))
 
     return () => observer.disconnect()
-  }, [toc, ref?.current]) // 🔥 IMPORTANT CHANGE
+  }, [el, toc])
 
-  return { activeId, shrunk }
+  return { activeId, shrunk, scrollProgress }
 }

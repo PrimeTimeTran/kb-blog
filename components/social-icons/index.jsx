@@ -1,7 +1,6 @@
 // Icons taken from: https://simpleicons.org/
 
 import { AiOutlineMail } from 'react-icons/ai'
-
 import { FaGithub, FaFacebook, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa'
 
 const components = {
@@ -21,10 +20,14 @@ const SocialIcon = ({ kind, href, size = 20 }) => {
 
   return (
     <a
-      className="text-gray-500 transition hover:text-gray-600 dark:text-gray-200 dark:hover:text-blue-400"
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
-      href={href}
+      className="
+        text-(--on-surface-variant)
+        hover:text-(--primary)
+        transition-colors
+      "
     >
       <span className="sr-only">{kind}</span>
       <Icon size={size} />
