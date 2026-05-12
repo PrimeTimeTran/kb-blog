@@ -1,7 +1,7 @@
 ---
 draft: false
 date: 2026-05-10
-title: 'The Three Primitives That Shape Web Applications'
+title: 'Web: Architecture - Three Primitives That Shape Web Applications'
 
 summary: 'How Layout, Page, and Template define persistence, resolution, and recomposition in modern web systems.'
 tags: ['web', 'nextjs', 'architecture', 'primitives', 'systems-thinking']
@@ -39,7 +39,7 @@ next:
     intent: 'how everything connects'
 ---
 
-# Web Architecture — Persistent Layouts, Route Boundaries, and UI State
+## Web Architecture — Persistent Layouts, Route Boundaries, and UI State
 
 Modern web frameworks do not merely render pages. They define **lifecycles**.
 
@@ -47,7 +47,7 @@ In systems like Next.js App Router, architecture is shaped less by components th
 
 - persistence boundaries
 - rendering ownership
-- data lifecycles
+- data life cycles
 - recomposition behavior
 - server/client execution constraints
 
@@ -68,7 +68,7 @@ It is deciding:
 
 ---
 
-# Layout as a Persistence Boundary
+## Layout as a Persistence Boundary
 
 A `layout.tsx` is not merely visual structure.
 
@@ -105,7 +105,7 @@ without rebuilding the interface on every route change.
 
 ---
 
-# Pages as Resolution Layers
+## Pages as Resolution Layers
 
 Pages serve a different role.
 
@@ -139,7 +139,7 @@ but poor places for:
 
 ---
 
-# The Hidden Constraint: Server vs Client Boundaries
+## The Hidden Constraint: Server vs Client Boundaries
 
 One of the most important architectural constraints in App Router is that layouts often need to be both:
 
@@ -181,7 +181,7 @@ It is a direct consequence of separating:
 
 ---
 
-# Shared Layout Systems Across Route Boundaries
+## Shared Layout Systems Across Route Boundaries
 
 One subtle challenge appears when building multi-column systems.
 
@@ -220,7 +220,7 @@ But it reflects a deeper truth:
 
 ---
 
-# Templates and Recomposed UI
+## Templates and Recomposed UI
 
 `template.tsx` exists to intentionally break persistence.
 
@@ -270,7 +270,7 @@ It is that App Router exposes recomposition as an architectural primitive.
 
 ---
 
-# Architecture as Lifecycle Design
+## Architecture as Lifecycle Design
 
 Most frontend discussions focus on components.
 

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { buildPipeline } from '../lib/content/pipeline/buildPipeline.js'
-import { log, time, setLoggerConfig } from '../lib/debug/logger.js'
+import { buildPipeline } from '../lib/content/pipeline/build-pipeline.js'
+import { log, time, setLoggerConfig } from '../lib/debug/log'
 
 setLoggerConfig({
   DEBUG: 'content',

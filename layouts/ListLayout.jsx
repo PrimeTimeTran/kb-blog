@@ -54,7 +54,7 @@ export default function ListLayout({
     <div className="flex h-full min-h-0">
       <div className="flex-1 min-w-0">
         <div>
-          <div className="space-y-2 pb-8 md:space-y-5 w-full">
+          <div className="space-y-2 w-full">
             <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-(--on-surface) sm:text-4xl md:text-4xl">
               {title}
             </h1>
@@ -128,9 +128,8 @@ export default function ListLayout({
 
             {sortedPosts.map((post) => {
               const { slug, date, title, summary, tags = [] } = post
-
               return (
-                <li key={slug} className="py-4 w-full group">
+                <li key={slug} className="w-full group list-none">
                   <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     {/* DATE */}
                     <dl>
@@ -145,11 +144,7 @@ export default function ListLayout({
                       <h3 className="text-2xl font-bold tracking-tight">
                         <Link
                           href={buildContentUrl('blog', slug)}
-                          className="
-                          block w-full text-3xl font-semibold
-                          transition-colors
-                          group-hover:text-(--primary)
-                        "
+                          className="block w-full text-3xl text-(--on-surface) transition-colors group-hover:text-(--primary)"
                         >
                           {title}
                         </Link>

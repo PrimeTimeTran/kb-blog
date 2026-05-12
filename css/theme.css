@@ -1,4 +1,6 @@
 :root {
+  --katex-color: black;
+  --navbar-height: 64px;
   --primary: #6750a4;
   --on-primary: #ffffff;
   --primary-container: #eaddff;
@@ -41,11 +43,9 @@
   --radius-xl: 28px;
 }
 
-/* =========================================
-   Dark theme
-   ========================================= */
-
 .dark {
+  --katex-color: white;
+
   --primary: #d0bcff;
   --on-primary: #381e72;
   --primary-container: #4f378b;
@@ -82,6 +82,10 @@
   --on-surface-variant: #cac4d0;
   --outline: #938f99;
   --outline-variant: #3a3841;
+}
+
+.katex {
+  color: var(--katex-color);
 }
 
 @theme inline {

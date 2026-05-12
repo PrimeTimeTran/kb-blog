@@ -1,33 +1,31 @@
 ---
-draft: true
+draft: false
 date: '2030-01-01'
-title: 'MDX Feature Demo: Everything in One File'
-summary: 'TESTING of MDX Rendering'
+title: 'MDX Feature Preview: A Modern Content + UI Runtime'
+summary: 'A look at how MDX can evolve beyond markdown into a structured content runtime with components, DSLs, and embedded UI.'
 tags: ['mdx', 'demo', 'markdown', 'blog']
 ---
 
-import { ProjectionChart } from 'components/mdx'
+## 1. Markdown (baseline layer)
 
-# MDX Feature Demo
+MDX still starts with familiar Markdown — but here it’s the _foundation_, not the limit.
 
-This file demonstrates common MDX capabilities used in a blog system.
+You can write:
 
----
+- Lists and structured content
+- **Bold emphasis**
+- _Italic styling_
+- [External links](https://example.com)
 
-## 1. Basic Markdown
-
-You can write normal markdown:
-
-- Lists
-- **Bold text**
-- _Italic text_
-- [Links](https://example.com)
+This layer stays intentionally simple so content remains readable even without rendering.
 
 ---
 
-## 2. Code Blocks
+## 2. Code Blocks (developer-first formatting)
 
-### JavaScript
+Code blocks are treated as first-class UI elements with enhanced metadata support.
+
+### Syntax highlighting
 
 ```js
 function add(a, b) {
@@ -37,6 +35,102 @@ function add(a, b) {
 console.log(add(2, 3))
 ```
 
+---
+
+### File-aware snippets
+
+Code blocks can carry semantic context like filenames:
+
+```js:fancyAlert.js
+const fancyAlert = (arg) => {}
+```
+
+This allows the renderer to treat code as _structured documentation_, not just text.
+
+---
+
+### Developer ergonomics (line-level rendering)
+
+```js showLineNumbers
+var twoSum = function (nums, target) {
+  var map = {}
+}
+```
+
+Line-level metadata enables debugging-style reading experiences directly inside content.
+
+---
+
 ## 3. React Components
 
+MDX allows embedding React components directly into content.
+
+This turns documents into interactive UI surfaces.
+
 <ProjectionChart text="Hello from a React component!" />
+
+### Code
+
+```text
+<ProjectionChart text="Hello from a React component!" />
+```
+
+## 4. Custom DSL Layer (structured content primitives)
+
+This system extends MDX with a build-time DSL that compiles structured blocks into React components.
+
+The example below defines a **tab group DSL**, which is transformed during the build step into a fully interactive UI component.
+
+```tabgroup
+
+!!!!!dart foo
+int add(int a, int b) {
+  return a + b;
+}
+dart!!!!!
+
+!!!!!dart bar
+class User {
+  final String name;
+
+  User(this.name);
+
+  String greet() => "Hello $name";
+}
+dart!!!!!
+
+!!!!!dart spam
+enum Status { loading, success, error }
+dart!!!!!
+
+!!!!!dart ham
+Future<String> fetchData() async {
+  return "done";
+}
+dart!!!!!
+
+!!!!!dart go/to/jam
+List<int> squares = List.generate(10, (i) => i * i);
+dart!!!!!
+```
+
+What looks like plain text is actually a structured intermediate format that gets compiled into:
+
+- tab UI
+- grouped code panels
+- semantic code sections
+
+---
+
+## Closing note
+
+This isn’t just Markdown anymore.
+
+It’s a **content execution layer**:
+
+- Markdown for readability
+- MDX for composition
+- React for interactivity
+- DSL for structure
+
+Together, they form a hybrid system where documents behave more like applications than pages.

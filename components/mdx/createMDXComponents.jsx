@@ -8,9 +8,10 @@ import { TOCInline } from './TOCInline'
 import { OrderBook } from './OrderBook'
 import { SafeLink as Link } from './Link'
 import { TermPeekDefinition } from './TermPeekDefinition'
+import { ProjectionChart } from './ProjectionChart'
 
 import { BlogNewsletterForm } from '../NewsletterForm'
-import { H1, H2, H3, H4, H5, H6 } from '../HeadingComponents'
+import { H1, H2, H3, H4, H5, H6, NumberedHeadings } from '../HeadingComponents'
 
 // Layer A: PURE component map (NO logic)
 const components = {
@@ -33,6 +34,7 @@ const components = {
   tabGroup: TabGroup,
   TabGroup: TabGroup,
   BlogNewsletterForm,
+  ProjectionChart,
 }
 
 export const MDXComponents = Object.fromEntries(
@@ -43,6 +45,12 @@ export const MDXComponents = Object.fromEntries(
 export function createMDXComponents(registry, depth, visited, embedded) {
   return {
     ...MDXComponents,
+    h1: NumberedHeadings.h1,
+    h2: NumberedHeadings.h2,
+    h3: NumberedHeadings.h3,
+    h4: NumberedHeadings.h4,
+    h5: NumberedHeadings.h5,
+    h6: NumberedHeadings.h6,
     Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
     // wrapper: ({ layout, ...rest }) => {
     //   const Layout = layouts[layout] || layouts.KBLayout

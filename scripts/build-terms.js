@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { buildPipeline } from '../lib/content/pipeline/buildPipeline.js'
+import { buildPipeline } from '../lib/content/pipeline/build-pipeline.js'
 
 function build() {
   const { registry, terms, backlinks } = buildPipeline()

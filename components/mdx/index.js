@@ -10,6 +10,7 @@ export { ProjectionChart } from './ProjectionChart'
 
 export {
   Pre,
+  Link,
   Embed,
   Image,
   CallOut,
@@ -17,6 +18,5 @@ export {
   TabGroup,
   OrderBook,
   TOCInline,
-  Link,
   ProjectionChart,
 }

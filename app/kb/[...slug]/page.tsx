@@ -1,4 +1,4 @@
-// NOTE:
+// EXPLANATION:
 // This page participates in an implicit layout contract defined by Next.js App Router.
 //
 // It assumes a surrounding layout (LayoutClient + Layout.tsx) that provides:
@@ -17,10 +17,10 @@ import { notFound } from 'next/navigation'
 
 // import { TocSchema } from '@repo/core'
 import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
-
-import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
-
+import { content } from '../../../lib/content/api/client'
 import TableOfContents from '../../../components/TableOfContents'
+
+import { PageClient } from './PageClient'
 
 type PageProps = {
   params: {
@@ -29,23 +29,30 @@ type PageProps = {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params
-  const slugPath = Array.isArray(slug) ? slug.join('/') : slug
+  const slugParam = params?.slug
+  const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam
+  const KBItem = await content.get({ type: 'kb', slug })
 
-  const KBItem = await getContentBySlug('kb', slugPath)
+  if (!KBItem) {
+    return <div>Not found</div>
+  }
 
-  // TODO: Type this and throw an error.
-  // "Handling it" is like ignoring fire alarms.
-  // const toc = TocSchema.parse(KBItem.toc)
+  // TODO:Typing:
+  // Safely handling is sometimes a foot gun
+  //
+  // - [ ] Type the return type from core repo
+  // - [ ] Use it to alert devs
   if (!KBItem) notFound()
   return (
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
       <Layout3ColumnCenter>
-        <div className="w-full max-w-none mx-0 px-3">
-          <div className="prose dark:prose-invert">
-            <KBItem.Content />
+        <PageClient>
+          <div className="w-full max-w-none mx-0 px-3">
+            <div className="prose dark:prose-invert">
+              <KBItem.Content />
+            </div>
           </div>
-        </div>
+        </PageClient>
       </Layout3ColumnCenter>
     </Layout3ColumnRight>
   )

@@ -1,8 +1,4 @@
-import {
-  argbFromHex,
-  hexFromArgb,
-  themeFromSourceColor,
-} from '@material/material-color-utilities'
+import { argbFromHex, hexFromArgb, themeFromSourceColor } from '@material/material-color-utilities'
 
 export const PALETTES = [
   /* 🌲 Nature / Calm */
@@ -57,9 +53,9 @@ export const PALETTES = [
 // Custom seeds for semantic colors
 // You can adjust these hex codes to match your brand preferences
 const SEMANTIC_SEEDS = {
-  success: '#10b981', // Green
-  warning: '#f59e0b', // Amber/Orange
-  info: '#38bdf8', // Light Blue
+  info: '#38bdf8',
+  success: '#10b981',
+  warning: '#f59e0b',
 }
 
 const mix = (base: string, overlay: string, percent: number) =>
@@ -88,9 +84,7 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
   // Material Color Utilities custom colors are stored in the 'customColors' array
   // We need to find them by name and extract their light/dark scheme values
   const getCustomColor = (key: string) => {
-    const customColorGroup = theme.customColors.find(
-      (c) => c.color.name === key,
-    )
+    const customColorGroup = theme.customColors.find((c) => c.color.name === key)
     if (!customColorGroup) return null
     return mode === 'light' ? customColorGroup.light : customColorGroup.dark
   }
@@ -108,15 +102,9 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
       ? mix(background, '#000000', 2) // slightly darker than bg
       : mix(background, '#ffffff', 4) // slightly lighter than bg
 
-  const surface1 =
-    mode === 'light'
-      ? mix(background, '#000000', 4)
-      : mix(background, '#ffffff', 6)
+  const surface1 = mode === 'light' ? mix(background, '#000000', 4) : mix(background, '#ffffff', 6)
 
-  const surface2 =
-    mode === 'light'
-      ? mix(background, '#000000', 6)
-      : mix(background, '#ffffff', 8)
+  const surface2 = mode === 'light' ? mix(background, '#000000', 6) : mix(background, '#ffffff', 8)
 
   return {
     '--primary': c(scheme.primary),
@@ -142,28 +130,18 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
     // Custom Semantic Colors (derived)
     '--success': successGroup ? c(successGroup.color) : '#10b981',
     '--on-success': successGroup ? c(successGroup.onColor) : '#ffffff',
-    '--success-container': successGroup
-      ? c(successGroup.colorContainer)
-      : '#d1fae5',
-    '--on-success-container': successGroup
-      ? c(successGroup.onColorContainer)
-      : '#064e3b',
+    '--success-container': successGroup ? c(successGroup.colorContainer) : '#d1fae5',
+    '--on-success-container': successGroup ? c(successGroup.onColorContainer) : '#064e3b',
 
     '--warning': warningGroup ? c(warningGroup.color) : '#f59e0b',
     '--on-warning': warningGroup ? c(warningGroup.onColor) : '#ffffff',
-    '--warning-container': warningGroup
-      ? c(warningGroup.colorContainer)
-      : '#fef3c7',
-    '--on-warning-container': warningGroup
-      ? c(warningGroup.onColorContainer)
-      : '#78350f',
+    '--warning-container': warningGroup ? c(warningGroup.colorContainer) : '#fef3c7',
+    '--on-warning-container': warningGroup ? c(warningGroup.onColorContainer) : '#78350f',
 
     '--info': infoGroup ? c(infoGroup.color) : '#38bdf8',
     '--on-info': infoGroup ? c(infoGroup.onColor) : '#ffffff',
     '--info-container': infoGroup ? c(infoGroup.colorContainer) : '#e0f2fe',
-    '--on-info-container': infoGroup
-      ? c(infoGroup.onColorContainer)
-      : '#0c4a6e',
+    '--on-info-container': infoGroup ? c(infoGroup.onColorContainer) : '#0c4a6e',
 
     '--background': background,
     '--on-background': c(scheme.onBackground),

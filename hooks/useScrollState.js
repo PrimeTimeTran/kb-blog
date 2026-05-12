@@ -11,14 +11,32 @@ export function useScrollState(el, toc = [], threshold = 40) {
   useEffect(() => {
     if (!el) return
 
+    const SHRINK_AT = threshold
+    const EXPAND_AT = threshold - 20
+
+    let ticking = false
+
     const onScroll = () => {
-      const scrollTop = el.scrollTop
-      const height = el.scrollHeight - el.clientHeight
-      setScrollProgress(scrollTop / height)
-      setShrunk(scrollTop > threshold)
+      if (ticking) return
+      ticking = true
+
+      requestAnimationFrame(() => {
+        const scrollTop = el.scrollTop
+        const height = el.scrollHeight - el.clientHeight
+
+        setScrollProgress(scrollTop / height)
+
+        setShrunk((prev) => {
+          if (!prev && scrollTop > SHRINK_AT) return true
+          if (prev && scrollTop < EXPAND_AT) return false
+          return prev
+        })
+
+        ticking = false
+      })
     }
 
-    el.addEventListener('scroll', onScroll)
+    el.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
 
     return () => el.removeEventListener('scroll', onScroll)

@@ -21,9 +21,9 @@ export default async function Layout({ children }) {
     >
       <body className="h-full overflow-hidden">
         <AppShell>
-          <SystemShell isDebug>
-            <div className="h-full overflow-y-auto px-4">{children}</div>
-          </SystemShell>
+          {/* <SystemShell isDebug> */}
+          <div className="h-full overflow-y-auto px-4">{children}</div>
+          {/* </SystemShell> */}
         </AppShell>
       </body>
     </html>

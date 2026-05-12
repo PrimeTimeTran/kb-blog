@@ -90,7 +90,7 @@ import { getHeadingClass } from '@/lib/theme/theme.cjs'
 import { useScroll } from '../providers/ScrollProvider'
 
 // Prior, Active, Upcoming items indicated by scroll spy.
-function TOCItem({ item, activeId, index, items }) {
+function TOCItem({ item, activeId, index, items, scrollRootRef }) {
   const isActive = activeId === item.url
 
   const activeIndex = items?.findIndex((i) => i.url === activeId) ?? -1
@@ -99,6 +99,77 @@ function TOCItem({ item, activeId, index, items }) {
   const level = item.depth ?? 1
   const indent = (level - 1) * 16
   const colorClass = getHeadingClass(level)
+  const scrollToHeading = (rawId) => {
+    const id = rawId.replace(/^#/, '')
+
+    const root = scrollRootRef?.current
+    if (!root) return
+
+    const el = document.getElementById(id)
+    if (!el) return
+
+    const yOffset = 96
+
+    const rootRect = root.getBoundingClientRect()
+    const elRect = el.getBoundingClientRect()
+
+    const offset = elRect.top - rootRect.top + root.scrollTop - yOffset
+
+    root.scrollTo({
+      top: offset,
+      behavior: 'smooth',
+    })
+  }
+
+  // 1.
+  // TODO:02:
+  // - [ ] ...
+  // TODO:01:
+  // - [ ] ...
+
+  // 1.
+  // BUG: TOC click causes page shift
+  // - [ ] 1. Left col shifts
+  // - [ ] 1. Right col shifts
+
+  // BUG: Page Shift
+  // - [ ] 1. Left col shifts
+  // - [ ] 1. Right col shifts
+
+  // 2.
+  // TODO:
+  // - [ ] ...
+  // TODO:Product:
+  // - [ ] ...
+  // TODO:Product[2]:
+  // - [ ] ...
+  // TODO:Product[1]:
+  // - [ ] ...
+  // TODO:Dev[1]:
+  // - [ ] 1.1.1
+  // - [ ] 2.1.1
+  // - [ ] a.b.c
+  // - [ ] b.c.d
+  // TODO:Dev:
+  // - [ ] 1.1.1
+  // - [ ] 2.1.1
+  // - [ ] a.b.c
+  // - [ ] b.c.d
+  // TODO:Dev[1]:
+  // - [ ] 1.1.1
+  // - [ ] 2.1.1
+  // - [ ] a.b.c
+  // - [ ] b.c.d
+  // TODO:Dev[2]:
+  // - [ ] 1.1.1
+  // - [ ] 2.1.1
+  // - [ ] a.b.c
+  // - [ ] b.c.d
+  // TODO:Dev[3]:
+  // - [ ] 1.1.1
+  // - [ ] 2.1.1
+  // - [ ] a.b.c
+  // - [ ] b.c.d
 
   return (
     <div
@@ -124,10 +195,20 @@ function TOCItem({ item, activeId, index, items }) {
       >
         {item.value}
       </a>
+      {/* <button
+        type="button"
+        onClick={() => scrollToHeading(item.url)}
+        className={`
+          block w-full truncate px-2 py-1 text-left transition-all
+          ${colorClass}
+          ${isActive ? 'font-bold text-(--on-primary-container)' : ''}
+        `}
+      >
+        {item.value}
+      </button> */}
     </div>
   )
 }
-
 export default function TableOfContents({ toc = [] }) {
   const { activeId, setToc } = useScroll()
 

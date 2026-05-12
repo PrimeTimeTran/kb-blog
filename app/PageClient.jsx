@@ -56,8 +56,8 @@ export default function PageClient({ posts }) {
   }, [posts, searchTerm, activeTopics])
 
   return (
-    // TODO:
-    // Add a categories/series groups
+    // TODO:Home:
+    // - [ ] Add left sidebar nav for series suggestions
     <CenterRegion>
       <ListLayout
         pagination={1}

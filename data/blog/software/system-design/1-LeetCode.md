@@ -26,7 +26,6 @@ Requirements of the app from a user perspective.
     - [ ] As a user I can submit solutions in multiple programming languages so I can use the language I'm most familiar with.
   - [ ] As a user I can see my own submissions to a problem so I can "review" my own work:
     - [ ] As a user I can see the results of my submission so I know if I've successfully solved the problem(including edge cases).
-    - [ ]
   - [ ] As a user I can see the solutions to a problem submitted by other users so I can learn alternative techniques:
     - [ ] As a user I can see comments to a solution so that I can evaluate the quality of a solution.
     - [ ] As a user I can comment on solutions of a problem so I can improve the quality of solutions submitted.
@@ -45,7 +44,6 @@ Requirements of the app from a user perspective.
         - [ ] Problems deteriorate by 1 tier if they're not solved in the alloted time.
         - [ ] Subsequent solves must be completed in t time & without referencing solutions/submissions tab.
         - [ ] Subsequent
-      - ## [ ] ?
 
 ## Non Functional Requirements:
 

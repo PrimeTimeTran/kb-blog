@@ -23,12 +23,11 @@ export function Navbar({}) {
       console.log('link parse error', error)
     }
   }
+  // Make better favicon
+  // https://www.remove.bg/upload
+  // https://www.canva.com/design/DAHJZ2uqiWQ/AJFhQIonTYZ9OMnINFHzmw/edit?ui=eyJHIjp7IkQiOnsiRCI6eyJBPyI6IkYifX19fQ
   return (
-    <nav className="h-14 sticky top-0 z-10 flex items-center justify-between px-2 sm:px-3 bg-white dark:bg-black border-b border-[var(--outline-variant)]">
-      {/* TODO: Make a better icon 
-          https://www.canva.com/design/DAHJZ2uqiWQ/AJFhQIonTYZ9OMnINFHzmw/edit?ui=eyJHIjp7IkQiOnsiRCI6eyJBPyI6IkYifX19fQ
-          https://www.remove.bg/upload
-      */}
+    <nav className="h-14 sticky top-0 z-10 flex items-center justify-between px-2 sm:px-3 bg-white dark:bg-black border-b border-(--outline-variant)">
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center gap-2">
           <img src="/static/favicons/loi-tran.png" alt="Logo" className="h-6 w-6" />

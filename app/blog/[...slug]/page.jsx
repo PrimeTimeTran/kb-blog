@@ -1,8 +1,6 @@
 // import generateRss from '@/lib/generate-rss'
-import TableOfContents from '../../../components/TableOfContents'
-import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
 import { BlogContent } from '../../../components/blog'
-import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
+import TableOfContents from '../../../components/TableOfContents'
 
 import {
   Layout3ColumnLeft,
@@ -10,10 +8,10 @@ import {
   Layout3ColumnCenter,
 } from '@/components/layout/ThreeColumnLayout'
 
-import { log } from '../../../lib/debug/logger'
+import { content } from '../../../lib/content/api/client'
 
-export async function generateStaticParams() {
-  const posts = await getAllBlogPosts()
+export async function generateStaticParams(props) {
+  const posts = await content.list({ type: 'blog' })
 
   return (posts ?? [])
     .filter((p) => !p.draft)
@@ -22,29 +20,26 @@ export async function generateStaticParams() {
     }))
 }
 
-export default async function BlogPage({ params }) {
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+export default async function BlogPage({ params, posts }) {
+  const { slug } = await params
 
-  log.bundle('Loading blog post:', slug)
+  const normalizedSlug = Array.isArray(slug) ? slug.join('/') : slug
 
-  const Post = await getContentBySlug('blog', slug)
+  const Post = await content.get({ type: 'blog', slug: normalizedSlug })
 
-  if (!Post) return null // or notFound()
+  if (!Post) return null
 
-  const posts = await getAllBlogPosts()
-  const index = posts.findIndex((p) => p.slug === slug)
-
-  const prev = posts[index + 1] || null
-  const next = posts[index - 1] || null
-
-  const authorDetails = await getContentBySlug('authors', 'default')
   const { mdxSource, toc, frontMatter } = Post
 
   return (
     <Layout3ColumnLeft
       leftCol={
-        // NOTE:
-        // Proves left column is scrollable if content is large enough
+        // EXPLANATION:[1]:Proof left sidebar scrollable
+        // EXPLANATION:[2]:Proof left sidebar scrollable
+        // EXPLANATION:[3]:Proof left sidebar scrollable
+        // EXPLANATION:[4]:Proof left sidebar scrollable
+        // EXPLANATION:[5]:Proof left sidebar scrollable
+        // EXPLANATION:[6]:Proof left sidebar scrollable
         false ? (
           <div className=" w-128">
             <div className=" w-128">

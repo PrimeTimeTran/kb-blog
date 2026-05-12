@@ -1,4 +1,3 @@
-// components/Term.jsx
 import { SafeLink as Link } from './Link'
 
 export function Term({ href, children, short, icon, tone = 'default' }) {

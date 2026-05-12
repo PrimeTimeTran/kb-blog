@@ -1,7 +1,5 @@
 import LayoutClient from './LayoutClient'
-import { getKbTree } from '../../lib/content/server/kb.server'
-
-
+import { getKbTree } from '../../lib/content/domain/kb/kb.server'
 
 // NOTE:
 // This file is named "Layout" because it is the root layout boundary for this route segment,
@@ -26,10 +24,12 @@ import { getKbTree } from '../../lib/content/server/kb.server'
 //
 // In effect, this is a hybrid "layout + data boundary" rather than a pure UI layout component.
 
+// import { useRegistry } from '@/providers/RegistryProvider'
+
 export default async function Layout({ children, params }) {
   // Keep this has as an example of props/params/slug from Layout
   // const slugPath = params?.slug?.join('/') ?? null
-    const data = await getKbTree()
 
+  const data = await getKbTree()
   return <LayoutClient data={data}>{children}</LayoutClient>
 }

@@ -8,18 +8,6 @@ import { useScroll } from '@/providers/ScrollProvider'
 
 import { discussUrl, editUrl } from '../../lib/utils'
 
-export function ScrollProgressBar() {
-  const { scrollProgress } = useScroll()
-  return (
-    <div className="h-1 w-full bg-gray-200 dark:bg-gray-800">
-      <div
-        className="h-full bg-primary transition-all"
-        style={{ width: `${scrollProgress * 100}%` }}
-      />
-    </div>
-  )
-}
-
 export function BlogHeader({ title, date }) {
   const { shrunk } = useScroll()
 
@@ -46,8 +34,8 @@ export function BlogHeader({ title, date }) {
       <time
         className={`
           block text-sm text-slate-500 dark:text-slate-400
-          transition-all duration-300 ease-in-out overflow-hidden
-          ${shrunk ? 'max-h-0 opacity-0 -translate-y-1' : 'max-h-6 opacity-100 mt-2'}
+          transition-all duration-300 ease-in-out
+          ${shrunk ? 'opacity-0 -translate-y-2 scale-95 pointer-events-none' : 'opacity-100 mt-2'}
         `}
       >
         {new Date(date).toDateString()}

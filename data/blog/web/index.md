@@ -1,7 +1,7 @@
 ---
 draft: false
-date: 2026-05-10
-title: 'Web'
+date: 2026-05-01
+title: 'Web: Intent, Publishing, & Architecture'
 summary: 'An introduction to a system for publishing and building on the web, where content, architecture, and interpretation form a unified model.'
 
 tags: ['web', 'introduction', 'publishing-system', 'architecture']
@@ -234,7 +234,9 @@ And this is an attempt to make that system visible.
 - “mechanics & structure”
 
 # Publishing = how it reaches people (distribution / communication curiosity)
+
 ## Publishing — how it spreads
+
 - “see how it spreads”
 - “how this is distributed”
 - “how this becomes readable”

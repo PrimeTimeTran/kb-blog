@@ -1,17 +1,14 @@
 ---
 draft: false
 date: 2026-05-10
-title: 'Layout as Thought: From Print to the Web'
+title: 'Web: Intent - Layout as Thought From Print to the Web'
 
 summary: 'How publishing systems—from typography to web layouts—encode structure that shapes how humans read, navigate, and understand information.'
 
 tags:
-  - publishing
-  - typography
   - web
-  - layout
+  - publishing
   - systems
-  - history
 
 series:
   id: web-primitives
