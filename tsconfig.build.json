@@ -1,10 +1,28 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noImplicitAny": false,
+    "target": "ES2020",
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+
     "baseUrl": ".",
+
+    "resolveJsonModule": true,
+    "jsx": "preserve",
+
+    "noEmit": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "types": ["node"],
+
     "plugins": [{ "name": "next" }],
-    "allowJs": true,
+
     "paths": {
       "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
@@ -15,6 +33,8 @@
       "@/providers/*": ["./providers/*"]
     }
   },
+
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/sort-tree.js"],
+
   "exclude": ["node_modules", ".next"]
 }

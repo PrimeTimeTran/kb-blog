@@ -9,6 +9,7 @@
     "dev:debug": "NODE_OPTIONS='--inspect' next dev",
     "dev:watch": "concurrently \"node scripts/watch-terms.js\" \"next dev\"",
     "dev:socket": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
+    "prebuild": "cp tsconfig.build.json tsconfig.json",
     "build": "next build && node ./scripts/generate-sitemap.cjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
