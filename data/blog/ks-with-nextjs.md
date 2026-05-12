@@ -1,7 +1,7 @@
 ---
 draft: false
 date: '2026-05-03'
-title: 'Building a Modern Content + Knowledge System with Next.js'
+title: 'Web: Architecture - Building a Modern Content + Knowledge System with Next.js'
 summary: 'An overview of the architecture behind a unified blog and knowledge base system built with Next.js, MDX, and a component-driven rendering engine designed for scalable structured content.'
 tags: ['nextjs', 'mdx', 'react', 'architecture', 'content-systems', 'engineering']
 ---

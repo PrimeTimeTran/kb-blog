@@ -10,7 +10,7 @@ import {
   Layout3ColumnCenter,
 } from '@/components/layout/ThreeColumnLayout'
 
-import { log } from '../../../lib/debug/logger'
+// import { log } from '../../../lib/debug/log'
 
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts()
@@ -23,11 +23,11 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPage({ params }) {
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
-
-  log.bundle('Loading blog post:', slug)
+  let slug = await params.slug
+  slug = Array.isArray(slug) ? slug.join('/') : slug
 
   const Post = await getContentBySlug('blog', slug)
+  // console.log({ Post })
 
   if (!Post) return null // or notFound()
 

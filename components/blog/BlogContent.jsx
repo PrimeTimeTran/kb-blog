@@ -6,6 +6,7 @@ import { BlogHeader, BlogFooter } from './blocks'
 
 export default function BlogContent({ frontMatter, children }) {
   const { title = '', date = '' } = frontMatter || {}
+  console.log({frontMatter})
 
   return (
     <>

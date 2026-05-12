@@ -1,7 +1,7 @@
 ---
 draft: false
 date: 2026-05-10
-title: 'Layout as Thought: From Print to the Web'
+title: 'Web: Layout as Thought | From Print to the Web'
 summary: 'How publishing systems—from capital letters to web layouts—encode structure for how humans think, read, and navigate ideas.'
 tags: ['publishing', 'typography', 'web', 'layout', 'systems', 'history']
 series:
