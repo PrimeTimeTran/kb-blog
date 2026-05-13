@@ -30,8 +30,6 @@ export default async function Layout({ children, params }) {
   // Keep this has as an example of props/params/slug from Layout
   // const slugPath = params?.slug?.join('/') ?? null
 
-  // const registry = useRegistry()
   const data = await getKbTree()
-
   return <LayoutClient data={data}>{children}</LayoutClient>
 }

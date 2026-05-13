@@ -25,6 +25,7 @@ export function buildCompilePipeline(ctx: PipelineContext) {
     async run() {
       const mdxContext = await buildMDXContext({
         index: ctx.index,
+        headings: ctx.headings,
         slug: ctx.request.slug!,
       })
 
@@ -76,10 +77,6 @@ export function buildRuntimePipeline(ctx: PipelineContext) {
         code: result.code,
         Content: result.Content,
       }
-
-      console.log({
-        ctx,
-      })
 
       ctx.analysis.toc = result.toc ?? []
 

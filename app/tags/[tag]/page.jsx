@@ -5,7 +5,7 @@ import ListLayout from '../../../layouts/ListLayout'
 import siteMetadata from '../../../data/site-metadata'
 import generateRss from '../../../lib/generate-rss'
 import kebabCase from '../../../lib/utils/kebab-case'
-import { ROOT } from '../../../lib/content/core/constants.js'
+import { ROOT } from '../../../lib/content/core/constants'
 import { content } from '../../../lib/content/api/client'
 import { getAllTags } from '../../../lib/content/server/tag/getAllTags'
 

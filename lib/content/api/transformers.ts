@@ -32,7 +32,6 @@ export function preprocessWikiLinks(source = '', index, currentSlug = '') {
       .replace(/^\//, '')
       .toLowerCase()
     const entry = index?.[resolvedPath]
-    console.log({ filePart, entry, keys: Object.keys(index) })
 
     const url = entry
       ? `/kb/${resolvedPath}${anchors.length ? '#' + slugify(anchors.pop()) : ''}`
@@ -50,7 +49,6 @@ export function transformBlog(file) {
     throw new TypeError(`[transformBlog] expected string but got ${typeof source}`)
   }
 
-  console.log({ transformBlogFMDate: file.frontMatter.date })
   return {
     slug: file.slug,
     Content: file.Content,
@@ -94,7 +92,6 @@ export function transformKB(file) {
   const source = file.source ?? file.mdxSource
 
   if (typeof source !== 'string') {
-    console.log('[transformKB BAD INPUT]', source)
     throw new Error(`[transformKB] expected string but got ${typeof source}`)
   }
 

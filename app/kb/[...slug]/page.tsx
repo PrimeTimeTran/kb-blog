@@ -17,10 +17,12 @@ import { notFound } from 'next/navigation'
 
 // import { TocSchema } from '@repo/core'
 import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
-
+// import { MDXProvider } from '@/providers/MDXProvider'
+// // import { applyKbPlugins, numberingPlugin } from '@/lib/remark/render-numbered-headings'
 import { content } from '../../../lib/content/api/client'
-
 import TableOfContents from '../../../components/TableOfContents'
+
+import { PageClient } from './PageClient'
 
 type PageProps = {
   params: {
@@ -30,9 +32,7 @@ type PageProps = {
 
 export default async function Page({ params }: PageProps) {
   const slugParam = params?.slug
-
   const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam
-
   const KBItem = await content.get({ type: 'kb', slug })
 
   if (!KBItem) {
@@ -43,15 +43,20 @@ export default async function Page({ params }: PageProps) {
   // "Handling it" is like ignoring fire alarms.
   // const toc = TocSchema.parse(KBItem.toc)
   if (!KBItem) notFound()
+  // console.log({ toc: KBItem.analysis.headings })
   return (
+    // <MDXProvider analysis={KBItem.analysis} toc={KBItem.toc} slug={slug}>
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
       <Layout3ColumnCenter>
-        <div className="w-full max-w-none mx-0 px-3">
-          <div className="prose dark:prose-invert">
-            <KBItem.Content />
+        <PageClient>
+          <div className="w-full max-w-none mx-0 px-3">
+            <div className="prose dark:prose-invert">
+              <KBItem.Content />
+            </div>
           </div>
-        </div>
+        </PageClient>
       </Layout3ColumnCenter>
     </Layout3ColumnRight>
+    // </MDXProvider>
   )
 }

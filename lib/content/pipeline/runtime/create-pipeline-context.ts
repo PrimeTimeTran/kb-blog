@@ -10,6 +10,7 @@ export function createPipelineContext(input: {
   source: ResolvedContentSource
   raw: RawContent
   index: Record<string, unknown>
+  analysis: Record<string, unknown>
 }): PipelineContext {
   return {
     request: input.request,
@@ -17,12 +18,7 @@ export function createPipelineContext(input: {
     raw: input.raw,
     index: input.index,
     frontMatter: {},
-
-    analysis: {
-      toc: [],
-      backlinks: [],
-    },
-
+    analysis: input.analysis,
     transform: {
       ast: null,
     },

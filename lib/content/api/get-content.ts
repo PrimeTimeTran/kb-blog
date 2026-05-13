@@ -9,7 +9,15 @@ import {
 } from '../pipeline/runtime/build-runtime-pipeline'
 import { extractTOC } from '../core/extract-toc'
 import { isPublished } from '../core/is-published'
-import { buildContentIndex } from '../pipeline/build/build-content-index'
+import { buildContentIndex } from './build-content-index'
+import { extractHeadings } from '@/lib/remark/extract-headings'
+
+function analyzeContent(source) {
+  return {
+    toc: extractTOC(source),
+    headings: extractHeadings(source),
+  }
+}
 
 export async function getContent(
   options: {
@@ -48,7 +56,7 @@ export async function getContent(
     rootDir: rootDir,
     toKey: (slug) => slug.toLowerCase(),
   })
-  console.log({ rootDir })
+  const analysis = analyzeContent(raw.raw)
 
   // ─────────────────────────────
   // CREATE PIPELINE CONTEXT
@@ -61,15 +69,14 @@ export async function getContent(
     raw,
     index: typeIndex,
     source: raw.source,
+    analysis,
   })
 
   // ─────────────────────────────
   // PARSE PIPELINE
   // ─────────────────────────────
   const parsePipeline = buildParsePipeline(ctx)
-
   await parsePipeline.run(raw)
-
   // ─────────────────────────────
   // COMPILE PIPELINE
   // ─────────────────────────────
@@ -82,6 +89,8 @@ export async function getContent(
     type,
     slug,
     mdxSource: raw.raw,
+    // Note:
+    // Passing the TOC this was prevent an infinite loop client-side.
     toc: extractTOC(raw.raw),
     filePath: raw.source.filePath,
     Content: ctx.compile?.Content, // This property is a React component/function

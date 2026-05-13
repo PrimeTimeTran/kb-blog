@@ -5,25 +5,25 @@ import * as runtime from 'react/jsx-runtime'
 
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import remarkFootnotes from 'remark-footnotes'
+// import remarkFootnotes from 'remark-footnotes'
 
 import rehypeSlug from 'rehype-slug'
 import rehypePrism from 'rehype-prism'
 import rehypeKatex from 'rehype-katex'
 import rehypePrismPlus from 'rehype-prism-plus'
-import rehypePresetMinify from 'rehype-preset-minify'
+// import rehypePresetMinify from 'rehype-preset-minify'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
-import { extractTOC } from '../../../remark/extract-toc'
+// import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
 import { extractCodeMeta } from '../../../remark/extract-code-meta'
 import { extractFrontMatter } from '../../../remark/extract-front-matter'
 
 import { renderEmbeds } from '../../../remark/render-embeds'
 import { renderCallOuts } from '../../../remark/render-callouts'
-import { renderImgInJSX } from '../../../remark/render-img-in-jsx'
+// import { renderImgInJSX } from '../../../remark/render-img-in-jsx'
 import { renderTabGroups } from '../../../remark/render-tab-groups'
 import { renderCodeBlocks } from '../../../remark/render-codeblocks'
-import { mdxComponentPaths } from '../../../remark/mdx-components-paths'
+// import { mdxComponentPaths } from '../../../remark/mdx-components-paths'
 
 import { injectEmbedFlags } from '../../../remark/inject-embed-flags'
 import { injectTermLinksAndPreviews } from '../../../remark/inject-term-links-and-preview'
@@ -33,12 +33,13 @@ import { terms } from '../../../../data/generated/terms'
 import { preprocessEmbeds, preprocessWikiLinks } from '../../api/transformers'
 
 import { createMDXComponents } from '@/mdx/createMDXComponents.jsx'
+// import { numberingPlugin } from '@/lib/remark/render-numbered-headings'
 
-export function debugAST() {
-  return (tree) => {
-    console.log(JSON.stringify(tree, null, 2))
-  }
-}
+// export function debugAST() {
+//   return (tree) => {
+//     console.log(JSON.stringify(tree, null, 2))
+//   }
+// }
 // https://mdxjs.com/docs/
 // | feature                     | works |
 // | --------------------------- | ----- |
@@ -53,13 +54,8 @@ async function compileWikiMDX(source, context) {
   let { slug = '', index = {} } = context
   let normalized = preprocessWikiLinks(source, index, slug)
   normalized = preprocessEmbeds(normalized, index)
-  if (normalized.includes('@/mdx')) {
-    console.log('LEFTOVER ALIAS?', normalized.includes('@/'))
-  }
-  console.log('LEFTOVER ALIAS?', normalized.includes('@/'))
   const { default: Content } = await evaluate(normalized, {
     ...runtime,
-    baseUrl: new URL('file://' + process.cwd()).href,
     useMDXComponents: () => createMDXComponents(),
     remarkPlugins: [
       extractCodeMeta,
@@ -72,7 +68,8 @@ async function compileWikiMDX(source, context) {
       renderTabGroups,
       injectEmbedFlags,
       [injectTermLinksAndPreviews, { terms }],
-      extractTOC,
+      // sanitizeHeadings,
+      // extractTOC,
     ],
     rehypePlugins: [
       rehypeSlug,
@@ -83,7 +80,7 @@ async function compileWikiMDX(source, context) {
         },
       ],
       rehypeKatex,
-      // rehypePrism,
+      rehypePrism,
       rehypePrismPlus,
       // rehypePresetMinify,
     ],
@@ -94,7 +91,7 @@ async function compileWikiMDX(source, context) {
 
 export async function bundle(source = '', slug, options) {
   const { data } = matter(source)
-  const index = options.index || {}
+  const { index, headings } = options
   const { Content } = await compileWikiMDX(source, {
     slug,
     index,
@@ -109,36 +106,4 @@ export async function bundle(source = '', slug, options) {
     },
     toc: [],
   }
-}
-
-function isPromise(v) {
-  return !!v && typeof v?.then === 'function'
-}
-
-function isFunction(v) {
-  return typeof v === 'function'
-}
-
-export function buildRegistrySnapshot(registry = {}) {
-  const snapshot = {}
-
-  for (const [key, value] of Object.entries(registry)) {
-    if (isPromise(value)) continue
-    if (value instanceof Promise) continue
-
-    if (isFunction(value)) {
-      snapshot[key] = {
-        type: 'component',
-        name: value.name || key,
-      }
-      continue
-    }
-
-    snapshot[key] = {
-      type: 'data',
-      value,
-    }
-  }
-
-  return snapshot
 }

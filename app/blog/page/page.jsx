@@ -1,7 +1,6 @@
 import ListLayout from '../../../layouts/ListLayout'
 import siteMetadata from '../../../data/site-metadata'
 import { POSTS_PER_PAGE } from '../../../data/constants'
-import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -21,8 +20,7 @@ export async function generateMetadata() {
 }
 
 export default async function Page({ params }) {
-  const posts = await getAllBlogPosts()
-
+  const posts = []
   const pageNumber = parseInt(params.page)
 
   if (Number.isNaN(pageNumber) || pageNumber < 1) {

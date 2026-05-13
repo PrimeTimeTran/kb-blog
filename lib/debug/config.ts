@@ -8,8 +8,8 @@ import type {
 } from './types'
 
 let CONFIG = {
-  LOG_LEVEL: (process.env.LOG_LEVEL || 'info') as LogLevel,
-  DEBUG: process.env.DEBUG || 'mdx',
+  LOG_LEVEL: (process.env.LOG_LEVEL || 'error') as LogLevel,
+  DEBUG: process.env.DEBUG || 'build',
   LOG_SHAPE: 'inspect' as LogShape,
   TRACE_SOURCE: false,
   TRACE_RAW: false,
