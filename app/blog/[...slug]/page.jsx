@@ -28,14 +28,18 @@ export default async function BlogPage({ params, posts }) {
   const Post = await content.get({ type: 'blog', slug: normalizedSlug })
 
   if (!Post) return null
-  
+
   const { mdxSource, toc, frontMatter } = Post
 
   return (
     <Layout3ColumnLeft
       leftCol={
-        // NOTE:
-        // Proves left column is scrollable if content is large enough
+        // EXPLANATION:[1]:Proof left sidebar scrollable
+        // EXPLANATION:[2]:Proof left sidebar scrollable
+        // EXPLANATION:[3]:Proof left sidebar scrollable
+        // EXPLANATION:[4]:Proof left sidebar scrollable
+        // EXPLANATION:[5]:Proof left sidebar scrollable
+        // EXPLANATION:[6]:Proof left sidebar scrollable
         false ? (
           <div className=" w-128">
             <div className=" w-128">

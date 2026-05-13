@@ -41,7 +41,6 @@ export function buildBacklinks(files, terms) {
     const text = content.toLowerCase()
     const isDraft = Boolean(data.draft)
 
-    // FIX: iterate values, not entries
     for (const T of Object.values(terms)) {
       const term = normalizeTerm(T)
 

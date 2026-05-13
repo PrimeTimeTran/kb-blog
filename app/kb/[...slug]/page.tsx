@@ -1,4 +1,4 @@
-// NOTE:
+// EXPLANATION:
 // This page participates in an implicit layout contract defined by Next.js App Router.
 //
 // It assumes a surrounding layout (LayoutClient + Layout.tsx) that provides:
@@ -17,8 +17,6 @@ import { notFound } from 'next/navigation'
 
 // import { TocSchema } from '@repo/core'
 import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
-// import { MDXProvider } from '@/providers/MDXProvider'
-// // import { applyKbPlugins, numberingPlugin } from '@/lib/remark/render-numbered-headings'
 import { content } from '../../../lib/content/api/client'
 import TableOfContents from '../../../components/TableOfContents'
 
@@ -39,13 +37,15 @@ export default async function Page({ params }: PageProps) {
     return <div>Not found</div>
   }
 
-  // TODO: Type this and throw an error.
-  // "Handling it" is like ignoring fire alarms.
+  // TODO:Typing:
+  // Safely handling is sometimes a foot gun
+  //
+  // - [ ] Type the return type from core repo
+  // - [ ] Use it to alert devs
   // const toc = TocSchema.parse(KBItem.toc)
   if (!KBItem) notFound()
   // console.log({ toc: KBItem.analysis.headings })
   return (
-    // <MDXProvider analysis={KBItem.analysis} toc={KBItem.toc} slug={slug}>
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
       <Layout3ColumnCenter>
         <PageClient>
@@ -57,6 +57,5 @@ export default async function Page({ params }: PageProps) {
         </PageClient>
       </Layout3ColumnCenter>
     </Layout3ColumnRight>
-    // </MDXProvider>
   )
 }
