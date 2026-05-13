@@ -8,6 +8,7 @@ import { TOCInline } from './TOCInline'
 import { OrderBook } from './OrderBook'
 import { SafeLink as Link } from './Link'
 import { TermPeekDefinition } from './TermPeekDefinition'
+import { ProjectionChart } from './ProjectionChart'
 
 import { BlogNewsletterForm } from '../NewsletterForm'
 import { H1, H2, H3, H4, H5, H6 } from '../HeadingComponents'
@@ -33,6 +34,7 @@ const components = {
   tabGroup: TabGroup,
   TabGroup: TabGroup,
   BlogNewsletterForm,
+  ProjectionChart,
 }
 
 export const MDXComponents = Object.fromEntries(
@@ -44,6 +46,7 @@ export function createMDXComponents(registry, depth, visited, embedded) {
   return {
     ...MDXComponents,
     Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
+    // ProjectionChart: (props) => <ProjectionChart {...props} />,
     // wrapper: ({ layout, ...rest }) => {
     //   const Layout = layouts[layout] || layouts.KBLayout
     //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />

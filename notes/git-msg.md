@@ -5,10 +5,18 @@ Global Scroll Spy
 | ✅  | 🆔 Name                                  |
 | --- | ---------------------------------------- |
 | [ ] | WIP: Polishing                           |
-| [ ] |                                          |
-| [ ] |                                          |
-| [ ] |                                          |
-| [ ] |                                          |
+| [x] | WIP: MDX pipeline                        |
+| [x] | - ts                                     |
+| [x] | - pipeline                               |
+| [x] | - client                                 |
+| [x] | - registry                               |
+| [x] | - normalized                             |
+| [x] | - types                                  |
+| [x] | - blogs index                            |
+| [x] | - blog read                              |
+| [x] | - kb index                               |
+| [x] | - kb read                                |
+| [-] | - links work                             |
 | [ ] |                                          |
 | [ ] |                                          |
 | [ ] |                                          |

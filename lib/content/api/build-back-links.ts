@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
-import { getContentFiles } from './core/get-content.js'
-import { buildTermsRegistry } from './terms/buildTermsRegistry.js'
+import { getContent } from './get-content.js'
+import { buildTermsRegistry } from './build-terms-registry.js'
 
 function canonicalSlug(s) {
   return s
@@ -83,6 +83,6 @@ export function buildBacklinks(files, terms) {
 
 export function getBacklinks() {
   const terms = buildTermsRegistry()
-  const files = getContentFiles()
+  const files = getContent()
   return buildBacklinks(files, terms)
 }

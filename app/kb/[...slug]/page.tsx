@@ -18,7 +18,7 @@ import { notFound } from 'next/navigation'
 // import { TocSchema } from '@repo/core'
 import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
 
-import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
+import { content } from '../../../lib/content/api/client'
 
 import TableOfContents from '../../../components/TableOfContents'
 
@@ -29,10 +29,15 @@ type PageProps = {
 }
 
 export default async function Page({ params }: PageProps) {
-  const { slug } = await params
-  const slugPath = Array.isArray(slug) ? slug.join('/') : slug
+  const slugParam = params?.slug
 
-  const KBItem = await getContentBySlug('kb', slugPath)
+  const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam
+
+  const KBItem = await content.get({ type: 'kb', slug })
+
+  if (!KBItem) {
+    return <div>Not found</div>
+  }
 
   // TODO: Type this and throw an error.
   // "Handling it" is like ignoring fire alarms.

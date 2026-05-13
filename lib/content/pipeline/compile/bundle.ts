@@ -8,28 +8,29 @@ import remarkMath from 'remark-math'
 import remarkFootnotes from 'remark-footnotes'
 
 import rehypeSlug from 'rehype-slug'
+import rehypePrism from 'rehype-prism'
 import rehypeKatex from 'rehype-katex'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import rehypePrism from 'rehype-prism'
 
-import { extractTOC } from '../../../lib/remark/extract-toc'
-import { extractCodeMeta } from '../../../lib/remark/extract-code-meta'
-import { extractFrontMatter } from '../../../lib/remark/extract-front-matter'
+import { extractTOC } from '../../../remark/extract-toc'
+import { extractCodeMeta } from '../../../remark/extract-code-meta'
+import { extractFrontMatter } from '../../../remark/extract-front-matter'
 
-import { renderEmbeds } from '../../../lib/remark/render-embeds'
-import { renderCallOuts } from '../../../lib/remark/render-callouts'
-import { renderImgInJSX } from '../../../lib/remark/render-img-in-jsx'
-import { renderTabGroups } from '../../../lib/remark/render-tab-groups'
-import { renderCodeBlocks } from '../../../lib/remark/render-codeblocks'
+import { renderEmbeds } from '../../../remark/render-embeds'
+import { renderCallOuts } from '../../../remark/render-callouts'
+import { renderImgInJSX } from '../../../remark/render-img-in-jsx'
+import { renderTabGroups } from '../../../remark/render-tab-groups'
+import { renderCodeBlocks } from '../../../remark/render-codeblocks'
+import { mdxComponentPaths } from '../../../remark/mdx-components-paths'
 
-import { injectEmbedFlags } from '../../../lib/remark/inject-embed-flags'
-import { injectTermLinksAndPreviews } from '../../../lib/remark/inject-term-links-and-preview'
+import { injectEmbedFlags } from '../../../remark/inject-embed-flags'
+import { injectTermLinksAndPreviews } from '../../../remark/inject-term-links-and-preview'
 
-import { terms } from '../../../data/generated/terms'
-import { getKbIndex } from '../../../lib/content/core/kb'
-import { preprocessEmbeds, preprocessWikiLinks } from '../../../lib/content/core/transformers'
+import { terms } from '../../../../data/generated/terms'
+
+import { preprocessEmbeds, preprocessWikiLinks } from '../../api/transformers'
 
 import { createMDXComponents } from '@/mdx/createMDXComponents.jsx'
 
@@ -50,13 +51,15 @@ export function debugAST() {
 
 async function compileWikiMDX(source, context) {
   let { slug = '', kbIndex = {} } = context
-
-  // Embeds currently broken
   let normalized = preprocessWikiLinks(source, kbIndex, slug)
   normalized = preprocessEmbeds(normalized, kbIndex)
-
+  if (normalized.includes('@/mdx')) {
+    console.log('LEFTOVER ALIAS?', normalized.includes('@/'))
+  }
+  console.log('LEFTOVER ALIAS?', normalized.includes('@/'))
   const { default: Content } = await evaluate(normalized, {
     ...runtime,
+    baseUrl: new URL('file://' + process.cwd()).href,
     useMDXComponents: () => createMDXComponents(),
     remarkPlugins: [
       extractCodeMeta,
@@ -92,6 +95,7 @@ async function compileWikiMDX(source, context) {
 export async function bundle(source = '', slug, options = {}) {
   const { data } = matter(source)
   const kbIndex = options.kbIndex || {}
+  console.log({kbIndex})
   const { Content } = await compileWikiMDX(source, {
     slug,
     kbIndex,

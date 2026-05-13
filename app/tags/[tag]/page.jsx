@@ -5,8 +5,8 @@ import ListLayout from '../../../layouts/ListLayout'
 import siteMetadata from '../../../data/site-metadata'
 import generateRss from '../../../lib/generate-rss'
 import kebabCase from '../../../lib/utils/kebab-case'
-import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
 import { ROOT } from '../../../lib/content/core/constants.js'
+import { content } from '../../../lib/content/api/client'
 import { getAllTags } from '../../../lib/content/server/tag/getAllTags'
 
 // optional: keep if you still want dynamic RSS generation at build/runtime
@@ -47,8 +47,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function Page({ params }) {
-  const allPosts = await getAllBlogPosts('blog')
-
+  // const allPosts = await getAllBlogPosts('blog')
+  const allPosts = await content.get({ type: 'blog' })
   const filteredPosts = (allPosts ?? []).filter((post) => {
     if (post.draft) return false
     if (!Array.isArray(post.tags)) return false
@@ -71,7 +71,5 @@ export default async function Page({ params }) {
     title = title.toUpperCase()
   }
 
-  return (
-    <ListLayout posts={filteredPosts} title={title} />
-  )
+  return <ListLayout posts={filteredPosts} title={title} />
 }

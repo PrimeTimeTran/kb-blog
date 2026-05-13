@@ -1,6 +1,6 @@
 import readingTime from 'reading-time'
-import { extractTOC } from '../../content/server/extract-toc'
-import { normalizeFile, normalizeFrontMatter } from '../../content/core/normalize'
+import { extractTOC } from '../core/extract-toc'
+import { normalizeFile, normalizeFrontMatter } from '../core/normalize'
 
 export function preprocessEmbeds(source, kbIndex) {
   return source.replace(/!\[\[(.+?)\]\]/g, (_, raw) => {
@@ -33,9 +33,8 @@ export function preprocessWikiLinks(source = '', kbIndex, currentSlug = '') {
     // split file + anchors
     // -------------------------------
     const [filePart, ...anchors] = left.split('#')
-
     const cleanFile = filePart.replace(/\.mdx?$/, '').toLowerCase()
-    const resolvedPath = kbIndex.get(cleanFile) ?? cleanFile
+    const resolvedPath = kbIndex instanceof Map ? kbIndex.get(cleanFile) : kbIndex?.[cleanFile]
 
     // -------------------------------
     // detect same-page link ✅

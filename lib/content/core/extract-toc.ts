@@ -1,6 +1,6 @@
 import { remark } from 'remark'
-import GithubSlugger from 'github-slugger'
 import remarkParse from 'remark-parse'
+import GithubSlugger from 'github-slugger'
 import { toString } from 'mdast-util-to-string'
 
 function stripFrontMatter(source) {

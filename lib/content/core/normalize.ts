@@ -1,17 +1,15 @@
-export function normalizeDate(input) {
+import type { Slug, ISODateString, FrontMatterBase, NormalizedPost, TreeNode } from './types'
+
+export function normalizeDate(input: unknown): ISODateString {
   if (!input) return null
 
-  // Already a Date object
   if (input instanceof Date) {
     return input.toISOString().slice(0, 10)
   }
 
-  // String input
   if (typeof input === 'string') {
-    // Handles ISO strings too safely
     const d = new Date(input)
 
-    // If invalid date, fallback to raw string slice
     if (isNaN(d.getTime())) {
       return input.slice(0, 10)
     }
@@ -19,15 +17,15 @@ export function normalizeDate(input) {
     return d.toISOString().slice(0, 10)
   }
 
-  // fallback (rare cases)
   try {
-    const d = new Date(input)
+    const d = new Date(input as any)
     return isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10)
   } catch {
     return null
   }
 }
-export function normalizeSlug(input) {
+
+export function normalizeSlug(input: any): Slug {
   if (!input) return ''
 
   const raw = typeof input === 'string' ? input : input.slug || input.filePath || ''
@@ -38,7 +36,13 @@ export function normalizeSlug(input) {
     .replace(/\.(md|mdx)$/, '')
 }
 
-export function normalizeFile({ filePath, frontMatter = {} }) {
+export function normalizeFile({
+  filePath,
+  frontMatter = {},
+}: {
+  filePath: string
+  frontMatter?: FrontMatterBase
+}): Pick<NormalizedPost, 'slug' | 'filePath' | 'frontMatter'> | null {
   if (typeof filePath !== 'string') return null
 
   const slug = filePath
@@ -47,6 +51,7 @@ export function normalizeFile({ filePath, frontMatter = {} }) {
     .replace(/\.(md|mdx)$/, '')
 
   if (!slug) return null
+
   return {
     slug,
     filePath,
@@ -57,19 +62,32 @@ export function normalizeFile({ filePath, frontMatter = {} }) {
   }
 }
 
-export function normalizePost(post) {
+export function normalizePost(
+  post: Partial<NormalizedPost> & { frontMatter?: FrontMatterBase }
+): NormalizedPost {
   return {
-    ...post,
+    slug: post.slug || '',
+    filePath: post.filePath || '',
+
+    title: post.title || post.frontMatter?.title || '',
+    summary: post.summary || post.frontMatter?.summary || '',
+
     tags: post.tags || post.frontMatter?.tags || [],
+
+    date: normalizeDate(post.frontMatter?.date),
+
+    isDev: post.isDev ?? post.frontMatter?.isDev ?? false,
+
     frontMatter: {
-      ...post.frontMatter,
       tags: post.frontMatter?.tags || [],
-      date: post.frontMatter?.date ? new Date(post.frontMatter.date).toISOString() : null,
+      draft: post.frontMatter?.draft || false,
+      date: normalizeDate(post.frontMatter?.date),
+      isDev: post.frontMatter?.isDev || false,
     },
   }
 }
 
-export function normalizeFrontMatter(fm, slug) {
+export function normalizeFrontMatter(fm: FrontMatterBase, slug: string) {
   return {
     slug,
     tags: fm?.tags ?? [],
@@ -80,18 +98,15 @@ export function normalizeFrontMatter(fm, slug) {
   }
 }
 
-export function normalizeTree(tree) {
-  return (Object.values(tree) ?? []).map((node) => ({
+export function normalizeTree(tree: Record<string, any>): TreeNode[] {
+  return (Object.values(tree) ?? []).map((node: any) => ({
     name: node.name,
 
-    // file can exist independently of children
     file: node.file ?? null,
 
-    // always normalize children to array
     children: node.children ? normalizeTree(node.children) : [],
 
-    // derived flag (useful for UI)
-    isFolder: node.children && Object.keys(node.children).length > 0,
+    isFolder: !!node.children && Object.keys(node.children).length > 0,
     isFile: Boolean(node.file),
   }))
 }

@@ -1,12 +1,12 @@
-import { getAllBlogPosts } from '../lib/content/server/blog.server'
-
 import PageClient from './PageClient'
+import { content } from '../lib/content/api/client'
 
-export default async function Page({ children, left, right }) {
-  const posts = (await getAllBlogPosts()) || []
+export default async function Page() {
+  const posts = (await content.list({ type: 'blog' })) || []
+  if (!posts) return null
   return (
     <div className="flex h-full w-full min-h-0 overflow-hidden">
-      <PageClient posts={posts} />
+      <PageClient posts={posts || []} />
     </div>
   )
 }

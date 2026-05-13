@@ -8,11 +8,11 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-import { ROOT } from '../../content/core/constants'
-import { bundle } from '../../content/server/bundle'
+import { ROOT } from '../core/constants'
+import { bundle } from '../server/keep.bundle'
 import { createTrace } from '../../debug/log'
 
-import { getKbIndex } from '../../content/core/kb'
+import { getKbIndex } from './kb'
 
 export async function buildMDXContext(overrides = {}) {
   const kbIndex = await getKbIndex()

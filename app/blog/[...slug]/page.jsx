@@ -1,8 +1,6 @@
 // import generateRss from '@/lib/generate-rss'
-import TableOfContents from '../../../components/TableOfContents'
-import { getAllBlogPosts } from '../../../lib/content/server/blog.server'
 import { BlogContent } from '../../../components/blog'
-import { getContentBySlug } from '../../../lib/content/core/get-content-by-slug'
+import TableOfContents from '../../../components/TableOfContents'
 
 import {
   Layout3ColumnLeft,
@@ -10,10 +8,10 @@ import {
   Layout3ColumnCenter,
 } from '@/components/layout/ThreeColumnLayout'
 
-// import { log } from '../../../lib/debug/log'
+import { content } from '../../../lib/content/api/client'
 
-export async function generateStaticParams() {
-  const posts = await getAllBlogPosts()
+export async function generateStaticParams(props) {
+  const posts = await content.list({ type: 'blog' })
 
   return (posts ?? [])
     .filter((p) => !p.draft)
@@ -22,22 +20,15 @@ export async function generateStaticParams() {
     }))
 }
 
-export default async function BlogPage({ params }) {
-  let slug = await params.slug
-  slug = Array.isArray(slug) ? slug.join('/') : slug
+export default async function BlogPage({ params, posts }) {
+  const { slug } = await params
 
-  const Post = await getContentBySlug('blog', slug)
-  // console.log({ Post })
+  const normalizedSlug = Array.isArray(slug) ? slug.join('/') : slug
 
-  if (!Post) return null // or notFound()
+  const Post = await content.get({ type: 'blog', slug: normalizedSlug })
 
-  const posts = await getAllBlogPosts()
-  const index = posts.findIndex((p) => p.slug === slug)
-
-  const prev = posts[index + 1] || null
-  const next = posts[index - 1] || null
-
-  const authorDetails = await getContentBySlug('authors', 'default')
+  if (!Post) return null
+  
   const { mdxSource, toc, frontMatter } = Post
 
   return (
