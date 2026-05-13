@@ -2,11 +2,11 @@ import readingTime from 'reading-time'
 import { extractTOC } from '../core/extract-toc'
 import { normalizeFile, normalizeFrontMatter } from '../core/normalize'
 
-export function preprocessEmbeds(source, kbIndex) {
+export function preprocessEmbeds(source, index) {
   return source.replace(/!\[\[(.+?)\]\]/g, (_, raw) => {
     const clean = raw.replace(/\.md$/, '')
     const key = clean.split('/').pop() // 👈 THIS IS THE FIX
-    const resolved = kbIndex.get(key) ?? key
+    const resolved = index.get(key) ?? key
     return `<Embed id="${resolved}" />`
   })
 }
@@ -20,48 +20,25 @@ function slugify(str) {
     .replace(/-+/g, '-')
 }
 
-export function preprocessWikiLinks(source = '', kbIndex, currentSlug = '') {
-  if (typeof source !== 'string') {
-    throw new TypeError(`[preprocessWikiLinks] expected string but got ${typeof source}`)
-  }
+export function preprocessWikiLinks(source = '', index, currentSlug = '') {
   return source.replace(/\[\[(.+?)\]\]/g, (_, raw) => {
     const [left, alias] = raw.split('|')
-
     const display = alias?.trim()
 
-    // -------------------------------
-    // split file + anchors
-    // -------------------------------
     const [filePart, ...anchors] = left.split('#')
-    const cleanFile = filePart.replace(/\.mdx?$/, '').toLowerCase()
-    const resolvedPath = kbIndex instanceof Map ? kbIndex.get(cleanFile) : kbIndex?.[cleanFile]
 
-    // -------------------------------
-    // detect same-page link ✅
-    // -------------------------------
-    const isSamePage = !filePart || resolvedPath === currentSlug.split('/').pop()
+    const resolvedPath = filePart
+      .replace(/\.mdx?$/, '')
+      .replace(/^\//, '')
+      .toLowerCase()
+    const entry = index?.[resolvedPath]
+    console.log({ filePart, entry, keys: Object.keys(index) })
 
-    let url = ''
+    const url = entry
+      ? `/kb/${resolvedPath}${anchors.length ? '#' + slugify(anchors.pop()) : ''}`
+      : left // fallback safe
 
-    if (isSamePage) {
-      // ✅ same page → only anchor
-      if (anchors.length) {
-        const last = anchors[anchors.length - 1]
-        url = `#${slugify(last)}`
-      } else {
-        url = '' // or '#'
-      }
-    } else {
-      // ✅ different page
-      url = `/kb/${resolvedPath}`
-
-      if (anchors.length) {
-        const last = anchors[anchors.length - 1]
-        url += `#${slugify(last)}`
-      }
-    }
-
-    const label = display || left.replace(/\.mdx?$/, '').replace(/#/g, ' › ')
+    const label = display || left
 
     return `[${label}](${url})`
   })

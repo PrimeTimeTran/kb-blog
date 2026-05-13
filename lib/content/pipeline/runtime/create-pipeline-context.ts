@@ -9,12 +9,13 @@ export function createPipelineContext(input: {
   request: ContentRequest
   source: ResolvedContentSource
   raw: RawContent
+  index: Record<string, unknown>
 }): PipelineContext {
   return {
     request: input.request,
     source: input.source,
     raw: input.raw,
-
+    index: input.index,
     frontMatter: {},
 
     analysis: {

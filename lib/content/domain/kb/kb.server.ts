@@ -2,9 +2,9 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-import { KB_DIR } from '../core/constants'
-import { normalizeTree } from '../core/normalize'
-import getAllFilesRecursively from './files'
+import { KB_DIR } from '../../core/constants'
+import { normalizeTree } from '../../core/normalize'
+import getAllFilesRecursively from '../../server/files'
 
 export async function getKbTree() {
   const files = await getAllFilesRecursively(KB_DIR)

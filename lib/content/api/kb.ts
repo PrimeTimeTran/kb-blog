@@ -20,10 +20,10 @@ import { KB_DIR } from '../core/constants'
 //   return index
 // }
 
-export async function getKbIndex() {
-  const files = await getAllFilesRecursively(KB_DIR)
-  return buildKbIndex(files)
-}
+// export async function getKbIndex() {
+//   const files = await getAllFilesRecursively(KB_DIR)
+//   return buildKbIndex(files)
+// }
 
 // export function getAllKbSlugs() {
 //   const walk = (dir, base = '') => {

@@ -6,7 +6,6 @@ export interface ContentRequest {
   type: ContentType
   slug: Slug
 }
-
 export type ContentType = 'blog' | 'kb' | 'authors' | 'terms' | (string & {})
 
 export interface ResolvedContentSource {
@@ -79,19 +78,17 @@ export interface FrontMatter {
 ───────────────────────────────────────────── */
 
 export interface PipelineContext {
-  request: ContentRequest
-
-  source: ResolvedContentSource
   raw: RawContent
-
+  request: ContentRequest
+  source: ResolvedContentSource
+  index?: Record<string, unknown>
   frontMatter?: FrontMatter
 
+  compile: CompileArtifacts
   analysis: AnalysisArtifacts
   transform: TransformArtifacts
-  compile: CompileArtifacts
 
   diagnostics: Diagnostic[]
-
   artifacts: Record<string, unknown>
 }
 
@@ -188,13 +185,12 @@ export interface ContentSource {
   id: string
   resolve(input: ContentRequest): Promise<ResolvedContentSource | null>
   read(source: ResolvedContentSource): Promise<RawContent>
-
-  // optional but OK here
-  // list?(input: { type: string; slug: string }): Promise<string[]>
   list(type: string): Promise<string[]>
 }
 
 export interface ContentCollection {
+  id: string
+  rootDir: string
   list(): Promise<string[]>
   read(slug: string): Promise<RawContent>
 }
@@ -207,4 +203,9 @@ export interface ContentRegistryEntry {
 
 export interface ContentRegistry {
   get(type: string): ContentCollection | null
+}
+
+export type ContentGetConfig = {
+  includeDrafts?: boolean
+  filter?: (item: ContentItem) => boolean
 }

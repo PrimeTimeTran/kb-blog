@@ -24,6 +24,7 @@ export function buildCompilePipeline(ctx: PipelineContext) {
   return {
     async run() {
       const mdxContext = await buildMDXContext({
+        index: ctx.index,
         slug: ctx.request.slug!,
       })
 

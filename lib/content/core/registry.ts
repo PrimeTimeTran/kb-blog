@@ -18,6 +18,7 @@ const filesystemSource = createFilesystemSource({
 
 function createCollection(type: string, source: ContentSource): ContentCollection {
   return {
+    id: source.id,
     async list() {
       return source.list(type)
     },
@@ -57,12 +58,20 @@ export const registry: ContentRegistry = {
 
 export function createContentClient(registry: ContentRegistry, config?: ContentClientConfig) {
   return {
-    get: async (args) => {
-      const collection = registry.get(args.type)
-      if (!collection) throw new Error(`Unknown content type: ${args.type}`)
+    get: async (query) => {
+      const collection = registry.get(query.type)
 
-      const result = await getContent({ ...args, collection }, registry)
-      return result ?? null
+      if (!collection) {
+        throw new Error(`Unknown content type: ${query.type}`)
+      }
+
+      return getContent(
+        {
+          collection,
+          config,
+        },
+        query
+      )
     },
 
     list: async (args) => {
@@ -71,7 +80,6 @@ export function createContentClient(registry: ContentRegistry, config?: ContentC
 
       return listContent(
         {
-          registry,
           collection,
           config: mapClientToListConfig(config),
         },

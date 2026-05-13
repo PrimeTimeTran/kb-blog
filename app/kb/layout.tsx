@@ -1,5 +1,5 @@
 import LayoutClient from './LayoutClient'
-import { getKbTree } from '../../lib/content/server/kb.server'
+import { getKbTree } from '../../lib/content/domain/kb/kb.server'
 
 // NOTE:
 // This file is named "Layout" because it is the root layout boundary for this route segment,

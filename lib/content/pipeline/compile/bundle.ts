@@ -50,9 +50,9 @@ export function debugAST() {
 // https://mdxjs.com/docs/
 
 async function compileWikiMDX(source, context) {
-  let { slug = '', kbIndex = {} } = context
-  let normalized = preprocessWikiLinks(source, kbIndex, slug)
-  normalized = preprocessEmbeds(normalized, kbIndex)
+  let { slug = '', index = {} } = context
+  let normalized = preprocessWikiLinks(source, index, slug)
+  normalized = preprocessEmbeds(normalized, index)
   if (normalized.includes('@/mdx')) {
     console.log('LEFTOVER ALIAS?', normalized.includes('@/'))
   }
@@ -92,13 +92,12 @@ async function compileWikiMDX(source, context) {
   return { Content }
 }
 
-export async function bundle(source = '', slug, options = {}) {
+export async function bundle(source = '', slug, options) {
   const { data } = matter(source)
-  const kbIndex = options.kbIndex || {}
-  console.log({kbIndex})
+  const index = options.index || {}
   const { Content } = await compileWikiMDX(source, {
     slug,
-    kbIndex,
+    index,
     terms: options.terms || {},
   })
 
