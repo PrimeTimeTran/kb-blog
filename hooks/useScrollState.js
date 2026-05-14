@@ -16,10 +16,12 @@ export function useScrollState(el, toc = [], threshold = 40) {
 
     let ticking = false
 
+    console.log('MOUNTED')
+
     const onScroll = () => {
       if (ticking) return
       ticking = true
-
+      console.log('scrolling')
       requestAnimationFrame(() => {
         const scrollTop = el.scrollTop
         const height = el.scrollHeight - el.clientHeight

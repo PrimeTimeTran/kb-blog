@@ -1,3 +1,11 @@
+:root {
+  --nav-height: 96px;
+}
+
+html {
+  scroll-padding-top: var(--nav-height);
+}
+
 html,
 body {
   height: 100%;

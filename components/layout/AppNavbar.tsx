@@ -12,7 +12,7 @@ import ThemeSwitch from '../ThemeSwitch'
 
 import { SafeLink as Link } from '../mdx/Link'
 
-export function Navbar({}) {
+export function AppNavbar({}) {
   const pathName = usePathname()
   const { scrollProgress } = useScroll()
 

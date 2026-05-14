@@ -24,8 +24,7 @@ import { RegistryProvider } from '@/providers/RegistryProvider'
 import { ScrollProvider } from '@/providers/ScrollProvider'
 // import { buildKbRegistry } from '../../lib/content/domain/kb/kb.server'
 import { LayoutProvider } from '@/providers/LayoutProvider'
-
-import { Navbar } from './AppNavbar'
+import { AppNavbar } from './AppNavbar'
 
 export async function AppShell({ children }) {
   // const registry = await buildKbRegistry()
@@ -63,7 +62,6 @@ export async function AppShell({ children }) {
             <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
             <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
             <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-            <Navbar />
             {children}
           </ScrollProvider>
         </LayoutProvider>

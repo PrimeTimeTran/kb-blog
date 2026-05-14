@@ -55,3 +55,23 @@ export function Layout3ColumnCenter({ children }) {
     </div>
   )
 }
+
+// export function ScrollContainer({ children }) {
+//   const { scrollRef } = useScrollSpy()
+
+//   return (
+//     <div
+//       ref={scrollRef}
+//       data-scroll-root
+//       className="
+//         flex-1
+//         min-w-0
+//         min-h-0
+//         overflow-y-auto
+//         no-scrollbar
+//       "
+//     >
+//       {children}
+//     </div>
+//   )
+// }

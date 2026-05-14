@@ -1,59 +1,29 @@
-// EXPLANATION:
-// This page participates in an implicit layout contract defined by Next.js App Router.
-//
-// It assumes a surrounding layout (LayoutClient + Layout.tsx) that provides:
-// - shared structural shell (left sidebar, global layout constraints)
-// - scroll containment and sizing rules (flex/min-h-0 behavior)
-// - consistent width management via ResizableColumn + LayoutProvider
-//
-// This component only defines the *route-specific content region* plus an optional
-// right-side enhancement (Table of Contents).
-//
-// In practice, it does not stand alone — it relies on the parent layout system
-// to provide structure, state, and interaction boundaries that are not explicitly
-// visible in this file but are guaranteed by the route segment architecture.
-
+// app/kb/[...slug]/page.tsx
 import { notFound } from 'next/navigation'
+import { content } from '@/lib/content/api/client'
+import { ResizableColumn } from '@/components/layout/ResizableColumn'
+import TableOfContents from '@/components/TableOfContents'
+import { ScrollContainer } from './ScrollContainer'
 
-// import { TocSchema } from '@repo/core'
-import { Layout3ColumnCenter, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout'
-import { content } from '../../../lib/content/api/client'
-import TableOfContents from '../../../components/TableOfContents'
+export default async function Page({ params }) {
+  const slug = await (Array.isArray(params.slug) ? params.slug.join('/') : params.slug)
 
-import { PageClient } from './PageClient'
-
-type PageProps = {
-  params: {
-    slug: string[]
-  }
-}
-
-export default async function Page({ params }: PageProps) {
-  const slugParam = params?.slug
-  const slug = Array.isArray(slugParam) ? slugParam.join('/') : slugParam
   const KBItem = await content.get({ type: 'kb', slug })
 
-  if (!KBItem) {
-    return <div>Not found</div>
-  }
-
-  // TODO:Typing:
-  // Safely handling is sometimes a foot gun
-  //
-  // - [ ] Type the return type from core repo
-  // - [ ] Use it to alert devs
   if (!KBItem) notFound()
   return (
-    <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
-      <Layout3ColumnCenter>
-        <PageClient>
-          <div className="w-full max-w-none mx-0 px-3">
-            <div className="prose dark:prose-invert">
-              <KBItem.Content />
-            </div>
-          </div>
-        </PageClient>
-      </Layout3ColumnCenter>
-    </Layout3ColumnRight>
+    <div className="flex h-full min-h-0">
+      {/* CENTER */}
+      <ScrollContainer>
+        <div className="prose dark:prose-invert px-3">
+          <KBItem.Content />
+        </div>
+      </ScrollContainer>
+
+      {/* RIGHT */}
+      <ResizableColumn side="right" className="h-full shrink-0">
+        <TableOfContents toc={KBItem.toc} />
+      </ResizableColumn>
+    </div>
   )
 }

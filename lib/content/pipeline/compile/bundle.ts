@@ -42,7 +42,7 @@ import { createMDXComponents } from '@/mdx/createMDXComponents.jsx'
 // https://mdxjs.com/docs/
 
 async function compileWikiMDX(source, context) {
-  let { slug = '', index = {} } = context
+  const { slug = '', index = {} } = context
   let normalized = preprocessWikiLinks(source, index, slug)
   normalized = preprocessEmbeds(normalized, index)
   const { default: Content } = await evaluate(normalized, {

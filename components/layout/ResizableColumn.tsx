@@ -15,17 +15,18 @@ function Resizer({ onMouseDown }) {
 
 type ResizableColumnProps = {
   side: 'left' | 'right'
+  className: string
   children: ReactNode
 }
 
-export function ResizableColumn({ side, children }: ResizableColumnProps) {
+export function ResizableColumn({ side, className, children }: ResizableColumnProps) {
   const { layout } = useLayout()
   const resize = useResize(side)
   const isLeft = side === 'left'
 
   return (
     <div
-      className={`flex h-full shrink-0 ${isLeft ? ' overflow-hidden left-sidebar' : 'right-sidebar'}`}
+      className={`flex h-full shrink-0 ${className ? className : ''} ${isLeft ? ' overflow-hidden left-sidebar' : 'right-sidebar'}`}
       style={{ width: layout[side], flexShrink: 0 }}
     >
       {!isLeft && <Resizer onMouseDown={resize} />}

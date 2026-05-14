@@ -99,77 +99,6 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
   const level = item.depth ?? 1
   const indent = (level - 1) * 16
   const colorClass = getHeadingClass(level)
-  const scrollToHeading = (rawId) => {
-    const id = rawId.replace(/^#/, '')
-
-    const root = scrollRootRef?.current
-    if (!root) return
-
-    const el = document.getElementById(id)
-    if (!el) return
-
-    const yOffset = 96
-
-    const rootRect = root.getBoundingClientRect()
-    const elRect = el.getBoundingClientRect()
-
-    const offset = elRect.top - rootRect.top + root.scrollTop - yOffset
-
-    root.scrollTo({
-      top: offset,
-      behavior: 'smooth',
-    })
-  }
-
-  // 1.
-  // TODO:02:
-  // - [ ] ...
-  // TODO:01:
-  // - [ ] ...
-
-  // 1.
-  // BUG: TOC click causes page shift
-  // - [ ] 1. Left col shifts
-  // - [ ] 1. Right col shifts
-
-  // BUG: Page Shift
-  // - [ ] 1. Left col shifts
-  // - [ ] 1. Right col shifts
-
-  // 2.
-  // TODO:
-  // - [ ] ...
-  // TODO:Product:
-  // - [ ] ...
-  // TODO:Product[2]:
-  // - [ ] ...
-  // TODO:Product[1]:
-  // - [ ] ...
-  // TODO:Dev[1]:
-  // - [ ] 1.1.1
-  // - [ ] 2.1.1
-  // - [ ] a.b.c
-  // - [ ] b.c.d
-  // TODO:Dev:
-  // - [ ] 1.1.1
-  // - [ ] 2.1.1
-  // - [ ] a.b.c
-  // - [ ] b.c.d
-  // TODO:Dev[1]:
-  // - [ ] 1.1.1
-  // - [ ] 2.1.1
-  // - [ ] a.b.c
-  // - [ ] b.c.d
-  // TODO:Dev[2]:
-  // - [ ] 1.1.1
-  // - [ ] 2.1.1
-  // - [ ] a.b.c
-  // - [ ] b.c.d
-  // TODO:Dev[3]:
-  // - [ ] 1.1.1
-  // - [ ] 2.1.1
-  // - [ ] a.b.c
-  // - [ ] b.c.d
 
   return (
     <div
@@ -209,7 +138,7 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
     </div>
   )
 }
-export default function TableOfContents({ toc = [] }) {
+export default function TableOfContents({ toc }) {
   const { activeId, setToc } = useScroll()
 
   useEffect(() => {

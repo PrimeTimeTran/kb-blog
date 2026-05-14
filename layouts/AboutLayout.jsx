@@ -1,9 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { PageSEO } from '../components/SEO'
-// import { Image } from '../components/mdx/Image'
-// import SocialIcon from '../components/social-icons'
-// import { Navbar } from '../components/layout/AppNavbar'
 
 function ContentTabs({ children }) {
   const [tab, setTab] = useState('intro')
