@@ -34,7 +34,6 @@ function safeJsonParse(value, fallback = {}) {
 
 export function Pre(props) {
   const { code, children, codeMeta } = props
-
   // ---- meta ----
   const meta =
     codeMeta || children?.props?.codeMeta

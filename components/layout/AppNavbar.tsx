@@ -19,9 +19,7 @@ export function Navbar({}) {
   function checkKbRoute(link) {
     try {
       return link.href.substring(0, 3) === '/kb' && pathName.substring(0, 3) === '/kb'
-    } catch (error) {
-      console.log('link parse error', error)
-    }
+    } catch (error) {}
   }
   // Make better favicon
   // https://www.remove.bg/upload

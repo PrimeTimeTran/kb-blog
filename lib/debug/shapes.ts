@@ -13,7 +13,9 @@ export const LOG_SHAPES: Record<LogShape, (obj: any) => any> = {
 
   shallow: (obj) => obj,
 
-  deep: (obj) => JSON.parse(JSON.stringify(obj)),
+  deep: (obj) => {
+    JSON.parse(JSON.stringify(obj))
+  },
 
   inspect: (obj) => ({
     keys: Object.keys(obj || {}),

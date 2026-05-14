@@ -1,10 +1,10 @@
 ---
 draft: false
-slug: KB-TOC
-date: '2026-04-30'
-title: 'Table of Contents'
-summary: 'Table of Contents'
-tags: ['KB/MD/Obsidian/Blog']
+slug: table-of-contents
+date: 2026-04-30
+title: Table of Contents
+summary: Table of Contents
+tags:
 ---
 
 # Knowledge Base - Table Of Contents
