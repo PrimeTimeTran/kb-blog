@@ -42,9 +42,7 @@ export default async function Page({ params }: PageProps) {
   //
   // - [ ] Type the return type from core repo
   // - [ ] Use it to alert devs
-  // const toc = TocSchema.parse(KBItem.toc)
   if (!KBItem) notFound()
-  // console.log({ toc: KBItem.analysis.headings })
   return (
     <Layout3ColumnRight rightCol={KBItem.toc && <TableOfContents toc={KBItem.toc} />}>
       <Layout3ColumnCenter>

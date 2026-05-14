@@ -93,7 +93,8 @@ export async function getContent(
     // Passing the TOC this was prevent an infinite loop client-side.
     toc: extractTOC(raw.raw),
     filePath: raw.source.filePath,
-    Content: ctx.compile?.Content, // This property is a React component/function
+    // This property is a React component/function
+    Content: ctx.compile?.Content,
     frontMatter: ctx.frontMatter ?? {},
   }
 
