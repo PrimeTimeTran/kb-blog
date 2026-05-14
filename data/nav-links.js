@@ -7,7 +7,7 @@ import { SiLibreofficewriter } from 'react-icons/si'
 
 const headerNavLinks = [
   {
-    href: '/kb/KB-TOC',
+    href: '/kb/table-of-contents',
     title: 'K-Base',
     icon: GiGiftOfKnowledge,
   },

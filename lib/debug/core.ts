@@ -1,10 +1,31 @@
 import { randomUUID } from 'crypto'
 import { CONFIG } from './config'
 import { shouldLog, resolveShape, banner, isTraceView, getColor, getCallerLocation } from './utils'
-import { normalizeTraceData, LOG_SHAPES } from './shapes'
-import type { LogLevel } from './types'
+import { normalizeTraceData } from './shapes'
+import type { LogLevel, TraceEmitOptions } from './types'
 
-import type { TraceEmitOptions } from './types'
+/* ─────────────────────────────
+   GLOBAL SILENCE GATE
+───────────────────────────── */
+
+const IS_BUILD =
+  process.env.NEXT_PHASE === 'phase-production-build' || process.env.NODE_ENV === 'production'
+
+const TRACE_ENABLED = process.env.TRACE === 'true' && !IS_BUILD
+
+function out(...args: any[]) {
+  if (!TRACE_ENABLED) return
+  console.log(...args)
+}
+
+function err(...args: any[]) {
+  if (!TRACE_ENABLED) return
+  console.error(...args)
+}
+
+/* ─────────────────────────────
+   TRACE
+───────────────────────────── */
 
 export function createTrace(namespace: string) {
   const id = randomUUID().slice(0, 6)
@@ -15,54 +36,37 @@ export function createTrace(namespace: string) {
     meta: {} as Record<string, any>,
   }
 
-  console.log(banner(color, `\n━━━ TRACE START ${namespace}:${id} ━━━`))
-
-  /* ─────────────────────────────
-     CONTEXT
-  ───────────────────────────── */
+  out(banner(color, `\n━━━ TRACE START ${namespace}:${id} ━━━`))
 
   function setContext(partial: Record<string, any>) {
     context.meta = { ...context.meta, ...partial }
     return api
   }
 
-  /* ─────────────────────────────
-     EMITTER
-  ───────────────────────────── */
-
   function emit(level: LogLevel, event: string, data?: unknown, opts: TraceEmitOptions = {}) {
+    if (!TRACE_ENABLED) return
     if (!shouldLog(namespace, level)) return
 
-    const source = CONFIG.TRACE_SOURCE ? getCallerLocation(4) : null
     const shape = resolveShape(opts)
 
-    const shaped: TraceData =
-      typeof data === 'object' ? normalizeTraceData(data, opts.depth ?? 2) : data
+    const shaped = typeof data === 'object' ? normalizeTraceData(data, opts.depth ?? 2) : data
 
-    // const expanded =
-    //   shaped && typeof (shaped as any).inspect === 'function'
-    //     ? { ...shaped, _inspect: '[call inspect() to view]' }
-    //     : shaped
-    console.log(`${getColor(id)}[${namespace}:${level}]`, event)
+    out(`${getColor(id)}[${namespace}:${level}]`, event)
 
     if (isTraceView(shaped)) {
-      console.log('  levels:')
-      shaped.levels.forEach((l) => console.log('   ', l))
+      out('  levels:')
+      shaped.levels.forEach((l) => out('   ', l))
 
-      console.log('  preview:', shaped.preview)
+      out('  preview:', shaped.preview)
 
       if (CONFIG.TRACE_RAW) {
-        console.log('  raw:')
+        out('  raw:')
         console.dir(shaped.raw, { depth: null })
       }
     } else {
-      console.log('  value:', shaped)
+      out('  value:', shaped)
     }
   }
-
-  /* ─────────────────────────────
-     API
-  ───────────────────────────── */
 
   const api = {
     id,
@@ -81,25 +85,25 @@ export function createTrace(namespace: string) {
 
     pick<T>(list: T[], index: number, label = 'PICK') {
       const item = list?.[index]
-      console.log(banner(getColor(id), `[${namespace}:${id}] ${label}[${index}]`), item)
+      out(banner(getColor(id), `[${namespace}:${id}] ${label}[${index}]`), item)
       return item
     },
 
     inspect(obj: any, path: (string | number)[]) {
       const value = path.reduce((acc, key) => acc?.[key], obj)
-      console.log(banner(getColor(id), `[${namespace}:${id}] INSPECT ${path.join('.')}`), value)
+      out(banner(getColor(id), `[${namespace}:${id}] INSPECT ${path.join('.')}`), value)
       return value
     },
 
-    async span<T>(label: string, fn: (span: TraceSpan) => Promise<T> | T): Promise<T> {
+    async span<T>(label: string, fn: (span: any) => Promise<T> | T): Promise<T> {
       const startedAt = Date.now()
 
-      console.log(banner(getColor(id), `[${namespace}:${id}] ▶ ${label}`))
+      out(banner(getColor(id), `[${namespace}:${id}] ▶ ${label}`))
 
       try {
         const result = await fn(api)
 
-        console.log(
+        out(
           '\x1b[90m',
           {
             span: label,
@@ -110,22 +114,22 @@ export function createTrace(namespace: string) {
 
         return result
       } catch (error) {
-        console.log(banner(getColor(id), `[${namespace}:${id}] ✖ ${label}`))
-
-        console.error(error)
-
+        out(banner(getColor(id), `[${namespace}:${id}] ✖ ${label}`))
+        err(error)
         throw error
       }
     },
 
     end() {
-      console.log(banner(color, `━━━ TRACE END ${namespace}:${id} ━━━`))
+      if (!TRACE_ENABLED) return
+
+      out(banner(color, `━━━ TRACE END ${namespace}:${id} ━━━`))
 
       if (Object.keys(context.meta).length > 0) {
-        console.log('\x1b[90m', context.meta, '\x1b[0m')
+        out('\x1b[90m', context.meta, '\x1b[0m')
       }
 
-      console.log('\x1b[90m', { duration: Date.now() - context.startedAt }, '\x1b[0m\n')
+      out('\x1b[90m', { duration: Date.now() - context.startedAt }, '\x1b[0m\n')
     },
   }
 
