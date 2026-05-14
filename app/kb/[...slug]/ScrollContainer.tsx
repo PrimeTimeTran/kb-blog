@@ -13,6 +13,7 @@ export function ScrollContainer({ children }) {
         min-h-0
         overflow-y-auto
         scroll-smooth
+        no-scrollbar
       "
       // Prevents layout shift on TOC click
       style={{ contain: 'layout paint' }}

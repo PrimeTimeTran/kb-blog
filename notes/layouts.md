@@ -10,10 +10,10 @@
 ```jsx
 export default async function AppLayout({ children }) {
   return (
-    <html className={` h-full`}>
+    <html>
       <body className="h-full overflow-hidden">
         <AppShell>
-          <div className="h-screen flex flex-col overflow-hidden">
+          <div className="h-screen flex flex-col">
             <AppNavbar />
             <div className="flex-1 min-h-0 overflow-hidden">{children}</div>
           </div>
@@ -101,8 +101,9 @@ export function ScrollContainer({ children }) {
         min-h-0
         overflow-y-auto
         scroll-smooth
-        scroll-pt-24
       "
+      // Prevents layout shift on TOC click
+      style={{ contain: 'layout paint' }}
     >
       {children}
     </div>

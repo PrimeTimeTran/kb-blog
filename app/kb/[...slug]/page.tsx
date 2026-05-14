@@ -6,13 +6,14 @@ import TableOfContents from '@/components/TableOfContents'
 import { ScrollContainer } from './ScrollContainer'
 
 export default async function Page({ params }) {
-  const slug = await (Array.isArray(params.slug) ? params.slug.join('/') : params.slug)
+  let { slug } = await params
+  slug = await (Array.isArray(slug) ? slug.join('/') : slug)
 
   const KBItem = await content.get({ type: 'kb', slug })
 
   if (!KBItem) notFound()
   return (
-    <div className="flex h-full min-h-0">
+    <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
       {/* CENTER */}
       <ScrollContainer>
         <div className="prose dark:prose-invert px-3">
@@ -21,7 +22,7 @@ export default async function Page({ params }) {
       </ScrollContainer>
 
       {/* RIGHT */}
-      <ResizableColumn side="right" className="h-full shrink-0">
+      <ResizableColumn side="right">
         <TableOfContents toc={KBItem.toc} />
       </ResizableColumn>
     </div>

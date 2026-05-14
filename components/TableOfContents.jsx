@@ -102,11 +102,11 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
 
   return (
     <div
-      className="
-        border-l-2
+      className={`
         transition-all
         hover:bg-(--surface-variant)
-      "
+        ${isActive ? 'border-l-2' : ''}
+      `}
       style={{
         paddingLeft: `${indent}px`,
         borderColor: isActive ? 'var(--primary)' : 'var(--outline-variant)',
