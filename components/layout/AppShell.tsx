@@ -2,29 +2,15 @@
 import 'katex/dist/katex.css'
 import 'katex/dist/katex.min.css'
 
-// Core languages
-import 'prismjs'
-import 'prismjs/components/prism-go'
-import 'prismjs/components/prism-ruby'
-import 'prismjs/components/prism-dart'
-import 'prismjs/components/prism-rust'
-import 'prismjs/components/prism-python'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
-
-import '../../css/prism.css'
+// import '../../css/prism.css'
 import '../../css/tailwind.css'
-
-import '../../css/app.css'
 import '../../css/theme.css'
+import '../../css/app.css'
 
 import { ThemeProviders } from '../../app/theme-providers'
 
-import { RegistryProvider } from '@/providers/RegistryProvider'
 import { ScrollProvider } from '@/providers/ScrollProvider'
-// import { buildKbRegistry } from '../../lib/content/domain/kb/kb.server'
 import { LayoutProvider } from '@/providers/LayoutProvider'
-import { AppNavbar } from './AppNavbar'
 
 export async function AppShell({ children }) {
   // const registry = await buildKbRegistry()

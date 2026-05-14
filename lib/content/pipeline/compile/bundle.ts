@@ -7,10 +7,7 @@ import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 
 import rehypeSlug from 'rehype-slug'
-import rehypePrism from 'rehype-prism'
 import rehypeKatex from 'rehype-katex'
-import rehypePrismPlus from 'rehype-prism-plus'
-// import rehypePresetMinify from 'rehype-preset-minify'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 // import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
@@ -53,7 +50,8 @@ async function compileWikiMDX(source, context) {
       extractFrontMatter,
       remarkGfm,
       remarkMath,
-      renderCodeBlocks,
+      // Unneeded?
+      // renderCodeBlocks,
       [renderEmbeds],
       renderCallOuts,
       renderTabGroups,
@@ -71,9 +69,6 @@ async function compileWikiMDX(source, context) {
         },
       ],
       rehypeKatex,
-      rehypePrism,
-      rehypePrismPlus,
-      // rehypePresetMinify,
     ],
   })
 

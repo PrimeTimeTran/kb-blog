@@ -48,10 +48,6 @@
   }
 }
 
-.embed {
-  @apply prose prose-invert;
-}
-
 *,
 html {
   -webkit-print-color-adjust: exact;
@@ -71,12 +67,15 @@ strong {
    TYPOGRAPHY / PROSE (MDX / content rendering)
 ========================================================= */
 
-.prose {
+/* .prose {
   @apply border-slate-200 dark:border-slate-800;
 }
 .prose code:not(pre code) {
   @apply dark:bg-zinc-800;
 }
+.embed {
+  @apply prose prose-invert;
+} */
 
 /* =========================================================
    TASK LISTS (MDX / Markdown enhancements)

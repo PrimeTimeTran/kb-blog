@@ -9,6 +9,7 @@ import {
 } from '@/components/layout/ThreeColumnLayout'
 
 import { content } from '../../../lib/content/api/client'
+import MDXWrapper from '../../../components/mdx/MDXWrapper'
 
 export async function generateStaticParams(props) {
   const posts = await content.list({ type: 'blog' })
@@ -34,12 +35,6 @@ export default async function BlogPage({ params, posts }) {
   return (
     <Layout3ColumnLeft
       leftCol={
-        // EXPLANATION:[1]:Proof left sidebar scrollable
-        // EXPLANATION:[2]:Proof left sidebar scrollable
-        // EXPLANATION:[3]:Proof left sidebar scrollable
-        // EXPLANATION:[4]:Proof left sidebar scrollable
-        // EXPLANATION:[5]:Proof left sidebar scrollable
-        // EXPLANATION:[6]:Proof left sidebar scrollable
         false ? (
           <div className=" w-128">
             <div className=" w-128">
@@ -60,7 +55,9 @@ export default async function BlogPage({ params, posts }) {
       >
         <Layout3ColumnCenter>
           <BlogContent toc={toc} frontMatter={frontMatter}>
-            <Post.Content />
+            <MDXWrapper>
+              <Post.Content />
+            </MDXWrapper>
           </BlogContent>
         </Layout3ColumnCenter>
       </Layout3ColumnRight>

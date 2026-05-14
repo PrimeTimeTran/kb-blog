@@ -1,15 +1,6 @@
 'use client'
 import Prism from 'prismjs'
-import React, { useState } from 'react'
-
-import 'prismjs'
-import 'prismjs/components/prism-go'
-import 'prismjs/components/prism-ruby'
-import 'prismjs/components/prism-dart'
-import 'prismjs/components/prism-rust'
-import 'prismjs/components/prism-python'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-typescript'
+import React, { useState, useEffect } from 'react'
 
 import { LANG_MAP } from '@/data/constants'
 
@@ -32,6 +23,8 @@ function safeJsonParse(value, fallback = {}) {
   }
 }
 
+// TODO:
+// - [ ] Renders JSX properly.
 export function Pre(props) {
   const { code, children, codeMeta } = props
   // ---- meta ----
@@ -44,12 +37,10 @@ export function Pre(props) {
 
   // ---- code ----
   const rawCode = (code ?? extractText(children)).trim()
-
   const resolvedLang = LANG_MAP[lang] || lang || 'text'
   const grammar = Prism.languages[resolvedLang]
 
   const html = grammar ? Prism.highlight(rawCode, grammar, resolvedLang) : rawCode
-
   const lines = html.split(/\r?\n/)
 
   const highlightSet = new Set(highlight)
@@ -76,7 +67,6 @@ export function Pre(props) {
       `.trim()
     })
     .join('')
-
   return (
     <div className="not-prose overflow-hidden bg-slate-50 dark:bg-[#0d1117] text-slate-200">
       {title && (
@@ -151,6 +141,22 @@ export function TabGroup({ tabs }) {
           })}
         </div>
       </div>
+    </div>
+  )
+}
+
+export const Code = ({ children, className }) => {
+  const language = className?.replace(/language-/, '') || 'text'
+
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [children])
+
+  return (
+    <div className="flex-1 h-64 overflow-auto bg-slate-950 rounded-lg">
+      <pre className={`language-${language} !m-0 p-4`}>
+        <code className={`language-${language} block w-fit min-w-full`}>{children}</code>
+      </pre>
     </div>
   )
 }

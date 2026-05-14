@@ -1,11 +1,10 @@
-import DSAClient from '../../components/client/DSA'
+import { PageClient } from '@/app/dsa/PageClient'
 
 import allProblems from '../../lib/dsa/problems/problems-all.json'
 import { listPareto, listBlind75, neetCode150, neetCode250 } from '../../lib/dsa/problems/lists.js'
 
 import solutions from '../../lib/dsa/problems/solutions.js'
 // import siteMetadata from '@/data/site-metadata.js'
-import { CenterRegion } from '@/components/layout/CenterRegion'
 
 function computeTags(problems) {
   const tags = problems.map((p) => p.tags).flat()
@@ -22,7 +21,7 @@ function computeTagCounts(problems, categories) {
   return counts
 }
 
-export default function DSAPage() {
+export default function Page() {
   const problems = allProblems ?? []
 
   const problemCategories = [
@@ -56,20 +55,18 @@ export default function DSAPage() {
   const tagCounts = computeTagCounts(problems, orderedTags)
 
   return (
-    <CenterRegion>
-      <DSAClient
-        tags={orderedTags}
-        problems={problems}
-        solutions={solutions}
-        tagCounts={tagCounts}
-        orderedTags={orderedTags}
-        lists={{
-          listPareto,
-          listBlind75,
-          neetCode150,
-          neetCode250,
-        }}
-      />
-    </CenterRegion>
+    <PageClient
+      tags={orderedTags}
+      problems={problems}
+      solutions={solutions}
+      tagCounts={tagCounts}
+      orderedTags={orderedTags}
+      lists={{
+        listPareto,
+        listBlind75,
+        neetCode150,
+        neetCode250,
+      }}
+    />
   )
 }
