@@ -1,26 +1,35 @@
 'use client'
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
 // import siteMetadata from '../data/site-metadata.js'
-import SolutionSnippet from '../../components/Solution.jsx'
-// import solutions from '../lib/dsa/problems/solutions.js'
-import allProblems from '../../lib/dsa/problems/problems-all.json'
-import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists'
-import { buttonVariants } from '../../components/buttonVariants.js'
-import { useProblemEngine } from '@/hooks/useProblemEngine'
+
 import { ScrollContainer } from '@/components/ScrollContainer'
 import { CenterRegion } from '@/components/layout/CenterRegion'
 
-export function PageClient({ lists, problems, solutions, orderedTags, tagCounts }) {
-  const { displayedProblems, randomlySelected, filters, actions } = useProblemEngine(
-    problems,
-    lists
-  )
+import SolutionSnippet from '@/components/Solution.jsx'
 
-  // Keep UI-only state here
+import { Difficulty, useProblemEngine } from '@/hooks/useProblemEngine'
+import { Tooltip } from '@/components/ToolTip'
+import { RichTooltip } from '@/components/ToolTipRich'
+
+import { FilterToolbar } from './FilterToolbar'
+import { TagExplorer } from './TagExplorer'
+
+export function PageClient() {
+  const {
+    filters,
+    actions,
+    solutions,
+    tagCounts,
+    orderedTags,
+    displayedProblems,
+    randomlySelected,
+  } = useProblemEngine()
+
+  const sidebarRef = useRef<HTMLDivElement>(null)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [focusedSolution, setFocusedSolution] = useState(null)
-  const sidebarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -51,11 +60,9 @@ export function PageClient({ lists, problems, solutions, orderedTags, tagCounts 
         return 'text-red-500'
     }
   }
-
   const hasSolution = (problem) => {
     return solutions.find((s) => s.id === problem.lc.id)
   }
-
   const showProblemSolutions = (e, problem) => {
     e.preventDefault()
     e.stopPropagation()
@@ -68,263 +75,67 @@ export function PageClient({ lists, problems, solutions, orderedTags, tagCounts 
   return (
     <div className="h-full min-h-0 flex flex-col not-prose">
       <ScrollContainer>
+        <div className="space-y-2 px-2 mt-2">
+          <TagExplorer
+            actions={actions}
+            filters={filters}
+            orderedTags={orderedTags}
+            tagCounts={tagCounts}
+          />
+          <FilterToolbar
+            actions={actions}
+            filters={filters}
+            resetFilters={() => {
+              actions.setSelectedList('all')
+              actions.setSortBy('difficulty-asc') // Back to default instead of 'none'
+              actions.setSelectedPremium(['free', 'premium'])
+              actions.setSelectedDifficulties(['e', 'm', 'h'])
+              actions.setSelectedTags([])
+            }}
+          />
+        </div>
         <CenterRegion>
-          <div className="flex flex-col">
-            <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
-              Data Structures & Algorithms
-            </h1>
-            <div className="flex w-full flex-wrap gap-2">
-              {(orderedTags ?? []).map((tag) => {
-                const active = filters.selectedTags.includes(tag)
-                return (
-                  <button
-                    key={tag}
-                    type="button"
-                    onClick={() => actions.toggleTag(tag)}
-                    className={buttonVariants({
-                      tone: 'default',
-                      active,
-                    })}
-                  >
-                    <span>
-                      {tag.toUpperCase()}
-                      <span className="ml-1 text-gray-400">({tagCounts[tag]})</span>
-                    </span>
-                  </button>
-                )
-              })}
-            </div>
-          </div>
-          <hr className="my-3 border-gray-600" />
-          <div className="flex w-full items-center justify-center gap-4 flex-wrap">
-            {/* LEFT: Filters */}
-            <div className="flex items-center gap-2 flex-wrap">
-              {/* Clear */}
-              <button
-                type="button"
-                onClick={() => actions.setSelectedTags([])}
-                className={`px-2 py-1 text-xs rounded transition-colors ${
-                  filters.selectedTags.length === 0
-                    ? 'invisible'
-                    : 'bg-yellow-600 text-white hover:bg-yellow-500 dark:bg-yellow-700 dark:hover:bg-yellow-600'
-                }`}
-              >
-                Clear Tags
-              </button>
-
-              {/* Premium */}
-              <div className="flex items-center gap-1 ml-2">
-                <button
-                  onClick={() => actions.setSelectedPremium('all')}
-                  className={`px-2 py-1 text-xs rounded transition-colors ${
-                    filters.selectedPremium === 'all'
-                      ? 'bg-green-600 text-white dark:bg-green-500'
-                      : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-                  }`}
-                >
-                  All
-                </button>
-
-                <button
-                  onClick={() => actions.setSelectedPremium('free')}
-                  className={`px-2 py-1 text-xs rounded transition-colors ${
-                    filters.selectedPremium === 'free'
-                      ? 'bg-green-600 text-white dark:bg-green-500'
-                      : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-                  }`}
-                >
-                  Free 🆓
-                </button>
-
-                <button
-                  onClick={() => actions.setSelectedPremium('premium')}
-                  className={`px-2 py-1 text-xs rounded transition-colors ${
-                    filters.selectedPremium === 'premium'
-                      ? 'bg-green-600 text-white dark:bg-green-500'
-                      : 'bg-surface text-meta hover:text-primary dark:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
-                  }`}
-                >
-                  Premium 💵
-                </button>
-              </div>
-            </div>
-
-            <span className="mx-2 text-meta/50">|</span>
-
-            {/* RIGHT: Lists */}
-            <div className="flex items-center gap-1 flex-wrap">
-              {[
-                ['all', `All (${allProblems.length})`],
-                ['pareto', `Pareto (${listPareto.length})`],
-                ['blind75', `Blind 75 (${listBlind75.length})`],
-                ['neetCode150', `NeetCode 150 (${neetCode150.length})`],
-                ['neetCode250', `NeetCode 250 (${neetCode250.length})`],
-              ].map(([key, label]) => (
-                <button
-                  key={key}
-                  onClick={() => actions.setSelectedList(key)}
-                  className={buttonVariants({
-                    tone: 'list',
-                    active: filters.selectedList === key,
-                  })}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
-          <hr className="my-3  border-gray-600" />
-          <div className="flex items-center justify-between gap-4 flex-wrap">
-            {/* LEFT */}
-            <div className="flex items-center gap-2 flex-wrap">
-              {/* Difficulty */}
-              <button
-                onClick={() => actions.toggleDifficulty('e')}
-                className={buttonVariants({
-                  tone: 'difficulty',
-                  active: filters.selectedDifficulties.includes('e'),
-                })}
-              >
-                Easy
-              </button>
-              <button
-                onClick={() => actions.toggleDifficulty('m')}
-                className={buttonVariants({
-                  tone: 'difficulty',
-                  active: filters.selectedDifficulties.includes('m'),
-                })}
-              >
-                Medium
-              </button>
-              <button
-                onClick={() => actions.toggleDifficulty('h')}
-                className={buttonVariants({
-                  tone: 'difficulty',
-                  active: filters.selectedDifficulties.includes('h'),
-                })}
-              >
-                Hard
-              </button>
-
-              <span className="mx-2 text-meta/50 dark:text-gray-600">|</span>
-
-              {/* Sort */}
-              <button
-                onClick={() => actions.setSortBy('none')}
-                className={buttonVariants({
-                  tone: 'primary',
-                  active: filters.sortBy === 'none',
-                })}
-              >
-                None
-              </button>
-
-              <button
-                onClick={() => actions.setSortBy('difficulty-asc')}
-                className={buttonVariants({
-                  tone: 'primary',
-                  active: filters.sortBy === 'difficulty-asc',
-                })}
-              >
-                ↑
-              </button>
-
-              <button
-                onClick={() => actions.setSortBy('difficulty-desc')}
-                className={buttonVariants({
-                  tone: 'primary',
-                  active: filters.sortBy === 'difficulty-desc',
-                })}
-              >
-                ↓
-              </button>
-            </div>
-
-            {/* RIGHT */}
-            <div className="flex items-center gap-2">
-              <button
-                onClick={actions.handleShuffle}
-                className={buttonVariants({ tone: 'action' })}
-              >
-                🎲 Shuffle
-              </button>
-
-              <button onClick={actions.handleRandom} className={buttonVariants({ tone: 'action' })}>
-                ⏭️ Next
-              </button>
-
-              <button onClick={actions.handleRandom} className={buttonVariants({ tone: 'action' })}>
-                👻 Random
-              </button>
-            </div>
-          </div>
-          <hr className="my-3  border-gray-600" />
-          <AnimatePresence>
-            {(displayedProblems ?? []).map((problem, i) => (
-              <motion.div
-                layout
-                key={problem.lc.id}
-                initial={{ opacity: 0, y: 6 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -6 }}
-                transition={{ duration: 0.2 }}
-              >
-                <a
-                  href={problem.url}
-                  target="_blank"
-                  className="gap-2 text-lg text-meta dark:text-meta group"
-                  rel="noreferrer"
-                  onClick={() => actions.markAttempted(problem.lc.id)}
-                >
-                  <div className="flex items-start gap-2 w-full group-hover:text-link">
-                    <span className="w-12 text-right">{i + 1}. </span>
-                    <span
-                      className={` ${
-                        randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
-                          ? 'line-through decoration-amber-300 dark:decoration-slate-600'
-                          : ''
-                      }`}
-                    >
-                      {problem.title}
-                    </span>
-                    <span className={'text-sm ' + getDifficulty(problem.difficulty)}>
-                      [{problem.difficulty}]
-                    </span>
-                    {hasSolution(problem) && (
-                      <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>
-                    )}
-                  </div>
-                </a>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          <Suspense fallback={<ProblemListSkeleton count={15} />}>{renderProblemList()}</Suspense>
         </CenterRegion>
       </ScrollContainer>
+      {renderSidebarAndBackdrop()}
+    </div>
+  )
+  function renderSidebarAndBackdrop() {
+    return (
       <>
-        {/* BACKDROP */}
         {isSidebarOpen && (
-          <div className="fixed inset-0 z-40 bg-black/20" onClick={() => setIsSidebarOpen(false)} />
+          <div
+            className="fixed inset-0 z-40 bg-scrim/30  transition-opacity"
+            onClick={() => setIsSidebarOpen(false)}
+          />
         )}
 
-        {/* SIDEBAR */}
         <div
           ref={sidebarRef}
           className={`
-            fixed right-0 top-0 z-50
-            h-full w-1/3
-            overflow-y-auto
-            border
-            bg-white dark:bg-gray-900
-            py-2
-            transition-transform duration-300 ease-in-out
-            ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
-          `}
+          fixed right-0 top-0 z-50
+          h-full w-full md:w-1/3 lg:w-[400px]
+          overflow-y-auto
+          /* M3 Tokens */
+          bg-surface-container-low text-on-surface
+          shadow-elevation-3
+          /* M3 Shaping: Rounded leading edge */
+          rounded-l-2xl
+          border-l border-outline-variant
+          py-4 px-6
+          transition-transform duration-300 ease-emphasized
+          ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
+        `}
         >
           {/* HEADER */}
-          <div className="mb-2 flex justify-end">
+          <div className="mb-6 flex items-center justify-between">
+            <h2 className="text-title-large font-semibold">Solutions</h2>
             <button
               type="button"
-              className="ml-1 mr-1 h-8 rounded bg-blue-700 px-2 text-white"
+              className="flex h-10 items-center justify-center rounded-full px-4 
+                       bg-primary text-on-primary hover:shadow-elevation-1 
+                       active:scale-95 transition-all text-label-large"
               onClick={() => setIsSidebarOpen(false)}
             >
               Close
@@ -332,13 +143,93 @@ export function PageClient({ lists, problems, solutions, orderedTags, tagCounts 
           </div>
 
           {/* CONTENT */}
-          {/* your solutions here */}
-          {focusedSolution &&
-            (focusedSolution.solutions ?? []).map((solution, idx) => {
-              return <SolutionSnippet solution={solution} key={idx} />
-            })}
+          <div className="space-y-4">
+            {focusedSolution &&
+              (focusedSolution.solutions ?? []).map((solution, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-xl bg-surface-container px-4 py-3 border border-outline-variant"
+                >
+                  <SolutionSnippet solution={solution} />
+                </div>
+              ))}
+          </div>
         </div>
       </>
+    )
+  }
+  function renderProblemList() {
+    return (
+      <AnimatePresence>
+        {(displayedProblems ?? []).map((problem, i) => (
+          <motion.div
+            layout
+            key={problem.lc.id}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.2 }}
+          >
+            <a
+              href={problem.url}
+              target="_blank"
+              className="gap-2 text-lg text-on-surface dark:text-on-surface group"
+              rel="noreferrer"
+              onClick={() => actions.markAttempted(problem.lc.id)}
+            >
+              <div className="flex items-start gap-2 w-full group-hover:text-primary">
+                <span className="w-12 text-right">{i + 1}. </span>
+                <span
+                  className={` ${
+                    randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
+                      ? 'line-through text-primary dark:text-primary decoration-on-primary dark:decoration-on-primary'
+                      : ''
+                  }`}
+                >
+                  {problem.title}
+                </span>
+                <span className={'text-sm ' + getDifficulty(problem.difficulty)}>
+                  [{problem.difficulty}]
+                </span>
+                {hasSolution(problem) && (
+                  <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>
+                )}
+              </div>
+            </a>
+          </motion.div>
+        ))}
+      </AnimatePresence>
+    )
+  }
+}
+
+export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
+  const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]']
+
+  return (
+    <div className="flex flex-col bg-surface-container-low">
+      {Array.from({ length: rows }).map((_, i) => (
+        <div
+          key={i}
+          className="flex items-center gap-4 px-6 py-4 border-b border-slate-200/60 dark:border-slate-800/60"
+        >
+          {/* 1. ICON GHOST: Slightly darker than background */}
+          <div className="h-5 w-5 rounded-md bg-slate-200 dark:bg-slate-800 animate-pulse shrink-0" />
+
+          {/* 2. BODY GHOST: The Shimmering Text */}
+          <div className="flex flex-col gap-2.5 w-full">
+            <div className={`h-3 ${widths[i % widths.length]} rounded-sm animate-shimmer`} />
+            {/* Optional second line for a "dense" look */}
+            <div className={`h-2 w-[30%] rounded-sm opacity-50 animate-shimmer`} />
+          </div>
+
+          {/* 3. META GHOST: Action/Difficulty buttons */}
+          <div className="flex gap-2 shrink-0">
+            <div className="h-6 w-12 rounded bg-slate-200 dark:bg-slate-800 animate-pulse" />
+            <div className="h-6 w-6 rounded-full bg-slate-200 dark:bg-slate-800 animate-pulse" />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

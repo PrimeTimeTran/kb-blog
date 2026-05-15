@@ -1,16 +1,13 @@
-// Latex support
-import 'katex/dist/katex.css'
-import 'katex/dist/katex.min.css'
+import { ThemeProvider } from 'next-themes'
 
-// import '../../css/prism.css'
+import 'katex/dist/katex.min.css'
 import '../../css/tailwind.css'
-import '../../css/theme.css'
-import '../../css/app.css'
 
 import { ThemeProviders } from '../../app/theme-providers'
 
 import { ScrollProvider } from '@/providers/ScrollProvider'
 import { LayoutProvider } from '@/providers/LayoutProvider'
+import { ThemeWatcher } from '@/lib/theme/ThemeWatcher'
 
 export async function AppShell({ children }) {
   // const registry = await buildKbRegistry()
@@ -18,7 +15,9 @@ export async function AppShell({ children }) {
   return (
     <>
       {/* <RegistryProvider registry={registry}> */}
-      <ThemeProviders>
+      {/* <ThemeProviders> */}
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeWatcher />
         <LayoutProvider>
           <ScrollProvider>
             <link
@@ -51,7 +50,8 @@ export async function AppShell({ children }) {
             {children}
           </ScrollProvider>
         </LayoutProvider>
-      </ThemeProviders>
+      </ThemeProvider>
+      {/* </ThemeProviders> */}
       {/* </RegistryProvider> */}
     </>
   )

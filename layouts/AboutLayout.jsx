@@ -7,7 +7,7 @@ function ContentTabs({ children }) {
   return (
     <div className="relative w-2/3 flex flex-col items-center px-16">
       {/* Tabs */}
-      <div className="flex gap-6 mb-10 text-sm border-b border-(--outline-variant) text-(--on-surface-variant) pt-6">
+      <div className="flex gap-6 mb-10 text-sm border-b border-outline-variant text-(--on-surface-variant) pt-6">
         {/* TODO: Add more tabs. Projects, Professional */}
         {/* {[{ id: 'intro', label: 'Introduction' }, { id: 'go', label: 'Go' }].map((t) => ( */}
         {[{ id: 'intro', label: 'Introduction' }].map((t) => (
@@ -82,7 +82,7 @@ export default function AboutLayout({ children, frontMatter }) {
           className="
           relative w-1/3 flex flex-col justify-center px-14
           h-full min-h-0  
-          border-r border-(--outline-variant)
+          border-r border-outline-variant
           pb-16
           no-scrollbar
         "

@@ -7,6 +7,7 @@ import { useScroll } from '@/providers/ScrollProvider'
 import headerNavLinks from '@/data/nav-links'
 import siteMetadata from '@/data/site-metadata'
 
+import { DynamicLogo } from '@/components/brand/DynamicLogo'
 import MobileNav from '../MobileNav'
 import ThemeSwitch from '../ThemeSwitch'
 
@@ -25,10 +26,10 @@ export function AppNavbar({}) {
   // https://www.remove.bg/upload
   // https://www.canva.com/design/DAHJZ2uqiWQ/AJFhQIonTYZ9OMnINFHzmw/edit?ui=eyJHIjp7IkQiOnsiRCI6eyJBPyI6IkYifX19fQ
   return (
-    <nav className="h-14 sticky top-0 z-10 flex items-center justify-between px-2 sm:px-3 bg-white dark:bg-black border-b border-(--outline-variant)">
+    <nav className="h-14 sticky top-0 z-10 flex items-center justify-between px-2 sm:px-3 bg-white dark:bg-black border-b border-outline-variant">
       <Link href="/" aria-label={siteMetadata.headerTitle}>
         <div className="flex items-center gap-2">
-          <img src="/static/favicons/loi-tran.png" alt="Logo" className="h-6 w-6" />
+          <DynamicLogo className="h-8 w-8 rounded-lg shadow-sm" />
 
           <div className="hidden sm:block text-lg md:text-2xl font-semibold">
             {siteMetadata.headerTitle}
@@ -66,7 +67,7 @@ export function AppNavbar({}) {
           className="h-full relative overflow-hidden animate-pulse-soft-glow"
           style={{
             width: `${scrollProgress * 100}%`,
-            backgroundColor: 'var(--primary)',
+            backgroundColor: 'var(--primary-container)',
             transition: 'width 120ms linear',
           }}
         >

@@ -1,0 +1,38 @@
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop {
+    border-color: var(--tw-border-color);
+    --tw-border-color: theme('colors.outline.variant');
+  }
+
+  :where(.dark) *,
+  :where(.dark) ::after,
+  :where(.dark) ::before {
+    --tw-border-color: theme('colors.outline.variant');
+  }
+
+  :root {
+    --navbar-height: 64px;
+  }
+
+  body {
+    color: var(--color-on-background);
+    background-color: var(--color-background);
+    a {
+      color: var(--on-primary);
+
+      &:hover {
+        color: var(--primary);
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:focus {
+        transition:
+          background-color 600000s 0s,
+          color 600000s 0s;
+      }
+    }
+  }
+}

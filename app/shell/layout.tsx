@@ -9,7 +9,7 @@ export default function Layout({ children }) {
   return (
     <div className="grid grid-cols-[240px_1fr_240px] min-h-screen">
       {/* LEFT */}
-      <aside className="border-r border-gray-200 dark:border-gray-700 p-6">
+      <aside className="border-r border-gray-200 dark:border-gray-700">
         <h2 className="text-gray-800 dark:text-gray-200 mb-4">Left</h2>
 
         <CounterControls {...counter} />

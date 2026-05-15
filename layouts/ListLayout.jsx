@@ -77,7 +77,7 @@ export default function ListLayout({
                   block w-full rounded-md px-4 py-2
                   bg-(--surface)
                   text-(--on-surface)
-                  border border-(--outline-variant)
+                  border border-outline-variant
                   placeholder:text-(--on-surface-variant)
                   focus:outline-none focus:ring-2 focus:ring-(--primary)
                 "
@@ -162,7 +162,7 @@ export default function ListLayout({
                   </article>
 
                   {/* DIVIDER */}
-                  <hr className="my-6 border-(--outline-variant) opacity-50 transition-colors duration-200 group-hover:border-(--primary)" />
+                  <hr className="my-6 border-outline-variant opacity-50 transition-colors duration-200 group-hover:border-(--primary)" />
                 </li>
               )
             })}

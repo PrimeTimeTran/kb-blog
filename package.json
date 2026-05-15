@@ -31,6 +31,7 @@
     "builtin-modules": "^5.1.0",
     "chalk": "^5.6.2",
     "chokidar": "^5.0.0",
+    "chroma-js": "^3.2.0",
     "clsx": "^2.1.1",
     "cn": "^0.1.1",
     "concurrently": "^9.2.1",
@@ -63,11 +64,13 @@
     "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "remark-parse": "^11.0.0",
+    "sass": "^1.99.0",
     "sharp": "^0.32.6",
     "slugify": "^1.6.9",
     "tailwind-merge": "^3.5.0",
     "unified": "^11.0.5",
-    "unist-util-visit": "^4.1.2"
+    "unist-util-visit": "^4.1.2",
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.28.6",

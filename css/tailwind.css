@@ -1,175 +1,101 @@
-/* Tailwind V4 syntax */
-@import 'tailwindcss';
+/*  1. Tailwind base layer system
+2. Design tokens
+3. Base document rules
+4. Component/layout rules
+5. Utilities
+6. Vendor overrides
+7. App overrides
 
-/* Configure using Tai */
+Imports "don't matter" anymore.
+Tailwinds innovation is that
+```
+@layer base {}
+@layer components {}
+@layer utilities {}
+```
+
+utilities ALWAYS beat components ALWAYS beat base
+
+Composition of styles 
+
+styles/
+├── theme.css        // tokens only
+├── base.css         // html/body/reset/document rules
+├── layout.css       // app shell/layout structure
+├── utilities.css    // utility/helper classes
+├── animations.css   // keyframes + animation utilities
+├── vendors.css      // 3rd party overrides
+└── tailwind.css     // tailwind imports/layers only
+
+tailwind.css
+  ├── @tailwind base/components/utilities
+  ├── theme.css        (@theme only)
+  ├── base.css         (@layer base)
+  ├── layout.css       (@layer components)
+  ├── utilities.css    (@layer utilities)
+  ├── animations.css   (raw css)
+  ├── vendors.css      (raw overrides)
+  └── app.css          (final overrides)
+
+| Layer      | Purpose                                      | Specificity | Example Use Case                |
+|------------|----------------------------------------------|-------------|---------------------------------|
+| Base       | Global resets and element-level styles       | Lowest      | Typography, body bg, resets     |
+| Components | Complex, reusable UI patterns                | Medium      | Buttons, Cards, Custom Navs     |
+| Utilities  | Single-purpose "helper" classes              | Highest     | Custom spacing, specific colors |
+
+
+| Keyword    | Description                                                                 |
+|------------|-----------------------------------------------------------------------------|
+| @layer     | Tells Tailwind which part of the CSS cascade to place the code in.          |
+| @apply     | "Inlines" existing Tailwind utility classes into your custom CSS rules.     |
+| theme()    | A function to grab values directly from your config (colors, spacing, etc). |
+| @theme     | (V4) Defines your design tokens (variables) directly in the CSS file.       |
+| @config    | Points Tailwind to your specific configuration file (e.g., tailwind.config).| 
+*/
+
+@import 'tailwindcss';
 @config "../tailwind.config.cjs";
 
+/* ─────────────────────────────────────────────
+   TOKENS / THEME
+───────────────────────────────────────────── */
+
+@import './theme.css';
+
+/* ─────────────────────────────────────────────
+   BASE / RESETS / ELEMENT DEFAULTS
+───────────────────────────────────────────── */
+
+@import './base.css';
+
+/* ─────────────────────────────────────────────
+   SEMANTIC LAYERS
+───────────────────────────────────────────── */
+
+@import './semantics.css';
+
+/* ─────────────────────────────────────────────
+   LAYOUT SYSTEMS
+───────────────────────────────────────────── */
+
+@import './layout.css';
+
+/* ─────────────────────────────────────────────
+   COMPONENTS
+───────────────────────────────────────────── */
+
+@import './app.css';
+
+/* ─────────────────────────────────────────────
+   UTILITIES / HELPERS
+───────────────────────────────────────────── */
+
+@import './utilities.css';
+@import './animations.css';
+
+/* ─────────────────────────────────────────────
+   THIRD PARTY / OVERRIDES
+───────────────────────────────────────────── */
+
+@import './vendors.css';
 @import './prism.css';
-
-/* =========================================================
-   GLOBAL BASE OVERRIDES
-========================================================= */
-
-@layer components {
-  .theme-border-b {
-    @apply border-b border-slate-200 dark:border-slate-800;
-  }
-  .theme-border-t {
-    @apply border-t border-slate-200 dark:border-slate-800;
-  }
-  .theme-border-l {
-    @apply border-l border-slate-200 dark:border-slate-800;
-  }
-  .theme-border-r {
-    @apply border-r border-slate-200 dark:border-slate-800;
-  }
-  .scroll-bar {
-    @apply [&::-webkit-scrollbar]:w-1
-  [scrollbar-width:thin];
-  }
-}
-@utility no-scrollbar {
-  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  /* Firefox */
-  scrollbar-width: none;
-
-  /* IE and Edge */
-  -ms-overflow-style: none;
-
-  /* Chrome, Safari, and Opera */
-  &::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-*,
-html {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-}
-
-body {
-  @apply bg-white dark:bg-black;
-  @apply border-b border-slate-200 dark:border-slate-800;
-}
-
-strong {
-  @apply text-blue-300 dark:text-blue-600;
-}
-
-/* =========================================================
-   TYPOGRAPHY / PROSE (MDX / content rendering)
-========================================================= */
-
-/* .prose {
-  @apply border-slate-200 dark:border-slate-800;
-}
-.prose code:not(pre code) {
-  @apply dark:bg-zinc-800;
-}
-.embed {
-  @apply prose prose-invert;
-} */
-
-/* =========================================================
-   TASK LISTS (MDX / Markdown enhancements)
-========================================================= */
-
-.task-list-item {
-  @apply list-none;
-}
-
-.task-list-item::before {
-  @apply hidden;
-}
-
-/* =========================================================
-   FOOTNOTES / CITATIONS
-========================================================= */
-
-.footnotes {
-  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
-}
-
-.csl-entry {
-  @apply my-5;
-}
-
-/* =========================================================
-   FORMS / INPUT BEHAVIOR FIXES
-========================================================= */
-
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition:
-    background-color 600000s 0s,
-    color 600000s 0s;
-}
-
-/* =========================================================
-   TABLES
-========================================================= */
-
-table {
-  display: block;
-  overflow-x: auto;
-  white-space: nowrap;
-}
-
-/* =========================================================
-   SIDEBAR BEHAVIOR
-========================================================= */
-
-.sidebar-collapsed {
-  width: 0 !important;
-  min-width: 0 !important;
-  overflow: hidden;
-  padding: 0 !important;
-  border: none !important;
-  transition: width 0.3s ease;
-}
-
-/* =========================================================
-   KB / EMBED SYSTEM
-========================================================= */
-
-.kb-embed {
-  font-size: 0.8rem;
-  line-height: 1.4;
-  width: 100%;
-  max-width: 100%;
-}
-
-/* =========================================================
-   CODE / PRISM / LINE HIGHLIGHTING
-========================================================= */
-
-.line-numbers-rows {
-  z-index: 0;
-}
-
-.line-container {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeIn {
-  animation: fadeIn 0.25s ease forwards;
-}

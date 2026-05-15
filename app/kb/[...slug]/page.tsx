@@ -16,13 +16,13 @@ export default async function Page({ params }) {
   return (
     <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
       {/* CENTER */}
-      <MDXWrapper>
-        <ScrollContainer>
-          <div className="prose dark:prose-invert px-3">
+      <ScrollContainer>
+        <MDXWrapper>
+          <div className="prose dark:prose-invert px-3 no-scrollbar">
             <KBItem.Content />
           </div>
-        </ScrollContainer>
-      </MDXWrapper>
+        </MDXWrapper>
+      </ScrollContainer>
 
       {/* RIGHT */}
       <ResizableColumn side="right">

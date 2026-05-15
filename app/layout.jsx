@@ -16,10 +16,10 @@ export const metadata = siteMetaDataHeader
 
 export default async function AppLayout({ children }) {
   return (
-    <html lang={metadata.language} className={`${space_grotesk.variable}`} suppressHydrationWarning>
+    <html lang={metadata.language} suppressHydrationWarning>
       <body className="h-full overflow-hidden">
         <AppShell>
-          <div className="h-screen flex flex-col">
+          <div className="h-screen flex flex-col bg-background text-on-background">
             <AppNavbar />
             <div className="flex-1 min-h-0 overflow-hidden">{children}</div>
           </div>

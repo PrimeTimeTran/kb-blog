@@ -57,7 +57,7 @@ function Category({ title, tags, sortedTags, filter, icon }) {
   const Icon = icon
 
   return (
-    <div className="w-full border-b border-(--outline-variant) py-3">
+    <div className="w-full border-b border-outline-variant py-3">
       <button className="w-full text-left" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">

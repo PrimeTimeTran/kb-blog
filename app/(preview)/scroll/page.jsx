@@ -1,5 +1,6 @@
 import { ScrollContainer } from '@/components/ScrollContainer'
 
+import { ButtonShowcase } from './ButtonShowcase'
 // Base Scrollable Page (with Scroll Container)
 export default function ScrollPreview() {
   const items = Array.from({ length: 50 }, (_, i) => i + 1)
@@ -8,7 +9,8 @@ export default function ScrollPreview() {
     <div className="h-full min-h-0 flex flex-col">
       <ScrollContainer>
         <div className="p-4 space-y-2">
-          {items.map((n) => (
+          <ButtonShowcase />
+          {/* {items.map((n) => (
             <div
               key={n}
               className={`h-16 flex items-center px-4 rounded ${
@@ -17,7 +19,7 @@ export default function ScrollPreview() {
             >
               Item {n}
             </div>
-          ))}
+          ))} */}
         </div>
       </ScrollContainer>
     </div>
