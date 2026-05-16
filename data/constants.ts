@@ -299,3 +299,4 @@ export const TOPICS = {
   Maths: maths,
   Tools: tools,
 }
+export type Topic = keyof typeof TOPICS

@@ -47,15 +47,6 @@ export const registry: ContentRegistry = {
   },
 }
 
-// export const registry: ContentRegistry = {
-//   get(type) {
-//     const entry = lookup[type]
-//     if (!entry) return null
-
-//     return resolveCollection(entry.source, type)
-//   },
-// }
-
 export function createContentClient(registry: ContentRegistry, config?: ContentClientConfig) {
   return {
     get: async (query) => {
@@ -64,7 +55,6 @@ export function createContentClient(registry: ContentRegistry, config?: ContentC
       if (!collection) {
         throw new Error(`Unknown content type: ${query.type}`)
       }
-
       return getContent(
         {
           collection,

@@ -1,58 +1,53 @@
-'use client'
-
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 export function useScrollState(el, toc = [], threshold = 40) {
+  const ticking = useRef(false)
+
+  const [scrollY, setScrollY] = useState(0)
   const [shrunk, setShrunk] = useState(false)
   const [activeId, setActiveId] = useState(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
-  // Header Shrink/Progress Bar
   useEffect(() => {
     if (!el) return
 
-    const SHRINK_AT = threshold
-    const EXPAND_AT = threshold - 20
-
-    let ticking = false
-
-    console.log('MOUNTED')
-
     const onScroll = () => {
-      if (ticking) return
-      ticking = true
-      console.log('scrolling')
+      if (ticking.current) return
+      ticking.current = true
+
       requestAnimationFrame(() => {
         const scrollTop = el.scrollTop
-        const height = el.scrollHeight - el.clientHeight
+        const maxScroll = el.scrollHeight - el.clientHeight
 
-        setScrollProgress(scrollTop / height)
+        setScrollY(scrollTop)
+        setScrollProgress(maxScroll > 0 ? scrollTop / maxScroll : 0)
 
         setShrunk((prev) => {
-          if (!prev && scrollTop > SHRINK_AT) return true
-          if (prev && scrollTop < EXPAND_AT) return false
+          if (!prev && scrollTop > threshold) return true
+          if (prev && scrollTop < threshold - 20) return false
           return prev
         })
 
-        ticking = false
+        ticking.current = false
       })
     }
 
     el.addEventListener('scroll', onScroll, { passive: true })
+
+    // initial sync
     onScroll()
 
-    return () => el.removeEventListener('scroll', onScroll)
-  }, [el, threshold])
+    return () => {
+      el.removeEventListener('scroll', onScroll)
+    }
+  }, [el, toc, threshold])
 
-  // Highlight Table of Contents
+  // TOC observer
   useEffect(() => {
     if (!el || !toc.length) return
 
     const elements = toc
-      .map((item) => {
-        const id = item.url.replace('#', '')
-        return document.getElementById(id)
-      })
+      .map((item) => document.getElementById(item.url.replace('#', '')))
       .filter(Boolean)
 
     if (!elements.length) return
@@ -79,5 +74,10 @@ export function useScrollState(el, toc = [], threshold = 40) {
     return () => observer.disconnect()
   }, [el, toc])
 
-  return { activeId, shrunk, scrollProgress }
+  return {
+    scrollY,
+    scrollProgress,
+    shrunk,
+    activeId,
+  }
 }

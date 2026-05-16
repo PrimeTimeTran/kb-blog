@@ -1,0 +1,180 @@
+@keyframes pulseSoftGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0px var(--primary);
+    opacity: 0.5;
+  }
+  50% {
+    box-shadow: 0 0 10px var(--primary);
+    opacity: 1;
+  }
+}
+
+.animate-pulse-soft-glow {
+  background-color: var(--primary);
+  animation: pulseSoftGlow 1.4s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--surface-container-highest), black 5%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: shimmer-slide 1.5s infinite ease-in-out;
+  }
+}
+
+:where(.dark) .animate-shimmer {
+  background-color: color-mix(in srgb, var(--surface-container-highest), white 2%);
+}
+
+:root:not(.dark) .animate-shimmer::after {
+  background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.06), transparent);
+}
+
+.card {
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg) translate(0px, 0px);
+  }
+  25% {
+    transform: rotate(-0.3deg) translate(-0.5px, 0px);
+  }
+  50% {
+    transform: rotate(0.2deg) translate(0.5px, 0px);
+  }
+  75% {
+    transform: rotate(-0.1deg) translate(0px, 0.5px);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.trace-card {
+  --border-size: 3px;
+  --border-radius: 28px;
+
+  /* Use your OMNI tokens here */
+  --trace-color: var(--md-sys-color-primary);
+
+  position: relative;
+  border-radius: var(--border-radius);
+  border: var(--border-size) solid transparent;
+  background-clip: padding-box; /* Prevents background from leaking into border area */
+}
+
+.trace-card::before {
+  content: '';
+  position: absolute;
+  inset: calc(var(--border-size) * -1); /* Pulls it out to the border area */
+  border-radius: var(--border-radius);
+
+  /* The "Hand-Drawn" Trace Logic */
+  background: conic-gradient(from 0deg, var(--trace-color), transparent 25%);
+
+  /* This mask is the magic: it hides everything EXCEPT the border line */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  /* Initial state: invisible */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.trace-card:hover::before {
+  opacity: 1;
+  /* You can even animate the rotation to make the gradient "travel" */
+  animation: rotate-trace 1.5s linear infinite;
+}
+@keyframes bounce-horizontal {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+.animate-bounce-horizontal {
+  animation: bounce-horizontal 1.5s infinite;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in linear forwards;
+}
+
+.animate-fade-out {
+  animation: fade-out linear forwards;
+}
+/* Keyframes (Defined only ONCE here) */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes rotate-trace {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.graffiti-text {
+  display: inline-block;
+  animation: wobble 6s infinite ease-in-out;
+}

@@ -23,8 +23,7 @@ function safeJsonParse(value, fallback = {}) {
   }
 }
 
-// TODO:
-// - [ ] Renders JSX properly.
+// BUG: Fails to render JSX correctly
 export function Pre(props) {
   const { code, children, codeMeta } = props
   // ---- meta ----

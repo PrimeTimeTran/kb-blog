@@ -1,5 +1,24 @@
 :root {
+  --nav-text: var(--on-surface-variant);
+  --nav-text-hover: var(--on-surface);
+
+  --nav-bg-hover: color-mix(in oklab, var(--surface-variant) 12%, transparent);
+
+  --nav-text-active: var(--primary);
+  --nav-bg-active: color-mix(in oklab, var(--primary) 12%, transparent);
   --nav-height: 96px;
+}
+
+.dark {
+  --nav-text: var(--on-surface-variant);
+  --nav-text-hover: var(--on-surface);
+
+  --nav-bg-hover: color-mix(in oklab, var(--surface) 10%, transparent);
+
+  --nav-text-active: var(--primary);
+  --nav-bg-active: color-mix(in oklab, var(--primary) 15%, transparent);
+
+  --nav-bg-hover: color-mix(in oklab, var(--surface) 12%, transparent);
 }
 
 html {
@@ -44,23 +63,7 @@ html {
   }
 }
 
-@keyframes pulseSoftGlow {
-  0%,
-  100% {
-    box-shadow: 0 0 0px var(--primary);
-    opacity: 0.5;
-  }
-  50% {
-    box-shadow: 0 0 10px var(--primary);
-    opacity: 1;
-  }
-}
-
-.animate-pulse-soft-glow {
-  animation: pulseSoftGlow 1.4s ease-in-out infinite;
-}
-
-.text-nav {
+/* .text-nav {
   color: var(--on-surface-variant);
 }
 
@@ -78,7 +81,7 @@ html {
 
 .dark .text-nav:hover {
   color: var(--primary-container);
-}
+} */
 
 .image-gallery {
   display: flex !important;
@@ -106,4 +109,44 @@ html {
 
 aside {
   transition: width 200ms ease;
+}
+
+@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
+.font-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+@font-face {
+  font-family: 'Display';
+  src: url('/fonts/display.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Hand';
+  src: url('/fonts/hand.woff2') format('woff2');
+}
+
+.graffiti-text {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 80px;
+  color: #ff00de; /* Vibrant fill color */
+  text-shadow:
+    2px 2px 0px #000,
+    /* Thin black outline */ 4px 4px 0px #333,
+    /* Inner shadow for 3D effect */ 8px 8px 15px rgba(0, 0, 0, 0.5); /* Soft drop shadow */
+  transform: rotate(-5deg); /* Slanted "throw-up" look */
+}
+
+.graffiti {
+  transform: rotate(-0.5deg);
+}
+
+.graffiti:nth-child(3n) {
+  transform: rotate(0.8deg);
+}
+
+.graffiti:nth-child(5n) {
+  transform: translateY(2px) rotate(-0.3deg);
 }

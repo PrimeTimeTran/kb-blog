@@ -1,17 +1,16 @@
 import React from 'react'
 import Link from 'next/link'
-
-import kebabCase from '../../lib/utils/kebab-case'
+import { slug } from 'github-slugger'
 
 import { buttonVariants } from '@/components/buttonVariants'
 
-function Tag({ text, active, onClick }) {
+function TagButton({ text, active, onClick, disabled }) {
   return (
     <button
       onClick={onClick}
       className={`
         ${buttonVariants({
-          active,
+          active: !disabled,
           tone: 'list',
           size: 'sm',
         })}
@@ -26,12 +25,12 @@ function Tag({ text, active, onClick }) {
 function TagLink({ text, count }) {
   return (
     <Link
-      href={`/tags/${kebabCase(text)}`}
+      href={`/tags/${slug(text)}`}
       className="
         inline-flex items-center gap-1 px-2 py-1 rounded-md text-sm
-        text-(--on-surface-variant)
-        hover:text-(--primary)
-        hover:bg-(--primary-container)
+        text-on-surface-variant
+        hover:text-primary
+        hover:bg-primary-container
         transition-colors
       "
     >
@@ -57,18 +56,18 @@ function Category({ title, tags, sortedTags, filter, icon }) {
   const Icon = icon
 
   return (
-    <div className="w-full border-b border-outline-variant py-3">
+    <div className="w-full border-b border-outline-variant py-3 card bg-surface">
       <button className="w-full text-left" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            {Icon && <Icon className="w-5 h-5 text-(--on-surface-variant)" />}
+            {Icon && <Icon className="w-5 h-5 text-on-surface-variant" />}
 
-            <h2 className="text-xl font-semibold text-(--on-surface) hover:text-(--primary) transition-colors">
+            <h2 className="text-xl font-semibold text-on-surface hover:text-primary transition-colors">
               {title}
             </h2>
           </div>
 
-          <span className="text-sm text-(--on-surface-variant)">
+          <span className="text-sm text-on-surface-variant">
             {categoryTags.length} {open ? '▲' : '▼'}
           </span>
         </div>
@@ -82,7 +81,7 @@ function Category({ title, tags, sortedTags, filter, icon }) {
       >
         <div className="flex flex-wrap gap-2">
           {categoryTags.map((t) => (
-            <TagLink key={t} text={t} href={`/tags/${kebabCase(t)}`} count={tags[t]} />
+            <TagLink key={t} text={t} href={`/tags/${slug(t)}`} count={tags[t]} />
           ))}
         </div>
       </div>
@@ -90,4 +89,4 @@ function Category({ title, tags, sortedTags, filter, icon }) {
   )
 }
 
-export { Tag, TagLink, Category, TagList }
+export { TagButton, TagLink, Category, TagList }

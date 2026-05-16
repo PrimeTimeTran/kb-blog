@@ -1,29 +1,27 @@
 import { SystemShell } from '@primetimetran/beeline'
 
-import { Space_Grotesk } from 'next/font/google'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
 
-import { AppNavbar } from '@/components/layout/AppNavbar'
-
-const space_grotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
-})
+import { ScrollProvider } from '@/providers/ScrollProvider'
 
 export const metadata = siteMetaDataHeader
 
 export default async function AppLayout({ children }) {
   return (
-    <html lang={metadata.language} suppressHydrationWarning>
-      <body className="h-full overflow-hidden">
-        <AppShell>
-          <div className="h-screen flex flex-col bg-background text-on-background">
-            <AppNavbar />
-            <div className="flex-1 min-h-0 overflow-hidden">{children}</div>
-          </div>
-        </AppShell>
+    <html className="h-full">
+      <body className="h-full overflow-hidden scroll-smooth absolute inset-0 -z-20 bg-background text-on-background">
+        <ScrollProvider>
+          <AppShell>
+            <div className="flex h-full flex-col ">
+              <div className="flex h-full flex-col bg-background text-on-background">
+                <div className="flex h-full flex-col bg-background text-on-background">
+                  <div className="flex flex-1 min-h-0">{children}</div>
+                </div>
+              </div>
+            </div>
+          </AppShell>
+        </ScrollProvider>
       </body>
     </html>
   )

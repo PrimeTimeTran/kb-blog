@@ -11,7 +11,7 @@ import { StyledInput } from '../../components/StyledInput'
 export function TagExplorer({ disabledToolbar = false, actions, filters, orderedTags, tagCounts }) {
   const [search, setSearch] = useState('')
   const isFiltering = filters.selectedTags.length > 0
-  let sortMode = 'asc'
+  const sortMode = 'asc'
 
   const displayedTags = orderedTags.filter((tag) =>
     tag.toLowerCase().includes(search.toLowerCase())

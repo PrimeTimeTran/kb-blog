@@ -1,4 +1,4 @@
-import { Tag } from '../../app/tags/Tag'
+import { TagButton } from '../Taxonomy'
 import { SafeLink as Link } from '../mdx/Link'
 import { useScroll } from '@/providers/ScrollProvider'
 
@@ -105,7 +105,7 @@ export function TagBlock({ tags = [] }) {
       <h2 className="text-xs uppercase tracking-wide text-gray-500">Tags</h2>
       <div className="flex flex-wrap">
         {((tags ?? [])?.filter(Boolean) ?? []).map((tag, idx) => (
-          <Tag key={idx} text={tag} />
+          <TagButton key={idx} text={tag} />
         ))}
       </div>
     </div>

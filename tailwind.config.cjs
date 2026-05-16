@@ -1,5 +1,3 @@
-// const colors = require('tailwindcss/colors')
-// const defaultTheme = require('tailwindcss/defaultTheme')
 const { callOutTheme } = require('./lib/theme/theme.cjs')
 const { safeList } = require('./lib/theme/tailwind-class-generators.cjs')
 

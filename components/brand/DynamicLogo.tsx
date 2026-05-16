@@ -1,15 +1,12 @@
 // components/brand/DynamicLogo.tsx
 'use client'
 import chroma from 'chroma-js'
-import { useTheme } from 'next-themes'
 
 import { useThemeStore } from '@/hooks/useThemeStore'
 
 export function DynamicLogo({ className = 'h-6 w-6' }: { className?: string }) {
   const seed = useThemeStore((state) => state.seed)
-  const { resolvedTheme } = useTheme()
 
-  const isDark = resolvedTheme === 'dark'
   const color = chroma(seed)
   const textColor = color.luminance() > 0.5 ? '#000000' : '#FFFFFF'
 

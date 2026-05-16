@@ -11,10 +11,10 @@ import { SiThealgorithms } from 'react-icons/si'
 import { MdOutlineSecurity } from 'react-icons/md'
 import { TbDatabaseSearch } from 'react-icons/tb'
 
-import { TagList, Category } from './Tag'
-import { PageSEO } from '../../components/SEO'
 import siteMetadata from '@/data/site-metadata'
-import kebabCase from '../../lib/utils/kebab-case'
+import { PageSEO } from '@/components/SEO'
+import { BasePage } from '@/components/BasePage'
+import { TagList, Category } from '@/components/Taxonomy'
 
 import {
   dsa,
@@ -32,7 +32,7 @@ import {
 export default function PageClient({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
   return (
-    <div>
+    <BasePage>
       <PageSEO title={`Tags - ${siteMetadata.author}`} description="Things I blog about" />
       <div className="space-y-2 md:space-y-5">
         <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-4xl md:leading-14">
@@ -116,6 +116,6 @@ export default function PageClient({ tags }) {
           </div>
         </div>
       </div>
-    </div>
+    </BasePage>
   )
 }

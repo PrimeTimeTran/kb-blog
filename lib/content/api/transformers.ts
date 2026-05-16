@@ -20,6 +20,12 @@ function slugify(str) {
     .replace(/-+/g, '-')
 }
 
+// BUG: Wikilinks parsing fails
+// - [ ] Internal links
+// - [ ] Absolute link/path(from root)
+// - [ ] file name link/path
+// - [ ] file name link/path
+
 export function preprocessWikiLinks(source = '', index, currentSlug = '') {
   return source.replace(/\[\[(.+?)\]\]/g, (_, raw) => {
     const [left, alias] = raw.split('|')

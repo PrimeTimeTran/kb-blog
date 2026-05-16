@@ -1,17 +1,14 @@
 'use client'
-
 import { usePathname } from 'next/navigation'
-
-import { useScroll } from '@/providers/ScrollProvider'
 
 import headerNavLinks from '@/data/nav-links'
 import siteMetadata from '@/data/site-metadata'
+import { useScroll } from '@/providers/ScrollProvider'
 
-import { DynamicLogo } from '@/components/brand/DynamicLogo'
 import MobileNav from '../MobileNav'
 import ThemeSwitch from '../ThemeSwitch'
-
 import { SafeLink as Link } from '../mdx/Link'
+import { DynamicLogo } from '@/components/brand/DynamicLogo'
 
 export function AppNavbar({}) {
   const pathName = usePathname()
@@ -19,7 +16,7 @@ export function AppNavbar({}) {
 
   function checkKbRoute(link) {
     try {
-      return link.href.substring(0, 3) === '/kb' && pathName.substring(0, 3) === '/kb'
+      return link.href.substring(0, 3) === '/kb' && pathName?.substring(0, 3) === '/kb'
     } catch (error) {}
   }
   // Make better favicon
@@ -31,7 +28,7 @@ export function AppNavbar({}) {
         <div className="flex items-center gap-2">
           <DynamicLogo className="h-8 w-8 rounded-lg shadow-sm" />
 
-          <div className="hidden sm:block text-lg md:text-2xl font-semibold">
+          <div className="hidden sm:block text-primary md:text-2xl font-semibold">
             {siteMetadata.headerTitle}
           </div>
         </div>
@@ -48,9 +45,24 @@ export function AppNavbar({}) {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className={`px-2 sm:px-3 py-2 text-sm sm:text-base font-medium flex items-center gap-1 sm:gap-2 transition-colors ${
-                    isActive ? 'text-nav-active' : 'text-nav'
-                  }`}
+                  // How to style?
+                  // - Inline Tailwind?
+                  // - Global CSS?
+                  // - Utilities?
+                  // - CLSX?
+                  // - React?
+                  // - Styled components?
+                  
+                  // 1. ⛔️ 👎 For now, don't use React className={isActive ? "text-primary bg..." : "text-muted"}
+                  // data-active={isActive}
+                  // React owns state and decides which style
+                  // 
+                  // 
+                  // 2. ✅ Favor a state field
+                  // className="nav-link"
+                  // data-active={isActive}
+                  data-active={isActive}
+                  className={`nav-link  ${isActive ? 'nav-link' : 'nav-link'}`}
                 >
                   {Icon && <Icon className="w-4 h-4" />}
                   <span className="hidden lg:inline">{link.title}</span>
@@ -66,13 +78,11 @@ export function AppNavbar({}) {
         <div
           className="h-full relative overflow-hidden animate-pulse-soft-glow"
           style={{
-            width: `${scrollProgress * 100}%`,
-            backgroundColor: 'var(--primary-container)',
-            transition: 'width 120ms linear',
+            transform: `scaleX(${scrollProgress})`,
+            transformOrigin: 'left',
+            transition: 'width transform 120ms linear',
           }}
-        >
-          <div className="absolute inset-0 animate-shimmer" />
-        </div>
+        ></div>
       </div>
     </nav>
   )
