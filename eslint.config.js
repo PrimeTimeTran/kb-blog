@@ -40,13 +40,19 @@ export default [
       ...prettier.rules,
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
-      'no-unused-vars': 'warn',
       'react/react-in-jsx-scope': 'off',
       'react/no-unescaped-entities': 'off',
       'react/prop-types': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-unused-vars': 'warn',
+      // 'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 

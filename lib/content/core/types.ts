@@ -1,12 +1,11 @@
-/* ─────────────────────────────────────────────
-   CORE REQUEST + SOURCE TYPES
-───────────────────────────────────────────── */
+export type Slug = string
+export type ISODateString = string | null
+export type ContentType = 'blog' | 'kb' | 'authors' | 'terms' | (string & {})
 
 export interface ContentRequest {
   type: ContentType
   slug: Slug
 }
-export type ContentType = 'blog' | 'kb' | 'authors' | 'terms' | (string & {})
 
 export interface ResolvedContentSource {
   id: string
@@ -30,10 +29,6 @@ export interface RawContent {
   }
 }
 
-/* ─────────────────────────────────────────────
-   PIPELINE ARTIFACTS
-───────────────────────────────────────────── */
-
 export interface AnalysisArtifacts {
   toc: unknown[]
   backlinks: unknown[]
@@ -48,21 +43,12 @@ export interface CompileArtifacts {
   Content?: unknown
 }
 
-/* ─────────────────────────────────────────────
-   DIAGNOSTICS
-───────────────────────────────────────────── */
-
 export interface Diagnostic {
   level: 'info' | 'warn' | 'error'
   message: string
   code?: string
   meta?: Record<string, unknown>
 }
-
-/* ─────────────────────────────────────────────
-   FRONTMATTER (STRUCTURED — IMPORTANT FIX)
-───────────────────────────────────────────── */
-
 export interface FrontMatter {
   title?: string
   summary?: string
@@ -72,11 +58,6 @@ export interface FrontMatter {
   draft?: boolean
   isDev?: boolean
 }
-
-/* ─────────────────────────────────────────────
-   PIPELINE CONTEXT
-───────────────────────────────────────────── */
-
 export interface PipelineContext {
   raw: RawContent
   request: ContentRequest
@@ -92,33 +73,39 @@ export interface PipelineContext {
   artifacts: Record<string, unknown>
 }
 
-/* ─────────────────────────────────────────────
-   SOURCE ABSTRACTION
-───────────────────────────────────────────── */
+export interface TreeNode {
+  name: string
+  file: string | null
+  children: TreeNode[]
+  isFolder: boolean
+  isFile: boolean
+}
 
 export interface ContentSource {
   id: string
-  source: ResolvedContentSource['source']
+
+  list(type: string): Promise<string[]>
 
   resolve(input: ContentRequest): Promise<ResolvedContentSource | null>
-  read(source: ResolvedContentSource): Promise<RawContent>
 
-  /**
-   * Collection-level listing (blog/kb/authors/etc)
-   */
-  list(input: { type: ContentType }): Promise<ResolvedContentSource[]>
+  read(source: ResolvedContentSource): Promise<RawContent>
 }
 
-/* ─────────────────────────────────────────────
-   PRIMITIVES
-───────────────────────────────────────────── */
+export interface ContentCollection {
+  id: string
 
-export type ISODateString = string | null
-export type Slug = string
+  list(): Promise<string[]>
 
-/* ─────────────────────────────────────────────
-   NORMALIZED CONTENT ENTITY (SINGLE SOURCE OF TRUTH)
-───────────────────────────────────────────── */
+  read(slug: string): Promise<RawContent | null>
+}
+
+export type ContentClientConfig = {
+  root: string
+  filters?: {
+    list?: (item: ContentItem) => boolean
+    get?: (item: ContentItem) => boolean
+  }
+}
 
 export interface ContentItem {
   slug: Slug
@@ -134,66 +121,6 @@ export interface ContentItem {
   frontMatter: FrontMatter
 }
 
-/* ─────────────────────────────────────────────
-   TREE STRUCTURE
-───────────────────────────────────────────── */
-
-export interface TreeNode {
-  name: string
-  file: string | null
-  children: TreeNode[]
-  isFolder: boolean
-  isFile: boolean
-}
-
-export interface ContentCollectionSource {
-  id: string
-
-  source: ResolvedContentSource['source']
-
-  /**
-   * Returns all available entries (not raw slugs anymore)
-   */
-  list(input: { type: ContentType }): Promise<ResolvedContentSource[]>
-
-  /**
-   * Resolve a single item in the collection
-   */
-  resolve(input: ContentRequest): Promise<ResolvedContentSource | null>
-
-  /**
-   * Read raw content for a resolved source
-   */
-  read(source: ResolvedContentSource): Promise<RawContent>
-}
-
-export type ContentClientConfig = {
-  root: string
-  filters?: {
-    list?: (item: ContentItem) => boolean
-    get?: (item: ContentItem) => boolean
-  }
-}
-
-export type ContentListConfig = {
-  includeDrafts?: boolean
-  filter?: (item: ContentItem) => boolean
-  sort?: (a: ContentItem, b: ContentItem) => number
-}
-
-export interface ContentSource {
-  id: string
-  resolve(input: ContentRequest): Promise<ResolvedContentSource | null>
-  read(source: ResolvedContentSource): Promise<RawContent>
-  list(type: string): Promise<string[]>
-}
-
-export interface ContentCollection {
-  id: string
-  rootDir: string
-  list(): Promise<string[]>
-  read(slug: string): Promise<RawContent>
-}
 export type ContentRegistryItem = Record<string, ContentSource>
 
 export interface ContentRegistryEntry {
@@ -208,4 +135,14 @@ export interface ContentRegistry {
 export type ContentGetConfig = {
   includeDrafts?: boolean
   filter?: (item: ContentItem) => boolean
+}
+
+export type ContentListConfig = {
+  includeDrafts?: boolean
+
+  requireTitle?: boolean
+  requireSummary?: boolean
+
+  filter?: (item: ContentItem) => boolean
+  sort?: (a: ContentItem, b: ContentItem) => number
 }

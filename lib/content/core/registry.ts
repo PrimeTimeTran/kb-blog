@@ -1,7 +1,5 @@
 import path from 'path'
 
-import { createTrace } from '@/lib/debug'
-
 import {
   ContentSource,
   ContentRegistry,
@@ -9,6 +7,7 @@ import {
   ContentClientConfig,
   ContentListConfig,
 } from './types'
+
 import { createFilesystemSource } from '../server/source/filesystem'
 import { getContent, listContent } from '../api'
 
@@ -16,11 +15,19 @@ const filesystemSource = createFilesystemSource({
   rootDir: path.join(process.cwd(), 'data'),
 })
 
+/**
+ * Collection = safe abstraction over raw source
+ */
 function createCollection(type: string, source: ContentSource): ContentCollection {
   return {
     id: source.id,
+
+    // IMPORTANT: only deal with string[] here
     async list() {
-      return source.list(type)
+      const entries = await source.list(type)
+
+      // enforce safety: must be string[]
+      return Array.isArray(entries) ? entries.filter((e): e is string => typeof e === 'string') : []
     },
 
     async read(slug: string) {
@@ -33,8 +40,9 @@ function createCollection(type: string, source: ContentSource): ContentCollectio
 
 function mapClientToListConfig(config?: ContentClientConfig): ContentListConfig {
   return {
-    includeDrafts: true, // default safe value
-
+    includeDrafts: false,
+    requireTitle: true,
+    requireSummary: true,
     filter: config?.filters?.list,
   }
 }
@@ -47,14 +55,18 @@ export const registry: ContentRegistry = {
   },
 }
 
+/**
+ * Client API layer (NO recursion into registry/listContent)
+ */
 export function createContentClient(registry: ContentRegistry, config?: ContentClientConfig) {
   return {
-    get: async (query) => {
+    get: async (query: { type: string }) => {
       const collection = registry.get(query.type)
 
       if (!collection) {
         throw new Error(`Unknown content type: ${query.type}`)
       }
+
       return getContent(
         {
           collection,
@@ -64,16 +76,22 @@ export function createContentClient(registry: ContentRegistry, config?: ContentC
       )
     },
 
-    list: async (args) => {
+    list: async (args: { type: string }) => {
       const collection = registry.get(args.type)
-      if (!collection) throw new Error(`Unknown content type: ${args.type}`)
 
+      if (!collection) {
+        throw new Error(`Unknown content type: ${args.type}`)
+      }
+
+      // 🔥 IMPORTANT: pass ONLY what listContent expects
       return listContent(
         {
           collection,
           config: mapClientToListConfig(config),
         },
-        args
+        {
+          type: args.type, // DO NOT pass full args object
+        }
       )
     },
   }

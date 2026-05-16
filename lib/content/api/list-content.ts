@@ -42,7 +42,7 @@ export async function listContent(
     // -----------------------
     const published = isPublished(result.frontMatter?.date)
 
-    if (!published || !config?.includeDrafts) {
+    if (!published && !config?.includeDrafts) {
       continue
     }
 
@@ -53,6 +53,14 @@ export async function listContent(
       date: result.frontMatter?.date ?? '',
       summary: result.frontMatter?.summary ?? '',
       frontMatter: result.frontMatter,
+    }
+
+    if (!item.title.trim()) {
+      continue
+    }
+
+    if (!item.summary.trim()) {
+      continue
     }
     // -----------------------
     // USER FILTER

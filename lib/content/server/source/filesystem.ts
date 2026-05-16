@@ -1,6 +1,7 @@
 import fs from 'fs/promises'
 import path from 'path'
 import { toSlug } from '../files'
+import { ContentSource } from '../../core/types'
 
 export async function fileExists(filePath: string): Promise<boolean> {
   try {
@@ -40,6 +41,8 @@ export async function scanDirForSlugs(dir: string, baseDir: string = dir): Promi
 }
 
 export function createFilesystemSource(config: { rootDir: string }): ContentSource {
+  console.log('FS CONFIG:', config)
+  console.log('ROOTDIR TYPE:', typeof config.rootDir)
   return {
     id: `fs:${config.rootDir}`,
     source: 'filesystem',
@@ -79,7 +82,13 @@ export function createFilesystemSource(config: { rootDir: string }): ContentSour
 
     async list(type: string) {
       const dir = path.join(config.rootDir, type)
-      return scanDirForSlugs(dir)
+
+      const result = scanDirForSlugs(dir)
+
+      console.log('SCAN RESULT:', result)
+      console.log('FIRST ITEM TYPE:', typeof result[0])
+
+      return result
     },
   }
 }
