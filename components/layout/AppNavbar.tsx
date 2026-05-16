@@ -52,12 +52,12 @@ export function AppNavbar({}) {
                   // - CLSX?
                   // - React?
                   // - Styled components?
-                  
+
                   // 1. ⛔️ 👎 For now, don't use React className={isActive ? "text-primary bg..." : "text-muted"}
                   // data-active={isActive}
                   // React owns state and decides which style
-                  // 
-                  // 
+                  //
+                  //
                   // 2. ✅ Favor a state field
                   // className="nav-link"
                   // data-active={isActive}
@@ -74,15 +74,17 @@ export function AppNavbar({}) {
         <ThemeSwitch />
         <MobileNav />
       </div>
-      <div className="absolute bottom-0 left-0 h-[2px] w-full">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] overflow-hidden">
         <div
-          className="h-full relative overflow-hidden animate-pulse-soft-glow"
+          className="h-full bg-primary"
           style={{
             transform: `scaleX(${scrollProgress})`,
-            transformOrigin: 'left',
-            transition: 'width transform 120ms linear',
+            transformOrigin: 'left center',
+            transition: 'transform 120ms linear',
+            willChange: 'transform',
+            contain: 'paint',
           }}
-        ></div>
+        />
       </div>
     </nav>
   )

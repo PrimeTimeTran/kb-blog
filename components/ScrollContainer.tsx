@@ -7,6 +7,7 @@ export function ScrollContainer({ children }) {
 
   return (
     <div
+      id="scroll-container"
       ref={setScrollEl}
       data-scroll-root
       className="

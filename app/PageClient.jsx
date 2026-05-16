@@ -11,7 +11,7 @@ export default function PageClient({ posts }) {
   return (
     // TODO:Home:
     // - [ ] Add left sidebar nav for series suggestions
-    <CenterRegion>
+    <div>
       <ListLayout
         pagination={1}
         title="Latest"
@@ -38,6 +38,6 @@ export default function PageClient({ posts }) {
           <NewsletterForm />
         </div>
       )}
-    </CenterRegion>
+    </div>
   )
 }

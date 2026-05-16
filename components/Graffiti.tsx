@@ -9,7 +9,14 @@
 
 import { graffitiWords } from '@/data/graffiti'
 import { useScroll } from '@/providers/ScrollProvider'
+
+// https://storytelling.noomoagency.com/
+// water effect
+
 // https://www.awwwards.com/inspiration/random-shapes-page-transitions-igma-im
+
+// Random overlay icons
+// https://igma.im/
 import type { GraffitiMarkType, GraffitiStyle, GenerateGraffitiOptions } from './graffiti-types'
 
 const STYLE: GraffitiStyle = {
@@ -71,14 +78,20 @@ export function generateGraffitiMarks({
     // 🧠 STRUCTURED GRID POSITIONING
     // ----------------------------
 
-    const col = i % cols
     const row = Math.floor(i / cols)
 
     const cellW = usableWidth / cols
     const cellH = usableHeight / rows
 
-    // strong jitter inside each cell (prevents "grid look")
-    const x = padding + col * cellW + (r1 - 0.5) * cellW * 0.9
+    const COLS = 5
+
+    const col = i % COLS
+    const colWidth = usableWidth / COLS
+
+    const x = padding + col * colWidth + (r1 - 0.5) * colWidth * 0.6
+
+    // const x = col * colWidth + (r1 - 0.5) * colWidth * 0.8
+    const stagger = (Math.floor(i / 3) % 2) * (colWidth / 2)
 
     const y = padding + row * cellH + (r2 - 0.5) * cellH * 0.9
 
@@ -141,7 +154,7 @@ export function GraffitiMark({ mark, scrollY }: { mark: GraffitiMarkType; scroll
 
   return (
     <div
-      className={`absolute select-none ${mark.className}`}
+      className={`select-none ${mark.className}`}
       style={{
         opacity: mark.opacity,
         top: `${mark.y}%`,
@@ -162,12 +175,42 @@ export function GraffitiMark({ mark, scrollY }: { mark: GraffitiMarkType; scroll
 }
 export function Graffiti() {
   const { scrollY } = useScroll()
-
+  const container = document.getElementById('scroll-container')
+  const totalInnerHeight = container?.scrollHeight
+  const visibleInnerHeight = container?.clientHeight
   return (
     <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
       {MARKS.map((m) => (
         <GraffitiMark key={m.text} mark={m} scrollY={scrollY} />
-      ))}
+      ))}{' '}
+      <div
+        className="
+          fixed
+          right-6
+          top-1/2
+          -translate-y-1/2
+          pointer-events-auto
+          w-72
+          rounded-2xl
+          bg-surface/80
+          backdrop-blur-md
+          border border-on-surface/10
+          p-4
+          shadow-lg
+        "
+      >
+        <div className="text-on-surface text-lg font-semibold">Study Layer</div>
+
+        <div className="text-on-surface/70 text-sm mt-2">
+          Scroll-reactive graffiti system active.
+        </div>
+
+        <div className="mt-4 space-y-2 text-on-surface/60 text-xs">
+          <div>• CALCULUS III</div>
+          <div>• VECTORS</div>
+          <div>• GEOMETRY</div>
+        </div>
+      </div>
     </div>
   )
 }
