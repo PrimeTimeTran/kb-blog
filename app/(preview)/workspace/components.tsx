@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import {
   LocalRibbonItem,
   LocalRibbonProps,
+  RailProps,
   WorkspaceDefinition,
   WorkspaceRibbonProps,
 } from './types'
@@ -10,6 +11,7 @@ import {
 export function RibbonItem({
   item,
   active,
+  previewId,
   onSelect,
   onPreview,
 }: {
@@ -19,7 +21,7 @@ export function RibbonItem({
   onPreview: (id: string | null) => void
 }) {
   const Preview = item.preview
-
+  const isPreview = item.id === previewId
   return (
     <button
       onClick={() => onSelect(item.id)}
@@ -27,7 +29,8 @@ export function RibbonItem({
       onMouseLeave={() => onPreview(null)}
       className={clsx(
         'group relative overflow-hidden rounded-xl border transition-all',
-        active ? 'border-[var(--primary)]' : 'border-black/10 dark:border-white/10'
+        active && 'border-[var(--primary)]',
+        isPreview && !active && 'border-blue-400/50 scale-[1.02]'
       )}
     >
       <div className="h-24 w-40 overflow-hidden bg-[var(--surface-container)]">
@@ -52,33 +55,30 @@ export function MotionPreview() {
 export function ViewportRail({
   items,
   activeId,
-  onSelect,
   previewId,
+  onSelect,
   onPreview,
-}: {
-  items: any[]
-  activeId: string
-  onSelect: (id: string) => void
-  previewId: string | null
-  onPreview: (id: string | null) => void
-}) {
-  return (
-    <div className="overflow-x-auto border-y border-black/10 dark:border-white/10 bg-red-500">
-      <div className="flex min-w-max gap-2 p-3">
-        {items.map((item) => {
-          const active = item.id === activeId
-          const preview = item.id === previewId
+  position = 'bottom',
+}: RailProps) {
+  const isVertical = position === 'left' || position === 'right'
 
-          return (
-            <RibbonItem
-              key={item.id}
-              item={item}
-              active={active}
-              onSelect={onSelect}
-              onPreview={onPreview}
-            />
-          )
-        })}
+  return (
+    <div
+      className={clsx(
+        'border-black/10 dark:border-white/10 bg-background',
+        isVertical ? 'h-full w-64 border-x overflow-y-auto' : 'w-full overflow-x-auto border-y'
+      )}
+    >
+      <div className={clsx('gap-2 p-3', isVertical ? 'flex flex-col' : 'flex min-w-max')}>
+        {items.map((item) => (
+          <RibbonItem
+            key={item.id}
+            item={item}
+            active={item.id === activeId}
+            onSelect={onSelect}
+            onPreview={onPreview}
+          />
+        ))}
       </div>
     </div>
   )
@@ -197,7 +197,7 @@ export function ScrollableWorkspaceContent({ children }: { children: React.React
 }
 export function WorkspaceHero({ title, description }: { title: string; description: string }) {
   return (
-    <div className="rounded-3xl bg-[var(--surface)] p-8">
+    <div className="rounded-3xl bg-surface p-8">
       <h1 className="text-4xl font-black tracking-tight">{title}</h1>
 
       <p className="mt-3 max-w-2xl text-base opacity-70">{description}</p>
@@ -209,7 +209,7 @@ export function LargeScrollableSection() {
     <div className="grid gap-4">
       {Array.from({ length: 24 }).map((_, index) => {
         return (
-          <div key={index} className="rounded-2xl bg-[var(--surface-container)] p-6">
+          <div key={index} className="rounded-2xl bg-surface-container p-6">
             <div className="text-lg font-semibold">Demo Block {index + 1}</div>
 
             <p className="mt-2 opacity-70">Independent scrollable workspace content.</p>

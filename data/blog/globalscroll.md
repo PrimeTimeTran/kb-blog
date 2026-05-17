@@ -10,7 +10,7 @@
         <div className="flex flex-col h-screen bg-background text-on-background overflow-hidden relative">
           <Graffiti />
           <AppNavbar />
-          <ScrollContainer>{children}</ScrollContainer>
+          <BaseScroll>{children}</BaseScroll>
         </div>
       </AppShell>
     </ScrollProvider>
@@ -314,7 +314,7 @@ export function ScrollContainer({ children }) {
 <div className="relative flex-1 min-h-0 overflow-hidden">
   <GraffitiBackground />
 
-  <ScrollContainer>{children}</ScrollContainer>
+  <BaseScroll>{children}</BaseScroll>
 </div>
 ```
 
@@ -404,13 +404,13 @@ I expect u to return something like this.
         <!-- app/layout.tsx -->
         <main className="flex flex-1 min-h-0 overflow-hidden">
           <Graffiti />
-          <ScrollContainer>
+          <BaseScroll>
             <!-- app/blog/layout.tsx if needed only-->
             <div className="flex flex-1 min-h-0">
               <!-- app/blog/page.tsx THIS MUST FIX SCROLL-->
               <div className="mx-auto w-full max-w-4xl px-6 py-10">{children}</div>
             </div>
-          </ScrollContainer>
+          </BaseScroll>
         </main>
       </div>
     </AppShell>

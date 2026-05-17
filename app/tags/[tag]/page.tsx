@@ -2,15 +2,10 @@ import { slug } from 'github-slugger'
 
 import ListLayout from '../../../layouts/ListLayout'
 import siteMetadata from '../../../data/site-metadata'
-import generateRss from '../../../lib/generate-rss'
 import { content } from '@/lib/content/api/client'
 
 import { BasePage } from '@/components/BasePage'
 import { ABBREVIATIONS } from '@/data/abbreviations'
-
-
-
-
 
 export async function generateStaticParams() {
   const tags = await content.list({ type: 'blog', by: 'tags', action: 'countBy' })
@@ -19,21 +14,6 @@ export async function generateStaticParams() {
     tag,
   }))
 }
-
-// export async function generateMetadata({ params }) {
-//   const raw = params.tag
-
-//   let title = raw[0].toUpperCase() + raw.slice(1)
-
-//   if (abbreviations[raw.toUpperCase()]) {
-//     title = title.toUpperCase()
-//   }
-
-//   return {
-//     title: `${title} - ${siteMetadata.author}`,
-//     description: `${title} tags - ${siteMetadata.author}`,
-//   }
-// }
 
 export default async function Page({ params }) {
   const { tag } = await params
@@ -45,6 +25,7 @@ export default async function Page({ params }) {
     match: 'includes',
     action: 'filterBy',
   })
+
   let title = ''
   if (ABBREVIATIONS[slug(tag).toUpperCase()]) {
     title = tag.toUpperCase()
@@ -52,7 +33,7 @@ export default async function Page({ params }) {
 
   return (
     <BasePage>
-      <ListLayout posts={allPosts} title={title} />
+      <ListLayout posts={allPosts} title={'Tagged - ' + tag} />
     </BasePage>
   )
 }

@@ -17,7 +17,7 @@
           <Graffiti />
 
           <!-- ONLY SCROLLER -->
-          <ScrollContainer>
+          <BaseScroll>
             <!-- safe wrapper -->
             <div class="flex flex-col min-h-full">
               <!-- another wrapper -->
@@ -26,7 +26,7 @@
                 <div class="mx-auto w-full max-w-4xl px-6 py-10">PAGE CONTENT</div>
               </div>
             </div>
-          </ScrollContainer>
+          </BaseScroll>
         </main>
       </div>
     </div>
@@ -63,11 +63,11 @@ export default async function Page() {
   return (
     <main className="relative flex flex-1 min-h-0 overflow-hidden">
       <Graffiti />
-      <ScrollContainer>
+      <BaseScroll>
         <div className="mx-auto w-full max-w-4xl px-6 py-10">
           <PageClient posts={posts || []} />
         </div>
-      </ScrollContainer>
+      </BaseScroll>
     </main>
   )
 }

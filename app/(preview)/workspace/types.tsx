@@ -69,6 +69,20 @@ export type WorkspaceLayoutProps = {
   viewportRail: React.ReactNode
 }
 
+export type Workspace = {
+  id: string
+  title: string
+  persist?: boolean
+  meta?: Record<string, unknown>
+}
+export type RailProps = {
+  items: any[]
+  activeId: string
+  previewId: string | null
+  onSelect: (id: string) => void
+  onPreview: (id: string | null) => void
+  position?: 'top' | 'bottom' | 'left' | 'right'
+}
 export const workspaces: [] = [
   {
     id: 'motion-lab',

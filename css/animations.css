@@ -11,7 +11,7 @@
 }
 
 .animate-pulse-soft-glow {
-  background-color: var(--primary);
+  /* background-color: var(--primary); */
   animation: pulseSoftGlow 1.4s ease-in-out infinite;
 }
 

@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import { content } from '@/lib/content/api/client'
 import { ResizableColumn } from '@/components/layout/ResizableColumn'
 import TableOfContents from '@/components/TableOfContents'
-import { ScrollContainer } from '../../../components/ScrollContainer'
+import { BaseScroll } from '@/components/BaseScroll'
 import MDXWrapper from '../../../components/mdx/MDXWrapper'
 
 export default async function Page({ params }) {
@@ -16,13 +16,13 @@ export default async function Page({ params }) {
   return (
     <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
       {/* CENTER */}
-      <ScrollContainer>
+      <BaseScroll>
         <MDXWrapper>
           <div className="prose dark:prose-invert px-3 no-scrollbar">
             <KBItem.Content />
           </div>
         </MDXWrapper>
-      </ScrollContainer>
+      </BaseScroll>
 
       {/* RIGHT */}
       <ResizableColumn side="right">

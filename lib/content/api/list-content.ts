@@ -14,7 +14,7 @@ export async function listContent(
   },
   query: {
     type: string
-    action: string
+    action?: string
   } & Record<string, unknown>
 ) {
   const { collection, config } = options
@@ -22,8 +22,12 @@ export async function listContent(
   const entries = await collection.list()
   const results: ContentItem[] = []
 
+  // -----------------------
+  // BUILD PIPELINE RESULTS
+  // -----------------------
   for (const slug of entries) {
     const raw = await collection.read(slug)
+    if (!raw) continue
 
     const ctx = createPipelineContext({
       request: {
@@ -37,14 +41,9 @@ export async function listContent(
     const pipeline = buildParsePipeline(ctx)
     const result = await pipeline.run(raw)
 
-    // -----------------------
-    // SYSTEM POLICY (drafts)
-    // -----------------------
     const published = isPublished(result.frontMatter?.date)
 
-    if (!published && !config?.includeDrafts) {
-      continue
-    }
+    if (!published && !config?.includeDrafts) continue
 
     const item: ContentItem = {
       slug,
@@ -55,22 +54,17 @@ export async function listContent(
       frontMatter: result.frontMatter,
     }
 
-    if (!item.title.trim()) {
-      continue
-    }
+    if (!item.title.trim()) continue
+    if (!item.summary.trim()) continue
 
-    if (!item.summary.trim()) {
-      continue
-    }
-    // -----------------------
-    // USER FILTER
-    // -----------------------
-    if (config?.filter && !config.filter(item)) {
-      continue
-    }
+    if (config?.filter && !config.filter(item)) continue
+
     results.push(item)
   }
 
+  // =========================================================
+  // 1. TAG INDEX ROUTE → /tags
+  // =========================================================
   if (query.action === 'countBy') {
     const by = query.by as string
 
@@ -82,7 +76,7 @@ export async function listContent(
       if (!Array.isArray(values)) continue
 
       for (const v of values) {
-        const key = toSlug(v)
+        const key = toSlug(String(v))
         counts[key] = (counts[key] || 0) + 1
       }
     }
@@ -90,17 +84,16 @@ export async function listContent(
     return counts
   }
 
-  if (query.action === 'countBy') {
-    return countTags(query, results)
-  }
-
+  // =========================================================
+  // 2. FILTERED ROUTE → /tags/react-native
+  // =========================================================
   if (query.action === 'filterBy') {
     return filterFor(query, results)
   }
 
-  // -----------------------
-  // SORTING
-  // -----------------------
+  // =========================================================
+  // 3. DEFAULT → full list (optional fallback)
+  // =========================================================
   if (config?.sort) {
     results.sort(config.sort)
   }

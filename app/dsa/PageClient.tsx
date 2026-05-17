@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 
 // import siteMetadata from '../data/site-metadata.js'
 
-import { ScrollContainer } from '@/components/ScrollContainer'
+import { BaseScroll } from '@/components/BaseScroll'
 import { CenterRegion } from '@/components/layout/CenterRegion'
 
 import SolutionSnippet from '@/components/Solution.jsx'
@@ -74,7 +74,7 @@ export function PageClient() {
   }
   return (
     <div className="h-full min-h-0 flex flex-col not-prose">
-      <ScrollContainer>
+      <BaseScroll>
         <div className="space-y-2 px-2 mt-2">
           <TagExplorer
             actions={actions}
@@ -97,7 +97,7 @@ export function PageClient() {
         <CenterRegion>
           <Suspense fallback={<ProblemListSkeleton count={15} />}>{renderProblemList()}</Suspense>
         </CenterRegion>
-      </ScrollContainer>
+      </BaseScroll>
       {renderSidebarAndBackdrop()}
     </div>
   )

@@ -2,45 +2,44 @@
 @config "../tailwind.config.cjs";
 
 /* ─────────────────────────────────────────────
-   TOKENS / THEME
+   GLOBAL CASCADE LAYER ORDER
+
+   Tailwind internally uses:
+      base → components → utilities
+
+   Additional custom layers can be defined here.
+
+   Once declared, layer priority is deterministic
+   and no longer depends on import order.
+───────────────────────────────────────────── */
+
+@layer base, components, utilities, semantics, layout, vendors;
+
+/* ─────────────────────────────────────────────
+   THEME TOKENS
 ───────────────────────────────────────────── */
 
 @import './theme.css';
 
 /* ─────────────────────────────────────────────
-   BASE / RESETS / ELEMENT DEFAULTS
-───────────────────────────────────────────── */
+   TAILWIND / APP LAYERS
 
-@import './base.css';
+   Files may contribute rules into shared layers:
 
-/* ─────────────────────────────────────────────
-   SEMANTIC LAYERS
-───────────────────────────────────────────── */
+      @layer base { ... }
+      @layer semantics { ... }
+      @layer layout { ... }
 
-@import './semantics.css';
-
-/* ─────────────────────────────────────────────
-   LAYOUT SYSTEMS
-───────────────────────────────────────────── */
-
-@import './layout.css';
-
-@import './components.css';
-
-/* ─────────────────────────────────────────────
-   COMPONENTS
-───────────────────────────────────────────── */
-
-/* ─────────────────────────────────────────────
-   UTILITIES / HELPERS
+   Multiple files can safely extend the same layer.
 ───────────────────────────────────────────── */
 
 @import './utilities.css';
-@import './animations.css';
+@import './components.css';
+@import './base.css';
 
-/* ─────────────────────────────────────────────
-   THIRD PARTY / OVERRIDES
-───────────────────────────────────────────── */
+@import './semantics.css';
+@import './layout.css';
+@import './animations.css';
 
 @import './vendors.css';
 @import './prism.css';

@@ -281,11 +281,11 @@ export default async function Page({ params }) {
   return (
     <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
       {/* CENTER */}
-      <ScrollContainer>
+      <BaseScroll>
         <div className="prose dark:prose-invert px-3">
           <KBItem.Content />
         </div>
-      </ScrollContainer>
+      </BaseScroll>
 
       {/* RIGHT */}
       <ResizableColumn side="right" className="h-full shrink-0">

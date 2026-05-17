@@ -129,10 +129,8 @@ export function generateGraffitiMarks({
 
     marks.push({
       text,
-
       x,
       y,
-
       opacity,
       depth,
       groupRotation,
@@ -175,6 +173,8 @@ export function GraffitiMark({ mark, scrollY }: { mark: GraffitiMarkType; scroll
 }
 export function Graffiti() {
   const { scrollY } = useScroll()
+  if (false) {
+  }
   const container = document.getElementById('scroll-container')
   const totalInnerHeight = container?.scrollHeight
   const visibleInnerHeight = container?.clientHeight

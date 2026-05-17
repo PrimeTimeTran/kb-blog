@@ -25,7 +25,7 @@ export function usePosts<T extends Record<string, any>>({
   // -----------------------------------
 
   const [searchTerm, setSearchTerm] = useState('')
-  const [disabledTopics, setDisabledTopics] = useState<string[]>([])
+  const [filteredTopics, setFilteredTopics] = useState<string[]>([])
   const [sortField, setSortField] = useState<SortField>(initialSortField)
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder)
 
@@ -35,7 +35,7 @@ export function usePosts<T extends Record<string, any>>({
   const disabledTagSet = useMemo(() => {
     const set = new Set<string>()
 
-    for (const topic of disabledTopics as Topic[]) {
+    for (const topic of filteredTopics as Topic[]) {
       const tags = TOPICS[topic] ?? []
       for (const tag of tags) {
         set.add(tag)
@@ -43,7 +43,7 @@ export function usePosts<T extends Record<string, any>>({
     }
 
     return set
-  }, [disabledTopics])
+  }, [filteredTopics])
 
   const normalizedPosts = useMemo(() => {
     return fetchedPosts.map((post) => {
@@ -87,7 +87,7 @@ export function usePosts<T extends Record<string, any>>({
   // -----------------------------------
 
   function toggleTag(tag: string) {
-    setDisabledTopics((prev) =>
+    setFilteredTopics((prev) =>
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     )
   }
@@ -108,7 +108,7 @@ export function usePosts<T extends Record<string, any>>({
      * ALL TAGS ACTIVE
      */
 
-    if (disabledTopics.length > 0) {
+    if (filteredTopics.length > 0) {
       result = result.filter((post) => {
         const tags = post.tags ?? []
 
@@ -130,7 +130,7 @@ export function usePosts<T extends Record<string, any>>({
     }
 
     return result
-  }, [searchTerm, normalizedPosts, disabledTopics, disabledTagSet])
+  }, [searchTerm, normalizedPosts, filteredTopics, disabledTagSet])
 
   // -----------------------------------
   // SORTING
@@ -190,9 +190,9 @@ export function usePosts<T extends Record<string, any>>({
     searchTerm,
     setSearchTerm,
 
-    disabledTopics,
+    filteredTopics,
     toggleTag,
-    setDisabledTopics,
+    setFilteredTopics,
 
     allTags,
 

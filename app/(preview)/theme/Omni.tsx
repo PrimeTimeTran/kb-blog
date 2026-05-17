@@ -5,7 +5,7 @@ import { HiCube, HiSun, HiMoon } from 'react-icons/hi2'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { OmniPanel } from '@/components/OmniPanel'
-import { ScrollContainer } from '@/components/ScrollContainer'
+import { BaseScroll } from '@/components/BaseScroll'
 
 export function OmniShowcase() {
   const [currentTab, setCurrentTab] = useState('default')
@@ -13,7 +13,7 @@ export function OmniShowcase() {
 
   return (
     <div className="h-full min-h-0 flex flex-col">
-      <ScrollContainer>
+      <BaseScroll>
         <div className="min-h-screen bg-surface">
           <header className="p-6 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl sticky top-0 z-40 space-y-6">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
@@ -90,7 +90,7 @@ export function OmniShowcase() {
             </motion.div>
           </main>
         </div>
-      </ScrollContainer>
+      </BaseScroll>
     </div>
   )
 

@@ -76,22 +76,19 @@ export function createContentClient(registry: ContentRegistry, config?: ContentC
       )
     },
 
-    list: async (args: { type: string }) => {
+    list: async (args: { type: string } & Record<string, unknown>) => {
       const collection = registry.get(args.type)
 
       if (!collection) {
         throw new Error(`Unknown content type: ${args.type}`)
       }
 
-      // 🔥 IMPORTANT: pass ONLY what listContent expects
       return listContent(
         {
           collection,
           config: mapClientToListConfig(config),
         },
-        {
-          type: args.type, // DO NOT pass full args object
-        }
+        args // 🔥 IMPORTANT: DO NOT STRIP THIS
       )
     },
   }

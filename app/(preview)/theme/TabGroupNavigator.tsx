@@ -7,7 +7,7 @@ import { HiCube, HiSun, HiMoon } from 'react-icons/hi2'
 
 import { FloatingPicker } from './Components'
 import { useThemeStore } from '@/hooks/useThemeStore'
-import { ScrollContainer } from '@/components/ScrollContainer'
+import { BaseScroll } from '@/components/BaseScroll'
 import { applyMaterialTheme, applyTheme } from '@/lib/theme/palette'
 
 export function TabGroupNavigator({
@@ -30,7 +30,7 @@ export function TabGroupNavigator({
 
   return (
     <div className="h-full min-h-0 flex flex-col bg-background">
-      <ScrollContainer>
+      <BaseScroll>
         <header className="sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl px-6 py-2">
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center">
@@ -95,7 +95,7 @@ export function TabGroupNavigator({
             </motion.div>
           </AnimatePresence>
         </main>
-      </ScrollContainer>
+      </BaseScroll>
       <FloatingPicker
         seed={seed}
         setSeed={(seed) => {

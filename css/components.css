@@ -1,63 +1,196 @@
 @layer components {
+  /* -------------------------
+   * BASE LINK
+   * ------------------------- */
   .nav-link {
-    @apply px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center gap-2;
-
-    color: var(--nav-text);
+    @apply relative flex items-center;
+    @apply text-on-surface-variant;
+    @apply transition-colors duration-200;
   }
 
-  .nav-link:hover {
-    color: var(--nav-text-hover);
-    background: var(--nav-bg-hover);
+  /* -------------------------
+   * ICON + LABEL
+   * ------------------------- */
+  .nav-link-icon {
+    @apply shrink-0 transition-colors;
   }
 
+  .nav-link-label {
+    @apply font-medium;
+  }
+
+  /* -------------------------
+   * ACTIVE STATE (GLOBAL)
+   * ------------------------- */
   .nav-link[data-active='true'] {
-    color: var(--nav-text-active);
-    background: var(--nav-bg-active);
+    @apply text-primary;
   }
-}
-/* Sidebars & Layout */
-.sidebar-collapsed {
-  width: 0 !important;
-  min-width: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  overflow: hidden;
-  transition: width 0.3s ease;
-}
 
-/* KB / Embed System */
-.kb-embed {
-  font-size: 0.8rem;
-  line-height: 1.4;
-  width: 100%;
-  max-width: 100%;
-}
+  /* =========================
+   * DESKTOP VARIANT
+   * ========================= */
+  .nav-link[data-variant='desktop'] {
+    @apply gap-2 rounded-full px-4 py-2;
+    @apply text-sm font-medium tracking-tight;
 
-/* Code / Prism Fixes */
-.line-numbers-rows {
-  z-index: 0;
-}
-.line-container {
-  position: relative;
-  z-index: 1;
-}
+    @apply hover:bg-surface-container hover:text-primary;
+  }
 
-/* Borders */
-.theme-border-b {
-  @apply border-b border-slate-200 dark:border-slate-800;
-}
-.theme-border-t {
-  @apply border-t border-slate-200 dark:border-slate-800;
-}
-.theme-border-l {
-  @apply border-l border-slate-200 dark:border-slate-800;
-}
-.theme-border-r {
-  @apply border-r border-slate-200 dark:border-slate-800;
-}
-.scroll-bar {
-  @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
-}
-.no-scroll-bar {
-  @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
+  .nav-link[data-variant='desktop'] .nav-link-icon {
+    @apply h-4 w-4 opacity-70;
+  }
+
+  .nav-link[data-variant='desktop'] .nav-link-label {
+    @apply hidden lg:inline;
+  }
+
+  /* active desktop */
+  .nav-link[data-active='true'][data-variant='desktop'] {
+    @apply bg-secondary-container text-primary;
+  }
+
+  .nav-link[data-active='true'][data-variant='desktop'] .nav-link-icon {
+    @apply text-primary opacity-100;
+  }
+
+  /* =========================
+   * MOBILE VARIANT
+   * ========================= */
+  .nav-link[data-variant='mobile'] {
+    @apply gap-3 rounded-2xl px-4 py-3;
+    @apply text-sm font-medium tracking-tight;
+
+    @apply hover:bg-surface-container-high hover:text-primary;
+  }
+
+  .nav-link[data-variant='mobile'] .nav-link-icon {
+    @apply h-5 w-5 opacity-80;
+  }
+
+  .nav-link[data-variant='mobile'] .nav-link-label {
+    @apply inline;
+  }
+
+  /* active mobile */
+  .nav-link[data-active='true'][data-variant='mobile'] {
+    @apply bg-secondary-container text-primary;
+  }
+
+  .nav-link[data-active='true'][data-variant='mobile'] .nav-link-icon {
+    @apply text-primary opacity-100;
+  }
+
+  /* -------------------------
+   * ICON BUTTON (hamburger, close, theme toggle)
+   * ------------------------- */
+  .icon-button {
+    @apply inline-flex h-10 w-10 items-center justify-center;
+    @apply rounded-full;
+    @apply text-on-surface-variant;
+    @apply transition-colors duration-200;
+    @apply hover:bg-surface-container;
+    @apply active:bg-surface-container-high;
+  }
+
+  /* -------------------------
+   * NAV RIGHT SLOT (optional layout stability)
+   * ------------------------- */
+  .nav-right {
+    @apply flex items-center justify-end;
+    width: 5rem;
+  }
+
+  /* Sidebars & Layout */
+  .sidebar-collapsed {
+    width: 0 !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    overflow: hidden;
+    transition: width 0.3s ease;
+  }
+  /* KB / Embed System */
+  .kb-embed {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Code / Prism Fixes */
+  .line-numbers-rows {
+    z-index: 0;
+  }
+  .line-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Borders */
+  .theme-border-b {
+    @apply border-b border-slate-200 dark:border-slate-800;
+  }
+  .theme-border-t {
+    @apply border-t border-slate-200 dark:border-slate-800;
+  }
+  .theme-border-l {
+    @apply border-l border-slate-200 dark:border-slate-800;
+  }
+  .theme-border-r {
+    @apply border-r border-slate-200 dark:border-slate-800;
+  }
+  .scroll-bar {
+    @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
+  }
+  .no-scroll-bar {
+    @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
+  }
+
+  .card {
+    @apply rounded space-y-2 p-2 bg-surface;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm transition-colors;
+  }
+
+  /* BASE CHIP */
+  .chip {
+    @apply inline-flex items-center gap-2 px-2 py-1 rounded-md text-sm transition-colors;
+  }
+
+  /* ACTIVE */
+  .chip-active {
+    @apply bg-primary-container text-on-primary;
+  }
+
+  .chip-active:hover {
+    @apply bg-primary-container;
+  }
+
+  /* INACTIVE */
+  .chip-inactive {
+    @apply bg-surface-container text-on-surface;
+  }
+
+  .chip-inactive:hover {
+    @apply bg-surface-container-high;
+  }
+
+  /* DISABLED */
+  .chip-disabled {
+    @apply opacity-40 cursor-not-allowed;
+  }
+
+  /* LABEL (secondary text inside chip) */
+  .chip-label {
+    @apply font-medium text-on-surface-variant;
+  }
+
+  /* BADGE (count / meta) */
+  .chip-badge {
+    @apply text-xs font-medium leading-none px-1.5 py-0.5 rounded-md
+         border border-outline-variant
+         text-on-surface-variant;
+  }
 }

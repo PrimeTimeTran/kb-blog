@@ -1,22 +1,22 @@
 'use client'
 
 import Link from 'next/link'
-import ListLayout from '../layouts/ListLayout'
-import { MAX_DISPLAY } from '../data/constants'
-import siteMetadata from '../data/site-metadata'
-import NewsletterForm from '../components/NewsletterForm'
-import { CenterRegion } from '../components/layout/CenterRegion'
+import ListLayout from '@/layouts/ListLayout'
+import { MAX_DISPLAY } from '@/data/constants'
+import siteMetadata from '@/data/site-metadata'
+import { BasePage } from '@/components/BasePage'
+import NewsletterForm from '@/components/NewsletterForm'
 
 export default function PageClient({ posts }) {
   return (
     // TODO:Home:
     // - [ ] Add left sidebar nav for series suggestions
-    <div>
+    <BasePage>
       <ListLayout
         pagination={1}
+        posts={posts}
         title="Latest"
         initialDisplayPosts={[]}
-        posts={posts}
         subtitle={siteMetadata.description}
       />
 
@@ -38,6 +38,6 @@ export default function PageClient({ posts }) {
           <NewsletterForm />
         </div>
       )}
-    </div>
+    </BasePage>
   )
 }

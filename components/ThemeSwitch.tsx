@@ -29,9 +29,9 @@ const ThemeSwitch = () => {
 
   return (
     <button
-      aria-label="Toggle Dark Mode"
       type="button"
-      className="relative ml-1 mr-1 flex h-9 w-9 items-center justify-center rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors sm:ml-4 overflow-hidden"
+      aria-label="Toggle Dark Mode"
+      className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-surface-container-high hover:bg-surface-container-highest transition-colors overflow-hidden"
       onClick={onToggleTheme}
     >
       {/* Subtle Spinner Ring */}

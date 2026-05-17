@@ -1,4 +1,4 @@
-import { TagButton } from '../Taxonomy'
+// import { TagButton } from '../Taxonomy'
 import { SafeLink as Link } from '../mdx/Link'
 import { useScroll } from '@/providers/ScrollProvider'
 
@@ -104,9 +104,9 @@ export function TagBlock({ tags = [] }) {
     <div className="xl:py-8">
       <h2 className="text-xs uppercase tracking-wide text-gray-500">Tags</h2>
       <div className="flex flex-wrap">
-        {((tags ?? [])?.filter(Boolean) ?? []).map((tag, idx) => (
+        {/* {((tags ?? [])?.filter(Boolean) ?? []).map((tag, idx) => (
           <TagButton key={idx} text={tag} />
-        ))}
+        ))} */}
       </div>
     </div>
   )

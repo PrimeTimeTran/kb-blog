@@ -1,10 +1,24 @@
 @layer base {
+  /* body {
+    background-color: red;
+    background: red;
+  } */
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    @apply -z-20 overflow-hidden scroll-smooth;
+    color: var(--color-on-background);
+  }
+
   *,
   ::after,
   ::before,
   ::backdrop {
-    border-color: var(--tw-border-color);
     --tw-border-color: theme('colors.outline.variant');
+    border-color: var(--tw-border-color);
   }
 
   :where(.dark) *,
@@ -17,22 +31,18 @@
     --navbar-height: 64px;
   }
 
-  body {
-    color: var(--color-on-background);
-    background-color: var(--color-background);
-    a {
-      color: var(--on-primary);
+  a {
+    color: var(--on-primary);
 
-      &:hover {
-        color: var(--primary);
-      }
-
-      input:-webkit-autofill,
-      input:-webkit-autofill:focus {
-        transition:
-          background-color 600000s 0s,
-          color 600000s 0s;
-      }
+    &:hover {
+      color: var(--primary);
     }
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
   }
 }

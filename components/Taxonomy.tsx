@@ -4,20 +4,21 @@ import { slug } from 'github-slugger'
 
 import { buttonVariants } from '@/components/buttonVariants'
 
-function TagButton({ text, active, onClick, disabled }) {
+function TagButton({ label, tailDecoration, active, onClick, disabled }): React.JSX.Element {
   return (
     <button
       onClick={onClick}
+      disabled={disabled}
+      data-active={active}
       className={`
-        ${buttonVariants({
-          active: !disabled,
-          tone: 'list',
-          size: 'sm',
-        })}
-        inline-flex items-center whitespace-nowrap
+        chip
+        ${active ? 'chip-active' : 'chip-inactive'}
+        ${disabled ? 'chip-disabled' : ''}
       `}
     >
-      {text}
+      <span className="chip-label">{label}</span>
+
+      {tailDecoration !== undefined && <span className="chip-badge">{tailDecoration}</span>}
     </button>
   )
 }

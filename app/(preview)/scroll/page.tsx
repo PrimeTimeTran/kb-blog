@@ -1,13 +1,12 @@
-import { ScrollContainer } from '@/components/ScrollContainer'
-
+import { BaseScroll } from '@/components/BaseScroll'
 import { ButtonShowcase } from './ButtonShowcase'
-// Base Scrollable Page (with Scroll Container)
+
 export default function ScrollPreview() {
   const items = Array.from({ length: 50 }, (_, i) => i + 1)
 
   return (
     <div className="h-full min-h-0 flex flex-col">
-      <ScrollContainer>
+      <BaseScroll>
         <div className="p-4 space-y-2">
           <ButtonShowcase />
           {/* {items.map((n) => (
@@ -21,10 +20,11 @@ export default function ScrollPreview() {
             </div>
           ))} */}
         </div>
-      </ScrollContainer>
+      </BaseScroll>
     </div>
   )
 }
+
 // Base Scrollable Page (without Scroll Container)
 // export default function ScrollPreview() {
 //   const items = Array.from({ length: 50 }, (_, i) => i + 1)
