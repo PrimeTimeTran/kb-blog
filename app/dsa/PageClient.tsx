@@ -7,11 +7,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { BaseScroll } from '@/components/BaseScroll'
 import { CenterRegion } from '@/components/layout/CenterRegion'
 
-import SolutionSnippet from '@/components/Solution.jsx'
+import { Solution } from '@/components/Solution.jsx'
 
-import { Difficulty, useProblemEngine } from '@/hooks/useProblemEngine'
+import { useProblemEngine } from '@/hooks/useProblemEngine'
 import { Tooltip } from '@/components/ToolTip'
-import { RichTooltip } from '@/components/ToolTipRich'
 
 import { FilterToolbar } from './FilterToolbar'
 import { TagExplorer } from './TagExplorer'
@@ -72,10 +71,11 @@ export function PageClient() {
       if (!isSidebarOpen) setIsSidebarOpen(true)
     }
   }
+
   return (
     <div className="h-full min-h-0 flex flex-col not-prose">
       <BaseScroll>
-        <div className="space-y-2 px-2 mt-2">
+        <div className="space-y-2 px-2 mt-2 w-full mb-2">
           <TagExplorer
             actions={actions}
             filters={filters}
@@ -87,7 +87,7 @@ export function PageClient() {
             filters={filters}
             resetFilters={() => {
               actions.setSelectedList('all')
-              actions.setSortBy('difficulty-asc') // Back to default instead of 'none'
+              actions.setSortBy('difficulty-asc')
               actions.setSelectedPremium(['free', 'premium'])
               actions.setSelectedDifficulties(['e', 'm', 'h'])
               actions.setSelectedTags([])
@@ -110,54 +110,43 @@ export function PageClient() {
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
-
-        <div
-          ref={sidebarRef}
-          className={`
-          fixed right-0 top-0 z-50
-          h-full w-full md:w-1/3 lg:w-[400px]
-          overflow-y-auto
-          /* M3 Tokens */
-          bg-surface-container-low text-on-surface
-          shadow-elevation-3
-          /* M3 Shaping: Rounded leading edge */
-          rounded-l-2xl
-          border-l border-outline-variant
-          py-4 px-6
-          transition-transform duration-300 ease-emphasized
-          ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
-        `}
-        >
-          {/* HEADER */}
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="text-title-large font-semibold">Solutions</h2>
-            <button
-              type="button"
-              className="flex h-10 items-center justify-center rounded-full px-4 
-                       bg-primary text-on-primary hover:shadow-elevation-1 
-                       active:scale-95 transition-all text-label-large"
-              onClick={() => setIsSidebarOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-
-          {/* CONTENT */}
-          <div className="space-y-4">
-            {focusedSolution &&
-              (focusedSolution.solutions ?? []).map((solution, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl bg-surface-container px-4 py-3 border border-outline-variant"
-                >
-                  <SolutionSnippet solution={solution} />
-                </div>
-              ))}
-          </div>
-        </div>
+        {renderSidebar()}
       </>
     )
   }
+  function renderSidebar() {
+    return (
+      <div
+        ref={sidebarRef}
+        className={`fixed right-0 top-0 z-50 h-full w-full md:w-1/3 lg:w-[600px] overflow-y-auto transition-transform duration-300 ease-emphasized bg-surface-container-low 
+          ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
+        `}
+      >
+        {/* HEADER */}
+        <div className="flex items-center justify-between px-2 bg-surface-container-high border-b border-outline-variant/40 shadow-sm">
+          <h2 className="text-title-large font-semibold">Solutions</h2>
+
+          <button
+            onClick={() => setIsSidebarOpen(false)}
+            className="icon-button"
+            aria-label="Close sidebar"
+            title="Close"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* CONTENT */}
+        <div className="space-y-4 w-full">
+          {focusedSolution &&
+            (focusedSolution?.solutions ?? []).map((solution, idx) => (
+              <Solution key={idx} solution={solution} />
+            ))}
+        </div>
+      </div>
+    )
+  }
+
   function renderProblemList() {
     return (
       <AnimatePresence>
@@ -170,32 +159,36 @@ export function PageClient() {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
           >
-            <a
-              href={problem.url}
-              target="_blank"
-              className="gap-2 text-lg text-on-surface dark:text-on-surface group"
-              rel="noreferrer"
-              onClick={() => actions.markAttempted(problem.lc.id)}
+            <div
+              className={`flex items-start gap-2 w-full px-2 py-1  transition-colors ${i % 2 === 0 ? 'bg-surface-container' : 'bg-surface-container-low'} hover:bg-surface-container-high`}
             >
-              <div className="flex items-start gap-2 w-full group-hover:text-primary">
-                <span className="w-12 text-right">{i + 1}. </span>
-                <span
-                  className={` ${
-                    randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
-                      ? 'line-through text-primary dark:text-primary decoration-on-primary dark:decoration-on-primary'
-                      : ''
-                  }`}
-                >
-                  {problem.title}
-                </span>
-                <span className={'text-sm ' + getDifficulty(problem.difficulty)}>
-                  [{problem.difficulty}]
-                </span>
-                {hasSolution(problem) && (
-                  <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>
-                )}
-              </div>
-            </a>
+              <a
+                href={problem.url}
+                target="_blank"
+                className="gap-2 text-lg text-on-surface dark:text-on-surface group"
+                rel="noreferrer"
+                onClick={() => actions.markAttempted(problem.lc.id)}
+              >
+                <div className="flex items-start gap-2 w-full group-hover:text-primary">
+                  <span className="w-12 text-right">{i + 1}. </span>
+                  <span
+                    className={` ${
+                      randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
+                        ? 'line-through text-primary dark:text-primary decoration-on-primary dark:decoration-on-primary'
+                        : ''
+                    }`}
+                  >
+                    {problem.title}
+                  </span>
+                  <span className={'text-sm ' + getDifficulty(problem.difficulty)}>
+                    [{problem.difficulty}]
+                  </span>
+                  {hasSolution(problem) && (
+                    <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>
+                  )}
+                </div>
+              </a>
+            </div>
           </motion.div>
         ))}
       </AnimatePresence>

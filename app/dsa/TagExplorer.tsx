@@ -40,7 +40,7 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
                     p-1.5 rounded-md transition-all
                     ${
                       sortMode === opt.id
-                        ? 'bg-(--primary-container) text-(--primary) shadow-sm'
+                        ? 'bg-primary-container text-primary shadow-sm'
                         : 'text-on-surface-variant/40 hover:text-primary hover:bg-primary/5'
                     }
                   `}

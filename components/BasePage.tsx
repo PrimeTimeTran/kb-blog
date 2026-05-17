@@ -1,5 +1,5 @@
-import { CenterRegion } from '@/components/layout/CenterRegion'
 import { BaseScroll } from '@/components/BaseScroll'
+import { CenterRegion } from '@/components/layout/CenterRegion'
 
 export function BasePage({ children }) {
   return (

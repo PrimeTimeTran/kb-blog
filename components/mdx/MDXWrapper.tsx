@@ -170,14 +170,7 @@ export default function MDXWrapper({ children }: { children: React.ReactNode }) 
       {/* =========================
           MAIN MDX CONTENT
       ========================== */}
-      <div
-        ref={contentRef}
-        className="
-          mdx-content
-          relative
-          z-10
-        "
-      >
+      <div ref={contentRef} className="mdx-content relative z-10">
         {children}
       </div>
     </div>

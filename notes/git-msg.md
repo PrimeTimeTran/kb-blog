@@ -20,31 +20,11 @@
 |     |                                              |
 | ✅  | 🆔 Name                                      |
 | --- | -------------------------------------------- |
-|     | Tags                                         |
-| [x] | Confirm Design System tokens                 |
-| [x] | Add Base Structure:                          |
-| [x] | - BasePage                                   |
-| [x] | - BaseScroll                                 |
-| [x] | Navbar                                       |
-| [x] | - Redo with global styles                    |
-| [x] | - Fix shift of hamburger                     |
-| [x] | - Fix overlay collision with Graffiti        |
-| [x] | Add Previews                                 |
-| [x] | - Tailwind                                   |
-| [x] | - Design System                              |
-| [x] | Tag                                          |
-| [x] |                                              |
 | [x] |                                              |
 | [ ] |                                              |
 | [ ] |                                              |
 | [ ] |                                              |
 | [ ] |                                              |
-| [ ] | WIP: Nav Styling technique                   |
-|     | Tags                                         |
-| [ ] |                                              |
-| [ ] |                                              |
-| [ ] |                                              |
-|     | Tags                                         |
 | [ ] |                                              |
 | [ ] |                                              |
 |     | -------------------------------------------- |

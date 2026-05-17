@@ -1,16 +1,22 @@
 'use client'
+import React from 'react'
 
 import { useScroll } from '@/providers/ScrollProvider'
 
-export function BaseScroll({ children }) {
+export function BaseScroll({
+  children,
+  className,
+}: {
+  children: React.ReactNode
+  className?: string
+}) {
   const { setScrollEl } = useScroll()
-
   return (
     <div
-      id="scroll-container"
       ref={setScrollEl}
       data-scroll-root
-      className="  flex-1  min-w-0  overflow-y-auto scroll-smooth"
+      id="scroll-container"
+      className={`flex-1 min-w-0 overflow-y-auto scroll-smooth no-scrollbar ${className ? className : ''}`}
       // style={{ contain: 'layout paint' }}
     >
       {children}

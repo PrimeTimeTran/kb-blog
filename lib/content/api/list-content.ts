@@ -50,13 +50,13 @@ export async function listContent(
       type: query.type,
       title: result.frontMatter?.title ?? '',
       date: result.frontMatter?.date ?? '',
+      draft: result.frontMatter?.draft ?? '',
       summary: result.frontMatter?.summary ?? '',
       frontMatter: result.frontMatter,
     }
 
-    if (!item.title.trim()) continue
-    if (!item.summary.trim()) continue
-
+    if (item.draft) continue
+    if (!item.title?.trim() || !item.summary?.trim()) continue
     if (config?.filter && !config.filter(item)) continue
 
     results.push(item)

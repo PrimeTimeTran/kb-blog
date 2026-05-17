@@ -29,7 +29,7 @@ export function TabGroupNavigator({
   }, [seed, isDark])
 
   return (
-    <div className="h-full min-h-0 flex flex-col bg-background">
+    <div className="h-full w-full min-h-0 flex flex-col bg-background">
       <BaseScroll>
         <header className="sticky top-0 z-50 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl px-6 py-2">
           <div className="max-w-7xl mx-auto">

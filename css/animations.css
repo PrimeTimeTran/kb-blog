@@ -178,3 +178,52 @@
   display: inline-block;
   animation: wobble 6s infinite ease-in-out;
 }
+
+@keyframes blob-float-1 {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(80px, -60px, 0) scale(1.08);
+  }
+}
+
+@keyframes blob-float-2 {
+  0%,
+  100% {
+    transform: translate3d(0px, 0px, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-70px, 70px, 0) scale(1.12);
+  }
+}
+
+@keyframes blob-opacity {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* BASE OPTIMIZATION */
+.animate-blob {
+  will-change: transform, opacity;
+  transform-origin: center;
+}
+
+/* INDIVIDUAL BLOBS */
+.animate-blob-1 {
+  animation:
+    blob-float-1 16s ease-in-out infinite,
+    blob-opacity 11s ease-in-out infinite;
+}
+
+.animate-blob-2 {
+  animation:
+    blob-float-2 22s ease-in-out infinite,
+    blob-opacity 13s ease-in-out infinite;
+}

@@ -53,11 +53,7 @@ export function ResizableColumn({ side, className, children }: ResizableColumnPr
 
   return (
     <div
-      className={`
-        group
-        flex
-        h-full
-        shrink-0
+      className={`group flex h-full shrink-0 
         ${className ? className : ''}
         ${isLeft ? 'overflow-hidden left-sidebar' : 'right-sidebar'}
       `}
@@ -70,7 +66,8 @@ export function ResizableColumn({ side, className, children }: ResizableColumnPr
     >
       {!isLeft && <Resizer onMouseDown={resize} />}
 
-      <div className="flex-1 min-w-0 h-full overflow-hidden">{children}</div>
+      {/* <div className="flex-1 min-w-0 h-full overflow-hidden">{children}</div> */}
+      <div className="flex-1 min-w-0 h-full overflow-y-auto no-scrollbar ">{children}</div>
 
       {isLeft && <Resizer onMouseDown={resize} />}
     </div>

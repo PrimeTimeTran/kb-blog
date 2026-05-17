@@ -1,4 +1,7 @@
 @layer components {
+  .group:hover .controls {
+    opacity: 1;
+  }
   /* -------------------------
    * BASE LINK
    * ------------------------- */
@@ -84,12 +87,29 @@
    * ICON BUTTON (hamburger, close, theme toggle)
    * ------------------------- */
   .icon-button {
-    @apply inline-flex h-10 w-10 items-center justify-center;
+    @apply inline-flex h-9 w-9 items-center justify-center;
+
     @apply rounded-full;
     @apply text-on-surface-variant;
-    @apply transition-colors duration-200;
+
+    @apply backdrop-blur-md;
+    @apply shadow-sm;
+
+    @apply transition-all duration-200 ease-out;
+
+    /* base surface */
+    @apply bg-transparent;
+
+    /* hover state */
     @apply hover:bg-surface-container;
+    @apply hover:shadow-md;
+    @apply hover:-translate-y-0.5;
+    @apply hover:text-on-surface;
+
+    /* active (press) */
     @apply active:bg-surface-container-high;
+    @apply active:translate-y-0;
+    @apply active:scale-95;
   }
 
   /* -------------------------

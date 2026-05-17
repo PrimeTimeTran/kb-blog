@@ -2,7 +2,8 @@
 draft: true
 date: '2026-01-17'
 title: 'The Only Free Thing'
-summary: 'On ideology, irony, and what “free” actually means.'
+summary: ''
+summary2: 'On ideology, irony, and what “free” actually means.'
 tags: ['finance', 'politics', 'society']
 ---
 

@@ -1,9 +1,9 @@
 ---
 draft: true
-date: '2026-09-10'
+date: '1950-09-10'
+title: ''
+summary: ''
 slug: 'sql-toc'
-title: 'sss'
-summary: 'sss'
 tags: ['ssss']
 ---
 

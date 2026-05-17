@@ -27,7 +27,7 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
   } = usePosts({ fetchedPosts })
 
   return (
-    <div className="flex h-full min-h-0">
+    <div className="flex h-full min-h-0 max-w-5xl px-3 mx-auto">
       <div className="flex-1 min-w-0 space-y-2">
         <header className="card surface-container">
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-on-surface sm:text-4xl">
@@ -101,7 +101,7 @@ function PostCard({ post }) {
   const { slug, date, title, summary, tags = [] } = post
 
   return (
-    <article className="xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group card surface-container rounded-xl">
+    <article className="card xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl">
       <dl>
         <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
           <FiCalendar className="text-primary opacity-80" />
@@ -114,12 +114,7 @@ function PostCard({ post }) {
         <h3 className="text-2xl font-bold tracking-tight">
           <Link
             href={buildContentUrl('blog', slug)}
-            className="
-                block w-full text-3xl
-                text-on-surface
-                transition-colors
-                group-hover:text-primary
-              "
+            className="block w-full text-3xl text-on-surface transition-colors group-hover:text-primary"
           >
             {title}
           </Link>

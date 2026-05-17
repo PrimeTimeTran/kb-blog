@@ -102,9 +102,7 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
 
   return (
     <div
-      className={`
-        transition-all
-        hover:bg-(--surface-variant)
+      className={`transition-all hover:bg-surface-variant w-full
         ${isActive ? 'border-l-2' : ''}
       `}
       style={{
@@ -119,7 +117,7 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
         className={`
           block w-full truncate px-2 py-1 transition-all
           ${colorClass}
-          ${isActive ? 'font-bold text-(--on-primary-container)' : ''}
+          ${isActive ? 'font-bold text-on-primary-container' : ''}
         `}
       >
         {item.value}

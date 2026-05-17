@@ -18,5 +18,5 @@ export default function ThemeShowcase() {
     applyMaterialTheme(seed, isDark)
     // document.documentElement.classList.toggle('dark', isDark)
   }, [seed, isDark])
-  return <TabGroupNavigator tabs={[...DESIGN_SYSTEM_TABS]} title="SHOWCASE" subtitle="V1.0.0" />
+  return <TabGroupNavigator tabs={[...DESIGN_SYSTEM_TABS]} title="SHOWCASE" subtitle="v1.0.0" />
 }

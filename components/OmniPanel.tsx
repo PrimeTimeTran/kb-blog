@@ -1,98 +1,8 @@
 'use client'
 
-import React, { useState, useMemo, useId } from 'react'
+import React, { useState, useMemo, useId, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useTheme } from 'next-themes'
-
-const SHADOWS = {
-  dark: {
-    low: '0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.5)',
-    default: '0 4px 6px rgba(0,0,0,0.3), 0 10px 15px rgba(0,0,0,0.5)',
-    high: '0 20px 25px rgba(0,0,0,0.4), 0 10px 10px rgba(0,0,0,0.5)',
-  },
-  light: {
-    low: '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
-    default: '0 4px 6px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.1)',
-    high: '0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04)',
-  },
-}
-
-const getShadowMap = (isDark) => {
-  const mode = isDark ? 'dark' : 'light'
-  return SHADOWS[mode] // Returns { low: "...", default: "...", high: "..." }
-}
-
-const getSurfaceMap = (isDark) => {
-  // Define the base colors once to ensure 100% consistency
-  const baseSurfaces = {
-    low: isDark ? 'bg-surface-container-low' : 'bg-surface-container-low',
-    default: isDark ? 'bg-surface-container' : 'bg-surface-container',
-    high: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
-  }
-
-  return {
-    // Both 'none' and 'trace' now use the exact same background tokens
-    none: baseSurfaces,
-    trace: baseSurfaces,
-    // 'pop' remains distinct if you want it to stand out immediately
-    pop: {
-      low: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
-      default: isDark ? 'bg-surface-container-highest' : 'bg-white',
-      high: isDark ? 'bg-surface-bright' : 'bg-white',
-    },
-    ghost: {
-      low: 'bg-transparent border-outline/20',
-      default: 'bg-transparent border-outline/40',
-      high: 'bg-transparent border-outline/60',
-    },
-    glass: {
-      low: isDark ? 'bg-white/5 backdrop-blur-md' : 'bg-black/5 backdrop-blur-md',
-      default: isDark ? 'bg-white/10 backdrop-blur-lg' : 'bg-black/10 backdrop-blur-lg',
-      high: isDark ? 'bg-white/20 backdrop-blur-xl' : 'bg-black/20 backdrop-blur-xl',
-    },
-    inset: {
-      low: isDark ? 'bg-black/20 shadow-inner' : 'bg-surface-container-highest/50 shadow-inner',
-      default: isDark ? 'bg-black/40 shadow-inner' : 'bg-surface-container-highest shadow-inner',
-      high: isDark ? 'bg-black/60 shadow-inner' : 'bg-surface-container-highest shadow-inner',
-    },
-  }
-}
-
-const getColorMap = (isDark: boolean) => ({
-  primary: {
-    container: isDark ? 'bg-primary-container/10' : 'bg-primary-container/30',
-    header: isDark ? 'bg-primary/20' : 'bg-primary/10',
-    brandText: 'text-primary',
-    // Danger/Error is special, but Primary/Secondary/Tertiary should follow Surface rules
-    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
-    border: 'border-primary/20',
-    brandHex: 'var(--primary)',
-  },
-  secondary: {
-    container: isDark ? 'bg-secondary-container/10' : 'bg-secondary-container/30',
-    header: isDark ? 'bg-secondary/20' : 'bg-secondary/10',
-    brandText: 'text-secondary',
-    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
-    border: 'border-secondary/20',
-    brandHex: 'var(--secondary)',
-  },
-  tertiary: {
-    container: isDark ? 'bg-tertiary-container/10' : 'bg-tertiary-container/30',
-    header: isDark ? 'bg-tertiary/20' : 'bg-tertiary/10',
-    brandText: 'text-tertiary',
-    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
-    border: 'border-tertiary/20',
-    brandHex: 'var(--tertiary)',
-  },
-  error: {
-    container: isDark ? 'bg-error-container/20' : 'bg-error-container/40',
-    header: isDark ? 'bg-error/25' : 'bg-error/15',
-    brandText: 'text-error',
-    bodyText: isDark ? 'text-on-error-container' : 'text-on-error-container',
-    border: 'border-error/30',
-    brandHex: 'var(--error)',
-  },
-})
 
 export function OmniPanel({
   header,
@@ -106,44 +16,67 @@ export function OmniPanel({
   headerClassName = '',
   isHoverable = true,
 }: OmniPanelProps) {
-  const id = useId()
-  const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme === 'dark'
+  const { resolvedTheme, systemTheme } = useTheme()
+  const theme = resolvedTheme ?? systemTheme
+
+  const [mounted, setMounted] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
+  // Error: Calling setState synchronously within an effect can trigger cascading renders
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  /**
+   * 1. ALWAYS SAFE DERIVATIONS (NO EARLY RETURN BEFORE THIS)
+   */
+  const id = useId()
+  const isDark = theme === 'dark'
   const isSemantic = color !== 'surface'
+
   const colorMap = useMemo(() => getColorMap(isDark), [isDark])
   const surfaceMap = useMemo(() => getSurfaceMap(isDark), [isDark])
   const shadowMap = useMemo(() => getShadowMap(isDark), [isDark])
 
   const semantic = isSemantic ? colorMap[color] : null
 
-  const traceColors = useMemo(() => {
-    const base = isSemantic ? color : 'primary'
-    return {
-      start: `var(--${base})`,
-      middle: isDark ? `var(--tertiary)` : `var(--secondary)`,
-      end: `var(--${base})`,
-      glow: `var(--${base})`,
-    }
-  }, [isDark, color, isSemantic])
-
-  const bgStyle = isSemantic ? semantic.container : surfaceMap[variant][elevation]
-  const borderStyle = isSemantic ? semantic.border : 'border-outline-variant/30'
   const baseShadow = shadowMap[elevation]
   const hoverShadow = shadowMap[elevation === 'low' ? 'default' : 'high']
 
-  const motionVariants = {
-    initial: { scale: 1, y: 0, boxShadow: baseShadow },
-    pop: { scale: 1.015, y: -4, boxShadow: hoverShadow },
-    lift: { y: -2, boxShadow: hoverShadow },
-    none: { scale: 1, y: 0, boxShadow: baseShadow },
-    shadow: {
-      scale: 0.98,
-      y: 0,
-      boxShadow: hoverShadow,
-      transition: { type: 'spring', stiffness: 400, damping: 25 },
-    },
+  const bgStyle = isSemantic ? semantic?.container : surfaceMap[variant][elevation]
+
+  const borderStyle = isSemantic
+    ? (semantic?.border ?? 'border-outline-variant/30')
+    : 'border-outline-variant/30'
+
+  const traceColors = {
+    start: `var(--${isSemantic ? color : 'primary'})`,
+    middle: isDark ? `var(--tertiary)` : `var(--secondary)`,
+    end: `var(--${isSemantic ? color : 'primary'})`,
+    glow: `var(--${isSemantic ? color : 'primary'})`,
+  }
+
+  const motionVariants = useMemo(
+    () => ({
+      initial: { scale: 1, y: 0, boxShadow: baseShadow },
+      pop: { scale: 1.015, y: -4, boxShadow: hoverShadow },
+      lift: { y: -2, boxShadow: hoverShadow },
+      none: { scale: 1, y: 0, boxShadow: baseShadow },
+      shadow: {
+        scale: 0.98,
+        y: 0,
+        boxShadow: hoverShadow,
+        transition: { type: 'spring', stiffness: 400, damping: 25 },
+      },
+    }),
+    [baseShadow, hoverShadow]
+  )
+
+  /**
+   * 2. ONLY AFTER EVERYTHING: RENDER GUARD
+   */
+  if (!mounted || !theme) {
+    return <div className="opacity-0">{children}</div>
   }
 
   return (
@@ -237,11 +170,14 @@ export function OmniPanel({
   )
 }
 
+type PanelColor = SemanticColor | 'surface'
 type HoverEffect = 'none' | 'pop' | 'lift' | 'glow' | 'shadow'
+type SemanticColor = 'primary' | 'secondary' | 'error' | 'tertiary'
+type Color = 'primary' | 'secondary' | 'error' | 'tertiary' | 'surface'
 
 interface OmniPanelProps {
   children: React.ReactNode
-  color?: 'primary' | 'secondary' | 'error' | 'tertiary'
+  color?: PanelColor
   header?: React.ReactNode
   footer?: React.ReactNode
   className?: string
@@ -253,3 +189,93 @@ interface OmniPanelProps {
 }
 
 // https://prismic.io/blog/css-hover-effects
+
+const SHADOWS = {
+  dark: {
+    low: '0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.5)',
+    default: '0 4px 6px rgba(0,0,0,0.3), 0 10px 15px rgba(0,0,0,0.5)',
+    high: '0 20px 25px rgba(0,0,0,0.4), 0 10px 10px rgba(0,0,0,0.5)',
+  },
+  light: {
+    low: '0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06)',
+    default: '0 4px 6px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.1)',
+    high: '0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04)',
+  },
+}
+
+const getShadowMap = (isDark) => {
+  const mode = isDark ? 'dark' : 'light'
+  return SHADOWS[mode] // Returns { low: "...", default: "...", high: "..." }
+}
+
+const getSurfaceMap = (isDark) => {
+  // Define the base colors once to ensure 100% consistency
+  const baseSurfaces = {
+    low: isDark ? 'bg-surface-container-low' : 'bg-surface-container-low',
+    default: isDark ? 'bg-surface-container' : 'bg-surface-container',
+    high: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
+  }
+
+  return {
+    // Both 'none' and 'trace' now use the exact same background tokens
+    none: baseSurfaces,
+    trace: baseSurfaces,
+    // 'pop' remains distinct if you want it to stand out immediately
+    pop: {
+      low: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
+      default: isDark ? 'bg-surface-container-highest' : 'bg-white',
+      high: isDark ? 'bg-surface-bright' : 'bg-white',
+    },
+    ghost: {
+      low: 'bg-transparent border-outline/20',
+      default: 'bg-transparent border-outline/40',
+      high: 'bg-transparent border-outline/60',
+    },
+    glass: {
+      low: isDark ? 'bg-white/5 backdrop-blur-md' : 'bg-black/5 backdrop-blur-md',
+      default: isDark ? 'bg-white/10 backdrop-blur-lg' : 'bg-black/10 backdrop-blur-lg',
+      high: isDark ? 'bg-white/20 backdrop-blur-xl' : 'bg-black/20 backdrop-blur-xl',
+    },
+    inset: {
+      low: isDark ? 'bg-black/20 shadow-inner' : 'bg-surface-container-highest/50 shadow-inner',
+      default: isDark ? 'bg-black/40 shadow-inner' : 'bg-surface-container-highest shadow-inner',
+      high: isDark ? 'bg-black/60 shadow-inner' : 'bg-surface-container-highest shadow-inner',
+    },
+  }
+}
+
+const getColorMap = (isDark: boolean) => ({
+  primary: {
+    container: isDark ? 'bg-primary-container/10' : 'bg-primary-container/30',
+    header: isDark ? 'bg-primary/20' : 'bg-primary/10',
+    brandText: 'text-primary',
+    // Danger/Error is special, but Primary/Secondary/Tertiary should follow Surface rules
+    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
+    border: 'border-primary/20',
+    brandHex: 'var(--primary)',
+  },
+  secondary: {
+    container: isDark ? 'bg-secondary-container/10' : 'bg-secondary-container/30',
+    header: isDark ? 'bg-secondary/20' : 'bg-secondary/10',
+    brandText: 'text-secondary',
+    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
+    border: 'border-secondary/20',
+    brandHex: 'var(--secondary)',
+  },
+  tertiary: {
+    container: isDark ? 'bg-tertiary-container/10' : 'bg-tertiary-container/30',
+    header: isDark ? 'bg-tertiary/20' : 'bg-tertiary/10',
+    brandText: 'text-tertiary',
+    bodyText: isDark ? 'text-on-surface' : 'text-on-surface',
+    border: 'border-tertiary/20',
+    brandHex: 'var(--tertiary)',
+  },
+  error: {
+    container: isDark ? 'bg-error-container/20' : 'bg-error-container/40',
+    header: isDark ? 'bg-error/25' : 'bg-error/15',
+    brandText: 'text-error',
+    bodyText: isDark ? 'text-on-error-container' : 'text-on-error-container',
+    border: 'border-error/30',
+    brandHex: 'var(--error)',
+  },
+})

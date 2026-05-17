@@ -9,8 +9,7 @@ export const metadata = siteMetaDataHeader
 
 export default async function AppLayout({ children }) {
   return (
-    // EXPLANATION:
-    // GLOBAL STYLING STRATEGY
+    // CONTEXT: GLOBAL STYLING STRATEGY
     // We support two approaches styling html:
 
     // Option A — Tailwind's Inline Convention (quick / explicit / local reasoning)
@@ -42,24 +41,24 @@ export default async function AppLayout({ children }) {
     //   - aligns with Tailwind layering model
     //   - reduces duplication across routes/layouts
     //   - makes global changes predictable (body, surfaces, typography)
-    <html>
+
+    // CONTEXT: suppressHydrationWarning
+    // We must due this because we of know issue with Theme Provider by Next
+    // If we implement "theme save"  then server and client can't resolve theme/dom.
+    // Required here and ThemeProvider (in AppShell)
+    <html suppressHydrationWarning>
       <body>
         <AppShell>
-          <div className="flex h-full flex-col">
-            <div className="flex flex-1 min-h-0">{children}</div>
+          <div className="flex flex-col h-full">
+            <div className="flex flex-1 min-h-0 pt-16">{children}</div>
           </div>
           {/*
-            GLOBAL SCROLL CAPTURE:
-            Used for:
-              - Navigation scroll progress bar
+            CONTEXT: GLOBAL SCROLL CAPTURE
+            Requires specific root structure to work on "deeply" nested children.
+            Used by:
+              - Navigation progress bar
               - Graffiti background
               - Table of contents indicator
-            Depends on specific root structure. 
-            It can work with deeply nested children if the root follows a few rules.
-
-            DO NOT DELETE Option 2 without verifying 
-            scroll tracking still works across layout refactors.
-
             CONTEXT:
             New pages that dont use BasePage must use these classes to 
             restore page scroll
@@ -69,7 +68,10 @@ export default async function AppLayout({ children }) {
           {/* <div className="flex h-full flex-col">
             <div className="flex flex-1 min-h-0">{children}</div>
           </div> */}
-          {/* Option 2: Scroll Capture: Nested (Example)  */}
+          {/* Option 2: Scroll Capture: Nested (Example)  
+              ! DO NOT DELETE Option 2 without verifying 
+              scroll spy continues working across home, kb, blog post screens.
+          */}
           {/* <div className="flex h-full flex-col">
             <div className="flex h-full flex-col">
               <div className="flex h-full flex-col">

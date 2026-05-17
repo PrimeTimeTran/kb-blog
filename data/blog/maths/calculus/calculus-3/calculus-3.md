@@ -1,8 +1,8 @@
 ---
 draft: true
-date: '2025-01-03'
-title: 's'
-summary: 's'
+date: '1950-09-10'
+title: ''
+summary: ''
 tags: ['maths', 'calculus']
 ---
 
