@@ -43,13 +43,7 @@ export function Layout3ColumnCenter({ children }) {
     <div
       ref={setScrollEl}
       data-scroll-root
-      className="
-        flex-1
-        min-w-0
-        min-h-0
-        overflow-y-auto
-        no-scrollbar
-      "
+      className="flex-1 min-w-0 min-h-0 overflow-y-auto no-scrollbar"
     >
       {children}
     </div>

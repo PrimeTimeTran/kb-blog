@@ -4,9 +4,9 @@ export function useWorkspaceViewport(initialId: WorkspaceId): WorkspaceViewportA
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
   const [previewId, setPreviewId] = useState<WorkspaceId | null>(null)
 
-  // const [railPosition, setRailPosition] = useState<RailPosition>('bottom')
   // const [orientation, setOrientation] = useState<Orientation>('horizontal')
-  const [railPosition, setRailPosition] = useState<RailPosition>('top')
+  // const [railPosition, setRailPosition] = useState<RailPosition>('bottom')
+  const [railPosition, setRailPosition] = useState<RailPosition>('right')
   const [orientation, setOrientation] = useState<Orientation>('horizontal')
 
   const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')

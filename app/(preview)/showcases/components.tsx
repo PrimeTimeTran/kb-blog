@@ -1,87 +1,39 @@
 import clsx from 'clsx'
 
-import {
-  LocalRibbonItem,
-  LocalRibbonProps,
-  RailProps,
-  WorkspaceDefinition,
-  WorkspaceRibbonProps,
-} from './types'
+import { RailProps, LocalRibbonItem, LocalRibbonProps, WorkspaceRibbonProps } from './types'
+import { RibbonItem } from './Rail'
 
-export function RibbonItem({
-  item,
-  active,
-  previewId,
-  onSelect,
-  onPreview,
-}: {
-  item: any
-  active: boolean
-  onSelect: (id: string) => void
-  onPreview: (id: string | null) => void
-}) {
-  const Preview = item.preview
-  const isPreview = item.id === previewId
-  return (
-    <button
-      onClick={() => onSelect(item.id)}
-      onMouseEnter={() => onPreview(item.id)}
-      onMouseLeave={() => onPreview(null)}
-      className={clsx(
-        'group relative overflow-hidden rounded-xl border transition-all',
-        active && 'border-[var(--primary)]',
-        isPreview && !active && 'border-blue-400/50 scale-[1.02]'
-      )}
-    >
-      <div className="h-24 w-40 overflow-hidden bg-[var(--surface-container)]">
-        {Preview ? (
-          <div className="h-full w-full scale-[0.3] origin-top-left pointer-events-none">
-            <Preview />
-          </div>
-        ) : (
-          <div className="h-full w-full flex items-center justify-center text-xs opacity-50">
-            No preview
-          </div>
-        )}
-      </div>
-
-      <div className="px-2 py-1 text-left text-xs">{item.title}</div>
-    </button>
-  )
-}
-export function MotionPreview() {
-  return <div className="h-full w-full bg-gradient-to-br from-purple-500 to-black" />
-}
 export function ViewportRail({
   items,
   activeId,
   previewId,
   onSelect,
   onPreview,
-  position = 'bottom',
-}: RailProps) {
-  const isVertical = position === 'left' || position === 'right'
-
+  viewConfig,
+}: RailProps): import('react').JSX.Element {
+  const isVertical = viewConfig?.railPosition === 'left' || viewConfig?.railPosition === 'right'
+  console.log({ viewConfig })
   return (
-    <div
-      className={clsx(
-        'border-black/10 dark:border-white/10 bg-background',
-        isVertical ? 'h-full w-64 border-x overflow-y-auto' : 'w-full overflow-x-auto border-y'
-      )}
-    >
-      <div className={clsx('gap-2 p-3', isVertical ? 'flex flex-col' : 'flex min-w-max')}>
+    <div className="h-full w-full">
+      <div className={clsx('h-full w-full flex gap-4 p-2', isVertical ? 'flex-col' : 'flex-row')}>
         {items.map((item) => (
           <RibbonItem
             key={item.id}
             item={item}
-            active={item.id === activeId}
+            active={item.id === viewConfig.activeId}
+            activeId={activeId}
+            id={item}
             onSelect={onSelect}
+            isVertical={isVertical}
             onPreview={onPreview}
           />
         ))}
       </div>
     </div>
   )
+}
+export function MotionPreview() {
+  return <div className="h-full w-full bg-gradient-to-br from-purple-500 to-black" />
 }
 export function WorkspaceRibbon({
   items,
@@ -118,8 +70,8 @@ export function WorkspaceRibbon({
                 orientation === 'horizontal' ? 'shrink-0 px-4 py-2' : 'w-full px-4 py-3',
 
                 active
-                  ? 'bg-[var(--primary)] text-white'
-                  : 'bg-[var(--surface-container)] hover:bg-[var(--surface-container-high)]'
+                  ? 'bg-primary text-white'
+                  : 'bg-surface-container hover:bg-[var(--surface-container-high)]'
               )}
             >
               <div className="text-sm font-medium">{item.title}</div>

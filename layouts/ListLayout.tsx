@@ -101,7 +101,7 @@ function PostCard({ post }) {
   const { slug, date, title, summary, tags = [] } = post
 
   return (
-    <article className="card xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl">
+    <article className="xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl">
       <dl>
         <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
           <FiCalendar className="text-primary opacity-80" />

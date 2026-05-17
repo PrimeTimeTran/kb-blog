@@ -166,6 +166,7 @@ const __dirname = path.dirname(__filename)
 // pnpm add ./primetimetran-beeline-1.0.1.tgz
 
 const nextConfig = {
+  devIndicators: false,
   reactStrictMode: true,
   // Note: Fixes vercel deploy --prebuilt
   output: 'standalone',

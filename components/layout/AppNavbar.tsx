@@ -67,7 +67,7 @@ export function AppNavbar() {
   const { setOpen } = useMobileNav()
 
   return (
-    <nav className="fixed inset-0 top-0 z-50 flex h-16 items-center justify-between border-b border-outline-variant/60 bg-surface/80 px-3 sm:px-4 backdrop-blur-xl">
+    <nav className="fixed inset-0 top-0 z-40 flex h-16 items-center justify-between border-b border-outline-variant/60 bg-surface/80 px-3 sm:px-4 backdrop-blur-xl">
       {/* LEFT */}
       <Link href="/" className="flex items-center gap-3">
         <DynamicLogo className="h-9 w-9 rounded-xl shadow-sm" />
@@ -100,7 +100,7 @@ export function AppNavbar() {
       {/* progress */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px]">
         <div
-          className="h-full bg-primary animate-pulse-soft-glow"
+          className="h-full bg-primary animate-pulse"
           style={{
             transform: `scaleX(${scrollProgress})`,
             transformOrigin: 'left',

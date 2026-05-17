@@ -26,32 +26,30 @@ export function AppShell({ children }) {
 
   return (
     <div className="flex h-full flex-col">
+      <Head>
+        <link
+          sizes="76x76"
+          rel="apple-touch-icon"
+          href={`${basePath}/static/favicons/loi-tran.png`}
+        />
+        <link
+          rel="icon"
+          sizes="32x32"
+          type="image/png"
+          href={`${basePath}/static/favicons/loi-tran.png`}
+        />
+        <link
+          rel="icon"
+          sizes="16x16"
+          type="image/png"
+          href={`${basePath}/static/favicons/loi-tran.png`}
+        />
+        <link rel="mask-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
+        <meta name="msapplication-TileColor" />
+        <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
+      </Head>
       <ScrollProvider>
-        <Head>
-          <link
-            rel="apple-touch-icon"
-            sizes="76x76"
-            href={`${basePath}/static/favicons/loi-tran.png`}
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href={`${basePath}/static/favicons/loi-tran.png`}
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="16x16"
-            href={`${basePath}/static/favicons/loi-tran.png`}
-          />
-          <link rel="mask-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
-          <meta name="msapplication-TileColor" />
-          <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
-          <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
-          <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-        </Head>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider enableSystem attribute="class">
           <ThemeWatcher />
           <MobileNavProvider>
             <LayoutProvider>

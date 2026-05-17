@@ -12,19 +12,23 @@ export function BlogHeader({ title, date }) {
   const { shrunk } = useScroll()
 
   return (
-    <header className="sticky top-0 z-20 h-24 shrink-0 border-b border-slate-200/60 dark:border-slate-800/60 bg-white/80 dark:bg-black/60 backdrop-blur-md px-4 text-center">
-      <div className="flex h-full flex-col justify-center">
+    <header className="sticky top-0 z-30 bg-surface/80 backdrop-blur-md border-b">
+      <div
+        className={`flex h-full flex-col justify-center bg-surface text-on-surface px-4 transition-all duration-300
+          ${false ? 'scale-[0.92] origin-top translate-y-[-10px]' : ''}
+        `}
+      >
         <div
-          className={`transition-all duration-300 ease-in-out text-primary-500 dark:text-primary-400
-            ${shrunk ? 'text-xl font-semibold' : 'text-3xl md:text-4xl font-bold'}
+          className={`transition-all duration-300 ease-in-out
+            ${false ? 'text-xl font-semibold' : 'text-3xl md:text-4xl font-bold'}
           `}
         >
           {title}
         </div>
 
         <time
-          className={`text-sm text-slate-500 dark:text-slate-400 transition-all duration-300 ease-in-out
-            ${shrunk ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 mt-2'}
+          className={`text-sm transition-all duration-300 ease-in-out text-on-surface-variant
+            ${false ? 'opacity-0 pointer-events-none scale-95' : 'opacity-100 mt-2'}
           `}
         >
           {new Date(date).toDateString()}

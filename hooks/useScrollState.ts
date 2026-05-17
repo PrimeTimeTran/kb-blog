@@ -1,24 +1,34 @@
 import { useEffect, useRef, useState } from 'react'
 
-export function useScrollState(el, toc = [], threshold = 40) {
+type TocItem = {
+  url?: string
+  slug?: string
+}
+
+type ScrollState = {
+  scrollY: number
+  scrollProgress: number
+  shrunk: boolean
+  activeId: string | null
+}
+
+export function useScrollState(
+  el: HTMLElement | null,
+  toc: TocItem[] = [],
+  threshold = 40
+): ScrollState {
   const ticking = useRef(false)
 
-  // hysteresis band
   const SHRINK_AT = threshold
   const EXPAND_AT = Math.max(0, threshold - 24)
 
   const [scrollY, setScrollY] = useState(0)
   const [shrunk, setShrunk] = useState(false)
-  const [activeId, setActiveId] = useState(null)
+  const [activeId, setActiveId] = useState<string | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
 
   /*
    * SCROLL STATE
-   * ---------------------------------------------
-   * Handles:
-   * - scrollY
-   * - scroll progress
-   * - sticky header shrink state
    */
 
   useEffect(() => {
@@ -30,26 +40,15 @@ export function useScrollState(el, toc = [], threshold = 40) {
       const scrollTop = el.scrollTop
       const maxScroll = el.scrollHeight - el.clientHeight
 
-      // scroll position
       setScrollY((prev) => (prev !== scrollTop ? scrollTop : prev))
 
-      // progress
       const nextProgress = maxScroll > 0 ? scrollTop / maxScroll : 0
 
-      setScrollProgress((prev) => {
-        return prev !== nextProgress ? nextProgress : prev
-      })
+      setScrollProgress((prev) => (prev !== nextProgress ? nextProgress : prev))
 
-      // stable shrink logic (prevents threshold flicker)
       setShrunk((prev) => {
-        if (!prev && scrollTop >= SHRINK_AT) {
-          return true
-        }
-
-        if (prev && scrollTop <= EXPAND_AT) {
-          return false
-        }
-
+        if (!prev && scrollTop >= SHRINK_AT) return true
+        if (prev && scrollTop <= EXPAND_AT) return false
         return prev
       })
 
@@ -60,28 +59,22 @@ export function useScrollState(el, toc = [], threshold = 40) {
       if (ticking.current) return
 
       ticking.current = true
-
       cancelAnimationFrame(frame)
-
       frame = requestAnimationFrame(update)
     }
 
     el.addEventListener('scroll', onScroll, { passive: true })
 
-    // initial sync
     update()
 
     return () => {
       cancelAnimationFrame(frame)
       el.removeEventListener('scroll', onScroll)
     }
-  }, [el, threshold])
+  }, [el, SHRINK_AT, EXPAND_AT])
 
   /*
-   * TOC ACTIVE SECTION OBSERVER
-   * ---------------------------------------------
-   * Handles:
-   * - active heading detection
+   * TOC OBSERVER
    */
 
   useEffect(() => {
@@ -92,10 +85,9 @@ export function useScrollState(el, toc = [], threshold = 40) {
         const id = item?.url?.replace('#', '') ?? item?.slug ?? null
 
         if (!id) return null
-
         return document.getElementById(id)
       })
-      .filter(Boolean)
+      .filter(Boolean) as HTMLElement[]
 
     if (!elements.length) return
 
@@ -110,9 +102,7 @@ export function useScrollState(el, toc = [], threshold = 40) {
         const id = visible[0].target.id
         const next = `#${id}`
 
-        setActiveId((prev) => {
-          return prev !== next ? next : prev
-        })
+        setActiveId((prev) => (prev !== next ? next : prev))
       },
       {
         root: el,
@@ -123,9 +113,7 @@ export function useScrollState(el, toc = [], threshold = 40) {
 
     elements.forEach((node) => observer.observe(node))
 
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [el, toc])
 
   return {

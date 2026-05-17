@@ -1,0 +1,71 @@
+body {
+  background: var(--color-background);
+  color: var(--color-on-background);
+}
+
+/* layout shell */
+.app-shell {
+  min-height: 100vh;
+}
+
+/* NAVBAR */
+.app-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  height: 64px;
+  display: flex;
+  align-items: center;
+
+  padding: 0 16px;
+
+  background: color-mix(in oklch, var(--color-surface) 85%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid color-mix(in oklch, var(--color-on-surface) 10%, transparent);
+}
+
+/* left side container */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* brand */
+.navbar-brand {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* THIS is the key: reserve space */
+.navbar-title-slot {
+  min-width: 200px;
+}
+
+/* title when inside navbar */
+.navbar-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* PAGE */
+.app-main {
+  padding-top: 64px;
+}
+
+.page-hero {
+  padding: 32px 16px 24px;
+}
+
+.page-title {
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.page-date {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+}

@@ -1,8 +1,72 @@
 import { WorkspaceDefinition } from './types'
 
 import { WorkspaceHero, LargeScrollableSection, ScrollableWorkspaceContent } from './components'
+import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
+import Tailwind from '@/app/(preview)/design/tailwind/page'
+import Material from '@/app/(preview)/design/system/page'
+import Product from '@/app/(preview)/design/product/page'
 
 export const workspaces: WorkspaceDefinition[] = [
+  {
+    id: 'Product',
+    title: 'Product',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Product,
+  },
+  {
+    id: 'Tailwind',
+    title: 'Tailwind',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Tailwind,
+  },
+  {
+    id: 'Material',
+    title: 'Material',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Material,
+  },
+  {
+    id: 'Animation',
+    title: 'Animation',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Page3,
+  },
   {
     id: 'motion-lab',
     title: 'Motion Lab',

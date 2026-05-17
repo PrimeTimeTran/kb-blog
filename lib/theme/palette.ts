@@ -123,8 +123,12 @@ export const applyTheme = (seed) => {
     root.style.setProperty(property, value)
   })
 }
-
-export const THEME_VAULT = [
+export type Theme = {
+  name: string
+  seed: string
+  description: string
+}
+export const THEME_VAULT: Theme[] = [
   {
     name: 'Vampire Mode',
     seed: '#bd93f9', // The Dracula Purple

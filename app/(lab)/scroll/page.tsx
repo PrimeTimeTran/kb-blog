@@ -9,7 +9,7 @@ export default function ScrollPreview() {
       <BaseScroll>
         <div className="p-4 space-y-2">
           <ButtonShowcase />
-          {/* {items.map((n) => (
+          {items.map((n) => (
             <div
               key={n}
               className={`h-16 flex items-center px-4 rounded ${
@@ -18,7 +18,7 @@ export default function ScrollPreview() {
             >
               Item {n}
             </div>
-          ))} */}
+          ))}
         </div>
       </BaseScroll>
     </div>

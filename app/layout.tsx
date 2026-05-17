@@ -1,3 +1,5 @@
+import React from 'react'
+
 import 'katex/dist/katex.min.css'
 import '../css/tailwind.css'
 
@@ -5,7 +7,15 @@ import '../css/tailwind.css'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
 
-export default async function AppLayout({ children }) {
+// NOTE:
+// Instead of messing with layout.tsx structure frequency,
+// Create a new root project root to experiment and export from layout.tsx
+// to skip dependencies and try new things out quickly.
+import Layout2 from './z.layout'
+
+export default RootLayout
+
+export function RootLayout({ children }) {
   return (
     // CONTEXT: GLOBAL STYLING STRATEGY
     // We support two approaches styling html:
@@ -62,27 +72,29 @@ export default async function AppLayout({ children }) {
             restore page scroll
             h-full w-full overflow-y-scroll
           */}
-          {/* Option 1: Scroll Capture: Minimum Structure  */}
-          {/* <div className="flex h-full flex-col">
-            <div className="flex flex-1 min-h-0">{children}</div>
-          </div> */}
-          {/* Option 2: Scroll Capture: Nested (Example)  
-              ! DO NOT DELETE Option 2 without verifying 
-              scroll spy continues working across home, kb, blog post screens.
+          {/* 
+          Option 1: Scroll Capture: Minimum Structure
+            <div className="flex h-full flex-col">
+              <div className="flex flex-1 min-h-0">{children}</div>
+            </div> 
           */}
-          {/* <div className="flex h-full flex-col">
+          {/* 
+          Option 2: Scroll Capture: Nested (Example)  
+            ! DO NOT DELETE Option 2 without verifying scroll spy STILL WORKS on home, kb, blog post screens.
             <div className="flex h-full flex-col">
               <div className="flex h-full flex-col">
-                <div className="flex flex-1 min-h-0">{children}</div>
+                <div className="flex h-full flex-col">
+                  <div className="flex flex-1 min-h-0">{children}</div>
+                </div>
               </div>
-            </div>
-          </div> */}
+            </div> 
+          */}
         </AppShell>
       </body>
     </html>
   )
 }
-// app/layout.jsx
+
 export const metadata = {
   metadataBase: new URL('https://kb-blog-primetimetran.vercel.app'),
 

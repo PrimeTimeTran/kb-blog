@@ -1,4 +1,4 @@
-const go = `
+export const BG_PARALLAX = `
 html {
   height: 100%;
   /* max-height: 600px; */

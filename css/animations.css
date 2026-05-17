@@ -227,3 +227,27 @@
     blob-float-2 22s ease-in-out infinite,
     blob-opacity 13s ease-in-out infinite;
 }
+
+.aurora-text {
+  background: radial-gradient(
+    600px circle at var(--x, 50%) var(--y, 50%),
+    #a855f7,
+    #3b82f6,
+    #06b6d4,
+    #000
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  transition: background 0.1s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(var(--angle, 0deg), #a855f7, #3b82f6, #06b6d4);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
