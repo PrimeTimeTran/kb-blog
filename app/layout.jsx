@@ -5,8 +5,6 @@ import '../css/tailwind.css'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
 
-export const metadata = siteMetaDataHeader
-
 export default async function AppLayout({ children }) {
   return (
     // CONTEXT: GLOBAL STYLING STRATEGY
@@ -84,12 +82,38 @@ export default async function AppLayout({ children }) {
     </html>
   )
 }
-// <html>
-//   <body>
-//     <AppShell>
-//       <div className="flex h-full flex-col">
-//         <div className="flex flex-1 min-h-0">{children}</div>
-//       </div>
-//     </AppShell>
-//   </body>
-// </html>
+// app/layout.jsx
+export const metadata = {
+  metadataBase: new URL('https://kb-blog-primetimetran.vercel.app'),
+
+  title: {
+    default: 'Loi Tran',
+    template: '%s | Loi Tran',
+  },
+
+  description: siteMetaDataHeader.description,
+
+  keywords: ['software engineering', 'web development', 'programming', 'blog'],
+
+  authors: [{ name: 'Loi Tran' }],
+
+  openGraph: {
+    title: 'Loi Tran',
+    description: 'Personal blog about software engineering, systems, and learning in public.',
+    type: 'website',
+    siteName: 'Loi Tran',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Loi Tran',
+    description: 'Personal blog about software engineering, systems, and learning in public.',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+}
+
+export const metadata2 = siteMetaDataHeader

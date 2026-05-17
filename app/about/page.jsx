@@ -13,3 +13,21 @@ export default async function Page() {
     </AboutLayout>
   )
 }
+
+export const metadata = {
+  title: 'About',
+  description: 'Learn more about this project, its goals, and its architecture.',
+  keywords: ['about', 'project', 'developer', 'portfolio'],
+
+  openGraph: {
+    title: 'About',
+    description: 'About this project and its goals.',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary',
+    title: 'About',
+    description: 'About this project and its goals.',
+  },
+}

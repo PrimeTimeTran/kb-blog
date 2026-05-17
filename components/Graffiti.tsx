@@ -26,7 +26,7 @@ const STYLE: GraffitiStyle = {
   sizeClass: ['text-3xl', 'text-4xl', 'text-5xl'],
 }
 function seededRandom(seed: number) {
-  let x = Math.sin(seed) * 10000
+  const x = Math.sin(seed) * 10000
   return x - Math.floor(x)
 }
 function pickWeightedFont(r: number, style: GraffitiStyle) {

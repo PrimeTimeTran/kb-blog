@@ -200,6 +200,20 @@ export function useProblemEngine() {
     })
   }, [])
 
+  const getDifficulty = (difficulty) => {
+    switch (difficulty) {
+      case 'e':
+        return 'text-green-500'
+      case 'm':
+        return 'text-yellow-500'
+      default:
+        return 'text-red-500'
+    }
+  }
+  const hasSolution = (problem) => {
+    return solutions.find((s) => s.id === problem.lc.id)
+  }
+
   // Memoize actions so they don't trigger unnecessary re-renders in components
   const actions = useMemo(
     () => ({
@@ -219,6 +233,8 @@ export function useProblemEngine() {
   )
 
   return {
+    getDifficulty,
+    hasSolution,
     solutions,
     problems: allProblems,
     orderedTags,

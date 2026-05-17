@@ -12,8 +12,8 @@ import { Solution } from '@/components/Solution.jsx'
 import { useProblemEngine } from '@/hooks/useProblemEngine'
 import { Tooltip } from '@/components/ToolTip'
 
-import { FilterToolbar } from './FilterToolbar'
 import { TagExplorer } from './TagExplorer'
+import { FilterToolbar } from './FilterToolbar'
 
 export function PageClient() {
   const {
@@ -24,6 +24,8 @@ export function PageClient() {
     orderedTags,
     displayedProblems,
     randomlySelected,
+    getDifficulty,
+    hasSolution,
   } = useProblemEngine()
 
   const sidebarRef = useRef<HTMLDivElement>(null)
@@ -49,19 +51,6 @@ export function PageClient() {
     return () => window.removeEventListener('keydown', onKeyDown)
   }, [actions])
 
-  const getDifficulty = (difficulty) => {
-    switch (difficulty) {
-      case 'e':
-        return 'text-green-500'
-      case 'm':
-        return 'text-yellow-500'
-      default:
-        return 'text-red-500'
-    }
-  }
-  const hasSolution = (problem) => {
-    return solutions.find((s) => s.id === problem.lc.id)
-  }
   const showProblemSolutions = (e, problem) => {
     e.preventDefault()
     e.stopPropagation()
@@ -106,7 +95,7 @@ export function PageClient() {
       <>
         {isSidebarOpen && (
           <div
-            className="fixed inset-0 z-40 bg-scrim/30  transition-opacity"
+            className="fixed inset-0 z-40 bg-scrim/30 transition-opacity"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
