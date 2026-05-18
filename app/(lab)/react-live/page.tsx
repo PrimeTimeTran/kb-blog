@@ -5,15 +5,11 @@
 import React, { useState, useEffect } from 'react'
 import { LiveProvider, LiveError, LivePreview } from 'react-live'
 
+import { buildRegistry } from '@/lib/buildScope'
 import { BaseEditor } from '@/components/BaseEditor'
 import { useLiveEditor } from '@/hooks/useLiveEditor'
 import { ResizableColumn } from '@/components/layout/ResizableColumn'
 import { registry } from '../../../registry.generated'
-import { buildRegistry } from '@/lib/buildScope'
-
-import 'ace-builds/src-noconflict/mode-jsx'
-import 'ace-builds/src-noconflict/mode-typescript'
-import 'ace-builds/src-noconflict/theme-monokai'
 
 // Write src to string registry so that CJS (Live Editor dep)
 // can parse it client side.

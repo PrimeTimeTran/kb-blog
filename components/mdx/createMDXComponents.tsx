@@ -51,7 +51,7 @@ export function createMDXComponents(registry, depth, visited, embedded) {
     h4: NumberedHeadings.h4,
     h5: NumberedHeadings.h5,
     h6: NumberedHeadings.h6,
-    Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
+    Embed: (props) => (<Embed {...props} registry={registry} depth={depth} visited={visited} />),
     // wrapper: ({ layout, ...rest }) => {
     //   const Layout = layouts[layout] || layouts.KBLayout
     //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />

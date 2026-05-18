@@ -2,9 +2,9 @@
 draft: true
 isDev: true
 date: '2030-01-01'
-title: 'TEST: Code Tab Groups'
+title: 'DEV: Code Tab Groups'
 summary: 'TESTING of Code Tab Groups rendering'
-tags: ['test']
+tags: ['DEV']
 ---
 
 # Code Tab Groups Examples

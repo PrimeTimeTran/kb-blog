@@ -1,10 +1,10 @@
 ---
 draft: true
-date: '2030-01-01'
-title: 'TEST: Code blocks'
-summary: 'TESTING of code blocks rendering'
 isDev: true
-tags: ['test']
+date: '2030-01-01'
+title: 'DEV: Code blocks'
+summary: 'TESTING of code blocks rendering'
+tags: ['DEV']
 ---
 
 ## Code Block (js)

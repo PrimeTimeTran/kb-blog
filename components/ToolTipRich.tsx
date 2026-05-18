@@ -1,5 +1,5 @@
 import { useFloatingPanel } from '@/hooks/useFloatingPanel'
-import React, { useState, useRef, useEffect } from 'react'
+import React from 'react'
 import { createPortal } from 'react-dom'
 
 const unfoldingClasses = {
@@ -111,10 +111,10 @@ export const RichTooltip = ({
             onMouseLeave={() => setIsOpen(false)}
           >
             {/* 
-          THE BRIDGE: 
-          This invisible div extends 20px in the direction of the trigger 
-          to ensure the hover doesn't break during the "transit".
-        */}
+              THE BRIDGE: 
+              This invisible div extends 20px in the direction of the trigger 
+              to ensure the hover doesn't break during the "transit".
+            */}
             <div
               className={`absolute h-6 w-full -z-10 ${
                 position === 'bottom' ? 'bottom-full' : position === 'top' ? 'top-full' : ''

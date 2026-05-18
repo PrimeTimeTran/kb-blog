@@ -24,9 +24,10 @@ import { injectTermLinksAndPreviews } from '../../../remark/inject-term-links-an
 
 import { terms } from '../../../../data/generated/terms'
 
-import { preprocessEmbeds, preprocessWikiLinks } from '../../api/transformers'
+import { preprocessEmbeds } from '../../api/transformers'
+import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-links'
 
-import { createMDXComponents } from '@/mdx/createMDXComponents.jsx'
+import { createMDXComponents } from '@/components/mdx/createMDXComponents'
 
 // https://mdxjs.com/docs/
 // | feature                     | works |
@@ -40,7 +41,7 @@ import { createMDXComponents } from '@/mdx/createMDXComponents.jsx'
 
 async function compileWikiMDX(source, context) {
   const { slug = '', index = {} } = context
-  let normalized = preprocessWikiLinks(source, index, slug)
+  let normalized = preprocessObsidianLinks(source, index, slug)
   normalized = preprocessEmbeds(normalized, index)
   const { default: Content } = await evaluate(normalized, {
     ...runtime,

@@ -91,9 +91,6 @@ aside {
   transition: width 200ms ease;
 }
 
-@import url('https://googleapis.com');
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
 .font-marker {
   font-family: 'Permanent Marker', cursive;
 }

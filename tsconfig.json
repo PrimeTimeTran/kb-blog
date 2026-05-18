@@ -16,6 +16,12 @@
       "@/providers/*": ["./providers/*"]
     }
   },
+  "test": {
+    "environment": "jsdom",
+    "deps": {
+      "inline": ["react", "react/jsx-runtime"]
+    }
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",

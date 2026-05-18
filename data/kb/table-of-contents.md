@@ -1,10 +1,11 @@
 ---
 draft: false
+isDev: true
 slug: table-of-contents
 date: 2026-04-30
 title: Table of Contents
 summary: Table of Contents
-tags:
+tags: 's'
 ---
 
 # Knowledge Base - Table Of Contents

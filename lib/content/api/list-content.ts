@@ -6,6 +6,7 @@ import { createPipelineContext } from '../pipeline/runtime'
 import { buildParsePipeline } from '../pipeline/runtime/build-runtime-pipeline'
 
 import type { ContentItem, ContentCollection, ContentListConfig } from '../core/types'
+import { toContentEntity, toContentItem } from '../core/content'
 
 export async function listContent(
   options: {
@@ -38,26 +39,34 @@ export async function listContent(
       raw,
     })
 
-    const pipeline = buildParsePipeline(ctx)
-    const result = await pipeline.run(raw)
+    // ─────────────────────────────
+    // 1. PARSE
+    // ─────────────────────────────
+    const result = await buildParsePipeline(ctx).run(raw)
+    const entity = Object.freeze(toContentEntity(result))
 
-    const published = isPublished(result.frontMatter?.date)
-
-    if (!published && !config?.includeDrafts) continue
-
-    const item: ContentItem = {
-      slug,
-      type: query.type,
-      title: result.frontMatter?.title ?? '',
-      date: result.frontMatter?.date ?? '',
-      draft: result.frontMatter?.draft ?? '',
-      summary: result.frontMatter?.summary ?? '',
-      frontMatter: result.frontMatter,
+    // ─────────────────────────────
+    // 4. PUBLISH FILTER
+    // ─────────────────────────────
+    const published = isPublished(entity)
+    if (entity.frontMatter?.title == 'DEV: Code blocks') {
+      console.log(`process.env.NODE_ENV === 'development'`, process.env.NODE_ENV === 'development')
+      console.log('entity', entity.frontMatter.title)
+      console.log('entity', entity.frontMatter)
+      console.log('shouldShow', published)
     }
+    if (!published) continue
+    // purpose of checking the same field twice is that config.includeDrafts is a SYSTEM config whereas the first is USER
+    // if (config?.includeDrafts) continue
 
-    if (item.draft) continue
-    if (!item.title?.trim() || !item.summary?.trim()) continue
-    if (config?.filter && !config.filter(item)) continue
+    // ─────────────────────────────
+    // 5. UI PROJECTION
+    // ─────────────────────────────
+    const item = toContentItem(entity)
+
+    if (item.title && !item.title.trim()) continue
+    if (item.summary && !item.summary.trim()) continue
+    // if (config?.filter && !config.filter(item)) continue
 
     results.push(item)
   }

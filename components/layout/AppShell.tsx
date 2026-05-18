@@ -9,6 +9,7 @@ import { LayoutProvider } from '@/providers/LayoutProvider'
 import { MobileNavProvider } from '@/providers/MobileNavProvider'
 
 import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
+
 const screens = {
   kb: {
     prompt: 'KB Screen',

@@ -1,10 +1,10 @@
 ---
 draft: true
-date: '2030-01-01'
-title: 'TEST: Terms'
-summary: 'Do terms autolinking work?'
 isDev: true
-tags: ['test']
+date: '2030-01-01'
+title: 'DEV: Terms'
+summary: 'Do terms autolinking work?'
+tags: ['DEV']
 ---
 
 ## NextJS

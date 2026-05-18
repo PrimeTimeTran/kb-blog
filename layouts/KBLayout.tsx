@@ -17,7 +17,7 @@
 import SidebarTree from '../app/kb/SidebarTree'
 import { ResizableColumn } from '@/components/layout/ResizableColumn'
 
-export function KBLayout({ tree, children }) {
+export default function KBLayout({ tree, children }) {
   return (
     <div className="flex h-screen overflow-hidden w-full">
       <ResizableColumn side="left">

@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { images } from '@/data/images'
 
-import LightBox from '../../components/client/Project'
+import LightBox from '@/components/client/Project'
 
 export default function Page() {
   const [tab, setTab] = useState('images')

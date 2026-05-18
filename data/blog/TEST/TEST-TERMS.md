@@ -1,10 +1,10 @@
 ---
 draft: true
 date: '2030-01-01'
-title: 'TEST: Term Autolinking'
+title: 'DEV: Term Autolinking'
 summary: 'Testing automatic term linking across aliases and casing variations'
 isDev: true
-tags: ['test']
+tags: ['DEV']
 ---
 
 # Term Autolinking Test File

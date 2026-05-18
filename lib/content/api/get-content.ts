@@ -7,17 +7,9 @@ import {
   buildParsePipeline,
   buildCompilePipeline,
 } from '../pipeline/runtime/build-runtime-pipeline'
-import { extractTOC } from '../core/extract-toc'
-import { isPublished } from '../core/is-published'
 import { buildContentIndex } from './build-content-index'
-import { extractHeadings } from '@/lib/remark/extract-headings'
-
-function analyzeContent(source) {
-  return {
-    toc: extractTOC(source),
-    headings: extractHeadings(source),
-  }
-}
+import { analyzeContent, toContentEntity, toContentItem } from '../core/content'
+import { extractTOC } from '../core/extract-toc'
 
 export async function getContent(
   options: {
@@ -40,74 +32,46 @@ export async function getContent(
     trace.end()
     return null
   }
+  trace.event('valid', { type, slug })
 
   // ─────────────────────────────
   // READ RAW CONTENT
   // ─────────────────────────────
   const raw = await collection.read(slug)
-
   if (!raw) {
     trace.event('NOT_FOUND', { slug })
     trace.end()
     return null
   }
-  const rootDir = collection.id.replace(/^fs:/, '')
-  const typeIndex = await buildContentIndex({
-    rootDir: rootDir,
-    toKey: (slug) => slug.toLowerCase(),
-  })
+  const rootDir = collection.id?.replace(/^fs:/, '') ?? process.cwd()
+  const typeIndex = process.env.NODE_ENV === 'test' ? {} : await buildContentIndex({ rootDir })
   const analysis = analyzeContent(raw.raw)
 
   // ─────────────────────────────
   // CREATE PIPELINE CONTEXT
   // ─────────────────────────────
   const ctx = createPipelineContext({
-    request: {
-      type,
-      slug,
-    },
+    request: { type, slug },
     raw,
     index: typeIndex,
     source: raw.source,
     analysis,
   })
 
-  // ─────────────────────────────
-  // PARSE PIPELINE
-  // ─────────────────────────────
-  const parsePipeline = buildParsePipeline(ctx)
-  await parsePipeline.run(raw)
-  // ─────────────────────────────
-  // COMPILE PIPELINE
-  // ─────────────────────────────
-  //
-  const compilePipeline = buildCompilePipeline(ctx)
-
-  await compilePipeline.run()
-
-  const item = {
-    type,
-    slug,
-    mdxSource: raw.raw,
-    // Note:
-    // Passing the TOC this was prevent an infinite loop client-side.
-    toc: extractTOC(raw.raw),
-    filePath: raw.source.filePath,
-    // This property is a React component/function
-    Content: ctx.compile?.Content,
-    frontMatter: ctx.frontMatter ?? {},
+  const parsedCtx = await buildParsePipeline(ctx).run(raw)
+  if (!parsedCtx.analysis.published) {
+    return null
   }
+  await buildCompilePipeline(ctx).run()
 
-  // ─────────────────────────────
-  // DRAFT FILTERING
-  // ─────────────────────────────
-  const published = isPublished(item)
-
-  if (!published && !config?.includeDrafts) {
+  const entity = toContentEntity(ctx)
+  if (config?.includeDrafts) {
     trace.event('DRAFT_SKIPPED', { slug })
     trace.end()
     return null
   }
+
+  const item = toContentItem(entity)
 
   // ─────────────────────────────
   // USER FILTER
@@ -125,5 +89,10 @@ export async function getContent(
 
   trace.end()
 
-  return item
+  return {
+    ...item,
+    mdxSource: raw.raw,
+    toc: extractTOC(raw.raw),
+    Content: ctx.compile?.Content,
+  }
 }

@@ -25,14 +25,8 @@ export async function getAuthor(id: string) {
   })
 
   // 4. run pipeline (authors can use lighter pipeline steps)
-  const result = await buildRuntimePipeline().run(ctx)
+  const entity = await buildRuntimePipeline(ctx).run(raw)
 
   // 5. map to entity output
-  return {
-    id,
-    name: result.frontMatter?.name ?? '',
-    bio: result.frontMatter?.bio ?? '',
-    avatar: result.frontMatter?.avatar ?? '',
-    links: result.frontMatter?.links ?? {},
-  }
+  return entity
 }

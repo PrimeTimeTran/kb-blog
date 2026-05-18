@@ -12,6 +12,7 @@ const IS_BUILD =
   process.env.NEXT_PHASE === 'phase-production-build' || process.env.NODE_ENV === 'production'
 
 const TRACE_ENABLED = process.env.TRACE === 'true' && !IS_BUILD
+// const TRACE_ENABLED = true || (process.env.TRACE === 'true' && !IS_BUILD)
 
 function out(...args: any[]) {
   if (!TRACE_ENABLED) return

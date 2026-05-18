@@ -28,6 +28,7 @@ export default [
       },
       globals: {
         ...globals.browser,
+        process: 'readonly',
       },
     },
 
@@ -78,11 +79,12 @@ export default [
 
     languageOptions: {
       globals: {
-        console: true,
-        setTimeout: true,
-        fetch: true,
         URL: true,
-        document: true, // if browser-like scripts
+        fetch: true,
+        console: true,
+        document: true,
+        setTimeout: true,
+        process: 'readonly',
       },
     },
 

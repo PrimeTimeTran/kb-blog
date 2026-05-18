@@ -1,0 +1,26 @@
+- Projects
+  - Labs
+  - Design System
+    - Globals(app.css)
+    - Tokens
+    - base, components, utilities,
+  - Workspace UI
+  - Design
+    - Tailwind Showcase
+    - Material Showcase
+    - Theme Generator & Previewer
+    - Animations
+- BaseEditor
+  - AceEditor
+  - React Live Preview
+- Graffiti Wall
+- DSA Spaced Repetition Tool
+- KB Content
+  - Terms Generation
+  - MDX Pipeline
+    - API
+    - WikiLinks Preprocessing
+    - FS Access
+    - Remix
+    - Remark
+    - Bundler

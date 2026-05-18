@@ -4,25 +4,37 @@ import { bundle } from '../compile/bundle'
 import { buildMDXContext } from '../compile/build-mdx-context'
 import type { PipelineContext, RawContent } from '../../core/types'
 import { createTrace } from '@/lib/debug'
+import { isPublished } from '../../core/is-published'
 
 export function buildParsePipeline(ctx: PipelineContext) {
   return {
     async run(raw: RawContent) {
-      ctx.raw = raw
-
       const parsed = matter(raw.raw)
 
-      ctx.frontMatter = parsed.data
-      ctx.content = parsed.content
+      const frontMatter = parsed.data
+      const content = parsed.content
 
-      return ctx
+      const published = isPublished({ frontMatter })
+
+      ctx.raw = raw
+      ctx.frontMatter = frontMatter
+      ctx.content = content
+      ctx.analysis.published = published
+
+      return {
+        ...ctx,
+        published, // 🔥 important
+      }
     },
   }
 }
-
 export function buildCompilePipeline(ctx: PipelineContext) {
   return {
     async run() {
+      if (!ctx.content) {
+        throw new Error('Missing content. Run parse pipeline first.')
+      }
+
       const mdxContext = await buildMDXContext({
         index: ctx.index,
         headings: ctx.headings,
@@ -47,31 +59,34 @@ export function buildRuntimePipeline(ctx: PipelineContext) {
   return {
     async run(raw: RawContent): Promise<PipelineContext> {
       const trace = createTrace('content:get')
-      // attach raw content to ctx
+
       ctx.raw = raw
 
       // ─────────────────────────────
       // 1. FRONTMATTER
       // ─────────────────────────────
       const parsed = matter(raw.raw)
-      trace.event('MDX Build Context', { parsed })
-
       ctx.frontMatter = parsed.data
+
+      trace.event('frontmatter parsed', {
+        hasFrontMatter: !!ctx.frontMatter,
+      })
 
       // ─────────────────────────────
       // 2. MDX CONTEXT
       // ─────────────────────────────
-
       const mdxContext = await buildMDXContext({
         slug: ctx.request.slug,
       })
-      trace.event('MDX Build Context', { slug })
+
+      trace.event('mdx context built', {
+        slug: ctx.request.slug,
+      })
 
       // ─────────────────────────────
       // 3. BUNDLE
       // ─────────────────────────────
       const result = await bundle(parsed.content, ctx.request.slug, mdxContext)
-      trace.event('MDX Build Context', { result })
 
       ctx.compile = {
         code: result.code,

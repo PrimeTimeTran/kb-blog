@@ -12,7 +12,6 @@ export function ViewportRail({
   viewConfig,
 }: RailProps): import('react').JSX.Element {
   const isVertical = viewConfig?.railPosition === 'left' || viewConfig?.railPosition === 'right'
-  console.log({ viewConfig })
   return (
     <div className="h-full w-full">
       <div className={clsx('h-full w-full flex gap-4 p-2', isVertical ? 'flex-col' : 'flex-row')}>

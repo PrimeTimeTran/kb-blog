@@ -1,9 +1,9 @@
 import ListLayout from './ListLayout'
 import PostLayout from './PostLayout'
-import ThreeColumnLayout from './ThreeColumnLayout'
+import KBLayout from './KBLayout'
 
 export const layouts = {
   ListLayout,
   PostLayout,
-  ThreeColumnLayout,
+  KBLayout,
 }

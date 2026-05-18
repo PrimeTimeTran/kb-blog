@@ -1,5 +1,5 @@
 // app/kb/layout.tsx
-import { KBLayout } from '@/layouts/ThreeColumnLayout'
+import KBLayout from '@/layouts/KBLayout'
 import { getKbTree } from '@/lib/content/domain/kb/kb.server'
 
 export const metadata = {

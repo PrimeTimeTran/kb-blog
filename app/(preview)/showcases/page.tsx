@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { ViewportRail } from './components'
 import { useWorkspaceViewport } from '@/hooks/useShowcaseViewport'
-import { workspaces } from './workspaces'
+import { workspaces } from './WorkspaceList'
 
 export default function ShowcasePage() {
   const viewport = useWorkspaceViewport(workspaces[0].id)

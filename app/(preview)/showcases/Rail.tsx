@@ -13,7 +13,6 @@ export function ViewportRail({
   viewConfig,
 }: RailProps): import('react').JSX.Element {
   const isVertical = viewConfig?.railPosition === 'left' || viewConfig?.railPosition === 'right'
-  console.log({ viewConfig })
   return (
     <div
       className="h-full w-full z-10"
@@ -62,12 +61,10 @@ export function RibbonItem({
   return (
     <button
       onClick={() => {
-        console.log('RibbonItem')
         onSelect(item.id)
       }}
       onMouseLeave={() => onPreview(null)}
       onMouseEnter={() => {
-        console.log(item.id)
         onPreview(item.id)
       }}
       className={clsx(
