@@ -1,5 +1,5 @@
 'use client'
-import { Suspense } from 'react'
+import React, { Suspense } from 'react'
 import { FiCalendar } from 'react-icons/fi'
 
 import { usePosts } from '@/hooks/usePosts'
@@ -32,9 +32,9 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
   } = usePosts({ fetchedPosts })
 
   return (
-    <div className="flex h-full min-h-0 max-w-5xl px-3 mx-auto">
+    <div className="flex h-full min-h-screen max-w-5xl px-3 mx-auto">
       <div className="flex-1 min-w-0 space-y-2">
-        <header className="card surface-container">
+        <header>
           <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-on-surface sm:text-4xl">
             {title}
           </h1>
@@ -106,20 +106,33 @@ function PostCard({ post }) {
 
   const { slug, date, title, summary, tags = [] } = post
 
+  // 🔥 latch: remembers if it was ever visible
+  const wasInView = React.useRef(false)
+
+  if (inView) {
+    wasInView.current = true
+  }
+
+  // show stays true until exit animation finishes naturally
+  const show = inView || wasInView.current
+
   return (
     <article
       ref={ref}
       className={`
         xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl
+
         transition-all duration-700 ease-out
-        ${inView ? 'opacity-100' : 'opacity-0 translate-y-6 scale-[0.98]'}
+
+        ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-[0.98]'}
       `}
     >
       {/* DATE */}
       <dl
         className={`
           transition-all duration-700 ease-out delay-75
-          ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3'}
+
+          ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3'}
         `}
       >
         <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
@@ -135,7 +148,8 @@ function PostCard({ post }) {
           className={`
             text-2xl font-bold tracking-tight
             transition-all duration-700 ease-out delay-100
-            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+
+            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
           `}
         >
           <Link
@@ -154,7 +168,8 @@ function PostCard({ post }) {
           className={`
             text-on-surface-variant opacity-80
             transition-all duration-700 ease-out delay-150
-            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+
+            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
           `}
         >
           {summary}
@@ -165,7 +180,8 @@ function PostCard({ post }) {
           className={`
             flex flex-wrap gap-2
             transition-all duration-700 ease-out delay-200
-            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+
+            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
           `}
         >
           {tags.map((tag) => (
@@ -210,8 +226,15 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
   return (
     <div className="w-full">
       {/* SINGLE TOOLBAR ROW */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-center space-x-5">
+        {/* METRICS (between input and sort) */}
+        <div className="shrink-0 text-sm font-medium text-on-surface whitespace-nowrap tabular-nums tracking-tight">
+          <span>{metrics.filtered}</span>
+          <span className="px-1 text-on-surface-variant">/</span>
+          <span>{metrics.total}</span>
+        </div>
         {/* SEARCH */}
+        {/* TODO: Add base design tokens for input(hover, active, etc.) */}
         <div className="relative w-full max-w-lg">
           <div className="relative w-full">
             {/* ghost text */}
@@ -229,14 +252,9 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
               value={value}
               onChange={(e) => onChange(e.target.value)}
               placeholder=""
-              className="w-full bg-background text-on-surface border border-outline-variant rounded-md px-3 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20 transition outline-none"
+              className="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/70 transition-colors duration-200 outline-none hover:border-outline hover:bg-surface-container focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/15 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
-        </div>
-
-        {/* METRICS (between input and sort) */}
-        <div className="shrink-0 text-sm text-on-surface-variant whitespace-nowrap">
-          {metrics.filtered} / {metrics.total}
         </div>
 
         {/* SORT BUTTONS */}

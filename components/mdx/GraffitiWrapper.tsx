@@ -1,89 +1,91 @@
 'use client'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Prism from 'prismjs'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { motion, useTime, useTransform } from 'framer-motion'
 
 import '@/data/code-formatting'
-import { graffitiWords } from '@/data/graffiti'
 import { useScroll } from '@/providers/ScrollProvider'
+import { graffitiWords } from '@/data/graffiti'
 
+function GraffitiItem({ a, scrollY, time }: any) {
+  const idleX = useTransform(time, () => 0)
+  const idleY = useTransform(time, (t) => {
+    // slow upward flow
+    const driftUp = -t * 0.02 * (0.5 + a.drift)
+
+    // soft breathing (tiny, not directional)
+    const breathe = Math.cos(t * 0.0006 + a.top * 0.01) * 1.2
+
+    return driftUp + breathe
+  })
+
+  const speed = 0.4 + a.drift * 1.6
+  const depth = 0.6 + a.opacity
+
+  // 🚨 IMPORTANT: scrollY is a NUMBER, not MotionValue
+  const scrollMotion = scrollY * speed * depth * -1
+
+  const wobble = Math.sin(scrollY * 0.002 + a.left * 0.01) * 5
+
+  return (
+    <div
+      className="absolute select-none"
+      style={{
+        top: a.top,
+        left: a.left,
+        opacity: a.opacity,
+        transform: `translate3d(0, ${scrollMotion + wobble}px, 0)`,
+        willChange: 'transform',
+      }}
+    >
+      <motion.div
+        className={`whitespace-nowrap animate-[wiggle_12s_ease-in-out_infinite] animate-pulse-soft-glow ${a.size} ${a.color}`}
+        style={{
+          x: idleX,
+          y: idleY,
+          rotate: a.rotate,
+        }}
+      >
+        {a.text}
+      </motion.div>
+    </div>
+  )
+}
 export default function GraffitiWrapper({ children }: { children: React.ReactNode }) {
   const contentRef = useRef<HTMLDivElement>(null)
-
   const [anchors, setAnchors] = useState<GraffitiAnchor[]>([])
   const { scrollY } = useScroll()
+  const time = useTime()
 
-  /**
-   * Prism highlighting
-   */
   useEffect(() => {
     Prism.highlightAll()
   }, [children])
 
-  /**
-   * Build graffiti anchors from rendered MDX articles
-   */
   useLayoutEffect(() => {
     if (!contentRef.current) return
 
-    const update = () => {
-      const next = buildGraffitiAnchors(contentRef.current!)
-      setAnchors(next)
-    }
+    const frame1 = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const root = contentRef.current
+        if (!root) return
 
-    update()
+        setAnchors(buildGraffitiAnchors(root))
+      })
+    })
 
-    const resizeObserver = new ResizeObserver(update)
-    resizeObserver.observe(contentRef.current)
-
-    window.addEventListener('resize', update)
-
-    return () => {
-      resizeObserver.disconnect()
-      window.removeEventListener('resize', update)
-    }
-  }, [children])
+    return () => cancelAnimationFrame(frame1)
+  }, [])
 
   return (
     <div className="relative overflow-hidden">
+      {/* BACKGROUND */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-visible">
-        {anchors.map((a) => {
-          const speed = 0.4 + a.drift * 1.6
-          const depth = 0.6 + a.opacity
-
-          const parallaxY = scrollY * speed * depth * -1
-          const wobble = Math.sin(scrollY * 0.002 + a.left * 0.01) * 5
-
-          return (
-            <div
-              key={a.id}
-              className="absolute select-none"
-              style={{
-                top: a.top,
-                left: a.left,
-                opacity: a.opacity,
-                willChange: 'transform',
-                transform: `translate3d(0, ${parallaxY + wobble}px, 0)`,
-              }}
-            >
-              <div
-                className={`whitespace-nowrap animate-[wiggle_12s_ease-in-out_infinite] animate-pulse-soft-glow
-                  ${a.size}
-                  ${a.color}
-                `}
-                style={{
-                  transform: `rotate(${a.rotate}deg)`,
-                }}
-              >
-                {a.text}
-              </div>
-            </div>
-          )
-        })}
+        {anchors.map((a) => (
+          <GraffitiItem key={a.id} a={a} scrollY={scrollY} time={time} />
+        ))}
       </div>
 
-      {/* =========================
-          MAIN MDX CONTENT
-      ========================== */}
+      {/* CONTENT */}
       <div ref={contentRef} className="mdx-content relative z-10">
         {children}
       </div>

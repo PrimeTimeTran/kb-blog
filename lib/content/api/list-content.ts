@@ -48,13 +48,10 @@ export async function listContent(
     // ─────────────────────────────
     // 4. PUBLISH FILTER
     // ─────────────────────────────
+    // TESTED:
+    // test/lib/content-pipeline.test.ts
+    // npx vitest. Run these before changing
     const published = isPublished(entity)
-    if (entity.frontMatter?.title == 'DEV: Code blocks') {
-      console.log(`process.env.NODE_ENV === 'development'`, process.env.NODE_ENV === 'development')
-      console.log('entity', entity.frontMatter.title)
-      console.log('entity', entity.frontMatter)
-      console.log('shouldShow', published)
-    }
     if (!published) continue
     // purpose of checking the same field twice is that config.includeDrafts is a SYSTEM config whereas the first is USER
     // if (config?.includeDrafts) continue

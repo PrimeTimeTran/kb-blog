@@ -24,7 +24,7 @@ export default function PageClient({ posts }) {
           subtitle={siteMetadata.description}
         />
       </GraffitiWrapper>
-      {posts.length > MAX_DISPLAY && (
+      {/* {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end mt-6 text-base font-medium">
           <Link
             href="/blog"
@@ -39,7 +39,7 @@ export default function PageClient({ posts }) {
         <div className="p-4 flex justify-center">
           <NewsletterForm />
         </div>
-      )}
+      )} */}
     </BaseScroll>
   )
 }
