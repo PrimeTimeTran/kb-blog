@@ -72,7 +72,7 @@ export function AppNavbar() {
       <Link href="/" className="flex items-center gap-3">
         <DynamicLogo className="h-9 w-9 rounded-xl shadow-sm" />
 
-        <div className="hidden sm:block text-primary md:text-2xl font-semibold">
+        <div className="hidden sm:block aurora-text md:text-2xl font-semibold">
           {siteMetadata.headerTitle}
         </div>
       </Link>

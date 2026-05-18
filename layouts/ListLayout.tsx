@@ -144,22 +144,11 @@ function PostCard({ post }) {
       {/* CONTENT */}
       <div className="space-y-3 xl:col-span-3 w-full">
         {/* TITLE */}
-        <h3
-          className={`
-            text-2xl font-bold tracking-tight
-            transition-all duration-700 ease-out delay-100
-
-            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <Link
-            href={buildContentUrl('blog', slug)}
-            className="
-              block w-full text-3xl text-on-surface transition-colors
-              group-hover:text-primary
-            "
-          >
-            {title}
+        <h3 className="transition-transform hover:rotate-[-0.3deg] hover:scale-[1.01] ">
+          <Link href={buildContentUrl('blog', slug)} className="block w-full">
+            <span className="aurora-text text-2xl font-extrabold transition-transform duration-500 ease-out hover:rotate-[0.3deg] hover:scale-[1.01]">
+              {title}
+            </span>
           </Link>
         </h3>
 
@@ -167,7 +156,7 @@ function PostCard({ post }) {
         <p
           className={`
             text-on-surface-variant opacity-80
-            transition-all duration-700 ease-out delay-150
+            transition-all duration-700 ease-out delay-150 
 
             ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
           `}

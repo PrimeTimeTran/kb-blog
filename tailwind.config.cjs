@@ -23,6 +23,13 @@ module.exports = {
   safelist,
   // Note: V3 Legacy Syntax:
   // Is overwritten in V4 by @theme directive
+  theme: {
+    extend: {
+      animation: {
+        wiggle: 'wiggle 4s ease-in-out infinite',
+      },
+    },
+  },
   // theme: {
   //   extend: {
   //     spacing: {
