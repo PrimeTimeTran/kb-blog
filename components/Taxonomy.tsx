@@ -2,9 +2,24 @@ import React from 'react'
 import Link from 'next/link'
 import { slug } from 'github-slugger'
 
-import { buttonVariants } from '@/components/buttonVariants'
+export type TagMap = Record<string, number>
+export type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
 
-function TagButton({ label, tailDecoration, active, onClick, disabled }): React.JSX.Element {
+type TagButtonProps = {
+  label: string
+  tailDecoration?: React.ReactNode
+  active?: boolean
+  disabled?: boolean
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+}
+
+export function TagButton({
+  label,
+  tailDecoration,
+  active = false,
+  disabled = false,
+  onClick,
+}: TagButtonProps): React.JSX.Element {
   return (
     <button
       onClick={onClick}
@@ -17,16 +32,22 @@ function TagButton({ label, tailDecoration, active, onClick, disabled }): React.
       `}
     >
       <span className="chip-label">{label}</span>
-
       {tailDecoration !== undefined && <span className="chip-badge">{tailDecoration}</span>}
     </button>
   )
 }
+type TagLinkProps = {
+  text: string
+  count?: number
+  href?: string
+}
 
-function TagLink({ text, count }) {
+export function TagLink({ text, count, href }: TagLinkProps) {
+  const url = href ?? `/tags/${slug(text)}`
+
   return (
     <Link
-      href={`/tags/${slug(text)}`}
+      href={url}
       className="
         inline-flex items-center gap-1 px-2 py-1 rounded-md text-sm
         text-on-surface-variant
@@ -41,20 +62,31 @@ function TagLink({ text, count }) {
   )
 }
 
-function TagList(tags, t) {
+type TagListProps = {
+  tags: string[]
+  tag: string
+}
+
+export function TagList({ tags, tag }: TagListProps) {
   return (
-    <div key={t}>
-      <TagLink text={t} count={tags[t]} />
+    <div key={tag}>
+      <TagLink text={tag} count={tags[tag]} />
     </div>
   )
 }
 
-function Category({ title, tags, sortedTags, filter, icon }) {
-  const [open, setOpen] = React.useState(true)
+type CategoryProps = {
+  title: string
+  tags: TagMap
+  sortedTags?: string[]
+  filter: string[]
+  icon?: IconComponent
+}
+
+export function Category({ title, tags, sortedTags, filter, icon: Icon }: CategoryProps) {
+  const [open, setOpen] = React.useState<boolean>(true)
 
   const categoryTags = (sortedTags ?? []).filter((t) => filter.includes(t.toLowerCase()))
-
-  const Icon = icon
 
   return (
     <div className="w-full border-b border-outline-variant py-3 card bg-surface">
@@ -82,12 +114,10 @@ function Category({ title, tags, sortedTags, filter, icon }) {
       >
         <div className="flex flex-wrap gap-2">
           {categoryTags.map((t) => (
-            <TagLink key={t} text={t} href={`/tags/${slug(t)}`} count={tags[t]} />
+            <TagLink key={t} text={t} count={tags[t]} />
           ))}
         </div>
       </div>
     </div>
   )
 }
-
-export { TagButton, TagLink, Category, TagList }

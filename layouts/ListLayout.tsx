@@ -1,13 +1,16 @@
 'use client'
+import { Suspense } from 'react'
 import { FiCalendar } from 'react-icons/fi'
 
-import { TagButton, TagLink } from '../components/Taxonomy'
-import formatDate from '../lib/utils/formate-date'
-import { TOPICS } from '../data/constants'
-import Pagination from '../components/Pagination'
-import { SafeLink as Link } from '../components/mdx/Link'
-import { buildContentUrl } from '../lib/content/core/url'
 import { usePosts } from '@/hooks/usePosts'
+import { useInView } from '@/hooks/useInView'
+
+import { TOPICS } from '@/data/constants'
+import formatDate from '@/lib/utils/formate-date'
+import { buildContentUrl } from '@/lib/content/core/url'
+import Pagination from '@/components/Pagination'
+import { SafeLink as Link } from '@/components/mdx/Link'
+import { TagButton, TagLink } from '@/components/Taxonomy'
 
 export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagination }) {
   const {
@@ -54,10 +57,10 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
                 return (
                   <TagButton
                     key={topic}
-                    active={active}
-                    onClick={() => toggleTag(topic)}
                     label={topic}
+                    active={active}
                     tailDecoration={tags.length}
+                    onClick={() => toggleTag(topic)}
                   />
                 )
               })}
@@ -86,8 +89,7 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
             </div>
           </div> */}
         </header>
-
-        <PostList posts={posts} />
+        <Suspense fallback={<PostListSkeleton />}>{<PostList posts={posts} />}</Suspense>
 
         {pagination?.totalPages > 1 && !searchTerm && (
           <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
@@ -98,31 +100,72 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
 }
 
 function PostCard({ post }) {
+  const { ref, inView } = useInView()
+
   const { slug, date, title, summary, tags = [] } = post
 
   return (
-    <article className="xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl">
-      <dl>
+    <article
+      ref={ref}
+      className={`
+        xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl
+        transition-all duration-700 ease-out
+        ${inView ? 'opacity-100' : 'opacity-0 translate-y-6 scale-[0.98]'}
+      `}
+    >
+      {/* DATE */}
+      <dl
+        className={`
+          transition-all duration-700 ease-out delay-75
+          ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3'}
+        `}
+      >
         <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
           <FiCalendar className="text-primary opacity-80" />
-
           <time dateTime={date}>{formatDate(date)}</time>
         </dd>
       </dl>
 
+      {/* CONTENT */}
       <div className="space-y-3 xl:col-span-3 w-full">
-        <h3 className="text-2xl font-bold tracking-tight">
+        {/* TITLE */}
+        <h3
+          className={`
+            text-2xl font-bold tracking-tight
+            transition-all duration-700 ease-out delay-100
+            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+          `}
+        >
           <Link
             href={buildContentUrl('blog', slug)}
-            className="block w-full text-3xl text-on-surface transition-colors group-hover:text-primary"
+            className="
+              block w-full text-3xl text-on-surface transition-colors
+              group-hover:text-primary
+            "
           >
             {title}
           </Link>
         </h3>
 
-        <p className="text-on-surface-variant opacity-80">{summary}</p>
+        {/* SUMMARY */}
+        <p
+          className={`
+            text-on-surface-variant opacity-80
+            transition-all duration-700 ease-out delay-150
+            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+          `}
+        >
+          {summary}
+        </p>
 
-        <div className="flex flex-wrap gap-2">
+        {/* TAGS */}
+        <div
+          className={`
+            flex flex-wrap gap-2
+            transition-all duration-700 ease-out delay-200
+            ${inView ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+          `}
+        >
           {tags.map((tag) => (
             <TagLink key={tag} text={tag} />
           ))}
@@ -215,5 +258,43 @@ function PostList({ posts }) {
         <PostCard key={post.slug} post={post} />
       ))}
     </ul>
+  )
+}
+
+function PostListSkeleton() {
+  return (
+    <div className="space-y-10">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <article
+          key={i}
+          className="xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 rounded-xl"
+        >
+          {/* DATE */}
+          <div className="mb-3 xl:mb-0">
+            <div className="h-4 w-32 bg-on-surface/10 rounded animate-pulse" />
+          </div>
+
+          {/* CONTENT */}
+          <div className="space-y-4 xl:col-span-3 w-full">
+            {/* TITLE */}
+            <div className="h-8 w-3/4 bg-on-surface/10 rounded animate-pulse" />
+
+            {/* SUMMARY */}
+            <div className="space-y-2">
+              <div className="h-4 w-full bg-on-surface/10 rounded animate-pulse" />
+              <div className="h-4 w-5/6 bg-on-surface/10 rounded animate-pulse" />
+              <div className="h-4 w-2/3 bg-on-surface/10 rounded animate-pulse" />
+            </div>
+
+            {/* TAGS */}
+            <div className="flex gap-2 flex-wrap pt-2">
+              <div className="h-6 w-16 bg-on-surface/10 rounded-full animate-pulse" />
+              <div className="h-6 w-20 bg-on-surface/10 rounded-full animate-pulse" />
+              <div className="h-6 w-14 bg-on-surface/10 rounded-full animate-pulse" />
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
   )
 }

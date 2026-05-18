@@ -1,11 +1,11 @@
 @keyframes pulseSoftGlow {
   0%,
   100% {
-    box-shadow: 0 0 0px var(--primary);
-    opacity: 0.5;
+    text-shadow: 0 0 0px var(--primary);
+    opacity: 0.6;
   }
   50% {
-    box-shadow: 0 0 10px var(--primary);
+    text-shadow: 0 0 10px var(--primary);
     opacity: 1;
   }
 }
@@ -250,4 +250,18 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* className="animate-[wiggle_12s_ease-in-out_infinite]" */
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
 }

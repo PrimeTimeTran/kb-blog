@@ -110,7 +110,7 @@ export default function PageClient({ tags }) {
             <div className="flex flex-wrap">
               {(sortedTags ?? []).map((t) => {
                 if (misc.includes(t.toLowerCase())) return null
-                return TagList(tags, t)
+                return TagList({ tags, tag: t })
               })}
             </div>
           </div>

@@ -45,9 +45,6 @@ export default function GraffitiWrapper({ children }: { children: React.ReactNod
 
   return (
     <div className="relative">
-      {/* =========================
-          GRAFFITI BACKGROUND LAYER
-      ========================== */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-visible">
         {anchors.map((a) => {
           const speed = 0.4 + a.drift * 1.6
@@ -59,22 +56,26 @@ export default function GraffitiWrapper({ children }: { children: React.ReactNod
           return (
             <div
               key={a.id}
-              className={`absolute select-none whitespace-nowrap font-black text-on-surface
-                ${a.size}
-                ${a.color}
-              `}
+              className="absolute select-none"
               style={{
                 top: a.top,
                 left: a.left,
                 opacity: a.opacity,
                 willChange: 'transform',
-                transform: `
-                  translate3d(0, ${parallaxY + wobble}px, 0)
-                  rotate(${a.rotate}deg)
-                `,
+                transform: `translate3d(0, ${parallaxY + wobble}px, 0)`,
               }}
             >
-              {a.text}
+              <div
+                className={`whitespace-nowrap animate-[wiggle_12s_ease-in-out_infinite] animate-pulse-soft-glow
+                  ${a.size}
+                  ${a.color}
+                `}
+                style={{
+                  transform: `rotate(${a.rotate}deg)`,
+                }}
+              >
+                {a.text}
+              </div>
             </div>
           )
         })}
