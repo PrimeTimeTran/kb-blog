@@ -10,12 +10,7 @@ export default function ProductLandingPage() {
     pageFooter,
   } = renderContent()
   return (
-    <div
-      className="min-h-full w-full bg-background text-on-background"
-      onClick={() => {
-        console.log('Hi product')
-      }}
-    >
+    <div className="min-h-full w-full bg-background text-on-background">
       {pageHero}
       {pageLogos}
       {pageFeatures}
