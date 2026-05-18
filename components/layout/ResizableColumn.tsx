@@ -42,7 +42,7 @@ function Resizer({ onMouseDown }) {
 
 type ResizableColumnProps = {
   side: 'left' | 'right'
-  className: string
+  className?: string
   children: ReactNode
 }
 

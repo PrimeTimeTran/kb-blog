@@ -23,26 +23,23 @@ export default function PageClient({ posts }) {
           initialDisplayPosts={[]}
           subtitle={siteMetadata.description}
         />
-
-        {/* All posts link */}
-        {posts.length > MAX_DISPLAY && (
-          <div className="flex justify-end mt-6 text-base font-medium">
-            <Link
-              href="/blog"
-              className="text-2xl font-semibold text-primary hover:text-on-primary-container transition-colors"
-            >
-              All Posts →
-            </Link>
-          </div>
-        )}
-
-        {/* Newsletter */}
-        {siteMetadata.newsletter.provider !== '' && (
-          <div className="p-4 flex justify-center">
-            <NewsletterForm />
-          </div>
-        )}
       </GraffitiWrapper>
+      {posts.length > MAX_DISPLAY && (
+        <div className="flex justify-end mt-6 text-base font-medium">
+          <Link
+            href="/blog"
+            className="text-2xl font-semibold text-primary hover:text-on-primary-container transition-colors"
+          >
+            All Posts →
+          </Link>
+        </div>
+      )}
+
+      {siteMetadata.newsletter.provider !== '' && (
+        <div className="p-4 flex justify-center">
+          <NewsletterForm />
+        </div>
+      )}
     </BaseScroll>
   )
 }

@@ -11,6 +11,8 @@ import { buildContentUrl } from '@/lib/content/core/url'
 import Pagination from '@/components/Pagination'
 import { SafeLink as Link } from '@/components/mdx/Link'
 import { TagButton, TagLink } from '@/components/Taxonomy'
+import { graffitiWords } from '@/data/graffiti'
+import { useTypewriter } from '@/hooks/useTypeWriter'
 
 export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagination }) {
   const {
@@ -176,6 +178,8 @@ function PostCard({ post }) {
 }
 
 function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrder, setSortOrder }) {
+  // graffitiWords
+  let { text, pause, resume, paused } = useTypewriter(graffitiWords)
   const toggleSort = (field) => {
     if (sortField === field) {
       // same field → toggle direction
@@ -209,16 +213,25 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
       <div className="flex items-center justify-between">
         {/* SEARCH */}
         <div className="relative w-full max-w-lg">
-          <input
-            aria-label="Search articles"
-            type="text"
-            value={value}
-            onChange={(e) => onChange(e.target.value)}
-            placeholder="Search articles"
-            className="
-              w-full bg-background text-on-surface placeholder:text-on-surface-variant border border-outline-variant rounded-md px-3 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20 transition outline-none
-            "
-          />
+          <div className="relative w-full">
+            {/* ghost text */}
+            <div className="absolute inset-0 flex items-center px-3 py-2 pointer-events-none text-on-surface-variant">
+              {!paused && text}
+              <span className="animate-pulse">|</span>
+            </div>
+
+            {/* real input */}
+            <input
+              aria-label="Search articles"
+              type="text"
+              onFocus={pause}
+              onBlur={resume}
+              value={value}
+              onChange={(e) => onChange(e.target.value)}
+              placeholder=""
+              className="w-full bg-background text-on-surface border border-outline-variant rounded-md px-3 py-2 focus:border-primary focus:ring-2 focus:ring-primary/20 transition outline-none"
+            />
+          </div>
         </div>
 
         {/* METRICS (between input and sort) */}

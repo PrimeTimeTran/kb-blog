@@ -1,17 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
-import AceEditor from 'react-ace'
 
-import 'ace-builds/src-noconflict/mode-python'
-import 'ace-builds/src-noconflict/theme-monokai'
-
-// Light mode themes
-import 'ace-builds/src-noconflict/theme-github'
-import 'ace-builds/src-noconflict/theme-chrome'
-import 'ace-builds/src-noconflict/theme-xcode'
-import 'ace-builds/src-noconflict/theme-textmate'
-import 'ace-builds/src-noconflict/theme-dawn'
-import 'ace-builds/src-noconflict/theme-solarized_light'
+import { BaseEditor } from '@/components/BaseEditor'
 
 export function Solution({ solution }) {
   const [expanded, setExpanded] = useState(false)
@@ -71,24 +61,18 @@ export function Solution({ solution }) {
           </button>
         </div>
 
-        {/* ACE EDITOR */}
-        <AceEditor
-          mode="python"
-          theme={editorTheme}
-          width="100%"
-          fontSize={14}
-          value={typeof solution.code === 'string' ? normalizeCode(solution) : ''}
-          showPrintMargin={false}
-          highlightActiveLine={true}
-          height={expanded ? '600px' : '300px'}
-          setOptions={{
-            tabSize: 2,
-            useSoftTabs: true,
-            showLineNumbers: false,
-            enableLiveAutocompletion: true,
-            enableBasicAutocompletion: true,
-          }}
-        />
+        <div className="w-full">
+          <BaseEditor
+            mode="python"
+            fontSize={14}
+            theme={editorTheme}
+            expanded={expanded}
+            showPrintMargin={false}
+            highlightActiveLine={true}
+            height={expanded ? '600px' : '300px'}
+            value={typeof solution.code === 'string' ? normalizeCode(solution) : ''}
+          />
+        </div>
       </div>
 
       {/* ================= FOOTER META ================= */}

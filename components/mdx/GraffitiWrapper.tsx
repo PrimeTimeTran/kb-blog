@@ -44,7 +44,7 @@ export default function GraffitiWrapper({ children }: { children: React.ReactNod
   }, [children])
 
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none overflow-visible">
         {anchors.map((a) => {
           const speed = 0.4 + a.drift * 1.6

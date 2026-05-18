@@ -3,44 +3,7 @@ import clsx from 'clsx'
 import React from 'react'
 import { ViewportRail } from './components'
 import { useWorkspaceViewport } from '@/hooks/useShowcaseViewport'
-import { workspaces } from './WorkSpaces'
-
-// 1. Showcase Page renders WorkspaceViewport which takes as a child WorkspaceViewport.
-
-// export default function ShowcasePage() {
-//   return (
-//     <div className="fixed inset-0 z-50 pointer-events-none">
-//       <CornerControls
-//         setPosition={viewport.setRailPosition}
-//         setOrientation={viewport.setOrientation}
-//       />
-//       <WorkspaceLayout
-//         <WorkspaceViewport
-//           workspaces={workspaces}
-//           activeId={viewport.activeId}
-//           previewId={viewport.previewId}
-//         />
-//       </WorkspaceLayout>
-
-// 2. WorkspaceLayout renders the Rails and Workspaces.
-
-// export function WorkspaceLayout({}: {}) {
-//   console.log({ Hi: 'hi' })
-//   return (
-//     <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
-//       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
-//       {position === 'left' && <div className="fixed top-0 left-0 bottom-0 z-50 w-64">{rail}</div>}
-//       {position === 'right' && <div className="fixed top-0 right-0 bottom-0 z-50 w-64">{rail}</div>}
-//       {position === 'top' && <div className="fixed top-0 left-0 right-0 z-50 h-32">{rail}</div>}
-//       {position === 'bottom' && (
-//         <div className="fixed bottom-0 left-0 right-0 z-50 h-32">{rail}</div>
-//       )}
-//     </div>
-
-// 2. WorkspaceViewport loops over all my workspaces
-// export function WorkspaceViewport({ activeId, previewId, workspaces }) {
-//   return (
-//     <div className="relative h-full w-full"></div>
+import { workspaces } from './workspaces'
 
 export default function ShowcasePage() {
   const viewport = useWorkspaceViewport(workspaces[0].id)
@@ -86,7 +49,6 @@ export function WorkspaceLayout({
   rail: React.ReactNode
 }) {
   const position = viewConfig.railPosition
-  console.log({ Hi: 'hi' })
   return (
     <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
