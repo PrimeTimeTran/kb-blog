@@ -5,8 +5,33 @@ import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
 import Tailwind from '@/app/(preview)/design/tailwind/page'
 import Material from '@/app/(preview)/design/system/page'
 import Product from '@/app/(preview)/design/product/page'
+// import { Space1 } from './Space1'
 
+// https://prismic.io/blog/css-background-effects
+
+// I want to load
+// ./Space1.css
+// ./Space1.html
+// how to lload both together?
+export function RawHtml({ html }: { html: string }) {
+  return <div dangerouslySetInnerHTML={{ __html: html }} />
+}
 export const workspaces: WorkspaceDefinition[] = [
+  {
+    id: 'Space1',
+    title: 'Space1',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Product,
+  },
   {
     id: 'Product',
     title: 'Product',

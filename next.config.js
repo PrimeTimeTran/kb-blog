@@ -173,6 +173,14 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  module: {
+    rules: [
+      {
+        test: /\.html$/,
+        type: 'asset/source',
+      },
+    ],
+  },
   webpack(config) {
     // ─────────────────────────────
     // SVG (keep ONE system only)
