@@ -1,4 +1,4 @@
-import { List, ContextLabel } from './components'
+import { List, ContextLabel } from './ContextLabel'
 
 function NestedOverlay() {
   return (

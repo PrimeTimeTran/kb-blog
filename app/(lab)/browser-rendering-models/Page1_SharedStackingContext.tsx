@@ -1,4 +1,4 @@
-import { List, ContextLabel } from './components'
+import { List, ContextLabel } from './ContextLabel'
 
 export function Page1_SharedStackingContext() {
   type ListProps = {

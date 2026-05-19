@@ -40,31 +40,33 @@
 // they differ in what they use as a reference point. Absolute positions relative to the nearest positioned
 // ancestor (or the document), while fixed positions relative to the viewport (browser window), staying in place during scrolling.
 
-'use client'
-import React from 'react'
+// 'use client'
+// import React from 'react'
 
-import { Page1_SharedStackingContext } from './Page1_SharedStackingContext'
-import { Page2_StackingContextIsolation } from './Page2_StackingContextIsolation'
-import { Page3_NoStackingIsolation } from './Page3_NoStackingIsolation'
-import { Page4_SiblingStackingCompetition } from './Page4_SiblingStackingCompetition'
-import { Page5_SubtreeStackingContext } from './Page5_SubtreeStackingContext'
-import { Page6_OverlapAndZIndexResolution } from './Page6_OverlapAndZIndexResolution'
-import { Page6_ScrollContextAndFixedPositioning } from './Page6_ScrollContextAndFixedPositioning'
+// import { Page1_SharedStackingContext } from './Page1_SharedStackingContext'
+// import { Page2_StackingContextIsolation } from './Page2_StackingContextIsolation'
+// import { Page3_NoStackingIsolation } from './Page3_NoStackingIsolation'
+// import { Page4_SiblingStackingCompetition } from './Page4_SiblingStackingCompetition'
+// import { Page5_SubtreeStackingContext } from './Page5_SubtreeStackingContext'
+// import { Page6_OverlapAndZIndexResolution } from './Page6_OverlapAndZIndexResolution'
+// import { Page6_ScrollContextAndFixedPositioning } from './Page6_ScrollContextAndFixedPositioning'
 
-export {
-  Page1_SharedStackingContext,
-  Page2_StackingContextIsolation,
-  Page3_NoStackingIsolation,
-  Page4_SiblingStackingCompetition,
-  Page5_SubtreeStackingContext,
-  Page6_OverlapAndZIndexResolution,
-  Page6_ScrollContextAndFixedPositioning,
+// export {
+//   Page1_SharedStackingContext,
+//   Page2_StackingContextIsolation,
+//   Page3_NoStackingIsolation,
+//   Page4_SiblingStackingCompetition,
+//   Page5_SubtreeStackingContext,
+//   Page6_OverlapAndZIndexResolution,
+//   Page6_ScrollContextAndFixedPositioning,
+// }
+
+// // export default Page1_SharedStackingContext
+// // export default Page2_StackingContextIsolation
+// // export default Page3_NoStackingIsolation
+// // export default Page4_SiblingStackingCompetition
+// // export default Page5_SubtreeStackingContext
+// // export default Page6_OverlapAndZIndexResolution
+export default function Page() {
+  return <div>hi</div>
 }
-
-// export default Page1_SharedStackingContext
-// export default Page2_StackingContextIsolation
-// export default Page3_NoStackingIsolation
-// export default Page4_SiblingStackingCompetition
-// export default Page5_SubtreeStackingContext
-// export default Page6_OverlapAndZIndexResolution
-export default Page6_ScrollContextAndFixedPositioning

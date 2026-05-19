@@ -113,6 +113,16 @@
     "typescript-eslint": "^8.59.3",
     "vitest": "^4.1.6"
   },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "esbuild"
+      ],
+      "allowAny": [
+        "esbuild"
+      ]
+    }
+  },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
       "eslint --fix"

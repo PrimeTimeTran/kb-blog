@@ -1,4 +1,5 @@
-import { List, ContextLabel } from './components'
+import { List, ContextLabel } from './ContextLabel'
+import { List } from './List'
 
 export function Page6_ScrollContextAndFixedPositioning() {
   const items = Array.from({ length: 50 }, (_, i) => i + 1)

@@ -1,8 +1,8 @@
 import { useState } from 'react'
-// import SyntaxHighlighter from 'react-syntax-highlighter'
+import { useTheme } from 'next-themes'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FiClipboard } from 'react-icons/fi'
-import { useTheme } from 'next-themes'
+// import SyntaxHighlighter from 'react-syntax-highlighter'
 // import { docco, dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
 import { snippets } from '../data/snippets-sorting-algorithms.js'

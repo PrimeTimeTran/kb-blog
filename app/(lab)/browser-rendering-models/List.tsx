@@ -26,7 +26,3 @@ export function List({ items, variant = 'statement', className = '' }: ListProps
     </ul>
   )
 }
-
-export function ContextLabel({ children }: React.PropsWithChildren) {
-  return <h3 className="fixed text-3xl">{children}</h3>
-}
