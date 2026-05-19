@@ -1,7 +1,7 @@
 ---
 draft: true
 date: '1950-09-10'
-title: ''
-summary: ''
+title: 'x'
+summary: 'x'
 tags: ['finance', 'volatility']
 ---

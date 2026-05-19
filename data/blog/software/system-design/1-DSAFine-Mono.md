@@ -3,7 +3,7 @@ draft: true
 date: 2025-05-08
 title: 'System Design: Monorepo'
 tags: ['system design']
-summary: ''
+summary: 'x'
 ---
 
 Create a mono repo to share project code while maintaining the ability to build & deploy both apps separately.

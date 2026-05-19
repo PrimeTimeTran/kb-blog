@@ -1,8 +1,8 @@
 ---
 draft: true
 date: '2025-11-12'
-title: ''
-summary: ''
+title: 'x'
+summary: 'x'
 tags: ['']
 ---
 

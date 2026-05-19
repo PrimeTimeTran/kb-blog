@@ -2,7 +2,7 @@
 draft: false
 date: '2024-09-31'
 title: 'Sharpe Ratio: Definition, Formula, and Examples'
-summary: ''
+summary: 'x'
 tags: ['finance', 'sharpe ratio']
 ---
 

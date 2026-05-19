@@ -3,7 +3,7 @@ draft: true
 date: '2025-05-08'
 title: 'System Design: TicketMaster'
 tags: ['system design']
-summary: ''
+summary: 'x'
 ---
 
 A good subtitle or caption on a blog's index page should:

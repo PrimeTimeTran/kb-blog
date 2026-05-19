@@ -3,12 +3,13 @@ draft: false
 slug: atom/CS
 date: '2026-04-30'
 title: 'Preview: CS'
-summary: ''
+summary: 'x'
 tags: ['KB/MD/Obsidian/Blog']
 ---
+
 # ∑ Calc 1 Review
 
-> The mathematics of change. Notation, 
+> The mathematics of change. Notation,
 
 ## 🧩 Puzzle Pieces
 
@@ -29,8 +30,7 @@ tags: ['KB/MD/Obsidian/Blog']
 
 > [!info]- Symbols for Calculus
 > ![[reference/calc/symbols|symbols]]
-![[reference/calc/symbols|symbols]]
-
+> ![[reference/calc/symbols|symbols]]
 
 > [!info]- 7 Rules of Differentiation
 > ![[7-rules]]
@@ -39,8 +39,8 @@ tags: ['KB/MD/Obsidian/Blog']
 
 ![[]]
 
-
 # 🤔 💭 Problems 🗂️
+
 ## 1️⃣ Motivating Problem 🐣 📝
 
 WATCH WHAT HAPPENS AS WE GET CLOSER TO T = 2...
@@ -57,6 +57,7 @@ WATCH WHAT HAPPENS AS WE GET CLOSER TO T = 2...
 | $$[2, 2.000001]$$            | $$0.000001$$                | $$\cdots$$                      | $4.000001$ m/s                              |
 
 ### limit of a function as $x$ approaches $c$
+
 $$
 \lim_{ x \to c } f(x) = L
 $$
@@ -71,23 +72,27 @@ $$
 | $L$       | The limit. The value $f(x)$ approaches. | The value our speed squeezed towards: $4$.                       |
 
 ---
-### ✅ Solution
 
+### ✅ Solution
 
 ---
 
 ## 2️⃣ Motivating Problem 🐣 📝
+
 ### Definition of Derivative
 
 > ![[reference/calc/formula/derivative|derivative]]
-> 
+
 ---
+
 ## 3️⃣ Motivating Problem 🐣 📝
+
 ### 💎 Product Rule
 
 ![[reference/calc/formula/product-rule|product-rule]]
 
 ---
+
 ## 4️⃣ Motivating Problem 🐣 📝
 
 ### 💎 Quotient Rule
@@ -97,9 +102,10 @@ $$
 ---
 
 ## 5️⃣ Motivating Problem 🐣 📝
-### 💎 Chain Rule
-![[reference/calc/formula/chain-rule|chain-rule]]
 
+### 💎 Chain Rule
+
+![[reference/calc/formula/chain-rule|chain-rule]]
 
 Outer and inner functions
 
@@ -108,9 +114,10 @@ Outer and inner functions
 ## 6️⃣ Motivating Problem 🐣 📝
 
 ### Implicit Differentiation
+
 [[implicit-differentiation]]
 
-
 # 🌐 Reference
+
 - [[reference/math/calc/symbols|Calculus Symbols]]
 - https://www.youtube.com/watch?v=AKVmWqIPSAk&t=2003s

@@ -2,7 +2,7 @@
 draft: true
 date: '2025-01-03'
 title: 'Infinitesimal Calculus'
-summary: ''
+summary: 'x'
 tags: ['']
 ---
 

@@ -1,7 +1,7 @@
 ---
 draft: true
 date: '2026-01-01'
-title: ''
-summary: ''
+title: 'x'
+summary: 'x'
 tags: ['']
 ---

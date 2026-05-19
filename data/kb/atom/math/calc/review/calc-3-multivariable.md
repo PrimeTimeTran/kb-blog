@@ -3,9 +3,10 @@ draft: false
 slug: atom/math/calc
 date: '2026-04-30'
 title: 'Preview: CS'
-summary: ''
+summary: 'x'
 tags: ['KB/MD/Obsidian/Blog']
 ---
+
 # ∇ Calc 3 Review
 
 ## 🧩 Puzzle Pieces
@@ -19,11 +20,12 @@ tags: ['KB/MD/Obsidian/Blog']
 | Lagrange Multipliers       | $\nabla f = \lambda \nabla g$                                           | Optimizing a function subject to a constraint                          |       |                                                                   |
 | Double & Triple Integrals  | $\int!!\int f(x,y),dA,\quad \int!!\int!!\int f(x,y,z),dV$               | Accumulating volume, mass, or total quantity in higher dimensions      |       |                                                                   |
 | Change of Variables        | $\iint f(x,y),dxdy = \iint f(u,v)\left                                  | \frac{\partial(x,y)}{\partial(u,v)}\right                              | dudv$ | Simplifying difficult integrals via transformation of coordinates |
+
 # 🔐 Review
 
 ## 1️⃣ Motivating Problem 🐣 📝
 
-You’re standing on a hill described by:  $h(x, y) = 100 - x^2 - 2y^2$  
+You’re standing on a hill described by: $h(x, y) = 100 - x^2 - 2y^2$  
 At the point $(1,1)$, the height is $h(1,1)=97$.
 
 ---
@@ -76,19 +78,23 @@ $|\nabla h(1,1)| = \sqrt{(-2)^2 + (-4)^2} = \sqrt{20}$
 
 ---
 
-#### � Key 💡 Idea 
+#### � Key 💡 Idea
 
 The gradient $\nabla h$ points in the direction of steepest increase, and its magnitude $|\nabla h|$ tells how steep the surface is at that point.
 
-
 ## 2️⃣ Motivating Problem 🐣 📝
+
 ## 3️⃣ Motivating Problem 🐣 📝
+
 ## 4️⃣ Motivating Problem 🐣 📝
+
 ## 5️⃣ Motivating Problem 🐣 📝
+
 ## 6️⃣ Motivating Problem 🐣 📝
+
 ## 7️⃣ Motivating Problem 🐣 📝
 
-
 # Related
+
 - [[reference/math/calc/symbols|Calculus Symbols]]
 - https://www.youtube.com/watch?v=ZTxafDib4VU

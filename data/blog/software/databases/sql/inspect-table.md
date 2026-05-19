@@ -1,8 +1,8 @@
 ---
 draft: true
 date: '2025-08-10'
-title: ''
-summary: ''
+title: 'x'
+summary: 'x'
 tags: ['postgres', 'sql', 'databases', 'devops', 'cloud', 'question', 'guide']
 ---
 

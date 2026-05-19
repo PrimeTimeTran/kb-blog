@@ -2,7 +2,7 @@
 draft: true
 date: '2025-01-03'
 title: 'Differentiation Rules'
-summary: ''
+summary: 'x'
 tags: ['calculus', 'derivatives', 'differentiation rules']
 ---
 

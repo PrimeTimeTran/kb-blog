@@ -3,7 +3,7 @@ draft: true
 date: '2025-05-08'
 title: 'System Design: Leet Code'
 tags: ['system design']
-summary: ''
+summary: 'x'
 ---
 
 # Introduction

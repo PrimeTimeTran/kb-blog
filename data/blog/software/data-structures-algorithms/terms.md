@@ -2,7 +2,7 @@
 draft: true
 date: 2022-10-07
 title: 'Glossary'
-summary: ''
+summary: 'x'
 tags: ['python']
 ---
 

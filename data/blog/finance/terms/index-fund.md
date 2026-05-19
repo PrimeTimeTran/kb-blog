@@ -2,7 +2,7 @@
 draft: false
 date: '2024-09-10'
 title: 'Index Fund: What It Is and How to Invest'
-summary: ''
+summary: 'x'
 tags: ['finance', 'index funds']
 ---
 

@@ -1,8 +1,8 @@
 ---
 draft: true
 date: 2015-07-22
-title: ''
-summary: ''
+title: 'x'
+summary: 'x'
 tags: ['']
 ---
 

@@ -2,7 +2,7 @@
 draft: true
 date: '2025-04-20'
 title: 'System Design: Build a database cluster with primary(master) & read replica(slave)'
-summary: ''
+summary: 'x'
 tags: ['system design', 'docker', 'postgres']
 ---
 
