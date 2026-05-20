@@ -1,22 +1,36 @@
-import { useState, useRef, useMemo } from 'react'
+import { useState, useRef, useMemo, useEffect } from 'react'
+
+export const COLORS = ['#00ff88', '#ff5555', '#ffaa00', '#00c2ff', '#c084fc', '#ffffff']
 
 export function useLayerModel(svg: string) {
   const [, force] = useState(0)
-  const svgRef = useRef<SVGSVGElement | null>(null)
 
+  const svgRef = useRef<SVGSVGElement | null>(null)
   const idMapRef = useRef(new Map<string, any>())
 
-  const [hovered, setHovered] = useState<string | null>(null)
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [bbox, setBbox] = useState<any>(null)
 
+  // 🟢 System A — React render tree
   // ================= TREE =================
+  // tree → used for UI recursion (LayersTab)
+  // ♻️
+  // - parse SVG
+  // - build hierarchy
+  // - compute parentId relationships
+  // - produce immutable structure
+  // ⛔️
+  // - touch idMapRef
+  // - mutate anything external
+  // - depend on refs
+  const isClient = typeof window !== 'undefined'
   const tree = useMemo(() => {
-    const idMap = idMapRef.current // 👈 SAFE: inside memo scope
+    if (!isClient || !svg) return []
 
     const parser = new DOMParser()
     const doc = parser.parseFromString(svg, 'image/svg+xml')
 
-    function walk(node: Element, depth = 0): any[] {
+    function walk(node: Element, depth = 0, parentId: string | null = null): any[] {
       const layers: any[] = []
 
       Array.from(node.children).forEach((child) => {
@@ -24,32 +38,20 @@ export function useLayerModel(svg: string) {
 
         const rawId =
           child.getAttribute('id') ||
-          child.getAttribute('class') ||
           child.getAttribute('data-name') ||
+          child.getAttribute('class') ||
           `layer-${Math.random().toString(36).slice(2, 8)}`
 
         const id = rawId.trim()
 
-        if (!idMap.has(id)) {
-          idMap.set(id, {
-            id,
-            name: id,
-            visible: true,
-            depth,
-            zIndex: depth,
-          })
-        }
-
-        const state = idMap.get(id)
-
-        const children = walk(child, depth + 1)
+        const children = walk(child, depth + 1, id)
 
         layers.push({
           id,
-          name: state.name,
+          parentId,
+          name: id,
           depth,
           zIndex: depth,
-          visible: state.visible,
           children,
         })
       })
@@ -58,23 +60,118 @@ export function useLayerModel(svg: string) {
     }
 
     return walk(doc.documentElement)
-  }, [svg])
+  }, [svg, isClient])
 
-  // ================= TOGGLE =================
-  const toggleVisibility = (id: string) => {
+  // 🔵 System B — mutable layer store
+  // ================= TREE =================
+  // idMapRef → visibility, colors, hover state
+  // ♻️
+  // - initialize / sync external store (idMapRef)
+  // - hydrate visibility, colors, metadata
+  // ⛔️
+  // - compute structure
+  // - return UI
+  // - run during render
+  useEffect(() => {
+    if (!tree.length) return
+
     const map = idMapRef.current
 
-    const curr = map.get(id)?.visible ?? true
+    const fill = (nodes: any[]) => {
+      for (const n of nodes) {
+        const entry = map.get(n.id)
+
+        if (!entry) {
+          map.set(n.id, {
+            id: n.id,
+            name: n.name,
+            visible: true,
+            debugColor: COLORS[0],
+            parentId: n.parentId,
+          })
+        } else if (!entry.parentId) {
+          entry.parentId = n.parentId
+        }
+
+        if (n.children?.length) fill(n.children)
+      }
+    }
+
+    fill(tree)
+  }, [tree])
+
+  const getLayerState = (id: string) => {
+    const map = idMapRef.current
+
+    if (!map.has(id)) {
+      map.set(id, {
+        id,
+        visible: true,
+        debugColor: null,
+      })
+    }
+
+    return map.get(id)
+  }
+  // ================= VISIBILITY =================
+  const toggleVisibility = (id: string) => {
+    const map = idMapRef.current
+    const prev = map.get(id)
 
     map.set(id, {
-      ...map.get(id),
-      visible: !curr,
+      ...prev,
+      visible: !(prev?.visible ?? true),
     })
 
     force((x) => x + 1)
   }
+  // ================= COLOR (GROUP-BASED) =================
+  const setGroupColor = (id: string, color: string) => {
+    const map = idMapRef.current
+    const groupId = getGroupId(id)
 
-  // ================= BBOX =================
+    const prev = map.get(groupId)
+
+    map.set(groupId, {
+      ...prev,
+      debugColor: color,
+    })
+
+    force((x) => x + 1)
+  }
+  const getGroupId = (id: string) => {
+    const node = idMapRef.current.get(id)
+    return node?.parentId ?? id
+  }
+  const getColor = (id: string) => {
+    const groupId = getGroupId(id)
+    const node = idMapRef.current.get(groupId)
+
+    if (node?.debugColor) return node.debugColor
+
+    let hash = 0
+    for (let i = 0; i < groupId.length; i++) {
+      hash = (hash * 31 + groupId.charCodeAt(i)) >>> 0
+    }
+
+    return COLORS[hash % COLORS.length]
+  }
+  const getHoveredGroupId = () => {
+    if (!hoveredId) return null
+    const node = idMapRef.current.get(hoveredId)
+    return node?.parentId ?? hoveredId
+  }
+  const getHoverColor = () => {
+    if (!hoveredId) return null
+
+    const groupId = getGroupId(hoveredId)
+    return getColor(groupId)
+  }
+  const hoverColor = () => {
+    if (!hoveredId) return null
+    const node = idMapRef.current.get(hoveredId)
+    return node?.debugColor ?? null
+  }
   const measure = (layerId: string) => {
     const root = svgRef.current
     if (!root) return
@@ -86,10 +183,11 @@ export function useLayerModel(svg: string) {
 
       try {
         setBbox(el.getBBox())
-      } catch {}
+      } catch (e) {
+        console.log('error', e)
+      }
     })
   }
-
   // ================= SVG RENDER =================
   const renderSVG = () => {
     const map = idMapRef.current
@@ -105,28 +203,36 @@ export function useLayerModel(svg: string) {
     )
 
     map.forEach((layer) => {
-      if (layer.visible === false) {
+      const state = map.get(layer.id)
+      if (state?.visible === false) {
         const regex = new RegExp(`<g([^>]*data-layer-id="${layer.id}"[^>]*)>`, 'g')
         out = out.replace(regex, `<g$1 opacity="0">`)
       }
     })
 
-    return out.replace(
-      '<svg',
-      `<svg preserveAspectRatio="xMidYMid meet"
-        style="width:100%;height:100%;overflow:visible;"`
-    )
+    return out
   }
-
   return {
     svgRef,
-    tree,
-    hovered,
-    setHovered,
     bbox,
+    getHoveredGroupId,
+    getHoverColor,
+
+    hoveredId,
+    setHoveredId,
+    hoverColor,
+
     measure,
+
+    colors: COLORS,
+
+    tree,
+    getLayerState,
+
     toggleVisibility,
+
     renderSVG,
-    idMap: idMapRef.current,
+    setGroupColor,
+    getColor,
   }
 }
