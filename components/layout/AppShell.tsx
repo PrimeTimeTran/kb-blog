@@ -8,7 +8,7 @@ import { ScrollProvider } from '@/providers/ScrollProvider'
 import { LayoutProvider } from '@/providers/LayoutProvider'
 import { MobileNavProvider } from '@/providers/MobileNavProvider'
 
-import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
+import { BaseNavbar, AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
 
 const screens = {
   kb: {

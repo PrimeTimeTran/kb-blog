@@ -165,6 +165,9 @@ const __dirname = path.dirname(__filename)
 // pnpm --filter @primetimetran/beeline pack
 // pnpm add ./primetimetran-beeline-1.0.1.tgz
 
+/**
+ * @type {import('next').NextConfig}
+ */
 const nextConfig = {
   devIndicators: false,
   reactStrictMode: true,
@@ -181,31 +184,31 @@ const nextConfig = {
       },
     ],
   },
-  webpack(config) {
-    // ─────────────────────────────
-    // SVG (keep ONE system only)
-    // ─────────────────────────────
-    config.module.rules.forEach((rule) => {
-      if (rule?.test?.toString?.().includes('svg')) {
-        rule.exclude = /\.svg$/i
-      }
-    })
+  // webpack(config) {
+  // ─────────────────────────────
+  // SVG (keep ONE system only)
+  // ─────────────────────────────
+  // config.module.rules.forEach((rule) => {
+  //   if (rule?.test?.toString?.().includes('svg')) {
+  //     rule.exclude = /\.svg$/i
+  //   }
+  // })
 
-    config.module.rules.push({
-      test: /\.svg$/i,
-      issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
-    })
+  // config.module.rules.push({
+  //   test: /\.svg$/i,
+  //   issuer: /\.[jt]sx?$/,
+  //   use: ['@svgr/webpack'],
+  // })
 
-    // ─────────────────────────────
-    // BEELINE RESOLUTION SWITCH
-    // ─────────────────────────────
-    // config.resolve.alias = {
-    //   ...config.resolve.alias,
-    //   '@primetimetran/beeline': resolveBeelinePath(),
-    // }
+  // ─────────────────────────────
+  // BEELINE RESOLUTION SWITCH
+  // ─────────────────────────────
+  // config.resolve.alias = {
+  //   ...config.resolve.alias,
+  //   '@primetimetran/beeline': resolveBeelinePath(),
+  // }
 
-    return config
-  },
+  //   return config
+  // },
 }
 export default nextConfig

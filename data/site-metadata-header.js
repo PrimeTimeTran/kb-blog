@@ -35,11 +35,7 @@ export const siteMetaDataHeader = {
     },
   },
   icons: {
-    icon: [
-      { url: '/public/static/favicons/favicon.ico' },
-      { url: '/public/static/images/favicon.png', type: 'image/png' },
-    ],
+    icon: [{ url: '/public/static/images/favicon.png', type: 'image/png' }],
     apple: [{ url: '/icons/apple-touch-icon.png' }],
-    shortcut: ['/public/static/favicons/favicon.ico'],
   },
 }

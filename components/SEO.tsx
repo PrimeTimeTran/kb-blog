@@ -112,7 +112,7 @@ export const BlogSEO = ({
 
   const publishedAt = safeDate ? safeDate.toISOString() : null
   const modifiedAt = new Date(lastmod || publishedAt).toISOString()
-  let imagesArr =
+  const imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
       : typeof images === 'string'

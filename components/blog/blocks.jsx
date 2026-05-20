@@ -12,14 +12,14 @@ export function BlogHeader({ title, date }) {
   const { shrunk } = useScroll()
 
   return (
-    <header className="sticky top-0 z-30 bg-surface/80 backdrop-blur-md border-b">
+    <header className="sticky top-0 z-30 border-b border-surface">
       <div
         className={`flex h-full flex-col justify-center bg-surface text-on-surface px-4 transition-all duration-300
           ${false ? 'scale-[0.92] origin-top translate-y-[-10px]' : ''}
         `}
       >
         <div
-          className={`transition-all duration-300 ease-in-out
+          className={`transition-all duration-300 ease-in-out z-50
             ${false ? 'text-xl font-semibold' : 'text-3xl md:text-4xl font-bold'}
           `}
         >

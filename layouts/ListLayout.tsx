@@ -184,7 +184,7 @@ function PostCard({ post }) {
 
 function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrder, setSortOrder }) {
   // graffitiWords
-  let { text, pause, resume, paused } = useTypewriter(graffitiWords)
+  const { text, pause, resume, paused } = useTypewriter(graffitiWords)
   const toggleSort = (field) => {
     if (sortField === field) {
       // same field → toggle direction

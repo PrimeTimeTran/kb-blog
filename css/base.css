@@ -29,7 +29,9 @@
   :root {
     --navbar-height: 64px;
   }
-
+  .debug {
+    @apply border border-red-500/50 bg-red-500/5;
+  }
   a {
     color: var(--on-primary);
 

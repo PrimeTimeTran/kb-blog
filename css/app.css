@@ -6,7 +6,6 @@
 
   --nav-text-active: var(--primary);
   --nav-bg-active: color-mix(in oklab, var(--primary) 12%, transparent);
-  --nav-height: 96px;
 }
 
 .dark {
