@@ -1,4 +1,13 @@
 import { useMemo, useState } from 'react'
+// Monaco/Ace editor
+// ↓
+// esbuild-wasm
+// ↓
+// transform TSX
+// ↓
+// runtime import/eval
+// ↓
+// React render
 
 function hasRender(c) {
   return /render\(\s*</.test(c)

@@ -12,6 +12,7 @@
       "@/hooks/*": ["./hooks/*"],
       "@/layouts/*": ["./layouts/*"],
       "@/lib/*": ["./lib/*"],
+      "@/pkg/*": ["./pkg/*"],
       "@/mdx/*": ["./components/mdx/*"],
       "@/providers/*": ["./providers/*"]
     }
