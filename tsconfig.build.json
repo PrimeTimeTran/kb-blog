@@ -31,7 +31,8 @@
       "@/layouts/*": ["./layouts/*"],
       "@/lib/*": ["./lib/*"],
       "@/mdx/*": ["./components/mdx/*"],
-      "@/providers/*": ["./providers/*"]
+      "@/providers/*": ["./providers/*"],
+      "@/pkg/*": ["./pkg/*"]
     }
   },
 
