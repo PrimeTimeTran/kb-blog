@@ -1,331 +1,291 @@
-// https://github.com/fabricjs/fabric.js
-// https://github.com/SVG-Edit/svgedit
-// https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorials/SVG_from_scratch/Basic_shapes#path
-// https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/
-
-// Metadata path
-// public/static/assets/assets1/assets1.json
-// Assets: ex: Asset 1.svg
-// public/static/assets/assets1/...
 'use client'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
-import { useEffect, useState } from 'react'
-
-/* =========================================================
-   CONFIG
-========================================================= */
+import { useAssets, useLayerModel, useScene } from './hooks'
+import { Copy } from 'lucide-react'
 
 const DEBUG = true
+let ASSET_PATHS = ['']
 
-const ASSET_PATHS = ['/assets/bg1.svg', '/assets/bg2.svg', '/assets/bg3.svg']
-
-/* =========================================================
-   TYPES
-========================================================= */
-
-type AssetMeta = {
-  width?: number
-  height?: number
-
-  vbX: number
-  vbY: number
-  vbWidth: number
-  vbHeight: number
-
-  aspectRatio: number
-
-  groups: number
-  paths: number
-  images: number
-  defs: number
-  gradientRefs: number
-  clipPaths: number
-  masks: number
-  patterns: number
-
-  hasViewBox: boolean
-  hasWidthHeight: boolean
-
-  renderStrategy: 'viewBox' | 'width-height' | 'fallback'
-}
-
-type Asset = {
-  path: string
-  svg: string
-  inner: string
-  viewBox: string
-  meta: AssetMeta
-}
-
-/* =========================================================
-   SVG HELPERS
-========================================================= */
-
-function extractViewBox(svgText: string) {
-  return svgText.match(/viewBox="([^"]+)"/)?.[1] ?? ''
-}
-
-function extractInner(svgText: string) {
-  return svgText.match(/<svg[^>]*>([\s\S]*?)<\/svg>/)?.[1] ?? svgText
-}
-
-function extractWidth(svgText: string) {
-  const raw = svgText.match(/width="([^"]+)"/)?.[1]
-  if (!raw) return undefined
-  return parseFloat(raw)
-}
-
-function extractHeight(svgText: string) {
-  const raw = svgText.match(/height="([^"]+)"/)?.[1]
-  if (!raw) return undefined
-  return parseFloat(raw)
-}
-
-function parseViewBox(viewBox: string) {
-  const [x, y, width, height] = viewBox.split(/[ ,]+/).map(Number)
-
-  return {
-    x: x || 0,
-    y: y || 0,
-    width: width || 1000,
-    height: height || 1000,
-  }
-}
-
-/* =========================================================
-   ANALYSIS
-========================================================= */
-
-function analyzeSVG(svgText: string): AssetMeta {
-  const viewBox = extractViewBox(svgText)
-
-  const width = extractWidth(svgText)
-  const height = extractHeight(svgText)
-
-  const hasViewBox = !!viewBox
-  const hasWidthHeight = !!width && !!height
-
-  let vbX = 0
-  let vbY = 0
-  let vbWidth = width || 1000
-  let vbHeight = height || 1000
-
-  if (hasViewBox) {
-    const parsed = parseViewBox(viewBox)
-
-    vbX = parsed.x
-    vbY = parsed.y
-    vbWidth = parsed.width
-    vbHeight = parsed.height
-  }
-
-  const aspectRatio = vbWidth / vbHeight
-
-  let renderStrategy: AssetMeta['renderStrategy'] = 'fallback'
-
-  if (hasViewBox) renderStrategy = 'viewBox'
-  else if (hasWidthHeight) renderStrategy = 'width-height'
-
-  return {
-    width,
-    height,
-
-    vbX,
-    vbY,
-    vbWidth,
-    vbHeight,
-
-    aspectRatio,
-
-    groups: (svgText.match(/<g/g) || []).length,
-    paths: (svgText.match(/<path/g) || []).length,
-    images: (svgText.match(/<image/g) || []).length,
-    defs: (svgText.match(/<defs/g) || []).length,
-    gradientRefs: (svgText.match(/url\(#/g) || []).length,
-    clipPaths: (svgText.match(/clipPath/g) || []).length,
-    masks: (svgText.match(/<mask/g) || []).length,
-    patterns: (svgText.match(/<pattern/g) || []).length,
-
-    hasViewBox,
-    hasWidthHeight,
-
-    renderStrategy,
-  }
-}
-
-/* =========================================================
-   GROUP DEBUGGING
-========================================================= */
-
-function debugGroups(svgText: string) {
-  const groupMatches = [...svgText.matchAll(/<g[^>]*>/g)]
-
-  console.log('================ GROUP STACK ================')
-
-  groupMatches.forEach((g, i) => {
-    console.log({
-      group: i,
-      zIndex: i,
-      position: i === 0 ? 'BOTTOM' : i === groupMatches.length - 1 ? 'TOP' : 'MIDDLE',
-
-      raw: g[0],
-    })
-  })
-
-  console.log('============================================')
-}
-
-/* =========================================================
-   COMPONENT
-========================================================= */
+ASSET_PATHS = ['/assets/bg-1-pyramids.svg']
+ASSET_PATHS = ['/assets/bg1.svg']
+ASSET_PATHS = ['/assets/bg2.svg']
+ASSET_PATHS = ['/assets/bg3.svg']
+ASSET_PATHS = ['/assets/bg4.svg']
+// ASSET_PATHS = ['/assets/bg4.svg']
+// ASSET_PATHS = ['/assets/simple-a.svg']
+// ASSET_PATHS = ['/assets/simple-b.svg']
+// ASSET_PATHS = ['/assets/simple-c.svg']
+// ASSET_PATHS = ['/assets/simple-d.svg']
+ASSET_PATHS = ['/assets/e-single.svg']
+ASSET_PATHS = ['/assets/e-multi.svg']
+ASSET_PATHS = ['/assets/e-selection.svg']
+ASSET_PATHS = ['/assets/e-2-layers.svg']
 
 export default function SVGRender() {
-  const [assets, setAssets] = useState<Asset[]>([])
+  const assets = useAssets(ASSET_PATHS, DEBUG)
+  const scenes = useScene(assets)
 
-  useEffect(() => {
-    async function load() {
-      const loaded = await Promise.all(
-        ASSET_PATHS.map(async (path) => {
-          const svgText = await fetch(path).then((r) => r.text())
-
-          const inner = extractInner(svgText)
-
-          const viewBox = extractViewBox(svgText) || '0 0 1000 1000'
-
-          const meta = analyzeSVG(svgText)
-
-          if (DEBUG) {
-            console.log('================ SVG DEBUG ================')
-            console.log(path)
-            console.log(meta)
-            console.log('===========================================')
-
-            debugGroups(svgText)
-
-            const tinyStrokes = [...svgText.matchAll(/stroke-width="([^"]+)"/g)]
-              .map((m) => Number(m[1]))
-              .filter((v) => v < 1)
-
-            console.log('tinyStrokes', tinyStrokes)
-          }
-
-          return {
-            path,
-            svg: svgText,
-            inner,
-            viewBox,
-            meta,
-          }
-        })
-      )
-
-      setAssets(loaded)
-    }
-
-    load()
-  }, [])
-
+  return <SceneViewport scenes={scenes} />
+}
+function SceneViewport({ scenes }: any) {
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-        overflow: 'hidden',
-        background: '#111',
-        position: 'relative',
-      }}
-    >
-      {/* =====================================================
-          STACKED LAYERS
-      ===================================================== */}
+    <div className="relative w-screen h-screen overflow-hidden bg-[#111]">
+      {scenes.map((scene: any, i: number) => (
+        <SVGLayer key={scene.path} scene={scene} index={i} />
+      ))}
+    </div>
+  )
+}
+function SVGLayer({ scene, index }: any) {
+  const { svgRef, tree, hovered, setHovered, bbox, measure, toggleVisibility, renderSVG, idMap } =
+    useLayerModel(scene.svg)
 
-      {assets.map((asset, i) => (
-        <div
-          key={asset.path}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            zIndex: i,
+  // function renderLayerTree(nodes: any[], depth = 0) {
+  //   return nodes.map((l) => {
+  //     const state = idMap.get(l.id)
+  //     const visible = state?.visible ?? true
+  //     const isHovered = hovered === l.id
 
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+  //     const rowClass = [
+  //       'flex justify-between items-center px-2 py-1 rounded cursor-pointer select-none transition',
+  //       visible ? 'bg-green-500/10 opacity-100' : 'bg-red-500/10 opacity-40',
+  //       isHovered ? 'ring-1 ring-green-400' : '',
+  //     ].join(' ')
 
-            overflow: 'hidden',
-            pointerEvents: 'none',
-          }}
-        >
-          {/* 
-             IMPORTANT:
-             Using RAW SVG instead of nesting into another <svg>
-             preserves:
-             - clipPaths
-             - masks
-             - gradients
-             - internal coordinate systems
-             - preserveAspectRatio behavior
-          */}
+  //     const indentStyle = {
+  //       marginLeft: depth * 14,
+  //     }
 
+  //     return (
+  //       <div key={l.id} style={indentStyle}>
+  //         <div
+  //           className={rowClass}
+  //           onMouseEnter={() => {
+  //             measure(l.id)
+  //             setHovered(l.id)
+  //           }}
+  //           onMouseLeave={() => {
+  //             setHovered(null)
+  //           }}
+  //           onClick={() => {
+  //             toggleVisibility(l.id)
+  //           }}
+  //         >
+  //           <span className="flex items-center gap-2">
+  //             <span className={visible ? 'text-green-400' : 'text-red-400'}>
+  //               {visible ? '🟢' : '⚫'}
+  //             </span>
+  //             <span className="truncate">{l.name}</span>
+  //           </span>
+
+  //           <span className="opacity-60 text-xs">z:{l.zIndex}</span>
+  //         </div>
+
+  //         {l.children?.length > 0 && renderLayerTree(l.children, depth + 1)}
+  //       </div>
+  //     )
+  //   })
+  // }
+
+  function serializeTree(nodes: any[], depth = 0): string {
+    return nodes
+      .map((node) => {
+        const indent = '  '.repeat(depth)
+
+        const line = `${indent}- ${node.name}`
+
+        const children =
+          node.children?.length > 0 ? '\n' + serializeTree(node.children, depth + 1) : ''
+
+        return line + children
+      })
+      .join('\n')
+  }
+
+  const copyTree = async () => {
+    const text = `${scene.path.split('/').pop()}\n` + serializeTree(tree)
+
+    try {
+      await navigator.clipboard.writeText(text)
+      console.log('Copied tree')
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  function renderLayerTree(nodes: any[], depth = 0) {
+    const COLORS = ['#00ff88', '#ff5555', '#ffaa00', '#00c2ff', '#c084fc', '#ffffff']
+
+    return [...nodes].reverse().map((l) => {
+      const state = idMap.get(l.id)
+
+      const visible = state?.visible ?? true
+      const isHovered = hovered === l.id
+
+      // persistent debug color
+      const debugColor = state?.debugColor || '#00ff88'
+
+      const rowClass = [
+        'group flex items-center rounded cursor-pointer select-none transition border border-transparent',
+        visible ? 'opacity-100' : 'opacity-40',
+        isHovered ? 'ring-1' : '',
+      ].join(' ')
+
+      const indentStyle = {
+        paddingLeft: depth * 14,
+      }
+
+      return (
+        <div key={l.id}>
           <div
+            className={rowClass}
             style={{
-              width: '100%',
-              height: '100%',
-
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
+              ...(isHovered
+                ? {
+                    ringColor: debugColor,
+                    borderColor: debugColor,
+                    background: `${debugColor}15`,
+                  }
+                : {}),
             }}
-            dangerouslySetInnerHTML={{
-              __html: asset.svg.replace(
-                '<svg',
-                `<svg preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;overflow:visible;"`
-              ),
+            onMouseEnter={() => {
+              measure(l.id)
+              setHovered(l.id)
             }}
-          />
+            onMouseLeave={() => {
+              setHovered(null)
+            }}
+          >
+            {/* ===================================== */}
+            {/* LEFT FIXED CONTROLS */}
+            {/* ===================================== */}
+            <div className="flex items-center self-stretch">
+              {/* VISIBILITY TOGGLE */}
+              <button
+                className="w-7 min-w-7 flex items-center justify-center hover:bg-white/10 transition"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  toggleVisibility(l.id)
+                }}
+              >
+                <span className={visible ? 'text-green-400' : 'text-red-400'}>
+                  {visible ? '🟢' : '⚫'}
+                </span>
+              </button>
 
-          {/* =================================================
-              DEBUG OVERLAY
-          ================================================= */}
+              {/* COLOR PICKER */}
+              <div className="relative group/color">
+                <button
+                  className="w-7 min-w-7 flex items-center justify-center hover:bg-white/10 transition"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                  }}
+                >
+                  <div
+                    className="w-3 h-3 rounded-full border border-white/30"
+                    style={{
+                      background: debugColor,
+                    }}
+                  />
+                </button>
 
-          {DEBUG && (
+                {/* PALETTE */}
+                <div className="absolute left-full top-0 ml-1 hidden group-hover/color:flex gap-1 p-1 rounded bg-zinc-900 border border-white/10 z-50">
+                  {COLORS.map((c) => (
+                    <button
+                      key={c}
+                      className="w-4 h-4 rounded-full border border-white/20 hover:scale-110 transition"
+                      style={{
+                        background: c,
+                      }}
+                      onClick={(e) => {
+                        e.stopPropagation()
+
+                        idMap.set(l.id, {
+                          ...state,
+                          debugColor: c,
+                        })
+
+                        force((x: number) => x + 1)
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* ===================================== */}
+            {/* INDENTED TREE CONTENT */}
+            {/* ===================================== */}
             <div
-              style={{
-                position: 'absolute',
-                top: 12 + i * 120,
-                left: 12,
-
-                background: 'rgba(0,0,0,0.8)',
-                color: '#0f0',
-                fontSize: 12,
-                padding: 12,
-                borderRadius: 8,
-                fontFamily: 'monospace',
-                pointerEvents: 'none',
-                whiteSpace: 'pre-wrap',
-                maxWidth: 320,
+              className="flex-1 flex items-center justify-between py-1 pr-2"
+              style={indentStyle}
+              onClick={() => {
+                toggleVisibility(l.id)
               }}
             >
-              {JSON.stringify(
-                {
-                  file: asset.path.split('/').pop(),
-                  strategy: asset.meta.renderStrategy,
-                  aspectRatio: asset.meta.aspectRatio.toFixed(3),
-                  viewBox: asset.viewBox,
-                  groups: asset.meta.groups,
-                  paths: asset.meta.paths,
-                  defs: asset.meta.defs,
-                  gradients: asset.meta.gradientRefs,
-                  clipPaths: asset.meta.clipPaths,
-                  masks: asset.meta.masks,
-                  patterns: asset.meta.patterns,
-                },
-                null,
-                2
-              )}
+              <span className="truncate text-green-300">{l.name}</span>
+
+              <span className="opacity-50 text-[10px]">z:{l.zIndex}</span>
             </div>
-          )}
+          </div>
+
+          {/* ===================================== */}
+          {/* CHILDREN */}
+          {/* ===================================== */}
+          {l.children?.length > 0 && renderLayerTree(l.children, depth + 1)}
         </div>
-      ))}
+      )
+    })
+  }
+
+  return (
+    <div className="absolute inset-0 pointer-events-none" style={{ zIndex: index }}>
+      <svg
+        ref={svgRef}
+        className="w-full h-full"
+        dangerouslySetInnerHTML={{
+          __html: renderSVG().replace(
+            '</svg>',
+            bbox
+              ? `
+              <rect
+                x="${bbox.x}"
+                y="${bbox.y}"
+                width="${bbox.width}"
+                height="${bbox.height}"
+                fill="none"
+                stroke="#00ff00"
+                stroke-width="2"
+                pointer-events="none"
+              />
+            </svg>`
+              : '</svg>'
+          ),
+        }}
+      />
+
+      {DEBUG && (
+        <div className="absolute top-2 right-2 w-[360px] max-h-[500px] overflow-auto p-3 rounded-lg text-xs text-green-400 font-mono bg-black/90 pointer-events-auto">
+          {/* HEADER */}
+          <div className="flex items-center justify-between mb-2">
+            <div className="font-bold text-white">{scene.path.split('/').pop()}</div>
+
+            <button
+              onClick={copyTree}
+              title="Copy tree"
+              className="p-1 rounded hover:bg-white/10 transition"
+            >
+              <Copy size={14} />
+            </button>
+          </div>
+
+          <div className="mb-2 opacity-80">Tree nodes: {tree.length}</div>
+
+          {renderLayerTree(tree)}
+        </div>
+      )}
     </div>
   )
 }
