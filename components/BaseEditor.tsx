@@ -1,6 +1,6 @@
 import AceEditor from 'react-ace'
 import React, { useRef, useEffect } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 
 import 'ace-builds/src-noconflict/mode-python'
 import 'ace-builds/src-noconflict/theme-monokai'
@@ -12,7 +12,6 @@ import 'ace-builds/src-noconflict/theme-xcode'
 import 'ace-builds/src-noconflict/theme-textmate'
 import 'ace-builds/src-noconflict/theme-dawn'
 import 'ace-builds/src-noconflict/theme-solarized_light'
-
 import 'ace-builds/src-noconflict/ext-language_tools'
 
 export function BaseEditor({

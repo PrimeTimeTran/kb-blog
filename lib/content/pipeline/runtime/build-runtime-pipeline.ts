@@ -90,7 +90,7 @@ export function buildRuntimePipeline(ctx: PipelineContext) {
 
       ctx.compile = {
         code: result.code,
-        Content: result.Content,
+        Content: result.Content.default,
       }
 
       ctx.analysis.toc = result.toc ?? []

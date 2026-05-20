@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { FiClipboard } from 'react-icons/fi'
 // import SyntaxHighlighter from 'react-syntax-highlighter'

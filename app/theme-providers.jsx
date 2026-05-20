@@ -1,6 +1,6 @@
 'use client'
 
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from '@teispace/next-themes'
 import siteMetadata from '../data/site-metadata'
 
 export function ThemeProviders({ children }) {

@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { SectionTitle } from './components'
 import { BaseScroll } from '@/components/BaseScroll'
 import { useThemeStore } from '@/hooks/useThemeStore'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 import type { Theme } from '@/lib/theme/palette'
 import { applyMaterialTheme, THEME_VAULT } from '@/lib/theme/palette'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 
 interface Particle {
   x: number
@@ -103,7 +103,7 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
     const createParticle = (
       startAtEdge = true,
       overrideState?: Particle['state'],
-      overrides?: Partial<Particle>,
+      overrides?: Partial<Particle>
     ): Particle => {
       const randomColorHex =
         themeColors[Math.floor(Math.random() * themeColors.length)] || '#888888'
@@ -263,7 +263,7 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
                     y: leader.y + offsetY,
                     vx: leader.vx, // Same velocity
                     vy: leader.vy, // Same velocity
-                  }),
+                  })
                 )
               }
             } else {
@@ -288,12 +288,7 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
         const p = particles.current[i]
 
         // Randomly decide to leave if active
-        if (
-          p.state === 'active' &&
-          isVisible.current &&
-          !isIdle &&
-          particles.current.length > 20
-        ) {
+        if (p.state === 'active' && isVisible.current && !isIdle && particles.current.length > 20) {
           if (leaveState.current.active) {
             // Dynamic probability based on cursor activity
             const timeSinceMove = now - lastMouseTime.current
@@ -349,13 +344,10 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
 
             // Predator/Flee logic
             // Check if mouse is moving fast towards the bird
-            const mSpeed = Math.sqrt(
-              mouseVelocity.current.x ** 2 + mouseVelocity.current.y ** 2,
-            )
+            const mSpeed = Math.sqrt(mouseVelocity.current.x ** 2 + mouseVelocity.current.y ** 2)
             // Vector M->P is (-dx, -dy)
             // Dot product: V . (M->P)
-            const dot =
-              mouseVelocity.current.x * -dx + mouseVelocity.current.y * -dy
+            const dot = mouseVelocity.current.x * -dx + mouseVelocity.current.y * -dy
 
             if (mSpeed > 0.8 && dot > 0 && distance < 250) {
               // Random flee duration (approx 0.5s - 1.5s)
@@ -550,17 +542,10 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
 
         // Removal Check
         const isOffScreen =
-          p.x < -100 ||
-          p.x > canvas.width + 100 ||
-          p.y < -100 ||
-          p.y > canvas.height + 100
+          p.x < -100 || p.x > canvas.width + 100 || p.y < -100 || p.y > canvas.height + 100
 
         if (isOffScreen) {
-          if (
-            p.state === 'leaving' ||
-            p.state === 'meandering' ||
-            !isVisible.current
-          ) {
+          if (p.state === 'leaving' || p.state === 'meandering' || !isVisible.current) {
             // Remove particle
             particles.current.splice(i, 1)
             continue
@@ -644,23 +629,14 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
       }
 
       // Draw flock count
-      const activeCount = particles.current.filter(
-        (p) => p.state === 'active',
-      ).length
+      const activeCount = particles.current.filter((p) => p.state === 'active').length
       if (activeCount > 0) {
         ctx.save()
         ctx.font = '12px sans-serif'
-        ctx.fillStyle =
-          resolvedTheme === 'dark'
-            ? 'rgba(255, 255, 255, 0.4)'
-            : 'rgba(0, 0, 0, 0.4)'
+        ctx.fillStyle = resolvedTheme === 'dark' ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)'
         ctx.textAlign = 'right'
         ctx.textBaseline = 'bottom'
-        ctx.fillText(
-          `Flock of ${activeCount} birds`,
-          canvas.width - 24,
-          canvas.height - 24,
-        )
+        ctx.fillText(`Flock of ${activeCount} birds`, canvas.width - 24, canvas.height - 24)
         ctx.restore()
       }
 
@@ -683,10 +659,5 @@ export function CursorFlock({ seed }: { seed?: string | null }) {
     }
   }, [resolvedTheme])
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className='fixed inset-0 pointer-events-none z-50'
-    />
-  )
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-50" />
 }

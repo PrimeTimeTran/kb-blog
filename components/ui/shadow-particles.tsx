@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 
 interface Particle {
   x: number
@@ -81,8 +81,7 @@ export function ShadowParticles({ seed }: { seed?: string | null }) {
       }
 
       for (let i = 0; i < particleCount; i++) {
-        const randomColorHex =
-          themeColors[Math.floor(Math.random() * themeColors.length)]
+        const randomColorHex = themeColors[Math.floor(Math.random() * themeColors.length)]
         const rgb = hexToRgb(randomColorHex)
 
         newParticles.push({
@@ -144,12 +143,7 @@ export function ShadowParticles({ seed }: { seed?: string | null }) {
           // Create fading shadow gradient
           // Use the particle's own color but very faint for the shadow
           const shadowColor = p.color.replace(/[\d.]+\)$/g, '0.05)')
-          const gradient = ctx.createLinearGradient(
-            p.x,
-            p.y,
-            shadowEndX,
-            shadowEndY,
-          )
+          const gradient = ctx.createLinearGradient(p.x, p.y, shadowEndX, shadowEndY)
           gradient.addColorStop(0, shadowColor)
           gradient.addColorStop(1, 'rgba(0,0,0,0)')
 
@@ -202,10 +196,5 @@ export function ShadowParticles({ seed }: { seed?: string | null }) {
     }
   }, [resolvedTheme, seed])
 
-  return (
-    <canvas
-      ref={canvasRef}
-      className='absolute inset-0 pointer-events-none z-0'
-    />
-  )
+  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0" />
 }

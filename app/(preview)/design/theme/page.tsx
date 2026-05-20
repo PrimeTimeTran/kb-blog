@@ -1,5 +1,5 @@
 'use client'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 import React, { useEffect } from 'react'
 
 import { applyMaterialTheme } from '@/lib/theme/palette'

@@ -2,7 +2,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 import { useThemeStore } from '@/hooks/useThemeStore'
 import { applyMaterialTheme } from '@/lib/theme/palette'
 

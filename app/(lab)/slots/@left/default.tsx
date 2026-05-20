@@ -5,6 +5,8 @@ import { useShellCounter } from '@/app/shell/useShellCounter'
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
 import { useState, useMemo } from 'react'
 
+export const FILE_PATH = 'app/(lab)/slots/@left/default.tsx'
+
 export function SelfContainedTest() {
   const [count, setCount] = useState(0)
   const [text, setText] = useState('hello')
@@ -55,7 +57,7 @@ export default function Page() {
   const pathname = usePathname()
   return (
     <div className="flex flex-col bg-surface-variant h-full p-2">
-      <h1 className="font-bold text-2xl text-green-600">app/(preview)/layouts/@left/default.tsx</h1>
+      <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1>
       <div>
         <h1 className="text-xl font-bold text-sky-500">We can maintainstate across page renders</h1>
         <CounterControls {...counter} />

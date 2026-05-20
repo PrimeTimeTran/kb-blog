@@ -88,7 +88,6 @@ export async function getContent(
   })
 
   trace.end()
-
   return {
     ...item,
     mdxSource: raw.raw,

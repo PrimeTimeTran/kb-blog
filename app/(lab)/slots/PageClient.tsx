@@ -17,10 +17,10 @@ export default function PageClient({ tree, isCatchAll = false }) {
 
     if (isCatchAll) {
       const newPage2 = crypto.randomUUID().substring(0, 4)
-      return `/layouts/${newPage1}/${newPage2}?prev=${encodeURIComponent(result)}`
+      return `/slots/${newPage1}/${newPage2}?prev=${encodeURIComponent(result)}`
     }
 
-    return `/layouts/${newPage1}?prev=${encodeURIComponent(result)}`
+    return `/slots/${newPage1}?prev=${encodeURIComponent(result)}`
   })
 
   return (

@@ -1,8 +1,8 @@
-import path from 'path'
-import { fileURLToPath } from 'url'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+import createMDX from '@next/mdx'
+// import path from 'path'
+// import { fileURLToPath } from 'url'
+// const __filename = fileURLToPath(import.meta.url)
+// const __dirname = path.dirname(__filename)
 
 // ----------------------------------------------
 // RUNTIME GRAPH: Source vs Dist Resolution Rules
@@ -168,7 +168,9 @@ const __dirname = path.dirname(__filename)
 /**
  * @type {import('next').NextConfig}
  */
+
 const nextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,
   // Note: Fixes vercel deploy --prebuilt
@@ -176,13 +178,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  module: {
-    rules: [
-      {
-        test: /\.html$/,
-        type: 'asset/source',
-      },
-    ],
+  experimental: {
+    esmExternals: true,
   },
   // webpack(config) {
   // ─────────────────────────────
@@ -211,4 +208,13 @@ const nextConfig = {
   //   return config
   // },
 }
-export default nextConfig
+
+// Note:
+// ./mdx-components.tsx strategy worked while this one didn't.
+// https://nextjs.org/docs/pages/guides/mdx
+const withMdx = createMDX({
+  options: {},
+  extension: /\.(md|mdx)$/,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+})
+export default withMdx(nextConfig)

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 
 import { BaseEditor } from '@/components/BaseEditor'
 

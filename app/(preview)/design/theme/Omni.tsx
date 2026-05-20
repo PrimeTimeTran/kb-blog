@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { HiCube, HiSun, HiMoon } from 'react-icons/hi2'
 import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 import { OmniPanel } from '@/components/OmniPanel'
 import { BaseScroll } from '@/components/BaseScroll'
 

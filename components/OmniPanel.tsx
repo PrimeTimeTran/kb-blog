@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useId, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { useTheme } from 'next-themes'
+import { useTheme } from '@teispace/next-themes'
 
 export function OmniPanel({
   header,

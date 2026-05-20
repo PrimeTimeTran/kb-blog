@@ -1,9 +1,10 @@
 import { Term } from './Term'
 import { Image } from './Image'
 import { Embed } from './Embed'
-import { CallOut } from './Callout'
+import { CallOut } from './CallOut'
 import { Snippet } from './Snippet'
-import { Pre, TabGroup } from './Code'
+import { TabGroup } from './Code'
+import { Pre } from './Pre'
 import { TOCInline } from './TOCInline'
 import { OrderBook } from './OrderBook'
 import { SafeLink as Link } from './Link'
@@ -51,7 +52,7 @@ export function createMDXComponents(registry, depth, visited, embedded) {
     h4: NumberedHeadings.h4,
     h5: NumberedHeadings.h5,
     h6: NumberedHeadings.h6,
-    Embed: (props) => (<Embed {...props} registry={registry} depth={depth} visited={visited} />),
+    // Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
     // wrapper: ({ layout, ...rest }) => {
     //   const Layout = layouts[layout] || layouts.KBLayout
     //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />

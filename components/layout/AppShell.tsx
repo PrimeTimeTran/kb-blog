@@ -1,6 +1,6 @@
 'use client'
 import Head from 'next/head'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from '@teispace/next-themes'
 import { usePathname } from 'next/navigation'
 import { ThemeWatcher } from '@/lib/theme/ThemeWatcher'
 
@@ -8,7 +8,7 @@ import { ScrollProvider } from '@/providers/ScrollProvider'
 import { LayoutProvider } from '@/providers/LayoutProvider'
 import { MobileNavProvider } from '@/providers/MobileNavProvider'
 
-import { BaseNavbar, AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
+import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
 
 const screens = {
   kb: {

@@ -1,6 +1,7 @@
 import { visit } from 'unist-util-visit'
 
 export function renderCodeBlocks() {
+  console.log('renderCodeBlocks')
   return (tree) =>
     visit(tree, 'code', (node) => {
       const nodeLang = node.lang || ''
