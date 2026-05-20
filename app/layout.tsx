@@ -6,7 +6,7 @@ import '../css/tailwind.css'
 // import { SystemShell } from '@primetimetran/beeline'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
-
+export const dynamic = 'force-dynamic'
 // NOTE:
 // Instead of messing with layout.tsx structure frequency,
 // Create a new root project root to experiment and export from layout.tsx

@@ -106,7 +106,7 @@ export function extractCodeMeta() {
 
       node.data.hProperties = {
         ...(node.data.hProperties || {}),
-        codeMeta: JSON.stringify(meta),
+        codemeta: JSON.stringify(meta),
       }
     })
 }

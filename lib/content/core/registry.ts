@@ -39,6 +39,7 @@ function createCollection(type: string, source: ContentSource): ContentCollectio
 }
 
 function mapClientToListConfig(config?: ContentClientConfig): ContentListConfig {
+  console.log('mapClientToListConfig')
   return {
     includeDrafts: false,
     requireTitle: true,
@@ -49,8 +50,8 @@ function mapClientToListConfig(config?: ContentClientConfig): ContentListConfig 
 
 export const registry: ContentRegistry = {
   get(type) {
+    console.log('registry')
     if (!['blog', 'kb', 'terms', 'authors'].includes(type)) return null
-
     return createCollection(type, filesystemSource)
   },
 }

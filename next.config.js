@@ -174,7 +174,7 @@ const nextConfig = {
   devIndicators: false,
   reactStrictMode: true,
   // Note: Fixes vercel deploy --prebuilt
-  output: 'standalone',
+  // output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
   },

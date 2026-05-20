@@ -21,77 +21,119 @@ export async function getContent(
     slug: string
   } & Record<string, unknown>
 ) {
-  const { collection, config } = options
+  console.log('━━━━━━━━━━━━━━━━━━━━━━')
+  console.log('GET CONTENT START')
+  console.log(query)
 
-  const trace = createTrace('content:get')
+  try {
+    const trace = createTrace('content:get')
 
-  const { type, slug } = query
+    const { collection, config } = options
+    const { type, slug } = query
 
-  if (!type || !slug) {
-    trace.event('INVALID_INPUT', { type, slug })
+    console.log('STEP 1')
+
+    if (!type || !slug) {
+      trace.event('INVALID_INPUT', { type, slug })
+      trace.end()
+      return null
+    }
+
+    console.log('STEP 2')
+    trace.event('valid', { type, slug })
+
+    const raw = await collection.read(slug)
+
+    console.log('STEP 3', !!raw)
+
+    if (!raw) {
+      trace.event('NOT_FOUND', { slug })
+      trace.end()
+      return null
+    }
+
+    console.log('STEP 4')
+
+    const rootDir = collection.id?.replace(/^fs:/, '') ?? process.cwd()
+
+    console.log('STEP 5')
+
+    const typeIndex = process.env.NODE_ENV === 'test' ? {} : await buildContentIndex({ rootDir })
+
+    console.log('STEP 6')
+
+    const analysis = analyzeContent(raw.raw)
+
+    console.log('STEP 7')
+
+    const ctx = createPipelineContext({
+      request: { type, slug },
+      raw,
+      index: typeIndex,
+      source: raw.source,
+      analysis,
+    })
+
+    console.log('STEP 8')
+
+    const parsedCtx = await buildParsePipeline(ctx).run(raw)
+
+    console.log('STEP 9')
+
+    console.log(parsedCtx.analysis)
+
+    // if (!parsedCtx.analysis.published) {
+    //   console.log('NOT PUBLISHED')
+    //   return null
+    // }
+
+    console.log('STEP 10')
+
+    await buildCompilePipeline(ctx).run()
+
+    console.log('STEP 11')
+
+    const entity = toContentEntity(ctx)
+
+    console.log('STEP 12')
+
+    if (config?.includeDrafts) {
+      trace.event('DRAFT_SKIPPED', { slug })
+      trace.end()
+      return null
+    }
+
+    const item = toContentItem(entity)
+
+    console.log('STEP 13')
+
+    if (config?.filter && !config.filter(item)) {
+      trace.event('FILTERED_OUT', { slug })
+      trace.end()
+      return null
+    }
+
+    console.log('STEP 14 SUCCESS')
+    trace.event('RESULT', {
+      type,
+      slug,
+    })
+
     trace.end()
-    return null
-  }
-  trace.event('valid', { type, slug })
+    return {
+      ...item,
+      mdxSource: raw.raw,
+      toc: extractTOC(raw.raw),
+      Content: ctx.compile?.Content,
+    }
+  } catch (err) {
+    console.error('GET CONTENT CRASH')
+    console.error(err)
 
-  // ─────────────────────────────
-  // READ RAW CONTENT
-  // ─────────────────────────────
-  const raw = await collection.read(slug)
-  if (!raw) {
-    trace.event('NOT_FOUND', { slug })
-    trace.end()
-    return null
-  }
-  const rootDir = collection.id?.replace(/^fs:/, '') ?? process.cwd()
-  const typeIndex = process.env.NODE_ENV === 'test' ? {} : await buildContentIndex({ rootDir })
-  const analysis = analyzeContent(raw.raw)
+    if (err instanceof Error) {
+      console.error(err.stack)
+    }
 
-  // ─────────────────────────────
-  // CREATE PIPELINE CONTEXT
-  // ─────────────────────────────
-  const ctx = createPipelineContext({
-    request: { type, slug },
-    raw,
-    index: typeIndex,
-    source: raw.source,
-    analysis,
-  })
-
-  const parsedCtx = await buildParsePipeline(ctx).run(raw)
-  if (!parsedCtx.analysis.published) {
-    return null
-  }
-  await buildCompilePipeline(ctx).run()
-
-  const entity = toContentEntity(ctx)
-  if (config?.includeDrafts) {
-    trace.event('DRAFT_SKIPPED', { slug })
-    trace.end()
-    return null
-  }
-
-  const item = toContentItem(entity)
-
-  // ─────────────────────────────
-  // USER FILTER
-  // ─────────────────────────────
-  if (config?.filter && !config.filter(item)) {
-    trace.event('FILTERED_OUT', { slug })
-    trace.end()
-    return null
-  }
-
-  trace.event('RESULT', {
-    type,
-    slug,
-  })
-
-  trace.end()
-  return {
-    ...item,
-    mdxSource: raw.raw,
-    toc: extractTOC(raw.raw),
-    Content: ctx.compile?.Content,
+    throw err
   }
 }
