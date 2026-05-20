@@ -11,7 +11,7 @@ let CONFIG = {
   // LOG_LEVEL: (process.env.LOG_LEVEL || 'debug') as LogLevel,
   // DEBUG: process.env.DEBUG || 'content:get',
   LOG_LEVEL: 'debug' as LogLevel,
-  DEBUG: 'content:get',
+  DEBUG: 'content:index',
   LOG_SHAPE: 'inspect' as LogShape,
   TRACE_SOURCE: true,
   TRACE_RAW: true,

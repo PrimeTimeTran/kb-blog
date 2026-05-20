@@ -91,7 +91,7 @@ export async function compileWikiMDX(source, context) {
       [renderEmbeds],
       renderCallOuts,
       // injectEmbedFlags,
-      // [injectTermLinksAndPreviews, { terms }],
+      [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [
       rehypeSlug,
