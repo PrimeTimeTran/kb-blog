@@ -29,11 +29,11 @@ export function ViewportRail({ items, viewport }: ViewportRailProps): import('re
 export function RailItem({
   item,
   active,
-  previewId,
+  viewport,
   onSelect,
+  previewId,
   onPreview,
   isVertical,
-  viewport,
 }: RailItemProps) {
   // Keep for onMouseLeave. Just in case it begins being janky try this.
   // let rafId: number | null = null
@@ -42,7 +42,9 @@ export function RailItem({
   const isFocused = isHovering || active
   const Thumbnail = workspaceRegistry[item.id].component
   return (
-    <button
+    <div
+      role="button"
+      tabIndex={0}
       onClick={() => {
         // DONT try to use viewport here.
         onSelect(item.id)
@@ -57,6 +59,11 @@ export function RailItem({
         setIsHovering(false)
         onPreview(null)
       }}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          onSelect(item.id)
+        }
+      }}
       className={clsx(
         'group relative overflow-hidden p-4 transition-all duration-300 ease-out rounded',
         isVertical ? 'h-32 w-full' : 'w-64 h-full',
@@ -66,7 +73,7 @@ export function RailItem({
     >
       <div className="absolute inset-0 z-0 bg-surface">
         {Thumbnail ? (
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div
               className="origin-top-left pointer-events-none"
               style={{
@@ -107,6 +114,6 @@ export function RailItem({
         )}
         <div className="absolute bottom-3 left-3 text-white font-semibold">{item.title}</div>
       </div>
-    </button>
+    </div>
   )
 }

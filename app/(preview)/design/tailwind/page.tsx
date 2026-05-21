@@ -49,38 +49,36 @@ export function Page() {
   }, [])
   return (
     <WorkspaceShell>
-      <Page3>
-        <div className="h-full w-full overflow-y-scroll space-y-16 p-8">
-          {/* {renderTextAnimations()} */}
-          {/* {renderAnimations()} */}
-          {/* PAGE HEADER */}
-          {renderHeader()}
+      <div className="base-sc h-full w-full overflow-y-scroll space-y-16 p-8">
+        {/* {renderTextAnimations()} */}
+        {/* {renderAnimations()} */}
+        {/* PAGE HEADER */}
+        {renderHeader()}
 
-          {/* TYPOGRAPHY */}
-          {renderTypography()}
+        {/* TYPOGRAPHY */}
+        {renderTypography()}
 
-          {/* COLORS */}
-          {renderColors()}
+        {/* COLORS */}
+        {renderColors()}
 
-          {/* SURFACES */}
-          {renderSurfaces()}
+        {/* SURFACES */}
+        {renderSurfaces()}
 
-          {/* SPACING */}
-          {renderSpacing()}
+        {/* SPACING */}
+        {renderSpacing()}
 
-          {/* FLEX + GRID */}
-          {renderFlexAndGrid()}
+        {/* FLEX + GRID */}
+        {renderFlexAndGrid()}
 
-          {/* BUTTONS */}
-          {renderButtons()}
+        {/* BUTTONS */}
+        {renderButtons()}
 
-          {/* INPUTS */}
-          {renderInputs()}
+        {/* INPUTS */}
+        {renderInputs()}
 
-          {/* EFFECTS */}
-          {renderEffects()}
-        </div>
-      </Page3>
+        {/* EFFECTS */}
+        {renderEffects()}
+      </div>
     </WorkspaceShell>
   )
 }
@@ -384,9 +382,7 @@ function renderHeader() {
   return (
     <header className="space-y-4 border-b border-zinc-200 pb-8 dark:border-zinc-800">
       <div className="space-y-2">
-        <p className="text-sm uppercase tracking-widest text-zinc-500">
-          Tailwind Visual Playground
-        </p>
+        <p className="text-sm uppercase tracking-widest ">Tailwind Visual Playground</p>
 
         <h1 className="text-5xl font-black tracking-tight">Tailwind Utility Reference</h1>
 

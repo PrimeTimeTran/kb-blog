@@ -27,6 +27,21 @@ export function WorkspaceShell({ children }) {
 
 export const workspaces: WorkspaceDefinition[] = [
   {
+    id: 'Tailwind',
+    title: 'Tailwind',
+    persist: true,
+
+    theme: {
+      ['--background' as any]: '#09090b',
+      ['--surface' as any]: '#18181b',
+      ['--surface-container' as any]: '#27272a',
+      ['--primary' as any]: '#8b5cf6',
+      ['--on-background' as any]: '#fafafa',
+    },
+
+    component: Tailwind,
+  },
+  {
     id: 'Design System',
     title: 'Design System',
     persist: true,
@@ -55,21 +70,7 @@ export const workspaces: WorkspaceDefinition[] = [
 
     component: Product,
   },
-  {
-    id: 'Tailwind',
-    title: 'Tailwind',
-    persist: true,
 
-    theme: {
-      ['--background' as any]: '#09090b',
-      ['--surface' as any]: '#18181b',
-      ['--surface-container' as any]: '#27272a',
-      ['--primary' as any]: '#8b5cf6',
-      ['--on-background' as any]: '#fafafa',
-    },
-
-    component: Tailwind,
-  },
   {
     id: 'theme',
     title: 'Theme Preview',
