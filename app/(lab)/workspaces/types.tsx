@@ -1,5 +1,5 @@
 import React from 'react'
-import { useWorkspaceViewport } from '@/hooks/useViewport'
+import { useViewport } from '@/hooks/useViewport'
 
 export type WorkspaceId = string
 export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview'
@@ -7,71 +7,42 @@ export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview'
 export type RailOrientation = 'horizontal' | 'vertical'
 export type RailPosition = 'left' | 'right' | 'top' | 'bottom'
 export type RailAnchor = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
-
-export type WorkspaceDefinition = {
+export type Workspace = {
   id: string
   title: string
   persist?: boolean
   theme?: React.CSSProperties
   component: React.ComponentType<WorkspaceComponentProps>
 }
-
-export type Workspace = {
-  id: string
-  title: string
-  persist?: boolean
-  meta?: Record<string, unknown>
-}
-export interface WorkspaceHistory {
-  index: number
-  stack: WorkspaceId[]
-}
-export interface WorkspaceViewportState {
-  activeId: WorkspaceId
-  previewId: WorkspaceId | null
-
-  railPosition: RailPosition
-  orientation: RailOrientation
-
-  navigationMode: WorkspaceNavigationMode
-}
 export interface ViewportAPI {
-  railOpen: boolean
-  rail: RailState
-  closeRail: () => void
   isVertical: boolean
-  isPreviewing: boolean
   isHorizontal: boolean
+
   activeId: WorkspaceId
-  railPosition: RailPosition
-  orientation: RailOrientation
   previewId: WorkspaceId | null
-  navigationMode: WorkspaceNavigationMode
   select: (id: WorkspaceId) => void
-  // setRailPosition: (pos: RailPosition) => void
   preview: (id: WorkspaceId | null) => void
+  navigationMode: WorkspaceNavigationMode
+
+  rail: RailState
+  orientation: RailOrientation
   interactRail: (anchor: RailState['anchor']) => void
-  handleRailLongPress: (anchor: RailState['anchor']) => void
+  handleLongPress: (anchor: RailState['anchor']) => void
 }
-export type WorkspaceComponentProps = {
-  workspaceId: string
-}
-export type WorkspaceLayoutProps = {
+export type WorkspaceProps = {
   children: React.ReactNode
-  viewport: ReturnType<typeof useWorkspaceViewport>
+  viewport: ReturnType<typeof useViewport>
   workspaceRail: React.ReactNode
 }
-export type RailItemProps = {
-  item: any
-  viewport: any
-  active: boolean
-  isVertical: boolean
-  previewId: string | null
-  onSelect: (id: string) => void
-  onPreview: (id: string | null) => void
+export type ViewportProps = {
+  viewport: ViewportAPI
+  workspaces: Workspace[]
+}
+export type ViewportControllerProps = {
+  viewport: ViewportAPI
 }
 export type ViewportRailProps = {
-  items: WorkspaceDefinition[]
+  items: Workspace[]
   viewport: ViewportAPI
 }
 export type RailProps = {
@@ -82,20 +53,49 @@ export type RailProps = {
   onPreview: (id: string | null) => void
   position?: RailPosition
 }
-export type WorkspaceViewportProps = {
-  viewport: ViewportAPI
-  workspaces: WorkspaceDefinition[]
-}
-export type ControlOverlay = {
-  viewport: ViewportAPI
+export type RailItemProps = {
+  item: any
+  viewport: any
+  active: boolean
+  isVertical: boolean
+  onSelect: (id: string) => void
+  onPreview: (id: string | null) => void
 }
 export type Action =
   | { type: 'SET_ANCHOR'; anchor: RailAnchor }
   | { type: 'TOGGLE_OPEN' }
   | { type: 'CLOSE' }
 
+export type RailTileSpec = {
+  width: string
+  height: string
+  aspectRatio?: number
+
+  thumbnailScale: number
+}
 export type RailState = {
+  open: boolean
   anchor: 'tl' | 'tr' | 'bl' | 'br'
   position: 'top' | 'bottom' | 'left' | 'right'
-  open: boolean
 }
+export type ThumbnailConfig = {
+  scale: number
+  aspectRatio: number // width / height
+}
+
+// export interface WorkspaceHistory {
+//   index: number
+//   stack: WorkspaceId[]
+// }
+// export interface ViewportState {
+//   activeId: WorkspaceId
+//   previewId: WorkspaceId | null
+
+//   railPosition: RailPosition
+//   orientation: RailOrientation
+
+//   navigationMode: WorkspaceNavigationMode
+// }
+// export type ComponentProps = {
+//   workspaceId: string
+// }

@@ -51,28 +51,19 @@ export function useLongPress(onLongPress: () => void, delay = 500) {
 }
 export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
-
   const [previewId, setPreviewId] = useState<WorkspaceId | null>(null)
+  const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')
 
   const [rail, setRail] = useState<RailState>({
     open: true,
     anchor: 'tr',
     position: 'right',
   })
-
-  const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')
-
   // =======================================================
   // Derived
   // =======================================================
-
-  const railOpen = rail.open
-  const railPosition = rail.position
-
   const orientation: RailOrientation =
     rail.position === 'left' || rail.position === 'right' ? 'vertical' : 'horizontal'
-
-  const isPreviewing = previewId !== null
   const isVertical = orientation === 'vertical'
   const isHorizontal = orientation === 'horizontal'
 
@@ -91,17 +82,20 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     setNavigationMode(id ? 'preview' : 'idle')
   }, [])
 
-  const closeRail = useCallback(() => {
-    setRail((r) => ({
-      ...r,
-      open: false,
-    }))
-  }, [])
-
   const interactRail = useCallback((anchor: RailState['anchor']) => {
     setRail((current) => {
       const isSameAnchor = current.anchor === anchor
 
+      // 🔴 CASE 1: CLOSED → ALWAYS OPEN AT BASE (NO PIVOT)
+      if (!current.open) {
+        return {
+          anchor,
+          position: ANCHOR_BASE[anchor],
+          open: true,
+        }
+      }
+
+      // 🔵 CASE 2: OPEN + SAME ANCHOR → PIVOT
       if (isSameAnchor) {
         return {
           ...current,
@@ -110,6 +104,7 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
         }
       }
 
+      // 🟢 CASE 3: OPEN + DIFFERENT ANCHOR → REBASE
       return {
         anchor,
         position: ANCHOR_BASE[anchor],
@@ -118,9 +113,9 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     })
   }, [])
 
-  const handleRailLongPress = useCallback((anchor) => {
-    setRail((current) => ({
-      ...current,
+  const handleLongPress = useCallback(() => {
+    setRail((r) => ({
+      ...r,
       open: false,
     }))
   }, [])
@@ -129,7 +124,6 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     activeId,
     previewId,
 
-    railPosition,
     orientation,
     navigationMode,
 
@@ -137,14 +131,10 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     preview,
 
     interactRail,
-    handleRailLongPress,
+    handleLongPress,
 
-    isPreviewing,
     isHorizontal,
     isVertical,
-
-    railOpen,
-    closeRail,
 
     rail,
   }

@@ -61,8 +61,8 @@ export function RootLayout({ children }) {
         <AppShell>
           <div className="flex flex-col h-full">
             <div className="flex flex-1 min-h-0 pt-16">
-              {children}
               <ShowcasePage />
+              {children}
             </div>
           </div>
           {/*

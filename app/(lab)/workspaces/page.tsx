@@ -3,25 +3,30 @@ import clsx from 'clsx'
 import { ViewportRail } from './Rail'
 import { workspaces } from './WorkspaceList'
 import { useLongPress, useViewport } from '@/hooks/useViewport'
-import { ControlOverlay, RailState, WorkspaceLayoutProps, WorkspaceViewportProps } from './types'
+import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types'
 
 export default function ShowcasePage() {
   const viewport = useViewport(workspaces[0].id)
 
   return (
     <div className="fixed inset-0 z-50 pointer-events-auto bg-surface">
-      <CornerControls viewport={viewport} />
-      <WorkspaceLayout
+      <ViewportController viewport={viewport} />
+      <Workspace
         viewport={viewport}
         workspaceRail={<ViewportRail items={workspaces} viewport={viewport} />}
       >
-        <WorkspaceViewport workspaces={workspaces} viewport={viewport} />
-      </WorkspaceLayout>
+        <Viewport workspaces={workspaces} viewport={viewport} />
+      </Workspace>
     </div>
   )
 }
-export function WorkspaceLayout({ children, viewport, workspaceRail }: WorkspaceLayoutProps) {
-  const { rail, railPosition } = viewport
+
+// Viewport = system
+// Workspace = data
+// Rail = UI mechanism
+
+export function Workspace({ children, viewport, workspaceRail }: WorkspaceProps) {
+  const { rail } = viewport
 
   const anchorClass: Record<RailState['anchor'], string> = {
     tl: 'top-0 left-0',
@@ -31,17 +36,19 @@ export function WorkspaceLayout({ children, viewport, workspaceRail }: Workspace
   }
 
   const sizeClass =
-    railPosition === 'left' || railPosition === 'right'
+    rail.position === 'left' || rail.position === 'right'
       ? 'top-0 bottom-0 w-64'
       : 'left-0 right-0 h-32'
-  const hidden =
-    rail.anchor === 'left'
-      ? '-translate-x-full'
-      : rail.anchor === 'right'
-        ? 'translate-x-full'
-        : rail.anchor === 'top'
-          ? '-translate-y-full'
-          : 'translate-y-full'
+
+  // WIP: Open/Close expand/collapse animation
+  // const hidden =
+  //   rail.anchor === 'left'
+  //     ? '-translate-x-full'
+  //     : rail.anchor === 'right'
+  //       ? 'translate-x-full'
+  //       : rail.anchor === 'top'
+  //         ? '-translate-y-full'
+  //         : 'translate-y-full'
   return (
     <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
@@ -51,10 +58,7 @@ export function WorkspaceLayout({ children, viewport, workspaceRail }: Workspace
           'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           anchorClass[rail.anchor],
           sizeClass,
-          // 🔥 ADD THIS (this is the missing link)
           rail.open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-          // rail.open ? 'translate-x-0' : 'translate-x-[-110%]',
-          // rail.open ? 'translate-x-0' : hidden
         )}
       >
         {workspaceRail}
@@ -62,14 +66,14 @@ export function WorkspaceLayout({ children, viewport, workspaceRail }: Workspace
     </div>
   )
 }
-export function WorkspaceViewport({ viewport, workspaces }: WorkspaceViewportProps) {
-  const isVertical = viewport.orientation === 'vertical'
-  const shownId = viewport.previewId ?? viewport.activeId
-  const shownIndex = workspaces.findIndex((w) => w.id === shownId)
+export function Viewport({ viewport, workspaces }: ViewportProps) {
+  const isVertical = viewport?.isVertical
+  const activeId = viewport.previewId ?? viewport.activeId
+  const displayIdx = workspaces.findIndex((w) => w.id === activeId)
 
   const transform = isVertical
-    ? `translateY(-${shownIndex * 100}%)`
-    : `translateX(-${shownIndex * 100}%)`
+    ? `translateY(-${displayIdx * 100}%)`
+    : `translateX(-${displayIdx * 100}%)`
 
   return (
     <div className="relative h-full w-full overflow-hidden">
@@ -97,26 +101,24 @@ export function WorkspaceViewport({ viewport, workspaces }: WorkspaceViewportPro
     </div>
   )
 }
-const buttonClass =
-  'absolute z-50 h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
-function CornerControls({ viewport }: ControlOverlay) {
-  const { interactRail, handleRailLongPress } = viewport
+function ViewportController({ viewport }: ViewportControllerProps) {
+  const { interactRail, handleLongPress } = viewport
 
-  const tl = useLongPress(() => handleRailLongPress('tl'))
-  const tr = useLongPress(() => handleRailLongPress('tr'))
-  const bl = useLongPress(() => handleRailLongPress('bl'))
-  const br = useLongPress(() => handleRailLongPress('br'))
+  const tl = useLongPress(() => handleLongPress('tl'))
+  const tr = useLongPress(() => handleLongPress('tr'))
+  const bl = useLongPress(() => handleLongPress('bl'))
+  const br = useLongPress(() => handleLongPress('br'))
 
   const bind = (anchor: RailState['anchor'], lp) => ({
     ...lp.handlers,
 
     onClick: () => {
-      // 🔥 CRITICAL: block click if long press happened
       if (lp.consume()) return
-
       interactRail(anchor)
     },
   })
+  const buttonClass =
+    'absolute z-50 h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
 
   return (
     <>

@@ -1,12 +1,7 @@
-import type { ComponentType, PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+
 import { WorkspaceShell } from '@/app/(lab)/workspaces/WorkspaceList'
-export type WorkspaceDefinition = {
-  id: string
-  title: string
-  persist: boolean
-  component?: ComponentType<PropsWithChildren>
-  theme?: Record<string, string>
-}
+
 const fontSizes = [
   'text-xs',
   'text-sm',
