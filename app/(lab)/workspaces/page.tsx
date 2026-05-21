@@ -34,17 +34,27 @@ export function WorkspaceLayout({ children, viewport, workspaceRail }: Workspace
     railPosition === 'left' || railPosition === 'right'
       ? 'top-0 bottom-0 w-64'
       : 'left-0 right-0 h-32'
-
+  const hidden =
+    rail.anchor === 'left'
+      ? '-translate-x-full'
+      : rail.anchor === 'right'
+        ? 'translate-x-full'
+        : rail.anchor === 'top'
+          ? '-translate-y-full'
+          : 'translate-y-full'
   return (
     <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
       <div
         className={clsx(
           'fixed z-50 pointer-events-auto',
-          'transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+          'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           anchorClass[rail.anchor],
-
-          sizeClass
+          sizeClass,
+          // 🔥 ADD THIS (this is the missing link)
+          rail.open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+          // rail.open ? 'translate-x-0' : 'translate-x-[-110%]',
+          // rail.open ? 'translate-x-0' : hidden
         )}
       >
         {workspaceRail}
@@ -97,10 +107,13 @@ function CornerControls({ viewport }: ControlOverlay) {
   const bl = useLongPress(() => handleRailLongPress('bl'))
   const br = useLongPress(() => handleRailLongPress('br'))
 
-  const bind = (anchor, lp) => ({
+  const bind = (anchor: RailState['anchor'], lp) => ({
     ...lp.handlers,
+
     onClick: () => {
-      if (lp.shouldSuppressClick()) return
+      // 🔥 CRITICAL: block click if long press happened
+      if (lp.consume()) return
+
       interactRail(anchor)
     },
   })

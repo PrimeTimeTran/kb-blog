@@ -9,21 +9,15 @@ import {
   RailOrientation,
 } from '@/app/(lab)/workspaces/types'
 
-// =======================================================
-// Long press
-// =======================================================
-
 export function useLongPress(onLongPress: () => void, delay = 500) {
   const timer = useRef<NodeJS.Timeout | null>(null)
-  const suppressClick = useRef(false)
-  const moved = useRef(false)
+  const triggered = useRef(false)
 
   const start = () => {
-    suppressClick.current = false
-    moved.current = false
+    triggered.current = false
 
     timer.current = setTimeout(() => {
-      suppressClick.current = true
+      triggered.current = true
       onLongPress()
     }, delay)
   }
@@ -35,66 +29,35 @@ export function useLongPress(onLongPress: () => void, delay = 500) {
     }
   }
 
-  const onMove = () => {
-    // optional: cancel long press if user drags
-    moved.current = true
-  }
+  const wasLongPress = () => triggered.current
 
-  const shouldSuppressClick = () => {
-    const v = suppressClick.current
-    suppressClick.current = false // IMPORTANT: reset after evaluation
+  const consume = () => {
+    const v = triggered.current
+    triggered.current = false
     return v
   }
 
   return {
-    shouldSuppressClick,
+    wasLongPress,
+    consume,
     handlers: {
       onMouseDown: start,
       onMouseUp: stop,
       onMouseLeave: stop,
       onTouchStart: start,
       onTouchEnd: stop,
-      onMouseMove: onMove,
     },
   }
 }
-
-// =======================================================
-// Pivot cycles
-// =======================================================
-
-const ANCHOR_BASE = {
-  tl: 'top',
-  tr: 'right',
-  bl: 'left',
-  br: 'bottom',
-} as const
-const LOCAL_CYCLES = {
-  tl: ['top', 'right', 'bottom', 'left'],
-  tr: ['right', 'bottom', 'left', 'top'],
-  bl: ['left', 'top', 'right', 'bottom'],
-  br: ['bottom', 'left', 'top', 'right'],
-} as const
-
-function nextPivotPosition(state: RailState): RailPosition {
-  const cycle = LOCAL_CYCLES[state.anchor]
-  const currentIndex = cycle.indexOf(state.position)
-  if (currentIndex === -1) {
-    return ANCHOR_BASE[state.anchor]
-  }
-
-  return cycle[(currentIndex + 1) % cycle.length]
-}
-
 export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
 
   const [previewId, setPreviewId] = useState<WorkspaceId | null>(null)
 
   const [rail, setRail] = useState<RailState>({
+    open: true,
     anchor: 'tr',
     position: 'right',
-    open: true,
   })
 
   const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')
@@ -103,8 +66,8 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
   // Derived
   // =======================================================
 
-  const railPosition = rail.position
   const railOpen = rail.open
+  const railPosition = rail.position
 
   const orientation: RailOrientation =
     rail.position === 'left' || rail.position === 'right' ? 'vertical' : 'horizontal'
@@ -128,10 +91,6 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     setNavigationMode(id ? 'preview' : 'idle')
   }, [])
 
-  // =======================================================
-  // Rail interactions
-  // =======================================================
-
   const closeRail = useCallback(() => {
     setRail((r) => ({
       ...r,
@@ -141,55 +100,29 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
   const interactRail = useCallback((anchor: RailState['anchor']) => {
     setRail((current) => {
-      console.log('🟡 INTERACT RAIL')
-      console.log('incoming anchor:', anchor)
-      console.log('current state:', current)
-
       const isSameAnchor = current.anchor === anchor
-      console.log('isSameAnchor:', isSameAnchor)
 
       if (isSameAnchor) {
-        const next = nextPivotPosition(current)
-
-        console.log('pivoting within anchor')
-        console.log('cycle:', LOCAL_CYCLES[current.anchor])
-        console.log('current.position:', current.position)
-        console.log('next.position:', next)
-
-        const nextState = {
+        return {
           ...current,
-          position: next,
+          position: nextPivotPosition(current),
           open: true,
         }
-
-        console.log('result state:', nextState)
-        return nextState
       }
 
-      const nextState = {
+      return {
         anchor,
         position: ANCHOR_BASE[anchor],
         open: true,
       }
-
-      console.log('rebase to anchor')
-      console.log('result state:', nextState)
-
-      return nextState
     })
   }, [])
 
   const handleRailLongPress = useCallback((anchor) => {
-    setRail((current) => {
-      if (current.anchor !== anchor) {
-        return { ...current, anchor, open: false }
-      }
-
-      return {
-        ...current,
-        open: false,
-      }
-    })
+    setRail((current) => ({
+      ...current,
+      open: false,
+    }))
   }, [])
 
   return {
@@ -215,4 +148,25 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
     rail,
   }
+}
+const ANCHOR_BASE = {
+  tl: 'top',
+  tr: 'right',
+  bl: 'left',
+  br: 'bottom',
+} as const
+const LOCAL_CYCLES = {
+  tl: ['top', 'right', 'bottom', 'left'],
+  tr: ['right', 'bottom', 'left', 'top'],
+  bl: ['left', 'top', 'right', 'bottom'],
+  br: ['bottom', 'left', 'top', 'right'],
+} as const
+function nextPivotPosition(state: RailState): RailPosition {
+  const cycle = LOCAL_CYCLES[state.anchor]
+  const currentIndex = cycle.indexOf(state.position)
+  if (currentIndex === -1) {
+    return ANCHOR_BASE[state.anchor]
+  }
+
+  return cycle[(currentIndex + 1) % cycle.length]
 }

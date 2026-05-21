@@ -37,18 +37,21 @@ export interface WorkspaceViewportState {
 }
 export interface ViewportAPI {
   railOpen: boolean
+  rail: RailState
   closeRail: () => void
   isVertical: boolean
   isPreviewing: boolean
   isHorizontal: boolean
+  activeId: WorkspaceId
   railPosition: RailPosition
   orientation: RailOrientation
-  activeId: WorkspaceId
   previewId: WorkspaceId | null
   navigationMode: WorkspaceNavigationMode
   select: (id: WorkspaceId) => void
-  setRailPosition: (pos: RailPosition) => void
+  // setRailPosition: (pos: RailPosition) => void
   preview: (id: WorkspaceId | null) => void
+  interactRail: (anchor: RailState['anchor']) => void
+  handleRailLongPress: (anchor: RailState['anchor']) => void
 }
 export type WorkspaceComponentProps = {
   workspaceId: string
