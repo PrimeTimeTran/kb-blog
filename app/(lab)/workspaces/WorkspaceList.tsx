@@ -1,25 +1,33 @@
 import { WorkspaceDefinition } from './types'
 
-import { WorkspaceHero, LargeScrollableSection, ScrollableWorkspaceContent } from './components'
-import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
-import Tailwind from '@/app/(preview)/design/tailwind/page'
-import Material from '@/app/(preview)/design/system/page'
 import Product from '@/app/(preview)/design/product/page'
-// import { Space1 } from './Space1'
+import Material from '@/app/(preview)/design/system/page'
+import Tailwind from '@/app/(preview)/design/tailwind/page'
+import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
+
+import { WorkspaceHero, LargeScrollableSection, ScrollableWorkspaceContent } from './components'
 
 // https://prismic.io/blog/css-background-effects
 
-// I want to load
-// ./Space1.css
-// ./Space1.html
-// how to lload both together?
 export function RawHtml({ html }: { html: string }) {
   return <div dangerouslySetInnerHTML={{ __html: html }} />
 }
+
+// REQUIRED
+// Wrapping for components in order to not break scroll
+// export function WorkspaceShell({ children }) {
+//   return (
+//     <div className="h-full w-full min-h-0 overflow-hidden">
+//       <div className="h-full w-full min-h-0 overflow-y-auto">
+//         {children}
+//       </div>
+//     </div>
+//   )
+// }
 export const workspaces: WorkspaceDefinition[] = [
   {
-    id: 'Space1',
-    title: 'Space1',
+    id: 'Design System',
+    title: 'Design System',
     persist: true,
 
     theme: {
@@ -30,11 +38,11 @@ export const workspaces: WorkspaceDefinition[] = [
       ['--on-background' as any]: '#fafafa',
     },
 
-    component: Product,
+    component: Material,
   },
   {
-    id: 'Product',
-    title: 'Product',
+    id: 'Space1',
+    title: 'Material',
     persist: true,
 
     theme: {
@@ -63,46 +71,17 @@ export const workspaces: WorkspaceDefinition[] = [
     component: Tailwind,
   },
   {
-    id: 'Material',
-    title: 'Material',
-    persist: true,
-
-    theme: {
-      ['--background' as any]: '#09090b',
-      ['--surface' as any]: '#18181b',
-      ['--surface-container' as any]: '#27272a',
-      ['--primary' as any]: '#8b5cf6',
-      ['--on-background' as any]: '#fafafa',
-    },
-
-    component: Material,
-  },
-  {
-    id: 'Animation',
-    title: 'Animation',
-    persist: true,
-
-    theme: {
-      ['--background' as any]: '#09090b',
-      ['--surface' as any]: '#18181b',
-      ['--surface-container' as any]: '#27272a',
-      ['--primary' as any]: '#8b5cf6',
-      ['--on-background' as any]: '#fafafa',
-    },
-
-    component: Page3,
-  },
-  {
     id: 'motion-lab',
     title: 'Motion Lab',
     persist: true,
 
     theme: {
-      ['--background' as any]: '#09090b',
-      ['--surface' as any]: '#18181b',
-      ['--surface-container' as any]: '#27272a',
-      ['--primary' as any]: '#8b5cf6',
-      ['--on-background' as any]: '#fafafa',
+      '--background': '#0a0a0f',
+      '--surface': '#14141c',
+      '--surface-container': '#1d1d29',
+      '--primary': '#a78bfa',
+      '--on-background': '#f5f5f7',
+      '--on-surface': '#e4e4e7',
     },
 
     component: MotionWorkspace,
@@ -114,11 +93,14 @@ export const workspaces: WorkspaceDefinition[] = [
     persist: true,
 
     theme: {
-      ['--background' as any]: '#ffffff',
-      ['--surface' as any]: '#f4f4f5',
-      ['--surface-container' as any]: '#e4e4e7',
-      ['--primary' as any]: '#2563eb',
-      ['--on-background' as any]: '#18181b',
+      '--background': '#ffffff',
+      '--surface': '#f8fafc',
+      '--surface-container': '#eef2f7',
+
+      '--primary': '#2563eb',
+
+      '--on-background': '#0f172a',
+      '--on-surface': '#1e293b',
     },
 
     component: FlexWorkspace,
@@ -130,15 +112,23 @@ export const workspaces: WorkspaceDefinition[] = [
     persist: true,
 
     theme: {
-      ['--background' as any]: '#071013',
-      ['--surface' as any]: '#0f172a',
-      ['--surface-container' as any]: '#1e293b',
-      ['--primary' as any]: '#06b6d4',
-      ['--on-background' as any]: '#e2e8f0',
+      '--background': '#050b10',
+      '--surface': '#0b1220',
+      '--surface-container': '#111c2e',
+
+      '--primary': '#22d3ee',
+
+      '--on-background': '#e2e8f0',
+      '--on-surface': '#cbd5e1',
     },
+
     component: ProjectWorkspace,
   },
 ]
+type WorkspaceId = string
+export const workspaceRegistry = Object.fromEntries(
+  workspaces.map((workspace) => [workspace.id, workspace])
+) as Record<WorkspaceId, WorkspaceDefinition>
 
 export function MotionWorkspace() {
   return (
@@ -152,7 +142,6 @@ export function MotionWorkspace() {
     </ScrollableWorkspaceContent>
   )
 }
-
 export function FlexWorkspace() {
   return (
     <ScrollableWorkspaceContent>
@@ -165,7 +154,6 @@ export function FlexWorkspace() {
     </ScrollableWorkspaceContent>
   )
 }
-
 export function ProjectWorkspace() {
   return (
     <ScrollableWorkspaceContent>

@@ -1,15 +1,44 @@
 import { useState, useCallback } from 'react'
 
+export type RailAnchor = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right'
+export function toggleVertical(anchor: RailAnchor): RailAnchor {
+  switch (anchor) {
+    case 'top-left':
+      return 'bottom-left'
+    case 'top-right':
+      return 'bottom-right'
+    case 'bottom-left':
+      return 'top-left'
+    case 'bottom-right':
+      return 'top-right'
+  }
+}
+
+export function toggleHorizontal(anchor: RailAnchor): RailAnchor {
+  switch (anchor) {
+    case 'top-left':
+      return 'top-right'
+    case 'top-right':
+      return 'top-left'
+    case 'bottom-left':
+      return 'bottom-right'
+    case 'bottom-right':
+      return 'bottom-left'
+  }
+}
+
 export function useWorkspaceViewport(initialId: WorkspaceId): WorkspaceViewportAPI {
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
+
   const [previewId, setPreviewId] = useState<WorkspaceId | null>(null)
 
-  // const [orientation, setOrientation] = useState<Orientation>('horizontal')
-  // const [railPosition, setRailPosition] = useState<RailPosition>('bottom')
   const [railPosition, setRailPosition] = useState<RailPosition>('right')
-  const [orientation, setOrientation] = useState<Orientation>('horizontal')
 
   const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')
+
+  // DERIVED (not state)
+  const orientation: Orientation =
+    railPosition === 'left' || railPosition === 'right' ? 'vertical' : 'horizontal'
 
   const select = useCallback((id: WorkspaceId) => {
     setActiveId(id)
@@ -37,8 +66,8 @@ export function useWorkspaceViewport(initialId: WorkspaceId): WorkspaceViewportA
 
     select,
     preview,
+
     setRailPosition,
-    setOrientation,
 
     isPreviewing,
     isHorizontal,
@@ -49,8 +78,8 @@ export function useWorkspaceViewport(initialId: WorkspaceId): WorkspaceViewportA
 /**
  * Core layout primitives
  */
-export type RailPosition = 'top' | 'bottom' | 'left' | 'right'
 export type Orientation = 'horizontal' | 'vertical'
+export type RailPosition = 'top' | 'bottom' | 'left' | 'right'
 
 /**
  * Workspace identity system
@@ -101,7 +130,6 @@ export interface WorkspaceViewportAPI {
   preview: (id: WorkspaceId | null) => void
 
   setRailPosition: (pos: RailPosition) => void
-  setOrientation: (o: Orientation) => void
 
   // derived (very useful soon)
   isPreviewing: boolean

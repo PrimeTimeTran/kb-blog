@@ -15,6 +15,8 @@ import Layout2 from './z.layout'
 
 export default RootLayout
 
+import ShowcasePage from '@/app/(lab)/workspaces/page'
+
 export function RootLayout({ children }) {
   return (
     // CONTEXT: GLOBAL STYLING STRATEGY
@@ -58,7 +60,10 @@ export function RootLayout({ children }) {
       <body>
         <AppShell>
           <div className="flex flex-col h-full">
-            <div className="flex flex-1 min-h-0 pt-16">{children}</div>
+            <div className="flex flex-1 min-h-0 pt-16">
+              {children}
+              <ShowcasePage></ShowcasePage>
+            </div>
           </div>
           {/*
             CONTEXT: GLOBAL SCROLL CAPTURE
