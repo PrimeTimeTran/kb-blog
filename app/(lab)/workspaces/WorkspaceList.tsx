@@ -3,6 +3,8 @@ import { WorkspaceDefinition } from './types'
 import Product from '@/app/(preview)/design/product/page'
 import Material from '@/app/(preview)/design/system/page'
 import Tailwind from '@/app/(preview)/design/tailwind/page'
+import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities'
+// import Components from '@/app/(preview)/design/theme/Components'
 import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
 
 import { WorkspaceHero, LargeScrollableSection, ScrollableWorkspaceContent } from './components'
@@ -15,15 +17,14 @@ export function RawHtml({ html }: { html: string }) {
 
 // REQUIRED
 // Wrapping for components in order to not break scroll
-// export function WorkspaceShell({ children }) {
-//   return (
-//     <div className="h-full w-full min-h-0 overflow-hidden">
-//       <div className="h-full w-full min-h-0 overflow-y-auto">
-//         {children}
-//       </div>
-//     </div>
-//   )
-// }
+export function WorkspaceShell({ children }) {
+  return (
+    <div className="h-full w-full min-h-0 overflow-hidden">
+      <div className="h-full w-full min-h-0 overflow-y-auto">{children}</div>
+    </div>
+  )
+}
+
 export const workspaces: WorkspaceDefinition[] = [
   {
     id: 'Design System',
@@ -37,7 +38,6 @@ export const workspaces: WorkspaceDefinition[] = [
       ['--primary' as any]: '#8b5cf6',
       ['--on-background' as any]: '#fafafa',
     },
-
     component: Material,
   },
   {
@@ -69,6 +69,22 @@ export const workspaces: WorkspaceDefinition[] = [
     },
 
     component: Tailwind,
+  },
+  {
+    id: 'theme',
+    title: 'Theme Preview',
+    persist: true,
+
+    theme: {
+      '--background': '#0a0a0f',
+      '--surface': '#14141c',
+      '--surface-container': '#1d1d29',
+      '--primary': '#a78bfa',
+      '--on-background': '#f5f5f7',
+      '--on-surface': '#e4e4e7',
+    },
+
+    component: TailwindUtilities,
   },
   {
     id: 'motion-lab',

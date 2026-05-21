@@ -62,7 +62,7 @@ export function RootLayout({ children }) {
           <div className="flex flex-col h-full">
             <div className="flex flex-1 min-h-0 pt-16">
               {children}
-              <ShowcasePage></ShowcasePage>
+              <ShowcasePage />
             </div>
           </div>
           {/*

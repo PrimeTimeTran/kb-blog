@@ -1,9 +1,9 @@
 'use client'
-import { BaseScroll } from '@/components/BaseScroll'
+import { useEffect } from 'react'
 import { Box } from 'lucide-react'
-import { useState, useEffect } from 'react'
 import { SectionTitle } from './components'
-import { Page2, Page3 } from './animated-hover-icons'
+import { Page3 } from './animated-hover-icons'
+import { WorkspaceShell } from '@/app/(lab)/workspaces/WorkspaceList'
 
 // Inspiration Sites.
 // https://list.swajp.me/
@@ -48,11 +48,11 @@ export function Page() {
     return () => window.removeEventListener('mousemove', onMove)
   }, [])
   return (
-    <BaseScroll>
+    <WorkspaceShell>
       <Page3>
         <div className="h-full w-full overflow-y-scroll space-y-16 p-8">
-          {renderTextAnimations()}
-          {renderAnimations()}
+          {/* {renderTextAnimations()} */}
+          {/* {renderAnimations()} */}
           {/* PAGE HEADER */}
           {renderHeader()}
 
@@ -81,7 +81,7 @@ export function Page() {
           {renderEffects()}
         </div>
       </Page3>
-    </BaseScroll>
+    </WorkspaceShell>
   )
 }
 
