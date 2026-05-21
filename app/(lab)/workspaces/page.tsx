@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { ViewportRail } from './Rail'
 import { workspaces } from './WorkspaceList'
 import { useLongPress, useViewport } from '@/hooks/useViewport'
-import { ControlOverlay, WorkspaceLayoutProps, WorkspaceViewportProps } from './types'
+import { ControlOverlay, RailState, WorkspaceLayoutProps, WorkspaceViewportProps } from './types'
 
 export default function ShowcasePage() {
   const viewport = useViewport(workspaces[0].id)
@@ -13,31 +13,41 @@ export default function ShowcasePage() {
       <CornerControls viewport={viewport} />
       <WorkspaceLayout
         viewport={viewport}
-        rail={<ViewportRail items={workspaces} viewport={viewport} />}
+        workspaceRail={<ViewportRail items={workspaces} viewport={viewport} />}
       >
         <WorkspaceViewport workspaces={workspaces} viewport={viewport} />
       </WorkspaceLayout>
     </div>
   )
 }
-export function WorkspaceLayout({ children, viewport, rail }: WorkspaceLayoutProps) {
-  const position = viewport.railPosition
+export function WorkspaceLayout({ children, viewport, workspaceRail }: WorkspaceLayoutProps) {
+  const { rail, railPosition } = viewport
+
+  const anchorClass: Record<RailState['anchor'], string> = {
+    tl: 'top-0 left-0',
+    tr: 'top-0 right-0',
+    bl: 'bottom-0 left-0',
+    br: 'bottom-0 right-0',
+  }
+
+  const sizeClass =
+    railPosition === 'left' || railPosition === 'right'
+      ? 'top-0 bottom-0 w-64'
+      : 'left-0 right-0 h-32'
+
   return (
     <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
-
-      {/* SINGLE RAIL CONTAINER */}
       <div
         className={clsx(
-          'fixed z-50 pointer-events-auto transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
-          viewport.orientation === 'vertical' ? 'top-0 bottom-0 w-64' : 'left-0 right-0 h-32',
-          position === 'left' && 'left-0 translate-x-0',
-          position === 'right' && 'right-0 translate-x-0',
-          position === 'top' && 'top-0 translate-y-0',
-          position === 'bottom' && 'bottom-0 translate-y-0'
+          'fixed z-50 pointer-events-auto',
+          'transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+          anchorClass[rail.anchor],
+
+          sizeClass
         )}
       >
-        {rail}
+        {workspaceRail}
       </div>
     </div>
   )
@@ -77,11 +87,10 @@ export function WorkspaceViewport({ viewport, workspaces }: WorkspaceViewportPro
     </div>
   )
 }
+const buttonClass =
+  'absolute z-50 h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
 function CornerControls({ viewport }: ControlOverlay) {
   const { interactRail, handleRailLongPress } = viewport
-
-  const buttonClass =
-    'absolute z-50 h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
 
   const tl = useLongPress(() => handleRailLongPress('tl'))
   const tr = useLongPress(() => handleRailLongPress('tr'))

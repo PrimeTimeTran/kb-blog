@@ -63,26 +63,28 @@ export function useLongPress(onLongPress: () => void, delay = 500) {
 // Pivot cycles
 // =======================================================
 
-const PIVOT_CYCLES = {
-  tl: ['top', 'left', 'bottom', 'right'],
-  tr: ['top', 'right', 'bottom', 'left'],
-  bl: ['left', 'bottom', 'right', 'top'],
-  br: ['right', 'bottom', 'left', 'top'],
+const ANCHOR_BASE = {
+  tl: 'top',
+  tr: 'right',
+  bl: 'left',
+  br: 'bottom',
+} as const
+const LOCAL_CYCLES = {
+  tl: ['top', 'right', 'bottom', 'left'],
+  tr: ['right', 'bottom', 'left', 'top'],
+  bl: ['left', 'top', 'right', 'bottom'],
+  br: ['bottom', 'left', 'top', 'right'],
 } as const
 
 function nextPivotPosition(state: RailState): RailPosition {
-  const cycle = PIVOT_CYCLES[state.anchor]
-
+  const cycle = LOCAL_CYCLES[state.anchor]
   const currentIndex = cycle.indexOf(state.position)
+  if (currentIndex === -1) {
+    return ANCHOR_BASE[state.anchor]
+  }
 
-  const nextIndex = (currentIndex + 1) % cycle.length
-
-  return cycle[nextIndex]
+  return cycle[(currentIndex + 1) % cycle.length]
 }
-
-// =======================================================
-// Viewport
-// =======================================================
 
 export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
@@ -130,52 +132,6 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
   // Rail interactions
   // =======================================================
 
-  const pivotRail = useCallback((anchor: RailState['anchor']) => {
-    setRail((current) => {
-      // same anchor = rotate around pivot
-      if (current.anchor === anchor) {
-        const isSamePosition = nextPivotPosition(current) === current.position
-
-        return {
-          ...current,
-          position: nextPivotPosition(current),
-          open: isSamePosition ? !current.open : true,
-        }
-      }
-
-      // new anchor = move pivot immediately
-      switch (anchor) {
-        case 'tl':
-          return {
-            anchor,
-            position: 'top',
-            open: true,
-          }
-
-        case 'tr':
-          return {
-            anchor,
-            position: 'right',
-            open: true,
-          }
-
-        case 'bl':
-          return {
-            anchor,
-            position: 'left',
-            open: true,
-          }
-
-        case 'br':
-          return {
-            anchor,
-            position: 'bottom',
-            open: true,
-          }
-      }
-    })
-  }, [])
-
   const closeRail = useCallback(() => {
     setRail((r) => ({
       ...r,
@@ -185,50 +141,56 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
   const interactRail = useCallback((anchor: RailState['anchor']) => {
     setRail((current) => {
-      const isSameAnchor = current.anchor === anchor
+      console.log('🟡 INTERACT RAIL')
+      console.log('incoming anchor:', anchor)
+      console.log('current state:', current)
 
-      // LONG-TERM RULES:
-      // 1. same anchor = cycle + toggle open occasionally
-      // 2. different anchor = re-anchor + open
+      const isSameAnchor = current.anchor === anchor
+      console.log('isSameAnchor:', isSameAnchor)
 
       if (isSameAnchor) {
         const next = nextPivotPosition(current)
 
-        return {
+        console.log('pivoting within anchor')
+        console.log('cycle:', LOCAL_CYCLES[current.anchor])
+        console.log('current.position:', current.position)
+        console.log('next.position:', next)
+
+        const nextState = {
           ...current,
           position: next,
-          open: true, // keep simple: interaction always opens
+          open: true,
         }
+
+        console.log('result state:', nextState)
+        return nextState
       }
 
-      switch (anchor) {
-        case 'tl':
-          return { anchor, position: 'top', open: true }
-        case 'tr':
-          return { anchor, position: 'right', open: true }
-        case 'bl':
-          return { anchor, position: 'left', open: true }
-        case 'br':
-          return { anchor, position: 'bottom', open: true }
+      const nextState = {
+        anchor,
+        position: ANCHOR_BASE[anchor],
+        open: true,
       }
+
+      console.log('rebase to anchor')
+      console.log('result state:', nextState)
+
+      return nextState
     })
   }, [])
 
-  const handleRailLongPress = useCallback((anchor: RailState['anchor']) => {
-    setRail((current) => ({
-      ...current,
-      open: false,
-    }))
+  const handleRailLongPress = useCallback((anchor) => {
+    setRail((current) => {
+      if (current.anchor !== anchor) {
+        return { ...current, anchor, open: false }
+      }
+
+      return {
+        ...current,
+        open: false,
+      }
+    })
   }, [])
-
-  const handleCorner = useCallback(
-    (anchor: RailState['anchor']) => {
-      setRail(anchor)
-    },
-    [railPosition]
-  )
-
-  const longPressRail = useLongPress(closeRail)
 
   return {
     activeId,

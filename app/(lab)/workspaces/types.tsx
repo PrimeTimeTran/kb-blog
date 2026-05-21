@@ -54,9 +54,9 @@ export type WorkspaceComponentProps = {
   workspaceId: string
 }
 export type WorkspaceLayoutProps = {
-  rail: React.ReactNode
   children: React.ReactNode
   viewport: ReturnType<typeof useWorkspaceViewport>
+  workspaceRail: React.ReactNode
 }
 export type RailItemProps = {
   item: any
