@@ -17,5 +17,4 @@ export default function Page() {
     </div>
   )
 }
-
-export const FILE_PATH = 'app/(lab)/slots/@left/page.tsx'
+export const FILE_PATH = 'app/playground/@left/page.tsx'

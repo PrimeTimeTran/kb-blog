@@ -15,8 +15,8 @@ export default function Page() {
   const pathname = usePathname()
   return (
     <div className="flex flex-col gap-6">
-      <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1>
-      <h1 className="text-2xl text-on-surface">{pathname}</h1>
+      {/* <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1> */}
+      {/* <h1 className="text-2xl text-on-surface">{pathname}</h1> */}
       <PageClient tree={dir} />
     </div>
   )
@@ -25,5 +25,4 @@ export default function Page() {
 const PageClient = dynamic(() => import('./PageClient'), {
   ssr: false,
 })
-
-export const FILE_PATH = 'app/(lab)/slots/page.tsx'
+export const FILE_PATH = 'app/playground/page.tsx'

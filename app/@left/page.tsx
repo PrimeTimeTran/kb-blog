@@ -18,4 +18,4 @@ export default function Page() {
   )
 }
 
-export const FILE_PATH = 'app/(lab)/slots/@left/page.tsx'
+export const FILE_PATH = 'app/@left/page.tsx'

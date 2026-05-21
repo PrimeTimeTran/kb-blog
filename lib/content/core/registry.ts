@@ -39,7 +39,6 @@ function createCollection(type: string, source: ContentSource): ContentCollectio
 }
 
 function mapClientToListConfig(config?: ContentClientConfig): ContentListConfig {
-  console.log('mapClientToListConfig')
   return {
     includeDrafts: false,
     requireTitle: true,

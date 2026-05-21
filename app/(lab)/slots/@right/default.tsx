@@ -4,8 +4,6 @@ import { CounterControls } from '@/app/shell/CounterControls'
 import { useShellCounter } from '@/app/shell/useShellCounter'
 import { usePathname, useSelectedLayoutSegment } from 'next/navigation'
 
-export const FILE_PATH = 'app/(lab)/slots/@right/default.tsx'
-
 export default function Page() {
   const counter = useShellCounter()
   const segment = useSelectedLayoutSegment('left')
@@ -22,3 +20,5 @@ export default function Page() {
     </div>
   )
 }
+
+export const FILE_PATH = 'app/(lab)/slots/@right/default.tsx'

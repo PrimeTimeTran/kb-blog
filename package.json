@@ -17,6 +17,7 @@
     "lint:fix": "eslint . --fix",
     "lint:strict": "eslint . --max-warnings=0",
     "prepare": "husky install",
+    "clean": "rm -rf .next node_modules/.cache",
     "test": "vitest run",
     "start": "vitest run"
   },

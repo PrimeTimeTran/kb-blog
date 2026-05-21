@@ -181,32 +181,6 @@ const nextConfig = {
   experimental: {
     esmExternals: true,
   },
-  // webpack(config) {
-  // ─────────────────────────────
-  // SVG (keep ONE system only)
-  // ─────────────────────────────
-  // config.module.rules.forEach((rule) => {
-  //   if (rule?.test?.toString?.().includes('svg')) {
-  //     rule.exclude = /\.svg$/i
-  //   }
-  // })
-
-  // config.module.rules.push({
-  //   test: /\.svg$/i,
-  //   issuer: /\.[jt]sx?$/,
-  //   use: ['@svgr/webpack'],
-  // })
-
-  // ─────────────────────────────
-  // BEELINE RESOLUTION SWITCH
-  // ─────────────────────────────
-  // config.resolve.alias = {
-  //   ...config.resolve.alias,
-  //   '@primetimetran/beeline': resolveBeelinePath(),
-  // }
-
-  //   return config
-  // },
 }
 
 // Note:

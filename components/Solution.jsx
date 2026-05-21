@@ -32,6 +32,8 @@ export function Solution({ solution }) {
     })
   }
 
+  const val = typeof solution.code === 'string' ? normalizeCode(solution) : ''
+
   return (
     <div className="overflow-hidden w-full relative bg-surface-container-high border border-outline-variant/30">
       {/* ================= HEADER ================= */}
@@ -70,7 +72,7 @@ export function Solution({ solution }) {
             showPrintMargin={false}
             highlightActiveLine={true}
             height={expanded ? '600px' : '300px'}
-            value={typeof solution.code === 'string' ? normalizeCode(solution) : ''}
+            value={val}
           />
         </div>
       </div>

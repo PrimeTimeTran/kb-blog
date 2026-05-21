@@ -9,13 +9,16 @@ export default function Page() {
   const segment = useSelectedLayoutSegment('left')
   const pathname = usePathname()
   return (
-    <div className="flex flex-col bg-lime-400 h-full">
-      <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1>
+    <div className="flex flex-col bg-surface h-full p-2">
+      <h1 className="font-bold text-2xl text-indigo-600-600">{FILE_PATH}</h1>
+      <div>
+        <h1 className="text-xl font-bold text-emerald-400">Static State across page renders</h1>
+        <CounterControls {...counter} />
+      </div>
       {pathname}
       {segment}
-      <CounterControls {...counter} />
     </div>
   )
 }
 
-export const FILE_PATH = 'app/(lab)/slots/@left/page.tsx'
+export const FILE_PATH = 'app/playground/@right/default.tsx'

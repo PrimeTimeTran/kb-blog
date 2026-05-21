@@ -13,7 +13,7 @@ export function injectTermLinksAndPreviews(terms) {
       // 🚫 skip unsafe contexts
       if (['link', 'inlineCode', 'code', 'heading'].includes(parent.type)) return
 
-      let text = node.value
+      const text = node.value
 
       for (const [term, data] of termEntries) {
         if (seen.has(data.slug)) continue

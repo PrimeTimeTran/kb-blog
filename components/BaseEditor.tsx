@@ -1,5 +1,5 @@
 import AceEditor from 'react-ace'
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 import { useTheme } from '@teispace/next-themes'
 
 import 'ace-builds/src-noconflict/mode-python'
@@ -84,6 +84,7 @@ export function BaseEditor({
       editor.container.removeEventListener('keydown', handler)
     }
   }, [])
+  console.log({ value })
 
   return (
     <AceEditor
@@ -95,7 +96,7 @@ export function BaseEditor({
       name="ace-editor"
       onChange={onChange}
       theme={editorTheme}
-      height={expanded ? '600px' : '100%'}
+      height={true ? '600px' : '100px'}
       highlightActiveLine={highlightActiveLine}
       setOptions={{
         tabSize: 2,

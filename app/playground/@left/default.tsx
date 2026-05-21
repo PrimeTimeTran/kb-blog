@@ -57,9 +57,7 @@ export default function Page() {
     <div className="flex flex-col bg-surface-variant h-full p-2">
       <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1>
       <div>
-        <h1 className="text-xl font-bold text-sky-500">
-          We can maintain state across page renders
-        </h1>
+        <h1 className="text-xl font-bold text-sky-500">We can maintainstate across page renders</h1>
         <CounterControls {...counter} />
       </div>
       {pathname}
@@ -69,4 +67,4 @@ export default function Page() {
   )
 }
 
-export const FILE_PATH = 'app/(lab)/slots/@left/default.tsx'
+export const FILE_PATH = 'app/playground/@left/default.tsx'

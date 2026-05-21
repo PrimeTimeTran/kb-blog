@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState, useRef, Suspense } from 'react'
+import { useEffect, useState, useRef, Suspense } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // import siteMetadata from '../data/site-metadata.js'
