@@ -1,4 +1,4 @@
-import { WorkspaceShell } from '@/app/(lab)/workspaces/WorkspaceList'
+import { WorkspaceShell } from '@/app/(lab)/workspaces/data'
 export default function MaterialThemePreviewPage() {
   return (
     <WorkspaceShell>

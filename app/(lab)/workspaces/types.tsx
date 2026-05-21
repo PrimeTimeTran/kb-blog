@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import { useViewport } from '@/hooks/useViewport'
+import { Viewport } from './page'
 
 export type WorkspaceId = string
 export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview'
@@ -12,7 +13,7 @@ export type Workspace = {
   title: string
   persist?: boolean
   theme?: React.CSSProperties
-  component: React.ComponentType<WorkspaceComponentProps>
+  component: ReturnType<typeof Viewport>
 }
 export interface ViewportAPI {
   isVertical: boolean
@@ -23,7 +24,7 @@ export interface ViewportAPI {
   select: (id: WorkspaceId) => void
   preview: (id: WorkspaceId | null) => void
   navigationMode: WorkspaceNavigationMode
-
+  animateRef: RefObject<boolean>
   rail: RailState
   orientation: RailOrientation
   interactRail: (anchor: RailState['anchor']) => void
@@ -32,7 +33,7 @@ export interface ViewportAPI {
 export type WorkspaceProps = {
   children: React.ReactNode
   viewport: ReturnType<typeof useViewport>
-  workspaceRail: React.ReactNode
+  viewportRail: React.ReactNode
 }
 export type ViewportProps = {
   viewport: ViewportAPI

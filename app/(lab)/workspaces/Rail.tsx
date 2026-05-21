@@ -4,7 +4,7 @@ import { VscPreview } from 'react-icons/vsc'
 import { GrRadialSelected } from 'react-icons/gr'
 
 import { RailItemProps, RailTileSpec, ThumbnailConfig, ViewportRailProps } from './types'
-import { workspaceRegistry } from './WorkspaceList'
+import { workspaceRegistry } from './data'
 
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
   const isVertical = viewport.isVertical
@@ -26,7 +26,6 @@ export function ViewportRail({ items, viewport }: ViewportRailProps): import('re
     </div>
   )
 }
-
 export function RailItem({
   item,
   active,

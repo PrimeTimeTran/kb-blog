@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 
-import { WorkspaceShell } from '@/app/(lab)/workspaces/WorkspaceList'
+import { WorkspaceShell } from '@/app/(lab)/workspaces/data'
 
 const fontSizes = [
   'text-xs',

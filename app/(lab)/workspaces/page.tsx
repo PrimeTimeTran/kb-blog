@@ -1,9 +1,10 @@
 'use client'
 import clsx from 'clsx'
+import { workspaces } from './data'
 import { ViewportRail } from './Rail'
-import { workspaces } from './WorkspaceList'
 import { useLongPress, useViewport } from '@/hooks/useViewport'
 import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types'
+import { useState } from 'react'
 
 export default function ShowcasePage() {
   const viewport = useViewport(workspaces[0].id)
@@ -13,7 +14,7 @@ export default function ShowcasePage() {
       <ViewportController viewport={viewport} />
       <Workspace
         viewport={viewport}
-        workspaceRail={<ViewportRail items={workspaces} viewport={viewport} />}
+        viewportRail={<ViewportRail items={workspaces} viewport={viewport} />}
       >
         <Viewport workspaces={workspaces} viewport={viewport} />
       </Workspace>
@@ -25,7 +26,7 @@ export default function ShowcasePage() {
 // Workspace = data
 // Rail = UI mechanism
 
-export function Workspace({ children, viewport, workspaceRail }: WorkspaceProps) {
+export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) {
   const { rail } = viewport
 
   const anchorClass: Record<RailState['anchor'], string> = {
@@ -35,10 +36,7 @@ export function Workspace({ children, viewport, workspaceRail }: WorkspaceProps)
     br: 'bottom-0 right-0',
   }
 
-  const sizeClass =
-    rail.position === 'left' || rail.position === 'right'
-      ? 'top-0 bottom-0 w-64'
-      : 'left-0 right-0 h-32'
+  const sizeClass = viewport.isVertical ? 'top-0 bottom-0 w-64' : 'left-0 right-0 h-32'
 
   // WIP: Open/Close expand/collapse animation
   // const hidden =
@@ -54,23 +52,23 @@ export function Workspace({ children, viewport, workspaceRail }: WorkspaceProps)
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
       <div
         className={clsx(
-          'fixed z-50 pointer-events-auto',
+          'fixed z-10 pointer-events-auto',
           'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           anchorClass[rail.anchor],
           sizeClass,
           rail.open ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
         )}
       >
-        {workspaceRail}
+        {viewportRail}
       </div>
     </div>
   )
 }
 export function Viewport({ viewport, workspaces }: ViewportProps) {
-  const isVertical = viewport?.isVertical
+  const { animateRef, isVertical } = viewport
   const activeId = viewport.previewId ?? viewport.activeId
   const displayIdx = workspaces.findIndex((w) => w.id === activeId)
-
+  const animate = animateRef.current
   const transform = isVertical
     ? `translateY(-${displayIdx * 100}%)`
     : `translateX(-${displayIdx * 100}%)`
@@ -78,7 +76,10 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
   return (
     <div className="relative h-full w-full overflow-hidden">
       <div
-        className="flex h-full will-change-transform transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]"
+        className={clsx(
+          'flex h-full will-change-transform',
+          animate && 'transition-transform duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]'
+        )}
         style={{
           transform,
           flexDirection: isVertical ? 'column' : 'row',
@@ -90,8 +91,8 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
           return (
             <div
               key={workspace.id}
-              className="relative h-full w-full shrink-0 overflow-hidden bg-background"
               style={workspace.theme}
+              className="relative h-full w-full shrink-0 overflow-hidden bg-background"
             >
               <Component workspaceId={workspace.id} />
             </div>

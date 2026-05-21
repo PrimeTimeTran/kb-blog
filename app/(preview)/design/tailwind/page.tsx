@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { Box } from 'lucide-react'
 import { SectionTitle } from './components'
 import { Page3 } from './animated-hover-icons'
-import { WorkspaceShell } from '@/app/(lab)/workspaces/WorkspaceList'
+import { WorkspaceShell } from '@/app/(lab)/workspaces/data'
 
 // Inspiration Sites.
 // https://list.swajp.me/

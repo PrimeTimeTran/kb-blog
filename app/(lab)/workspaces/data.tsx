@@ -1,11 +1,9 @@
-import { WorkspaceDefinition } from './types'
+import { Workspace } from './types'
 
 import Product from '@/app/(preview)/design/product/page'
 import Material from '@/app/(preview)/design/system/page'
 import Tailwind from '@/app/(preview)/design/tailwind/page'
 import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities'
-// import Components from '@/app/(preview)/design/theme/Components'
-import { Page3 } from '@/app/(preview)/design/tailwind/animated-hover-icons'
 
 import { WorkspaceHero, LargeScrollableSection, ScrollableWorkspaceContent } from './components'
 
@@ -25,7 +23,7 @@ export function WorkspaceShell({ children }) {
   )
 }
 
-export const workspaces: WorkspaceDefinition[] = [
+export const workspaces: Workspace[] = [
   {
     id: 'Tailwind',
     title: 'Tailwind',
@@ -145,7 +143,7 @@ export const workspaces: WorkspaceDefinition[] = [
 type WorkspaceId = string
 export const workspaceRegistry = Object.fromEntries(
   workspaces.map((workspace) => [workspace.id, workspace])
-) as Record<WorkspaceId, WorkspaceDefinition>
+) as Record<WorkspaceId, Workspace>
 
 export function MotionWorkspace() {
   return (

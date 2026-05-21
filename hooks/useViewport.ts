@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react'
+import { useCallback, useLayoutEffect, useRef, useState } from 'react'
 
 import {
   WorkspaceId,
@@ -50,6 +50,7 @@ export function useLongPress(onLongPress: () => void, delay = 500) {
   }
 }
 export function useViewport(initialId: WorkspaceId): ViewportAPI {
+  const animateRef = useRef(true)
   const [activeId, setActiveId] = useState<WorkspaceId>(initialId)
   const [previewId, setPreviewId] = useState<WorkspaceId | null>(null)
   const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle')
@@ -84,6 +85,7 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
   const interactRail = useCallback((anchor: RailState['anchor']) => {
     setRail((current) => {
+      animateRef.current = false
       const isSameAnchor = current.anchor === anchor
 
       // 🔴 CASE 1: CLOSED → ALWAYS OPEN AT BASE (NO PIVOT)
@@ -113,6 +115,14 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
     })
   }, [])
 
+  useLayoutEffect(() => {
+    if (!animateRef.current) {
+      requestAnimationFrame(() => {
+        animateRef.current = true
+      })
+    }
+  }, [rail.anchor, rail.position, rail.open])
+
   const handleLongPress = useCallback(() => {
     setRail((r) => ({
       ...r,
@@ -132,6 +142,7 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
     interactRail,
     handleLongPress,
+    animateRef,
 
     isHorizontal,
     isVertical,

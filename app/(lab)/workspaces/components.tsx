@@ -14,7 +14,6 @@ export function ScrollableWorkspaceContent({ children }: { children: React.React
     </div>
   )
 }
-
 export function LargeScrollableSection() {
   return (
     <div className="grid gap-4">
