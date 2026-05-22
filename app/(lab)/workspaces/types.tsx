@@ -1,6 +1,5 @@
 import React, { RefObject } from 'react'
 import { useViewport } from '@/hooks/useViewport'
-import { Viewport } from './page'
 
 export type WorkspaceId = string
 export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview'
@@ -59,10 +58,9 @@ export type RailProps = {
   position?: RailPosition
 }
 export type RailItemProps = {
-  item: any
-  viewport: any
+  item: Workspace
+  viewport: ViewportAPI
   active: boolean
-  isVertical: boolean
   onSelect: (id: string) => void
   onPreview: (id: string | null) => void
 }

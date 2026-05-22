@@ -19,9 +19,9 @@ export const themeLightSaaS = {
   '--surface-container': '#eef2f7',
   '--surface-2': '#f1f5f9',
 
-  '--primary': '#2563eb', // blue
-  '--secondary': '#0ea5e9', // sky
-  '--tertiary': '#8b5cf6', // violet
+  '--primary': '#2563eb',
+  '--secondary': '#0ea5e9',
+  '--tertiary': '#8b5cf6',
 
   '--on-background': '#0f172a',
   '--on-surface': '#1e293b',
@@ -30,16 +30,22 @@ export const themeLightSaaS = {
   '--muted-foreground': '#94a3b8',
 
   '--border': 'rgba(15, 23, 42, 0.08)',
+
+  // 👇 typography system
+  '--font-sans': 'ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter',
+  '--font-display': 'ui-sans-serif, system-ui, Inter',
+  '--font-mono': 'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace',
 } as React.CSSProperties
+
 export const themeOcean = {
   '--background': '#f0f9ff',
   '--surface': '#e0f2fe',
   '--surface-container': '#bae6fd',
   '--surface-2': '#7dd3fc',
 
-  '--primary': '#06b6d4', // cyan
-  '--secondary': '#0f766e', // deep teal
-  '--tertiary': '#3b82f6', // blue accent
+  '--primary': '#06b6d4',
+  '--secondary': '#0f766e',
+  '--tertiary': '#3b82f6',
 
   '--on-background': '#082f49',
   '--on-surface': '#0f172a',
@@ -48,16 +54,21 @@ export const themeOcean = {
   '--muted-foreground': '#475569',
 
   '--border': 'rgba(2, 132, 199, 0.2)',
+
+  '--font-sans': 'ui-sans-serif, system-ui, Inter, "SF Pro Display"',
+  '--font-display': 'ui-sans-serif, system-ui, Inter',
+  '--font-mono': 'ui-monospace, SFMono-Regular, Menlo, Monaco, monospace',
 } as React.CSSProperties
+
 export const themeNeonDark = {
   '--background': '#050b10',
   '--surface': '#0b1220',
   '--surface-container': '#111c2e',
   '--surface-2': '#0f172a',
 
-  '--primary': '#22d3ee', // neon cyan
-  '--secondary': '#a78bfa', // purple
-  '--tertiary': '#fb7185', // pink/red
+  '--primary': '#22d3ee',
+  '--secondary': '#a78bfa',
+  '--tertiary': '#fb7185',
 
   '--on-background': '#e2e8f0',
   '--on-surface': '#cbd5e1',
@@ -66,16 +77,22 @@ export const themeNeonDark = {
   '--muted-foreground': '#64748b',
 
   '--border': 'rgba(148, 163, 184, 0.12)',
+
+  // 👇 more “tech / terminal” feel
+  '--font-sans': 'Inter, ui-sans-serif, system-ui',
+  '--font-display': 'Space Grotesk, Inter, system-ui',
+  '--font-mono': 'JetBrains Mono, ui-monospace, SFMono-Regular, monospace',
 } as React.CSSProperties
+
 export const themeZen = {
   '--background': '#f7fee7',
   '--surface': '#ecfccb',
   '--surface-container': '#d9f99d',
   '--surface-2': '#bef264',
 
-  '--primary': '#22c55e', // green
-  '--secondary': '#84cc16', // lime
-  '--tertiary': '#14b8a6', // teal
+  '--primary': '#22c55e',
+  '--secondary': '#84cc16',
+  '--tertiary': '#14b8a6',
 
   '--on-background': '#1a2e05',
   '--on-surface': '#365314',
@@ -84,16 +101,22 @@ export const themeZen = {
   '--muted-foreground': '#65a30d',
 
   '--border': 'rgba(132, 204, 22, 0.25)',
+
+  // 👇 calmer, softer typography
+  '--font-sans': 'ui-sans-serif, system-ui, "SF Pro Text", Inter',
+  '--font-display': 'ui-sans-serif, system-ui, Inter',
+  '--font-mono': 'ui-monospace, SFMono-Regular, monospace',
 } as React.CSSProperties
+
 export const themeEditorial = {
   '--background': '#faf5ff',
   '--surface': '#f3e8ff',
   '--surface-container': '#e9d5ff',
   '--surface-2': '#ddd6fe',
 
-  '--primary': '#7c3aed', // violet
-  '--secondary': '#ec4899', // pink
-  '--tertiary': '#06b6d4', // cyan accent
+  '--primary': '#7c3aed',
+  '--secondary': '#ec4899',
+  '--tertiary': '#06b6d4',
 
   '--on-background': '#1e1b4b',
   '--on-surface': '#312e81',
@@ -102,6 +125,17 @@ export const themeEditorial = {
   '--muted-foreground': '#7e22ce',
 
   '--border': 'rgba(124, 58, 237, 0.15)',
+
+  // 👇 “magazine/editorial” feel
+  '--font-sans': 'Inter, ui-sans-serif, system-ui',
+  '--font-display': 'Playfair Display, Georgia, serif',
+  '--font-mono': 'ui-monospace, SFMono-Regular, monospace',
 } as React.CSSProperties
 
-export const themes = { themeLightSaaS, themeOcean, themeNeonDark, themeZen, themeEditorial }
+export const themes = {
+  themeLightSaaS,
+  themeOcean,
+  themeNeonDark,
+  themeZen,
+  themeEditorial,
+}

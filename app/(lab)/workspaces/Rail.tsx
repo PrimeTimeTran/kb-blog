@@ -3,46 +3,64 @@ import { useState } from 'react'
 import { VscPreview } from 'react-icons/vsc'
 import { GrRadialSelected } from 'react-icons/gr'
 
-import { RailItemProps, RailTileSpec, ThumbnailConfig, ViewportRailProps } from './types'
+import {
+  RailState,
+  RailItemProps,
+  RailTileSpec,
+  RailOrientation,
+  ThumbnailConfig,
+  ViewportRailProps,
+} from './types'
 import { workspaceRegistry } from './data'
 import { ThemeProvider } from './theme'
 
+const CONTROL_LAYOUTS = {
+  'tl-horizontal': 'flex flex-row justify-start items-start',
+  'tl-vertical': 'flex flex-col justify-start items-start',
+
+  'tr-horizontal': 'flex flex-row justify-end items-start',
+  'tr-vertical': 'flex flex-col justify-start items-end',
+
+  'bl-horizontal': 'flex flex-row justify-start items-end',
+  'bl-vertical': 'flex flex-col justify-end items-start',
+
+  'br-horizontal': 'flex flex-row justify-end items-end',
+  'br-vertical': 'flex flex-col justify-end items-end',
+} as const
+
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
-  const isVertical = viewport.isVertical
+  const {
+    orientation,
+    rail: { anchor },
+  } = viewport
+
+  function getControlStyle(anchor: RailState['anchor'], orientation: RailOrientation) {
+    return CONTROL_LAYOUTS[`${anchor}-${orientation}`]
+  }
   return (
-    <div className="h-full w-full ">
-      <div className={clsx('h-full w-full flex gap-4 p-2', isVertical ? 'flex-col' : 'flex-row')}>
-        {items.map((item) => (
-          <RailItem
-            key={item.id}
-            item={item}
-            viewport={viewport}
-            isVertical={isVertical}
-            onSelect={viewport.select}
-            onPreview={viewport.preview}
-            active={item.id === viewport.activeId}
-          />
-        ))}
-      </div>
+    <div className={clsx('h-full w-full flex gap-4 p-3', getControlStyle(anchor, orientation))}>
+      {items.map((item) => (
+        <RailItem
+          key={item.id}
+          item={item}
+          viewport={viewport}
+          onSelect={viewport.select}
+          onPreview={viewport.preview}
+          active={item.id === viewport.activeId}
+        />
+      ))}
     </div>
   )
 }
-export function RailItem({
-  item,
-  active,
-  viewport,
-  onSelect,
-  onPreview,
-  isVertical,
-}: RailItemProps) {
+export function RailItem({ item, active, viewport, onSelect, onPreview }: RailItemProps) {
   // Keep for onMouseLeave. Just in case it begins being janky try this.
   // let rafId: number | null = null
   const [isHovering, setIsHovering] = useState(false)
   // const isPreview = item.id === previewId
   const Thumbnail = workspaceRegistry[item.id].component
 
-  const spec = isVertical ? RAIL_TILE_PRESETS.vertical : RAIL_TILE_PRESETS.horizontal
-  const thumbStyle = getThumbnailTransform(spec.thumbnailScale)
+  // const spec = isVertical ? RAIL_TILE_PRESETS.vertical : RAIL_TILE_PRESETS.horizontal
+  // const thumbStyle = getThumbnailTransform(spec.thumbnailScale)
 
   return (
     <div
@@ -68,8 +86,7 @@ export function RailItem({
         }
       }}
       className={clsx(
-        'group relative overflow-hidden p-4 transition-all duration-300 ease-out rounded border',
-        isVertical ? 'h-32 w-full' : 'w-64 h-full',
+        'group relative overflow-hidden transition-all duration-300 ease-out rounded w-48 h-28',
         isHovering || active ? 'scale-[1.08] z-20 shadow-xl border' : 'scale-100',
         active ? 'outline' : ''
       )}
@@ -98,7 +115,7 @@ export function RailItem({
       <div
         className={clsx(
           'absolute inset-0 z-10 transition-opacity duration-300',
-          isHovering || active ? 'opacity-0' : 'opacity-60 bg-black'
+          isHovering || active ? 'opacity-0' : 'opacity-70 bg-black'
         )}
       />
       {/* 3. FOREGROUND CONTENT (TEXT + ICONS) */}

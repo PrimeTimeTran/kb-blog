@@ -55,11 +55,11 @@ export function RootLayout({ children }) {
         <AppShell>
           <div className="flex flex-col h-full">
             <div className="flex flex-1 min-h-0 pt-16">
-              {/* {children} */}
+              {children}
               {/* app layer (workspace system) */}
-              <div className="absolute inset-0 pointer-events-none">
-                <ShowcasePage />
-              </div>
+              {/* <div className="absolute inset-0 pointer-events-none">
+                <FixedOverlayRespectingNavbar />
+              </div> */}
             </div>
           </div>
           {/*

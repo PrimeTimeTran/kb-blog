@@ -57,7 +57,7 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
   const [rail, setRail] = useState<RailState>({
     open: true,
-    anchor: 'tr',
+    anchor: 'br',
     position: 'right',
   })
   // =======================================================

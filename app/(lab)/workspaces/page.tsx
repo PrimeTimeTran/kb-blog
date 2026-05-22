@@ -5,6 +5,7 @@ import { ViewportRail } from './Rail'
 import { WorkspaceShell } from './components'
 import { useLongPress, useViewport } from '@/hooks/useViewport'
 import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types'
+import { PanelTop, PanelBottom, PanelLeft, PanelRight } from 'lucide-react'
 
 const Z = {
   base: 0,
@@ -136,8 +137,12 @@ function ViewportController({ viewport }: ViewportControllerProps) {
     },
   })
 
-  const buttonClass =
-    'h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
+  const iconClass =
+    'size-4 transition-transform duration-300 group-hover:scale-110 group-active:scale-95'
+
+  const buttonClass = clsx(
+    'group flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--primary)] bg-surface/80 text-on-surface backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 hover:bg-surface active:scale-95 text-primary'
+  )
 
   return (
     <div className="absolute inset-0 z-50 pointer-events-none">
@@ -145,28 +150,28 @@ function ViewportController({ viewport }: ViewportControllerProps) {
         className={clsx(buttonClass, 'absolute top-4 left-4 pointer-events-auto')}
         {...bind('tl', tl)}
       >
-        TL
+        <PanelTop className={iconClass} />
       </button>
 
       <button
         className={clsx(buttonClass, 'absolute top-4 right-4 pointer-events-auto')}
         {...bind('tr', tr)}
       >
-        TR
+        <PanelRight className={iconClass} />
       </button>
 
       <button
         className={clsx(buttonClass, 'absolute bottom-4 left-4 pointer-events-auto')}
         {...bind('bl', bl)}
       >
-        BL
+        <PanelLeft className={iconClass} />
       </button>
 
       <button
         className={clsx(buttonClass, 'absolute bottom-4 right-4 pointer-events-auto')}
         {...bind('br', br)}
       >
-        BR
+        <PanelBottom className={iconClass} />
       </button>
     </div>
   )

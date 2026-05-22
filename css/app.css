@@ -20,6 +20,9 @@ html.dark {
   --surface: #111827;
   --on-surface: #f8fafc;
 }
+aside {
+  transition: width 200ms ease;
+}
 
 .dark {
   --nav-text: var(--on-surface-variant);
@@ -95,22 +98,8 @@ html.dark {
   max-height: 70vh;
 }
 
-aside {
-  transition: width 200ms ease;
-}
-
 .font-marker {
   font-family: 'Permanent Marker', cursive;
-}
-
-@font-face {
-  font-family: 'Display';
-  src: url('/fonts/display.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Hand';
-  src: url('/fonts/hand.woff2') format('woff2');
 }
 
 .graffiti-text {
@@ -139,4 +128,14 @@ aside {
 #LiveEditorPreview {
   transform: translateZ(0);
   contain: layout paint;
+}
+
+@font-face {
+  font-family: 'Display';
+  src: url('/fonts/display.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Hand';
+  src: url('/fonts/hand.woff2') format('woff2');
 }

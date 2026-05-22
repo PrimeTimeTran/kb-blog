@@ -1,18 +1,18 @@
-## A) File order (build-time composition)
+# A) File order (build-time composition)
 
-```css
+```sh
 theme.css
 base.css
 layout.css
 utilities.css
 ```
 
-“what gets included first in the final CSS bundle”
+> “what gets included first in the final CSS bundle”;
 
-## B) Tailwind layers (cascade priority)
+# B) Tailwind layers (cascade priority)
 
+```sh
+theme < base < components < utilities
 ```
-base < components < utilities
-```
 
-“what wins when two selectors conflict”
+> “what wins when two selectors conflict”

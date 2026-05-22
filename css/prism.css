@@ -7,27 +7,26 @@ html.light pre code {
 
 /* 1. JSX / TSX Specific Fixes */
 .token.tag {
-  color: rgb(127, 219, 202); /* Teal for <div>, <Component> */
+  color: rgb(127, 219, 202);
 }
 
 .token.attr-name {
-  color: rgb(173, 219, 103); /* Green for className, onClick */
+  color: rgb(173, 219, 103);
   font-style: italic;
 }
 
 .token.attr-value {
-  color: rgb(255, 203, 139); /* Yellow for "strings" in props */
+  color: rgb(255, 203, 139);
 }
 
 .token.script {
-  color: rgb(214, 222, 235); /* Off-white for code inside { } */
+  color: rgb(214, 222, 235);
 }
 
 .token.plain-text {
-  color: rgb(214, 222, 235); /* Ensures text between tags isn't invisible */
+  color: rgb(214, 222, 235);
 }
 
-/* 2. Existing Token Refinement */
 .token.comment,
 .token.prolog,
 .token.cdata {
