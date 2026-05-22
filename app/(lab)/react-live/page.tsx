@@ -47,10 +47,10 @@ export function RenderLabShell({ setupCode, scope = {}, title }: RenderLabShellP
     <LiveProvider code={code} scope={scope} noInline>
       <div className="h-screen w-screen flex flex-col bg-zinc-950 text-white overflow-hidden not-prose">
         <div className="h-12 flex items-center justify-between px-4 border-b border-white/10">
-          <div className="text-sm text-white/70">{title ?? 'RenderLab'}</div>
+          <div className="text-sm text-white/70">{title ?? 'React Playground'}</div>
           <div className="text-xs text-white/40">editor ↔ preview sandbox</div>
         </div>
-        <div className="p-2 text-xs text-red-400 bg-red-950/20 min-h-[32px]">
+        <div className="p-2 text-xs  bg-red-950/20 min-h-[32px]">
           <LiveError />
         </div>
         <div className="flex flex-1 min-h-0 overflow-hidden">

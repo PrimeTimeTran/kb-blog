@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useMemo, useRef, useEffect, useState } from 'react';
 import { useTheme } from '@teispace/next-themes';
 import dynamic from 'next/dynamic';
 
@@ -17,6 +17,27 @@ const AceEditor = dynamic(() => import('react-ace'), { ssr: false });
 // import 'ace-builds/src-noconflict/ext-language_tools';
 
 export function BaseEditor({ mode, value, onChange, expanded = false, highlightActiveLine = false }) {
+  const [html, setHtml] = useState(`
+<h1>Hello world</h1>
+
+<style>
+  body {
+    font-family: sans-serif;
+    background: #111;
+    color: white;
+    padding: 40px;
+  }
+
+  h1 {
+    color: hotpink;
+  }
+</style>
+
+<script>
+  console.log("live")
+</script>
+`);
+
   const editorRef = useRef(null);
   const [editorReady, setIsEditorReady] = useState(false);
   const { resolvedTheme } = useTheme();
@@ -96,9 +117,27 @@ export function BaseEditor({ mode, value, onChange, expanded = false, highlightA
 
     loadAceModules();
   }, []);
-
+  const srcDoc = useMemo(() => html, [html]);
   if (!editorReady) {
     return <h1>loading</h1>;
+  }
+
+  if ('html' == true) {
+    <div className="grid grid-cols-2 h-screen">
+      <AceEditor
+        mode="html"
+        theme="monokai"
+        value={html}
+        onChange={setHtml}
+        width="100%"
+        height="100%"
+        setOptions={{
+          useWorker: false,
+        }}
+      />
+
+      <iframe srcDoc={srcDoc} className="w-full h-full bg-white" sandbox="allow-scripts" />
+    </div>;
   }
 
   return (
