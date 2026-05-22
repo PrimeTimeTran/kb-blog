@@ -94,7 +94,6 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
   const infoGroup = getCustomColor('info');
 
   const background = c(scheme.background);
-  const surfaceBase = c(scheme.surface);
 
   // Web elevation tuning (very subtle)
   const surface =

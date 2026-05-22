@@ -66,83 +66,18 @@
 |     |                                                                          |
 |     |                                                                          |
 
-Give me however many "page" components needed to demonstrate this again.
-I will make a new page and store all these functions.
+I need to update a function, preprocessEmbeds. It receives source code and an index as 
+arguments. Index is a registry of files in my system with file names & paths in an object.
 
-I want all these components.
+The keys look like the following example.
 
-```
-export default Root() {
-  <!-- Preview 1. Broken Scroll 1 context/stack/layer-->
-  return (
-    <Container1>
-      <Page>
-    </Container1>
-  )
-  <!-- Preview 2, Fixed Scroll 1 context/stack/layer-->
-  return (
-    <Container2>
-      <Page2>
-    </Container2>
-  )
-  <!-- Preview 3. Broken Scroll 2 context/stack/layer-->
-  return (
-    <Container3 z-index>
-      <Page3 z Index...? 100?>
-      <Page4>
-    </Container3>
-  )
-  <!-- Preview 4, Fixed Scroll 2 context/stack/layer-->
-  return (
-    <Container4>
-      <Page5>
-      <Page6>
-    </Container5>
-  )
-}
-```
+- 0.mdx-pipeline-preview/0.page2
+- 0.mdx-pipeline-preview/0.page2
+
+Here's an example of the value of one of those keys.
+
+It's got more .md source, in `mdxSource`. We want 
 
 ```jsx
-<div className="flex h-full min-h-screen max-w-5xl px-3 mx-auto">
-  <div className="flex-1 min-w-0 space-y-2">
-    <header>
-      <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-on-surface sm:text-4xl">{title}</h1>
-
-      <p className="text-lg text-on-surface-variant">{subtitle}</p>
-      <SearchBar
-        metrics={metrics}
-        value={searchTerm}
-        sortField={sortField}
-        sortOrder={sortOrder}
-        onChange={setSearchTerm}
-        setSortField={setSortField}
-        setSortOrder={setSortOrder}
-      />
-      <div className="relative">
-        <div className="pointer-events-none absolute left-0 top-0 h-full w-8 bg-linear-to-r from-surface to-transparent" />
-        <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-linear-to-l from-surface to-transparent" />
-
-        <div className="my-2 mb-6 flex space-x-2 overflow-x-auto no-scrollbar">
-          {Object.entries(TOPICS).map(([topic, tags]) => {
-            const active = !filteredTopics.includes(topic);
-            return (
-              <TagButton
-                key={topic}
-                label={topic}
-                active={active}
-                tailDecoration={tags.length}
-                onClick={() => toggleTag(topic)}
-              />
-            );
-          })}
-        </div>
-      </div>
-    </header>
-    <Suspense fallback={<PostListSkeleton />}>{<PostList posts={posts} />}</Suspense>
-
-    {pagination?.totalPages > 1 && !searchTerm && (
-      <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-    )}
-  </div>
-</div>
+{ "mdxSource": "\n- ![[page1.md]]\n- [[theme2.md]]\n\n# Internal Doc\n\n- ....", "frontMatter": { "draft": false, "isDev": true, "slug": "preview/page1", "date": "2026-04-30", "title": "Preview: Page 1", "summary": "Preview of page 1", "tags": [ "KB/MD/Obsidian/Blog" ] }, "slug": "0.preview/page1" }
 ```

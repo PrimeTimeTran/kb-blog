@@ -3,8 +3,8 @@ import type { LogLevel, LogShape, LoggerConfig } from './types';
 let CONFIG = {
   // LOG_LEVEL: (process.env.LOG_LEVEL || 'debug') as LogLevel,
   LOG_LEVEL: 'debug' as LogLevel,
-  DEBUG: process.env.DEBUG || 'content:get',
-  // DEBUG: 'content:index',
+  // DEBUG: process.env.DEBUG || 'content:get',
+  DEBUG: 'content:embeds',
   LOG_SHAPE: 'x' as LogShape,
   TRACE_SOURCE: true,
   TRACE_RAW: true,

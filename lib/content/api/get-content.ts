@@ -80,7 +80,7 @@ export async function getContent(
     console.log(parsedCtx.analysis);
 
     // if (!parsedCtx.analysis.published) {
-    console.log('NOT PUBLISHED');
+    // console.log('NOT PUBLISHED');
     //   return null
     // }
 

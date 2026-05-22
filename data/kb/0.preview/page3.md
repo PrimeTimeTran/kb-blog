@@ -9,6 +9,4 @@ tags: ['KB/MD/Obsidian/Blog']
 ---
 
 # Page 3
-
-- [[page1]]
-- [[page2]]
+I'm page 3 with no links

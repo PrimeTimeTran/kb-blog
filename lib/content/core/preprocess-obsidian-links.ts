@@ -1,6 +1,3 @@
-import { slug } from 'github-slugger';
-import matter from 'gray-matter';
-
 // BUG: Wikilinks parsing fails
 // - [ ] Internal links
 // - [ ] Absolute link/path(from root)

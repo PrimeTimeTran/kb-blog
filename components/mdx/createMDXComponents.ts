@@ -1,10 +1,9 @@
 import { Term } from './Term';
 import { Image } from './Image';
 import { Embed } from './Embed';
-import { CallOut } from './CallOut';
+import { Callout } from './Callout';
 import { Snippet } from './Snippet';
 import { TabGroup } from './Code';
-import { Pre } from './Pre';
 import { TOCInline } from './TOCInline';
 import { OrderBook } from './OrderBook';
 import { SafeLink as Link } from './Link';
@@ -26,9 +25,8 @@ const components = {
   Image,
   Embed,
   a: Link,
-  CallOut,
+  callout: Callout,
   Snippet,
-  pre: Pre,
   TOCInline,
   OrderBook,
   TermPeekDefinition,
@@ -43,19 +41,19 @@ export const MDXComponents = Object.fromEntries(
 );
 
 // Layer B: runtime factory (safe)
-export function createMDXComponents(registry, depth, visited, embedded) {
-  return {
-    ...MDXComponents,
-    h1: NumberedHeadings.h1,
-    h2: NumberedHeadings.h2,
-    h3: NumberedHeadings.h3,
-    h4: NumberedHeadings.h4,
-    h5: NumberedHeadings.h5,
-    h6: NumberedHeadings.h6,
-    // Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
-    // wrapper: ({ layout, ...rest }) => {
-    //   const Layout = layouts[layout] || layouts.KBLayout
-    //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />
-    // },
-  };
-}
+// export function createMDXComponents(registry, depth, visited, embedded) {
+//   return {
+//     ...MDXComponents,
+//     h1: NumberedHeadings.h1,
+//     h2: NumberedHeadings.h2,
+//     h3: NumberedHeadings.h3,
+//     h4: NumberedHeadings.h4,
+//     h5: NumberedHeadings.h5,
+//     h6: NumberedHeadings.h6,
+//     // Embed: (props) => <Embed {...props} registry={registry} depth={depth} visited={visited} />,
+//     // wrapper: ({ layout, ...rest }) => {
+//     //   const Layout = layouts[layout] || layouts.KBLayout
+//     //   return <Layout {...rest} embedded={embedded} depth={depth} visited={visited} />
+//     // },
+//   };
+// }

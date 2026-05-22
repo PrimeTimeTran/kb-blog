@@ -10,12 +10,4 @@ tags: ['KB/MD/Obsidian/Blog']
 
 # Page 1
 
-hi red blue
-
-- [[#Markdown Elements]]
-  - [[#Lists]]
-- [[page2]]
-- External(Note) Links
-  - [[theme2.md]]
-  - Link to URL: [OpenAI](https://openai.com)
-  - Link with titles: [Wikipedia](https://wikipedia.org 'Free encyclopedia')
+I'm page 1 with no links

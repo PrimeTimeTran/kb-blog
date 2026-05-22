@@ -30,10 +30,9 @@ import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-
 import { Term } from './components/mdx/Term';
 import { Image } from './components/mdx/Image';
 import { Embed } from './components/mdx/Embed';
-import { CallOut } from './components/mdx/CallOut';
+import { Callout } from './components/mdx/Callout';
 import { Snippet } from './components/mdx/Snippet';
-import { TabGroup } from './components/mdx/Code';
-import { Pre } from './components/mdx/Pre';
+import { Pre, TabGroup } from './components/mdx/Code';
 import { TOCInline } from './components/mdx/TOCInline';
 import { OrderBook } from './components/mdx/OrderBook';
 import { SafeLink as Link } from './components/mdx/Link';
@@ -76,7 +75,7 @@ const rawComponents = {
   blockquote: BlockQuote,
   // a: A,
   a: Link,
-  CallOut,
+  callout: Callout,
   Snippet,
   pre: Pre,
   TOCInline,
@@ -102,19 +101,24 @@ const cleanedComponents: MDXComponents = Object.fromEntries(
  */
 export async function compileWikiMDX(
   source: string,
-  context: WikiCompilerContext,
+  context: WikiCompilerContext & { depth?: number; visited?: Set<string> },
 ): Promise<{ Content: ComponentType<{ components?: MDXComponents }> }> {
   const { slug = '', index = {} } = context;
 
-  let normalized = preprocessObsidianLinks(source, index, slug);
-  normalized = preprocessEmbeds(normalized, index);
+  // Track parameters safely; default to zero-state initialization if it's the root document
+  const currentDepth = context.depth ?? 0;
+  const currentVisited = context.visited ?? new Set<string>();
+
+  let normalized = preprocessEmbeds(source, index);
+  normalized = preprocessObsidianLinks(normalized, index, slug);
+  console.log({ normalized });
+
+  // Pass tracking parameters down into the sub-component generator closure
+  const instanceComponents = createDynamicComponents(context, currentDepth, currentVisited);
 
   const { default: Content } = await evaluate(normalized, {
     ...runtime,
-
-    // ✓ CORRECT: Type-safe functional evaluator returning our structural design tokens
-    useMDXComponents: (): MDXComponents => cleanedComponents,
-
+    useMDXComponents: (): MDXComponents => instanceComponents,
     remarkPlugins: [
       extractCodeMeta,
       renderCodeBlocks,
@@ -122,8 +126,8 @@ export async function compileWikiMDX(
       remarkGfm,
       remarkMath,
       extractFrontMatter,
-      [renderEmbeds],
       renderCallOuts,
+      renderEmbeds,
       [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [
@@ -140,7 +144,6 @@ export async function compileWikiMDX(
 
   return { Content };
 }
-
 /**
  * Native global component registration pipeline wrapper expected by Next.js
  */
@@ -148,5 +151,18 @@ export function useMDXComponents(incomingComponents: MDXComponents): MDXComponen
   return {
     ...incomingComponents, // Retains default HTML tags provided by Next.js
     ...cleanedComponents, // Injects your custom overrides and design tokens
+  };
+}
+
+// 1. Build a generator function that closes over your runtime variables
+export function createDynamicComponents(context: any, depth = 0, visited = new Set<string>()): MDXComponents {
+  console.log('createDynamicComponents');
+  return {
+    ...cleanedComponents,
+
+    Embed: (props: any) => {
+      console.log({ props });
+      return <Embed {...props} index={context.index} currentSlug={context.slug} depth={depth} visited={visited} />;
+    },
   };
 }
