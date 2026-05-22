@@ -22,7 +22,7 @@ export default function Page() {
   );
 }
 
-const PageClient = dynamic(() => import('./PageClient'), {
+const PageClient = dynamic(() => import('../PageClient'), {
   ssr: false,
 });
 
