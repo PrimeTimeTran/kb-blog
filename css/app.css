@@ -1,11 +1,24 @@
 :root {
   --nav-text: var(--on-surface-variant);
   --nav-text-hover: var(--on-surface);
-
   --nav-bg-hover: color-mix(in oklab, var(--surface-variant) 12%, transparent);
-
   --nav-text-active: var(--primary);
   --nav-bg-active: color-mix(in oklab, var(--primary) 12%, transparent);
+}
+html {
+  scroll-padding-top: var(--nav-height);
+}
+
+html {
+  --background: #ffffff;
+  --surface: #f8fafc;
+  --on-surface: #1e293b;
+}
+
+html.dark {
+  --background: #0f172a;
+  --surface: #111827;
+  --on-surface: #f8fafc;
 }
 
 .dark {
@@ -18,10 +31,6 @@
   --nav-bg-active: color-mix(in oklab, var(--primary) 15%, transparent);
 
   --nav-bg-hover: color-mix(in oklab, var(--surface) 12%, transparent);
-}
-
-html {
-  scroll-padding-top: var(--nav-height);
 }
 
 /* =========================

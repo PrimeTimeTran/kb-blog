@@ -13,7 +13,11 @@ export type Workspace = {
   title: string
   persist?: boolean
   theme?: React.CSSProperties
-  component: ReturnType<typeof Viewport>
+  // component: ReturnType<typeof Viewport>
+  component: React.ComponentType<WorkspaceComponentProps>
+}
+export type WorkspaceComponentProps = {
+  workspaceId: string
 }
 export interface ViewportAPI {
   isVertical: boolean

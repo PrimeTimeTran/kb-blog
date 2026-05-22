@@ -1,21 +1,15 @@
-import React from 'react'
-
 import 'katex/dist/katex.min.css'
 import '../css/tailwind.css'
 
-// import { SystemShell } from '@primetimetran/beeline'
 import { AppShell } from '@/components/layout/AppShell'
 import { siteMetaDataHeader } from '../data/site-metadata-header'
+import ShowcasePage from './(lab)/workspaces/page'
 export const dynamic = 'force-dynamic'
 // NOTE:
 // Instead of messing with layout.tsx structure frequency,
 // Create a new root project root to experiment and export from layout.tsx
 // to skip dependencies and try new things out quickly.
-import Layout2 from './z.layout'
-
 export default RootLayout
-
-import ShowcasePage from '@/app/(lab)/workspaces/page'
 
 export function RootLayout({ children }) {
   return (
@@ -61,8 +55,11 @@ export function RootLayout({ children }) {
         <AppShell>
           <div className="flex flex-col h-full">
             <div className="flex flex-1 min-h-0 pt-16">
-              <ShowcasePage />
-              {children}
+              {/* {children} */}
+              {/* app layer (workspace system) */}
+              <div className="absolute inset-0 pointer-events-none">
+                <ShowcasePage />
+              </div>
             </div>
           </div>
           {/*

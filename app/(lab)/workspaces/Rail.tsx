@@ -5,6 +5,7 @@ import { GrRadialSelected } from 'react-icons/gr'
 
 import { RailItemProps, RailTileSpec, ThumbnailConfig, ViewportRailProps } from './types'
 import { workspaceRegistry } from './data'
+import { ThemeProvider } from './theme'
 
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
   const isVertical = viewport.isVertical
@@ -77,7 +78,20 @@ export function RailItem({
         {Thumbnail ? (
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <div className="origin-top-left pointer-events-none" style={thumbStyle}>
-              <Thumbnail workspaceId={item.id} />
+              <ThemeProvider theme={item.theme}>
+                <div className="h-full w-full overflow-hidden">
+                  <div
+                    style={{
+                      transform: 'scale(0.15)',
+                      transformOrigin: 'top left',
+                      width: '666.666%',
+                      height: '666.666%',
+                    }}
+                  >
+                    <Thumbnail workspaceId={item.id} />
+                  </div>
+                </div>
+              </ThemeProvider>
             </div>
           </div>
         ) : (

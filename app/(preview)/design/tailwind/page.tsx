@@ -3,7 +3,6 @@ import { useEffect } from 'react'
 import { Box } from 'lucide-react'
 import { SectionTitle } from './components'
 import { Page3 } from './animated-hover-icons'
-import { WorkspaceShell } from '@/app/(lab)/workspaces/data'
 
 // Inspiration Sites.
 // https://list.swajp.me/
@@ -12,74 +11,73 @@ import { WorkspaceShell } from '@/app/(lab)/workspaces/data'
 export default Page
 
 export function Page() {
+  // Causes infinite css compilation in root pages
   // .aurora-text
-  useEffect(() => {
-    const update = (e: MouseEvent) => {
-      document.documentElement.style.setProperty('--x', `${e.clientX}px`)
-      document.documentElement.style.setProperty('--y', `${e.clientY}px`)
-    }
-    window.addEventListener('mousemove', update)
-    return () => window.removeEventListener('mousemove', update)
-  }, [])
-  // .gradient-text
-  useEffect(() => {
-    let targetAngle = 0
-    let currentAngle = 0
+  // useEffect(() => {
+  //   const update = (e: MouseEvent) => {
+  //     document.documentElement.style.setProperty('--x', `${e.clientX}px`)
+  //     document.documentElement.style.setProperty('--y', `${e.clientY}px`)
+  //   }
+  //   window.addEventListener('mousemove', update)
+  //   return () => window.removeEventListener('mousemove', update)
+  // }, [])
+  // // .gradient-text
+  // useEffect(() => {
+  //   let targetAngle = 0
+  //   let currentAngle = 0
 
-    const onMove = (e: MouseEvent) => {
-      const x = e.clientX / window.innerWidth
-      const y = e.clientY / window.innerHeight
+  //   const onMove = (e: MouseEvent) => {
+  //     const x = e.clientX / window.innerWidth
+  //     const y = e.clientY / window.innerHeight
 
-      targetAngle = x * 360 + y * 180
-    }
+  //     targetAngle = x * 360 + y * 180
+  //   }
 
-    const animate = () => {
-      // smoothing factor (0.05–0.15 feels good)
-      currentAngle += (targetAngle - currentAngle) * 0.08
+  //   const animate = () => {
+  //     // smoothing factor (0.05–0.15 feels good)
+  //     currentAngle += (targetAngle - currentAngle) * 0.08
 
-      document.documentElement.style.setProperty('--angle', `${currentAngle}deg`)
+  //     document.documentElement.style.setProperty('--angle', `${currentAngle}deg`)
 
-      requestAnimationFrame(animate)
-    }
+  //     requestAnimationFrame(animate)
+  //   }
 
-    window.addEventListener('mousemove', onMove)
-    animate()
+  //   window.addEventListener('mousemove', onMove)
+  //   animate()
 
-    return () => window.removeEventListener('mousemove', onMove)
-  }, [])
+  //   return () => window.removeEventListener('mousemove', onMove)
+  // }, [])
   return (
-    <WorkspaceShell>
-      <div className="base-sc h-full w-full overflow-y-scroll space-y-16 p-8">
-        {/* {renderTextAnimations()} */}
-        {/* {renderAnimations()} */}
-        {/* PAGE HEADER */}
-        {renderHeader()}
+    <div className="base-sc h-full w-full overflow-y-scroll space-y-16 p-8">
+      {/* {renderTextAnimations()} */}
+      {/* {renderAnimations()} */}
+      {/* PAGE HEADER */}
+      {renderHeader()}
 
-        {/* TYPOGRAPHY */}
-        {renderTypography()}
+      {/* TYPOGRAPHY */}
+      {renderTypography()}
 
-        {/* COLORS */}
-        {renderColors()}
+      {/* COLORS */}
+      {renderColors()}
 
-        {/* SURFACES */}
-        {renderSurfaces()}
+      {/* SURFACES */}
+      {renderSurfaces()}
 
-        {/* SPACING */}
-        {renderSpacing()}
+      {/* SPACING */}
+      {renderSpacing()}
 
-        {/* FLEX + GRID */}
-        {renderFlexAndGrid()}
+      {/* FLEX + GRID */}
+      {renderFlexAndGrid()}
 
-        {/* BUTTONS */}
-        {renderButtons()}
+      {/* BUTTONS */}
+      {renderButtons()}
 
-        {/* INPUTS */}
-        {renderInputs()}
+      {/* INPUTS */}
+      {renderInputs()}
 
-        {/* EFFECTS */}
-        {renderEffects()}
-      </div>
-    </WorkspaceShell>
+      {/* EFFECTS */}
+      {renderEffects()}
+    </div>
   )
 }
 

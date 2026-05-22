@@ -2,15 +2,34 @@
 import clsx from 'clsx'
 import { workspaces } from './data'
 import { ViewportRail } from './Rail'
+import { WorkspaceShell } from './components'
 import { useLongPress, useViewport } from '@/hooks/useViewport'
 import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types'
-import { useState } from 'react'
 
+const Z = {
+  base: 0,
+  content: 10,
+  rail: 20,
+  overlay: 30,
+  debug: 40,
+} as const
+
+// Context Isolate. We want to isolate the workspaces from the rest of the site z-index wise.
+// Isolate creates a new stacking context for z-index inside that element
+// ! not remove it from normal document flow
+// ! not prevent it from sitting above siblings
+// ! not override parent layout stacking rules
+
+// parent structure:
+// <div className="flex flex-1 min-h-0 pt-16">
+//   {children}
+//   <ShowcasePage />
+// </div>
 export default function ShowcasePage() {
   const viewport = useViewport(workspaces[0].id)
 
   return (
-    <div className="fixed inset-0 z-50 pointer-events-auto bg-surface">
+    <div className="fixed inset-0 isolate pointer-events-auto">
       <ViewportController viewport={viewport} />
       <Workspace
         viewport={viewport}
@@ -65,8 +84,8 @@ export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) 
   )
 }
 export function Viewport({ viewport, workspaces }: ViewportProps) {
-  const { animateRef, isVertical } = viewport
-  const activeId = viewport.previewId ?? viewport.activeId
+  const { animateRef, previewId, isVertical } = viewport
+  const activeId = previewId ?? viewport.activeId
   const displayIdx = workspaces.findIndex((w) => w.id === activeId)
   const animate = animateRef.current
   const transform = isVertical
@@ -94,7 +113,9 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
               style={workspace.theme}
               className="relative h-full w-full shrink-0 overflow-hidden bg-background"
             >
-              <Component workspaceId={workspace.id} />
+              <WorkspaceShell>
+                <Component workspaceId={workspace.id} />
+              </WorkspaceShell>
             </div>
           )
         })}

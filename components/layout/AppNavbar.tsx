@@ -76,7 +76,7 @@ export function AppNavbar() {
     // height: 4rem;
     // 4rem = 64px
     // h-16 = 64px
-    <nav className="fixed top-0 left-0 right-0 h-16 z-40 flex items-center justify-between border-b border-outline-variant/60 bg-surface/80 px-3 sm:px-4 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 h-16 z-10 flex items-center justify-between border-b border-outline-variant/60 bg-surface/80 px-3 sm:px-4 backdrop-blur-xl">
       {/* LEFT */}
       <Link href="/" className="flex items-center gap-3">
         <DynamicLogo className="h-9 w-9 rounded-xl shadow-sm" />
