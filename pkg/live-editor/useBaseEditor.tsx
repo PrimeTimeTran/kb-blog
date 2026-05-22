@@ -34,24 +34,31 @@ export function useBaseEditor({
   const latestCode = useRef(code);
   const formatTimer = useRef<NodeJS.Timeout | null>(null);
 
-  /* ---------------- COMPILATION ---------------- */
-  const compiled = useMemo(() => {
-    return compiler(code);
-  }, [code, compiler]);
-
-  /* ---------------- RUNTIME ---------------- */
+  /* ---------------- SYNC FROM OUTSIDE ---------------- */
   useEffect(() => {
-    runtime(compiled);
-  }, [compiled, runtime]);
+    setCode(initialCode);
+  }, [initialCode]);
 
-  /* ---------------- SYNC REF ---------------- */
   useEffect(() => {
     latestCode.current = code;
   }, [code]);
 
-  /* ---------------- AUTO FORMAT (ONLY ONE LOOP) ---------------- */
+  /* ---------------- COMPILER (GATED) ---------------- */
+  const compiled = useMemo(() => {
+    if (!editorReady) return null;
+    return compiler(code);
+  }, [code, compiler, editorReady]);
+
+  /* ---------------- RUNTIME (GATED) ---------------- */
   useEffect(() => {
-    console.log({ editorReady, formatter });
+    if (!editorReady) return;
+    if (!compiled) return;
+
+    runtime(compiled);
+  }, [compiled, runtime, editorReady]);
+
+  /* ---------------- FORMATTER (GATED) ---------------- */
+  useEffect(() => {
     if (!editorReady) return;
     if (!formatter) return;
 
@@ -65,8 +72,6 @@ export function useBaseEditor({
       const formatted = await formatter(prev);
 
       if (!formatted || formatted === prev) return;
-
-      console.log('[FORMAT APPLIED]');
 
       setCode(formatted);
     }, autoFormatDelay);
@@ -87,15 +92,20 @@ export function useBaseEditor({
   };
 }
 
-export function createIframeRuntime(renderId, iframeRef: React.RefObject<HTMLIFrameElement>) {
-  const runtime = (compiled: string) => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-    renderId.current += 1;
-    iframeRef.current!.srcdoc = injectReact(compiled, renderId.current);
-  };
+import { createRuntime } from './lib/modules/runtime';
 
-  return runtime;
+export function createIframeRuntime(renderId, iframeRef) {
+  const runtime = createRuntime();
+
+  return (vfs, entry) => {
+    renderId.current += 1;
+
+    runtime.init(vfs);
+
+    const App = runtime.run(entry);
+
+    iframeRef.current!.srcdoc = injectReact(App, renderId.current);
+  };
 }
 
 // https://prettier.io/docs/api.html

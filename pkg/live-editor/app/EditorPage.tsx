@@ -8,48 +8,60 @@ import { nextVfs } from '../generated/next-vfs';
 import { buildTree } from '../lib/core/editor';
 import { useBootOrchestrator } from '../hooks/useBootOrchestrator';
 
-export function EditorPage() {
+export function EditorPage({ boot, snapshot }) {
   const renderId = useRef(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const runtime = useMemo(() => createIframeRuntime(renderId, iframeRef), []);
-
-  /* ---------------- BOOT SPEC ---------------- */
-  const { files, entry, boot } = useBootOrchestrator();
-
-  /* ---------------- ACTIVE FILE ---------------- */
   const [activeFile, setActiveFile] = useState<string | null>(null);
-
-  /* ---------------- VFS STATE (LOCAL EDITABLE COPY) ---------------- */
   const [vfs, setVfs] = useState<Record<string, string>>({});
-
-  /* ---------------- INIT FROM BOOT ---------------- */
-  useEffect(() => {
-    if (!files || !entry) return;
-
-    setVfs(files);
-    setActiveFile(entry);
-
-    console.log('[UI] VFS loaded:', Object.keys(files).length);
-  }, [files, entry]);
-
-  /* ---------------- EDITOR CODE ---------------- */
-  const code = activeFile ? (vfs[activeFile] ?? '') : '';
-
-  const setCode = (next: string) => {
-    if (!activeFile) return;
-
-    setVfs((prev) => ({
-      ...prev,
-      [activeFile]: next,
-    }));
-  };
-
-  /* ---------------- COMPILATION + RUNTIME ---------------- */
-  const { code: compiled } = useBaseEditor({
-    initialCode: code,
+  /* ---------------- DERIVED ---------------- */
+  const fileCode = activeFile ? (vfs[activeFile] ?? '') : '';
+  const editorKey = activeFile ?? 'no-file';
+  const { code, setCode, setEditorReady } = useBaseEditor({
+    key: editorKey,
+    initialCode: fileCode,
     runtime,
   });
+  useEffect(() => {
+    console.log({ snapshot });
+    if (!snapshot) return;
+
+    const files = snapshot.files;
+
+    const entry =
+      snapshot.entry ??
+      files['/app/page.tsx'] ??
+      files['/app/main.tsx'] ??
+      Object.keys(files).find((f) => f.includes('page.tsx')) ??
+      Object.keys(files).find((f) => f.endsWith('.tsx')) ??
+      Object.keys(files)[0];
+
+    console.log('[ENTRY RESOLVED]', entry);
+
+    setVfs(files);
+    setActiveFile(entry ?? null);
+
+    if (entry) {
+      runtime(files, entry);
+    }
+  }, [snapshot, runtime]);
+
+  const onChange = (next: string) => {
+    if (!activeFile) return;
+
+    setVfs((prev) => {
+      const updated = {
+        ...prev,
+        [activeFile]: next,
+      };
+
+      // live runtime update (always full snapshot)
+      runtime(updated, snapshot?.entry ?? activeFile);
+
+      return updated;
+    });
+  };
 
   /* ---------------- TREE ---------------- */
   const tree = useMemo(() => buildTree(vfs), [vfs]);
@@ -59,13 +71,13 @@ export function EditorPage() {
       {/* SIDEBAR */}
       <div className="w-1/4 border-r border-white/10 overflow-auto p-2">
         {Object.entries(tree).map(([name, node]) => (
-          <TreeNode key={name} name={name} node={node} />
+          <TreeNode key={name} name={name} node={node} onSelect={(path) => setActiveFile(path)} />
         ))}
       </div>
 
       {/* EDITOR */}
       <div className="w-3/4 flex border-r border-white/10">
-        <Editor mode="jsx" value={code} onChange={setCode} setEditorReady={setEditorReady} />
+        <Editor mode="jsx" value={code} onChange={onChange} setEditorReady={setEditorReady} />
       </div>
 
       {/* PREVIEW */}
@@ -75,7 +87,6 @@ export function EditorPage() {
     </div>
   );
 }
-
 function TreeNode({ node, name }: any) {
   const [open, setOpen] = useState(true);
 

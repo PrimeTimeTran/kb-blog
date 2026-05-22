@@ -6,12 +6,14 @@ export const nextSpec: ProjectSpec = {
   entry: '/app/page.tsx',
   files: nextVfs,
   focus: '/app/page.tsx',
+  framework: 'next',
 };
 
 export const infiniteScrollSpec: ProjectSpec = {
   id: 'infinite-scroll-variants',
 
   entry: '/variant-1.tsx',
+  framework: 'next',
 
   files: {
     '/variant-1.tsx': '...',
@@ -34,10 +36,15 @@ export const infiniteScrollSpec: ProjectSpec = {
 
 export const specs = {
   next: nextSpec,
+  scroll: infiniteScrollSpec,
 } as const;
 
 export type SpecKey = keyof typeof specs;
 
-export function getSpec(key: SpecKey): ProjectSpec {
+export function listSpecs() {
+  return Object.keys(specs) as SpecKey[];
+}
+
+export function getSpec(key: SpecKey) {
   return specs[key];
 }

@@ -1,8 +1,10 @@
+export type VFS = Record<string, string>;
 export type Framework = 'react' | 'next' | 'react-native' | 'flutter';
 export type ProjectSpec = {
   id: string;
 
   entry: string;
+  framework: string;
 
   files: Record<string, string>;
 
@@ -21,4 +23,9 @@ export type ProjectSpec = {
       files: string[];
     }
   >;
+};
+
+export type Snapshot = {
+  files: Record<string, string>;
+  entry: string;
 };

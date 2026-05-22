@@ -1,3 +1,13 @@
+export function resolveEntry({ files, entry }: { files: Record<string, string>; entry?: string }) {
+  const resolved = entry || '/app/page.tsx';
+
+  if (!files[resolved]) {
+    throw new Error(`[ENTRY] not found: ${resolved}`);
+  }
+
+  return resolved;
+}
+
 export function resolveImports(entry: string, files: Record<string, string>) {
   const visited = new Set<string>();
 

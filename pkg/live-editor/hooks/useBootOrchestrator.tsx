@@ -1,75 +1,101 @@
 import { useState } from 'react';
 import { getSpec, SpecKey } from '../specs';
+import { normalizeSnapshot } from '../lib/core/normalize-snapshot';
 
 export function useBootOrchestrator() {
-  const [specKey, setSpecKey] = useState<SpecKey | null>(null);
-  const [files, setFiles] = useState<Record<string, string> | null>(null);
-  const [entry, setEntry] = useState<string | null>(null);
-  const [focus, setFocus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [framework, setFramework] = useState<any>(null);
+
+  const [snapshot, setSnapshot] = useState<null | {
+    files: Record<string, string>;
+    entry: string;
+  }>(null);
 
   async function boot(key: SpecKey) {
-    console.log('[BOOT] loading spec:', key);
-
     setLoading(true);
-    setSpecKey(key);
 
     try {
-      await new Promise((r) => setTimeout(r, 300));
-
+      // ---------------- SPEC ----------------
       const spec = getSpec(key);
 
-      console.log('[BOOT] spec loaded:', spec.id);
-      console.table(Object.keys(spec.files));
+      console.log('[BOOT] spec:', {
+        id: spec.id,
+        framework: spec.framework,
+        entry: spec.entry,
+      });
 
-      setFiles(spec.files);
-      setEntry(spec.entry);
-      setFocus(spec.focus ?? spec.entry);
+      // ---------------- BASE FS ----------------
+      const base = loadFrameworkBase(spec.framework);
 
-      await new Promise(requestAnimationFrame);
+      console.log('[BOOT] base size:', Object.keys(base).length);
 
-      console.log('[BOOT] ready');
+      // ---------------- MERGE (CORE FIX) ----------------
+      const vfs: Record<string, string> = {
+        ...base,
+        ...spec.files, // spec overrides base
+      };
+
+      console.log('[BOOT] merged VFS size:', Object.keys(vfs).length);
+
+      // ---------------- ENTRY RESOLUTION ----------------
+      const entry = spec.entry ?? Object.keys(vfs).find((f) => f.includes('page.tsx')) ?? Object.keys(vfs)[0];
+
+      if (!entry || !vfs[entry]) {
+        throw new Error(`[BOOT] invalid entry: ${entry}`);
+      }
+
+      console.log('[BOOT] resolved entry:', entry);
+
+      // ---------------- COMMIT ----------------
+      setFramework(spec.framework);
+      const raw = {
+        files: vfs,
+        entry: spec.entry,
+      };
+
+      const snapshot = normalizeSnapshot(raw);
+
+      setSnapshot(snapshot);
+
+      console.log('[BOOT] snapshot committed');
     } catch (err) {
       console.error('[BOOT ERROR]', err);
+      setSnapshot(null);
+      setFramework(null);
     } finally {
       setLoading(false);
     }
   }
 
-  const ready = !!files && !!entry && !loading;
+  const ready = !!snapshot && !loading;
 
   return {
-    specKey,
-    files,
-    entry,
-    focus,
+    boot,
     loading,
     ready,
-    boot,
+    snapshot,
+    framework,
   };
 }
 
-function getSeed(fw: Framework) {
-  switch (fw) {
-    case 'react':
-      return seedReact();
-    case 'next':
-      return seedNext();
-    case 'react-native':
-      return seedReactNative();
-    case 'flutter':
-      return seedFlutter();
-    default:
-      return seedNext();
-  }
+// function getSeed(fw: Framework) {
+//   switch (fw) {
+//     case 'react':
+//       return seedReact();
+//     case 'next':
+//       return seedNext();
+//     case 'react-native':
+//       return seedReactNative();
+//     case 'flutter':
+//       return seedFlutter();
+//     default:
+//       return seedNext();
+//   }
+// }
+
+function runtime(files: Record<string, string>, entry: string) {
+  throw new Error('Function not implemented.');
 }
-
-import { nextVfs } from '../generated/next-vfs';
-
-export function loadFrameworkBase() {
-  return nextVfs;
-}
-
 // const FRAMEWORK_BASE_DIR = path.join(process.cwd(), 'pkg/live-editor/lib/frameworks/base');
 // export function loadFrameworkBase(fw: Framework): Record<string, string> {
 //   const root = path.join(FRAMEWORK_BASE_DIR, fw);

@@ -1,33 +1,29 @@
 'use client';
 
-import { Framework } from '../lib/types';
+import { listSpecs } from '../specs';
 
-const frameworks: Framework[] = ['react', 'next', 'react-native', 'flutter'];
+export function BootSelectPage({ onSelect, loading }: { onSelect: (key: any) => void; loading: boolean }) {
+  const specs = listSpecs();
 
-export function BootSelectPage({ onSelect, loading }: { onSelect: (fw: Framework) => void; loading: boolean }) {
   return (
     <div className="h-screen w-screen flex items-center justify-center bg-black text-white">
-      <div className="flex flex-col items-center gap-6">
-        <h1 className="text-xl font-semibold">{loading ? 'Booting environment...' : 'Select Framework'}</h1>
+      <div className="flex flex-col gap-4 items-center">
+        <h1 className="text-xl font-semibold">Choose Project Spec</h1>
 
-        <div className="flex gap-4">
-          {frameworks.map((fw) => (
+        <div className="flex gap-3">
+          {specs.map((key) => (
             <button
-              key={fw}
-              onClick={() => onSelect(fw)}
+              key={key}
               disabled={loading}
-              className="
-                px-6 py-3 rounded border border-white/20
-                hover:bg-white/10 transition
-                disabled:opacity-50
-              "
+              onClick={() => onSelect(key)}
+              className="px-4 py-2 border border-white/20 rounded hover:bg-white/10"
             >
-              {fw.toUpperCase()}
+              {key}
             </button>
           ))}
         </div>
 
-        <p className="text-xs text-white/40">This will initialize VFS + module graph + runtime</p>
+        {loading && <p className="text-white/50 text-sm">Booting spec...</p>}
       </div>
     </div>
   );
