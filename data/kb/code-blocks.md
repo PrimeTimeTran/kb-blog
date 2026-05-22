@@ -7,7 +7,16 @@ summary: 'TESTING of code blocks rendering'
 tags: ['DEV']
 ---
 
-## Code Block (js)
+## Code Block
+
+### Python
+
+```py
+def hello_world():
+  print('hi')
+```
+
+### Javascript
 
 ```js
 function fancyAlert(arg) {
@@ -17,12 +26,51 @@ function fancyAlert(arg) {
 }
 ```
 
-```py
-def hello_world():
-  print('hi')
+### JSX
+
+```jsx
+import Link, { LinkProps } from 'next/link';
+
+export function SafeLink({ href, children, className, ...props }) {
+  return (
+    <span className={className} {...props}>
+      {children}
+    </span>
+  );
+}
 ```
 
-## Code Block with Title (js:fancyAlert.js)
+### TSX
+
+```tsx
+import Link, { LinkProps } from 'next/link';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+export type SafeLinkProps = Partial<LinkProps> &
+  ComponentPropsWithoutRef<'a'> & {
+    children: ReactNode;
+  };
+
+export function SafeLink({ href, children, className, ...props }: SafeLinkProps) {
+  if (!href || typeof href !== 'string') {
+    return (
+      <span className={fallbackStyles} {...props}>
+        {children}
+      </span>
+    );
+  }
+
+  return (
+    <Link className={baseLinkStyles} href={href} {...props}>
+      {children}
+    </Link>
+  );
+}
+```
+
+## Decorations
+
+### Titles (js:fancyAlert.js)
 
 ```js:fancyAlert.js
 function fancyAlert(arg) {
@@ -32,19 +80,26 @@ function fancyAlert(arg) {
 }
 ```
 
-## Show Line Numbers (js showLineNumbers)
+### Line Numbers (js showLineNumbers)
 
 ```js showLineNumbers
 var twoSum = function (nums, target) {
   var map = {};
+  for (let i = 0; i < nums.length; i++) {
+    let num = nums[i];
+    let diff = target - num;
+    if (map.has(diff)) {
+      return [i, map.get(diff)];
+    }
+    map.set(num, i);
+  }
 };
 ```
 
-## Show Line Numbers (js {1-5} showLineNumbers)
+### Show Line Highlight (js {1-5} showLineNumbers)
 
 ```js {1-4} showLineNumbers
 import mongoose, { Schema } from 'mongoose';
-import { Auditor } from './Audit';
 
 const userSchema = new Schema({
   email: {

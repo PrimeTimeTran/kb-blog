@@ -45,7 +45,7 @@ export function RenderLabShell({ setupCode, scope = {}, title }: RenderLabShellP
   const { code, onUpdateCode } = useLiveEditor(setupCode);
   return (
     <LiveProvider code={code} scope={scope} noInline>
-      <div className="h-screen w-screen flex flex-col bg-zinc-950 text-white overflow-hidden">
+      <div className="h-screen w-screen flex flex-col bg-zinc-950 text-white overflow-hidden not-prose">
         <div className="h-12 flex items-center justify-between px-4 border-b border-white/10">
           <div className="text-sm text-white/70">{title ?? 'RenderLab'}</div>
           <div className="text-xs text-white/40">editor ↔ preview sandbox</div>
@@ -57,7 +57,7 @@ export function RenderLabShell({ setupCode, scope = {}, title }: RenderLabShellP
           <div className="flex flex-1 min-h-0 overflow-hidden">
             <div className="flex min-w-0 h-full border-r border-white/10 overflow-hidden">
               <ResizableColumn side="left">
-                <BaseEditor value={code} mode="typescript" onChange={onUpdateCode} />
+                <BaseEditor value={code} mode="jsx" onChange={onUpdateCode} />
               </ResizableColumn>
             </div>
             <div

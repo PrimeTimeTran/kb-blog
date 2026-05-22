@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Prism from 'prismjs';
+// import Prism from 'prismjs';
+import Prism from '@/lib/prism';
 
 import '@/data/code-formatting';
 

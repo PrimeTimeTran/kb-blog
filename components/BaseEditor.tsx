@@ -1,21 +1,24 @@
-import AceEditor from 'react-ace';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useTheme } from '@teispace/next-themes';
+import dynamic from 'next/dynamic';
 
-import 'ace-builds/src-noconflict/mode-python';
-import 'ace-builds/src-noconflict/theme-monokai';
+const AceEditor = dynamic(() => import('react-ace'), { ssr: false });
 
-// Light mode themes
-import 'ace-builds/src-noconflict/theme-github';
-import 'ace-builds/src-noconflict/theme-chrome';
-import 'ace-builds/src-noconflict/theme-xcode';
-import 'ace-builds/src-noconflict/theme-textmate';
-import 'ace-builds/src-noconflict/theme-dawn';
-import 'ace-builds/src-noconflict/theme-solarized_light';
-import 'ace-builds/src-noconflict/ext-language_tools';
+// import 'ace-builds/src-noconflict/mode-python';
+// import 'ace-builds/src-noconflict/theme-monokai';
+
+// // Light mode themes
+// import 'ace-builds/src-noconflict/theme-github';
+// import 'ace-builds/src-noconflict/theme-chrome';
+// import 'ace-builds/src-noconflict/theme-xcode';
+// import 'ace-builds/src-noconflict/theme-textmate';
+// import 'ace-builds/src-noconflict/theme-dawn';
+// import 'ace-builds/src-noconflict/theme-solarized_light';
+// import 'ace-builds/src-noconflict/ext-language_tools';
 
 export function BaseEditor({ mode, value, onChange, expanded = false, highlightActiveLine = false }) {
   const editorRef = useRef(null);
+  const [editorReady, setIsEditorReady] = useState(false);
   const { resolvedTheme } = useTheme();
 
   // expose ace instance safely
@@ -46,7 +49,7 @@ export function BaseEditor({ mode, value, onChange, expanded = false, highlightA
     onChange(editor.getValue());
   }
 
-  const editorTheme = resolvedTheme === 'light' ? 'chrome' : 'monokai';
+  const editorTheme = resolvedTheme === 'light' ? 'xcode' : 'monokai';
 
   // HOTKEYS
   useEffect(() => {
@@ -78,11 +81,30 @@ export function BaseEditor({ mode, value, onChange, expanded = false, highlightA
       editor.container.removeEventListener('keydown', handler);
     };
   }, []);
-  console.log({ value });
+
+  useEffect(() => {
+    const loadAceModules = async () => {
+      await import('ace-builds/src-noconflict/ace');
+      await import('ace-builds/src-noconflict/theme-xcode');
+      await import('ace-builds/src-noconflict/mode-javascript');
+      await import('ace-builds/src-noconflict/mode-jsx');
+      await import('ace-builds/src-noconflict/mode-typescript');
+      await import('ace-builds/src-noconflict/mode-tsx');
+
+      setIsEditorReady(true);
+    };
+
+    loadAceModules();
+  }, []);
+
+  if (!editorReady) {
+    return <h1>loading</h1>;
+  }
 
   return (
     <AceEditor
-      mode={mode}
+      mode={'jsx'}
+      // mode={mode}
       width="100%"
       value={value}
       fontSize={14}

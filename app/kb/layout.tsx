@@ -19,7 +19,12 @@ export const metadata = {
     description: 'Structured learning and reference material.',
   },
 };
-export default async function Layout({ children }) {
+export default async function Layout({ children, left }) {
   const tree = await getKbTree();
-  return <KBLayout tree={tree}>{children}</KBLayout>;
+  return (
+    <div>
+      {left}
+      <KBLayout tree={tree}>{children}</KBLayout>
+    </div>
+  );
 }

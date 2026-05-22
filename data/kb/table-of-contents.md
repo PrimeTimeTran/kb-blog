@@ -10,7 +10,8 @@ tags: 's'
 
 # Knowledge Base - Table Of Contents
 
-This knowledge base documents the architecture, tooling, rendering pipeline, styling system, deployment workflow, and content engine used throughout the project. The goal is to create a scalable MDX-powered documentation and note-taking platform with strong developer ergonomics and extensibility.
+This knowledge base documents the architecture, tooling, rendering pipeline, styling system, deployment workflow, and content engine used throughout this blog/project.
+The goal is to create a scalable MDX-powered documentation and note-taking platform with strong developer ergonomics and extensibility.
 
 ---
 
@@ -378,8 +379,8 @@ Future tooling may include AI-assisted linking, summarization, tagging, and cont
 
 ## Linked Pages
 
-- [[page1]]
-- [[page2]]
+- [[code-blocks.md]]
+- [[code-tab-groups.md]]
 - [[page3]]
 - [[theme1]]
 - [[theme2]]
