@@ -10,8 +10,8 @@ import type { LogLevel, TraceEmitOptions } from './types';
 
 const IS_BUILD = process.env.NEXT_PHASE === 'phase-production-build' || process.env.NODE_ENV === 'production';
 
-// const TRACE_ENABLED = process.env.TRACE === 'true' && !IS_BUILD
-const TRACE_ENABLED = true;
+const TRACE_ENABLED = process.env.TRACE === 'true' && !IS_BUILD;
+// const TRACE_ENABLED = true;
 
 function out(...args: any[]) {
   if (!TRACE_ENABLED) return;

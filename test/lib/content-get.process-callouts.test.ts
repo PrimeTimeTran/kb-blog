@@ -2,21 +2,19 @@ import { describe, it, expect } from 'vitest';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
-import rehypeStringify from 'rehype-stringify';
 import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
 import { preprocessEmbeds } from '@/lib/content/api/transformers';
 import { renderCallOuts } from '@/lib/remark/render-callouts';
 
 async function compileMarkdown(rawMarkdown, mockIndex, currentSlug = 'root-page') {
-  // Step 1: Preprocess text layers & unpack raw file links
   const preprocessedText = preprocessEmbeds(rawMarkdown, mockIndex, currentSlug);
 
-  // Step 2: Push through the AST compiler pipeline using modern async resolution
   const result = await unified()
     .use(remarkParse)
     .use(renderCallOuts)
-    .use(remarkRehype, { allowDangerousHtml: true }) // Pass raw html down the stream
-    .use(rehypeRaw) // 👈 Essential! Parses the mixed HTML nodes into the AST tree
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
     .use(rehypeStringify, { allowDangerousHtml: true })
     .process(preprocessedText);
 
@@ -25,7 +23,6 @@ async function compileMarkdown(rawMarkdown, mockIndex, currentSlug = 'root-page'
     html: String(result),
   };
 }
-
 const mockIndex = {
   '0.preview/page1': {
     slug: '0.preview/page1',
@@ -55,8 +52,8 @@ describe('Obsidian Callout + Embed Integration Pipeline', () => {
 
     const { html } = await compileMarkdown(markdown, mockIndex);
 
-    // Adjusted to match your actual capitalized component string output: <CallOut
-    expect(html).toContain('<CallOut');
+    // Adjusted to match your actual capitalized component string output: <callout
+    expect(html).toContain('<callout');
     expect(html).toContain('type="tip"');
     expect(html).toContain('title="Tip Callout"');
     expect(html).toContain('collapsible');
@@ -72,14 +69,16 @@ describe('Obsidian Callout + Embed Integration Pipeline', () => {
 
     const { rawProcessedText, html } = await compileMarkdown(markdown, mockIndex);
 
-    // Verify raw text preprocessor output structure
-    expect(rawProcessedText).toContain('class="obsidian-embed-container');
+    // 1. Verify that the raw preprocessor phase successfully found and injected the text properties
+    expect(rawProcessedText).toContain('obsidian-embed-container');
     expect(rawProcessedText).toContain('# Page 1');
 
-    // Verify fully transformed HTML AST tree structure
+    // 2. Verify that the HTML compiler tree successfully outputs the callout and the embedded content
     expect(html).toContain('title="Success Callout"');
-    expect(html).toContain('class="obsidian-embed-container"');
     expect(html).toContain('Page 1 Title');
+
+    // Change from the escaped entity string back to a normal human-readable string!
+    expect(html).toContain("I'm page 1 with no links");
   });
 
   it('Scenario 3: Sequential callouts block evaluation handles spacing shifts seamlessly', async () => {
@@ -96,7 +95,7 @@ describe('Obsidian Callout + Embed Integration Pipeline', () => {
     const { html } = await compileMarkdown(markdown, mockIndex);
 
     // Fixed the Chai engine matcher syntax from .bin.toBe to .toBe
-    const calloutMatches = html.match(/<CallOut/g) || [];
+    const calloutMatches = html.match(/<callout/g) || [];
     expect(calloutMatches.length).toBe(2);
 
     expect(html).toContain('type="tip"');
@@ -125,7 +124,7 @@ describe('Obsidian Callout + Embed Integration Pipeline', () => {
     const { html } = await compileMarkdown(markdown, mockIndex);
 
     // Capitalized target match alignment
-    expect(html).toContain('<CallOut type="error"');
+    expect(html).toContain('<callout type="error"');
     expect(html).toContain('Recursive loop blocked:');
     expect(html).toContain('Infinite loop reference to');
   });

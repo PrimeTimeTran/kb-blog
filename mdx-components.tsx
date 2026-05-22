@@ -1,5 +1,5 @@
-import type { MDXComponents } from 'mdx/types';
 import type { ComponentType } from 'react';
+import type { MDXComponents } from 'mdx/types';
 import { evaluate } from '@mdx-js/mdx';
 import * as runtime from 'react/jsx-runtime';
 
@@ -105,10 +105,18 @@ export async function compileWikiMDX(
 ): Promise<{ Content: ComponentType<{ components?: MDXComponents }> }> {
   const { slug = '', index = {} } = context;
 
-  // Track parameters safely; default to zero-state initialization if it's the root document
   const currentDepth = context.depth ?? 0;
   const currentVisited = context.visited ?? new Set<string>();
 
+  /*
+   * 🚨 ARCHITECTURAL ORDER OF OPERATIONS WARNING:
+   * 1. PREPROCESSORS FIRST: `preprocessEmbeds` converts custom Obsidian `![[wiki-links]]` syntax
+   *    into multi-line string-level blockquotes wrapped around structural HTML tags.
+   * 2. AST PLUGINS SECOND: `renderCallOuts` catches these pre-wrapped structures in the AST phase.
+   *
+   * Changing this execution balance or shifting preprocessors into unified plugins will break
+   * nested callout processing loops due to the behavior of the markdown text-line consumer.
+   */
   let normalized = preprocessEmbeds(source, index);
   normalized = preprocessObsidianLinks(normalized, index, slug);
   console.log({ normalized });
@@ -144,17 +152,13 @@ export async function compileWikiMDX(
 
   return { Content };
 }
-/**
- * Native global component registration pipeline wrapper expected by Next.js
- */
 export function useMDXComponents(incomingComponents: MDXComponents): MDXComponents {
   return {
-    ...incomingComponents, // Retains default HTML tags provided by Next.js
-    ...cleanedComponents, // Injects your custom overrides and design tokens
+    ...incomingComponents,
+    ...cleanedComponents,
   };
 }
 
-// 1. Build a generator function that closes over your runtime variables
 export function createDynamicComponents(context: any, depth = 0, visited = new Set<string>()): MDXComponents {
   console.log('createDynamicComponents');
   return {

@@ -3,7 +3,7 @@ import { visit } from 'unist-util-visit';
 export function injectEmbedFlags() {
   return (tree) => {
     visit(tree, 'blockquote', (node) => {
-      const isCallout = node.data?.hName === 'Callout';
+      const isCallout = node.data?.hName === 'callout';
       if (!isCallout) return;
 
       let hasEmbed = false;

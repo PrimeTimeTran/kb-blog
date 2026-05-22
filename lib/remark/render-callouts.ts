@@ -45,7 +45,7 @@ export function renderCallOuts() {
 
       // 4. TRANSFORM TO MDX COMPONENT NODES
       node.data = node.data || {};
-      node.data.hName = 'CallOut';
+      node.data.hName = 'callout';
       node.data.hProperties = {
         type: type.toLowerCase(),
         title: finalTitle,
