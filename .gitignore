@@ -73,3 +73,5 @@ companies
 /notes/wip
 /omit
 packages/docksystem/package-lock.json
+
+pkg/live-editor/lib/frameworks/base
