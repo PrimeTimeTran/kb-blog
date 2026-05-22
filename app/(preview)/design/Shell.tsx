@@ -107,7 +107,7 @@ export function ProductPageShell() {
 function HeroSection() {
   return (
     <div className="py-20">
-      <div className="inline-flex items-center gap-2 rounded-full bg-surface px-4 py-1 text-sm text-on-surface/70 border border-[color:var(--surface-container)]">
+      <div className="inline-flex items-center gap-2 rounded-full bg-surface px-4 py-1 text-sm text-on-surface/70 border border-surface-container">
         <Zap size={14} />
         New workspace system
       </div>
@@ -127,7 +127,7 @@ function HeroSection() {
           Get started
         </button>
 
-        <button className="rounded-xl bg-surface px-5 py-3 text-on-surface border border-[color:var(--surface-container)] hover:bg-surface-container transition inline-flex items-center gap-2">
+        <button className="rounded-xl bg-surface px-5 py-3 text-on-surface border border-surface-container hover:bg-surface-container transition inline-flex items-center gap-2">
           Learn more <ArrowRight size={16} />
         </button>
       </div>

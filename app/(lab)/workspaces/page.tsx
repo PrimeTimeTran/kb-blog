@@ -30,13 +30,16 @@ export default function ShowcasePage() {
 
   return (
     <div className="fixed inset-0 isolate pointer-events-auto">
-      <ViewportController viewport={viewport} />
-      <Workspace
-        viewport={viewport}
-        viewportRail={<ViewportRail items={workspaces} viewport={viewport} />}
-      >
-        <Viewport workspaces={workspaces} viewport={viewport} />
-      </Workspace>
+      <div className="absolute inset-0 top-16">
+        <ViewportController viewport={viewport} />
+
+        <Workspace
+          viewport={viewport}
+          viewportRail={<ViewportRail items={workspaces} viewport={viewport} />}
+        >
+          <Viewport workspaces={workspaces} viewport={viewport} />
+        </Workspace>
+      </div>
     </div>
   )
 }
@@ -57,21 +60,12 @@ export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) 
 
   const sizeClass = viewport.isVertical ? 'top-0 bottom-0 w-64' : 'left-0 right-0 h-32'
 
-  // WIP: Open/Close expand/collapse animation
-  // const hidden =
-  //   rail.anchor === 'left'
-  //     ? '-translate-x-full'
-  //     : rail.anchor === 'right'
-  //       ? 'translate-x-full'
-  //       : rail.anchor === 'top'
-  //         ? '-translate-y-full'
-  //         : 'translate-y-full'
   return (
-    <div className="fixed inset-0 overflow-hidden text-on-background bg-transparent">
-      <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
+    <div className="relative h-full w-full">
+      {/* RAIL */}
       <div
         className={clsx(
-          'fixed z-10 pointer-events-auto',
+          'absolute z-10 pointer-events-auto',
           'transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
           anchorClass[rail.anchor],
           sizeClass,
@@ -80,6 +74,9 @@ export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) 
       >
         {viewportRail}
       </div>
+
+      {/* CONTENT */}
+      <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
     </div>
   )
 }
@@ -133,32 +130,44 @@ function ViewportController({ viewport }: ViewportControllerProps) {
 
   const bind = (anchor: RailState['anchor'], lp) => ({
     ...lp.handlers,
-
     onClick: () => {
       if (lp.consume()) return
       interactRail(anchor)
     },
   })
+
   const buttonClass =
-    'absolute z-50 h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
+    'h-10 w-10 rounded-full border border-outline bg-surface text-on-surface shadow-lg backdrop-blur transition hover:scale-105 active:scale-95'
 
   return (
-    <>
-      <button className={clsx(buttonClass, 'top-4 left-4')} {...bind('tl', tl)}>
+    <div className="absolute inset-0 z-50 pointer-events-none">
+      <button
+        className={clsx(buttonClass, 'absolute top-4 left-4 pointer-events-auto')}
+        {...bind('tl', tl)}
+      >
         TL
       </button>
 
-      <button className={clsx(buttonClass, 'top-4 right-4')} {...bind('tr', tr)}>
+      <button
+        className={clsx(buttonClass, 'absolute top-4 right-4 pointer-events-auto')}
+        {...bind('tr', tr)}
+      >
         TR
       </button>
 
-      <button className={clsx(buttonClass, 'bottom-4 left-4')} {...bind('bl', bl)}>
+      <button
+        className={clsx(buttonClass, 'absolute bottom-4 left-4 pointer-events-auto')}
+        {...bind('bl', bl)}
+      >
         BL
       </button>
 
-      <button className={clsx(buttonClass, 'bottom-4 right-4')} {...bind('br', br)}>
+      <button
+        className={clsx(buttonClass, 'absolute bottom-4 right-4 pointer-events-auto')}
+        {...bind('br', br)}
+      >
         BR
       </button>
-    </>
+    </div>
   )
 }

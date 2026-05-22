@@ -10,7 +10,7 @@ import { ThemeProvider } from './theme'
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
   const isVertical = viewport.isVertical
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full ">
       <div className={clsx('h-full w-full flex gap-4 p-2', isVertical ? 'flex-col' : 'flex-row')}>
         {items.map((item) => (
           <RailItem
