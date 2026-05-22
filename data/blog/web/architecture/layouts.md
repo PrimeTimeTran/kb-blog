@@ -160,9 +160,9 @@ A common pattern becomes:
 ```tsx
 // layout.tsx
 export default async function Layout({ children }) {
-  const data = await getSharedData()
+  const data = await getSharedData();
 
-  return <LayoutClient data={data}>{children}</LayoutClient>
+  return <LayoutClient data={data}>{children}</LayoutClient>;
 }
 ```
 
@@ -241,26 +241,21 @@ This makes templates ideal for:
 A route transition animation becomes almost trivial:
 
 ```tsx
-'use client'
+'use client';
 
-import { usePathname } from 'next/navigation'
-import { AnimatePresence, motion } from 'framer-motion'
+import { usePathname } from 'next/navigation';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function Template({ children }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      <motion.div key={pathname} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         {children}
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }
 ```
 

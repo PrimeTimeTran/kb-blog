@@ -1,6 +1,6 @@
-export const MAX_DISPLAY = 300
-export const POSTS_PER_PAGE = 20
-export const DEV_MODE = process.env.NODE_ENV === 'development'
+export const MAX_DISPLAY = 300;
+export const POSTS_PER_PAGE = 20;
+export const DEV_MODE = process.env.NODE_ENV === 'development';
 
 export const LANG_MAP = {
   go: 'go',
@@ -10,7 +10,7 @@ export const LANG_MAP = {
   py: 'python',
   js: 'javascript',
   ts: 'typescript',
-}
+};
 
 export const maths = [
   'algebra',
@@ -41,8 +41,8 @@ export const maths = [
   'hypothesis-testing',
   'data-analysis',
   'discrete',
-]
-export const trading = ['trading', 'speculation', 'fantasy', 'sports-betting']
+];
+export const trading = ['trading', 'speculation', 'fantasy', 'sports-betting'];
 export const finance = [
   'slippage',
   'order-book',
@@ -129,7 +129,7 @@ export const finance = [
   'ipo',
   'capital-markets',
   'futures',
-]
+];
 export const frameworks = [
   'nuxtjs',
   'nextjs',
@@ -154,7 +154,7 @@ export const frameworks = [
   'fastapi',
   'package-manager',
   'threejs',
-]
+];
 export const tech = [
   'dart',
   'typescript',
@@ -187,7 +187,7 @@ export const tech = [
   'best-practices',
   'nullable',
   'threejs',
-]
+];
 export const devops = [
   'cicd',
   'devops',
@@ -214,7 +214,7 @@ export const devops = [
   'vpc',
   'micro-services',
   'networking',
-]
+];
 export const databases = [
   'sql',
   'postgres',
@@ -230,7 +230,7 @@ export const databases = [
   'window-functions',
   'postgresql',
   'sqlalchemy',
-]
+];
 export const dsa = [
   'data-structures',
   'algorithms',
@@ -260,7 +260,7 @@ export const dsa = [
   'sliding-window',
   'two-pointers',
   'priority-queue',
-]
+];
 export const security = [
   'info-sec',
   'xss',
@@ -272,8 +272,8 @@ export const security = [
   'sql-injection',
   'ddos',
   'hacking',
-]
-export const tools = ['vscode', 'jetbrains', 'vms', 'pgadmin4', 'postman', 'dbbeaver']
+];
+export const tools = ['vscode', 'jetbrains', 'vms', 'pgadmin4', 'postman', 'dbbeaver'];
 export const misc = [
   ...maths,
   ...tech,
@@ -285,7 +285,7 @@ export const misc = [
   ...security,
   ...tools,
   ...trading,
-]
+];
 
 export const TOPICS = {
   Tech: tech,
@@ -298,5 +298,5 @@ export const TOPICS = {
   Security: security,
   Maths: maths,
   Tools: tools,
-}
-export type Topic = keyof typeof TOPICS
+};
+export type Topic = keyof typeof TOPICS;

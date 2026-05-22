@@ -1,6 +1,6 @@
-'use client'
-import React from 'react'
-import { HiLightningBolt } from 'react-icons/hi'
+'use client';
+import React from 'react';
+import { HiLightningBolt } from 'react-icons/hi';
 
 import {
   ColorBox,
@@ -9,13 +9,13 @@ import {
   ColorTokenGuide,
   SurfaceDeepDive,
   SelectionPreview,
-} from './Components'
-import { StyledButton } from '@/components/StyledButton'
+} from './Components';
+import { StyledButton } from '@/components/StyledButton';
 
-import TailwindUtilities from './TailwindUtilities'
-import MaterialTokenPalette from './MaterialTokenPalette'
-import MaterialColorPalette from './MaterialColorPalette'
-import { OMNI_TABS } from './Omni'
+import TailwindUtilities from './TailwindUtilities';
+import MaterialTokenPalette from './MaterialTokenPalette';
+import MaterialColorPalette from './MaterialColorPalette';
+import { OMNI_TABS } from './Omni';
 
 export function Material() {
   return (
@@ -26,17 +26,9 @@ export function Material() {
         <div className="lg:col-span-4 space-y-8">
           <SelectionPreview />
           <section className="space-y-4">
-            <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">
-              Buttons & States
-            </h3>
+            <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Buttons & States</h3>
             <div className="flex flex-col gap-3 p-6 bg-surface-container-low rounded-3xl border border-outline/10">
-              <StyledButton
-                text="Primary Action"
-                tone="default"
-                isActive
-                className="w-full py-3"
-                onClick={() => {}}
-              />
+              <StyledButton text="Primary Action" tone="default" isActive className="w-full py-3" onClick={() => {}} />
               <div className="grid grid-cols-2 gap-2">
                 <StyledButton
                   text="Success"
@@ -45,21 +37,9 @@ export function Material() {
                   onClick={() => {}}
                   isActive={false}
                 />
-                <StyledButton
-                  text="Warning"
-                  tone="warning"
-                  count={12}
-                  onClick={() => {}}
-                  isActive={false}
-                />
+                <StyledButton text="Warning" tone="warning" count={12} onClick={() => {}} isActive={false} />
               </div>
-              <StyledButton
-                text="Destructive"
-                tone="error"
-                onClick={() => {}}
-                className="w-full"
-                isActive={false}
-              />
+              <StyledButton text="Destructive" tone="error" onClick={() => {}} className="w-full" isActive={false} />
             </div>
           </section>
         </div>
@@ -77,9 +57,7 @@ export function Material() {
 
           {/* Skeleton / Loading Simulation */}
           <section className="space-y-4">
-            <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">
-              States: Loading
-            </h3>
+            <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">States: Loading</h3>
             <div className="bg-surface-container-low rounded-3xl p-8 space-y-4 border border-outline/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full animate-shimmer" />
@@ -114,7 +92,7 @@ export function Material() {
             */}
       <ColorTokenGuide />
     </main>
-  )
+  );
 }
 
 export function DesignToken() {
@@ -134,24 +112,17 @@ export function DesignToken() {
               <h1 className="text-5xl font-black tracking-tight">Design Tokens</h1>
 
               <p className="text-lg leading-8 text-on-surface-variant">
-                Design tokens are the foundational language of the Omni UI system. They provide
-                semantic meaning for color, typography, spacing, elevation, motion, and interaction
-                states.
+                Design tokens are the foundational language of the Omni UI system. They provide semantic meaning for
+                color, typography, spacing, elevation, motion, and interaction states.
               </p>
 
               <p className="text-base leading-7 text-on-surface-variant">
                 Instead of styling components with raw values like{' '}
                 <code className="rounded bg-surface-container px-2 py-1 text-sm">#ffffff</code> or{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">
-                  text-gray-700
-                </code>
-                , Omni uses semantic tokens such as{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">bg-surface</code>{' '}
-                and{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">
-                  text-on-surface
-                </code>
-                .
+                <code className="rounded bg-surface-container px-2 py-1 text-sm">text-gray-700</code>, Omni uses
+                semantic tokens such as{' '}
+                <code className="rounded bg-surface-container px-2 py-1 text-sm">bg-surface</code> and{' '}
+                <code className="rounded bg-surface-container px-2 py-1 text-sm">text-on-surface</code>.
               </p>
             </div>
           </div>
@@ -165,9 +136,7 @@ export function DesignToken() {
         {/* SIDEBAR */}
         <aside className="lg:w-72 lg:flex-shrink-0">
           <div className="sticky top-6 rounded-3xl border border-outline/20 bg-surface-container p-5 shadow-sm">
-            <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">
-              On this page
-            </div>
+            <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">On this page</div>
 
             <nav className="space-y-2 text-sm">
               {[
@@ -198,23 +167,17 @@ export function DesignToken() {
         {/* CONTENT */}
         <main className="min-w-0 flex-1 space-y-12">
           {/* INTRODUCTION */}
-          <section
-            id="introduction"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="introduction" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-5">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Foundation
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Foundation</div>
                 <h2 className="text-3xl font-black tracking-tight">Introduction</h2>
               </div>
 
               <p className="max-w-4xl text-base leading-8 text-on-surface-variant">
-                Tokens are the abstraction layer between design intent and UI implementation.
-                Components should never depend on hardcoded visual values. Instead, components
-                consume semantic roles that adapt automatically across themes, density systems,
-                brand modes, and accessibility contexts.
+                Tokens are the abstraction layer between design intent and UI implementation. Components should never
+                depend on hardcoded visual values. Instead, components consume semantic roles that adapt automatically
+                across themes, density systems, brand modes, and accessibility contexts.
               </p>
 
               <div className="grid gap-4 md:grid-cols-3">
@@ -232,10 +195,7 @@ export function DesignToken() {
                     body: 'Dark mode and branding become automatic.',
                   },
                 ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={item.title} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="mb-2 text-lg font-bold">{item.title}</div>
                     <p className="text-sm leading-7 text-on-surface-variant">{item.body}</p>
                   </div>
@@ -245,15 +205,10 @@ export function DesignToken() {
           </section>
 
           {/* TOKEN PHILOSOPHY */}
-          <section
-            id="token-philosophy"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="token-philosophy" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-6">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Architecture
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Architecture</div>
                 <h2 className="text-3xl font-black tracking-tight">Token Philosophy</h2>
               </div>
 
@@ -297,14 +252,11 @@ export function DesignToken() {
               </div>
 
               <div className="rounded-2xl border border-primary/20 bg-primary-container/30 p-6">
-                <div className="mb-3 text-lg font-bold text-on-primary-container">
-                  Key Principle
-                </div>
+                <div className="mb-3 text-lg font-bold text-on-primary-container">Key Principle</div>
 
                 <p className="leading-8 text-on-primary-container/90">
-                  Components should express intent, not color choices. A component asking for{' '}
-                  <code>bg-white</code> is tightly coupled to appearance. A component asking for{' '}
-                  <code>bg-surface</code>
+                  Components should express intent, not color choices. A component asking for <code>bg-white</code> is
+                  tightly coupled to appearance. A component asking for <code>bg-surface</code>
                   is describing semantic purpose.
                 </p>
               </div>
@@ -312,21 +264,16 @@ export function DesignToken() {
           </section>
 
           {/* COLOR ROLES */}
-          <section
-            id="color-roles"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="color-roles" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Color System
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Color System</div>
                 <h2 className="text-3xl font-black tracking-tight">Semantic Color Roles</h2>
               </div>
 
               <p className="max-w-4xl leading-8 text-on-surface-variant">
-                Omni follows a Material-inspired semantic role structure where every color has a
-                contextual purpose and an associated foreground role.
+                Omni follows a Material-inspired semantic role structure where every color has a contextual purpose and
+                an associated foreground role.
               </p>
 
               <div className="grid gap-5 lg:grid-cols-2">
@@ -356,10 +303,7 @@ export function DesignToken() {
                     role: 'Destructive and validation states',
                   },
                 ].map((item) => (
-                  <div
-                    key={item.name}
-                    className="overflow-hidden rounded-2xl border border-outline/20"
-                  >
+                  <div key={item.name} className="overflow-hidden rounded-2xl border border-outline/20">
                     <div className={`${item.bg} ${item.text} p-6`}>
                       <div className="text-xl font-black">{item.name}</div>
                       <div className="mt-2 text-sm opacity-90">{item.role}</div>
@@ -380,15 +324,10 @@ export function DesignToken() {
           </section>
 
           {/* SURFACE HIERARCHY */}
-          <section
-            id="surface-hierarchy"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="surface-hierarchy" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Depth System
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Depth System</div>
                 <h2 className="text-3xl font-black tracking-tight">Surface Hierarchy</h2>
               </div>
 
@@ -400,50 +339,36 @@ export function DesignToken() {
               <div className="space-y-4 rounded-3xl border border-outline/20 bg-surface-container-low p-6">
                 <div className="rounded-2xl border border-outline/10 bg-surface p-6 shadow-sm">
                   <div className="font-bold">surface</div>
-                  <div className="mt-2 text-sm text-on-surface-variant">
-                    Primary application canvas.
-                  </div>
+                  <div className="mt-2 text-sm text-on-surface-variant">Primary application canvas.</div>
 
                   <div className="mt-5 rounded-xl border border-outline/10 bg-surface-container p-5">
                     <div className="font-bold">surface-container</div>
-                    <div className="mt-2 text-sm text-on-surface-variant">
-                      Grouped regions and cards.
-                    </div>
+                    <div className="mt-2 text-sm text-on-surface-variant">Grouped regions and cards.</div>
 
                     <div className="mt-5 rounded-xl border border-outline/10 bg-surface-container-high p-5">
                       <div className="font-bold">surface-container-high</div>
-                      <div className="mt-2 text-sm text-on-surface-variant">
-                        Elevated interactive regions.
-                      </div>
+                      <div className="mt-2 text-sm text-on-surface-variant">Elevated interactive regions.</div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div className="rounded-2xl border border-warning/20 bg-warning-container/40 p-6">
-                <div className="mb-3 text-lg font-bold text-on-warning-container">
-                  Common Mistake
-                </div>
+                <div className="mb-3 text-lg font-bold text-on-warning-container">Common Mistake</div>
 
                 <p className="leading-8 text-on-warning-container/90">
-                  Using <code>text-on-surface</code> directly on transparent layouts can create
-                  contrast issues. The token assumes the content sits on a semantic surface
-                  background.
+                  Using <code>text-on-surface</code> directly on transparent layouts can create contrast issues. The
+                  token assumes the content sits on a semantic surface background.
                 </p>
               </div>
             </div>
           </section>
 
           {/* TYPOGRAPHY */}
-          <section
-            id="typography"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="typography" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Typography
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Typography</div>
                 <h2 className="text-3xl font-black tracking-tight">Type Scale</h2>
               </div>
 
@@ -455,10 +380,7 @@ export function DesignToken() {
                   ['Body', 'text-base'],
                   ['Label', 'text-sm font-medium uppercase tracking-wide'],
                 ].map(([label, classes]) => (
-                  <div
-                    key={label}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={label} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="mb-2 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {label}
                     </div>
@@ -470,15 +392,10 @@ export function DesignToken() {
           </section>
 
           {/* SPACING */}
-          <section
-            id="spacing"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="spacing" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Layout Rhythm
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Layout Rhythm</div>
                 <h2 className="text-3xl font-black tracking-tight">Spacing Scale</h2>
               </div>
 
@@ -498,15 +415,10 @@ export function DesignToken() {
           </section>
 
           {/* ELEVATION */}
-          <section
-            id="elevation"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="elevation" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Depth & Shadows
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Depth & Shadows</div>
                 <h2 className="text-3xl font-black tracking-tight">Elevation</h2>
               </div>
 
@@ -540,15 +452,10 @@ export function DesignToken() {
           </section>
 
           {/* STATES */}
-          <section
-            id="states"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="states" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Interaction States
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Interaction States</div>
                 <h2 className="text-3xl font-black tracking-tight">State Layers</h2>
               </div>
 
@@ -568,23 +475,18 @@ export function DesignToken() {
 
               <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                 <p className="leading-8 text-on-surface-variant">
-                  State feedback should be subtle and consistent. Prefer opacity, tonal overlays,
-                  elevation changes, and motion over abrupt color shifts.
+                  State feedback should be subtle and consistent. Prefer opacity, tonal overlays, elevation changes, and
+                  motion over abrupt color shifts.
                 </p>
               </div>
             </div>
           </section>
 
           {/* ACCESSIBILITY */}
-          <section
-            id="accessibility"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="accessibility" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Accessibility
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Accessibility</div>
                 <h2 className="text-3xl font-black tracking-tight">Inclusive Design</h2>
               </div>
 
@@ -595,10 +497,7 @@ export function DesignToken() {
                   'Respect motion reduction preferences.',
                   'Use consistent focus states across interactive elements.',
                 ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={item} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="flex items-start gap-3">
                       <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
                       <p className="leading-7 text-on-surface-variant">{item}</p>
@@ -610,15 +509,10 @@ export function DesignToken() {
           </section>
 
           {/* EXAMPLES */}
-          <section
-            id="examples"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="examples" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Composition
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Composition</div>
                 <h2 className="text-3xl font-black tracking-tight">Example UI Composition</h2>
               </div>
 
@@ -627,9 +521,7 @@ export function DesignToken() {
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <div className="text-2xl font-black">Analytics Dashboard</div>
-                      <div className="mt-2 text-on-surface-variant">
-                        Semantic layout using Omni surfaces.
-                      </div>
+                      <div className="mt-2 text-on-surface-variant">Semantic layout using Omni surfaces.</div>
                     </div>
 
                     <button className="rounded-2xl bg-primary px-4 py-3 font-semibold text-on-primary">
@@ -639,10 +531,7 @@ export function DesignToken() {
 
                   <div className="mt-8 grid gap-5 md:grid-cols-3">
                     {[1, 2, 3].map((item) => (
-                      <div
-                        key={item}
-                        className="rounded-2xl border border-outline/10 bg-surface-container p-5"
-                      >
+                      <div key={item} className="rounded-2xl border border-outline/10 bg-surface-container p-5">
                         <div className="text-sm text-on-surface-variant">Revenue</div>
                         <div className="mt-2 text-3xl font-black">$24.5k</div>
                       </div>
@@ -654,15 +543,10 @@ export function DesignToken() {
           </section>
 
           {/* GUIDELINES */}
-          <section
-            id="guidelines"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="guidelines" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Best Practices
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Best Practices</div>
                 <h2 className="text-3xl font-black tracking-tight">Guidelines</h2>
               </div>
 
@@ -694,7 +578,7 @@ export function DesignToken() {
         </main>
       </div>
     </div>
-  )
+  );
 }
 
 export const DESIGN_SYSTEM_TABS = [
@@ -742,4 +626,4 @@ export const DESIGN_SYSTEM_TABS = [
   // { id: 28, label: '', icon: '🏔️', content: <div></div> },
   // { id: 29, label: '', icon: '🏔️', content: <div></div> },
   // { id: 30, label: '', icon: '🏔️', content: <div></div> },
-]
+];

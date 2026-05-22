@@ -17,8 +17,8 @@ The variables that are defined with `var` statement have function scope.
 ```js
 for (var i = 0; i < 3; i++) {
   setTimeout(() => {
-    console.log(i) // 3, 3, 3
-  }, 2000)
+    console.log(i); // 3, 3, 3
+  }, 2000);
 }
 ```
 
@@ -27,8 +27,8 @@ The variables that are defined with let statement have block scope.
 ```js
 for (let i = 0; i < 3; i++) {
   setTimeout(() => {
-    console.log(i) // 0, 1, 2
-  }, 2000)
+    console.log(i); // 0, 1, 2
+  }, 2000);
 }
 ```
 
@@ -39,9 +39,9 @@ Referencing bar before it's been declare won't throw an error whereas foo does.
 ```js
 {
   // TDZ starts at beginning of scope
-  console.log(bar) // undefined
-  console.log(foo) // ReferenceError
-  var bar = 1
-  let foo = 2 // End of TDZ (for foo)
+  console.log(bar); // undefined
+  console.log(foo); // ReferenceError
+  var bar = 1;
+  let foo = 2; // End of TDZ (for foo)
 }
 ```

@@ -13,16 +13,7 @@ category: 'discrete_math'
 subCategory: 'sets'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'union',
-    'intersection',
-    'difference',
-    'complement',
-    'set-identities',
-    'de-morgan-laws',
-    'power-set',
-  ]
+leadsTo: ['union', 'intersection', 'difference', 'complement', 'set-identities', 'de-morgan-laws', 'power-set']
 related: ['set', 'subset', 'universal-set', 'empty-set']
 seeAlso:
   [

@@ -1,4 +1,4 @@
-import { List, ContextLabel } from './ContextLabel'
+import { List, ContextLabel } from './ContextLabel';
 
 function NestedOverlay() {
   return (
@@ -17,16 +17,14 @@ function NestedOverlay() {
         Nested Overlay B (inside red context)
       </div>
     </div>
-  )
+  );
 }
 
 export function Page5_SubtreeStackingContext() {
   return (
     <div className="relative h-screen w-screen bg-zinc-900 text-white overflow-hidden">
       {/* BASE LAYER (root stacking context) */}
-      <div className="absolute inset-0 bg-blue-900 flex items-center justify-center z-0 right-12">
-        BASE LAYER
-      </div>
+      <div className="absolute inset-0 bg-blue-900 flex items-center justify-center z-0 right-12">BASE LAYER</div>
 
       {/* 
         RED OVERLAY CONTEXT:
@@ -41,19 +39,15 @@ export function Page5_SubtreeStackingContext() {
       <div className="fixed inset-0 z-10 flex items-center justify-center pointer-events-none">
         <div className="bg-red-500 text-white px-6 py-6 w-72 h-44 shadow-2xl pointer-events-auto relative">
           {/* label (visual anchor) */}
-          <div className="absolute top-2 left-2 text-xs opacity-80">
-            OVERLAY A (creates stacking context: z-10)
-          </div>
+          <div className="absolute top-2 left-2 text-xs opacity-80">OVERLAY A (creates stacking context: z-10)</div>
 
           {/* center content */}
-          <div className="flex items-center justify-center h-full text-sm">
-            Parent Overlay (red context)
-          </div>
+          <div className="flex items-center justify-center h-full text-sm">Parent Overlay (red context)</div>
 
           {/* nested content (still INSIDE red stacking context) */}
           <NestedOverlay />
         </div>
       </div>
     </div>
-  )
+  );
 }

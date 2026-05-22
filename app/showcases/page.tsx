@@ -1,4 +1,4 @@
-import ShowcasePage from '../(lab)/workspaces/page'
+import ShowcasePage from '../(lab)/workspaces/page';
 
 export default function Page() {
   return (
@@ -8,5 +8,5 @@ export default function Page() {
         <ShowcasePage />
       </div>
     </div>
-  )
+  );
 }

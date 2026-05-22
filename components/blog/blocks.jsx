@@ -1,15 +1,15 @@
 // import { TagButton } from '../Taxonomy'
-import { SafeLink as Link } from '../mdx/Link'
-import { useScroll } from '@/providers/ScrollProvider'
+import { SafeLink as Link } from '../mdx/Link';
+import { useScroll } from '@/providers/ScrollProvider';
 
 // import { Image } from '../mdx'
 // import { CiCalendarDate } from 'react-icons/ci'
 // import PageTitle from '../../components/PageTitle'
 
-import { discussUrl, editUrl } from '../../lib/utils'
+import { discussUrl, editUrl } from '../../lib/utils';
 
 export function BlogHeader({ title, date }) {
-  const { shrunk } = useScroll()
+  const { shrunk } = useScroll();
 
   return (
     <header className="sticky top-0 z-30 border-b border-surface">
@@ -35,7 +35,7 @@ export function BlogHeader({ title, date }) {
         </time>
       </div>
     </header>
-  )
+  );
 }
 
 /* -----------------------------
@@ -48,14 +48,14 @@ export function BlogFooter({ slug, fileName }) {
       {' • '}
       <Link href={editUrl(fileName)}>Edit on GitHub</Link>
     </div>
-  )
+  );
 }
 
 /* -----------------------------
    Author Block
 ------------------------------ */
 export function AuthorBlock({ authors = [] }) {
-  return <div>hi</div>
+  return <div>hi</div>;
   // return (
   //   <dl className="border-slate-200 pb-10 pt-6 dark:border-slate-800 xl:border-b">
   //     <dt className="sr-only">Authors</dt>
@@ -92,7 +92,7 @@ export function AuthorBlock({ authors = [] }) {
    Tag Block
 ------------------------------ */
 export function TagBlock({ tags = [] }) {
-  if (!tags.length) return null
+  if (!tags.length) return null;
 
   return (
     <div className="xl:py-8">
@@ -103,14 +103,14 @@ export function TagBlock({ tags = [] }) {
         ))} */}
       </div>
     </div>
-  )
+  );
 }
 
 /* -----------------------------
    Nav Block (prev/next)
 ------------------------------ */
 export function NavBlock({ prev, next }) {
-  if (!prev && !next) return null
+  if (!prev && !next) return null;
 
   return (
     <div className="space-y-6 xl:py-8">
@@ -132,7 +132,7 @@ export function NavBlock({ prev, next }) {
         </div>
       )}
     </div>
-  )
+  );
 }
 
 /* -----------------------------
@@ -145,5 +145,5 @@ export function BackToBlog() {
         ← Back to blog
       </Link>
     </div>
-  )
+  );
 }

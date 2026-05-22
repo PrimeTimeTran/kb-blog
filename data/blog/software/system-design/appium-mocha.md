@@ -78,7 +78,7 @@ touch integration/android.js
 Appium doesn't support a hybrid driver for React Native yet. We have to initialize and run tests for Android & iOS separately.
 
 ```js
-const { remote } = require('webdriverio')
+const { remote } = require('webdriverio');
 
 // Configure the driver driver
 // Configs such as platform, activity, package, and automation name
@@ -89,35 +89,35 @@ const capabilities = {
   'appium:appActivity': '.MainActivity',
   'appium:automationName': 'UiAutomator2',
   'appium:appPackage': 'com.primetimetran.mobiletesting',
-}
+};
 
 const wdOpts = {
   capabilities,
   logLevel: 'debug',
   hostname: process.env.APPIUM_HOST || 'localhost',
   port: parseInt(process.env.APPIUM_PORT, 10) || 4723,
-}
+};
 
 // driver.$(...) is used to identify/select UI elements to test.
 // In this case we select the default text of a new RN project, "Open up App.js to start" & then click it.
 
 async function runTest() {
-  const driver = await remote(wdOpts)
+  const driver = await remote(wdOpts);
   try {
-    var el = await driver.$(`//*[contains(@text, "Open up App.js to start")]`)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
+    var el = await driver.$(`//*[contains(@text, "Open up App.js to start")]`);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
   } catch {
-    console.log('Error: Running Tests')
+    console.log('Error: Running Tests');
   }
 }
 
-runTest().catch(console.error)
+runTest().catch(console.error);
 ```
 
 ## Install development build on Android emulator and run first test
@@ -149,22 +149,20 @@ Appium can change the state of our application by performing any behavior a user
 // We add state to the App component for keeping track of the number of presses on the default/header text.
 // If the number of presses is even, we change the header text to blue.
 
-import { useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 export default function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => setCount(count + 1)}>
-        <Text style={count % 2 == 0 ? styles.blue : {}}>
-          Open up App.js to start working on your app!
-        </Text>
+        <Text style={count % 2 == 0 ? styles.blue : {}}>Open up App.js to start working on your app!</Text>
       </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -177,7 +175,7 @@ const styles = StyleSheet.create({
   blue: {
     color: '#4287f5',
   },
-})
+});
 ```
 
 Run the tests and observe the resulting behavior.
@@ -193,7 +191,7 @@ You should see that the log process opens up the Android app, runs the automatio
 We'll often need to slow down the testing process to give the app time to catchup as well as observe the UI behavior more easily.
 
 ```js
-const { remote } = require('webdriverio')
+const { remote } = require('webdriverio');
 
 const capabilities = {
   platformName: 'Android',
@@ -201,32 +199,32 @@ const capabilities = {
   'appium:appActivity': '.MainActivity',
   'appium:automationName': 'UiAutomator2',
   'appium:appPackage': 'com.primetimetran.mobiletesting',
-}
+};
 
 const wdOpts = {
   capabilities,
   logLevel: 'debug',
   hostname: process.env.APPIUM_HOST || 'localhost',
   port: parseInt(process.env.APPIUM_PORT, 10) || 4723,
-}
+};
 
 async function runTest() {
-  const driver = await remote(wdOpts)
+  const driver = await remote(wdOpts);
   try {
-    var el = await driver.$(`//*[contains(@text, "Open up App.js to start")]`)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
+    var el = await driver.$(`//*[contains(@text, "Open up App.js to start")]`);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
   } catch {
-    console.log('Error: Running Tests')
+    console.log('Error: Running Tests');
   }
 }
 
-runTest().catch(console.error)
+runTest().catch(console.error);
 ```
 
 We'll now see the header text oscillate between black & blue on clicks of the header text; **incredible**.
@@ -249,37 +247,37 @@ The purpose of this blog isn't to teach react so we'll describe the below at a 1
 - We define two text fields which capture the user's email & password.
 
 ```js
-import { useState } from 'react'
-import { StatusBar } from 'expo-status-bar'
-import { Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native'
+import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { Text, View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
 async function onSignIn(data) {
   fetch('https://httpbin.org/post', {
     method: 'POST',
     body: JSON.stringfy(data),
-  })
+  });
 }
 
 export default function App() {
-  const [count, setCount] = useState(0)
-  const [form, setForm] = useState({})
-  const [success, setSuccess] = useState(false)
+  const [count, setCount] = useState(0);
+  const [form, setForm] = useState({});
+  const [success, setSuccess] = useState(false);
 
   const onSubmit = async () => {
-    const errors = {}
+    const errors = {};
     try {
       // Submit email and password. If everything goes
       // well server side clear the form & navigate the user to a new screen.
-      const resp = await onSignIn({ email, password })
+      const resp = await onSignIn({ email, password });
       if (resp.code == 200) {
-        setForm({})
-        setSuccess(true)
+        setForm({});
+        setSuccess(true);
       }
     } catch (error) {
-      console.error('Error: fillAndSubmitForm', error)
+      console.error('Error: fillAndSubmitForm', error);
     } finally {
     }
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -307,7 +305,7 @@ export default function App() {
         <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 20 }}>Submit</Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -352,7 +350,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#4287f5',
   },
-})
+});
 ```
 
 Update the integration tests:
@@ -362,7 +360,7 @@ Update the integration tests:
 - Find the password input from the value of accessibilityLabel.
 
 ```js
-const { remote } = require('webdriverio')
+const { remote } = require('webdriverio');
 
 const capabilities = {
   platformName: 'Android',
@@ -370,56 +368,56 @@ const capabilities = {
   'appium:appActivity': '.MainActivity',
   'appium:automationName': 'UiAutomator2',
   'appium:appPackage': 'com.primetimetran.bttesting',
-}
+};
 
 const wdOpts = {
   capabilities,
   logLevel: 'debug',
   hostname: process.env.APPIUM_HOST || 'localhost',
   port: parseInt(process.env.APPIUM_PORT, 10) || 4723,
-}
+};
 
 async function runTest() {
-  const driver = await remote(wdOpts)
-  await changeColors(driver)
-  await fillAndSubmitForm(driver)
+  const driver = await remote(wdOpts);
+  await changeColors(driver);
+  await fillAndSubmitForm(driver);
 }
 
 async function changeColors(driver) {
   try {
-    var el = await driver.$(`//*[contains(@text, "My App")]`)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
-    await driver.pause(1000)
-    await el.click()
+    var el = await driver.$(`//*[contains(@text, "My App")]`);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
+    await driver.pause(1000);
+    await el.click();
   } catch (error) {
-    console.error('Error: changeColors', error)
+    console.error('Error: changeColors', error);
   } finally {
-    console.log('Success: changeColors')
+    console.log('Success: changeColors');
   }
 }
 
 async function fillAndSubmitForm(driver) {
   try {
-    const el = await driver.$('android=new UiSelector().description("emailTextInput")')
-    await el.setValue('dev@ltran.net')
+    const el = await driver.$('android=new UiSelector().description("emailTextInput")');
+    await el.setValue('dev@ltran.net');
 
-    const el2 = await driver.$('android=new UiSelector().description("passwordTextInput")')
-    await el2.setValue('Abc123!')
+    const el2 = await driver.$('android=new UiSelector().description("passwordTextInput")');
+    await el2.setValue('Abc123!');
 
-    const submitButton = await driver.$('android=new UiSelector().description("submitButton")')
-    await submitButton.click()
+    const submitButton = await driver.$('android=new UiSelector().description("submitButton")');
+    await submitButton.click();
   } catch (error) {
-    console.error('Error: fillAndSubmitForm', error)
+    console.error('Error: fillAndSubmitForm', error);
   } finally {
-    console.log('Success: fillAndSubmitForm')
+    console.log('Success: fillAndSubmitForm');
   }
 }
 
-runTest().catch(console.error)
+runTest().catch(console.error);
 ```
 
 When we run our tests now, we should see:
@@ -440,13 +438,13 @@ Run test again and notice we're navigated to the success screen. Incredible!
 Run the integration test with an invalid password and notice we get a prompt for the password.
 
 ```js
-await el2.setValue('Abc123')
+await el2.setValue('Abc123');
 ```
 
 Run the integration test with an invalid email and notice we get a prompt for the email.
 
 ```js
-await el.setValue('dev@ltran.net')
+await el.setValue('dev@ltran.net');
 ```
 
 These past two tests could be done easily with unit tests. We added them as proof of concept for inputting invalid data.
@@ -483,8 +481,8 @@ Mv to working directory of mobile-testing
 Copy over integration/ios.js
 
 ```js
-const assert = require('assert')
-const { remote } = require('webdriverio')
+const assert = require('assert');
+const { remote } = require('webdriverio');
 
 const capabilities = {
   platformName: 'iOS',
@@ -493,141 +491,141 @@ const capabilities = {
   'appium:deviceName': 'iPhone 14 Pro Max',
   'appium:bundleId': 'com.primetimetran.mobiletesting',
   'appium:app': `${process.env.HOME}/Desktop/work/mobiletesting/integration.ipa`,
-}
+};
 
 const wdOpts = {
   capabilities,
   logLevel: 'error',
   port: parseInt(process.env.APPIUM_PORT, 10) || 4723,
   hostname: process.env.APPIUM_HOST || 'localhost',
-}
+};
 
 describe('Auth screen', function () {
-  let driver
+  let driver;
 
   beforeEach(async function () {
-    this.timeout(20000)
-    driver = await remote(wdOpts)
-  })
+    this.timeout(20000);
+    driver = await remote(wdOpts);
+  });
 
   afterEach(async function () {
     if (driver) {
-      await driver.deleteSession()
+      await driver.deleteSession();
     }
-  })
+  });
 
   it('should display header', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~Open App`)
-      await el.waitForExist({ timeout: 10000 })
-      assert(el, 'Expected element to exist')
+      const el = await driver.$(`~Open App`);
+      await el.waitForExist({ timeout: 10000 });
+      assert(el, 'Expected element to exist');
     } catch (error) {
-      throw new Error('Error: should have header visible', error)
+      throw new Error('Error: should have header visible', error);
     }
-  })
+  });
 
   it('should change colors when clicked', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~Open App`)
-      await driver.pause(1000)
-      await el.click()
-      await driver.pause(1000)
-      await el.click()
-      await driver.pause(1000)
-      await el.click()
-      await driver.pause(1000)
-      await el.click()
-      await driver.pause(1000)
-      await el.click()
-      assert(el, 'Expected element to exist')
+      const el = await driver.$(`~Open App`);
+      await driver.pause(1000);
+      await el.click();
+      await driver.pause(1000);
+      await el.click();
+      await driver.pause(1000);
+      await el.click();
+      await driver.pause(1000);
+      await el.click();
+      await driver.pause(1000);
+      await el.click();
+      assert(el, 'Expected element to exist');
     } catch (error) {
-      throw new Error('Error: should change colors when clicked', error)
+      throw new Error('Error: should change colors when clicked', error);
     }
-  })
+  });
 
   it('should display an error message when an invalid email is entered', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~emailTextInput`)
-      await el.setValue('dev@ltran.net')
+      const el = await driver.$(`~emailTextInput`);
+      await el.setValue('dev@ltran.net');
 
-      const el2 = await driver.$(`~passwordTextInput`)
-      await el2.setValue('Abc123!')
+      const el2 = await driver.$(`~passwordTextInput`);
+      await el2.setValue('Abc123!');
 
-      const button = await driver.$(`~submitButton`)
-      await button.click()
-      const prompt = await driver.$(`~promptEmail`)
-      assert(prompt.elementId, 'Expected prompt to exist')
+      const button = await driver.$(`~submitButton`);
+      await button.click();
+      const prompt = await driver.$(`~promptEmail`);
+      assert(prompt.elementId, 'Expected prompt to exist');
     } catch (error) {
-      throw new Error('Error: should change colors when clicked', error)
+      throw new Error('Error: should change colors when clicked', error);
     }
-  })
+  });
 
   it('should display an error message when an invalid password is entered', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~emailTextInput`)
-      await el.setValue('dev@ltran.net')
+      const el = await driver.$(`~emailTextInput`);
+      await el.setValue('dev@ltran.net');
 
-      const el2 = await driver.$(`~passwordTextInput`)
-      await el2.setValue('Abc123')
+      const el2 = await driver.$(`~passwordTextInput`);
+      await el2.setValue('Abc123');
 
-      const button = await driver.$(`~submitButton`)
-      await button.click()
-      const prompt = await driver.$(`~promptPassword`)
-      assert(prompt.elementId, 'Expected prompt to exist')
+      const button = await driver.$(`~submitButton`);
+      await button.click();
+      const prompt = await driver.$(`~promptPassword`);
+      assert(prompt.elementId, 'Expected prompt to exist');
     } catch (error) {
-      throw new Error('Error: should change colors when clicked', error)
+      throw new Error('Error: should change colors when clicked', error);
     }
-  })
+  });
 
   it('should not display an error message when valid email & password is entered', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~emailTextInput`)
-      await el.setValue('dev@ltran.net')
+      const el = await driver.$(`~emailTextInput`);
+      await el.setValue('dev@ltran.net');
 
-      const el2 = await driver.$(`~passwordTextInput`)
-      await el2.setValue('Abc123!')
+      const el2 = await driver.$(`~passwordTextInput`);
+      await el2.setValue('Abc123!');
 
-      const button = await driver.$(`~submitButton`)
-      await button.click()
-      const prompt = await driver.$(`~promptEmail`)
-      assert(!prompt.elementId, 'Expected prompt not to exist')
+      const button = await driver.$(`~submitButton`);
+      await button.click();
+      const prompt = await driver.$(`~promptEmail`);
+      assert(!prompt.elementId, 'Expected prompt not to exist');
 
-      const prompt2 = await driver.$(`~promptPassword`)
-      assert(!prompt2.elementId, 'Expected prompt2 not to exist')
+      const prompt2 = await driver.$(`~promptPassword`);
+      assert(!prompt2.elementId, 'Expected prompt2 not to exist');
     } catch (error) {
-      throw new Error('Error: should change colors when clicked', error)
+      throw new Error('Error: should change colors when clicked', error);
     }
-  })
+  });
 
   it('should navigate to success screen after form is submitted', async function () {
-    this.timeout(9000)
+    this.timeout(9000);
     try {
-      const el = await driver.$(`~emailTextInput`)
-      await el.setValue('dev@ltran.net')
+      const el = await driver.$(`~emailTextInput`);
+      await el.setValue('dev@ltran.net');
 
-      const el2 = await driver.$(`~passwordTextInput`)
-      await el2.setValue('Abc123!')
+      const el2 = await driver.$(`~passwordTextInput`);
+      await el2.setValue('Abc123!');
 
-      const button = await driver.$(`~submitButton`)
-      await button.click()
-      const prompt = await driver.$(`~promptEmail`)
-      assert(!prompt.elementId, 'Expected prompt not to exist')
+      const button = await driver.$(`~submitButton`);
+      await button.click();
+      const prompt = await driver.$(`~promptEmail`);
+      assert(!prompt.elementId, 'Expected prompt not to exist');
 
-      const prompt2 = await driver.$(`~promptPassword`)
-      assert(!prompt2.elementId, 'Expected prompt2 not to exist')
+      const prompt2 = await driver.$(`~promptPassword`);
+      assert(!prompt2.elementId, 'Expected prompt2 not to exist');
 
-      const prompt3 = await driver.$(`~Success`)
-      assert(prompt3.elementId, 'Expected prompt to exist')
+      const prompt3 = await driver.$(`~Success`);
+      assert(prompt3.elementId, 'Expected prompt to exist');
     } catch (error) {
-      throw new Error('Error: should change colors when clicked', error)
+      throw new Error('Error: should change colors when clicked', error);
     }
-  })
-})
+  });
+});
 ```
 
 Install new dependencies

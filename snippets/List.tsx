@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 type ListProps = {
-  items: string[]
-  variant?: 'question' | 'statement' | 'explanation'
-  className?: string
-}
+  items: string[];
+  variant?: 'question' | 'statement' | 'explanation';
+  className?: string;
+};
 export function List({ items, variant = 'statement', className = '' }: ListProps) {
   return (
     <ul className={`mt-6 max-w-2xl space-y-3 pl-6 text-left text-lg list-disc ${className}`}>
@@ -23,5 +23,5 @@ export function List({ items, variant = 'statement', className = '' }: ListProps
         </li>
       ))}
     </ul>
-  )
+  );
 }

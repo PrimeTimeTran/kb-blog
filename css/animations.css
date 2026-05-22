@@ -238,13 +238,7 @@
 }
 
 .aurora-text {
-  background: radial-gradient(
-    200px circle at var(--x) var(--y),
-    #6750a4,
-    #5b5bd6,
-    #3b82f6,
-    transparent
-  );
+  background: radial-gradient(200px circle at var(--x) var(--y), #6750a4, #5b5bd6, #3b82f6, transparent);
   position: relative;
   background: linear-gradient(90deg, #6750a4, #5b5bd6, #3b82f6, #4f46e5);
 

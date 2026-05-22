@@ -3,17 +3,7 @@ draft: true
 date: 2016-01-01
 title: 'LeetCode: data-structures-algorithms'
 tags:
-  [
-    'leetcode',
-    'data structures algorithms',
-    'prefix sum',
-    'python',
-    'javascript',
-    'typescript',
-    'dart',
-    'java',
-    'go',
-  ]
+  ['leetcode', 'data structures algorithms', 'prefix sum', 'python', 'javascript', 'typescript', 'dart', 'java', 'go']
 summary: 'Solving programming problems in multiple languages to master syntax, data structures, and algorithms.'
 ---
 

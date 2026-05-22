@@ -12,7 +12,7 @@ tags: ['DEV']
 ```js
 function fancyAlert(arg) {
   if (arg) {
-    $.facebox({ div: '#foo' })
+    $.facebox({ div: '#foo' });
   }
 }
 ```
@@ -36,15 +36,15 @@ function fancyAlert(arg) {
 
 ```js showLineNumbers
 var twoSum = function (nums, target) {
-  var map = {}
-}
+  var map = {};
+};
 ```
 
 ## Show Line Numbers (js {1-5} showLineNumbers)
 
 ```js {1-4} showLineNumbers
-import mongoose, { Schema } from 'mongoose'
-import { Auditor } from './Audit'
+import mongoose, { Schema } from 'mongoose';
+import { Auditor } from './Audit';
 
 const userSchema = new Schema({
   email: {
@@ -56,5 +56,5 @@ const userSchema = new Schema({
   lastName: {
     type: String,
   },
-})
+});
 ```

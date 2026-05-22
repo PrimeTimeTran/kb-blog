@@ -1,18 +1,18 @@
-import React from 'react'
-import { RichTooltip } from '@/components/ToolTipRich'
+import React from 'react';
+import { RichTooltip } from '@/components/ToolTipRich';
 
 interface StyledButtonProps {
-  onClick: () => void
-  isActive: boolean
-  text?: string
-  count?: number | string // Support for the (n) count
-  tone?: 'success' | 'warning' | 'error' | 'default'
-  icon?: React.ReactNode
-  tooltipTitle?: string
-  tooltipDescription?: string
-  tooltipActions?: Array<{ label: string; icon: string; onClick: () => void }>
-  onTooltipAction?: () => void
-  className?: string
+  onClick: () => void;
+  isActive: boolean;
+  text?: string;
+  count?: number | string; // Support for the (n) count
+  tone?: 'success' | 'warning' | 'error' | 'default';
+  icon?: React.ReactNode;
+  tooltipTitle?: string;
+  tooltipDescription?: string;
+  tooltipActions?: Array<{ label: string; icon: string; onClick: () => void }>;
+  onTooltipAction?: () => void;
+  className?: string;
 }
 
 export function StyledButton({
@@ -51,9 +51,9 @@ export function StyledButton({
       container: 'var(--primary-container)',
       on: 'var(--on-primary-container)',
     },
-  }
+  };
 
-  const theme = themeMap[tone] || themeMap.default
+  const theme = themeMap[tone] || themeMap.default;
 
   // Define the Button JSX as a constant to keep the return clean
   const ButtonContent = (
@@ -64,9 +64,7 @@ export function StyledButton({
         {
           backgroundColor: isActive ? theme.container : 'transparent',
           color: isActive ? theme.on : `color-mix(in srgb, ${theme.color}, transparent 30%)`,
-          borderColor: isActive
-            ? 'transparent'
-            : `color-mix(in srgb, ${theme.color}, transparent 70%)`,
+          borderColor: isActive ? 'transparent' : `color-mix(in srgb, ${theme.color}, transparent 70%)`,
         } as React.CSSProperties
       }
       className={`
@@ -88,7 +86,7 @@ export function StyledButton({
         </span>
       )}
     </button>
-  )
+  );
 
   // Return with Tooltip wrap if data exists
   if (tooltipTitle || tooltipDescription) {
@@ -101,8 +99,8 @@ export function StyledButton({
       >
         {ButtonContent}
       </RichTooltip>
-    )
+    );
   }
 
-  return ButtonContent
+  return ButtonContent;
 }

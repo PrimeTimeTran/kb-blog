@@ -390,10 +390,7 @@
     {
       "from": "atom/cs/ai/ml/core/deep-learning",
       "raw": "transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "atom/cs/ai/ml/core/deep-learning",
@@ -414,10 +411,7 @@
     {
       "from": "atom/cs/ai/ml/core/neural-networks/neural networks",
       "raw": "Transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "atom/cs/ai/ml/core/neural-networks/neural networks",
@@ -550,10 +544,7 @@
     {
       "from": "atom/cs/ai/ml",
       "raw": "k-nearest-neighbors|K Nearest Neighbors (KNN)",
-      "candidates": [
-        "data/generated/term/k-nearest-neighbors",
-        "project/app/blog/data/term/k-nearest-neighbors"
-      ]
+      "candidates": ["data/generated/term/k-nearest-neighbors", "project/app/blog/data/term/k-nearest-neighbors"]
     },
     {
       "from": "atom/cs/ai/ml",
@@ -676,10 +667,7 @@
     {
       "from": "atom/cs/concepts/infosec/infosec",
       "raw": "NMap",
-      "candidates": [
-        "atom/cs/concepts/infosec/nmap",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/infosec/nmap"
-      ]
+      "candidates": ["atom/cs/concepts/infosec/nmap", "project/app/blog/omit/kb-restore/atom/cs/concepts/infosec/nmap"]
     },
     {
       "from": "atom/cs/concepts/networking/networking intro",
@@ -823,10 +811,7 @@
     {
       "from": "atom/cs/dsa/algorithm/dijkstras",
       "raw": "breadth-first-search|Breadth-First Search",
-      "candidates": [
-        "data/generated/term/breadth-first-search",
-        "project/app/blog/data/term/breadth-first-search"
-      ]
+      "candidates": ["data/generated/term/breadth-first-search", "project/app/blog/data/term/breadth-first-search"]
     },
     {
       "from": "atom/cs/dsa/algorithm/dijkstras",
@@ -944,18 +929,12 @@
     {
       "from": "atom/cs/networking",
       "raw": "osi-model|OSI Model",
-      "candidates": [
-        "atom/cs/networking/osi-model",
-        "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"
-      ]
+      "candidates": ["atom/cs/networking/osi-model", "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"]
     },
     {
       "from": "atom/cs/object-oriented-programming-oop",
       "raw": "Encapsulation",
-      "candidates": [
-        "data/generated/term/encapsulation",
-        "project/app/blog/data/term/encapsulation"
-      ]
+      "candidates": ["data/generated/term/encapsulation", "project/app/blog/data/term/encapsulation"]
     },
     {
       "from": "atom/cs/object-oriented-programming-oop",
@@ -1344,10 +1323,7 @@
     {
       "from": "atom/ee/electrical-components",
       "raw": "circuit-components",
-      "candidates": [
-        "atom/ee/circuit-components",
-        "project/app/blog/omit/kb-restore/atom/ee/circuit-components"
-      ]
+      "candidates": ["atom/ee/circuit-components", "project/app/blog/omit/kb-restore/atom/ee/circuit-components"]
     },
     {
       "from": "atom/business/new biz ideas/business idea - kitfit cosmetics",
@@ -2156,18 +2132,12 @@
     {
       "from": "atom/math/calc/core/multivariable/gradient",
       "raw": "partial-derivatives|Partial Derivatives",
-      "candidates": [
-        "data/generated/term/partial-derivatives",
-        "project/app/blog/data/term/partial-derivatives"
-      ]
+      "candidates": ["data/generated/term/partial-derivatives", "project/app/blog/data/term/partial-derivatives"]
     },
     {
       "from": "atom/math/calc/core/multivariable/gradient",
       "raw": "directional-derivative|Directional Derivatives",
-      "candidates": [
-        "data/generated/term/directional-derivative",
-        "project/app/blog/data/term/directional-derivative"
-      ]
+      "candidates": ["data/generated/term/directional-derivative", "project/app/blog/data/term/directional-derivative"]
     },
     {
       "from": "atom/math/calc/core/multivariable/gradient",
@@ -2204,10 +2174,7 @@
     {
       "from": "atom/math/calc/core/series/convergence-tests/comparison",
       "raw": "integral-test|Integral Test",
-      "candidates": [
-        "data/generated/term/integral-test",
-        "project/app/blog/data/term/integral-test"
-      ]
+      "candidates": ["data/generated/term/integral-test", "project/app/blog/data/term/integral-test"]
     },
     {
       "from": "atom/math/calc/core/series/convergence-tests/integral",
@@ -2230,10 +2197,7 @@
     {
       "from": "atom/math/calc/core/series/convergence-tests/limit-comparison",
       "raw": "comparison-test|Comparison Test",
-      "candidates": [
-        "data/generated/term/comparison-test",
-        "project/app/blog/data/term/comparison-test"
-      ]
+      "candidates": ["data/generated/term/comparison-test", "project/app/blog/data/term/comparison-test"]
     },
     {
       "from": "atom/math/calc/core/series/convergence-tests/root",
@@ -2290,10 +2254,7 @@
     {
       "from": "atom/math/calc/core/series/infinite-sum",
       "raw": "harmonic-series|harmonic series",
-      "candidates": [
-        "data/generated/term/harmonic-series",
-        "project/app/blog/data/term/harmonic-series"
-      ]
+      "candidates": ["data/generated/term/harmonic-series", "project/app/blog/data/term/harmonic-series"]
     },
     {
       "from": "atom/math/calc/core/series/infinite-sum",
@@ -2513,10 +2474,7 @@
     {
       "from": "atom/math/calc/meta/multivariable",
       "raw": "partial-derivatives|Partial Derivatives",
-      "candidates": [
-        "data/generated/term/partial-derivatives",
-        "project/app/blog/data/term/partial-derivatives"
-      ]
+      "candidates": ["data/generated/term/partial-derivatives", "project/app/blog/data/term/partial-derivatives"]
     },
     {
       "from": "atom/math/calc/meta/multivariable",
@@ -2624,18 +2582,12 @@
     {
       "from": "atom/math/concepts/proof",
       "raw": "axiom|Axiom",
-      "candidates": [
-        "atom/math/concepts/axiom",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"
-      ]
+      "candidates": ["atom/math/concepts/axiom", "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"]
     },
     {
       "from": "atom/math/concepts/proof",
       "raw": "theorem|Theorem",
-      "candidates": [
-        "atom/math/concepts/theorem",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"
-      ]
+      "candidates": ["atom/math/concepts/theorem", "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"]
     },
     {
       "from": "atom/math/concepts/trigonometric-function",
@@ -2701,18 +2653,12 @@
     {
       "from": "atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Kinematics",
-      "candidates": [
-        "atom/cs/concepts/kinematics",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/kinematics"
-      ]
+      "candidates": ["atom/cs/concepts/kinematics", "project/app/blog/omit/kb-restore/atom/cs/concepts/kinematics"]
     },
     {
       "from": "atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Thermodynamics",
-      "candidates": [
-        "atom/physics/thermodynamics",
-        "project/app/blog/omit/kb-restore/atom/physics/thermodynamics"
-      ]
+      "candidates": ["atom/physics/thermodynamics", "project/app/blog/omit/kb-restore/atom/physics/thermodynamics"]
     },
     {
       "from": "atom/math/prerequisites/phy 2048c - general physics 1",
@@ -2733,10 +2679,7 @@
     {
       "from": "atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Gauss's law",
-      "candidates": [
-        "atom/cs/concepts/gauss's law",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/gauss's law"
-      ]
+      "candidates": ["atom/cs/concepts/gauss's law", "project/app/blog/omit/kb-restore/atom/cs/concepts/gauss's law"]
     },
     {
       "from": "atom/math/prerequisites/phy 2048c - general physics 1",
@@ -2749,10 +2692,7 @@
     {
       "from": "atom/medicine/cancer-treatments",
       "raw": "Immunotherapy",
-      "candidates": [
-        "atom/medicine/immunotherapy",
-        "project/app/blog/omit/kb-restore/atom/medicine/immunotherapy"
-      ]
+      "candidates": ["atom/medicine/immunotherapy", "project/app/blog/omit/kb-restore/atom/medicine/immunotherapy"]
     },
     {
       "from": "atom/medicine",
@@ -2799,18 +2739,12 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "models",
-      "candidates": [
-        "atom/cs/ai/ml/models",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"
-      ]
+      "candidates": ["atom/cs/ai/ml/models", "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"]
     },
     {
       "from": "hub/cs/ai/ml",
       "raw": "models|Model",
-      "candidates": [
-        "atom/cs/ai/ml/models",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"
-      ]
+      "candidates": ["atom/cs/ai/ml/models", "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -2861,10 +2795,7 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "partial-derivatives|Partial Derivatives",
-      "candidates": [
-        "data/generated/term/partial-derivatives",
-        "project/app/blog/data/term/partial-derivatives"
-      ]
+      "candidates": ["data/generated/term/partial-derivatives", "project/app/blog/data/term/partial-derivatives"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -2877,10 +2808,7 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "Classification",
-      "candidates": [
-        "data/generated/term/classification",
-        "project/app/blog/data/term/classification"
-      ]
+      "candidates": ["data/generated/term/classification", "project/app/blog/data/term/classification"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -3013,10 +2941,7 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -3061,10 +2986,7 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "Transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -3085,10 +3007,7 @@
     {
       "from": "hub/cs/ai/ml",
       "raw": "models|Model",
-      "candidates": [
-        "atom/cs/ai/ml/models",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"
-      ]
+      "candidates": ["atom/cs/ai/ml/models", "project/app/blog/omit/kb-restore/atom/cs/ai/ml/models"]
     },
     {
       "from": "hub/cs/ai/ml",
@@ -3347,10 +3266,7 @@
     {
       "from": "hub/cs/dsa",
       "raw": "Floyd-Warshall",
-      "candidates": [
-        "data/generated/term/floyd-warshall",
-        "project/app/blog/data/term/floyd-warshall"
-      ]
+      "candidates": ["data/generated/term/floyd-warshall", "project/app/blog/data/term/floyd-warshall"]
     },
     {
       "from": "hub/cs/dsa",
@@ -3821,10 +3737,7 @@
     {
       "from": "hub/cs",
       "raw": "trigonometry|Trigonometry",
-      "candidates": [
-        "atom/math/trigonometry",
-        "project/app/blog/omit/kb-restore/atom/math/trigonometry"
-      ]
+      "candidates": ["atom/math/trigonometry", "project/app/blog/omit/kb-restore/atom/math/trigonometry"]
     },
     {
       "from": "hub/cs",
@@ -3948,10 +3861,7 @@
     {
       "from": "hub/ee",
       "raw": "classical-mechanics|Classical Mechanics",
-      "candidates": [
-        "atom/ee/classical-mechanics",
-        "project/app/blog/omit/kb-restore/atom/ee/classical-mechanics"
-      ]
+      "candidates": ["atom/ee/classical-mechanics", "project/app/blog/omit/kb-restore/atom/ee/classical-mechanics"]
     },
     {
       "from": "hub/ee",
@@ -3961,10 +3871,7 @@
     {
       "from": "hub/ee",
       "raw": "kirchhoffs-laws.md|Kirchhoff’s Laws",
-      "candidates": [
-        "atom/ee/kirchhoffs-laws",
-        "project/app/blog/omit/kb-restore/atom/ee/kirchhoffs-laws"
-      ]
+      "candidates": ["atom/ee/kirchhoffs-laws", "project/app/blog/omit/kb-restore/atom/ee/kirchhoffs-laws"]
     },
     {
       "from": "hub/ee",
@@ -3979,18 +3886,12 @@
     {
       "from": "hub/ee",
       "raw": "network-theorems|Network Theorems",
-      "candidates": [
-        "atom/ee/network-theorems",
-        "project/app/blog/omit/kb-restore/atom/ee/network-theorems"
-      ]
+      "candidates": ["atom/ee/network-theorems", "project/app/blog/omit/kb-restore/atom/ee/network-theorems"]
     },
     {
       "from": "hub/ee",
       "raw": "transient-analysis|Transient Analysis",
-      "candidates": [
-        "atom/ee/transient-analysis",
-        "project/app/blog/omit/kb-restore/atom/ee/transient-analysis"
-      ]
+      "candidates": ["atom/ee/transient-analysis", "project/app/blog/omit/kb-restore/atom/ee/transient-analysis"]
     },
     {
       "from": "hub/ee",
@@ -4083,10 +3984,7 @@
     {
       "from": "hub/career",
       "raw": "job-boards|Job Search",
-      "candidates": [
-        "atom/career/job-boards",
-        "project/app/blog/omit/kb-restore/atom/career/job-boards"
-      ]
+      "candidates": ["atom/career/job-boards", "project/app/blog/omit/kb-restore/atom/career/job-boards"]
     },
     {
       "from": "hub/career",
@@ -4123,10 +4021,7 @@
     {
       "from": "hub/finance/hedging-strategies",
       "raw": "Diversification",
-      "candidates": [
-        "data/generated/term/diversification",
-        "project/app/blog/data/term/diversification"
-      ]
+      "candidates": ["data/generated/term/diversification", "project/app/blog/data/term/diversification"]
     },
     {
       "from": "hub/finance/options",
@@ -4148,10 +4043,7 @@
     {
       "from": "hub/finance/risk-management",
       "raw": "Diversification",
-      "candidates": [
-        "data/generated/term/diversification",
-        "project/app/blog/data/term/diversification"
-      ]
+      "candidates": ["data/generated/term/diversification", "project/app/blog/data/term/diversification"]
     },
     {
       "from": "hub/finance",
@@ -4196,18 +4088,12 @@
     {
       "from": "hub/finance",
       "raw": "common-stock|Common Stock",
-      "candidates": [
-        "atom/finance/common-stock",
-        "project/app/blog/omit/kb-restore/atom/finance/common-stock"
-      ]
+      "candidates": ["atom/finance/common-stock", "project/app/blog/omit/kb-restore/atom/finance/common-stock"]
     },
     {
       "from": "hub/finance",
       "raw": "preferred-stock|Preferred Stock",
-      "candidates": [
-        "atom/finance/preferred-stock",
-        "project/app/blog/omit/kb-restore/atom/finance/preferred-stock"
-      ]
+      "candidates": ["atom/finance/preferred-stock", "project/app/blog/omit/kb-restore/atom/finance/preferred-stock"]
     },
     {
       "from": "hub/finance",
@@ -4231,18 +4117,12 @@
     {
       "from": "hub/finance",
       "raw": "equity-indices|Equity Indices",
-      "candidates": [
-        "atom/finance/equity-indices",
-        "project/app/blog/omit/kb-restore/atom/finance/equity-indices"
-      ]
+      "candidates": ["atom/finance/equity-indices", "project/app/blog/omit/kb-restore/atom/finance/equity-indices"]
     },
     {
       "from": "hub/finance",
       "raw": "government-bonds|Government Bonds",
-      "candidates": [
-        "atom/finance/government-bonds",
-        "project/app/blog/omit/kb-restore/atom/finance/government-bonds"
-      ]
+      "candidates": ["atom/finance/government-bonds", "project/app/blog/omit/kb-restore/atom/finance/government-bonds"]
     },
     {
       "from": "hub/finance",
@@ -4257,27 +4137,17 @@
     {
       "from": "hub/finance",
       "raw": "yield-curves|Yield Curves",
-      "candidates": [
-        "atom/finance/yield-curves",
-        "project/app/blog/omit/kb-restore/atom/finance/yield-curves"
-      ]
+      "candidates": ["atom/finance/yield-curves", "project/app/blog/omit/kb-restore/atom/finance/yield-curves"]
     },
     {
       "from": "hub/finance",
       "raw": "credit-spreads|Credit Spreads",
-      "candidates": [
-        "atom/finance/credit-spreads",
-        "project/app/blog/omit/kb-restore/atom/finance/credit-spreads"
-      ]
+      "candidates": ["atom/finance/credit-spreads", "project/app/blog/omit/kb-restore/atom/finance/credit-spreads"]
     },
     {
       "from": "hub/finance",
       "raw": "options",
-      "candidates": [
-        "data/generated/term/options",
-        "hub/finance/options",
-        "project/app/blog/data/term/options"
-      ]
+      "candidates": ["data/generated/term/options", "hub/finance/options", "project/app/blog/data/term/options"]
     },
     {
       "from": "hub/finance",
@@ -4291,10 +4161,7 @@
     {
       "from": "hub/finance",
       "raw": "forwards|Forwards",
-      "candidates": [
-        "atom/finance/forwards",
-        "project/app/blog/omit/kb-restore/atom/finance/forwards"
-      ]
+      "candidates": ["atom/finance/forwards", "project/app/blog/omit/kb-restore/atom/finance/forwards"]
     },
     {
       "from": "hub/finance",
@@ -4317,50 +4184,32 @@
     {
       "from": "hub/finance",
       "raw": "commercial-banks|Commercial Banks",
-      "candidates": [
-        "atom/finance/commercial-banks",
-        "project/app/blog/omit/kb-restore/atom/finance/commercial-banks"
-      ]
+      "candidates": ["atom/finance/commercial-banks", "project/app/blog/omit/kb-restore/atom/finance/commercial-banks"]
     },
     {
       "from": "hub/finance",
       "raw": "investment-banks|Investment Banks",
-      "candidates": [
-        "atom/finance/investment-banks",
-        "project/app/blog/omit/kb-restore/atom/finance/investment-banks"
-      ]
+      "candidates": ["atom/finance/investment-banks", "project/app/blog/omit/kb-restore/atom/finance/investment-banks"]
     },
     {
       "from": "hub/finance",
       "raw": "hedge-funds|Hedge Funds",
-      "candidates": [
-        "atom/finance/hedge-funds",
-        "project/app/blog/omit/kb-restore/atom/finance/hedge-funds"
-      ]
+      "candidates": ["atom/finance/hedge-funds", "project/app/blog/omit/kb-restore/atom/finance/hedge-funds"]
     },
     {
       "from": "hub/finance",
       "raw": "pension-funds|Pension Funds",
-      "candidates": [
-        "atom/finance/pension-funds",
-        "project/app/blog/omit/kb-restore/atom/finance/pension-funds"
-      ]
+      "candidates": ["atom/finance/pension-funds", "project/app/blog/omit/kb-restore/atom/finance/pension-funds"]
     },
     {
       "from": "hub/finance",
       "raw": "asset-managers|Asset Managers",
-      "candidates": [
-        "atom/finance/asset-managers",
-        "project/app/blog/omit/kb-restore/atom/finance/asset-managers"
-      ]
+      "candidates": ["atom/finance/asset-managers", "project/app/blog/omit/kb-restore/atom/finance/asset-managers"]
     },
     {
       "from": "hub/finance",
       "raw": "broker-dealers|Broker Dealers",
-      "candidates": [
-        "atom/finance/broker-dealers",
-        "project/app/blog/omit/kb-restore/atom/finance/broker-dealers"
-      ]
+      "candidates": ["atom/finance/broker-dealers", "project/app/blog/omit/kb-restore/atom/finance/broker-dealers"]
     },
     {
       "from": "hub/finance",
@@ -4375,10 +4224,7 @@
     {
       "from": "hub/finance",
       "raw": "payback-period|Payback Period",
-      "candidates": [
-        "atom/finance/payback-period",
-        "project/app/blog/omit/kb-restore/atom/finance/payback-period"
-      ]
+      "candidates": ["atom/finance/payback-period", "project/app/blog/omit/kb-restore/atom/finance/payback-period"]
     },
     {
       "from": "hub/finance",
@@ -4391,26 +4237,17 @@
     {
       "from": "hub/finance",
       "raw": "real-options|Real Options",
-      "candidates": [
-        "atom/finance/real-options",
-        "project/app/blog/omit/kb-restore/atom/finance/real-options"
-      ]
+      "candidates": ["atom/finance/real-options", "project/app/blog/omit/kb-restore/atom/finance/real-options"]
     },
     {
       "from": "hub/finance",
       "raw": "equity-issuance|Equity Issurance",
-      "candidates": [
-        "atom/finance/equity-issuance",
-        "project/app/blog/omit/kb-restore/atom/finance/equity-issuance"
-      ]
+      "candidates": ["atom/finance/equity-issuance", "project/app/blog/omit/kb-restore/atom/finance/equity-issuance"]
     },
     {
       "from": "hub/finance",
       "raw": "debt-issuance|Debt Issuance",
-      "candidates": [
-        "atom/finance/debt-issuance",
-        "project/app/blog/omit/kb-restore/atom/finance/debt-issuance"
-      ]
+      "candidates": ["atom/finance/debt-issuance", "project/app/blog/omit/kb-restore/atom/finance/debt-issuance"]
     },
     {
       "from": "hub/finance",
@@ -4444,10 +4281,7 @@
     {
       "from": "hub/finance",
       "raw": "buybacks|Buybacks",
-      "candidates": [
-        "atom/finance/buybacks",
-        "project/app/blog/omit/kb-restore/atom/finance/buybacks"
-      ]
+      "candidates": ["atom/finance/buybacks", "project/app/blog/omit/kb-restore/atom/finance/buybacks"]
     },
     {
       "from": "hub/finance",
@@ -4465,11 +4299,7 @@
     {
       "from": "hub/finance",
       "raw": "options|Options",
-      "candidates": [
-        "data/generated/term/options",
-        "hub/finance/options",
-        "project/app/blog/data/term/options"
-      ]
+      "candidates": ["data/generated/term/options", "hub/finance/options", "project/app/blog/data/term/options"]
     },
     {
       "from": "hub/finance",
@@ -4483,10 +4313,7 @@
     {
       "from": "hub/finance",
       "raw": "forwards",
-      "candidates": [
-        "atom/finance/forwards",
-        "project/app/blog/omit/kb-restore/atom/finance/forwards"
-      ]
+      "candidates": ["atom/finance/forwards", "project/app/blog/omit/kb-restore/atom/finance/forwards"]
     },
     {
       "from": "hub/finance",
@@ -4501,26 +4328,17 @@
     {
       "from": "hub/finance",
       "raw": "strike price|Strike Price",
-      "candidates": [
-        "atom/finance/strike price",
-        "project/app/blog/omit/kb-restore/atom/finance/strike price"
-      ]
+      "candidates": ["atom/finance/strike price", "project/app/blog/omit/kb-restore/atom/finance/strike price"]
     },
     {
       "from": "hub/finance",
       "raw": "expiration|Expiration",
-      "candidates": [
-        "atom/finance/expiration",
-        "project/app/blog/omit/kb-restore/atom/finance/expiration"
-      ]
+      "candidates": ["atom/finance/expiration", "project/app/blog/omit/kb-restore/atom/finance/expiration"]
     },
     {
       "from": "hub/finance",
       "raw": "moneyness|Moneyness",
-      "candidates": [
-        "atom/finance/moneyness",
-        "project/app/blog/omit/kb-restore/atom/finance/moneyness"
-      ]
+      "candidates": ["atom/finance/moneyness", "project/app/blog/omit/kb-restore/atom/finance/moneyness"]
     },
     {
       "from": "hub/finance",
@@ -4573,10 +4391,7 @@
     {
       "from": "hub/math/algebra",
       "raw": "trigonometry|Trigonometry Hub",
-      "candidates": [
-        "atom/math/trigonometry",
-        "project/app/blog/omit/kb-restore/atom/math/trigonometry"
-      ]
+      "candidates": ["atom/math/trigonometry", "project/app/blog/omit/kb-restore/atom/math/trigonometry"]
     },
     {
       "from": "hub/math/calc/calculus-2",
@@ -4660,10 +4475,7 @@
     {
       "from": "hub/math/calc/calculus-2",
       "raw": "partial-fractions|Partial Fraction Decomposition",
-      "candidates": [
-        "data/generated/term/partial-fractions",
-        "project/app/blog/data/term/partial-fractions"
-      ]
+      "candidates": ["data/generated/term/partial-fractions", "project/app/blog/data/term/partial-fractions"]
     },
     {
       "from": "hub/math/calc/calculus-2",
@@ -4878,10 +4690,7 @@
     {
       "from": "hub/math/calc/calculus-2",
       "raw": "partial-fractions",
-      "candidates": [
-        "data/generated/term/partial-fractions",
-        "project/app/blog/data/term/partial-fractions"
-      ]
+      "candidates": ["data/generated/term/partial-fractions", "project/app/blog/data/term/partial-fractions"]
     },
     {
       "from": "hub/math/calc/calculus-2",
@@ -4954,10 +4763,7 @@
     {
       "from": "hub/math/calc/calculus-2",
       "raw": "trigonometry|Trigonometry Hub",
-      "candidates": [
-        "atom/math/trigonometry",
-        "project/app/blog/omit/kb-restore/atom/math/trigonometry"
-      ]
+      "candidates": ["atom/math/trigonometry", "project/app/blog/omit/kb-restore/atom/math/trigonometry"]
     },
     {
       "from": "hub/math/calc/calculus-2",
@@ -5230,10 +5036,7 @@
     {
       "from": "hub/math/calc/definite-and-indefinite-integrals",
       "raw": "Differentiation",
-      "candidates": [
-        "pattern/math/differentiation",
-        "project/app/blog/data/blog/maths/calculus/differentiation"
-      ]
+      "candidates": ["pattern/math/differentiation", "project/app/blog/data/blog/maths/calculus/differentiation"]
     },
     {
       "from": "hub/math/calc/limits",
@@ -5888,10 +5691,7 @@
     {
       "from": "hub/math/calculus",
       "raw": "theorem",
-      "candidates": [
-        "atom/math/concepts/theorem",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"
-      ]
+      "candidates": ["atom/math/concepts/theorem", "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"]
     },
     {
       "from": "hub/math/calculus",
@@ -6087,18 +5887,12 @@
     {
       "from": "hub/math",
       "raw": "axiom",
-      "candidates": [
-        "atom/math/concepts/axiom",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"
-      ]
+      "candidates": ["atom/math/concepts/axiom", "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"]
     },
     {
       "from": "hub/math",
       "raw": "theorem",
-      "candidates": [
-        "atom/math/concepts/theorem",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"
-      ]
+      "candidates": ["atom/math/concepts/theorem", "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"]
     },
     {
       "from": "hub/math",
@@ -6166,10 +5960,7 @@
     {
       "from": "hub/math",
       "raw": "numerical-methods|Numerical Methods Hub",
-      "candidates": [
-        "data/generated/term/numerical-methods",
-        "project/app/blog/data/term/numerical-methods"
-      ]
+      "candidates": ["data/generated/term/numerical-methods", "project/app/blog/data/term/numerical-methods"]
     },
     {
       "from": "hub/math",
@@ -6246,10 +6037,7 @@
     {
       "from": "hub/networking",
       "raw": "osi-model|OSI model",
-      "candidates": [
-        "atom/cs/networking/osi-model",
-        "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"
-      ]
+      "candidates": ["atom/cs/networking/osi-model", "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"]
     },
     {
       "from": "hub/networking",
@@ -6326,50 +6114,32 @@
     {
       "from": "journal/26/04/19",
       "raw": "gratitude-journal|gratitude journal structure",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "journal/26/04/20",
       "raw": "gratitude-journal|gratitude journal structure",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "journal/26/04/21",
       "raw": "gratitude-journal|gratitude journal structure",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "journal/26/04/29",
       "raw": "gratitude-journal|gratitude journal structure",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "journal/26/05/03",
       "raw": "gratitude-journal",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "journal/26/05/06",
       "raw": "gratitude-journal",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "meta/thesis",
@@ -6379,10 +6149,7 @@
     {
       "from": "meta/thesis",
       "raw": "classification",
-      "candidates": [
-        "data/generated/term/classification",
-        "project/app/blog/data/term/classification"
-      ]
+      "candidates": ["data/generated/term/classification", "project/app/blog/data/term/classification"]
     },
     {
       "from": "meta/tools",
@@ -6514,10 +6281,7 @@
     {
       "from": "pattern/math/integration-strategy-selection",
       "raw": "partial-fractions",
-      "candidates": [
-        "data/generated/term/partial-fractions",
-        "project/app/blog/data/term/partial-fractions"
-      ]
+      "candidates": ["data/generated/term/partial-fractions", "project/app/blog/data/term/partial-fractions"]
     },
     {
       "from": "pattern/math/integration-strategy-selection",
@@ -6532,10 +6296,7 @@
     {
       "from": "project/app/blog/data/blog/finance/quant/calculus-for-quants",
       "raw": "differentiation\\|Differentiation",
-      "candidates": [
-        "pattern/math/differentiation",
-        "project/app/blog/data/blog/maths/calculus/differentiation"
-      ]
+      "candidates": ["pattern/math/differentiation", "project/app/blog/data/blog/maths/calculus/differentiation"]
     },
     {
       "from": "project/app/blog/data/blog/finance/quant/calculus-for-quants",
@@ -7057,10 +6818,7 @@
     {
       "from": "project/app/blog/data/kb/hub/cs",
       "raw": "trigonometry|Trigonometry",
-      "candidates": [
-        "atom/math/trigonometry",
-        "project/app/blog/omit/kb-restore/atom/math/trigonometry"
-      ]
+      "candidates": ["atom/math/trigonometry", "project/app/blog/omit/kb-restore/atom/math/trigonometry"]
     },
     {
       "from": "project/app/blog/data/kb/hub/cs",
@@ -7250,10 +7008,7 @@
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
       "raw": "partial-fractions|Partial Fraction Decomposition",
-      "candidates": [
-        "data/generated/term/partial-fractions",
-        "project/app/blog/data/term/partial-fractions"
-      ]
+      "candidates": ["data/generated/term/partial-fractions", "project/app/blog/data/term/partial-fractions"]
     },
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
@@ -7468,10 +7223,7 @@
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
       "raw": "partial-fractions",
-      "candidates": [
-        "data/generated/term/partial-fractions",
-        "project/app/blog/data/term/partial-fractions"
-      ]
+      "candidates": ["data/generated/term/partial-fractions", "project/app/blog/data/term/partial-fractions"]
     },
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
@@ -7544,10 +7296,7 @@
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
       "raw": "trigonometry|Trigonometry Hub",
-      "candidates": [
-        "atom/math/trigonometry",
-        "project/app/blog/omit/kb-restore/atom/math/trigonometry"
-      ]
+      "candidates": ["atom/math/trigonometry", "project/app/blog/omit/kb-restore/atom/math/trigonometry"]
     },
     {
       "from": "project/app/blog/data/kb/hub/math/calc/calculus-2",
@@ -8374,10 +8123,7 @@
     {
       "from": "project/app/blog/data/kb/hub/math/calculus",
       "raw": "theorem",
-      "candidates": [
-        "atom/math/concepts/theorem",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"
-      ]
+      "candidates": ["atom/math/concepts/theorem", "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"]
     },
     {
       "from": "project/app/blog/data/kb/hub/math/calculus",
@@ -9143,10 +8889,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml/core/deep-learning",
       "raw": "transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml/core/deep-learning",
@@ -9167,10 +8910,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml/core/neural-networks/neural networks",
       "raw": "Transformers",
-      "candidates": [
-        "atom/cs/ai/transformers",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"
-      ]
+      "candidates": ["atom/cs/ai/transformers", "project/app/blog/omit/kb-restore/atom/cs/ai/transformers"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml/core/neural-networks/neural networks",
@@ -9303,10 +9043,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml",
       "raw": "k-nearest-neighbors|K Nearest Neighbors (KNN)",
-      "candidates": [
-        "data/generated/term/k-nearest-neighbors",
-        "project/app/blog/data/term/k-nearest-neighbors"
-      ]
+      "candidates": ["data/generated/term/k-nearest-neighbors", "project/app/blog/data/term/k-nearest-neighbors"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/ai/ml",
@@ -9429,10 +9166,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/concepts/infosec/infosec",
       "raw": "NMap",
-      "candidates": [
-        "atom/cs/concepts/infosec/nmap",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/infosec/nmap"
-      ]
+      "candidates": ["atom/cs/concepts/infosec/nmap", "project/app/blog/omit/kb-restore/atom/cs/concepts/infosec/nmap"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/concepts/networking/networking intro",
@@ -9576,10 +9310,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/dsa/algorithm/dijkstras",
       "raw": "breadth-first-search|Breadth-First Search",
-      "candidates": [
-        "data/generated/term/breadth-first-search",
-        "project/app/blog/data/term/breadth-first-search"
-      ]
+      "candidates": ["data/generated/term/breadth-first-search", "project/app/blog/data/term/breadth-first-search"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/dsa/algorithm/dijkstras",
@@ -9697,18 +9428,12 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/networking",
       "raw": "osi-model|OSI Model",
-      "candidates": [
-        "atom/cs/networking/osi-model",
-        "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"
-      ]
+      "candidates": ["atom/cs/networking/osi-model", "project/app/blog/omit/kb-restore/atom/cs/networking/osi-model"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/object-oriented-programming-oop",
       "raw": "Encapsulation",
-      "candidates": [
-        "data/generated/term/encapsulation",
-        "project/app/blog/data/term/encapsulation"
-      ]
+      "candidates": ["data/generated/term/encapsulation", "project/app/blog/data/term/encapsulation"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/cs/object-oriented-programming-oop",
@@ -10097,10 +9822,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/ee/electrical-components",
       "raw": "circuit-components",
-      "candidates": [
-        "atom/ee/circuit-components",
-        "project/app/blog/omit/kb-restore/atom/ee/circuit-components"
-      ]
+      "candidates": ["atom/ee/circuit-components", "project/app/blog/omit/kb-restore/atom/ee/circuit-components"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/business/new biz ideas/business idea - kitfit cosmetics",
@@ -10909,18 +10631,12 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/multivariable/gradient",
       "raw": "partial-derivatives|Partial Derivatives",
-      "candidates": [
-        "data/generated/term/partial-derivatives",
-        "project/app/blog/data/term/partial-derivatives"
-      ]
+      "candidates": ["data/generated/term/partial-derivatives", "project/app/blog/data/term/partial-derivatives"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/multivariable/gradient",
       "raw": "directional-derivative|Directional Derivatives",
-      "candidates": [
-        "data/generated/term/directional-derivative",
-        "project/app/blog/data/term/directional-derivative"
-      ]
+      "candidates": ["data/generated/term/directional-derivative", "project/app/blog/data/term/directional-derivative"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/multivariable/gradient",
@@ -10957,10 +10673,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/convergence-tests/comparison",
       "raw": "integral-test|Integral Test",
-      "candidates": [
-        "data/generated/term/integral-test",
-        "project/app/blog/data/term/integral-test"
-      ]
+      "candidates": ["data/generated/term/integral-test", "project/app/blog/data/term/integral-test"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/convergence-tests/integral",
@@ -10983,10 +10696,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/convergence-tests/limit-comparison",
       "raw": "comparison-test|Comparison Test",
-      "candidates": [
-        "data/generated/term/comparison-test",
-        "project/app/blog/data/term/comparison-test"
-      ]
+      "candidates": ["data/generated/term/comparison-test", "project/app/blog/data/term/comparison-test"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/convergence-tests/root",
@@ -11043,10 +10753,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/infinite-sum",
       "raw": "harmonic-series|harmonic series",
-      "candidates": [
-        "data/generated/term/harmonic-series",
-        "project/app/blog/data/term/harmonic-series"
-      ]
+      "candidates": ["data/generated/term/harmonic-series", "project/app/blog/data/term/harmonic-series"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/core/series/infinite-sum",
@@ -11266,10 +10973,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/meta/multivariable",
       "raw": "partial-derivatives|Partial Derivatives",
-      "candidates": [
-        "data/generated/term/partial-derivatives",
-        "project/app/blog/data/term/partial-derivatives"
-      ]
+      "candidates": ["data/generated/term/partial-derivatives", "project/app/blog/data/term/partial-derivatives"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/calc/meta/multivariable",
@@ -11377,18 +11081,12 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/concepts/proof",
       "raw": "axiom|Axiom",
-      "candidates": [
-        "atom/math/concepts/axiom",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"
-      ]
+      "candidates": ["atom/math/concepts/axiom", "project/app/blog/omit/kb-restore/atom/math/concepts/axiom"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/concepts/proof",
       "raw": "theorem|Theorem",
-      "candidates": [
-        "atom/math/concepts/theorem",
-        "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"
-      ]
+      "candidates": ["atom/math/concepts/theorem", "project/app/blog/omit/kb-restore/atom/math/concepts/theorem"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/concepts/trigonometric-function",
@@ -11454,18 +11152,12 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Kinematics",
-      "candidates": [
-        "atom/cs/concepts/kinematics",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/kinematics"
-      ]
+      "candidates": ["atom/cs/concepts/kinematics", "project/app/blog/omit/kb-restore/atom/cs/concepts/kinematics"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Thermodynamics",
-      "candidates": [
-        "atom/physics/thermodynamics",
-        "project/app/blog/omit/kb-restore/atom/physics/thermodynamics"
-      ]
+      "candidates": ["atom/physics/thermodynamics", "project/app/blog/omit/kb-restore/atom/physics/thermodynamics"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/prerequisites/phy 2048c - general physics 1",
@@ -11486,10 +11178,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/prerequisites/phy 2048c - general physics 1",
       "raw": "Gauss's law",
-      "candidates": [
-        "atom/cs/concepts/gauss's law",
-        "project/app/blog/omit/kb-restore/atom/cs/concepts/gauss's law"
-      ]
+      "candidates": ["atom/cs/concepts/gauss's law", "project/app/blog/omit/kb-restore/atom/cs/concepts/gauss's law"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/math/prerequisites/phy 2048c - general physics 1",
@@ -11502,10 +11191,7 @@
     {
       "from": "project/app/blog/omit/kb-restore/atom/medicine/cancer-treatments",
       "raw": "Immunotherapy",
-      "candidates": [
-        "atom/medicine/immunotherapy",
-        "project/app/blog/omit/kb-restore/atom/medicine/immunotherapy"
-      ]
+      "candidates": ["atom/medicine/immunotherapy", "project/app/blog/omit/kb-restore/atom/medicine/immunotherapy"]
     },
     {
       "from": "project/app/blog/omit/kb-restore/atom/medicine",
@@ -11621,10 +11307,7 @@
     {
       "from": "project/kb/calculus-video-reviews/overview foolish chemist",
       "raw": "ML Maths|machine learning",
-      "candidates": [
-        "atom/cs/ai/ml/ml maths",
-        "project/app/blog/omit/kb-restore/atom/cs/ai/ml/ml maths"
-      ]
+      "candidates": ["atom/cs/ai/ml/ml maths", "project/app/blog/omit/kb-restore/atom/cs/ai/ml/ml maths"]
     },
     {
       "from": "project/kb/workbook/7-rules-derivatives-2",
@@ -12002,10 +11685,7 @@
     {
       "from": "reference/preview-better-comments",
       "raw": "atomic-habits",
-      "candidates": [
-        "atom/books/atomic-habits",
-        "project/app/blog/omit/kb-restore/atom/books/atomic-habits"
-      ]
+      "candidates": ["atom/books/atomic-habits", "project/app/blog/omit/kb-restore/atom/books/atomic-habits"]
     },
     {
       "from": "reference/preview-better-comments",
@@ -12018,10 +11698,7 @@
     {
       "from": "reference/preview-better-comments",
       "raw": "gratitude-journal",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "reference/preview-better-comments",
@@ -12153,11 +11830,7 @@
     {
       "from": "reference/preview-better-comments",
       "raw": "options|Options",
-      "candidates": [
-        "data/generated/term/options",
-        "hub/finance/options",
-        "project/app/blog/data/term/options"
-      ]
+      "candidates": ["data/generated/term/options", "hub/finance/options", "project/app/blog/data/term/options"]
     },
     {
       "from": "reference/preview-better-comments",
@@ -12273,10 +11946,7 @@
     {
       "from": "reference/preview-better-comments",
       "raw": "check-list",
-      "candidates": [
-        "atom/influencer/check-list",
-        "project/app/blog/omit/kb-restore/atom/influencer/check-list"
-      ]
+      "candidates": ["atom/influencer/check-list", "project/app/blog/omit/kb-restore/atom/influencer/check-list"]
     },
     {
       "from": "table-of-contents",
@@ -12306,10 +11976,7 @@
     {
       "from": "template/journal",
       "raw": "gratitude-journal",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "template/problems-template",
@@ -12344,10 +12011,7 @@
     {
       "from": "toc",
       "raw": "atomic-habits",
-      "candidates": [
-        "atom/books/atomic-habits",
-        "project/app/blog/omit/kb-restore/atom/books/atomic-habits"
-      ]
+      "candidates": ["atom/books/atomic-habits", "project/app/blog/omit/kb-restore/atom/books/atomic-habits"]
     },
     {
       "from": "toc",
@@ -12360,10 +12024,7 @@
     {
       "from": "toc",
       "raw": "gratitude-journal",
-      "candidates": [
-        "atom/char/gratitude-journal",
-        "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"
-      ]
+      "candidates": ["atom/char/gratitude-journal", "project/app/blog/omit/kb-restore/atom/char/gratitude-journal"]
     },
     {
       "from": "toc",
@@ -12495,11 +12156,7 @@
     {
       "from": "toc",
       "raw": "options|Options",
-      "candidates": [
-        "data/generated/term/options",
-        "hub/finance/options",
-        "project/app/blog/data/term/options"
-      ]
+      "candidates": ["data/generated/term/options", "hub/finance/options", "project/app/blog/data/term/options"]
     },
     {
       "from": "toc",
@@ -12615,10 +12272,7 @@
     {
       "from": "toc",
       "raw": "check-list",
-      "candidates": [
-        "atom/influencer/check-list",
-        "project/app/blog/omit/kb-restore/atom/influencer/check-list"
-      ]
+      "candidates": ["atom/influencer/check-list", "project/app/blog/omit/kb-restore/atom/influencer/check-list"]
     },
     {
       "from": "tool/linux/tools-reference",

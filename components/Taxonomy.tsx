@@ -1,17 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
-import { slug } from 'github-slugger'
+import React from 'react';
+import Link from 'next/link';
+import { slug } from 'github-slugger';
 
-export type TagMap = Record<string, number>
-export type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>
+export type TagMap = Record<string, number>;
+export type IconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
 type TagButtonProps = {
-  label: string
-  tailDecoration?: React.ReactNode
-  active?: boolean
-  disabled?: boolean
-  onClick?: React.MouseEventHandler<HTMLButtonElement>
-}
+  label: string;
+  tailDecoration?: React.ReactNode;
+  active?: boolean;
+  disabled?: boolean;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+};
 
 export function TagButton({
   label,
@@ -34,16 +34,16 @@ export function TagButton({
       <span className="chip-label">{label}</span>
       {tailDecoration !== undefined && <span className="chip-badge">{tailDecoration}</span>}
     </button>
-  )
+  );
 }
 type TagLinkProps = {
-  text: string
-  count?: number
-  href?: string
-}
+  text: string;
+  count?: number;
+  href?: string;
+};
 
 export function TagLink({ text, count, href }: TagLinkProps) {
-  const url = href ?? `/tags/${slug(text)}`
+  const url = href ?? `/tags/${slug(text)}`;
 
   return (
     <Link
@@ -59,34 +59,34 @@ export function TagLink({ text, count, href }: TagLinkProps) {
       <span>{text}</span>
       {count && <span className="text-xs opacity-70">({count})</span>}
     </Link>
-  )
+  );
 }
 
 type TagListProps = {
-  tags: string[]
-  tag: string
-}
+  tags: string[];
+  tag: string;
+};
 
 export function TagList({ tags, tag }: TagListProps) {
   return (
     <div key={tag}>
       <TagLink text={tag} count={tags[tag]} />
     </div>
-  )
+  );
 }
 
 type CategoryProps = {
-  title: string
-  tags: TagMap
-  sortedTags?: string[]
-  filter: string[]
-  icon?: IconComponent
-}
+  title: string;
+  tags: TagMap;
+  sortedTags?: string[];
+  filter: string[];
+  icon?: IconComponent;
+};
 
 export function Category({ title, tags, sortedTags, filter, icon: Icon }: CategoryProps) {
-  const [open, setOpen] = React.useState<boolean>(true)
+  const [open, setOpen] = React.useState<boolean>(true);
 
-  const categoryTags = (sortedTags ?? []).filter((t) => filter.includes(t.toLowerCase()))
+  const categoryTags = (sortedTags ?? []).filter((t) => filter.includes(t.toLowerCase()));
 
   return (
     <div className="w-full border-b border-outline-variant py-3 card bg-surface">
@@ -95,9 +95,7 @@ export function Category({ title, tags, sortedTags, filter, icon: Icon }: Catego
           <div className="flex items-center gap-2">
             {Icon && <Icon className="w-5 h-5 text-on-surface-variant" />}
 
-            <h2 className="text-xl font-semibold text-on-surface hover:text-primary transition-colors">
-              {title}
-            </h2>
+            <h2 className="text-xl font-semibold text-on-surface hover:text-primary transition-colors">{title}</h2>
           </div>
 
           <span className="text-sm text-on-surface-variant">
@@ -119,5 +117,5 @@ export function Category({ title, tags, sortedTags, filter, icon: Icon }: Catego
         </div>
       </div>
     </div>
-  )
+  );
 }

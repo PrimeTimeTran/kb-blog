@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react'
-import { HiCube, HiSun, HiMoon } from 'react-icons/hi2'
-import { motion } from 'framer-motion'
-import { useTheme } from '@teispace/next-themes'
-import { OmniPanel } from '@/components/OmniPanel'
-import { BaseScroll } from '@/components/BaseScroll'
+import React, { useState } from 'react';
+import { HiCube, HiSun, HiMoon } from 'react-icons/hi2';
+import { motion } from 'framer-motion';
+import { useTheme } from '@teispace/next-themes';
+import { OmniPanel } from '@/components/OmniPanel';
+import { BaseScroll } from '@/components/BaseScroll';
 
 export function OmniShowcase() {
-  const [currentTab, setCurrentTab] = useState('default')
-  const { setTheme, resolvedTheme } = useTheme()
+  const [currentTab, setCurrentTab] = useState('default');
+  const { setTheme, resolvedTheme } = useTheme();
 
   return (
     <div className="h-full min-h-0 flex flex-col">
@@ -28,9 +28,7 @@ export function OmniShowcase() {
                       {resolvedTheme}
                     </span>
                   </div>
-                  <p className="text-[9px] font-bold opacity-40 uppercase tracking-widest mt-1">
-                    Material HCT Logic
-                  </p>
+                  <p className="text-[9px] font-bold opacity-40 uppercase tracking-widest mt-1">Material HCT Logic</p>
                 </div>
               </div>
 
@@ -48,7 +46,7 @@ export function OmniShowcase() {
             {/* Tab Navigation Row */}
             <nav className="max-w-7xl mx-auto flex items-center gap-1 overflow-x-auto no-scrollbar">
               {TABS.map((tab) => {
-                const isActive = currentTab === tab.id
+                const isActive = currentTab === tab.id;
                 return (
                   <button
                     key={tab.id}
@@ -72,7 +70,7 @@ export function OmniShowcase() {
                       />
                     )}
                   </button>
-                )
+                );
               })}
             </nav>
           </header>
@@ -92,7 +90,7 @@ export function OmniShowcase() {
         </div>
       </BaseScroll>
     </div>
-  )
+  );
 
   function renderTabs(key) {
     switch (key) {
@@ -103,24 +101,18 @@ export function OmniShowcase() {
             <section className="space-y-6">
               <div className="flex flex-col">
                 <h2 className="text-2xl font-black tracking-tight">Interaction Behaviors</h2>
-                <p className="text-sm text-on-surface-variant">
-                  Defining how the panel physically responds to hover.
-                </p>
+                <p className="text-sm text-on-surface-variant">Defining how the panel physically responds to hover.</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    hoverEffect="none"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="none"</p>
                   <OmniPanel hoverEffect="none" elevation="low">
                     <div className="p-8 text-center text-sm font-medium">Static Surface</div>
                   </OmniPanel>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    hoverEffect="shadow"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="shadow"</p>
                   <OmniPanel hoverEffect="shadow" elevation="low">
                     <div className="p-8 text-center text-sm font-semibold text-primary">
                       Tactile Button Interaction.
@@ -129,22 +121,16 @@ export function OmniShowcase() {
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    hoverEffect="lift"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="lift"</p>
                   <OmniPanel hoverEffect="lift" elevation="low">
                     <div className="p-8 text-center text-sm font-medium">Subtle Lift (-2px)</div>
                   </OmniPanel>
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    hoverEffect="pop"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="pop"</p>
                   <OmniPanel hoverEffect="pop" elevation="low">
-                    <div className="p-8 text-center text-sm font-medium">
-                      Emphasis Pop (Scale + Y)
-                    </div>
+                    <div className="p-8 text-center text-sm font-medium">Emphasis Pop (Scale + Y)</div>
                   </OmniPanel>
                 </div>
               </div>
@@ -152,15 +138,11 @@ export function OmniShowcase() {
             <section className="space-y-6">
               <div className="flex flex-col">
                 <h2 className="text-2xl font-black tracking-tight">Interaction Behaviors</h2>
-                <p className="text-sm text-on-surface-variant">
-                  Defining how the panel physically responds to hover.
-                </p>
+                <p className="text-sm text-on-surface-variant">Defining how the panel physically responds to hover.</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Physical Compression
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Physical Compression</p>
                   <OmniPanel
                     variant="none"
                     hoverEffect="shadow"
@@ -179,9 +161,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    SVG Path Animation
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">SVG Path Animation</p>
                   <OmniPanel
                     variant="trace"
                     elevation="default"
@@ -199,9 +179,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Sunken Depth
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Sunken Depth</p>
                   <OmniPanel
                     variant="inset"
                     elevation="low"
@@ -219,9 +197,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Backdrop Blurring
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Backdrop Blurring</p>
                   <OmniPanel
                     variant="glass"
                     elevation="high"
@@ -239,9 +215,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Z-Axis Translation
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Z-Axis Translation</p>
                   <OmniPanel
                     variant="none"
                     hoverEffect="lift"
@@ -266,9 +240,7 @@ export function OmniShowcase() {
             <section className="space-y-6">
               <div className="flex flex-col">
                 <h2 className="text-2xl font-black tracking-tight">Aesthetic Variants</h2>
-                <p className="text-sm text-on-surface-variant">
-                  Visual styles that can be applied to any interaction.
-                </p>
+                <p className="text-sm text-on-surface-variant">Visual styles that can be applied to any interaction.</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
@@ -316,9 +288,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-error">
-                    color='error'
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-error">color='error'</p>
                   <OmniPanel
                     variant="none"
                     elevation="low"
@@ -360,9 +330,7 @@ export function OmniShowcase() {
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    variant="none"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">variant="none"</p>
                   <OmniPanel
                     variant="none"
                     elevation="default"
@@ -374,17 +342,13 @@ export function OmniShowcase() {
                       <ul className="space-y-1 list-disc list-inside opacity-80">
                         <li>Default layout container for sidebar or main content areas</li>
                         <li>When content inside is high-density (prevents visual noise)</li>
-                        <li>
-                          Best for "static" information that doesn't need to scream for attention
-                        </li>
+                        <li>Best for "static" information that doesn't need to scream for attention</li>
                       </ul>
                     </div>
                   </OmniPanel>
                 </div>
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    variant="trace"
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">variant="trace"</p>
                   <OmniPanel
                     color="primary"
                     variant="trace"
@@ -398,9 +362,7 @@ export function OmniShowcase() {
                       <ul className="space-y-1 list-disc list-inside opacity-80">
                         <li>"Active" or "Focused" cards in a framework gallery</li>
                         <li>Elements that need to be distinct but shouldn't shift (Y-axis)</li>
-                        <li>
-                          Providing immediate visual feedback without changing the layout height
-                        </li>
+                        <li>Providing immediate visual feedback without changing the layout height</li>
                       </ul>
                     </div>
                   </OmniPanel>
@@ -412,16 +374,12 @@ export function OmniShowcase() {
             <section className="space-y-6">
               <div className="flex flex-col">
                 <h2 className="text-2xl font-black tracking-tight">Tonal Elevations</h2>
-                <p className="text-sm text-on-surface-variant">
-                  Mapping to Material Design 3 Surface Containers.
-                </p>
+                <p className="text-sm text-on-surface-variant">Mapping to Material Design 3 Surface Containers.</p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {(['low', 'default', 'high'] as const).map((lvl) => (
                   <div key={lvl} className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                      elevation="{lvl}"
-                    </p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">elevation="{lvl}"</p>
                     <OmniPanel elevation={lvl}>
                       <div className="p-6">
                         <div className="h-20 w-full rounded-xl border border-dashed border-outline-variant/50 flex items-center justify-center text-[10px] font-mono">
@@ -438,9 +396,7 @@ export function OmniShowcase() {
             <section className="space-y-6">
               <div className="flex flex-col">
                 <h2 className="text-2xl font-black tracking-tight">Real-World Compositions</h2>
-                <p className="text-sm text-on-surface-variant">
-                  Combining props for specific UI patterns.
-                </p>
+                <p className="text-sm text-on-surface-variant">Combining props for specific UI patterns.</p>
               </div>
               <div className="space-y-8">
                 {/* Filter Toolbar Pattern */}
@@ -453,12 +409,8 @@ export function OmniShowcase() {
                       <span>Filter By</span>
                       <div className="h-4 w-px bg-outline-variant" />
                       <div className="flex gap-2">
-                        <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">
-                          React
-                        </span>
-                        <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">
-                          Next.js
-                        </span>
+                        <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">React</span>
+                        <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">Next.js</span>
                       </div>
                     </div>
                   </OmniPanel>
@@ -469,18 +421,10 @@ export function OmniShowcase() {
                   <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
                     Explorer Pattern (Trace + Static)
                   </p>
-                  <OmniPanel
-                    variant="trace"
-                    hoverEffect="none"
-                    elevation="default"
-                    header="Tag Explorer"
-                  >
+                  <OmniPanel variant="trace" hoverEffect="none" elevation="default" header="Tag Explorer">
                     <div className="p-4 grid grid-cols-4 gap-2">
                       {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                        <div
-                          key={i}
-                          className="h-8 bg-surface-container rounded-lg border border-outline-variant/20"
-                        />
+                        <div key={i} className="h-8 bg-surface-container rounded-lg border border-outline-variant/20" />
                       ))}
                     </div>
                   </OmniPanel>
@@ -488,94 +432,76 @@ export function OmniShowcase() {
               </div>
             </section>
           </div>
-        )
+        );
       case 'elevation':
         return (
           <section className="space-y-8">
             <h1 className="text-5xl font-black tracking-tight">Elevation</h1>
             <p>
-              To deeply document and study Elevation in your system, we need to move beyond just
-              "shadows." In a modern Design System (especially one following MD3 logic), elevation
-              is a combination of Shadow, Tonal Overlay, and Z-index logic.
+              To deeply document and study Elevation in your system, we need to move beyond just "shadows." In a modern
+              Design System (especially one following MD3 logic), elevation is a combination of Shadow, Tonal Overlay,
+              and Z-index logic.
             </p>
             <section className="space-y-6">
               <div className="flex flex-col">
-                <h2 className="text-2xl font-black tracking-tight">
-                  1. The Level Hierarchy (The "Steps")
-                </h2>
+                <h2 className="text-2xl font-black tracking-tight">1. The Level Hierarchy (The "Steps")</h2>
                 <p className="text-sm text-on-surface-variant">
-                  This is the baseline study of the 5-6 levels of elevation in your system. It
-                  demonstrates how a panel "rises" from the background.
+                  This is the baseline study of the 5-6 levels of elevation in your system. It demonstrates how a panel
+                  "rises" from the background.
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {/* Level 0: Flat */}
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Elevation: None
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: None</p>
                   <OmniPanel elevation="none" header="Level 0: Flat">
                     <div className="p-8 text-sm opacity-70">
-                      Flush with the background. No shadow. Used for base layout sections and
-                      content dividers.
+                      Flush with the background. No shadow. Used for base layout sections and content dividers.
                     </div>
                   </OmniPanel>
                 </div>
 
                 {/* Level 1: Low */}
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Elevation: Low
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: Low</p>
                   <OmniPanel elevation="low" header="Level 1: Surface">
                     <div className="p-8 text-sm opacity-80">
-                      Subtle separation. Ideal for cards in a grid or items that need a distinct
-                      boundary without feeling heavy.
+                      Subtle separation. Ideal for cards in a grid or items that need a distinct boundary without
+                      feeling heavy.
                     </div>
                   </OmniPanel>
                 </div>
 
                 {/* Level 5: High */}
                 <div className="space-y-2">
-                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                    Elevation: High
-                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: High</p>
                   <OmniPanel elevation="high" header="Level 5: Floating">
                     <div className="p-8 text-sm">
-                      Maximum depth. Used for high-priority floating elements like Modals, FABs, or
-                      primary tooltips.
+                      Maximum depth. Used for high-priority floating elements like Modals, FABs, or primary tooltips.
                     </div>
                   </OmniPanel>
                 </div>
               </div>
               <section className="space-y-6">
                 <div className="flex flex-col">
-                  <h2 className="text-2xl font-black tracking-tight">
-                    2. Tonal Elevation (The "Tint" Study)
-                  </h2>
+                  <h2 className="text-2xl font-black tracking-tight">2. Tonal Elevation (The "Tint" Study)</h2>
                   <p className="text-sm text-on-surface-variant">
-                    In dark mode, shadows are less effective. MD3 solves this by making
-                    higher-elevation surfaces lighter (adding a primary-colored overlay).
+                    In dark mode, shadows are less effective. MD3 solves this by making higher-elevation surfaces
+                    lighter (adding a primary-colored overlay).
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-lowest p-8 rounded-[32px]">
                   {/* Comparison A: Low Elevation in Dark */}
                   <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                      Tonal Step: 1
-                    </p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 1</p>
                     <OmniPanel elevation="low" variant="none" header="Low Tonal Tint">
-                      <div className="p-12 text-center text-sm">
-                        Slightly lighter than the background.
-                      </div>
+                      <div className="p-12 text-center text-sm">Slightly lighter than the background.</div>
                     </OmniPanel>
                   </div>
 
                   {/* Comparison B: High Elevation in Dark */}
                   <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                      Tonal Step: 5
-                    </p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 5</p>
                     <OmniPanel elevation="high" variant="none" header="High Tonal Tint">
                       <div className="p-12 text-center text-sm font-bold">
                         Noticeably brighter. This uses a higher opacity of the brand overlay.
@@ -590,37 +516,27 @@ export function OmniShowcase() {
                     3. Dynamic Elevation (The "Interaction" Physics)
                   </h2>
                   <p className="text-sm text-on-surface-variant">
-                    Elevation shouldn't always be static. We need to document how a panel
-                    transitions between levels during a user's interaction.
+                    Elevation shouldn't always be static. We need to document how a panel transitions between levels
+                    during a user's interaction.
                   </p>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Lift Interaction */}
                   <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                      Interaction: Lift
-                    </p>
+                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Interaction: Lift</p>
                     <OmniPanel hoverEffect="lift" elevation="low" header="Elevating on Hover">
                       <div className="p-8 text-sm italic">
-                        Hover to see the Y-axis translation and shadow expansion. This is the
-                        "Discovery" pattern.
+                        Hover to see the Y-axis translation and shadow expansion. This is the "Discovery" pattern.
                       </div>
                     </OmniPanel>
                   </div>
 
                   {/* Shadow Interaction */}
                   <div className="space-y-2">
-                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                      Interaction: Shadow
-                    </p>
-                    <OmniPanel
-                      hoverEffect="shadow"
-                      elevation="default"
-                      header="Tactile Compression"
-                    >
+                    <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Interaction: Shadow</p>
+                    <OmniPanel hoverEffect="shadow" elevation="default" header="Tactile Compression">
                       <div className="p-8 text-sm italic">
-                        Hover to see the "Button press." The card compresses while the shadow
-                        deepens internally.
+                        Hover to see the "Button press." The card compresses while the shadow deepens internally.
                       </div>
                     </OmniPanel>
                   </div>
@@ -641,13 +557,10 @@ export function OmniShowcase() {
                       <p className="text-[10px] font-bold uppercase tracking-widest text-primary font-bold">
                         Standard: Level 0
                       </p>
-                      <OmniPanel
-                        elevation="none"
-                        className="bg-surface-container-lowest border-dashed"
-                      >
+                      <OmniPanel elevation="none" className="bg-surface-container-lowest border-dashed">
                         <div className="p-6 text-xs italic">
-                          Child is flush. We use a dashed border or a slight color shift instead of
-                          a shadow to show containment.
+                          Child is flush. We use a dashed border or a slight color shift instead of a shadow to show
+                          containment.
                         </div>
                       </OmniPanel>
                     </div>
@@ -659,8 +572,7 @@ export function OmniShowcase() {
                       </p>
                       <OmniPanel elevation="low">
                         <div className="p-6 text-xs opacity-60">
-                          Nesting shadows (L1 inside L1) creates "Shadow Bleed," making the parent's
-                          surface look dirty.
+                          Nesting shadows (L1 inside L1) creates "Shadow Bleed," making the parent's surface look dirty.
                         </div>
                       </OmniPanel>
                     </div>
@@ -683,9 +595,7 @@ export function OmniShowcase() {
                     animate={{ y: 0, opacity: 1 }}
                   >
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-black tracking-tighter text-primary">
-                        OMNI_NAV_SYSTEM
-                      </span>
+                      <span className="text-xs font-black tracking-tighter text-primary">OMNI_NAV_SYSTEM</span>
                       <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
                         Elevated: L2
                       </span>
@@ -722,9 +632,8 @@ export function OmniShowcase() {
                   <div className="p-4 rounded-xl bg-surface-container">
                     <p className="font-bold mb-1">Scroll Trigger Logic</p>
                     <p className="opacity-70 leading-relaxed">
-                      We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the
-                      header elevation transitions from "none" to `low` to visually separate it from
-                      the content passing underneath.
+                      We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the header elevation
+                      transitions from "none" to `low` to visually separate it from the content passing underneath.
                     </p>
                   </div>
                 </div>
@@ -733,10 +642,10 @@ export function OmniShowcase() {
                 <div className="flex flex-col">
                   <h2 className="text-2xl font-black tracking-tight">6. The Glass Layer</h2>
                   <p className="text-sm text-on-surface-variant">
-                    High-Z overlays that utilize backdrop-blur to maintain environmental context.
-                    The final boss of elevation. It combines Maximum Elevation with Backdrop
-                    Diffusion. This signals to the user that the element is "Above the Document,"
-                    existing in the same physical space as the glass of the screen itself.
+                    High-Z overlays that utilize backdrop-blur to maintain environmental context. The final boss of
+                    elevation. It combines Maximum Elevation with Backdrop Diffusion. This signals to the user that the
+                    element is "Above the Document," existing in the same physical space as the glass of the screen
+                    itself.
                   </p>
                 </div>
 
@@ -750,8 +659,8 @@ export function OmniShowcase() {
                       footer="Filter: blur(24px) | Elevation: 5"
                     >
                       <div className="p-6 text-sm text-center">
-                        By blurring the background, we allow the user to see "movement" behind the
-                        panel without sacrificing the legibility of the foreground.
+                        By blurring the background, we allow the user to see "movement" behind the panel without
+                        sacrificing the legibility of the foreground.
                       </div>
                     </OmniPanel>
                   </div>
@@ -763,9 +672,9 @@ export function OmniShowcase() {
               </section>
             </section>
           </section>
-        )
+        );
       default:
-        return null
+        return null;
     }
   }
 }
@@ -776,44 +685,32 @@ const BEHAVIOR = (
     <section className="space-y-6">
       <div className="flex flex-col">
         <h2 className="text-2xl font-black tracking-tight">Interaction Behaviors</h2>
-        <p className="text-sm text-on-surface-variant">
-          Defining how the panel physically responds to hover.
-        </p>
+        <p className="text-sm text-on-surface-variant">Defining how the panel physically responds to hover.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            hoverEffect="none"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="none"</p>
           <OmniPanel hoverEffect="none" elevation="low">
             <div className="p-8 text-center text-sm font-medium">Static Surface</div>
           </OmniPanel>
         </div>
 
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            hoverEffect="shadow"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="shadow"</p>
           <OmniPanel hoverEffect="shadow" elevation="low">
-            <div className="p-8 text-center text-sm font-semibold text-primary">
-              Tactile Button Interaction.
-            </div>
+            <div className="p-8 text-center text-sm font-semibold text-primary">Tactile Button Interaction.</div>
           </OmniPanel>
         </div>
 
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            hoverEffect="lift"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="lift"</p>
           <OmniPanel hoverEffect="lift" elevation="low">
             <div className="p-8 text-center text-sm font-medium">Subtle Lift (-2px)</div>
           </OmniPanel>
         </div>
 
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            hoverEffect="pop"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">hoverEffect="pop"</p>
           <OmniPanel hoverEffect="pop" elevation="low">
             <div className="p-8 text-center text-sm font-medium">Emphasis Pop (Scale + Y)</div>
           </OmniPanel>
@@ -823,15 +720,11 @@ const BEHAVIOR = (
     <section className="space-y-6">
       <div className="flex flex-col">
         <h2 className="text-2xl font-black tracking-tight">Interaction Behaviors</h2>
-        <p className="text-sm text-on-surface-variant">
-          Defining how the panel physically responds to hover.
-        </p>
+        <p className="text-sm text-on-surface-variant">Defining how the panel physically responds to hover.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            Physical Compression
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Physical Compression</p>
           <OmniPanel
             variant="none"
             hoverEffect="shadow"
@@ -850,9 +743,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            SVG Path Animation
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">SVG Path Animation</p>
           <OmniPanel
             variant="trace"
             elevation="default"
@@ -888,9 +779,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            Backdrop Blurring
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Backdrop Blurring</p>
           <OmniPanel
             variant="glass"
             elevation="high"
@@ -908,9 +797,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            Z-Axis Translation
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Z-Axis Translation</p>
           <OmniPanel
             variant="none"
             hoverEffect="lift"
@@ -935,15 +822,11 @@ const BEHAVIOR = (
     <section className="space-y-6">
       <div className="flex flex-col">
         <h2 className="text-2xl font-black tracking-tight">Aesthetic Variants</h2>
-        <p className="text-sm text-on-surface-variant">
-          Visual styles that can be applied to any interaction.
-        </p>
+        <p className="text-sm text-on-surface-variant">Visual styles that can be applied to any interaction.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-primary">
-            color="primary"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-primary">color="primary"</p>
           <OmniPanel
             variant="none"
             elevation="low"
@@ -963,9 +846,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-secondary">
-            color="secondary"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-secondary">color="secondary"</p>
           <OmniPanel
             variant="none"
             elevation="low"
@@ -985,9 +866,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-error">
-            color='error'
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-error">color='error'</p>
           <OmniPanel
             variant="none"
             elevation="low"
@@ -1007,9 +886,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-tertiary">
-            color="tertiary"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50 text-tertiary">color="tertiary"</p>
           <OmniPanel
             variant="none"
             elevation="low"
@@ -1029,9 +906,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            variant="none"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">variant="none"</p>
           <OmniPanel
             variant="none"
             elevation="default"
@@ -1049,9 +924,7 @@ const BEHAVIOR = (
           </OmniPanel>
         </div>
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            variant="trace"
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">variant="trace"</p>
           <OmniPanel
             color="primary"
             variant="trace"
@@ -1077,16 +950,12 @@ const BEHAVIOR = (
     <section className="space-y-6">
       <div className="flex flex-col">
         <h2 className="text-2xl font-black tracking-tight">Tonal Elevations</h2>
-        <p className="text-sm text-on-surface-variant">
-          Mapping to Material Design 3 Surface Containers.
-        </p>
+        <p className="text-sm text-on-surface-variant">Mapping to Material Design 3 Surface Containers.</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {(['low', 'default', 'high'] as const).map((lvl) => (
           <div key={lvl} className="space-y-2">
-            <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-              elevation="{lvl}"
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">elevation="{lvl}"</p>
             <OmniPanel elevation={lvl}>
               <div className="p-6">
                 <div className="h-20 w-full rounded-xl border border-dashed border-outline-variant/50 flex items-center justify-center text-[10px] font-mono">
@@ -1108,20 +977,14 @@ const BEHAVIOR = (
       <div className="space-y-8">
         {/* Filter Toolbar Pattern */}
         <div className="space-y-2">
-          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-            Toolbar Pattern (None + Lift)
-          </p>
+          <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Toolbar Pattern (None + Lift)</p>
           <OmniPanel variant="none" hoverEffect="lift" elevation="low" className="w-fit">
             <div className="flex items-center gap-4 px-4 py-2 text-sm font-medium">
               <span>Filter By</span>
               <div className="h-4 w-px bg-outline-variant" />
               <div className="flex gap-2">
-                <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">
-                  React
-                </span>
-                <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">
-                  Next.js
-                </span>
+                <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">React</span>
+                <span className="px-2 py-1 bg-primary/10 text-primary rounded-md text-xs">Next.js</span>
               </div>
             </div>
           </OmniPanel>
@@ -1135,10 +998,7 @@ const BEHAVIOR = (
           <OmniPanel variant="trace" hoverEffect="none" elevation="default" header="Tag Explorer">
             <div className="p-4 grid grid-cols-4 gap-2">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <div
-                  key={i}
-                  className="h-8 bg-surface-container rounded-lg border border-outline-variant/20"
-                />
+                <div key={i} className="h-8 bg-surface-container rounded-lg border border-outline-variant/20" />
               ))}
             </div>
           </OmniPanel>
@@ -1146,7 +1006,7 @@ const BEHAVIOR = (
       </div>
     </section>
   </div>
-)
+);
 
 function Elevation() {
   return (
@@ -1154,88 +1014,70 @@ function Elevation() {
       <section className="space-y-8">
         <h1 className="text-5xl font-black tracking-tight">Elevation</h1>
         <p>
-          To deeply document and study Elevation in your system, we need to move beyond just
-          "shadows." In a modern Design System (especially one following MD3 logic), elevation is a
-          combination of Shadow, Tonal Overlay, and Z-index logic.
+          To deeply document and study Elevation in your system, we need to move beyond just "shadows." In a modern
+          Design System (especially one following MD3 logic), elevation is a combination of Shadow, Tonal Overlay, and
+          Z-index logic.
         </p>
         <section className="space-y-6">
           <div className="flex flex-col">
-            <h2 className="text-2xl font-black tracking-tight">
-              1. The Level Hierarchy (The "Steps")
-            </h2>
+            <h2 className="text-2xl font-black tracking-tight">1. The Level Hierarchy (The "Steps")</h2>
             <p className="text-sm text-on-surface-variant">
-              This is the baseline study of the 5-6 levels of elevation in your system. It
-              demonstrates how a panel "rises" from the background.
+              This is the baseline study of the 5-6 levels of elevation in your system. It demonstrates how a panel
+              "rises" from the background.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Level 0: Flat */}
             <div className="space-y-2">
-              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                Elevation: None
-              </p>
+              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: None</p>
               <OmniPanel elevation="none" header="Level 0: Flat">
                 <div className="p-8 text-sm opacity-70">
-                  Flush with the background. No shadow. Used for base layout sections and content
-                  dividers.
+                  Flush with the background. No shadow. Used for base layout sections and content dividers.
                 </div>
               </OmniPanel>
             </div>
 
             {/* Level 1: Low */}
             <div className="space-y-2">
-              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                Elevation: Low
-              </p>
+              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: Low</p>
               <OmniPanel elevation="low" header="Level 1: Surface">
                 <div className="p-8 text-sm opacity-80">
-                  Subtle separation. Ideal for cards in a grid or items that need a distinct
-                  boundary without feeling heavy.
+                  Subtle separation. Ideal for cards in a grid or items that need a distinct boundary without feeling
+                  heavy.
                 </div>
               </OmniPanel>
             </div>
 
             {/* Level 5: High */}
             <div className="space-y-2">
-              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                Elevation: High
-              </p>
+              <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Elevation: High</p>
               <OmniPanel elevation="high" header="Level 5: Floating">
                 <div className="p-8 text-sm">
-                  Maximum depth. Used for high-priority floating elements like Modals, FABs, or
-                  primary tooltips.
+                  Maximum depth. Used for high-priority floating elements like Modals, FABs, or primary tooltips.
                 </div>
               </OmniPanel>
             </div>
           </div>
           <section className="space-y-6">
             <div className="flex flex-col">
-              <h2 className="text-2xl font-black tracking-tight">
-                2. Tonal Elevation (The "Tint" Study)
-              </h2>
+              <h2 className="text-2xl font-black tracking-tight">2. Tonal Elevation (The "Tint" Study)</h2>
               <p className="text-sm text-on-surface-variant">
-                In dark mode, shadows are less effective. MD3 solves this by making higher-elevation
-                surfaces lighter (adding a primary-colored overlay).
+                In dark mode, shadows are less effective. MD3 solves this by making higher-elevation surfaces lighter
+                (adding a primary-colored overlay).
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-lowest p-8 rounded-[32px]">
               {/* Comparison A: Low Elevation in Dark */}
               <div className="space-y-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                  Tonal Step: 1
-                </p>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 1</p>
                 <OmniPanel elevation="low" variant="none" header="Low Tonal Tint">
-                  <div className="p-12 text-center text-sm">
-                    Slightly lighter than the background.
-                  </div>
+                  <div className="p-12 text-center text-sm">Slightly lighter than the background.</div>
                 </OmniPanel>
               </div>
 
               {/* Comparison B: High Elevation in Dark */}
               <div className="space-y-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                  Tonal Step: 5
-                </p>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 5</p>
                 <OmniPanel elevation="high" variant="none" header="High Tonal Tint">
                   <div className="p-12 text-center text-sm font-bold">
                     Noticeably brighter. This uses a higher opacity of the brand overlay.
@@ -1246,37 +1088,29 @@ function Elevation() {
           </section>
           <section className="space-y-6">
             <div className="flex flex-col">
-              <h2 className="text-2xl font-black tracking-tight">
-                3. Dynamic Elevation (The "Interaction" Physics)
-              </h2>
+              <h2 className="text-2xl font-black tracking-tight">3. Dynamic Elevation (The "Interaction" Physics)</h2>
               <p className="text-sm text-on-surface-variant">
-                Elevation shouldn't always be static. We need to document how a panel transitions
-                between levels during a user's interaction.
+                Elevation shouldn't always be static. We need to document how a panel transitions between levels during
+                a user's interaction.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Lift Interaction */}
               <div className="space-y-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                  Interaction: Lift
-                </p>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Interaction: Lift</p>
                 <OmniPanel hoverEffect="lift" elevation="low" header="Elevating on Hover">
                   <div className="p-8 text-sm italic">
-                    Hover to see the Y-axis translation and shadow expansion. This is the
-                    "Discovery" pattern.
+                    Hover to see the Y-axis translation and shadow expansion. This is the "Discovery" pattern.
                   </div>
                 </OmniPanel>
               </div>
 
               {/* Shadow Interaction */}
               <div className="space-y-2">
-                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-                  Interaction: Shadow
-                </p>
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Interaction: Shadow</p>
                 <OmniPanel hoverEffect="shadow" elevation="default" header="Tactile Compression">
                   <div className="p-8 text-sm italic">
-                    Hover to see the "Button press." The card compresses while the shadow deepens
-                    internally.
+                    Hover to see the "Button press." The card compresses while the shadow deepens internally.
                   </div>
                 </OmniPanel>
               </div>
@@ -1299,8 +1133,8 @@ function Elevation() {
                   </p>
                   <OmniPanel elevation="none" className="bg-surface-container-lowest border-dashed">
                     <div className="p-6 text-xs italic">
-                      Child is flush. We use a dashed border or a slight color shift instead of a
-                      shadow to show containment.
+                      Child is flush. We use a dashed border or a slight color shift instead of a shadow to show
+                      containment.
                     </div>
                   </OmniPanel>
                 </div>
@@ -1312,8 +1146,7 @@ function Elevation() {
                   </p>
                   <OmniPanel elevation="low">
                     <div className="p-6 text-xs opacity-60">
-                      Nesting shadows (L1 inside L1) creates "Shadow Bleed," making the parent's
-                      surface look dirty.
+                      Nesting shadows (L1 inside L1) creates "Shadow Bleed," making the parent's surface look dirty.
                     </div>
                   </OmniPanel>
                 </div>
@@ -1336,12 +1169,8 @@ function Elevation() {
                 animate={{ y: 0, opacity: 1 }}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-xs font-black tracking-tighter text-primary">
-                    OMNI_NAV_SYSTEM
-                  </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">
-                    Elevated: L2
-                  </span>
+                  <span className="text-xs font-black tracking-tighter text-primary">OMNI_NAV_SYSTEM</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary">Elevated: L2</span>
                 </div>
               </motion.div>
 
@@ -1375,9 +1204,8 @@ function Elevation() {
               <div className="p-4 rounded-xl bg-surface-container">
                 <p className="font-bold mb-1">Scroll Trigger Logic</p>
                 <p className="opacity-70 leading-relaxed">
-                  We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the
-                  header elevation transitions from "none" to `low` to visually separate it from the
-                  content passing underneath.
+                  We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the header elevation
+                  transitions from "none" to `low` to visually separate it from the content passing underneath.
                 </p>
               </div>
             </div>
@@ -1386,10 +1214,9 @@ function Elevation() {
             <div className="flex flex-col">
               <h2 className="text-2xl font-black tracking-tight">6. The Glass Layer</h2>
               <p className="text-sm text-on-surface-variant">
-                High-Z overlays that utilize backdrop-blur to maintain environmental context. The
-                final boss of elevation. It combines Maximum Elevation with Backdrop Diffusion. This
-                signals to the user that the element is "Above the Document," existing in the same
-                physical space as the glass of the screen itself.
+                High-Z overlays that utilize backdrop-blur to maintain environmental context. The final boss of
+                elevation. It combines Maximum Elevation with Backdrop Diffusion. This signals to the user that the
+                element is "Above the Document," existing in the same physical space as the glass of the screen itself.
               </p>
             </div>
 
@@ -1403,8 +1230,8 @@ function Elevation() {
                   footer="Filter: blur(24px) | Elevation: 5"
                 >
                   <div className="p-6 text-sm text-center">
-                    By blurring the background, we allow the user to see "movement" behind the panel
-                    without sacrificing the legibility of the foreground.
+                    By blurring the background, we allow the user to see "movement" behind the panel without sacrificing
+                    the legibility of the foreground.
                   </div>
                 </OmniPanel>
               </div>
@@ -1417,10 +1244,10 @@ function Elevation() {
         </section>
       </section>
     </div>
-  )
+  );
 }
 
 export const OMNI_TABS = [
   { id: 99, label: 'Omni Cards', icon: '🃏', content: BEHAVIOR },
   { id: 100, label: 'Elevation', icon: '🏔️', content: <Elevation /> },
-]
+];

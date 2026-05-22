@@ -1,13 +1,13 @@
 ---
 draft: false
 slug: tool/git/tag-cheatsheet
-date: "2026-05-03"
-title: "Git Tag Cheatsheet"
-summary: "Reference table for git tag cli commands"
-tags: ["git", "version-control", "architecture", "dev-tools"]
+date: '2026-05-03'
+title: 'Git Tag Cheatsheet'
+summary: 'Reference table for git tag cli commands'
+tags: ['git', 'version-control', 'architecture', 'dev-tools']
 ---
 
-| 👨🏻‍💻 Command                   | 🆔 Name                       | ℹ️ Desc                                               |
+| 👨🏻‍💻 Command                        | 🆔 Name                       | ℹ️ Desc                                               |
 | --------------------------------- | ----------------------------- | ----------------------------------------------------- |
 | `git tag`                         | list tags                     | shows all local tags                                  |
 | `git tag -l "v1.*"`               | filtered list                 | lists tags matching pattern                           |

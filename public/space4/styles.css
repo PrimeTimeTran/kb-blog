@@ -343,8 +343,7 @@ sup {
   border-radius: var(--border-radius--button-circle);
   position: absolute;
   top: 0;
-  transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
-    skew(0deg, 0deg);
+  transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
   height: 250px;
   transition: all 0.2s ease-in-out;
@@ -357,8 +356,7 @@ sup {
 }
 .button.is-green.is-secondary:hover .button-circlee {
   background-color: var(--green);
-  transform: translate3d(0px, -43%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg)
-    skew(0deg, 0deg);
+  transform: translate3d(0px, -43%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   width: 100%;
 }
 

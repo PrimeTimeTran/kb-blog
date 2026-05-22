@@ -13,8 +13,7 @@ category: 'calculus_ii'
 subCategory: 'integration'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['indefinite-integral', 'definite-integral', 'riemann-sum', 'fundamental-theorem-of-calculus']
+leadsTo: ['indefinite-integral', 'definite-integral', 'riemann-sum', 'fundamental-theorem-of-calculus']
 related: ['substitution', 'integration-by-parts', 'trigonometric-substitution']
 seeAlso:
   [

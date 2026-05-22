@@ -1,8 +1,8 @@
 export function getAltKeyLabel(): string {
-  if (typeof navigator === 'undefined') return 'Alt'
+  if (typeof navigator === 'undefined') return 'Alt';
   // Mac detection
   if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
-    return '⌥'
+    return '⌥';
   }
-  return 'Alt'
+  return 'Alt';
 }

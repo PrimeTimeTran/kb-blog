@@ -1,7 +1,7 @@
-import path from 'path'
+import path from 'path';
 
-import { getAllFiles } from '../../server/files.js'
-import { KB_DIR, BLOG_DIR } from '../../core/constants'
+import { getAllFiles } from '../../server/files.js';
+import { KB_DIR, BLOG_DIR } from '../../core/constants';
 
 export async function enumerateFilesystemContent() {
   return [
@@ -13,5 +13,5 @@ export async function enumerateFilesystemContent() {
       file,
       type: 'blog',
     })),
-  ]
+  ];
 }

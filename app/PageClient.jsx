@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import ListLayout from '@/layouts/ListLayout'
-import { MAX_DISPLAY } from '@/data/constants'
-import siteMetadata from '@/data/site-metadata'
-import NewsletterForm from '@/components/NewsletterForm'
-import { BaseScroll } from '../components/BaseScroll'
-import GraffitiWrapper from '../components/mdx/GraffitiWrapper'
+import Link from 'next/link';
+import ListLayout from '@/layouts/ListLayout';
+import { MAX_DISPLAY } from '@/data/constants';
+import siteMetadata from '@/data/site-metadata';
+import NewsletterForm from '@/components/NewsletterForm';
+import { BaseScroll } from '../components/BaseScroll';
+import GraffitiWrapper from '../components/mdx/GraffitiWrapper';
 
 // No card example
 // https://gal.hagever.com/
@@ -41,5 +41,5 @@ export default function PageClient({ posts }) {
         </div>
       )} */}
     </BaseScroll>
-  )
+  );
 }

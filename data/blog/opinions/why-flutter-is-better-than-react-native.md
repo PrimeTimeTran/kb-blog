@@ -131,12 +131,12 @@ Furthermore although Dart takes a bit more to onboard it doesn't have some of th
 For Example:
 
 ```js
-parseInt(0.000001) // 0
-parseInt(0.0000001) // 1
+parseInt(0.000001); // 0
+parseInt(0.0000001); // 1
 
-parseInt('f*ck') // NaN
-parseInt('f*ck', 15) // NaN
-parseInt('f*ck', 16) // 15
-parseInt('f*ck', 17) // 15
-parseInt('f*ck', 18) // 15
+parseInt('f*ck'); // NaN
+parseInt('f*ck', 15); // NaN
+parseInt('f*ck', 16); // 15
+parseInt('f*ck', 17); // 15
+parseInt('f*ck', 18); // 15
 ```

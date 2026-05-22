@@ -1,113 +1,113 @@
-'use client'
+'use client';
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react';
 
 export default function LightBox({ images, len }) {
-  const mainRef = useRef(null)
-  const navLockRef = useRef(false)
-  const thumbRef = useRef(null)
-  const lightboxRef = useRef(false)
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [lightboxOpen, setLightboxOpen] = useState(false)
+  const mainRef = useRef(null);
+  const navLockRef = useRef(false);
+  const thumbRef = useRef(null);
+  const lightboxRef = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   useEffect(() => {
-    lightboxRef.current = lightboxOpen
-  }, [lightboxOpen])
+    lightboxRef.current = lightboxOpen;
+  }, [lightboxOpen]);
 
   const next = () => {
-    setActiveIndex((i) => (i + 1) % len)
-  }
+    setActiveIndex((i) => (i + 1) % len);
+  };
   const prev = () => {
-    setActiveIndex((i) => (i - 1 + len) % len)
-  }
+    setActiveIndex((i) => (i - 1 + len) % len);
+  };
   const openLightbox = (i) => {
-    setActiveIndex(i)
-    setLightboxOpen(true)
-  }
-  const isProgrammaticScroll = useRef(false)
+    setActiveIndex(i);
+    setLightboxOpen(true);
+  };
+  const isProgrammaticScroll = useRef(false);
 
   const step = (dir) => {
-    if (navLockRef.current) return
+    if (navLockRef.current) return;
 
-    navLockRef.current = true
-    isProgrammaticScroll.current = true
+    navLockRef.current = true;
+    isProgrammaticScroll.current = true;
 
-    setActiveIndex((i) => (i + dir + len) % len)
+    setActiveIndex((i) => (i + dir + len) % len);
 
     setTimeout(() => {
-      navLockRef.current = false
-      isProgrammaticScroll.current = false
-    }, 120)
-  }
+      navLockRef.current = false;
+      isProgrammaticScroll.current = false;
+    }, 120);
+  };
 
   useEffect(() => {
     const onKeyDown = (e) => {
-      if (e.key === 'ArrowRight') step(1)
-      if (e.key === 'ArrowLeft') step(-1)
+      if (e.key === 'ArrowRight') step(1);
+      if (e.key === 'ArrowLeft') step(-1);
 
       if (e.key === ' ') {
-        e.preventDefault()
-        setLightboxOpen((v) => !v)
+        e.preventDefault();
+        setLightboxOpen((v) => !v);
       }
 
-      if (e.key === 'ArrowUp') setLightboxOpen(true)
-      if (e.key === 'ArrowDown') setLightboxOpen(false)
-    }
+      if (e.key === 'ArrowUp') setLightboxOpen(true);
+      if (e.key === 'ArrowDown') setLightboxOpen(false);
+    };
 
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [len, step])
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [len, step]);
 
   useEffect(() => {
-    const mainEl = mainRef.current?.children?.[activeIndex]
+    const mainEl = mainRef.current?.children?.[activeIndex];
 
     if (mainEl) {
       mainEl.scrollIntoView({
         behavior: 'auto',
         inline: 'center',
-      })
+      });
     }
 
-    const thumb = thumbRef.current?.children?.[activeIndex]
+    const thumb = thumbRef.current?.children?.[activeIndex];
     thumb?.scrollIntoView({
       behavior: 'smooth',
       inline: 'center',
-    })
+    });
 
     // release lock AFTER frame
     requestAnimationFrame(() => {
-      isProgrammaticScroll.current = false
-    })
-  }, [activeIndex])
+      isProgrammaticScroll.current = false;
+    });
+  }, [activeIndex]);
 
   useEffect(() => {
-    const container = mainRef.current
-    if (!container) return
+    const container = mainRef.current;
+    if (!container) return;
 
     const onScroll = () => {
-      if (isProgrammaticScroll.current) return
+      if (isProgrammaticScroll.current) return;
 
-      const children = Array.from(container.children)
-      const center = container.scrollLeft + container.offsetWidth / 2
+      const children = Array.from(container.children);
+      const center = container.scrollLeft + container.offsetWidth / 2;
 
-      let closest = 0
-      let minDist = Infinity
+      let closest = 0;
+      let minDist = Infinity;
 
       children.forEach((child, i) => {
-        const childCenter = child.offsetLeft + child.offsetWidth / 2
-        const dist = Math.abs(center - childCenter)
+        const childCenter = child.offsetLeft + child.offsetWidth / 2;
+        const dist = Math.abs(center - childCenter);
 
         if (dist < minDist) {
-          minDist = dist
-          closest = i
+          minDist = dist;
+          closest = i;
         }
-      })
+      });
 
-      setActiveIndex(closest)
-    }
+      setActiveIndex(closest);
+    };
 
-    container.addEventListener('scroll', onScroll)
-    return () => container.removeEventListener('scroll', onScroll)
-  }, [])
+    container.addEventListener('scroll', onScroll);
+    return () => container.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
     <div className="h-full w-full flex flex-col items-center justify-center">
@@ -121,11 +121,7 @@ export default function LightBox({ images, len }) {
         <div ref={mainRef} className="flex overflow-x-auto snap-x snap-mandatory">
           {images.map((img, i) => (
             <div key={i} className="min-w-full snap-center flex flex-col items-center">
-              <img
-                src={img.original}
-                className="max-h-[70vh] object-contain"
-                onClick={() => setLightboxOpen(true)}
-              />
+              <img src={img.original} className="max-h-[70vh] object-contain" onClick={() => setLightboxOpen(true)} />
               <p className="text-sm text-gray-500 mt-3 text-center">{img.description}</p>
             </div>
           ))}
@@ -163,20 +159,15 @@ export default function LightBox({ images, len }) {
             ‹
           </button>
 
-          <img
-            src={images[activeIndex].original}
-            className="max-h-[90vh] max-w-[90vw] object-contain"
-          />
+          <img src={images[activeIndex].original} className="max-h-[90vh] max-w-[90vw] object-contain" />
 
           <button onClick={next} className="absolute right-4 text-white text-3xl">
             ›
           </button>
 
-          <div className="absolute bottom-6 text-white text-sm opacity-80">
-            {images[activeIndex].description}
-          </div>
+          <div className="absolute bottom-6 text-white text-sm opacity-80">{images[activeIndex].description}</div>
         </div>
       )}
     </div>
-  )
+  );
 }

@@ -1,11 +1,11 @@
-const fs = require('fs')
-const globby = require('globby')
-const matter = require('gray-matter')
-const prettier = require('prettier')
-const siteMetadata = require('../data/site-metadata')
+const fs = require('fs');
+const globby = require('globby');
+const matter = require('gray-matter');
+const prettier = require('prettier');
+const siteMetadata = require('../data/site-metadata');
 
-;(async () => {
-  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
+(async () => {
+  const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 
   const pages = await globby([
     'pages/*.js',
@@ -16,7 +16,7 @@ const siteMetadata = require('../data/site-metadata')
     '!pages/_*.js',
     '!pages/_*.tsx',
     '!pages/api',
-  ])
+  ]);
 
   const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
@@ -24,10 +24,10 @@ const siteMetadata = require('../data/site-metadata')
       ${pages
         .map((page) => {
           if (page.search('.md') >= 1 && fs.existsSync(page)) {
-            const source = fs.readFileSync(page, 'utf8')
-            const fm = matter(source)
-            if (fm.data.draft) return
-            if (fm.data.canonicalUrl) return
+            const source = fs.readFileSync(page, 'utf8');
+            const fm = matter(source);
+            if (fm.data.draft) return;
+            if (fm.data.canonicalUrl) return;
           }
 
           const path = page
@@ -38,28 +38,28 @@ const siteMetadata = require('../data/site-metadata')
             .replace('.tsx', '')
             .replace('.mdx', '')
             .replace('.md', '')
-            .replace('/feed.xml', '')
+            .replace('/feed.xml', '');
 
-          const route = path === '/index' ? '' : path
+          const route = path === '/index' ? '' : path;
 
           if (page.includes('pages/404.') || page.includes('pages/blog/[...slug].')) {
-            return
+            return;
           }
 
           return `
             <url>
               <loc>${siteMetadata.siteUrl}${route}</loc>
             </url>
-          `
+          `;
         })
         .join('')}
     </urlset>
-  `
+  `;
 
   const formatted = await prettier.format(sitemap, {
     ...prettierConfig,
     parser: 'html',
-  })
+  });
 
-  fs.writeFileSync('public/sitemap.xml', formatted)
-})()
+  fs.writeFileSync('public/sitemap.xml', formatted);
+})();

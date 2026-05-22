@@ -13,15 +13,7 @@ category: 'linear_algebra'
 subCategory: 'vectors'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'magnitude',
-    'cross-product',
-    'unit-vector',
-    'direction',
-    'vector-addition',
-    'scalar-multiplication',
-  ]
+leadsTo: ['magnitude', 'cross-product', 'unit-vector', 'direction', 'vector-addition', 'scalar-multiplication']
 related: ['angle-between-vectors']
 seeAlso:
   [

@@ -8,10 +8,10 @@ It’s:
 
 Meaning:
 
-* why the abstraction exists
-* what future capability it unlocks
-* what constraints shaped it
-* what behaviors it enables downstream
+- why the abstraction exists
+- what future capability it unlocks
+- what constraints shaped it
+- what behaviors it enables downstream
 
 That’s a very strong category.
 
@@ -41,12 +41,12 @@ The goal was not:
 
 The real intent was:
 
-* create reusable layout primitives
-* stabilize behavior across route segments
-* separate persistence from route-owned content
-* enable future multi-column systems
-* reduce duplication between left/right layout behavior
-* make future layouts composable instead of bespoke
+- create reusable layout primitives
+- stabilize behavior across route segments
+- separate persistence from route-owned content
+- enable future multi-column systems
+- reduce duplication between left/right layout behavior
+- make future layouts composable instead of bespoke
 
 That’s architectural intent.
 
@@ -72,21 +72,21 @@ Something like:
 
 ## Enables
 
-* persistent navigation systems
-* contextual sidebars
-* route-owned layout augmentation
-* reusable resizing behavior
-* future multi-column composition
+- persistent navigation systems
+- contextual sidebars
+- route-owned layout augmentation
+- reusable resizing behavior
+- future multi-column composition
 
 ---
 
 That’s fantastic because it transforms posts from:
 
-* changelogs
+- changelogs
 
 into:
 
-* capability documents
+- capability documents
 
 ---
 
@@ -94,9 +94,9 @@ into:
 
 Most engineering blogs stop at:
 
-* implementation
-* optimization
-* bug fixing
+- implementation
+- optimization
+- bug fixing
 
 Very few explain:
 
@@ -134,11 +134,11 @@ They are:
 
 A good primitive allows future systems to inherit:
 
-* behavior
-* constraints
-* semantics
-* interaction patterns
-* architectural guarantees
+- behavior
+- constraints
+- semantics
+- interaction patterns
+- architectural guarantees
 
 without re-solving the problem.
 

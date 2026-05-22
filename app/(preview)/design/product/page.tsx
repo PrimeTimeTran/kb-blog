@@ -1,14 +1,6 @@
 export default function ProductLandingPage() {
-  const {
-    pageHero,
-    pageLogos,
-    pageFeatures,
-    pageShowcase,
-    pageTestimonials,
-    pagePricing,
-    pageCTA,
-    pageFooter,
-  } = renderContent()
+  const { pageHero, pageLogos, pageFeatures, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
+    renderContent();
   return (
     <div className="min-h-full w-full bg-background text-on-background">
       {pageHero}
@@ -20,7 +12,7 @@ export default function ProductLandingPage() {
       {pageCTA}
       {pageFooter}
     </div>
-  )
+  );
 }
 function renderContent() {
   const pageHero = (
@@ -42,8 +34,8 @@ function renderContent() {
             </h1>
 
             <p className="max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
-              A modern UI system inspired by Material 3 — animated, token-driven, themeable, and
-              built for fluid interaction design.
+              A modern UI system inspired by Material 3 — animated, token-driven, themeable, and built for fluid
+              interaction design.
             </p>
           </div>
 
@@ -91,9 +83,7 @@ function renderContent() {
             {/* fake ui */}
             <div className="space-y-4">
               <div className="rounded-3xl bg-primary-container p-8 text-on-primary-container">
-                <div className="mb-3 text-sm uppercase tracking-widest opacity-70">
-                  Dynamic Theme
-                </div>
+                <div className="mb-3 text-sm uppercase tracking-widest opacity-70">Dynamic Theme</div>
 
                 <div className="text-3xl font-black">Live Material 3 Palette Generation</div>
               </div>
@@ -119,9 +109,7 @@ function renderContent() {
                     <div className="text-sm text-on-surface-variant">Circular reveal animation</div>
                   </div>
 
-                  <div className="rounded-full bg-primary px-4 py-2 text-xs font-bold text-on-primary">
-                    LIVE
-                  </div>
+                  <div className="rounded-full bg-primary px-4 py-2 text-xs font-bold text-on-primary">LIVE</div>
                 </div>
 
                 <div className="h-3 overflow-hidden rounded-full bg-surface-container-highest">
@@ -136,7 +124,7 @@ function renderContent() {
         </div>
       </div>
     </section>
-  )
+  );
   const pageLogos = (
     <section className="border-b border-outline-variant bg-surface-container-low">
       <div className="mx-auto max-w-7xl px-6 py-10">
@@ -156,21 +144,17 @@ function renderContent() {
         </div>
       </div>
     </section>
-  )
+  );
   const pageFeatures = (
     <section className="mx-auto max-w-7xl px-6 py-28">
       <div className="mb-20 max-w-3xl">
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">
-          Features
-        </div>
+        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Features</div>
 
-        <h2 className="mb-6 text-4xl font-black md:text-6xl">
-          Everything you need for a modern interface system.
-        </h2>
+        <h2 className="mb-6 text-4xl font-black md:text-6xl">Everything you need for a modern interface system.</h2>
 
         <p className="text-lg leading-relaxed text-on-surface-variant">
-          Build cohesive experiences with semantic tokens, advanced motion, layered surfaces,
-          adaptive palettes, and fluid interaction patterns.
+          Build cohesive experiences with semantic tokens, advanced motion, layered surfaces, adaptive palettes, and
+          fluid interaction patterns.
         </p>
       </div>
 
@@ -214,22 +198,18 @@ function renderContent() {
         ))}
       </div>
     </section>
-  )
+  );
   const pageShowcase = (
     <section className="border-y border-outline-variant bg-surface-container-low">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-28 lg:grid-cols-2 lg:items-center">
         <div className="space-y-6">
-          <div className="text-sm font-bold uppercase tracking-[0.3em] text-primary">
-            Experience
-          </div>
+          <div className="text-sm font-bold uppercase tracking-[0.3em] text-primary">Experience</div>
 
-          <h2 className="text-4xl font-black md:text-6xl">
-            Motion that feels physically connected.
-          </h2>
+          <h2 className="text-4xl font-black md:text-6xl">Motion that feels physically connected.</h2>
 
           <p className="text-lg leading-relaxed text-on-surface-variant">
-            Use shared transitions, reveal animations, hover overlays, and spatial continuity to
-            make interfaces feel alive instead of static.
+            Use shared transitions, reveal animations, hover overlays, and spatial continuity to make interfaces feel
+            alive instead of static.
           </p>
 
           <div className="space-y-4 pt-4">
@@ -270,25 +250,19 @@ function renderContent() {
             </div>
 
             <div className="rounded-3xl bg-primary-container p-8 text-on-primary-container">
-              <div className="mb-3 text-sm uppercase tracking-widest opacity-70">
-                Theme Transition
-              </div>
+              <div className="mb-3 text-sm uppercase tracking-widest opacity-70">Theme Transition</div>
 
-              <div className="text-2xl font-black">
-                Click anywhere to morph the interface palette.
-              </div>
+              <div className="text-2xl font-black">Click anywhere to morph the interface palette.</div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
   const pageTestimonials = (
     <section className="mx-auto max-w-7xl px-6 py-28">
       <div className="mb-20 text-center">
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">
-          Testimonials
-        </div>
+        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Testimonials</div>
 
         <h2 className="text-4xl font-black md:text-6xl">Teams love building with it.</h2>
       </div>
@@ -311,10 +285,7 @@ function renderContent() {
             role: 'Creative Director',
           },
         ].map((t) => (
-          <div
-            key={t.name}
-            className="rounded-[28px] border border-outline bg-surface-container p-8"
-          >
+          <div key={t.name} className="rounded-[28px] border border-outline bg-surface-container p-8">
             <div className="mb-6 text-2xl leading-relaxed">“{t.quote}”</div>
 
             <div className="flex items-center gap-4">
@@ -329,14 +300,12 @@ function renderContent() {
         ))}
       </div>
     </section>
-  )
+  );
   const pagePricing = (
     <section className="border-y border-outline-variant bg-surface-container-low">
       <div className="mx-auto max-w-7xl px-6 py-28">
         <div className="mb-20 text-center">
-          <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">
-            Pricing
-          </div>
+          <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Pricing</div>
 
           <h2 className="text-4xl font-black md:text-6xl">Simple pricing for modern teams.</h2>
         </div>
@@ -371,9 +340,7 @@ function renderContent() {
                 <h3 className="text-2xl font-black">{plan.name}</h3>
 
                 {plan.featured && (
-                  <div className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-on-primary">
-                    POPULAR
-                  </div>
+                  <div className="rounded-full bg-primary px-3 py-1 text-xs font-bold text-on-primary">POPULAR</div>
                 )}
               </div>
 
@@ -383,14 +350,12 @@ function renderContent() {
               </div>
 
               <div className="space-y-4">
-                {['Unlimited themes', 'Motion primitives', 'Design tokens', 'Advanced layouts'].map(
-                  (feature) => (
-                    <div key={feature} className="flex items-center gap-3">
-                      <div className="h-2 w-2 rounded-full bg-current" />
-                      <span>{feature}</span>
-                    </div>
-                  )
-                )}
+                {['Unlimited themes', 'Motion primitives', 'Design tokens', 'Advanced layouts'].map((feature) => (
+                  <div key={feature} className="flex items-center gap-3">
+                    <div className="h-2 w-2 rounded-full bg-current" />
+                    <span>{feature}</span>
+                  </div>
+                ))}
               </div>
 
               <button
@@ -407,23 +372,20 @@ function renderContent() {
         </div>
       </div>
     </section>
-  )
+  );
   const pageCTA = (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,var(--color-primary)_0%,transparent_55%)] opacity-20" />
 
       <div className="relative mx-auto max-w-5xl px-6 py-32 text-center">
-        <div className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-primary">
-          Start Building
-        </div>
+        <div className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-primary">Start Building</div>
 
         <h2 className="mx-auto mb-8 max-w-4xl text-5xl font-black leading-tight md:text-7xl">
           Create interfaces that feel alive.
         </h2>
 
         <p className="mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-on-surface-variant">
-          Bring together motion, semantics, theming, and spatial continuity in a single design
-          architecture.
+          Bring together motion, semantics, theming, and spatial continuity in a single design architecture.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
@@ -437,16 +399,14 @@ function renderContent() {
         </div>
       </div>
     </section>
-  )
+  );
   const pageFooter = (
     <footer className="border-t border-outline-variant bg-surface-container-low">
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-12 md:flex-row md:items-center md:justify-between">
         <div>
           <div className="mb-2 text-xl font-black">OMNI UI</div>
 
-          <div className="text-sm text-on-surface-variant">
-            Motion-driven Material 3 architecture.
-          </div>
+          <div className="text-sm text-on-surface-variant">Motion-driven Material 3 architecture.</div>
         </div>
 
         <div className="flex flex-wrap gap-6 text-sm text-on-surface-variant">
@@ -457,7 +417,7 @@ function renderContent() {
         </div>
       </div>
     </footer>
-  )
+  );
   return {
     pageHero,
     pageLogos,
@@ -467,5 +427,5 @@ function renderContent() {
     pagePricing,
     pageCTA,
     pageFooter,
-  }
+  };
 }

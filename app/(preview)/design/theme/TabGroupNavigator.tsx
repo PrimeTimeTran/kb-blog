@@ -1,32 +1,28 @@
-'use client'
+'use client';
 
-import { useTheme } from '@teispace/next-themes'
-import React, { useEffect, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { HiCube, HiSun, HiMoon } from 'react-icons/hi2'
+import { useTheme } from '@teispace/next-themes';
+import React, { useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiCube, HiSun, HiMoon } from 'react-icons/hi2';
 
-import { FloatingPicker } from './Components'
-import { useThemeStore } from '@/hooks/useThemeStore'
-import { BaseScroll } from '@/components/BaseScroll'
-import { applyMaterialTheme, applyTheme } from '@/lib/theme/palette'
+import { FloatingPicker } from './Components';
+import { useThemeStore } from '@/hooks/useThemeStore';
+import { BaseScroll } from '@/components/BaseScroll';
+import { applyMaterialTheme, applyTheme } from '@/lib/theme/palette';
 
-export function TabGroupNavigator({
-  tabs,
-  title = 'OMNI UI',
-  subtitle = 'DESIGN SYSTEM',
-}: TabGroupNavigatorProps) {
-  const { seed, setSeed } = useThemeStore()
-  const [currentTab, setCurrentTab] = useState(tabs[0]?.id)
-  const { setTheme, resolvedTheme } = useTheme()
+export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN SYSTEM' }: TabGroupNavigatorProps) {
+  const { seed, setSeed } = useThemeStore();
+  const [currentTab, setCurrentTab] = useState(tabs[0]?.id);
+  const { setTheme, resolvedTheme } = useTheme();
 
-  const activeTab = tabs.find((t) => t.id === currentTab)
+  const activeTab = tabs.find((t) => t.id === currentTab);
 
-  const isDark = resolvedTheme === 'dark'
+  const isDark = resolvedTheme === 'dark';
 
   useEffect(() => {
-    applyMaterialTheme(seed, isDark)
-    document.documentElement.classList.toggle('dark', isDark)
-  }, [seed, isDark])
+    applyMaterialTheme(seed, isDark);
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [seed, isDark]);
 
   return (
     <div className="h-full w-full min-h-0 flex flex-col bg-background">
@@ -40,16 +36,14 @@ export function TabGroupNavigator({
                 </div>
                 <div>
                   <h1 className="text-xl font-black tracking-tighter leading-none mr-2">{title}</h1>
-                  <p className="text-[9px] font-bold opacity-40 uppercase tracking-[0.2em] mt-1">
-                    {subtitle}
-                  </p>
+                  <p className="text-[9px] font-bold opacity-40 uppercase tracking-[0.2em] mt-1">{subtitle}</p>
                 </div>
               </div>
 
               {/* THE TAB BAR */}
               <nav className="flex items-center overflow-x-auto no-scrollbar">
                 {tabs.map((tab) => {
-                  const isActive = currentTab === tab.id
+                  const isActive = currentTab === tab.id;
                   return (
                     <button
                       key={tab.id}
@@ -70,7 +64,7 @@ export function TabGroupNavigator({
                         />
                       )}
                     </button>
-                  )
+                  );
                 })}
               </nav>
               <button
@@ -99,23 +93,23 @@ export function TabGroupNavigator({
       <FloatingPicker
         seed={seed}
         setSeed={(seed) => {
-          applyTheme(seed)
-          setSeed(seed)
+          applyTheme(seed);
+          setSeed(seed);
         }}
       />
     </div>
-  )
+  );
 }
 
 interface TabItem {
-  id: string
-  label: string
-  icon?: React.ReactNode
-  content: React.ReactNode
+  id: string;
+  label: string;
+  icon?: React.ReactNode;
+  content: React.ReactNode;
 }
 
 interface TabGroupNavigatorProps {
-  tabs: TabItem[]
-  title?: string
-  subtitle?: string
+  tabs: TabItem[];
+  title?: string;
+  subtitle?: string;
 }

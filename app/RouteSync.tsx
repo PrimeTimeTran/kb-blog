@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { useEffect } from 'react'
-import { useSys } from '@primetimetran/beeline'
+import { useEffect } from 'react';
+import { useSys } from '@primetimetran/beeline';
 
 export function RouteSync({ slug, toc }: { slug: string; toc: any }) {
   const sys = useSys(() => {
-    console.log('RouteSync')
-  })
+    console.log('RouteSync');
+  });
   useEffect(() => {
     sys.onPageEvent({
       type: 'PATH_CHANGE',
       state: { slug, toc },
-    })
-    console.log('page change')
-  }, [slug, toc])
+    });
+    console.log('page change');
+  }, [slug, toc]);
 
-  return null
+  return null;
 }

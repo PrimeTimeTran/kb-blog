@@ -1,15 +1,15 @@
-'use client'
-import { BlogSEO } from '@/components/SEO'
-import Comments from '@/components/comments'
-import PageTitle from '@/components/PageTitle'
-import siteMetadata from '../data/site-metadata'
-import formatDate from '../lib/utils/formate-date'
-import { SafeLink as Link } from '@/components/mdx/Link'
-import SectionContainer from '@/components/SectionContainer'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+'use client';
+import { BlogSEO } from '@/components/SEO';
+import Comments from '@/components/comments';
+import PageTitle from '@/components/PageTitle';
+import siteMetadata from '../data/site-metadata';
+import formatDate from '../lib/utils/formate-date';
+import { SafeLink as Link } from '@/components/mdx/Link';
+import SectionContainer from '@/components/SectionContainer';
+import ScrollTopAndComment from '@/components/ScrollTopAndComment';
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { date, title } = frontMatter
+  const { date, title } = frontMatter;
 
   return (
     <SectionContainer>
@@ -68,5 +68,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         </div>
       </article>
     </SectionContainer>
-  )
+  );
 }

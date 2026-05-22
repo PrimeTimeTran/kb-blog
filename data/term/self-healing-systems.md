@@ -14,13 +14,7 @@ subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['kubernetes', 'container-orchestration', 'node', 'control-plane', 'worker-node']
-related:
-  [
-    'immutable-infrastructure',
-    'declarative-infrastructure',
-    'desired-state-management',
-    'reconciliation-loop',
-  ]
+related: ['immutable-infrastructure', 'declarative-infrastructure', 'desired-state-management', 'reconciliation-loop']
 seeAlso:
   [
     'deployment',

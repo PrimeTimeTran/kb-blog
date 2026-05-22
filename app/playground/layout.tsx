@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 export default function Layout({ children, left, right }) {
   return (
@@ -7,7 +7,7 @@ export default function Layout({ children, left, right }) {
       <div className="flex-2 ">{children}</div>
       <div className="flex">{right}</div>
     </div>
-  )
+  );
 }
 
 // This is a three column layout which I think could serve a lot of use cases.

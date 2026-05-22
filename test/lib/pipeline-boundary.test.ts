@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { buildParsePipeline } from '@/lib/content/pipeline'
+import { describe, it, expect } from 'vitest';
+import { buildParsePipeline } from '@/lib/content/pipeline';
 
 describe('pipeline boundaries', () => {
   it('parse pipeline does not require content to exist', async () => {
@@ -11,8 +11,8 @@ describe('pipeline boundaries', () => {
       },
       index: {},
       analysis: {},
-    } as any
+    } as any;
 
-    await expect(buildParsePipeline(ctx).run(ctx.raw)).resolves.toBeDefined()
-  })
-})
+    await expect(buildParsePipeline(ctx).run(ctx.raw)).resolves.toBeDefined();
+  });
+});

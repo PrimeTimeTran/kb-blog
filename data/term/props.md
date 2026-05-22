@@ -13,15 +13,7 @@ category: 'react'
 subCategory: 'components'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'functional-component',
-    'class-component',
-    'pure-component',
-    'mounting',
-    'updating',
-    'unmounting',
-  ]
+leadsTo: ['functional-component', 'class-component', 'pure-component', 'mounting', 'updating', 'unmounting']
 related: ['state', 'render-function', 'component-tree']
 seeAlso:
   [

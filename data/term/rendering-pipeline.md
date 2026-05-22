@@ -13,13 +13,7 @@ category: 'react_native'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'write-once-run-anywhere',
-    'native-ui-abstraction',
-    'cross-platform-development',
-    'component-driven-ui',
-  ]
+leadsTo: ['write-once-run-anywhere', 'native-ui-abstraction', 'cross-platform-development', 'component-driven-ui']
 related: ['react-native', 'native-component', 'js-runtime']
 seeAlso:
   [

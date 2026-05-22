@@ -1,6 +1,6 @@
-'use client'
-import React from 'react'
+'use client';
+import React from 'react';
 
 export function ContextLabel({ children }: React.PropsWithChildren) {
-  return <h3 className="fixed text-3xl">{children}</h3>
+  return <h3 className="fixed text-3xl">{children}</h3>;
 }

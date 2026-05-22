@@ -5,6 +5,7 @@ tags:
   - calc-1
   - integrals
 ---
+
 # 🧩 Integration
 
 ## Core idea
@@ -22,7 +23,7 @@ It is the inverse operation of differentiation.
 Integration finds a function whose derivative is known:
 
 $$
-\int f(x),dx = F(x) \quad \text{where } F'(x)=f(x)  
+\int f(x),dx = F(x) \quad \text{where } F'(x)=f(x)
 $$
 
 So:
@@ -50,7 +51,6 @@ Meaning:
 - $f(x)$ gives heights
 - Integration adds up infinitely thin rectangles
 - Result = **net area under the curve**
-    
 
 ---
 
@@ -60,18 +60,17 @@ Think:
 
 - Derivative → breaks things into instantaneous rate
 - Integral → rebuilds total from those rates
-    
 
 ---
 
 ## 4. Fundamental connection
 
 $$
-\frac{d}{dx} \left(\int f(x),dx\right) = f(x)  
+\frac{d}{dx} \left(\int f(x),dx\right) = f(x)
 $$
 
 $$
-\int f'(x),dx = f(x) + C  
+\int f'(x),dx = f(x) + C
 $$
 
 So:
@@ -85,6 +84,7 @@ So:
 $$
 + C
 $$
+
 Reason:
 
 - Derivatives lose constant information

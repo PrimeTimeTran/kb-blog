@@ -1,21 +1,16 @@
-import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-import { RichTooltip } from './ToolTipRich'
+import { RichTooltip } from './ToolTipRich';
 
 interface AnimatedSortIconProps {
-  watch: any
-  children: React.ReactNode
-  tooltipTitle?: string
-  tooltipDescription?: string
+  watch: any;
+  children: React.ReactNode;
+  tooltipTitle?: string;
+  tooltipDescription?: string;
 }
 
-export const AnimatedSortIcon = ({
-  watch,
-  children,
-  tooltipTitle,
-  tooltipDescription,
-}: AnimatedSortIconProps) => {
+export const AnimatedSortIcon = ({ watch, children, tooltipTitle, tooltipDescription }: AnimatedSortIconProps) => {
   const content = (
     /* w-5 h-5 matches the 20px size of a standard text-lg icon */
     <div className="relative flex items-center justify-center w-5 h-5 overflow-hidden">
@@ -38,7 +33,7 @@ export const AnimatedSortIcon = ({
         </motion.div>
       </AnimatePresence>
     </div>
-  )
+  );
 
   if (tooltipTitle || tooltipDescription) {
     return (
@@ -46,8 +41,8 @@ export const AnimatedSortIcon = ({
         {/* We wrap in a div so the tooltip has a valid ref target */}
         <div className="flex items-center justify-center">{content}</div>
       </RichTooltip>
-    )
+    );
   }
 
-  return content
-}
+  return content;
+};

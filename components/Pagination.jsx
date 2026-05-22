@@ -1,8 +1,8 @@
-import { SafeLink as Link } from './mdx/Link'
+import { SafeLink as Link } from './mdx/Link';
 
 export default function Pagination({ totalPages, currentPage }) {
-  const prevPage = parseInt(currentPage) - 1 > 0
-  const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
+  const prevPage = parseInt(currentPage) - 1 > 0;
+  const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages);
 
   return (
     <div className="space-y-2 pb-8 pt-6 md:space-y-5">
@@ -32,5 +32,5 @@ export default function Pagination({ totalPages, currentPage }) {
         )}
       </nav>
     </div>
-  )
+  );
 }

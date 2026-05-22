@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 /* @config "../tailwind.config.cjs"; */
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms" {
+  strategy: 'base';
+  strategy: 'class';
+}
+/* Tailwind 3 Relic */
 
 /* ─────────────────────────────────────────────
    GLOBAL CASCADE LAYER ORDER
@@ -9,8 +15,11 @@
 
    Additional custom layers can be defined here.
 
-   Once declared, layer priority is deterministic
-   and no longer depends on import order.
+
+
+/* ─────────────────────────────────────────────
+   @layer 
+   Defines the order in which layers are applied (ignores import order)
 ───────────────────────────────────────────── */
 
 @layer base, components, utilities, semantics, layout, vendors;

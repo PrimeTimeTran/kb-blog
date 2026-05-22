@@ -13,22 +13,9 @@ category: 'dsa'
 subCategory: 'dynamic_programming'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'dynamic-programming',
-    'memoization',
-    'tabulation',
-    'overlapping-subproblems',
-    'optimal-substructure',
-  ]
+leadsTo: ['dynamic-programming', 'memoization', 'tabulation', 'overlapping-subproblems', 'optimal-substructure']
 related:
-  [
-    'knapsack-problem',
-    'longest-common-subsequence',
-    'longest-increasing-subsequence',
-    'coin-change',
-    'edit-distance',
-  ]
+  ['knapsack-problem', 'longest-common-subsequence', 'longest-increasing-subsequence', 'coin-change', 'edit-distance']
 seeAlso:
   [
     'big-o-notation',

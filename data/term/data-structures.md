@@ -14,14 +14,7 @@ subCategory: 'applications'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'modular-arithmetic',
-    'prime-factorization',
-    'rsa',
-    'computability',
-    'complexity-theory',
-    'formal-verification',
-  ]
+  ['modular-arithmetic', 'prime-factorization', 'rsa', 'computability', 'complexity-theory', 'formal-verification']
 related: ['algorithm-design', 'graph-algorithms', 'sorting']
 seeAlso:
   [

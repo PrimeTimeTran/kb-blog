@@ -1,7 +1,7 @@
-import type { ContentSource } from '../../core/types'
-import { resolve } from './resolve'
-import { read } from './read'
-import { list } from './list'
+import type { ContentSource } from '../../core/types';
+import { resolve } from './resolve';
+import { read } from './read';
+import { list } from './list';
 
 export const filesystemSource: ContentSource = {
   id: 'filesystem',
@@ -9,4 +9,4 @@ export const filesystemSource: ContentSource = {
   read,
   list,
   resolve,
-}
+};

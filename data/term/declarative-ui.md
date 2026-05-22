@@ -14,8 +14,7 @@ subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['flutter', 'widget', 'element-tree', 'render-tree', 'widget-tree']
-related:
-  ['composition-over-inheritance', 'everything-is-a-widget', 'single-codebase-cross-platform']
+related: ['composition-over-inheritance', 'everything-is-a-widget', 'single-codebase-cross-platform']
 seeAlso:
   [
     'inheritance',

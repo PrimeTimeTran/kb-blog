@@ -1,4 +1,4 @@
-import { TagBlock, NavBlock, BackToBlog, AuthorBlock } from './blocks'
+import { TagBlock, NavBlock, BackToBlog, AuthorBlock } from './blocks';
 
 export default function BlogSidebarLeft({ authorDetails, tags, prev, next, slug }) {
   return (
@@ -11,5 +11,5 @@ export default function BlogSidebarLeft({ authorDetails, tags, prev, next, slug 
 
       <BackToBlog />
     </div>
-  )
+  );
 }

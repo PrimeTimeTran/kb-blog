@@ -1,11 +1,11 @@
-import { List, ContextLabel } from './ContextLabel'
+import { List, ContextLabel } from './ContextLabel';
 
 export function Page1_SharedStackingContext() {
   type ListProps = {
-    items: string[]
-    variant?: 'question' | 'statement' | 'explanation'
-    className?: string
-  }
+    items: string[];
+    variant?: 'question' | 'statement' | 'explanation';
+    className?: string;
+  };
   function List({ items, variant = 'statement', className = '' }: ListProps) {
     return (
       <ul className={`mt-6 max-w-2xl space-y-3 pl-6 text-left text-lg list-disc ${className}`}>
@@ -24,24 +24,24 @@ export function Page1_SharedStackingContext() {
           </li>
         ))}
       </ul>
-    )
+    );
   }
 
   function ContextLabel({ children }: React.PropsWithChildren) {
-    return <h3 className="fixed text-3xl">{children}</h3>
+    return <h3 className="fixed text-3xl">{children}</h3>;
   }
   const questions = [
     'Which layer owns the final paint order?',
     'Why does RED beat BLUE here?',
     'What happens if RED becomes -z-10?',
     'Are BLUE and RED competing globally?',
-  ]
+  ];
   const redStatements = [
     'RED and BLUE exist in the same document and share the same stacking context.',
     'Because no ancestor creates a new stacking scope, z-index is evaluated globally within this layer.',
     'RED appears above BLUE because both are competing directly in the same rendering environment.',
     'Fixed positioning resolves against the viewport since no transformed or positioned ancestor redefines its coordinate system.',
-  ]
+  ];
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-zinc-900 text-white">
       <ContextLabel>
@@ -63,5 +63,5 @@ export function Page1_SharedStackingContext() {
         </div>
       </section>
     </div>
-  )
+  );
 }

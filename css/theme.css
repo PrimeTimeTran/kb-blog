@@ -61,6 +61,36 @@
   --outline: #79747e;
   --outline-variant: #d6d0da;
 
+  --inverse-surface: #313033;
+  --inverse-on-surface: #f4eff4;
+  --inverse-primary: #d0bcff;
+
+  /* ==========================================================================
+     ADDED: INTERACTIVE STATE MODIFIERS (Derived from standard M3 math)
+     ========================================================================== */
+  /* Primary Interaction States */
+  --primary-hover: #59438f;
+  --primary-active: #4c377c;
+
+  /* Container Specific Interaction States */
+  --primary-container-hover: #decfff;
+  --secondary-container-hover: #ded4f0;
+  --surface-container-hover: #e6dfeb;
+
+  /* ==========================================================================
+     ADDED: STRUCTURAL COMPONENT TOKENS
+     ========================================================================== */
+  --disabled-outline: #79747e /* at 12% opacity */;
+  --scrim: #000000 /* at 32% opacity for modal backgrounds */;
+
+  /* ======================================================
+   SPECIAL FX
+  ====================================================== */
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
+  --glass: rgba(255, 255, 255, 0.7);
+  --glow-primary: 0 0 32px rgba(167, 139, 250, 0.35);
+  --glow-secondary: 0 0 24px rgba(34, 211, 238, 0.45);
+
   /* RADIUS */
   --radius-sm: 8px;
   --radius-md: 12px;
@@ -69,17 +99,13 @@
   /* ======================================================
    DEPTH
   ====================================================== */
-
   --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-
-  --shadow-md: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(15, 23, 42, 0.06);
-
+  --shadow-md: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px rgba(124, 58, 237, 0.08);
   --shadow-lg: 0 2px 4px rgba(15, 23, 42, 0.06), 0 24px 64px rgba(15, 23, 42, 0.12);
 
   /* ======================================================
    RADII
   ====================================================== */
-
   --radius-sm: 10px;
   --radius-md: 18px;
   --radius-lg: 32px;
@@ -87,17 +113,12 @@
   /* ======================================================
    TYPOGRAPHY
   ====================================================== */
-
   --font-sans: Inter, ui-sans-serif, system-ui;
-
   --font-display: Inter, ui-sans-serif, system-ui;
-
   --font-mono: ui-monospace, SFMono-Regular, monospace;
-
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
-
   --tracking-tight: -0.03em;
   --tracking-wide: 0.08em;
 
@@ -106,93 +127,130 @@
   ====================================================== */
 
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
-
   --ease-snappy: cubic-bezier(0.34, 1.56, 0.64, 1);
-
   --duration-fast: 120ms;
   --duration-normal: 240ms;
   --duration-slow: 500ms;
-
-  /* ======================================================
-   SPECIAL FX
-  ====================================================== */
-
-  --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
-
-  --glass: rgba(255, 255, 255, 0.7);
-
-  --glow-primary: 0 0 24px rgba(37, 99, 235, 0.18);
-
-  --glow-secondary: 0 0 40px rgba(139, 92, 246, 0.16);
 }
 
-.dark {
-  /* BACKGROUND SYSTEM */
-  --background: #141218;
-  --on-background: #e6e0e9;
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* BACKGROUND SYSTEM */
+    --background: #141218;
+    --on-background: #e6e1e5;
 
-  /* SURFACE BASE */
-  --surface: #1c1b1f;
-  --on-surface: #e6e0e9;
+    /* SURFACE BASE */
+    --surface: #141218;
+    --on-surface: #e6e1e5;
 
-  /* SURFACE VARIANT */
-  --surface-variant: #49454f;
-  --on-surface-variant: #cac4d0;
+    /* SURFACE VARIANT */
+    --surface-variant: #49454f;
+    --on-surface-variant: #cac4d0;
 
-  /* SURFACE CONTAINERS (ELEVATION SCALE) */
-  --surface-container-lowest: #0f0d13;
-  --surface-container-low: #1c1b1f;
-  --surface-container: #211f26;
-  --surface-container-high: #2b2930;
-  --surface-container-highest: #36343b;
+    /* SURFACE CONTAINERS (ELEVATION SCALE FOR DARK CANVAS) */
+    --surface-container-lowest: #0f0d13;
+    --surface-container-low: #1d1b20;
+    --surface-container: #211f26;
+    --surface-container-high: #2b2930;
+    --surface-container-highest: #36343b;
 
-  /* TEXT */
-  --on-surface: #e6e1e5;
-  --on-surface-variant: #c7c2cc;
+    /* PRIMARY */
+    --primary: #d0bcff;
+    --on-primary: #381e72;
+    --primary-container: #4f378b;
+    --on-primary-container: #eaddff;
 
-  /* OUTLINES (slightly softer separation) */
-  --outline: #8e8894;
-  --outline-variant: #2f2c36;
+    /* SECONDARY */
+    --secondary: #ccc2dc;
+    --on-secondary: #332d41;
+    --secondary-container: #4a4458;
+    --on-secondary-container: #e8def8;
 
-  /* PRIMARY (keep yours, just slightly adjusted feel) */
-  --primary: #d0bcff;
-  --on-primary: #2b0b5c;
-  --primary-container: #4f378b;
-  --on-primary-container: #eaddff;
+    /* TERTIARY */
+    --tertiary: #efb8c8;
+    --on-tertiary: #492532;
+    --tertiary-container: #633b48;
+    --on-tertiary-container: #ffd8e4;
 
-  --secondary: #ccc2dc;
-  --on-secondary: #332d41;
-  --secondary-container: #4a4458;
-  --on-secondary-container: #e8def8;
+    /* STATUS */
+    --error: #f2b8b5;
+    --on-error: #601410;
+    --error-container: #8c1d18;
+    --on-error-container: #f9dedc;
 
-  --tertiary: #efb8c8;
-  --on-tertiary: #492532;
-  --tertiary-container: #633b48;
-  --on-tertiary-container: #ffd8e4;
+    --success: #bcffa4;
+    --on-success: #0a3900;
+    --success-container: #205107;
+    --on-success-container: #d7f5c5;
 
-  --error: #f2b8b5;
-  --on-error: #601410;
-  --error-container: #8c1d18;
-  --on-error-container: #f9dedc;
+    --warning: #e7c349;
+    --on-warning: #3c3000;
+    --warning-container: #574500;
+    --on-warning-container: #ffe9a3;
 
-  --success: #9cd67d;
-  --on-success: #0c3900;
-  --success-container: #1f510a;
-  --on-success-container: #b8f397;
+    /* INFO */
+    --info: #9ecaff;
+    --on-info: #003254;
+    --info-container: #004a77;
+    --on-info-container: #d1e4ff;
 
-  --warning: #dec472;
-  --on-warning: #3c2f00;
-  --warning-container: #574500;
-  --on-warning-container: #ffe088;
+    /* OUTLINES */
+    --outline: #938f99;
+    --outline-variant: #49454f;
 
-  --info: #99cbff;
-  --on-info: #003355;
-  --info-container: #004a77;
-  --on-info-container: #d1e4ff;
+    /* INVERSE MARKS (Flips back to light palette when isolated elements call for it) */
+    --inverse-surface: #e6e1e5;
+    --inverse-on-surface: #313033;
+    --inverse-primary: #6750a4;
+
+    /* ==========================================================================
+       INTERACTIVE STATE MODIFIERS (Adjusted shift calculations for dark emissive states)
+       ========================================================================== */
+    /* Primary Interaction States */
+    --primary-hover: #dfd0ff;
+    --primary-active: #c5affc;
+
+    /* Container Specific Interaction States */
+    --primary-container-hover: #5d43a0;
+    --secondary-container-hover: #564f66;
+    --surface-container-hover: #2e2c34;
+
+    /* STRUCTURAL COMPONENT TOKENS */
+    --disabled-outline: #938f99 /* at 12% opacity */;
+    --scrim: #000000 /* at 50% opacity for deeper masking on dark layouts */;
+
+    /* ==========================================================================
+       SPECIAL FX (Re-tuned for high-contrast visibility over deep dark backgrounds)
+       ========================================================================== */
+    --gradient-primary: linear-gradient(135deg, var(--primary), var(--secondary), var(--tertiary));
+
+    /* ✓ FIX: Swapped from white transparent to dark transparent so glass doesn't look like an accidental fog glare */
+    --glass: rgba(33, 31, 38, 0.65);
+
+    /* ✓ FIX: Amplified glow strengths slightly so they break through the black background cleanly */
+    --glow-primary: 0 0 32px rgba(208, 188, 255, 0.25);
+    --glow-secondary: 0 0 24px rgba(204, 194, 220, 0.3);
+
+    /* RADIUS (Stays identical across both modes to keep layouts unified) */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 28px;
+
+    /* ==========================================================================
+       DEPTH (Converted drop shadows into sharp, dark inner-ambient ambient occlusions)
+       ========================================================================== */
+    /* ✓ FIX: Shadows do not register on pitch black. Ambient depth relies on crisp outlines and dark solid valleys */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.08);
+    --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.12);
+  }
 }
 /* “I am defining a design token directly.” */
 @theme {
+  /* --color-debug-theme: red; */
   --color-brand: #6750a4;
+  --color-body-text: var(--on-surface);
 }
 
 /* “I am mapping theme tokens to other CSS variables.” */

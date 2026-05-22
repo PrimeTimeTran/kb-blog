@@ -13,8 +13,7 @@ category: 'ai'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['problem-solving', 'search', 'goal-state', 'initial-state', 'action-space', 'transition-model']
+leadsTo: ['problem-solving', 'search', 'goal-state', 'initial-state', 'action-space', 'transition-model']
 related:
   [
     'artificial-intelligence',

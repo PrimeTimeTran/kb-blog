@@ -14,15 +14,7 @@ subCategory: 'derivatives'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'power-rule',
-    'product-rule',
-    'quotient-rule',
-    'chain-rule',
-    'related-rates',
-    'mean-value-theorem',
-    'rolle-theorem',
-  ]
+  ['power-rule', 'product-rule', 'quotient-rule', 'chain-rule', 'related-rates', 'mean-value-theorem', 'rolle-theorem']
 related: ['derivative', 'tangent-line', 'rate-of-change', 'slope']
 seeAlso:
   [

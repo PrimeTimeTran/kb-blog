@@ -20,41 +20,16 @@
           <legend class="sr-only">Effects</legend>
 
           <!-- radio buttons for each of the @keyframes above -->
-          <input
-            type="radio"
-            id="blink-effect"
-            name="effect"
-            value="blink"
-            checked
-            class="sr-only"
-          />
+          <input type="radio" id="blink-effect" name="effect" value="blink" checked class="sr-only" />
           <label for="blink-effect">Blink</label>
 
-          <input
-            type="radio"
-            id="horizontal-scroll-effect"
-            name="effect"
-            value="horizontal-scroll"
-            class="sr-only"
-          />
+          <input type="radio" id="horizontal-scroll-effect" name="effect" value="horizontal-scroll" class="sr-only" />
           <label for="horizontal-scroll-effect">Horizontal scroll</label>
 
-          <input
-            type="radio"
-            id="backwards-scroll-effect"
-            name="effect"
-            value="backwards-scroll"
-            class="sr-only"
-          />
+          <input type="radio" id="backwards-scroll-effect" name="effect" value="backwards-scroll" class="sr-only" />
           <label for="backwards-scroll-effect">Backwards scroll</label>
 
-          <input
-            type="radio"
-            id="zoom-scroll-effect"
-            name="effect"
-            value="zoom-scroll"
-            class="sr-only"
-          />
+          <input type="radio" id="zoom-scroll-effect" name="effect" value="zoom-scroll" class="sr-only" />
           <label for="zoom-scroll-effect">Zoom scroll</label>
         </fieldset>
       </div>
@@ -93,8 +68,8 @@
             </p>
 
             <p>
-              And then we set <code class="selector">section</code> as the snapping elements by
-              using <code class="property">scroll-snap-align: start</code>.
+              And then we set <code class="selector">section</code> as the snapping elements by using
+              <code class="property">scroll-snap-align: start</code>.
             </p>
           </div>
         </div>
@@ -110,16 +85,15 @@
               <code class="selector">section</code> elements using the named timeline
               <code class="property">view-timeline: --section;</code>. We had previously set the
               <code class="property">timeline-scope: --section</code> up in our
-              <code class="selector">HTML</code> element, so we can access it from anywhere in the
-              document.
+              <code class="selector">HTML</code> element, so we can access it from anywhere in the document.
             </p>
 
             <p>
               We animate the <code class="selector">.content</code> children using
               <code class="property">animation-timeline: --section;</code>. The
               <code class="selector">.content</code> element will now animate based on its parent
-              <code class="selector">section</code>'s position. This is important due to how we're
-              handling the layout in the next section.
+              <code class="selector">section</code>'s position. This is important due to how we're handling the layout
+              in the next section.
             </p>
           </div>
         </div>
@@ -132,15 +106,13 @@
             <img src="https://assets.codepen.io/197359/flower-blue.png" alt="" />
             <p>
               We set the <code class="selector">.content</code> elements to
-              <code class="property">position: fixed</code>, so they're removed from the normal
-              document flow and stack on top of each other, giving them a solid background, so only
-              one is visible at a time.
+              <code class="property">position: fixed</code>, so they're removed from the normal document flow and stack
+              on top of each other, giving them a solid background, so only one is visible at a time.
             </p>
 
             <p>
-              Their parent <code class="selector">section</code>s are positioned as normal in the
-              layer below, taking up space, scroll-snapping, and powering the
-              <code class="property">animation-timeline</code>.
+              Their parent <code class="selector">section</code>s are positioned as normal in the layer below, taking up
+              space, scroll-snapping, and powering the <code class="property">animation-timeline</code>.
             </p>
           </div>
         </div>
@@ -153,13 +125,13 @@
             <img src="https://assets.codepen.io/197359/flower-red.png" alt="" />
             <p>
               By setting the <code class="selector">.content</code> elements to
-              <code class="property">position: fixed</code>, we can now transition between them
-              without a visible scrolling movement.
+              <code class="property">position: fixed</code>, we can now transition between them without a visible
+              scrolling movement.
             </p>
 
             <p>
-              We create a normal <code class="selector">@keyframe</code> animation to our liking to
-              transition between them. Check the navigation menu to see different effects.
+              We create a normal <code class="selector">@keyframe</code> animation to our liking to transition between
+              them. Check the navigation menu to see different effects.
             </p>
           </div>
         </div>
@@ -171,24 +143,19 @@
           <div class="text">
             <img src="https://assets.codepen.io/197359/flower-purple.png" alt="" />
             <ul>
-              <li>
-                Scrolling animations are not currently available in Firefox. This demo is using a
-                polyfill.
-              </li>
+              <li>Scrolling animations are not currently available in Firefox. This demo is using a polyfill.</li>
               <li>
                 This layout is fragile due to the use of
-                <code class="property">position: fixed</code>. You need to carefully manage stacking
-                contexts.
+                <code class="property">position: fixed</code>. You need to carefully manage stacking contexts.
               </li>
               <li>
-                Snapping points have their own caveats, such as content taller than the viewport
-                becoming inaccessible, along with the general annoyance of scrolljacking.
+                Snapping points have their own caveats, such as content taller than the viewport becoming inaccessible,
+                along with the general annoyance of scrolljacking.
               </li>
               <li>
-                The <code class="selector">blink</code> effect uses the
-                <code class="property">contrast()</code> filter, which modifies the colors of the
-                entire section. Thus, the background is set to black (or white), ensuring that it
-                appears unchanged during transitions due to already being at maximum contrast.
+                The <code class="selector">blink</code> effect uses the <code class="property">contrast()</code> filter,
+                which modifies the colors of the entire section. Thus, the background is set to black (or white),
+                ensuring that it appears unchanged during transitions due to already being at maximum contrast.
               </li>
             </ul>
           </div>

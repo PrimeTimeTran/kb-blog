@@ -3,8 +3,7 @@ draft: false
 date: '2024-12-25'
 title: 'Mathematics for Quantitative Finance'
 summary: 'Overview of the essential mathematics—linear algebra, statistics, calculus, and more—for success in quantitative finance.'
-tags:
-  ['finance', 'quant', 'calculus', 'statistics', 'linear algebra', 'probability', 'optimization']
+tags: ['finance', 'quant', 'calculus', 'statistics', 'linear algebra', 'probability', 'optimization']
 ---
 
 # Introduction

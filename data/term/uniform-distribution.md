@@ -13,15 +13,8 @@ category: 'statistics'
 subCategory: 'distributions'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'bernoulli-distribution',
-    'binomial-distribution',
-    'poisson-distribution',
-    'geometric-distribution',
-  ]
-related:
-  ['normal-distribution', 'exponential-distribution', 't-distribution', 'chi-square-distribution']
+leadsTo: ['bernoulli-distribution', 'binomial-distribution', 'poisson-distribution', 'geometric-distribution']
+related: ['normal-distribution', 'exponential-distribution', 't-distribution', 'chi-square-distribution']
 seeAlso:
   [
     'statistics',

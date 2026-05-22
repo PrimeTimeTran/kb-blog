@@ -7,46 +7,44 @@
 // public/static/assets/assets1/assets1.json
 // Assets: ex: Asset 1.svg
 // public/static/assets/assets1/...
-'use client'
+'use client';
 
-import Image from 'next/image'
+import Image from 'next/image';
 
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState, useMemo } from 'react';
 
 type SVGAsset = {
-  path: string
-  content: string
-}
+  path: string;
+  content: string;
+};
 
 export function SVGRender2() {
-  const [assets, setAssets] = useState<SVGAsset[]>([])
-  const [selected, setSelected] = useState<number | null>(null)
+  const [assets, setAssets] = useState<SVGAsset[]>([]);
+  const [selected, setSelected] = useState<number | null>(null);
 
   useEffect(() => {
     async function load() {
-      const res = await fetch('/assets/assets1.json')
-      const files: string[] = await res.json()
+      const res = await fetch('/assets/assets1.json');
+      const files: string[] = await res.json();
 
-      const normalized = files.map((f) =>
-        f.replace('./public', '').replace('./', '/static/').replace('public/', '/')
-      )
+      const normalized = files.map((f) => f.replace('./public', '').replace('./', '/static/').replace('public/', '/'));
 
       const loaded = await Promise.all(
         normalized.map(async (path) => {
-          const svg = await fetch(path).then((r) => r.text())
+          const svg = await fetch(path).then((r) => r.text());
 
           return {
             path,
             content: svg,
-          }
-        })
-      )
+          };
+        }),
+      );
 
-      setAssets(loaded)
+      setAssets(loaded);
     }
 
-    load()
-  }, [])
+    load();
+  }, []);
 
   return (
     <div
@@ -72,7 +70,7 @@ export function SVGRender2() {
         }}
       >
         {assets.map((asset, i) => {
-          const isSelected = selected === i
+          const isSelected = selected === i;
 
           return (
             <div
@@ -141,92 +139,92 @@ export function SVGRender2() {
                 {asset.path.split('/').pop()}
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 
 /* =========================================================
    CONFIG
 ========================================================= */
 
-const DEBUG = true
+const DEBUG = true;
 
-const ASSET_PATHS = ['/assets/bg1.svg', '/assets/bg2.svg', '/assets/bg3.svg']
+const ASSET_PATHS = ['/assets/bg1.svg', '/assets/bg2.svg', '/assets/bg3.svg'];
 
 /* =========================================================
    TYPES
 ========================================================= */
 
 type AssetMeta = {
-  width?: number
-  height?: number
+  width?: number;
+  height?: number;
 
-  vbX: number
-  vbY: number
-  vbWidth: number
-  vbHeight: number
+  vbX: number;
+  vbY: number;
+  vbWidth: number;
+  vbHeight: number;
 
-  aspectRatio: number
+  aspectRatio: number;
 
-  groups: number
-  paths: number
-  images: number
-  defs: number
-  gradientRefs: number
-  clipPaths: number
-  masks: number
-  patterns: number
+  groups: number;
+  paths: number;
+  images: number;
+  defs: number;
+  gradientRefs: number;
+  clipPaths: number;
+  masks: number;
+  patterns: number;
 
-  hasViewBox: boolean
-  hasWidthHeight: boolean
+  hasViewBox: boolean;
+  hasWidthHeight: boolean;
 
-  renderStrategy: 'viewBox' | 'width-height' | 'fallback'
-}
+  renderStrategy: 'viewBox' | 'width-height' | 'fallback';
+};
 
 type Asset = {
-  path: string
-  svg: string
-  inner: string
-  viewBox: string
-  meta: AssetMeta
-}
+  path: string;
+  svg: string;
+  inner: string;
+  viewBox: string;
+  meta: AssetMeta;
+};
 
 /* =========================================================
    SVG HELPERS
 ========================================================= */
 
 function extractViewBox(svgText: string) {
-  return svgText.match(/viewBox="([^"]+)"/)?.[1] ?? ''
+  return svgText.match(/viewBox="([^"]+)"/)?.[1] ?? '';
 }
 
 function extractInner(svgText: string) {
-  return svgText.match(/<svg[^>]*>([\s\S]*?)<\/svg>/)?.[1] ?? svgText
+  return svgText.match(/<svg[^>]*>([\s\S]*?)<\/svg>/)?.[1] ?? svgText;
 }
 
 function extractWidth(svgText: string) {
-  const raw = svgText.match(/width="([^"]+)"/)?.[1]
-  if (!raw) return undefined
-  return parseFloat(raw)
+  const raw = svgText.match(/width="([^"]+)"/)?.[1];
+  if (!raw) return undefined;
+  return parseFloat(raw);
 }
 
 function extractHeight(svgText: string) {
-  const raw = svgText.match(/height="([^"]+)"/)?.[1]
-  if (!raw) return undefined
-  return parseFloat(raw)
+  const raw = svgText.match(/height="([^"]+)"/)?.[1];
+  if (!raw) return undefined;
+  return parseFloat(raw);
 }
 
 function parseViewBox(viewBox: string) {
-  const [x, y, width, height] = viewBox.split(/[ ,]+/).map(Number)
+  const [x, y, width, height] = viewBox.split(/[ ,]+/).map(Number);
 
   return {
     x: x || 0,
     y: y || 0,
     width: width || 1000,
     height: height || 1000,
-  }
+  };
 }
 
 /* =========================================================
@@ -234,34 +232,34 @@ function parseViewBox(viewBox: string) {
 ========================================================= */
 
 function analyzeSVG(svgText: string): AssetMeta {
-  const viewBox = extractViewBox(svgText)
+  const viewBox = extractViewBox(svgText);
 
-  const width = extractWidth(svgText)
-  const height = extractHeight(svgText)
+  const width = extractWidth(svgText);
+  const height = extractHeight(svgText);
 
-  const hasViewBox = !!viewBox
-  const hasWidthHeight = !!width && !!height
+  const hasViewBox = !!viewBox;
+  const hasWidthHeight = !!width && !!height;
 
-  let vbX = 0
-  let vbY = 0
-  let vbWidth = width || 1000
-  let vbHeight = height || 1000
+  let vbX = 0;
+  let vbY = 0;
+  let vbWidth = width || 1000;
+  let vbHeight = height || 1000;
 
   if (hasViewBox) {
-    const parsed = parseViewBox(viewBox)
+    const parsed = parseViewBox(viewBox);
 
-    vbX = parsed.x
-    vbY = parsed.y
-    vbWidth = parsed.width
-    vbHeight = parsed.height
+    vbX = parsed.x;
+    vbY = parsed.y;
+    vbWidth = parsed.width;
+    vbHeight = parsed.height;
   }
 
-  const aspectRatio = vbWidth / vbHeight
+  const aspectRatio = vbWidth / vbHeight;
 
-  let renderStrategy: AssetMeta['renderStrategy'] = 'fallback'
+  let renderStrategy: AssetMeta['renderStrategy'] = 'fallback';
 
-  if (hasViewBox) renderStrategy = 'viewBox'
-  else if (hasWidthHeight) renderStrategy = 'width-height'
+  if (hasViewBox) renderStrategy = 'viewBox';
+  else if (hasWidthHeight) renderStrategy = 'width-height';
 
   return {
     width,
@@ -287,7 +285,7 @@ function analyzeSVG(svgText: string): AssetMeta {
     hasWidthHeight,
 
     renderStrategy,
-  }
+  };
 }
 
 /* =========================================================
@@ -295,9 +293,9 @@ function analyzeSVG(svgText: string): AssetMeta {
 ========================================================= */
 
 function debugGroups(svgText: string) {
-  const groupMatches = [...svgText.matchAll(/<g[^>]*>/g)]
+  const groupMatches = [...svgText.matchAll(/<g[^>]*>/g)];
 
-  console.log('================ GROUP STACK ================')
+  console.log('================ GROUP STACK ================');
 
   groupMatches.forEach((g, i) => {
     console.log({
@@ -306,10 +304,10 @@ function debugGroups(svgText: string) {
       position: i === 0 ? 'BOTTOM' : i === groupMatches.length - 1 ? 'TOP' : 'MIDDLE',
 
       raw: g[0],
-    })
-  })
+    });
+  });
 
-  console.log('============================================')
+  console.log('============================================');
 }
 
 /* =========================================================
@@ -317,33 +315,33 @@ function debugGroups(svgText: string) {
 ========================================================= */
 
 export default function SVGRender() {
-  const [assets, setAssets] = useState<Asset[]>([])
+  const [assets, setAssets] = useState<Asset[]>([]);
 
   useEffect(() => {
     async function load() {
       const loaded = await Promise.all(
         ASSET_PATHS.map(async (path) => {
-          const svgText = await fetch(path).then((r) => r.text())
+          const svgText = await fetch(path).then((r) => r.text());
 
-          const inner = extractInner(svgText)
+          const inner = extractInner(svgText);
 
-          const viewBox = extractViewBox(svgText) || '0 0 1000 1000'
+          const viewBox = extractViewBox(svgText) || '0 0 1000 1000';
 
-          const meta = analyzeSVG(svgText)
+          const meta = analyzeSVG(svgText);
 
           if (DEBUG) {
-            console.log('================ SVG DEBUG ================')
-            console.log(path)
-            console.log(meta)
-            console.log('===========================================')
+            console.log('================ SVG DEBUG ================');
+            console.log(path);
+            console.log(meta);
+            console.log('===========================================');
 
-            debugGroups(svgText)
+            debugGroups(svgText);
 
             const tinyStrokes = [...svgText.matchAll(/stroke-width="([^"]+)"/g)]
               .map((m) => Number(m[1]))
-              .filter((v) => v < 1)
+              .filter((v) => v < 1);
 
-            console.log('tinyStrokes', tinyStrokes)
+            console.log('tinyStrokes', tinyStrokes);
           }
 
           return {
@@ -352,15 +350,15 @@ export default function SVGRender() {
             inner,
             viewBox,
             meta,
-          }
-        })
-      )
+          };
+        }),
+      );
 
-      setAssets(loaded)
+      setAssets(loaded);
     }
 
-    load()
-  }, [])
+    load();
+  }, []);
 
   return (
     <div
@@ -415,7 +413,7 @@ export default function SVGRender() {
             dangerouslySetInnerHTML={{
               __html: asset.svg.replace(
                 '<svg',
-                `<svg preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;overflow:visible;"`
+                `<svg preserveAspectRatio="xMidYMid meet" style="width:100%;height:100%;overflow:visible;"`,
               ),
             }}
           />
@@ -457,12 +455,12 @@ export default function SVGRender() {
                   patterns: asset.meta.patterns,
                 },
                 null,
-                2
+                2,
               )}
             </div>
           )}
         </div>
       ))}
     </div>
-  )
+  );
 }

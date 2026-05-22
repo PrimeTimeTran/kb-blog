@@ -14,14 +14,7 @@ subCategory: 'routing'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'pages-router',
-    'dynamic-routes',
-    'get-server-side-props',
-    'get-static-props',
-    'catch-all-routes',
-    'slug-params',
-  ]
+  ['pages-router', 'dynamic-routes', 'get-server-side-props', 'get-static-props', 'catch-all-routes', 'slug-params']
 related: ['app-router', 'layout', 'page', 'error', 'route-segment', 'parallel-routes']
 seeAlso:
   [

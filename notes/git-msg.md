@@ -102,5 +102,47 @@ export default Root() {
 }
 ```
 
-My objective here is to understand this more deeply. There's so many moving parts.
-Z-index, stack context, inset reset? I want to begin documenting this for the rest of my life with examples in one place so I can fix this issue myself in the future like I do CSS
+```jsx
+<div className="flex h-full min-h-screen max-w-5xl px-3 mx-auto">
+  <div className="flex-1 min-w-0 space-y-2">
+    <header>
+      <h1 className="text-2xl font-extrabold leading-9 tracking-tight text-on-surface sm:text-4xl">{title}</h1>
+
+      <p className="text-lg text-on-surface-variant">{subtitle}</p>
+      <SearchBar
+        metrics={metrics}
+        value={searchTerm}
+        sortField={sortField}
+        sortOrder={sortOrder}
+        onChange={setSearchTerm}
+        setSortField={setSortField}
+        setSortOrder={setSortOrder}
+      />
+      <div className="relative">
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-8 bg-linear-to-r from-surface to-transparent" />
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-linear-to-l from-surface to-transparent" />
+
+        <div className="my-2 mb-6 flex space-x-2 overflow-x-auto no-scrollbar">
+          {Object.entries(TOPICS).map(([topic, tags]) => {
+            const active = !filteredTopics.includes(topic);
+            return (
+              <TagButton
+                key={topic}
+                label={topic}
+                active={active}
+                tailDecoration={tags.length}
+                onClick={() => toggleTag(topic)}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </header>
+    <Suspense fallback={<PostListSkeleton />}>{<PostList posts={posts} />}</Suspense>
+
+    {pagination?.totalPages > 1 && !searchTerm && (
+      <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+    )}
+  </div>
+</div>
+```

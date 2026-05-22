@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function OrderBook({
   symbol = 'TSLA',
@@ -15,10 +15,7 @@ export function OrderBook({
   amountUnit = 'Size',
 }) {
   return (
-    <div
-      className="orderbook-container"
-      style={{ maxWidth: 400, margin: '0 auto', fontFamily: 'sans-serif' }}
-    >
+    <div className="orderbook-container" style={{ maxWidth: 400, margin: '0 auto', fontFamily: 'sans-serif' }}>
       <h2>{symbol} Order Book</h2>
       <table style={{ width: '100%', marginTop: 16, borderCollapse: 'collapse' }}>
         <thead>
@@ -52,5 +49,5 @@ export function OrderBook({
         </tbody>
       </table>
     </div>
-  )
+  );
 }

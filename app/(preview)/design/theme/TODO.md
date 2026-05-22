@@ -1,5 +1,3 @@
-
-
 Textgradient influenced by mouse position.
 https://www.sliderrevolution.com/templates/background-effect-hero-collection/?utm_medium=inline-ad&utm_source=css-animated-background
 

@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react';
 
 const fontSizes = [
   'text-xs',
@@ -11,7 +11,7 @@ const fontSizes = [
   'text-4xl',
   'text-5xl',
   'text-6xl',
-]
+];
 
 const fontWeights = [
   'font-thin',
@@ -23,8 +23,8 @@ const fontWeights = [
   'font-bold',
   'font-extrabold',
   'font-black',
-]
-const textAlignments = ['text-left', 'text-center', 'text-right', 'text-justify']
+];
+const textAlignments = ['text-left', 'text-center', 'text-right', 'text-justify'];
 
 export default function TailwindUtilities({ children }: PropsWithChildren) {
   return (
@@ -71,22 +71,16 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
         {/* CONTENT */}
         <main className="min-w-0 flex-1 space-y-12">
           {/* OVERVIEW */}
-          <section
-            id="overview"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="overview" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-6">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Foundation
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Foundation</div>
                 <h2 className="text-3xl font-black tracking-tight">Typography Overview</h2>
               </div>
 
               <p className="max-w-4xl leading-8 text-on-surface-variant">
-                Typography is one of the most important systems in UI design. Strong typography
-                establishes hierarchy, improves scanning, reinforces accessibility, and creates
-                visual rhythm.
+                Typography is one of the most important systems in UI design. Strong typography establishes hierarchy,
+                improves scanning, reinforces accessibility, and creates visual rhythm.
               </p>
 
               <div className="grid gap-5 md:grid-cols-3">
@@ -104,10 +98,7 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                     body: 'Create predictable visual structure.',
                   },
                 ].map((item) => (
-                  <div
-                    key={item.title}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={item.title} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="mb-2 text-lg font-bold">{item.title}</div>
                     <p className="text-sm leading-7 text-on-surface-variant">{item.body}</p>
                   </div>
@@ -117,36 +108,23 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* FONT SIZES */}
-          <section
-            id="font-sizes"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="font-sizes" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Scale
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Scale</div>
                 <h2 className="text-3xl font-black tracking-tight">Font Sizes</h2>
               </div>
 
               <p className="leading-8 text-on-surface-variant">
-                Tailwind provides a consistent type scale ranging from compact labels to large
-                display headings.
+                Tailwind provides a consistent type scale ranging from compact labels to large display headings.
               </p>
 
               <div className="space-y-4">
                 {fontSizes.map((size) => (
-                  <div
-                    key={size}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                  >
-                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      {size}
-                    </div>
+                  <div key={size} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">{size}</div>
 
-                    <div className={`${size} font-semibold`}>
-                      The quick brown fox jumps over the lazy dog.
-                    </div>
+                    <div className={`${size} font-semibold`}>The quick brown fox jumps over the lazy dog.</div>
                   </div>
                 ))}
               </div>
@@ -154,24 +132,16 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* FONT WEIGHTS */}
-          <section
-            id="font-weights"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="font-weights" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Emphasis
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Emphasis</div>
                 <h2 className="text-3xl font-black tracking-tight">Font Weights</h2>
               </div>
 
               <div className="space-y-4">
                 {fontWeights.map((weight) => (
-                  <div
-                    key={weight}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                  >
+                  <div key={weight} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {weight}
                     </div>
@@ -184,54 +154,37 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* LINE HEIGHT */}
-          <section
-            id="line-height"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="line-height" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Readability
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Readability</div>
                 <h2 className="text-3xl font-black tracking-tight">Line Height</h2>
               </div>
 
               <div className="space-y-5">
-                {[
-                  'leading-none',
-                  'leading-tight',
-                  'leading-normal',
-                  'leading-relaxed',
-                  'leading-loose',
-                ].map((leading) => (
-                  <div
-                    key={leading}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                  >
-                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      {leading}
-                    </div>
+                {['leading-none', 'leading-tight', 'leading-normal', 'leading-relaxed', 'leading-loose'].map(
+                  (leading) => (
+                    <div key={leading} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                      <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
+                        {leading}
+                      </div>
 
-                    <p className={`${leading} max-w-3xl text-base`}>
-                      Good typography balances readability, rhythm, and information density. Line
-                      height strongly impacts how easy content is to scan and understand.
-                    </p>
-                  </div>
-                ))}
+                      <p className={`${leading} max-w-3xl text-base`}>
+                        Good typography balances readability, rhythm, and information density. Line height strongly
+                        impacts how easy content is to scan and understand.
+                      </p>
+                    </div>
+                  ),
+                )}
               </div>
             </div>
           </section>
 
           {/* LETTER SPACING */}
-          <section
-            id="letter-spacing"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="letter-spacing" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Rhythm
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Rhythm</div>
                 <h2 className="text-3xl font-black tracking-tight">Letter Spacing</h2>
               </div>
 
@@ -244,10 +197,7 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                   'tracking-wider',
                   'tracking-widest',
                 ].map((tracking) => (
-                  <div
-                    key={tracking}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={tracking} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {tracking}
                     </div>
@@ -260,21 +210,16 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* TEXT COLORS */}
-          <section
-            id="text-colors"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="text-colors" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Semantic Roles
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Semantic Roles</div>
                 <h2 className="text-3xl font-black tracking-tight">Text Colors</h2>
               </div>
 
               <p className="leading-8 text-on-surface-variant">
-                In Omni, text colors should remain semantic. Avoid directly using raw palette colors
-                like <code>text-gray-500</code> in application UI.
+                In Omni, text colors should remain semantic. Avoid directly using raw palette colors like{' '}
+                <code>text-gray-500</code> in application UI.
               </p>
 
               <div className="grid gap-5 md:grid-cols-2">
@@ -300,17 +245,12 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                     bg: 'bg-surface',
                   },
                 ].map((item) => (
-                  <div
-                    key={item.title}
-                    className={`rounded-2xl border border-outline/20 ${item.bg} p-6`}
-                  >
+                  <div key={item.title} className={`rounded-2xl border border-outline/20 ${item.bg} p-6`}>
                     <div className="mb-2 text-sm font-bold uppercase tracking-wide text-on-surface-variant">
                       {item.title}
                     </div>
 
-                    <div className={`${item.cls} text-2xl font-bold`}>
-                      Semantic typography matters.
-                    </div>
+                    <div className={`${item.cls} text-2xl font-bold`}>Semantic typography matters.</div>
 
                     <div className="mt-4 text-sm text-on-surface-variant">
                       <code>{item.cls}</code>
@@ -322,31 +262,23 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* ALIGNMENT */}
-          <section
-            id="alignment"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="alignment" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Layout
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Layout</div>
                 <h2 className="text-3xl font-black tracking-tight">Text Alignment</h2>
               </div>
 
               <div className="space-y-5">
                 {textAlignments.map((alignment) => (
-                  <div
-                    key={alignment}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                  >
+                  <div key={alignment} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {alignment}
                     </div>
 
                     <p className={`${alignment} leading-8`}>
-                      Good alignment creates stronger layout structure and improves readability
-                      across responsive interfaces.
+                      Good alignment creates stronger layout structure and improves readability across responsive
+                      interfaces.
                     </p>
                   </div>
                 ))}
@@ -355,15 +287,10 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* TRANSFORMATIONS */}
-          <section
-            id="transformations"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="transformations" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Formatting
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Formatting</div>
                 <h2 className="text-3xl font-black tracking-tight">Text Transformations</h2>
               </div>
 
@@ -374,10 +301,7 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                   ['capitalize', 'capitalize every important word'],
                   ['normal-case', 'NORMAL CASE RESET'],
                 ].map(([transform, text]) => (
-                  <div
-                    key={transform}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                  >
+                  <div key={transform} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {transform}
                     </div>
@@ -390,23 +314,16 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* TRUNCATION */}
-          <section
-            id="truncation"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="truncation" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Overflow Handling
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Overflow Handling</div>
                 <h2 className="text-3xl font-black tracking-tight">Truncation & Clamping</h2>
               </div>
 
               <div className="space-y-5">
                 <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
-                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                    truncate
-                  </div>
+                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">truncate</div>
 
                   <div className="max-w-sm truncate text-lg font-medium">
                     This is a very long title that will truncate elegantly.
@@ -419,9 +336,9 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                   </div>
 
                   <p className="line-clamp-3 max-w-xl leading-8 text-on-surface-variant">
-                    Typography truncation should preserve readability and layout consistency.
-                    Long-form content often needs line clamping in cards, feeds, dashboards, and
-                    compact mobile layouts where vertical space is constrained.
+                    Typography truncation should preserve readability and layout consistency. Long-form content often
+                    needs line clamping in cards, feeds, dashboards, and compact mobile layouts where vertical space is
+                    constrained.
                   </p>
                 </div>
               </div>
@@ -429,30 +346,21 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* RESPONSIVE */}
-          <section
-            id="responsive-typography"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="responsive-typography" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Adaptability
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Adaptability</div>
                 <h2 className="text-3xl font-black tracking-tight">Responsive Typography</h2>
               </div>
 
               <div className="rounded-3xl border border-outline/20 bg-surface-container p-8">
-                <div className="mb-4 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                  Example
-                </div>
+                <div className="mb-4 text-xs font-bold uppercase tracking-wide text-on-surface-variant">Example</div>
 
-                <h3 className="text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl">
-                  Responsive Headline
-                </h3>
+                <h3 className="text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl">Responsive Headline</h3>
 
                 <p className="mt-6 max-w-3xl leading-8 text-on-surface-variant">
-                  Responsive typography allows layouts to scale naturally across mobile, tablet,
-                  desktop, and ultra-wide interfaces.
+                  Responsive typography allows layouts to scale naturally across mobile, tablet, desktop, and ultra-wide
+                  interfaces.
                 </p>
 
                 <div className="mt-6 rounded-2xl bg-surface px-5 py-4 text-sm text-on-surface-variant">
@@ -463,15 +371,10 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* ACCESSIBILITY */}
-          <section
-            id="accessibility"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="accessibility" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Inclusive Design
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Inclusive Design</div>
                 <h2 className="text-3xl font-black tracking-tight">Accessibility Guidelines</h2>
               </div>
 
@@ -484,10 +387,7 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
                   'Ensure line lengths remain readable.',
                   'Prefer relaxed spacing for long-form content.',
                 ].map((item) => (
-                  <div
-                    key={item}
-                    className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                  >
+                  <div key={item} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                     <div className="flex items-start gap-3">
                       <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
 
@@ -500,15 +400,10 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
           </section>
 
           {/* GUIDELINES */}
-          <section
-            id="guidelines"
-            className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-          >
+          <section id="guidelines" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
             <div className="space-y-8">
               <div>
-                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                  Best Practices
-                </div>
+                <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Best Practices</div>
                 <h2 className="text-3xl font-black tracking-tight">Typography Guidelines</h2>
               </div>
 
@@ -542,7 +437,7 @@ export default function TailwindUtilities({ children }: PropsWithChildren) {
         </main>
       </div>
     </div>
-  )
+  );
 }
 
 function Hero() {
@@ -558,20 +453,19 @@ function Hero() {
             <h1 className="text-5xl font-black tracking-tight">Tailwind Text Utilities</h1>
 
             <p className="text-lg leading-8 text-on-surface-variant">
-              Typography utilities define readability, hierarchy, rhythm, and communication across
-              the Omni design system. Tailwind text classes provide low-level primitives that map
-              into semantic UI composition.
+              Typography utilities define readability, hierarchy, rhythm, and communication across the Omni design
+              system. Tailwind text classes provide low-level primitives that map into semantic UI composition.
             </p>
 
             <p className="max-w-3xl leading-8 text-on-surface-variant">
-              This page documents how typography utilities should be used within a semantic design
-              system architecture rather than as isolated styling shortcuts.
+              This page documents how typography utilities should be used within a semantic design system architecture
+              rather than as isolated styling shortcuts.
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function Body() {
@@ -580,9 +474,7 @@ function Body() {
       {/* SIDEBAR */}
       <aside className="lg:w-72 lg:shrink-0">
         <div className="sticky top-6 rounded-3xl border border-outline/20 bg-surface-container p-5 shadow-sm">
-          <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">
-            Typography Docs
-          </div>
+          <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">Typography Docs</div>
 
           <nav className="space-y-2 text-sm">
             {[
@@ -614,22 +506,16 @@ function Body() {
       {/* CONTENT */}
       <main className="min-w-0 flex-1 space-y-12">
         {/* OVERVIEW */}
-        <section
-          id="overview"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="overview" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-6">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Foundation
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Foundation</div>
               <h2 className="text-3xl font-black tracking-tight">Typography Overview</h2>
             </div>
 
             <p className="max-w-4xl leading-8 text-on-surface-variant">
-              Typography is one of the most important systems in UI design. Strong typography
-              establishes hierarchy, improves scanning, reinforces accessibility, and creates visual
-              rhythm.
+              Typography is one of the most important systems in UI design. Strong typography establishes hierarchy,
+              improves scanning, reinforces accessibility, and creates visual rhythm.
             </p>
 
             <div className="grid gap-5 md:grid-cols-3">
@@ -647,10 +533,7 @@ function Body() {
                   body: 'Create predictable visual structure.',
                 },
               ].map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                >
+                <div key={item.title} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                   <div className="mb-2 text-lg font-bold">{item.title}</div>
                   <p className="text-sm leading-7 text-on-surface-variant">{item.body}</p>
                 </div>
@@ -660,36 +543,23 @@ function Body() {
         </section>
 
         {/* FONT SIZES */}
-        <section
-          id="font-sizes"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="font-sizes" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Scale
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Scale</div>
               <h2 className="text-3xl font-black tracking-tight">Font Sizes</h2>
             </div>
 
             <p className="leading-8 text-on-surface-variant">
-              Tailwind provides a consistent type scale ranging from compact labels to large display
-              headings.
+              Tailwind provides a consistent type scale ranging from compact labels to large display headings.
             </p>
 
             <div className="space-y-4">
               {fontSizes.map((size) => (
-                <div
-                  key={size}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                >
-                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                    {size}
-                  </div>
+                <div key={size} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">{size}</div>
 
-                  <div className={`${size} font-semibold`}>
-                    The quick brown fox jumps over the lazy dog.
-                  </div>
+                  <div className={`${size} font-semibold`}>The quick brown fox jumps over the lazy dog.</div>
                 </div>
               ))}
             </div>
@@ -697,27 +567,17 @@ function Body() {
         </section>
 
         {/* FONT WEIGHTS */}
-        <section
-          id="font-weights"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="font-weights" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Emphasis
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Emphasis</div>
               <h2 className="text-3xl font-black tracking-tight">Font Weights</h2>
             </div>
 
             <div className="space-y-4">
               {fontWeights.map((weight) => (
-                <div
-                  key={weight}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                >
-                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                    {weight}
-                  </div>
+                <div key={weight} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">{weight}</div>
 
                   <div className={`${weight} text-2xl`}>Typography creates visual hierarchy.</div>
                 </div>
@@ -727,54 +587,37 @@ function Body() {
         </section>
 
         {/* LINE HEIGHT */}
-        <section
-          id="line-height"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="line-height" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Readability
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Readability</div>
               <h2 className="text-3xl font-black tracking-tight">Line Height</h2>
             </div>
 
             <div className="space-y-5">
-              {[
-                'leading-none',
-                'leading-tight',
-                'leading-normal',
-                'leading-relaxed',
-                'leading-loose',
-              ].map((leading) => (
-                <div
-                  key={leading}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                >
-                  <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                    {leading}
-                  </div>
+              {['leading-none', 'leading-tight', 'leading-normal', 'leading-relaxed', 'leading-loose'].map(
+                (leading) => (
+                  <div key={leading} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
+                      {leading}
+                    </div>
 
-                  <p className={`${leading} max-w-3xl text-base`}>
-                    Good typography balances readability, rhythm, and information density. Line
-                    height strongly impacts how easy content is to scan and understand.
-                  </p>
-                </div>
-              ))}
+                    <p className={`${leading} max-w-3xl text-base`}>
+                      Good typography balances readability, rhythm, and information density. Line height strongly
+                      impacts how easy content is to scan and understand.
+                    </p>
+                  </div>
+                ),
+              )}
             </div>
           </div>
         </section>
 
         {/* LETTER SPACING */}
-        <section
-          id="letter-spacing"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="letter-spacing" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Rhythm
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Rhythm</div>
               <h2 className="text-3xl font-black tracking-tight">Letter Spacing</h2>
             </div>
 
@@ -787,10 +630,7 @@ function Body() {
                 'tracking-wider',
                 'tracking-widest',
               ].map((tracking) => (
-                <div
-                  key={tracking}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                >
+                <div key={tracking} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {tracking}
                   </div>
@@ -803,21 +643,16 @@ function Body() {
         </section>
 
         {/* TEXT COLORS */}
-        <section
-          id="text-colors"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="text-colors" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Semantic Roles
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Semantic Roles</div>
               <h2 className="text-3xl font-black tracking-tight">Text Colors</h2>
             </div>
 
             <p className="leading-8 text-on-surface-variant">
-              In Omni, text colors should remain semantic. Avoid directly using raw palette colors
-              like <code>text-gray-500</code> in application UI.
+              In Omni, text colors should remain semantic. Avoid directly using raw palette colors like{' '}
+              <code>text-gray-500</code> in application UI.
             </p>
 
             <div className="grid gap-5 md:grid-cols-2">
@@ -843,17 +678,12 @@ function Body() {
                   bg: 'bg-surface',
                 },
               ].map((item) => (
-                <div
-                  key={item.title}
-                  className={`rounded-2xl border border-outline/20 ${item.bg} p-6`}
-                >
+                <div key={item.title} className={`rounded-2xl border border-outline/20 ${item.bg} p-6`}>
                   <div className="mb-2 text-sm font-bold uppercase tracking-wide text-on-surface-variant">
                     {item.title}
                   </div>
 
-                  <div className={`${item.cls} text-2xl font-bold`}>
-                    Semantic typography matters.
-                  </div>
+                  <div className={`${item.cls} text-2xl font-bold`}>Semantic typography matters.</div>
 
                   <div className="mt-4 text-sm text-on-surface-variant">
                     <code>{item.cls}</code>
@@ -865,31 +695,23 @@ function Body() {
         </section>
 
         {/* ALIGNMENT */}
-        <section
-          id="alignment"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="alignment" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Layout
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Layout</div>
               <h2 className="text-3xl font-black tracking-tight">Text Alignment</h2>
             </div>
 
             <div className="space-y-5">
               {textAlignments.map((alignment) => (
-                <div
-                  key={alignment}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                >
+                <div key={alignment} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {alignment}
                   </div>
 
                   <p className={`${alignment} leading-8`}>
-                    Good alignment creates stronger layout structure and improves readability across
-                    responsive interfaces.
+                    Good alignment creates stronger layout structure and improves readability across responsive
+                    interfaces.
                   </p>
                 </div>
               ))}
@@ -898,15 +720,10 @@ function Body() {
         </section>
 
         {/* TRANSFORMATIONS */}
-        <section
-          id="transformations"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="transformations" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Formatting
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Formatting</div>
               <h2 className="text-3xl font-black tracking-tight">Text Transformations</h2>
             </div>
 
@@ -917,10 +734,7 @@ function Body() {
                 ['capitalize', 'capitalize every important word'],
                 ['normal-case', 'NORMAL CASE RESET'],
               ].map(([transform, text]) => (
-                <div
-                  key={transform}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-6"
-                >
+                <div key={transform} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {transform}
                   </div>
@@ -933,23 +747,16 @@ function Body() {
         </section>
 
         {/* TRUNCATION */}
-        <section
-          id="truncation"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="truncation" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Overflow Handling
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Overflow Handling</div>
               <h2 className="text-3xl font-black tracking-tight">Truncation & Clamping</h2>
             </div>
 
             <div className="space-y-5">
               <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
-                <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                  truncate
-                </div>
+                <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">truncate</div>
 
                 <div className="max-w-sm truncate text-lg font-medium">
                   This is a very long title that will truncate elegantly.
@@ -962,9 +769,9 @@ function Body() {
                 </div>
 
                 <p className="line-clamp-3 max-w-xl leading-8 text-on-surface-variant">
-                  Typography truncation should preserve readability and layout consistency.
-                  Long-form content often needs line clamping in cards, feeds, dashboards, and
-                  compact mobile layouts where vertical space is constrained.
+                  Typography truncation should preserve readability and layout consistency. Long-form content often
+                  needs line clamping in cards, feeds, dashboards, and compact mobile layouts where vertical space is
+                  constrained.
                 </p>
               </div>
             </div>
@@ -972,30 +779,21 @@ function Body() {
         </section>
 
         {/* RESPONSIVE */}
-        <section
-          id="responsive-typography"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="responsive-typography" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Adaptability
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Adaptability</div>
               <h2 className="text-3xl font-black tracking-tight">Responsive Typography</h2>
             </div>
 
             <div className="rounded-3xl border border-outline/20 bg-surface-container p-8">
-              <div className="mb-4 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                Example
-              </div>
+              <div className="mb-4 text-xs font-bold uppercase tracking-wide text-on-surface-variant">Example</div>
 
-              <h3 className="text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl">
-                Responsive Headline
-              </h3>
+              <h3 className="text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl">Responsive Headline</h3>
 
               <p className="mt-6 max-w-3xl leading-8 text-on-surface-variant">
-                Responsive typography allows layouts to scale naturally across mobile, tablet,
-                desktop, and ultra-wide interfaces.
+                Responsive typography allows layouts to scale naturally across mobile, tablet, desktop, and ultra-wide
+                interfaces.
               </p>
 
               <div className="mt-6 rounded-2xl bg-surface px-5 py-4 text-sm text-on-surface-variant">
@@ -1006,15 +804,10 @@ function Body() {
         </section>
 
         {/* ACCESSIBILITY */}
-        <section
-          id="accessibility"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="accessibility" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Inclusive Design
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Inclusive Design</div>
               <h2 className="text-3xl font-black tracking-tight">Accessibility Guidelines</h2>
             </div>
 
@@ -1027,10 +820,7 @@ function Body() {
                 'Ensure line lengths remain readable.',
                 'Prefer relaxed spacing for long-form content.',
               ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-                >
+                <div key={item} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
 
@@ -1043,15 +833,10 @@ function Body() {
         </section>
 
         {/* GUIDELINES */}
-        <section
-          id="guidelines"
-          className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm"
-        >
+        <section id="guidelines" className="rounded-3xl border border-outline/20 bg-surface p-8 shadow-sm">
           <div className="space-y-8">
             <div>
-              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">
-                Best Practices
-              </div>
+              <div className="mb-2 text-sm font-bold uppercase tracking-wide text-primary">Best Practices</div>
               <h2 className="text-3xl font-black tracking-tight">Typography Guidelines</h2>
             </div>
 
@@ -1084,5 +869,5 @@ function Body() {
         </section>
       </main>
     </div>
-  )
+  );
 }

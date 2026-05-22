@@ -1,38 +1,38 @@
-import { useEffect, useState } from 'react'
-import { useTheme } from '@teispace/next-themes'
+import { useEffect, useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
 
-import { BaseEditor } from '@/components/BaseEditor'
+import { BaseEditor } from '@/components/BaseEditor';
 
 export function Solution({ solution }) {
-  const [expanded, setExpanded] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const [expanded, setExpanded] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const { resolvedTheme } = useTheme()
+  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   // 🚨 IMPORTANT: block render until client is ready
   if (!mounted) {
-    return <div className="h-[300px] bg-surface-container animate-pulse rounded" />
+    return <div className="h-[300px] bg-surface-container animate-pulse rounded" />;
   }
 
-  const editorTheme = resolvedTheme === 'light' ? 'chrome' : 'monokai'
+  const editorTheme = resolvedTheme === 'light' ? 'chrome' : 'monokai';
 
   const copyToClipboard = async (code) => {
-    await navigator.clipboard.writeText(code ?? '')
-  }
+    await navigator.clipboard.writeText(code ?? '');
+  };
 
   function normalizeCode(solution) {
     return solution.code.replace(/^(\s+)/gm, (match) => {
-      const spaces = match.length
-      const newSpaces = ' '.repeat(spaces / 2)
-      return newSpaces
-    })
+      const spaces = match.length;
+      const newSpaces = ' '.repeat(spaces / 2);
+      return newSpaces;
+    });
   }
 
-  const val = typeof solution.code === 'string' ? normalizeCode(solution) : ''
+  const val = typeof solution.code === 'string' ? normalizeCode(solution) : '';
 
   return (
     <div className="overflow-hidden w-full relative bg-surface-container-high border border-outline-variant/30">
@@ -85,5 +85,5 @@ export function Solution({ solution }) {
         </div>
       )}
     </div>
-  )
+  );
 }

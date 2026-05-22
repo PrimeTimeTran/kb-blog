@@ -13,8 +13,7 @@ category: 'docker'
 subCategory: 'containers'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['docker-ps', 'docker-exec', 'start', 'stop', 'restart', 'remove', 'create', 'docker-inspect']
+leadsTo: ['docker-ps', 'docker-exec', 'start', 'stop', 'restart', 'remove', 'create', 'docker-inspect']
 related: ['isolation', 'filesystem-sandbox']
 seeAlso:
   [

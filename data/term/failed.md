@@ -13,14 +13,7 @@ category: 'k8s'
 subCategory: 'pods'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'pod',
-    'single-container-pod',
-    'multi-container-pod',
-    'shared-network-namespace',
-    'shared-storage-volume',
-  ]
+leadsTo: ['pod', 'single-container-pod', 'multi-container-pod', 'shared-network-namespace', 'shared-storage-volume']
 related: ['succeeded', 'crashloop-backoff']
 seeAlso:
   [

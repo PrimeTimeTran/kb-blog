@@ -1,4 +1,4 @@
-import createMDX from '@next/mdx'
+import createMDX from '@next/mdx';
 // import path from 'path'
 // import { fileURLToPath } from 'url'
 // const __filename = fileURLToPath(import.meta.url)
@@ -181,7 +181,7 @@ const nextConfig = {
   experimental: {
     esmExternals: true,
   },
-}
+};
 
 // Note:
 // ./mdx-components.tsx strategy worked while this one didn't.
@@ -190,5 +190,5 @@ const withMdx = createMDX({
   options: {},
   extension: /\.(md|mdx)$/,
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-})
-export default withMdx(nextConfig)
+});
+export default withMdx(nextConfig);

@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
+import { useState } from 'react';
 
 export default function LayoutLabPage() {
-  const [mode, setMode] = useState(1)
+  const [mode, setMode] = useState(1);
 
   return (
     <div className="fixed inset-0 bg-zinc-900 text-white">
@@ -22,7 +22,7 @@ export default function LayoutLabPage() {
       {mode === 3 && <BrokenStack2 />}
       {mode === 4 && <FixedStack2 />}
     </div>
-  )
+  );
 }
 
 function BrokenScroll1() {
@@ -44,7 +44,7 @@ function BrokenScroll1() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function FixedScroll1() {
@@ -63,7 +63,7 @@ function FixedScroll1() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function BrokenStack2() {
@@ -83,7 +83,7 @@ function BrokenStack2() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function FixedStack2() {
@@ -104,7 +104,7 @@ function FixedStack2() {
       {/* FIXED HUD */}
       <div className="fixed top-4 left-4 z-50 bg-black/60 p-2">HUD</div>
     </div>
-  )
+  );
 }
 // I need two of these actually, becausee they're different problems. I just happened to need both of them.
 // Give me the same thing, focused on JUST Z Index/Context/etc(whatever is appropriate)

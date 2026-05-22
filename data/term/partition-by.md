@@ -13,15 +13,7 @@ category: 'sql'
 subCategory: 'advanced_queries'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'subquery',
-    'correlated-subquery',
-    'nested-select',
-    'common-table-expression',
-    'with-clause',
-    'recursive-cte',
-  ]
+leadsTo: ['subquery', 'correlated-subquery', 'nested-select', 'common-table-expression', 'with-clause', 'recursive-cte']
 related: ['window-function', 'row-number', 'rank', 'dense-rank']
 seeAlso:
   [

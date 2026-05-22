@@ -1,16 +1,16 @@
-'use client'
-import { AppFooter } from '@/components/layout/AppFooter'
-import { AppShell } from '@/components/layout/AppShell'
-import { useScroll } from '@/providers/ScrollProvider'
+'use client';
+import { AppFooter } from '@/components/layout/AppFooter';
+import { AppShell } from '@/components/layout/AppShell';
+import { useScroll } from '@/providers/ScrollProvider';
 
 export function ScrollContainer({ children }) {
-  const { setScrollEl } = useScroll()
+  const { setScrollEl } = useScroll();
 
   return (
     <div ref={setScrollEl} className="flex-1 overflow-y-auto">
       {children}
     </div>
-  )
+  );
 }
 
 export default function Layout({ children }) {
@@ -26,7 +26,7 @@ export default function Layout({ children }) {
         </div>
       </body>
     </html>
-  )
+  );
 }
 
 // export function Page() {

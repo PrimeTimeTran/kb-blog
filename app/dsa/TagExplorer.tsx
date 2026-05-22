@@ -1,21 +1,19 @@
-'use client'
-import React, { useState } from 'react'
+'use client';
+import React, { useState } from 'react';
 
-import { RichTooltip } from '@/components/ToolTipRich'
-import { VscSearch, VscSymbolNumeric, VscSortPrecedence } from 'react-icons/vsc'
+import { RichTooltip } from '@/components/ToolTipRich';
+import { VscSearch, VscSymbolNumeric, VscSortPrecedence } from 'react-icons/vsc';
 
-import { OmniPanel } from '../../components/OmniPanel'
-import { StyledButton } from '../../components/StyledButton'
-import { StyledInput } from '../../components/StyledInput'
+import { OmniPanel } from '../../components/OmniPanel';
+import { StyledButton } from '../../components/StyledButton';
+import { StyledInput } from '../../components/StyledInput';
 
 export function TagExplorer({ disabledToolbar = false, actions, filters, orderedTags, tagCounts }) {
-  const [search, setSearch] = useState('')
-  const isFiltering = filters.selectedTags.length > 0
-  const sortMode = 'asc'
+  const [search, setSearch] = useState('');
+  const isFiltering = filters.selectedTags.length > 0;
+  const sortMode = 'asc';
 
-  const displayedTags = orderedTags.filter((tag) =>
-    tag.toLowerCase().includes(search.toLowerCase())
-  )
+  const displayedTags = orderedTags.filter((tag) => tag.toLowerCase().includes(search.toLowerCase()));
 
   const headerContent = !disabledToolbar && (
     <div className="flex items-center justify-between">
@@ -71,7 +69,7 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
       </div>
       {/* Sorting / Reset logic here... */}
     </div>
-  )
+  );
 
   return (
     <OmniPanel variant="trace" header={headerContent}>
@@ -125,5 +123,5 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
         </div>
       </div>
     </OmniPanel>
-  )
+  );
 }

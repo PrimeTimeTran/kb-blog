@@ -30,15 +30,7 @@ leadsTo:
     'bipartite-graph',
   ]
 related:
-  [
-    'graph',
-    'vertex',
-    'directed-graph',
-    'undirected-graph',
-    'weighted-graph',
-    'adjacency-list',
-    'adjacency-matrix',
-  ]
+  ['graph', 'vertex', 'directed-graph', 'undirected-graph', 'weighted-graph', 'adjacency-list', 'adjacency-matrix']
 seeAlso:
   [
     'big-o-notation',

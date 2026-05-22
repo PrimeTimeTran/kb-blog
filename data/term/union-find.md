@@ -31,8 +31,7 @@ leadsTo:
     'prim-algorithm',
     'bipartite-graph',
   ]
-related:
-  ['dijkstra-algorithm', 'bellman-ford', 'floyd-warshall', 'topological-sort', 'disjoint-set']
+related: ['dijkstra-algorithm', 'bellman-ford', 'floyd-warshall', 'topological-sort', 'disjoint-set']
 seeAlso:
   [
     'big-o-notation',

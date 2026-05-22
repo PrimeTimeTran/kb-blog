@@ -14,22 +14,7 @@ subCategory: 'queries'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'and',
-    'or',
-    'not',
-    'in',
-    'between',
-    'like',
-    'is-null',
-    'group-by',
-    'having',
-    'count',
-    'sum',
-    'avg',
-    'min',
-    'max',
-  ]
+  ['and', 'or', 'not', 'in', 'between', 'like', 'is-null', 'group-by', 'having', 'count', 'sum', 'avg', 'min', 'max']
 related: ['limit', 'insert', 'update', 'delete', 'where-clause', 'order-by']
 seeAlso:
   [

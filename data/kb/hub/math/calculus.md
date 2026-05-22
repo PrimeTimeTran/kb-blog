@@ -6,6 +6,7 @@ tags:
   - hub
 type: hub
 ---
+
 # 🧮 Calculus Hub
 
 > Calculus is the study of **change and accumulation**, forming the foundation for modeling motion, growth, optimization, and continuous systems.
@@ -18,7 +19,6 @@ Calculus answers two fundamental questions:
 2. How much does it **accumulate**? → [[atom/math/calc/core/integral|integral]]
 
 These are connected by the [[fundamental-theorem-of-calculus]].
-
 
 ---
 
@@ -61,19 +61,19 @@ These are connected by the [[fundamental-theorem-of-calculus]].
 ## 🟦 [[hub/math/calc/limits|Limits]]
 
 - [[approaching-values]]
-    - intuition of “getting close to a value”
+  - intuition of “getting close to a value”
 - [[evaluating-limits]]
-    - algebraic simplification
-    - factoring / rationalizing
-    - direct substitution (when valid)
+  - algebraic simplification
+  - factoring / rationalizing
+  - direct substitution (when valid)
 - [[one-sided-limits]]
-    - left-hand limit $\lim_{x \to a^-} f(x)$
-    - right-hand limit $\lim_{x \to a^+} f(x)$
+  - left-hand limit $\lim_{x \to a^-} f(x)$
+  - right-hand limit $\lim_{x \to a^+} f(x)$
 - [[continuity-in-limits]]
-    - connection between limits and continuity
-    - condition: $\lim_{x \to a} f(x) = f(a)$
+  - connection between limits and continuity
+  - condition: $\lim_{x \to a} f(x) = f(a)$
 - [[formal-definition-of-a-limit]]
-    - $\varepsilon$–$\delta$ definition
+  - $\varepsilon$–$\delta$ definition
 
 ---
 
@@ -127,22 +127,24 @@ These are connected by the [[fundamental-theorem-of-calculus]].
 > Extends integration and introduces infinite processes
 
 ---
+
 ## Advanced Integration Techniques (refined)
+
 - [[u-substitution]] (or [[substitution]])
-    - reverse chain rule
-    - simplifies composite functions
+  - reverse chain rule
+  - simplifies composite functions
 - [[integration-by-parts]]
-    - product rule in reverse
-    - formula: $\int u,dv = uv - \int v,du$
+  - product rule in reverse
+  - formula: $\int u,dv = uv - \int v,du$
 - [[partial-fraction]]
-    - decomposes rational functions
-    - used for $\frac{P(x)}{Q(x)}$ where $\deg P < \deg Q$
+  - decomposes rational functions
+  - used for $\frac{P(x)}{Q(x)}$ where $\deg P < \deg Q$
 - [[trigonometric-integral]]
-    - integrals involving powers/products of trig functions
-    - often use identities (Pythagorean, double-angle, etc.)
+  - integrals involving powers/products of trig functions
+  - often use identities (Pythagorean, double-angle, etc.)
 - [[trigonometric-substitution]]
-    - replaces radicals with trig expressions
-    - used for forms like $\sqrt{a^2 - x^2}, \sqrt{x^2 + a^2}, \sqrt{x^2 - a^2}$
+  - replaces radicals with trig expressions
+  - used for forms like $\sqrt{a^2 - x^2}, \sqrt{x^2 + a^2}, \sqrt{x^2 - a^2}$
 
 ---
 
@@ -158,23 +160,23 @@ These are connected by the [[fundamental-theorem-of-calculus]].
 ## ♾ Infinite Sequences & Series
 
 - [[sequence]]
-	- ordered lists of numbers $a_1, a_2, a_3, \dots$
-	- focus: behavior as $n \to \infty$
+  - ordered lists of numbers $a_1, a_2, a_3, \dots$
+  - focus: behavior as $n \to \infty$
 - [[series]]
-	- sums of sequences
-	- general form: $a_1 + a_2 + a_3 + \dots$
+  - sums of sequences
+  - general form: $a_1 + a_2 + a_3 + \dots$
 - [[convergence]] & [[divergence]]
 - key types:
-	- [[geometric|geometric-series]]
-		- constant ratio between terms
-		- form: $a + ar + ar^2 + ar^3 + \dots$
-	- [[power|power-series]]
-		- infinite polynomial centered at a point
-		- form: $\sum_{n=0}^{\infty} c_n (x - a)^n$
-	- [[taylor|taylor-series]]
-		- representation of functions using derivatives at a point
-		- special case of power series:
-			- $f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n$
+  - [[geometric|geometric-series]]
+    - constant ratio between terms
+    - form: $a + ar + ar^2 + ar^3 + \dots$
+  - [[power|power-series]]
+    - infinite polynomial centered at a point
+    - form: $\sum_{n=0}^{\infty} c_n (x - a)^n$
+  - [[taylor|taylor-series]]
+    - representation of functions using derivatives at a point
+    - special case of power series:
+      - $f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n$
 
 ---
 
@@ -273,11 +275,11 @@ These are connected by the [[fundamental-theorem-of-calculus]].
 
 - [[precalculus]] → prepares function intuition
 - [[calculus-1|Calculus 1]] → change (derivatives)
-	- [[calc-1-differential]]
+  - [[calc-1-differential]]
 - [[calculus-2|Calculus 2]] → accumulation (integrals & series)
-	- [[calc-2-integral]]
+  - [[calc-2-integral]]
 - [[calculus-3|Calculus 3]] → higher dimensions
-	- [[calc-3-multivariable]]
+  - [[calc-3-multivariable]]
 - [[hub/math/linear-algebra|Linear Algebra]] → structure of space
 - [[stochastic]] → extended to include random processes
 
@@ -288,21 +290,25 @@ These are connected by the [[fundamental-theorem-of-calculus]].
 > Calculus is the mathematics of **continuous change and accumulation across dimensions**, built on functions and extended through geometry and algebra.
 
 ---
+
 # 📌 Summary
 
 > Calculus studies how quantities **change, accumulate, and interact across space and time**.
 
 ---
+
 # 🌐 Reference
+
 - [[reference/calc/symbols|Calculus Symbols]]
 - [[function|Function Notation]]
 - [[reference/calc/notation/derivative|Derivative Notation]]
 - Reviews:
-	- [[calc-1-differential]]
-	- [[calc-2-integral]]
-	- [[calc-3-multivariable]]
+  - [[calc-1-differential]]
+  - [[calc-2-integral]]
+  - [[calc-3-multivariable]]
+
 # Related
+
 - [[hub/math|math]]
 - [[EE]]
 - [[CS]]
-

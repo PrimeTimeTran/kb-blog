@@ -13,8 +13,7 @@ category: 'calculus_ii'
 subCategory: 'applications'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['area-under-curve', 'area-between-curves', 'volume-of-revolution', 'disk-method', 'shell-method']
+leadsTo: ['area-under-curve', 'area-between-curves', 'volume-of-revolution', 'disk-method', 'shell-method']
 related: ['arc-length', 'surface-area']
 seeAlso:
   [

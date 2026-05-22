@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useState, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { TiTags } from 'react-icons/ti'
-import { RiBloggerLine } from 'react-icons/ri'
-import { SiThealgorithms } from 'react-icons/si'
-import { GoProjectSymlink } from 'react-icons/go'
-import { GiGiftOfKnowledge } from 'react-icons/gi'
+import { useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { TiTags } from 'react-icons/ti';
+import { RiBloggerLine } from 'react-icons/ri';
+import { SiThealgorithms } from 'react-icons/si';
+import { GoProjectSymlink } from 'react-icons/go';
+import { GiGiftOfKnowledge } from 'react-icons/gi';
 
 // CSS Examples.
 // https://prismic.io/blog/css-hover-effects#7-4corner-image
@@ -17,14 +17,14 @@ const items = [
   { href: 'c', label: 'Projects', icon: GoProjectSymlink },
   { href: 'd', label: 'Knowledge', icon: GiGiftOfKnowledge },
   { href: 'e', label: 'Tags', icon: TiTags },
-]
+];
 
 function Sidebar({ currentRoute, collapsed, isRight = false }) {
   return (
     <div className="p-2 space-y-2">
       {items.map((item, i) => {
-        const isActive = item.href === currentRoute
-        const Icon = item.icon
+        const isActive = item.href === currentRoute;
+        const Icon = item.icon;
 
         return (
           <div
@@ -68,24 +68,21 @@ function Sidebar({ currentRoute, collapsed, isRight = false }) {
               }}
               className={`
           whitespace-nowrap transition-all duration-150
-          ${collapsed
-                  ? 'opacity-0 -translate-x-2 w-0 overflow-hidden'
-                  : 'opacity-100 translate-x-0 w-auto'
-                }
+          ${collapsed ? 'opacity-0 -translate-x-2 w-0 overflow-hidden' : 'opacity-100 translate-x-0 w-auto'}
         `}
             >
               {item.label}
             </span>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 
 export default function PanelsLayout({ left, right, children }) {
-  left = Sidebar
-  right = Sidebar
+  left = Sidebar;
+  right = Sidebar;
   const [state, setState] = useState({
     dock: {
       left: true,
@@ -99,13 +96,13 @@ export default function PanelsLayout({ left, right, children }) {
       left: { open: true, width: 320 },
       right: { open: true, width: 320 },
     },
-  })
+  });
 
-  const update = (fn) => setState((s) => ({ ...s, ...fn(s) }))
-  const leftDockRef = useRef()
+  const update = (fn) => setState((s) => ({ ...s, ...fn(s) }));
+  const leftDockRef = useRef();
   const startLeftResize = (e) => {
-    const startX = e.clientX
-    const startW = state.dock.rightWidth
+    const startX = e.clientX;
+    const startW = state.dock.rightWidth;
 
     const onMove = (e) => {
       // if (leftDockRef.current) return
@@ -117,24 +114,24 @@ export default function PanelsLayout({ left, right, children }) {
             ...s.dock,
             leftWidth: Math.max(120, startW + (e.clientX - startX)),
           },
-        }))
+        }));
 
-        leftDockRef.current = null
-      })
-    }
+        leftDockRef.current = null;
+      });
+    };
 
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('mouseup', onUp)
-    }
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
 
-    window.addEventListener('mousemove', onMove)
-    window.addEventListener('mouseup', onUp)
-  }
-  const rightDockRef = useRef()
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
+  const rightDockRef = useRef();
   const startRightResize = (e) => {
-    const startX = e.clientX
-    const startW = state.dock.rightWidth
+    const startX = e.clientX;
+    const startW = state.dock.rightWidth;
 
     const onMove = (e) => {
       update((s) => ({
@@ -142,24 +139,24 @@ export default function PanelsLayout({ left, right, children }) {
           ...s.dock,
           rightWidth: Math.max(60, startW - (e.clientX - startX)),
         },
-      }))
-    }
+      }));
+    };
 
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('mouseup', onUp)
-    }
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
 
-    window.addEventListener('mousemove', onMove)
-    window.addEventListener('mouseup', onUp)
-  }
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
 
   const startOverlayLeftResize = (e) => {
-    const startX = e.clientX
-    const startW = state.overlay.left.width
+    const startX = e.clientX;
+    const startW = state.overlay.left.width;
 
     const onMove = (e) => {
-      const next = Math.max(240, startW + (e.clientX - startX))
+      const next = Math.max(240, startW + (e.clientX - startX));
 
       setState((s) => ({
         ...s,
@@ -170,24 +167,24 @@ export default function PanelsLayout({ left, right, children }) {
             width: next,
           },
         },
-      }))
-    }
+      }));
+    };
 
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('mouseup', onUp)
-    }
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
 
-    window.addEventListener('mousemove', onMove)
-    window.addEventListener('mouseup', onUp)
-  }
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
 
   const startOverlayRightResize = (e) => {
-    const startX = e.clientX
-    const startW = state.overlay.right.width
+    const startX = e.clientX;
+    const startW = state.overlay.right.width;
 
     const onMove = (e) => {
-      const next = Math.max(240, startW - (e.clientX - startX))
+      const next = Math.max(240, startW - (e.clientX - startX));
 
       setState((s) => ({
         ...s,
@@ -198,17 +195,17 @@ export default function PanelsLayout({ left, right, children }) {
             width: next,
           },
         },
-      }))
-    }
+      }));
+    };
 
     const onUp = () => {
-      window.removeEventListener('mousemove', onMove)
-      window.removeEventListener('mouseup', onUp)
-    }
+      window.removeEventListener('mousemove', onMove);
+      window.removeEventListener('mouseup', onUp);
+    };
 
-    window.addEventListener('mousemove', onMove)
-    window.addEventListener('mouseup', onUp)
-  }
+    window.addEventListener('mousemove', onMove);
+    window.addEventListener('mouseup', onUp);
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -224,15 +221,15 @@ export default function PanelsLayout({ left, right, children }) {
               },
             }))
           }
-        // onClick={() =>
-        //   setState((s) => ({
-        //     ...s,
-        //     overlay: {
-        //       ...s.overlay,
-        //       leftOpen: true,
-        //     },
-        //   }))
-        // }
+          // onClick={() =>
+          //   setState((s) => ({
+          //     ...s,
+          //     overlay: {
+          //       ...s.overlay,
+          //       leftOpen: true,
+          //     },
+          //   }))
+          // }
         >
           ☰
         </button>
@@ -272,17 +269,12 @@ export default function PanelsLayout({ left, right, children }) {
                 flexBasis: state.dock.leftCollapsed ? 64 : state.dock.leftWidth,
               }}
             >
-              {typeof left === 'function'
-                ? left({ collapsed: state.dock.leftCollapsed, currentRoute: 'a' })
-                : left}
+              {typeof left === 'function' ? left({ collapsed: state.dock.leftCollapsed, currentRoute: 'a' }) : left}
             </div>
 
             {/* RESIZER */}
             {!state.dock.leftCollapsed && (
-              <div
-                onMouseDown={startLeftResize}
-                className="w-1 cursor-col-resize hover:bg-slate-300"
-              />
+              <div onMouseDown={startLeftResize} className="w-1 cursor-col-resize hover:bg-slate-300" />
             )}
           </div>
         )}
@@ -294,10 +286,7 @@ export default function PanelsLayout({ left, right, children }) {
           <div className="flex shrink-0 bg-red-400">
             {/* RESIZER */}
             {!state.dock.rightCollapsed && (
-              <div
-                onMouseDown={startRightResize}
-                className="w-1 cursor-col-resize hover:bg-slate-300"
-              />
+              <div onMouseDown={startRightResize} className="w-1 cursor-col-resize hover:bg-slate-300" />
             )}
 
             <div
@@ -307,9 +296,7 @@ export default function PanelsLayout({ left, right, children }) {
                 width: state.dock.rightCollapsed ? 64 : state.dock.rightWidth,
               }}
             >
-              {typeof right === 'function'
-                ? right({ collapsed: state.dock.rightCollapsed, isRight: true })
-                : right}
+              {typeof right === 'function' ? right({ collapsed: state.dock.rightCollapsed, isRight: true }) : right}
             </div>
           </div>
         )}
@@ -338,10 +325,7 @@ export default function PanelsLayout({ left, right, children }) {
               >
                 <div className="flex-1 min-h-0 overflow-y-auto">{left}</div>
 
-                <div
-                  onMouseDown={startOverlayLeftResize}
-                  className="w-1 cursor-col-resize hover:bg-slate-400"
-                />
+                <div onMouseDown={startOverlayLeftResize} className="w-1 cursor-col-resize hover:bg-slate-400" />
               </motion.div>
             </>
           )}
@@ -370,10 +354,7 @@ export default function PanelsLayout({ left, right, children }) {
                 exit={{ x: 320 }}
               >
                 {/* RESIZE HANDLE */}
-                <div
-                  onMouseDown={startOverlayRightResize}
-                  className="w-1 cursor-col-resize hover:bg-slate-400"
-                />
+                <div onMouseDown={startOverlayRightResize} className="w-1 cursor-col-resize hover:bg-slate-400" />
 
                 {/* CONTENT */}
                 <div className="flex-1 overflow-y-auto">{right}</div>
@@ -383,5 +364,5 @@ export default function PanelsLayout({ left, right, children }) {
         </AnimatePresence>
       </div>
     </div>
-  )
+  );
 }

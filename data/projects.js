@@ -12,16 +12,7 @@ const projectsData = [
       'StockVibes.ai is in the lab: giving retail traders institutional‑grade NLP, a transparent methodology, and built‑in guardrails.',
     imgSrc: '/static/images/stockvibes.png',
     href: 'https://stockvibes.ai/',
-    tech: [
-      'LangChain',
-      'ReactJS',
-      'NextJS',
-      'Material',
-      'TailwindCSS',
-      'Postgres',
-      'Vercel',
-      'GCP',
-    ],
+    tech: ['LangChain', 'ReactJS', 'NextJS', 'Material', 'TailwindCSS', 'Postgres', 'Vercel', 'GCP'],
   },
   {
     title: 'BakeSuite',
@@ -37,16 +28,7 @@ const projectsData = [
       'SeepDeep is the best platform to help you enhance your skills, expand your knowledge and prepare for technical interviews. Create Account. Start Exploring.',
     imgSrc: '/static/images/seepdeep.png',
     href: 'https://www.seepdeep.com',
-    tech: [
-      'Flutter',
-      'Material',
-      'NuxtJS',
-      'MongoDB',
-      'Docker',
-      'Netlify',
-      'GCP',
-      'Github Actions',
-    ],
+    tech: ['Flutter', 'Material', 'NuxtJS', 'MongoDB', 'Docker', 'Netlify', 'GCP', 'Github Actions'],
   },
   {
     title: 'TurboShip',
@@ -64,6 +46,6 @@ const projectsData = [
     href: 'https://royalstockexchange.com',
     tech: ['Flutter', 'Material', '.Net', 'Netlify', 'Entity Framework', 'GCP'],
   },
-]
+];
 
-export default projectsData
+export default projectsData;

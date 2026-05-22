@@ -1,15 +1,15 @@
 // https://nearform.com/open-source/react-live/docs/api/
 // https://github.com/react-simple-code-editor/react-simple-code-editor
 
-'use client'
-import React, { useState, useEffect } from 'react'
-import { LiveProvider, LiveError, LivePreview } from 'react-live'
+'use client';
+import React, { useState, useEffect } from 'react';
+import { LiveProvider, LiveError, LivePreview } from 'react-live';
 
-import { buildRegistry } from '@/lib/buildScope'
-import { BaseEditor } from '@/components/BaseEditor'
-import { useLiveEditor } from '@/hooks/useLiveEditor'
-import { ResizableColumn } from '@/components/layout/ResizableColumn'
-import { registry } from '../../../registry.generated'
+import { buildRegistry } from '@/lib/buildScope';
+import { BaseEditor } from '@/components/BaseEditor';
+import { useLiveEditor } from '@/hooks/useLiveEditor';
+import { ResizableColumn } from '@/components/layout/ResizableColumn';
+import { registry } from '../../../registry.generated';
 
 // Write src to string registry so that CJS (Live Editor dep)
 // can parse it client side.
@@ -34,15 +34,15 @@ export default function Page() {
     useState,
     useEffect,
     ...buildRegistry(registry, React),
-  }
-  const code2 = registry['Page6_ScrollContextAndFixedPositioning']
+  };
+  const code2 = registry['Page6_ScrollContextAndFixedPositioning'];
   // The registry works because of this script.
   // $ node scripts/buildRegistry.js
-  return <RenderLabShell scope={scope} setupCode={code2} />
+  return <RenderLabShell scope={scope} setupCode={code2} />;
 }
 
 export function RenderLabShell({ setupCode, scope = {}, title }: RenderLabShellProps) {
-  const { code, onUpdateCode } = useLiveEditor(setupCode)
+  const { code, onUpdateCode } = useLiveEditor(setupCode);
   return (
     <LiveProvider code={code} scope={scope} noInline>
       <div className="h-screen w-screen flex flex-col bg-zinc-950 text-white overflow-hidden">
@@ -72,11 +72,11 @@ export function RenderLabShell({ setupCode, scope = {}, title }: RenderLabShellP
         </div>
       </div>
     </LiveProvider>
-  )
+  );
 }
 
 type RenderLabShellProps = {
-  setupCode?: string
-  scope?: Record<string, any>
-  title?: string
-}
+  setupCode?: string;
+  scope?: Record<string, any>;
+  title?: string;
+};

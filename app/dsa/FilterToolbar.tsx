@@ -1,9 +1,9 @@
-'use client'
-import React from 'react'
+'use client';
+import React from 'react';
 
-import { Difficulty, PremiumFilter } from '@/hooks/useProblemEngine'
-import { RichTooltip } from '@/components/ToolTipRich'
-import { AnimatedSortIcon } from '@/components/AnimatedSortIcon'
+import { Difficulty, PremiumFilter } from '@/hooks/useProblemEngine';
+import { RichTooltip } from '@/components/ToolTipRich';
+import { AnimatedSortIcon } from '@/components/AnimatedSortIcon';
 
 import {
   HiOutlineRefresh,
@@ -11,12 +11,12 @@ import {
   HiOutlineSortAscending,
   HiOutlineSortDescending,
   HiOutlineCubeTransparent,
-} from 'react-icons/hi'
-import { VscBeaker, VscLayers, VscListFilter } from 'react-icons/vsc'
+} from 'react-icons/hi';
+import { VscBeaker, VscLayers, VscListFilter } from 'react-icons/vsc';
 
-import { OmniPanel } from '../../components/OmniPanel'
-import { StyledButton } from '../../components/StyledButton'
-import { StyledSelection } from '../../components/StyledSelection'
+import { OmniPanel } from '../../components/OmniPanel';
+import { StyledButton } from '../../components/StyledButton';
+import { StyledSelection } from '../../components/StyledSelection';
 
 const LIST_OPTIONS = [
   { key: 'all', label: 'All', icon: <VscLayers className="text-xs" /> },
@@ -24,13 +24,11 @@ const LIST_OPTIONS = [
   { key: 'blind75', label: 'Blind 75' },
   { key: 'neetCode150', label: 'NC 150' },
   { key: 'neetCode250', label: 'NC 250' },
-]
+];
 
 export const FilterToolbar = ({ actions, filters, resetFilters }) => {
   const isDirty =
-    filters.selectedList !== 'all' ||
-    filters.selectedDifficulties.length < 3 ||
-    filters.selectedPremium.length < 2
+    filters.selectedList !== 'all' || filters.selectedDifficulties.length < 3 || filters.selectedPremium.length < 2;
 
   function renderListSelection() {
     return (
@@ -41,7 +39,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
         onChange={actions.setSelectedList}
         icon={<VscListFilter />}
       />
-    )
+    );
   }
 
   return (
@@ -62,7 +60,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
         </div>
       </div>
     </OmniPanel>
-  )
+  );
 
   function renderActionGroup() {
     return (
@@ -82,11 +80,11 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
           </RichTooltip>
         ))}
       </section>
-    )
+    );
   }
 
   function renderSortSelect() {
-    const isDesc = filters.sortBy === 'difficulty-desc'
+    const isDesc = filters.sortBy === 'difficulty-desc';
     return (
       <div className="flex items-center gap-0.5">
         <StyledButton
@@ -122,7 +120,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
           )}
         </div>
       </div>
-    )
+    );
   }
 
   function renderDifficultyAndClassSelect() {
@@ -131,11 +129,11 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
         <section className="flex items-center gap-1">
           {(['e', 'm', 'h'] as const).map((d) => {
             // 1. Direct state check: if it's in the array, it's lit up.
-            const isActive = filters.selectedDifficulties.includes(d)
+            const isActive = filters.selectedDifficulties.includes(d);
 
-            const labels = { e: 'Easy', m: 'Med', h: 'Hard' }
-            const shortLabels = { e: 'E', m: 'M', h: 'H' }
-            const tones = { e: 'success', m: 'warning', h: 'error' } as const
+            const labels = { e: 'Easy', m: 'Med', h: 'Hard' };
+            const shortLabels = { e: 'E', m: 'M', h: 'H' };
+            const tones = { e: 'success', m: 'warning', h: 'error' } as const;
 
             return (
               <StyledButton
@@ -143,24 +141,24 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
                 tone={tones[d]}
                 isActive={isActive}
                 onClick={() => {
-                  const current = filters.selectedDifficulties
-                  const isSelected = current.includes(d)
+                  const current = filters.selectedDifficulties;
+                  const isSelected = current.includes(d);
 
-                  let next: Difficulty[]
+                  let next: Difficulty[];
                   if (isSelected) {
                     // If this is the last one active, clicking it resets everything to ALL
                     if (current.length === 1) {
-                      next = ['e', 'm', 'h']
+                      next = ['e', 'm', 'h'];
                     } else {
                       // Otherwise, just remove this specific difficulty
-                      next = current.filter((item) => item !== d)
+                      next = current.filter((item) => item !== d);
                     }
                   } else {
                     // If it wasn't active, add it back to the filter
-                    next = [...current, d]
+                    next = [...current, d];
                   }
 
-                  actions.setSelectedDifficulties(next)
+                  actions.setSelectedDifficulties(next);
                 }}
                 className="whitespace-nowrap min-w-[32px] sm:min-w-[64px]"
                 text={
@@ -170,7 +168,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
                   </span>
                 }
               />
-            )
+            );
           })}
         </section>
 
@@ -178,7 +176,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
 
         <section className="flex items-center gap-0.5">
           {['free', 'premium'].map((p) => {
-            const isSelected = filters.selectedPremium.includes(p)
+            const isSelected = filters.selectedPremium.includes(p);
 
             return (
               <StyledButton
@@ -186,30 +184,30 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
                 text={p.toUpperCase()}
                 isActive={isSelected}
                 onClick={() => {
-                  const current = filters.selectedPremium
+                  const current = filters.selectedPremium;
 
-                  let next: PremiumFilter[]
+                  let next: PremiumFilter[];
                   if (isSelected) {
                     // If it's the last one active, reset to BOTH (All)
                     if (current.length === 1) {
-                      next = ['free', 'premium']
+                      next = ['free', 'premium'];
                     } else {
                       // Otherwise, just remove this specific filter
-                      next = current.filter((item) => item !== p)
+                      next = current.filter((item) => item !== p);
                     }
                   } else {
                     // If it wasn't active, add it back to the group
-                    next = [...current, p]
+                    next = [...current, p];
                   }
 
-                  actions.setSelectedPremium(next)
+                  actions.setSelectedPremium(next);
                 }}
                 className="whitespace-nowrap px-2 sm:px-3"
               />
-            )
+            );
           })}
         </section>
       </div>
-    )
+    );
   }
-}
+};

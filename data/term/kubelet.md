@@ -13,16 +13,7 @@ category: 'k8s'
 subCategory: 'architecture'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'namespace',
-    'cluster',
-    'api-server',
-    'etcd',
-    'scheduler',
-    'controller-manager',
-    'service-account',
-  ]
+leadsTo: ['namespace', 'cluster', 'api-server', 'etcd', 'scheduler', 'controller-manager', 'service-account']
 related: ['container-runtime', 'kube-proxy']
 seeAlso:
   [

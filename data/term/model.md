@@ -13,14 +13,7 @@ category: 'machine_learning'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'feature-engineering',
-    'model-evaluation',
-    'data-preprocessing',
-    'model-training',
-    'hyperparameter-tuning',
-  ]
+leadsTo: ['feature-engineering', 'model-evaluation', 'data-preprocessing', 'model-training', 'hyperparameter-tuning']
 related:
   [
     'overfitting',

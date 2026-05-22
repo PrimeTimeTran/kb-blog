@@ -86,6 +86,6 @@ const siteMetadata = {
       shortname: process.env.NEXT_PUBLIC_DISQUS_SHORTNAME,
     },
   },
-}
+};
 
-export default siteMetadata
+export default siteMetadata;

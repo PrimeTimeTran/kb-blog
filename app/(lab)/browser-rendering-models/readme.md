@@ -27,22 +27,20 @@ There are only 3 things that matter:
 ## `/app/zlab/page-1.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page1_WorkingZIndex() {
   return (
     <div className="relative h-screen bg-zinc-900 text-white">
       {/* BASE LAYER */}
-      <div className="absolute inset-0 bg-blue-900 z-0 flex items-center justify-center">
-        BASE LAYER
-      </div>
+      <div className="absolute inset-0 bg-blue-900 z-0 flex items-center justify-center">BASE LAYER</div>
 
       {/* OVERLAY */}
       <div className="fixed inset-0 z-50 bg-red-500/70 flex items-center justify-center">
         OVERLAY (COVERS EVERYTHING)
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -58,7 +56,7 @@ export default function Page1_WorkingZIndex() {
 ## `/app/zlab/page-2.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page2_BrokenContext() {
   return (
@@ -72,7 +70,7 @@ export default function Page2_BrokenContext() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -99,7 +97,7 @@ Page stacking context
 ## `/app/zlab/page-3.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page3_Fix() {
   return (
@@ -112,7 +110,7 @@ export default function Page3_Fix() {
         FIXED OVERLAY (WORKS AGAIN)
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -125,7 +123,7 @@ This is closest to your workspace system.
 ## `/app/zlab/page-4.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page4_MultiContext() {
   return (
@@ -140,12 +138,10 @@ export default function Page4_MultiContext() {
 
       {/* CONTEXT C */}
       <div className="fixed inset-0 z-50 pointer-events-none">
-        <div className="absolute bottom-10 right-10 bg-green-500 p-4 pointer-events-auto">
-          Overlay B
-        </div>
+        <div className="absolute bottom-10 right-10 bg-green-500 p-4 pointer-events-auto">Overlay B</div>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -167,7 +163,7 @@ This simulates your workspace issue.
 ## `/app/zlab/page-5.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page5_BrokenRealWorld() {
   return (
@@ -183,7 +179,7 @@ export default function Page5_BrokenRealWorld() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 ```
 
@@ -212,7 +208,7 @@ This is what your workspace system should converge to.
 ## `/app/zlab/page-6.tsx`
 
 ```tsx
-'use client'
+'use client';
 
 export default function Page6_RealArchitecture() {
   return (
@@ -232,7 +228,7 @@ export default function Page6_RealArchitecture() {
         <div className="absolute bottom-10 right-10 bg-green-500 p-4 pointer-events-auto">HUD</div>
       </div>
     </div>
-  )
+  );
 }
 ```
 

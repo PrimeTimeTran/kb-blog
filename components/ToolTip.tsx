@@ -1,31 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
 interface TooltipProps {
-  text: string
-  children: React.ReactNode
-  delay?: number
+  text: string;
+  children: React.ReactNode;
+  delay?: number;
 }
 
 export const Tooltip = ({ text, children, delay = 200 }: TooltipProps) => {
-  const [isVisible, setIsVisible] = useState(false)
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
+  const [isVisible, setIsVisible] = useState(false);
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null);
 
   const showTooltip = () => {
-    const id = setTimeout(() => setIsVisible(true), delay)
-    setTimeoutId(id)
-  }
+    const id = setTimeout(() => setIsVisible(true), delay);
+    setTimeoutId(id);
+  };
 
   const hideTooltip = () => {
-    if (timeoutId) clearTimeout(timeoutId)
-    setIsVisible(false)
-  }
+    if (timeoutId) clearTimeout(timeoutId);
+    setIsVisible(false);
+  };
 
   return (
-    <div
-      className="relative flex items-center"
-      onMouseEnter={showTooltip}
-      onMouseLeave={hideTooltip}
-    >
+    <div className="relative flex items-center" onMouseEnter={showTooltip} onMouseLeave={hideTooltip}>
       {children}
       {isVisible && (
         <div
@@ -39,5 +35,5 @@ export const Tooltip = ({ text, children, delay = 200 }: TooltipProps) => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};

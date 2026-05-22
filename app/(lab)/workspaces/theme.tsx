@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 type ThemeProviderProps = {
-  theme?: React.CSSProperties
-  children: React.ReactNode
-}
+  theme?: React.CSSProperties;
+  children: React.ReactNode;
+};
 
 export function ThemeProvider({ theme, children }: ThemeProviderProps) {
   return (
     <div style={theme} className="h-full w-full">
       {children}
     </div>
-  )
+  );
 }
 
 export const themeLightSaaS = {
@@ -111,7 +111,7 @@ export const themeLightSaaS = {
   '--glow-primary': '0 0 24px rgba(37,99,235,0.12)',
 
   '--glow-secondary': '0 0 32px rgba(139,92,246,0.10)',
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const themeOcean = {
   // ======================================================
@@ -211,7 +211,7 @@ export const themeOcean = {
   '--glow-primary': '0 0 24px rgba(6,182,212,0.22)',
 
   '--glow-secondary': '0 0 32px rgba(59,130,246,0.18)',
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const themeNeonDark = {
   // ======================================================
@@ -310,7 +310,7 @@ export const themeNeonDark = {
   '--glow-primary': '0 0 24px rgba(34,211,238,0.45)',
 
   '--glow-secondary': '0 0 32px rgba(167,139,250,0.35)',
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const themeZen = {
   // ======================================================
@@ -401,7 +401,7 @@ export const themeZen = {
   '--gradient-primary': 'linear-gradient(135deg,#84cc16 0%,#22c55e 50%,#14b8a6 100%)',
 
   '--glass': 'rgba(236,252,203,0.58)',
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const themeEditorial = {
   // ======================================================
@@ -490,7 +490,7 @@ export const themeEditorial = {
   '--gradient-primary': 'linear-gradient(135deg,#7c3aed 0%,#ec4899 100%)',
 
   '--glass': 'rgba(255,255,255,0.55)',
-} as React.CSSProperties
+} as React.CSSProperties;
 
 export const themes = {
   themeLightSaaS,
@@ -498,4 +498,4 @@ export const themes = {
   themeNeonDark,
   themeZen,
   themeEditorial,
-}
+};

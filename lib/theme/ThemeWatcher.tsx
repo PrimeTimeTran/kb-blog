@@ -1,10 +1,10 @@
 // components/theme/ThemeWatcher.tsx
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { useTheme } from '@teispace/next-themes'
-import { useThemeStore } from '@/hooks/useThemeStore'
-import { applyMaterialTheme } from '@/lib/theme/palette'
+import { useEffect, useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
+import { useThemeStore } from '@/hooks/useThemeStore';
+import { applyMaterialTheme } from '@/lib/theme/palette';
 
 // localStorage.clear()
 // sessionStorage.clear()
@@ -14,19 +14,19 @@ import { applyMaterialTheme } from '@/lib/theme/palette'
 // })()
 // lib/theme/ThemeWatcher.tsx
 export function ThemeWatcher() {
-  const { resolvedTheme } = useTheme()
-  const seed = useThemeStore((state) => state.seed)
-  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme } = useTheme();
+  const seed = useThemeStore((state) => state.seed);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    if (!mounted || !resolvedTheme) return
+    if (!mounted || !resolvedTheme) return;
 
-    applyMaterialTheme(seed, resolvedTheme === 'dark')
-  }, [mounted, seed, resolvedTheme])
+    applyMaterialTheme(seed, resolvedTheme === 'dark');
+  }, [mounted, seed, resolvedTheme]);
 
-  return null
+  return null;
 }

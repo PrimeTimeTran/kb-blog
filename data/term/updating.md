@@ -14,15 +14,7 @@ subCategory: 'components'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'state',
-    'props',
-    'functional-component',
-    'class-component',
-    'pure-component',
-    'render-function',
-    'component-tree',
-  ]
+  ['state', 'props', 'functional-component', 'class-component', 'pure-component', 'render-function', 'component-tree']
 related: ['mounting', 'unmounting']
 seeAlso:
   [

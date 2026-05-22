@@ -13,8 +13,7 @@ category: 'finance'
 subCategory: 'macroeconomics'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['federal-reserve', 'monetary-policy', 'fiscal-policy', 'interest-rates', 'quantitative-easing']
+leadsTo: ['federal-reserve', 'monetary-policy', 'fiscal-policy', 'interest-rates', 'quantitative-easing']
 related: ['gdp', 'cpi', 'ppi', 'unemployment-rate']
 seeAlso:
   [

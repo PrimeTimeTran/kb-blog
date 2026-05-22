@@ -13,18 +13,7 @@ category: 'discrete_math'
 subCategory: 'sets'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'set',
-    'element',
-    'subset',
-    'universal-set',
-    'empty-set',
-    'union',
-    'intersection',
-    'difference',
-    'complement',
-  ]
+leadsTo: ['set', 'element', 'subset', 'universal-set', 'empty-set', 'union', 'intersection', 'difference', 'complement']
 related: ['set-identities', 'power-set']
 seeAlso:
   [

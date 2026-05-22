@@ -1,14 +1,14 @@
-'use client'
-import Head from 'next/head'
-import { ThemeProvider } from '@teispace/next-themes'
-import { usePathname } from 'next/navigation'
-import { ThemeWatcher } from '@/lib/theme/ThemeWatcher'
+'use client';
+import Head from 'next/head';
+import { ThemeProvider } from '@teispace/next-themes';
+import { usePathname } from 'next/navigation';
+import { ThemeWatcher } from '@/lib/theme/ThemeWatcher';
 
-import { ScrollProvider } from '@/providers/ScrollProvider'
-import { LayoutProvider } from '@/providers/LayoutProvider'
-import { MobileNavProvider } from '@/providers/MobileNavProvider'
+import { ScrollProvider } from '@/providers/ScrollProvider';
+import { LayoutProvider } from '@/providers/LayoutProvider';
+import { MobileNavProvider } from '@/providers/MobileNavProvider';
 
-import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar'
+import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar';
 
 const screens = {
   kb: {
@@ -17,34 +17,20 @@ const screens = {
   dsa: {
     prompt: 'DSA Screen',
   },
-}
+};
 
 export function AppShell({ children }) {
-  const basePath = process.env.BASE_PATH || ''
-  const pathname = usePathname() || ''
-  const pathBaseSegment = pathname.split('/')[1]
-  const screen = screens[pathBaseSegment]
+  const basePath = process.env.BASE_PATH || '';
+  const pathname = usePathname() || '';
+  const pathBaseSegment = pathname.split('/')[1];
+  const screen = screens[pathBaseSegment];
 
   return (
     <div className="flex h-full flex-col">
       <Head>
-        <link
-          sizes="76x76"
-          rel="apple-touch-icon"
-          href={`${basePath}/static/favicons/loi-tran.png`}
-        />
-        <link
-          rel="icon"
-          sizes="32x32"
-          type="image/png"
-          href={`${basePath}/static/favicons/loi-tran.png`}
-        />
-        <link
-          rel="icon"
-          sizes="16x16"
-          type="image/png"
-          href={`${basePath}/static/favicons/loi-tran.png`}
-        />
+        <link sizes="76x76" rel="apple-touch-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
+        <link rel="icon" sizes="32x32" type="image/png" href={`${basePath}/static/favicons/loi-tran.png`} />
+        <link rel="icon" sizes="16x16" type="image/png" href={`${basePath}/static/favicons/loi-tran.png`} />
         <link rel="mask-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
         <meta name="msapplication-TileColor" />
         <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
@@ -68,5 +54,5 @@ export function AppShell({ children }) {
         </ThemeProvider>
       </ScrollProvider>
     </div>
-  )
+  );
 }

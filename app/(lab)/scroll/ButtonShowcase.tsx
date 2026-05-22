@@ -1,21 +1,17 @@
-'use client'
-import React from 'react'
-import { StyledButton } from '../../../components/StyledButton' // Adjust path
+'use client';
+import React from 'react';
+import { StyledButton } from '../../../components/StyledButton'; // Adjust path
 
-import { HiBeaker, HiCheck, HiExclamation, HiXCircle, HiLightningBolt } from 'react-icons/hi'
+import { HiBeaker, HiCheck, HiExclamation, HiXCircle, HiLightningBolt } from 'react-icons/hi';
 
 export function ButtonShowcase() {
-  const tones = ['default', 'success', 'warning', 'error'] as const
+  const tones = ['default', 'success', 'warning', 'error'] as const;
 
   return (
     <div className="p-8 space-y-12 bg-background min-h-screen">
       <header className="space-y-2">
-        <h1 className="text-2xl font-black uppercase tracking-widest text-primary">
-          Button System Audit
-        </h1>
-        <p className="text-on-surface-variant/60 text-sm">
-          Validating Material M3 tokens and V4 Tailwind transitions.
-        </p>
+        <h1 className="text-2xl font-black uppercase tracking-widest text-primary">Button System Audit</h1>
+        <p className="text-on-surface-variant/60 text-sm">Validating Material M3 tokens and V4 Tailwind transitions.</p>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -42,19 +38,8 @@ export function ButtonShowcase() {
               <div className="space-y-2">
                 <p className="text-[9px] uppercase opacity-40 font-bold">With Icons</p>
                 <div className="flex gap-2">
-                  <StyledButton
-                    tone={tone}
-                    text="Action"
-                    icon={<HiLightningBolt />}
-                    onClick={() => {}}
-                  />
-                  <StyledButton
-                    tone={tone}
-                    text="Saved"
-                    icon={<HiCheck />}
-                    isActive
-                    onClick={() => {}}
-                  />
+                  <StyledButton tone={tone} text="Action" icon={<HiLightningBolt />} onClick={() => {}} />
+                  <StyledButton tone={tone} text="Saved" icon={<HiCheck />} isActive onClick={() => {}} />
                 </div>
               </div>
 
@@ -93,9 +78,7 @@ export function ButtonShowcase() {
 
       {/* STRESS TEST: DARK/LIGHT CONTRAST */}
       <section className="p-6 rounded-xl border-2 border-dashed border-outline-variant/30">
-        <h2 className="text-xs font-bold uppercase text-center mb-6 opacity-30">
-          Layout Stress Test
-        </h2>
+        <h2 className="text-xs font-bold uppercase text-center mb-6 opacity-30">Layout Stress Test</h2>
         <div className="flex items-center justify-center gap-2">
           <StyledButton tone="default" text="Previous" onClick={() => {}} />
           <div className="flex bg-surface-container-highest p-1 rounded-lg gap-1 border border-outline-variant">
@@ -107,5 +90,5 @@ export function ButtonShowcase() {
         </div>
       </section>
     </div>
-  )
+  );
 }

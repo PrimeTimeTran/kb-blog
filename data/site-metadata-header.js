@@ -1,4 +1,4 @@
-import siteMetadata from '../data/site-metadata'
+import siteMetadata from '../data/site-metadata';
 
 export const siteMetaDataHeader = {
   authors: [{ name: 'Loi Tran' }],
@@ -38,4 +38,4 @@ export const siteMetaDataHeader = {
     icon: [{ url: '/public/static/images/favicon.png', type: 'image/png' }],
     apple: [{ url: '/icons/apple-touch-icon.png' }],
   },
-}
+};

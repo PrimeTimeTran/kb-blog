@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useState, useEffect } from 'react'
-import { useDock, useSys } from '@primetimetran/beeline'
+import { useState, useEffect } from 'react';
+import { useDock, useSys } from '@primetimetran/beeline';
 
 export const LAYER_REGISTRY = {
   regions: [
@@ -24,13 +24,13 @@ export const LAYER_REGISTRY = {
     { id: 'bottomSingleton', label: 'Bottom Inspector' },
     { id: 'systemPanel', label: 'Right Singleton' },
   ],
-} as const
+} as const;
 
 function Panel() {
-  const dock = useDock()
-  const [tab, setTab] = useState<keyof typeof LAYER_REGISTRY>('system')
+  const dock = useDock();
+  const [tab, setTab] = useState<keyof typeof LAYER_REGISTRY>('system');
 
-  const items = LAYER_REGISTRY[tab]
+  const items = LAYER_REGISTRY[tab];
 
   return (
     <div className="h-full w-full flex flex-col">
@@ -64,10 +64,10 @@ function Panel() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 export function ChatPanel() {
-  const dock = useDock()
+  const dock = useDock();
   return (
     <div className="flex flex-col h-full">
       <button onClick={() => dock.layer.toggle('chat-agent')}>Toggle Left</button>
@@ -75,7 +75,7 @@ export function ChatPanel() {
       <div className="flex-1 overflow-y-auto">messages...</div>
       <div className="border-t p-2">input box</div>
     </div>
-  )
+  );
 }
 export function CommandPalette() {
   return (
@@ -83,7 +83,7 @@ export function CommandPalette() {
       <input className="p-3 bg-transparent outline-none" />
       <div className="max-h-64 overflow-y-auto">results...</div>
     </div>
-  )
+  );
 }
 export function Inspector() {
   return (
@@ -92,10 +92,10 @@ export function Inspector() {
 
       <div className="border-t p-2">input box</div>
     </div>
-  )
+  );
 }
 export function RegisterSysOverlays({}: {}) {
-  const dock = useDock()
+  const dock = useDock();
 
   useEffect(() => {
     dock.layer.register({
@@ -119,36 +119,36 @@ export function RegisterSysOverlays({}: {}) {
       },
 
       node: <Panel />,
-    })
+    });
     dock.layer.push({
       id: 'leftStack',
       nature: 'stack',
       position: 'left',
       open: false,
       node: <ChatPanel />,
-    })
+    });
     dock.layer.push({
       id: 'centerSingleton',
       nature: 'singleton',
       position: 'center',
       open: false,
       node: <CommandPalette />,
-    })
+    });
     dock.layer.push({
       id: 'rightSingleton',
       nature: 'singleton',
       position: 'right',
       open: false,
       node: <ChatPanel />,
-    })
+    });
     dock.layer.push({
       id: 'bottomSingleton',
       nature: 'singleton',
       position: 'bottom',
       open: false,
       node: <Inspector />,
-    })
-  }, []) // ❗ IMPORTANT: no dock dependency
+    });
+  }, []); // ❗ IMPORTANT: no dock dependency
 
-  return null
+  return null;
 }

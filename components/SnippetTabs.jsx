@@ -1,33 +1,33 @@
-import React, { useState } from 'react'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import React, { useState } from 'react';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export default function SnippetTabs({ snippets = [] }) {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [copied, setCopied] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [copied, setCopied] = useState(false);
 
-  if (!snippets.length) return null
+  if (!snippets.length) return null;
 
-  const activeSnippet = snippets[activeIndex]
+  const activeSnippet = snippets[activeIndex];
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(activeSnippet.code.trim())
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      await navigator.clipboard.writeText(activeSnippet.code.trim());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
     } catch (err) {
       // Fallback for older browsers
-      const textarea = document.createElement('textarea')
-      textarea.value = activeSnippet.code.trim()
-      document.body.appendChild(textarea)
-      textarea.select()
-      document.execCommand('copy')
-      document.body.removeChild(textarea)
+      const textarea = document.createElement('textarea');
+      textarea.value = activeSnippet.code.trim();
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand('copy');
+      document.body.removeChild(textarea);
 
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
     }
-  }
+  };
 
   return (
     <div className="tab-group" style={{ marginBottom: '1.5rem' }}>
@@ -76,7 +76,7 @@ export default function SnippetTabs({ snippets = [] }) {
 
         {/* Tab Content */}
         {(snippets ?? []).map((snippet, index) => {
-          if (index !== activeIndex) return null
+          if (index !== activeIndex) return null;
 
           return (
             <div key={index}>
@@ -100,9 +100,9 @@ export default function SnippetTabs({ snippets = [] }) {
                 {snippet.code.trim()}
               </SyntaxHighlighter>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }

@@ -1,61 +1,55 @@
-'use client'
-import React, { useState, useRef, useEffect } from 'react'
-import { createPortal } from 'react-dom' // Import Portal
-import { motion, AnimatePresence } from 'framer-motion'
+'use client';
+import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom'; // Import Portal
+import { motion, AnimatePresence } from 'framer-motion';
 
-import { VscChevronDown, VscListFilter } from 'react-icons/vsc'
-import { StyledButton } from './StyledButton'
+import { VscChevronDown, VscListFilter } from 'react-icons/vsc';
+import { StyledButton } from './StyledButton';
 
 interface SelectionOption {
-  key: string
-  label: string
-  icon?: React.ReactNode
+  key: string;
+  label: string;
+  icon?: React.ReactNode;
 }
 
 interface StyledSelectionProps {
-  options: { key: string; label: string; icon?: React.ReactNode }[]
-  value: string
-  onChange: (val: string) => void
-  icon?: React.ReactNode
-  forceDropdown?: boolean // NEW PROP
+  options: { key: string; label: string; icon?: React.ReactNode }[];
+  value: string;
+  onChange: (val: string) => void;
+  icon?: React.ReactNode;
+  forceDropdown?: boolean; // NEW PROP
 }
 
-export function StyledSelection({
-  options,
-  value,
-  onChange,
-  icon,
-  forceDropdown = false,
-}: StyledSelectionProps) {
-  const [isOpen, setIsOpen] = useState(false)
-  const [coords, setCoords] = useState({ top: 0, left: 0, width: 0 })
-  const triggerRef = useRef<HTMLButtonElement>(null)
-  const dropdownRef = useRef<HTMLDivElement>(null)
-  const selectedOption = options.find((opt) => opt.key === value) || options[0]
+export function StyledSelection({ options, value, onChange, icon, forceDropdown = false }: StyledSelectionProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [coords, setCoords] = useState({ top: 0, left: 0, width: 0 });
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const selectedOption = options.find((opt) => opt.key === value) || options[0];
 
   // Update position whenever it opens or the window resizes
   const updateCoords = () => {
     if (triggerRef.current) {
-      const rect = triggerRef.current.getBoundingClientRect()
+      const rect = triggerRef.current.getBoundingClientRect();
       setCoords({
         top: rect.bottom + window.scrollY,
         left: rect.left + window.scrollX,
         width: rect.width,
-      })
+      });
     }
-  }
+  };
 
   useEffect(() => {
     if (isOpen) {
-      updateCoords()
-      window.addEventListener('resize', updateCoords)
-      window.addEventListener('scroll', updateCoords, true)
+      updateCoords();
+      window.addEventListener('resize', updateCoords);
+      window.addEventListener('scroll', updateCoords, true);
     }
     return () => {
-      window.removeEventListener('resize', updateCoords)
-      window.removeEventListener('scroll', updateCoords, true)
-    }
-  }, [isOpen])
+      window.removeEventListener('resize', updateCoords);
+      window.removeEventListener('scroll', updateCoords, true);
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
@@ -65,15 +59,15 @@ export function StyledSelection({
         triggerRef.current &&
         !triggerRef.current.contains(e.target as Node)
       ) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [])
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, []);
 
   const renderDropdownMenu = () => {
-    if (typeof document === 'undefined') return null
+    if (typeof document === 'undefined') return null;
 
     return createPortal(
       <AnimatePresence>
@@ -97,8 +91,8 @@ export function StyledSelection({
                 <button
                   key={opt.key}
                   onClick={() => {
-                    onChange(opt.key)
-                    setIsOpen(false)
+                    onChange(opt.key);
+                    setIsOpen(false);
                   }}
                   className={`
                     flex items-center gap-3 px-3 py-2 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors
@@ -115,9 +109,9 @@ export function StyledSelection({
           </motion.div>
         )}
       </AnimatePresence>,
-      document.body
-    )
-  }
+      document.body,
+    );
+  };
 
   return (
     <section className="flex items-center gap-1 shrink-0">
@@ -156,5 +150,5 @@ export function StyledSelection({
         </div>
       )}
     </section>
-  )
+  );
 }

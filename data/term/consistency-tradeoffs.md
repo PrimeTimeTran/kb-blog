@@ -14,12 +14,7 @@ subCategory: 'comparison_sql'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['query-complexity', 'scalability-needs', 'data-structure-flexibility']
-related:
-  [
-    'schema-flexibility-vs-rigid-schema',
-    'horizontal-vs-vertical-scaling',
-    'joins-vs-denormalization',
-  ]
+related: ['schema-flexibility-vs-rigid-schema', 'horizontal-vs-vertical-scaling', 'joins-vs-denormalization']
 seeAlso:
   [
     'projection',

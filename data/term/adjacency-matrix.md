@@ -29,16 +29,7 @@ leadsTo:
     'prim-algorithm',
     'bipartite-graph',
   ]
-related:
-  [
-    'graph',
-    'vertex',
-    'edge',
-    'directed-graph',
-    'undirected-graph',
-    'weighted-graph',
-    'adjacency-list',
-  ]
+related: ['graph', 'vertex', 'edge', 'directed-graph', 'undirected-graph', 'weighted-graph', 'adjacency-list']
 seeAlso:
   [
     'big-o-notation',

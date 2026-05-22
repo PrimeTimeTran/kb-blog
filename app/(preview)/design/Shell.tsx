@@ -1,5 +1,5 @@
-import React from 'react'
-import clsx from 'clsx'
+import React from 'react';
+import clsx from 'clsx';
 import {
   Users,
   TrendingUp,
@@ -17,7 +17,7 @@ import {
   Sparkles,
   Box,
   Grid3X3,
-} from 'lucide-react'
+} from 'lucide-react';
 
 // import { themes } from '@/app/(lab)/workspaces/theme'
 
@@ -39,12 +39,12 @@ type SectionType =
   | 'trust-badges'
   | 'press'
   | 'faq'
-  | 'footer'
+  | 'footer';
 
 type Section = {
-  id: string
-  type: SectionType
-}
+  id: string;
+  type: SectionType;
+};
 
 // -----------------------------------------------------
 // Placeholder content
@@ -63,7 +63,7 @@ const sections: Section[] = [
   { id: 'cta', type: 'cta' },
   { id: 'trust-badges', type: 'trust-badges' },
   { id: 'footer', type: 'footer' },
-]
+];
 
 // -----------------------------------------------------
 // Section renderer
@@ -72,33 +72,33 @@ const sections: Section[] = [
 function SectionRenderer({ section }: { section: Section }) {
   switch (section.type) {
     case 'hero':
-      return <HeroSection />
+      return <HeroSection />;
     case 'press':
-      return <PressSection />
+      return <PressSection />;
     case 'trusted':
-      return <TrustedBySection />
+      return <TrustedBySection />;
     case 'benefits':
-      return <BenefitsSection />
+      return <BenefitsSection />;
     case 'metrics':
-      return <MetricsSection />
+      return <MetricsSection />;
     case 'use-cases':
-      return <UseCasesSection />
+      return <UseCasesSection />;
     case 'feature-grid':
-      return <FeatureGridSection />
+      return <FeatureGridSection />;
     case 'testimonials':
-      return <TestimonialsSection />
+      return <TestimonialsSection />;
     case 'trust-badges':
-      return <TrustBadgesSection />
+      return <TrustBadgesSection />;
     case 'pricing':
-      return <PricingSection />
+      return <PricingSection />;
     case 'cta':
-      return <CTASection />
+      return <CTASection />;
     case 'faq':
-      return <FAQSection />
+      return <FAQSection />;
     case 'footer':
-      return <FooterSection />
+      return <FooterSection />;
     default:
-      return null
+      return null;
   }
 }
 
@@ -115,7 +115,7 @@ export function ProductPageShell() {
           className={clsx(
             'w-full px-6 py-20',
             // alternating backgrounds
-            index % 2 === 0 ? 'bg-surface' : 'bg-surface-container'
+            index % 2 === 0 ? 'bg-surface' : 'bg-surface-container',
           )}
         >
           <div className="mx-auto w-full max-w-6xl">
@@ -124,9 +124,9 @@ export function ProductPageShell() {
         </div>
       ))}
     </div>
-  )
+  );
 }
-const css = (v: string) => `var(${v})`
+const css = (v: string) => `var(${v})`;
 // -----------------------------------------------------
 // SECTION IMPLEMENTATIONS (placeholders)
 // -----------------------------------------------------
@@ -221,19 +221,19 @@ function HeroSection() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 function MetricsSection() {
   const items = [
     { label: 'Users', value: '128K', icon: Users },
     { label: 'Growth', value: '+84%', icon: TrendingUp },
     { label: 'Revenue', value: '$1.2M', icon: DollarSign },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {items.map((item) => {
-        const Icon = item.icon
+        const Icon = item.icon;
 
         return (
           <div
@@ -270,22 +270,22 @@ function MetricsSection() {
               <div style={{ color: css('--muted') }}>{item.label}</div>
             </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 function UseCasesSection() {
   const items = [
     { title: 'Design', desc: 'Rapid prototyping workflows', icon: Palette },
     { title: 'Engineering', desc: 'System orchestration layer', icon: Code2 },
     { title: 'Product', desc: 'Composable experiences', icon: Layers3 },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {items.map((item) => {
-        const Icon = item.icon
+        const Icon = item.icon;
 
         return (
           <div
@@ -312,10 +312,10 @@ function UseCasesSection() {
 
             <p style={{ color: css('--muted'), marginTop: 8 }}>{item.desc}</p>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 function FeatureGridSection() {
   const features = [
@@ -349,7 +349,7 @@ function FeatureGridSection() {
       desc: 'Clear visual depth using layered surface tokens.',
       icon: Box,
     },
-  ]
+  ];
 
   return (
     <div className="space-y-10">
@@ -385,15 +385,14 @@ function FeatureGridSection() {
             lineHeight: 1.6,
           }}
         >
-          These primitives define how every workspace renders, behaves, and adapts to different
-          themes in real time.
+          These primitives define how every workspace renders, behaves, and adapts to different themes in real time.
         </p>
       </div>
 
       {/* ================= GRID ================= */}
       <div className="grid gap-6 md:grid-cols-3">
         {features.map((f) => {
-          const Icon = f.icon
+          const Icon = f.icon;
 
           return (
             <div
@@ -462,17 +461,17 @@ function FeatureGridSection() {
                 </div>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     </div>
-  )
+  );
 }
 function TestimonialsSection() {
   const items = [
     { name: 'Alice', role: 'Designer', quote: 'Feels like an OS layer for UI.' },
     { name: 'Bob', role: 'Engineer', quote: 'Workspace model is insanely powerful.' },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-2">
@@ -487,9 +486,7 @@ function TestimonialsSection() {
             backdropFilter: 'blur(12px)',
           }}
         >
-          <p style={{ color: css('--on-surface'), fontFamily: css('--font-display') }}>
-            “{t.quote}”
-          </p>
+          <p style={{ color: css('--on-surface'), fontFamily: css('--font-display') }}>“{t.quote}”</p>
 
           <div style={{ marginTop: 16, color: css('--muted') }}>
             — {t.name}, {t.role}
@@ -497,14 +494,14 @@ function TestimonialsSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 function PricingSection() {
   const plans = [
     { name: 'Free', price: '$0', highlight: false },
     { name: 'Pro', price: '$12', highlight: true },
     { name: 'Enterprise', price: 'Custom', highlight: false },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-3">
@@ -513,7 +510,7 @@ function PricingSection() {
           key={p.name}
           className={clsx(
             'relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1',
-            p.highlight ? 'bg-surface border-transparent' : 'bg-surface-container border-border'
+            p.highlight ? 'bg-surface border-transparent' : 'bg-surface-container border-border',
           )}
           style={
             p.highlight
@@ -567,7 +564,7 @@ function PricingSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 function CTASection() {
   return (
@@ -610,10 +607,10 @@ function CTASection() {
         </button>
       </div>
     </div>
-  )
+  );
 }
 function TrustedBySection() {
-  const companies = ['Acme', 'Linear', 'Vercel', 'Stripe', 'Notion']
+  const companies = ['Acme', 'Linear', 'Vercel', 'Stripe', 'Notion'];
 
   return (
     <div
@@ -624,10 +621,7 @@ function TrustedBySection() {
         border: `1px solid ${css('--border')}`,
       }}
     >
-      <div
-        className="text-center text-xs uppercase tracking-widest"
-        style={{ color: css('--muted') }}
-      >
+      <div className="text-center text-xs uppercase tracking-widest" style={{ color: css('--muted') }}>
         Trusted by teams
       </div>
 
@@ -645,19 +639,19 @@ function TrustedBySection() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 function BenefitsSection() {
   const items = [
     { title: 'Faster iteration', desc: 'Build and test UI ideas instantly.', icon: Zap },
     { title: 'Predictable UI', desc: 'Everything is token-driven and consistent.', icon: Layers3 },
     { title: 'Composable system', desc: 'Swap entire sections without rewrites.', icon: Grid3X3 },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {items.map((b) => {
-        const Icon = b.icon
+        const Icon = b.icon;
 
         return (
           <div
@@ -671,10 +665,7 @@ function BenefitsSection() {
           >
             <Icon size={20} style={{ color: css('--secondary') }} />
 
-            <div
-              className="mt-4 text-xl"
-              style={{ fontFamily: css('--font-display'), color: css('--on-surface') }}
-            >
+            <div className="mt-4 text-xl" style={{ fontFamily: css('--font-display'), color: css('--on-surface') }}>
               {b.title}
             </div>
 
@@ -682,13 +673,13 @@ function BenefitsSection() {
               {b.desc}
             </div>
           </div>
-        )
+        );
       })}
     </div>
-  )
+  );
 }
 function TrustBadgesSection() {
-  const badges = ['SOC2 Ready', 'GDPR Compliant', '99.99% Uptime']
+  const badges = ['SOC2 Ready', 'GDPR Compliant', '99.99% Uptime'];
 
   return (
     <div className="flex flex-wrap gap-4">
@@ -707,13 +698,13 @@ function TrustBadgesSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 function PressSection() {
   const items = [
     { source: 'TechCrunch', quote: 'A new way to think about UI systems.' },
     { source: 'The Verge', quote: 'Workspace-driven design may replace pages.' },
-  ]
+  ];
 
   return (
     <div className="grid gap-6 md:grid-cols-2">
@@ -752,14 +743,14 @@ function PressSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 function FAQSection() {
   const items = [
     { q: 'What is a workspace?', a: 'A self-contained UI + state + theme context.' },
     { q: 'Can themes change at runtime?', a: 'Yes — all values are CSS variables.' },
     { q: 'Is this production ready?', a: 'It is designed as a composable UI system.' },
-  ]
+  ];
 
   return (
     <div className="space-y-4">
@@ -781,7 +772,7 @@ function FAQSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }
 function FooterSection() {
   return (
@@ -816,5 +807,5 @@ function FooterSection() {
         Theme-driven • Token-based • Workspace-aware
       </div>
     </div>
-  )
+  );
 }

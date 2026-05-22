@@ -13,15 +13,7 @@ category: 'flutter'
 subCategory: 'state_management'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'setstate',
-    'stateful-widget',
-    'stateless-widget',
-    'reactive-programming',
-    'immutable-state',
-    'state-lifting',
-  ]
+leadsTo: ['setstate', 'stateful-widget', 'stateless-widget', 'reactive-programming', 'immutable-state', 'state-lifting']
 related: ['redux', 'riverpod', 'bloc']
 seeAlso:
   [

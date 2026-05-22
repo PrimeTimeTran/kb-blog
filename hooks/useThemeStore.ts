@@ -1,10 +1,10 @@
 // store/useThemeStore.ts
-import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface ThemeState {
-  seed: string
-  setSeed: (newSeed: string) => void
+  seed: string;
+  setSeed: (newSeed: string) => void;
 }
 
 export const useThemeStore = create<ThemeState>()(
@@ -17,6 +17,6 @@ export const useThemeStore = create<ThemeState>()(
     }),
     {
       name: 'omni-ui-storage', // Key in localStorage
-    }
-  )
-)
+    },
+  ),
+);

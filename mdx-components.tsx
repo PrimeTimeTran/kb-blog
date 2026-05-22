@@ -1,45 +1,67 @@
-import { evaluate } from '@mdx-js/mdx'
-import * as runtime from 'react/jsx-runtime'
+import type { MDXComponents } from 'mdx/types';
+import type { ComponentType } from 'react';
+import { evaluate } from '@mdx-js/mdx';
+import * as runtime from 'react/jsx-runtime';
 
-import remarkGfm from 'remark-gfm'
-import remarkMath from 'remark-math'
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
 
-import rehypeSlug from 'rehype-slug'
-import rehypeKatex from 'rehype-katex'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeSlug from 'rehype-slug';
+import rehypeKatex from 'rehype-katex';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 // import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
-import { extractCodeMeta } from './lib/remark/extract-code-meta'
-import { extractFrontMatter } from './lib/remark/extract-front-matter'
-import { renderCodeBlocks } from './lib/remark/render-codeblocks'
+import { extractCodeMeta } from './lib/remark/extract-code-meta';
+import { extractFrontMatter } from './lib/remark/extract-front-matter';
+import { renderCodeBlocks } from './lib/remark/render-codeblocks';
 
-import { renderEmbeds } from './lib/remark/render-embeds'
-import { renderCallOuts } from './lib/remark/render-callouts'
-import { renderTabGroups } from './lib/remark/render-tab-groups'
+import { renderEmbeds } from './lib/remark/render-embeds';
+import { renderCallOuts } from './lib/remark/render-callouts';
+import { renderTabGroups } from './lib/remark/render-tab-groups';
 
-import { injectEmbedFlags } from './lib/remark/inject-embed-flags'
-import { injectTermLinksAndPreviews } from './lib/remark/inject-term-links-and-preview'
+import { injectEmbedFlags } from './lib/remark/inject-embed-flags';
+import { injectTermLinksAndPreviews } from './lib/remark/inject-term-links-and-preview';
 
-import { terms } from './data/generated/terms'
+import { terms } from './data/generated/terms';
 
-import { preprocessEmbeds } from './lib/content/api/transformers'
-import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-links'
+import { preprocessEmbeds } from './lib/content/api/transformers';
+import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-links';
 
-import { Term } from './components/mdx/Term'
-import { Image } from './components/mdx/Image'
-import { Embed } from './components/mdx/Embed'
-import { CallOut } from './components/mdx/CallOut'
-import { Snippet } from './components/mdx/Snippet'
-import { TabGroup } from './components/mdx/Code'
-import { Pre } from './components/mdx/Pre'
-import { TOCInline } from './components/mdx/TOCInline'
-import { OrderBook } from './components/mdx/OrderBook'
-import { SafeLink as Link } from './components/mdx/Link'
-import { TermPeekDefinition } from './components/mdx/TermPeekDefinition'
-import { ProjectionChart } from './components/mdx/ProjectionChart'
+import { Term } from './components/mdx/Term';
+import { Image } from './components/mdx/Image';
+import { Embed } from './components/mdx/Embed';
+import { CallOut } from './components/mdx/CallOut';
+import { Snippet } from './components/mdx/Snippet';
+import { TabGroup } from './components/mdx/Code';
+import { Pre } from './components/mdx/Pre';
+import { TOCInline } from './components/mdx/TOCInline';
+import { OrderBook } from './components/mdx/OrderBook';
+import { SafeLink as Link } from './components/mdx/Link';
+import { TermPeekDefinition } from './components/mdx/TermPeekDefinition';
+import { ProjectionChart } from './components/mdx/ProjectionChart';
 
-import { BlogNewsletterForm } from './components/NewsletterForm'
-import { H1, H2, H3, H4, H5, H6 } from './components/HeadingComponents'
+import { BlogNewsletterForm } from './components/NewsletterForm';
+import { H1, H2, H3, H4, H5, H6 } from './components/HeadingComponents';
+
+const BlockQuote = (props) => (
+  <blockquote
+    className="
+      /* 1. Layout & Shape */
+      my-6 p-5 border-l-4 rounded-r-xl transition-all w-full
+
+      /* 2. Border: Stronger anchor in light mode, clean fallback in dark */
+      border-primary/50 dark:border-primary-container
+
+      /* 3. Background: Thicker tint for light mode, soft glow for dark */
+      bg-primary-container/40 dark:bg-primary-container/10
+
+      /* 4. Muted, Highly Legible Typographic Scale */
+      text-base md:text-lg italic font-medium leading-relaxed
+      text-on-surface-variant dark:text-on-surface
+    "
+    {...props}
+  />
+);
 
 const rawComponents = {
   h1: H1,
@@ -51,6 +73,8 @@ const rawComponents = {
   Term,
   Image,
   Embed,
+  blockquote: BlockQuote,
+  // a: A,
   a: Link,
   CallOut,
   Snippet,
@@ -61,25 +85,35 @@ const rawComponents = {
   TabGroup: TabGroup,
   BlogNewsletterForm,
   ProjectionChart,
-}
+};
 
-const cleanedComponents = Object.fromEntries(
-  Object.entries(rawComponents).map(([key, value]) => [key, (value as any)?.default ?? value])
-)
+/**
+ * Normalizes component maps by cleanly stripping out default exports
+ */
+const cleanedComponents: MDXComponents = Object.fromEntries(
+  Object.entries(rawComponents).map(([key, value]) => [
+    key,
+    value && typeof value === 'object' && 'default' in value ? value.default : value,
+  ]),
+) as MDXComponents;
 
-export async function compileWikiMDX(source, context) {
-  const { slug = '', index = {} } = context
-  let normalized = preprocessObsidianLinks(source, index, slug)
-  normalized = preprocessEmbeds(normalized, index)
+/**
+ * Compiles absolute raw markdown text down into executable runtime React Server Components
+ */
+export async function compileWikiMDX(
+  source: string,
+  context: WikiCompilerContext,
+): Promise<{ Content: ComponentType<{ components?: MDXComponents }> }> {
+  const { slug = '', index = {} } = context;
+
+  let normalized = preprocessObsidianLinks(source, index, slug);
+  normalized = preprocessEmbeds(normalized, index);
 
   const { default: Content } = await evaluate(normalized, {
     ...runtime,
 
-    // MDX is flaky because we have runtime vs build time definitions of Components and they need to agree
-    // extractCodeMeta,renderCodeBlocks, renderTabGroups work flawlessly from here.
-
-    // ✓ CORRECT: Provide a functional evaluator that returns your custom design components
-    useMDXComponents: () => cleanedComponents,
+    // ✓ CORRECT: Type-safe functional evaluator returning our structural design tokens
+    useMDXComponents: (): MDXComponents => cleanedComponents,
 
     remarkPlugins: [
       extractCodeMeta,
@@ -90,7 +124,6 @@ export async function compileWikiMDX(source, context) {
       extractFrontMatter,
       [renderEmbeds],
       renderCallOuts,
-      // injectEmbedFlags,
       [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [
@@ -103,16 +136,17 @@ export async function compileWikiMDX(source, context) {
       ],
       rehypeKatex,
     ],
-  })
+  });
 
-  // Returns the actual React rendering function safely wrapped
-  return { Content }
+  return { Content };
 }
 
-// 2. Export the required wrapper function that Next.js expects
+/**
+ * Native global component registration pipeline wrapper expected by Next.js
+ */
 export function useMDXComponents(incomingComponents: MDXComponents): MDXComponents {
   return {
     ...incomingComponents, // Retains default HTML tags provided by Next.js
     ...cleanedComponents, // Injects your custom overrides and design tokens
-  }
+  };
 }

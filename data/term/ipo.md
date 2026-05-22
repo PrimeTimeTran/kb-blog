@@ -32,8 +32,7 @@ leadsTo:
     'corporate-bonds',
     'interest-rate-risk',
   ]
-related:
-  ['stocks', 'dividends', 'market-cap', 'shares', 'equity', 'public-company', 'private-company']
+related: ['stocks', 'dividends', 'market-cap', 'shares', 'equity', 'public-company', 'private-company']
 seeAlso:
   [
     'correlation',

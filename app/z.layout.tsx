@@ -1,3 +1,3 @@
 export default function Layout() {
-  return <div>Layout Preview!</div>
+  return <div>Layout Preview!</div>;
 }

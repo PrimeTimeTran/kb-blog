@@ -1,5 +1,5 @@
-import matter from 'gray-matter'
-import { compileWikiMDX } from '../../../../mdx-components'
+import matter from 'gray-matter';
+import { compileWikiMDX } from '../../../../mdx-components';
 
 // https://mdxjs.com/docs/
 // | feature                     | works |
@@ -12,13 +12,13 @@ import { compileWikiMDX } from '../../../../mdx-components'
 // https://mdxjs.com/docs/
 
 export async function bundle(source = '', slug, options) {
-  const { data } = matter(source)
-  const { index, headings } = options
+  const { data } = matter(source);
+  const { index, headings } = options;
   const { Content } = await compileWikiMDX(source, {
     slug,
     index,
     terms: options.terms || {},
-  })
+  });
 
   return {
     Content,
@@ -27,5 +27,5 @@ export async function bundle(source = '', slug, options) {
       date: data.date ? new Date(data.date).toISOString() : null,
     },
     toc: [],
-  }
+  };
 }

@@ -1,5 +1,5 @@
-import { slug } from 'github-slugger'
-import matter from 'gray-matter'
+import { slug } from 'github-slugger';
+import matter from 'gray-matter';
 
 // BUG: Wikilinks parsing fails
 // - [ ] Internal links
@@ -14,57 +14,57 @@ import matter from 'gray-matter'
 //   → resolve target
 //   → render final URL
 
-import path from 'path'
-import GithubSlugger from 'github-slugger'
+import path from 'path';
+import GithubSlugger from 'github-slugger';
 
-const slugger = new GithubSlugger()
+const slugger = new GithubSlugger();
 
 type Entry = {
-  id: string
-  path: string // canonical
-  title: string // display title
-  aliases?: string[]
-}
+  id: string;
+  path: string; // canonical
+  title: string; // display title
+  aliases?: string[];
+};
 
 type WikiLink = {
-  raw: string
-  target: string
-  path: string
-  anchor?: string
-  alias?: string
-}
+  raw: string;
+  target: string;
+  path: string;
+  anchor?: string;
+  alias?: string;
+};
 
 type ResolveResult = {
-  entry: Entry | null
-  reason: 'exact' | 'basename' | 'alias' | 'ambiguous' | 'missing'
-  matches?: Entry[]
-  normalized: string
-}
+  entry: Entry | null;
+  reason: 'exact' | 'basename' | 'alias' | 'ambiguous' | 'missing';
+  matches?: Entry[];
+  normalized: string;
+};
 
 function normalizePath(input = '') {
   return input
     .replace(/\.mdx?$/, '')
     .replace(/^\//, '')
     .replace(/\\/g, '/')
-    .trim()
+    .trim();
 }
 
 function normalizeAnchor(input = '') {
-  slugger.reset()
-  return slugger.slug(input.trim())
+  slugger.reset();
+  return slugger.slug(input.trim());
 }
 
 function parse(raw: string): WikiLink {
-  const pipeIndex = raw.indexOf('|')
+  const pipeIndex = raw.indexOf('|');
 
-  const left = pipeIndex === -1 ? raw.trim() : raw.slice(0, pipeIndex).trim()
+  const left = pipeIndex === -1 ? raw.trim() : raw.slice(0, pipeIndex).trim();
 
-  const alias = pipeIndex === -1 ? undefined : raw.slice(pipeIndex + 1).trim()
-  const hashIndex = left.indexOf('#')
+  const alias = pipeIndex === -1 ? undefined : raw.slice(pipeIndex + 1).trim();
+  const hashIndex = left.indexOf('#');
 
-  const filePart = hashIndex === -1 ? left : left.slice(0, hashIndex)
+  const filePart = hashIndex === -1 ? left : left.slice(0, hashIndex);
 
-  const anchor = hashIndex === -1 ? undefined : left.slice(hashIndex + 1)
+  const anchor = hashIndex === -1 ? undefined : left.slice(hashIndex + 1);
 
   return {
     raw,
@@ -72,35 +72,35 @@ function parse(raw: string): WikiLink {
     path: normalizePath(filePart),
     anchor,
     alias,
-  }
+  };
 }
 
 function buildLookup(index: Record<string, Entry>) {
-  const exact = new Map<string, Entry>()
-  const basenameMap = new Map<string, Entry[]>()
-  const aliasMap = new Map<string, Entry[]>()
+  const exact = new Map<string, Entry>();
+  const basenameMap = new Map<string, Entry[]>();
+  const aliasMap = new Map<string, Entry[]>();
 
   for (const entry of Object.values(index)) {
-    const canonical = normalizePath(entry.path)
+    const canonical = normalizePath(entry.path);
 
-    exact.set(canonical, entry)
+    exact.set(canonical, entry);
 
-    const base = normalizePath(path.basename(canonical))
+    const base = normalizePath(path.basename(canonical));
 
     if (!basenameMap.has(base)) {
-      basenameMap.set(base, [])
+      basenameMap.set(base, []);
     }
 
-    basenameMap.get(base)!.push(entry)
+    basenameMap.get(base)!.push(entry);
 
     for (const alias of entry.aliases || []) {
-      const normalizedAlias = normalizePath(alias)
+      const normalizedAlias = normalizePath(alias);
 
       if (!aliasMap.has(normalizedAlias)) {
-        aliasMap.set(normalizedAlias, [])
+        aliasMap.set(normalizedAlias, []);
       }
 
-      aliasMap.get(normalizedAlias)!.push(entry)
+      aliasMap.get(normalizedAlias)!.push(entry);
     }
   }
 
@@ -108,33 +108,33 @@ function buildLookup(index: Record<string, Entry>) {
     exact,
     basenameMap,
     aliasMap,
-  }
+  };
 }
 
 function resolve(link: WikiLink, lookup: ReturnType<typeof buildLookup>): ResolveResult {
-  const normalized = normalizePath(link.path)
+  const normalized = normalizePath(link.path);
 
   // 1. exact path
-  const exact = lookup.exact.get(normalized)
+  const exact = lookup.exact.get(normalized);
 
   if (exact) {
     return {
       entry: exact,
       reason: 'exact',
       normalized,
-    }
+    };
   }
 
   // 2. basename match
-  const basename = normalizePath(path.basename(normalized))
-  const basenameMatches = lookup.basenameMap.get(basename) || []
+  const basename = normalizePath(path.basename(normalized));
+  const basenameMatches = lookup.basenameMap.get(basename) || [];
 
   if (basenameMatches.length === 1) {
     return {
       entry: basenameMatches[0],
       reason: 'basename',
       normalized,
-    }
+    };
   }
 
   if (basenameMatches.length > 1) {
@@ -143,18 +143,18 @@ function resolve(link: WikiLink, lookup: ReturnType<typeof buildLookup>): Resolv
       reason: 'ambiguous',
       matches: basenameMatches,
       normalized,
-    }
+    };
   }
 
   // 3. alias match
-  const aliasMatches = lookup.aliasMap.get(normalized) || []
+  const aliasMatches = lookup.aliasMap.get(normalized) || [];
 
   if (aliasMatches.length === 1) {
     return {
       entry: aliasMatches[0],
       reason: 'alias',
       normalized,
-    }
+    };
   }
 
   if (aliasMatches.length > 1) {
@@ -163,31 +163,29 @@ function resolve(link: WikiLink, lookup: ReturnType<typeof buildLookup>): Resolv
       reason: 'ambiguous',
       matches: aliasMatches,
       normalized,
-    }
+    };
   }
 
   return {
     entry: null,
     reason: 'missing',
     normalized,
-  }
+  };
 }
 
 function render(link: WikiLink, resolved: ResolveResult) {
   if (!resolved.entry) {
-    return `[[${link.raw}]]`
+    return `[[${link.raw}]]`;
   }
 
-  const anchor = link.anchor ? `#${normalizeAnchor(link.anchor)}` : ''
+  const anchor = link.anchor ? `#${normalizeAnchor(link.anchor)}` : '';
 
-  const url = `/kb/${normalizePath(resolved.entry.path)}${anchor}`
+  const url = `/kb/${normalizePath(resolved.entry.path)}${anchor}`;
 
   const label =
-    link.alias || link.anchor
-      ? `${link.path}${link.anchor ? `#${link.anchor}` : ''}`
-      : resolved.entry.title
+    link.alias || link.anchor ? `${link.path}${link.anchor ? `#${link.anchor}` : ''}` : resolved.entry.title;
 
-  return `[${label}](${url})`
+  return `[${label}](${url})`;
 }
 /**
  * preprocessObsidianLinks()
@@ -440,21 +438,17 @@ function render(link: WikiLink, resolved: ResolveResult) {
  * Markdown source with Obsidian wikilinks converted into
  * standard markdown links.
  */
-export function preprocessObsidianLinks(
-  source = '',
-  index: Record<string, Entry> = {},
-  currentSlug = ''
-) {
+export function preprocessObsidianLinks(source = '', index: Record<string, Entry> = {}, currentSlug = '') {
   return source.replace(/\[\[(.+?)\]\]/g, (_, raw) => {
-    const [left, alias] = raw.split('|')
+    const [left, alias] = raw.split('|');
 
-    const display = alias?.trim()
+    const display = alias?.trim();
 
     // split file + anchor
-    const [filePartRaw, anchorRaw] = left.split('#')
+    const [filePartRaw, anchorRaw] = left.split('#');
 
-    const filePart = filePartRaw?.trim() ?? ''
-    const anchor = anchorRaw?.trim()
+    const filePart = filePartRaw?.trim() ?? '';
+    const anchor = anchorRaw?.trim();
 
     // -----------------------------------
     // SELF ANCHOR LINK
@@ -462,9 +456,9 @@ export function preprocessObsidianLinks(
     // -----------------------------------
 
     if (!filePart && anchor) {
-      const hash = normalizeAnchor(anchor)
+      const hash = normalizeAnchor(anchor);
 
-      return `[#${anchor}](#${hash})`
+      return `[#${anchor}](#${hash})`;
     }
 
     // -----------------------------------
@@ -474,20 +468,20 @@ export function preprocessObsidianLinks(
     const normalizedTarget = filePart
       .replace(/\.mdx?$/i, '')
       .replace(/^\//, '')
-      .trim()
+      .trim();
 
     // -----------------------------------
     // SELF/SIBLING RESOLUTION
     // -----------------------------------
 
-    const currentDir = currentSlug.split('/').slice(0, -1).join('/')
+    const currentDir = currentSlug.split('/').slice(0, -1).join('/');
 
     // relative sibling support
-    const candidatePaths = [normalizedTarget, `${currentDir}/${normalizedTarget}`]
+    const candidatePaths = [normalizedTarget, `${currentDir}/${normalizedTarget}`];
 
     const matchedKey = candidatePaths.find((candidate) => {
-      return Object.prototype.hasOwnProperty.call(index, candidate)
-    })
+      return Object.prototype.hasOwnProperty.call(index, candidate);
+    });
 
     // -----------------------------------
     // MISSING PAGE
@@ -495,19 +489,19 @@ export function preprocessObsidianLinks(
     // -----------------------------------
 
     if (!matchedKey) {
-      return display || left
+      return display || left;
     }
 
     // -----------------------------------
     // BUILD URL
     // -----------------------------------
 
-    const url = `/kb/${matchedKey}` + (anchor ? `#${normalizeAnchor(anchor)}` : '')
+    const url = `/kb/${matchedKey}` + (anchor ? `#${normalizeAnchor(anchor)}` : '');
 
-    const label = display || left
+    const label = display || left;
 
     // IMPORTANT:
     // emit markdown link
-    return `[${label}](${url})`
-  })
+    return `[${label}](${url})`;
+  });
 }

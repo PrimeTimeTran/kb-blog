@@ -1,17 +1,17 @@
-import { extractTOC } from '../core/extract-toc'
-import { extractHeadings } from '@/lib/remark/extract-headings'
+import { extractTOC } from '../core/extract-toc';
+import { extractHeadings } from '@/lib/remark/extract-headings';
 
-import { ContentEntity, ContentItem, PipelineContext } from './types'
+import { ContentEntity, ContentItem, PipelineContext } from './types';
 
 export function analyzeContent(source) {
   return {
     toc: extractTOC(source),
     headings: extractHeadings(source),
-  }
+  };
 }
 
 export function toContentItem(entity: ContentEntity): ContentItem {
-  const fm = entity.frontMatter
+  const fm = entity.frontMatter;
 
   return {
     slug: entity.source.slug,
@@ -31,7 +31,7 @@ export function toContentItem(entity: ContentEntity): ContentItem {
       summary: fm.summary,
       isDev: fm.isDev,
     },
-  }
+  };
 }
 
 export function toContentEntity(ctx: PipelineContext): ContentEntity {
@@ -41,5 +41,5 @@ export function toContentEntity(ctx: PipelineContext): ContentEntity {
     raw: ctx.raw,
     frontMatter: ctx.frontMatter!,
     body: ctx.content!,
-  }
+  };
 }

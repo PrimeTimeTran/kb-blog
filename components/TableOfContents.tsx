@@ -84,27 +84,28 @@
  * ============================
  */
 
-'use client'
-import { useEffect } from 'react'
-import { getHeadingClass } from '@/lib/theme/theme.cjs'
-import { useScroll } from '../providers/ScrollProvider'
+'use client';
+import { useEffect } from 'react';
+import { getHeadingColor } from '@/lib/theme/theme.cjs';
+import { useScroll } from '@/providers/ScrollProvider';
 
 // Prior, Active, Upcoming items indicated by scroll spy.
 function TOCItem({ item, activeId, index, items, scrollRootRef }) {
-  const isActive = activeId === item.url
+  const isActive = activeId === item.url;
 
-  const activeIndex = items?.findIndex((i) => i.url === activeId) ?? -1
-  const isPassed = activeIndex !== -1 && index < activeIndex
+  const activeIndex = items?.findIndex((i) => i.url === activeId) ?? -1;
+  const isPassed = activeIndex !== -1 && index < activeIndex;
 
-  const level = item.depth ?? 1
-  const indent = (level - 1) * 16
-  const colorClass = getHeadingClass(level)
+  const level = item.depth ?? 1;
+  const indent = (level - 1) * 16;
+  const colorClass = getHeadingColor(level);
 
   return (
     <div
-      className={`transition-all hover:bg-surface-variant w-full
-        ${isActive ? 'border-l-2' : ''}
-      `}
+      className={`
+      transition-all hover:bg-surface-variant w-full text-left flex items-center
+      ${isActive ? 'border-l-2' : ''} 
+    `}
       style={{
         paddingLeft: `${indent}px`,
         borderColor: isActive ? 'var(--primary)' : 'var(--outline-variant)',
@@ -115,43 +116,33 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
       <a
         href={item.url}
         className={`
-          block w-full truncate px-2 py-1 transition-all
-          ${colorClass}
-          ${isActive ? 'font-bold text-on-primary-container' : ''}
-        `}
+        /* ✓ RESETS: Reset font sizing, spacing, and casing back to navigation defaults */
+        block w-full truncate px-2 py-1.5 text-sm normal-case font-normal no-underline tracking-normal m-0
+        ${colorClass}
+        ${isActive ? 'font-bold text-on-primary-container' : 'text-on-surface-variant'}
+      `}
       >
         {item.value}
       </a>
-      {/* <button
-        type="button"
-        onClick={() => scrollToHeading(item.url)}
-        className={`
-          block w-full truncate px-2 py-1 text-left transition-all
-          ${colorClass}
-          ${isActive ? 'font-bold text-(--on-primary-container)' : ''}
-        `}
-      >
-        {item.value}
-      </button> */}
     </div>
-  )
+  );
 }
 export default function TableOfContents({ toc }) {
-  const { activeId, setToc } = useScroll()
+  const { activeId, setToc } = useScroll();
 
   useEffect(() => {
-    setToc(toc)
-  }, [toc, setToc])
+    setToc(toc);
+  }, [toc, setToc]);
 
   if (toc.length === 0) {
-    return <div>Empty TOC</div>
+    return <div>Empty TOC</div>;
   }
 
   return (
-    <aside>
+    <aside className="border-0 border-l-0">
       {toc.map((item, index) => (
         <TOCItem key={item.url} item={item} activeId={activeId} index={index} items={toc} />
       ))}
     </aside>
-  )
+  );
 }

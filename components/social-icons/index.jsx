@@ -1,7 +1,7 @@
 // Icons taken from: https://simpleicons.org/
 
-import { AiOutlineMail } from 'react-icons/ai'
-import { FaGithub, FaFacebook, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import { AiOutlineMail } from 'react-icons/ai';
+import { FaGithub, FaFacebook, FaYoutube, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const components = {
   mail: AiOutlineMail,
@@ -10,13 +10,13 @@ const components = {
   youtube: FaYoutube,
   linkedin: FaLinkedin,
   twitter: FaTwitter,
-}
+};
 
 const SocialIcon = ({ kind, href, size = 20 }) => {
-  if (!href) return null
+  if (!href) return null;
 
-  const Icon = components[kind]
-  if (!Icon) return null
+  const Icon = components[kind];
+  if (!Icon) return null;
 
   return (
     <a
@@ -32,7 +32,7 @@ const SocialIcon = ({ kind, href, size = 20 }) => {
       <span className="sr-only">{kind}</span>
       <Icon size={size} />
     </a>
-  )
-}
+  );
+};
 
-export default SocialIcon
+export default SocialIcon;

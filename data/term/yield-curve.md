@@ -33,15 +33,7 @@ leadsTo:
     'private-company',
   ]
 related:
-  [
-    'bonds',
-    'duration',
-    'credit-rating',
-    'coupon-rate',
-    'treasury-bonds',
-    'corporate-bonds',
-    'interest-rate-risk',
-  ]
+  ['bonds', 'duration', 'credit-rating', 'coupon-rate', 'treasury-bonds', 'corporate-bonds', 'interest-rate-risk']
 seeAlso:
   [
     'correlation',

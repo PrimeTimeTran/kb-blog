@@ -1,9 +1,9 @@
-'use client'
-import { useState } from 'react'
-import { PageSEO } from '../components/SEO'
+'use client';
+import { useState } from 'react';
+import { PageSEO } from '../components/SEO';
 
 function ContentTabs({ children }) {
-  const [tab, setTab] = useState('intro')
+  const [tab, setTab] = useState('intro');
 
   return (
     <div className="flex flex-col items-center px-16 overflow-hidden">
@@ -37,11 +37,11 @@ function ContentTabs({ children }) {
       {/* BACKGROUND GLOW (now safely behind content) */}
       <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-tr from-(--surface-variant)/20 via-(--surface)/0 to-(--primary-container)/10 dark:from-(--surface-variant)/40 dark:to-(--primary-container)/25" />
     </div>
-  )
+  );
 }
 
 export default function AboutLayout({ children, frontMatter }) {
-  const { name = 'Loi Tran' } = frontMatter || {}
+  const { name = 'Loi Tran' } = frontMatter || {};
 
   return (
     <div className="h-full w-full overflow-y-auto">
@@ -76,9 +76,9 @@ export default function AboutLayout({ children, frontMatter }) {
             className="absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage: `
-        linear-gradient(to right, var(--on-surface) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--on-surface) 1px, transparent 1px)
-      `,
+              linear-gradient(to right, var(--on-surface) 1px, transparent 1px),
+              linear-gradient(to bottom, var(--on-surface) 1px, transparent 1px)
+            `,
               backgroundSize: '32px 32px',
             }}
           />
@@ -91,9 +91,7 @@ export default function AboutLayout({ children, frontMatter }) {
               <div className="flex items-center gap-3">
                 <div className="h-px w-10 bg-primary" />
 
-                <div className="text-[10px] uppercase tracking-[0.35em] text-(--muted-foreground)">
-                  About
-                </div>
+                <div className="text-[10px] uppercase tracking-[0.35em] text-(--muted-foreground)">About</div>
               </div>
 
               {/* heading */}
@@ -126,24 +124,20 @@ export default function AboutLayout({ children, frontMatter }) {
                   fontFamily: 'var(--font-sans)',
                 }}
               >
-                Building interfaces that feel quiet, intentional, and human. Systems with rhythm,
-                atmosphere, and emotional texture.
+                Building interfaces that feel quiet, intentional, and human. Systems with rhythm, atmosphere, and
+                emotional texture.
               </p>
 
               {/* mini metadata */}
               <div className="grid grid-cols-2 gap-6 pt-6">
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">
-                    Focus
-                  </div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">Focus</div>
 
                   <div className="mt-2 text-sm text-on-surface">Design Systems</div>
                 </div>
 
                 <div>
-                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">
-                    Medium
-                  </div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">Medium</div>
 
                   <div className="mt-2 text-sm text-on-surface">Interactive UI</div>
                 </div>
@@ -153,9 +147,7 @@ export default function AboutLayout({ children, frontMatter }) {
             {/* bottom */}
             <div className="flex items-end justify-between">
               <div className="space-y-2">
-                <div className="text-[10px] uppercase tracking-[0.3em] text-(--muted-foreground)">
-                  Location
-                </div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-(--muted-foreground)">Location</div>
 
                 <div className="text-sm text-on-surface">Miami / Digital Space</div>
               </div>
@@ -165,7 +157,7 @@ export default function AboutLayout({ children, frontMatter }) {
                 className="flex h-14 w-14 items-center justify-center rounded-full border backdrop-blur-md"
                 style={{
                   borderColor: 'var(--border)',
-                  background: 'var(--glass)',
+                  // background: 'var(--glass)',
                   boxShadow: 'var(--shadow-md)',
                 }}
               >
@@ -191,5 +183,5 @@ export default function AboutLayout({ children, frontMatter }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -10,6 +10,20 @@
     margin: 0;
     font-family: var(--font-sans);
   }
+  p,
+  em,
+  strong,
+  del {
+    /* Rule #1: In v4, consume theme variables directly using var(--color-*) */
+    color: var(--color-on-surface-variant);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    color: var(--color-on-surface-variant);
+    list-style-type: disc;
+  }
 
   h1,
   h2,
@@ -53,5 +67,9 @@
     transition:
       background-color 600000s 0s,
       color 600000s 0s;
+  }
+
+  .border {
+    color: var(--border);
   }
 }

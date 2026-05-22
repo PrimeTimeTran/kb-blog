@@ -1,14 +1,14 @@
 ---
 draft: false
 slug: tool/grep/search-cheatsheet
-date: "2026-05-03"
-title: "Grep for searching the file system"
-summary: "Reference table for grep cli command and flags"
-tags: ["grep", "file system", "cli", "linux"]
+date: '2026-05-03'
+title: 'Grep for searching the file system'
+summary: 'Reference table for grep cli command and flags'
+tags: ['grep', 'file system', 'cli', 'linux']
 ---
 
 # 📋 Cheat Sheet
-    
+
 | 👨🏻‍💻 Command                          | 🆔 Name                 | ℹ️ Desc                        |
 | ----------------------------------- | ----------------------- | ------------------------------ |
 | `grep -r "term" .`                  | recursive search        | search all files for a string  |

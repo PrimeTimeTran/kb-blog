@@ -170,14 +170,8 @@
   "accomplish": {
     "part": "v",
     "vi": "đạt được",
-    "sentences": [
-      ["carry out a task", "execute the decision of the people", "He actioned the operation"]
-    ],
-    "viSentences": [
-      "thực hiện một nhiệm vụ",
-      "thi hành quyết định của nhân dân",
-      "Ông hành động các hoạt động"
-    ],
+    "sentences": [["carry out a task", "execute the decision of the people", "He actioned the operation"]],
+    "viSentences": ["thực hiện một nhiệm vụ", "thi hành quyết định của nhân dân", "Ông hành động các hoạt động"],
     "def": "put in effect"
   },
   "according": {
@@ -208,19 +202,9 @@
     "part": "a",
     "vi": "chính xác",
     "sentences": [
-      [
-        "an accurate reproduction",
-        "the accounting was accurate",
-        "accurate measurements",
-        "an accurate scale"
-      ]
+      ["an accurate reproduction", "the accounting was accurate", "accurate measurements", "an accurate scale"]
     ],
-    "viSentences": [
-      "tái tạo chính xác",
-      "kế toán đã chính xác",
-      "phép đo chính xác",
-      "một quy mô chính xác"
-    ],
+    "viSentences": ["tái tạo chính xác", "kế toán đã chính xác", "phép đo chính xác", "một quy mô chính xác"],
     "def": "conforming exactly or almost exactly to fact or to a standard or performing with total accuracy"
   },
   "accuse": {
@@ -295,9 +279,7 @@
     "part": "n",
     "vi": "hoạt động",
     "sentences": [["there were stories of murders and other unnatural actions"]],
-    "viSentences": [
-      "có những câu chuyện về những vụ giết người và những hành động phi tự nhiên khác"
-    ],
+    "viSentences": ["có những câu chuyện về những vụ giết người và những hành động phi tự nhiên khác"],
     "def": "something done (usually as opposed to something said)"
   },
   "active": {
@@ -339,15 +321,9 @@
     "part": "a",
     "vi": "thật sự",
     "sentences": [
-      [
-        "the predicted temperature and the actual temperature were markedly different",
-        "actual and imagined conditions"
-      ]
+      ["the predicted temperature and the actual temperature were markedly different", "actual and imagined conditions"]
     ],
-    "viSentences": [
-      "nhiệt độ dự đoán và nhiệt độ thực tế khác nhau rõ rệt",
-      "điều kiện thực tế và tưởng tượng"
-    ],
+    "viSentences": ["nhiệt độ dự đoán và nhiệt độ thực tế khác nhau rõ rệt", "điều kiện thực tế và tưởng tượng"],
     "def": "presently existing in fact and not merely potential or possible"
   },
   "actually": {
@@ -378,9 +354,7 @@
     "part": "v",
     "vi": "thích nghi",
     "sentences": [["Adapt our native cuisine to the available food resources of the new country"]],
-    "viSentences": [
-      "Điều chỉnh ẩm thực bản địa của chúng tôi với nguồn thực phẩm sẵn có của đất nước mới"
-    ],
+    "viSentences": ["Điều chỉnh ẩm thực bản địa của chúng tôi với nguồn thực phẩm sẵn có của đất nước mới"],
     "def": "make fit for, or change to suit a new purpose"
   },
   "add": {
@@ -394,15 +368,9 @@
     "part": "n",
     "vi": "phép cộng",
     "sentences": [
-      [
-        "the addition of a bathroom was a major improvement",
-        "the addition of cinnamon improved the flavor"
-      ]
+      ["the addition of a bathroom was a major improvement", "the addition of cinnamon improved the flavor"]
     ],
-    "viSentences": [
-      "việc bổ sung một phòng tắm là một cải tiến lớn",
-      "việc bổ sung quế đã cải thiện hương vị"
-    ],
+    "viSentences": ["việc bổ sung một phòng tắm là một cải tiến lớn", "việc bổ sung quế đã cải thiện hương vị"],
     "def": "a component that is added to something to improve it"
   },
   "additional": {
@@ -477,9 +445,7 @@
     "part": "n",
     "vi": "nhận vào",
     "sentences": [["the surgery was performed on his second admission to the clinic"]],
-    "viSentences": [
-      "cuộc phẫu thuật đã được thực hiện vào lần nhập viện thứ hai của anh ấy đến phòng khám"
-    ],
+    "viSentences": ["cuộc phẫu thuật đã được thực hiện vào lần nhập viện thứ hai của anh ấy đến phòng khám"],
     "def": "the act of admitting someone to enter"
   },
   "admit": {
@@ -499,13 +465,8 @@
   "adopt": {
     "part": "v",
     "vi": "nhận nuôi",
-    "sentences": [
-      ["She followed the feminist movement", "The candidate espouses Republican ideals"]
-    ],
-    "viSentences": [
-      "Cô theo phong trào nữ quyền",
-      "Ứng cử viên tán thành lý tưởng của đảng Cộng hòa"
-    ],
+    "sentences": [["She followed the feminist movement", "The candidate espouses Republican ideals"]],
+    "viSentences": ["Cô theo phong trào nữ quyền", "Ứng cử viên tán thành lý tưởng của đảng Cộng hòa"],
     "def": "choose and follow; as of theories, ideas, policies, strategies or plans"
   },
   "adult": {
@@ -561,30 +522,18 @@
     "part": "v",
     "vi": "khuyên nhủ",
     "sentences": [
-      [
-        "The teacher counsels troubled students",
-        "The lawyer counselled me when I was accused of tax fraud"
-      ]
+      ["The teacher counsels troubled students", "The lawyer counselled me when I was accused of tax fraud"]
     ],
-    "viSentences": [
-      "Cô giáo khuyên bảo học sinh gặp khó khăn",
-      "Luật sư tư vấn giúp tôi khi bị tố gian lận thuế"
-    ],
+    "viSentences": ["Cô giáo khuyên bảo học sinh gặp khó khăn", "Luật sư tư vấn giúp tôi khi bị tố gian lận thuế"],
     "def": "give advice to"
   },
   "adviser": {
     "part": "n",
     "vi": "cố vấn",
     "sentences": [
-      [
-        "an adviser helped students select their courses",
-        "the United States sent military advisors to Guatemala"
-      ]
+      ["an adviser helped students select their courses", "the United States sent military advisors to Guatemala"]
     ],
-    "viSentences": [
-      "một cố vấn đã giúp sinh viên chọn các khóa học của họ",
-      "Hoa Kỳ cử cố vấn quân sự đến Guatemala"
-    ],
+    "viSentences": ["một cố vấn đã giúp sinh viên chọn các khóa học của họ", "Hoa Kỳ cử cố vấn quân sự đến Guatemala"],
     "def": "an expert who gives advice"
   },
   "advocate": {
@@ -597,14 +546,8 @@
   "affair": {
     "part": "n",
     "vi": "công việc",
-    "sentences": [
-      ["several matters to attend to", "it is none of your affair", "things are going well"]
-    ],
-    "viSentences": [
-      "một số vấn đề cần tham gia",
-      "đó không phải là chuyện của bạn",
-      "mọi thứ đang diễn ra tốt đẹp"
-    ],
+    "sentences": [["several matters to attend to", "it is none of your affair", "things are going well"]],
+    "viSentences": ["một số vấn đề cần tham gia", "đó không phải là chuyện của bạn", "mọi thứ đang diễn ra tốt đẹp"],
     "def": "a vaguely specified concern"
   },
   "affect": {
@@ -849,12 +792,7 @@
     "part": "n",
     "vi": "không khí",
     "sentences": [
-      [
-        "air pollution",
-        "a smell of chemicals in the air",
-        "open a window and let in some air",
-        "I need some fresh air"
-      ]
+      ["air pollution", "a smell of chemicals in the air", "open a window and let in some air", "I need some fresh air"]
     ],
     "viSentences": [
       "ô nhiễm không khí",
@@ -923,9 +861,7 @@
   "all": {
     "part": "a",
     "vi": "tất cả các",
-    "sentences": [
-      ["we sat up all night", "ate all the food", "all men are mortal", "all parties are welcome"]
-    ],
+    "sentences": [["we sat up all night", "ate all the food", "all men are mortal", "all parties are welcome"]],
     "viSentences": [
       "chúng tôi ngồi cả đêm",
       "đã ăn tất cả thức ăn",
@@ -999,9 +935,7 @@
   "alone": {
     "part": "s",
     "vi": "một mình",
-    "sentences": [
-      ["could be alone in a crowded room", "was alone with her thoughts", "I want to be alone"]
-    ],
+    "sentences": [["could be alone in a crowded room", "was alone with her thoughts", "I want to be alone"]],
     "viSentences": [
       "có thể ở một mình trong một căn phòng đông đúc",
       "cô đơn với những suy nghĩ của mình",
@@ -1062,14 +996,8 @@
   "alternative": {
     "part": "n",
     "vi": "thay thế",
-    "sentences": [
-      ["what option did I have?", "there no other alternative", "my only choice is to refuse"]
-    ],
-    "viSentences": [
-      "tôi đã có lựa chọn gì?",
-      "không có sự thay thế nào khác",
-      "lựa chọn duy nhất của tôi là từ chối"
-    ],
+    "sentences": [["what option did I have?", "there no other alternative", "my only choice is to refuse"]],
+    "viSentences": ["tôi đã có lựa chọn gì?", "không có sự thay thế nào khác", "lựa chọn duy nhất của tôi là từ chối"],
     "def": "one of a number of things from which only one can be chosen"
   },
   "although": "Mặc du",
@@ -1120,10 +1048,7 @@
     "part": "n",
     "vi": "số lượng",
     "sentences": [["he borrowed a large sum", "the amount he had in cash was insufficient"]],
-    "viSentences": [
-      "anh ấy đã vay một khoản tiền lớn",
-      "số tiền anh ta có bằng tiền mặt là không đủ"
-    ],
+    "viSentences": ["anh ấy đã vay một khoản tiền lớn", "số tiền anh ta có bằng tiền mặt là không đủ"],
     "def": "a quantity of money"
   },
   "analysis": {
@@ -1144,11 +1069,7 @@
     "part": "v",
     "vi": "phân tích",
     "sentences": [
-      [
-        "analyze a sonnet by Shakespeare",
-        "analyze the evidence in a criminal trial",
-        "analyze your real motives"
-      ]
+      ["analyze a sonnet by Shakespeare", "analyze the evidence in a criminal trial", "analyze your real motives"]
     ],
     "viSentences": [
       "phân tích một sonnet của Shakespeare",
@@ -1183,12 +1104,7 @@
     "part": "a",
     "vi": "tức giận",
     "sentences": [
-      [
-        "angry at the weather",
-        "angry customers",
-        "an angry silence",
-        "sending angry letters to the papers"
-      ]
+      ["angry at the weather", "angry customers", "an angry silence", "sending angry letters to the papers"]
     ],
     "viSentences": [
       "tức giận với thời tiết",
@@ -1236,9 +1152,7 @@
   "answer": {
     "part": "n",
     "vi": "câu trả lời",
-    "sentences": [
-      ["I waited several days for his answer", "he wrote replies to several of his critics"]
-    ],
+    "sentences": [["I waited several days for his answer", "he wrote replies to several of his critics"]],
     "viSentences": [
       "Tôi đã đợi vài ngày cho câu trả lời của anh ấy",
       "ông đã viết trả lời cho một số nhà phê bình của mình"
@@ -1296,9 +1210,7 @@
   "anymore": {
     "part": "r",
     "vi": "nữa không",
-    "sentences": [
-      ["Alice doesn't live here anymore", "the children promised not to quarrel any more"]
-    ],
+    "sentences": [["Alice doesn't live here anymore", "the children promised not to quarrel any more"]],
     "viSentences": ["Alice không sống ở đây nữa", "bọn trẻ hứa sẽ không cãi nhau nữa"],
     "def": "at the present or from now on; usually used with a negative"
   },
@@ -1409,18 +1321,8 @@
   "appeal": {
     "part": "n",
     "vi": "bắt mắt",
-    "sentences": [
-      [
-        "an entreaty to stop the fighting",
-        "an appeal for help",
-        "an appeal to the public to keep calm"
-      ]
-    ],
-    "viSentences": [
-      "một lời cầu xin để ngăn chặn cuộc chiến",
-      "đơn kêu cứu",
-      "lời kêu gọi công chúng giữ bình tĩnh"
-    ],
+    "sentences": [["an entreaty to stop the fighting", "an appeal for help", "an appeal to the public to keep calm"]],
+    "viSentences": ["một lời cầu xin để ngăn chặn cuộc chiến", "đơn kêu cứu", "lời kêu gọi công chúng giữ bình tĩnh"],
     "def": "earnest or urgent request"
   },
   "appear": {
@@ -1465,10 +1367,7 @@
         "a novel application of electronics to medical diagnosis"
       ]
     ],
-    "viSentences": [
-      "ông ủng hộ việc áp dụng thống kê cho vấn đề",
-      "một ứng dụng mới của điện tử để chẩn đoán y tế"
-    ],
+    "viSentences": ["ông ủng hộ việc áp dụng thống kê cho vấn đề", "một ứng dụng mới của điện tử để chẩn đoán y tế"],
     "def": "the act of bringing something to bear; using it for a particular purpose"
   },
   "apply": {
@@ -1541,27 +1440,14 @@
   "appropriate": {
     "part": "v",
     "vi": "thích hợp",
-    "sentences": [
-      [
-        "I will earmark this money for your research",
-        "She sets aside time for meditation every day"
-      ]
-    ],
-    "viSentences": [
-      "Tôi sẽ dành số tiền này cho nghiên cứu của bạn",
-      "Cô ấy dành thời gian để thiền mỗi ngày"
-    ],
+    "sentences": [["I will earmark this money for your research", "She sets aside time for meditation every day"]],
+    "viSentences": ["Tôi sẽ dành số tiền này cho nghiên cứu của bạn", "Cô ấy dành thời gian để thiền mỗi ngày"],
     "def": "give or assign a resource to a particular person or cause"
   },
   "approval": {
     "part": "n",
     "vi": "sự chấp thuận",
-    "sentences": [
-      [
-        "he gave the project his blessing",
-        "his decision merited the approval of any sensible person"
-      ]
-    ],
+    "sentences": [["he gave the project his blessing", "his decision merited the approval of any sensible person"]],
     "viSentences": [
       "anh ấy đã chúc phúc cho dự án",
       "quyết định của anh ấy đáng được sự chấp thuận của bất kỳ người nhạy cảm nào"
@@ -1671,15 +1557,9 @@
     "part": "v",
     "vi": "vũ trang",
     "sentences": [
-      [
-        "The U.S. is girding for a conflict in the Middle East",
-        "troops are building up on the Iraqi border"
-      ]
+      ["The U.S. is girding for a conflict in the Middle East", "troops are building up on the Iraqi border"]
     ],
-    "viSentences": [
-      "Mỹ đang chuẩn bị cho một cuộc xung đột ở Trung Đông",
-      "quân đội đang xây dựng ở biên giới Iraq"
-    ],
+    "viSentences": ["Mỹ đang chuẩn bị cho một cuộc xung đột ở Trung Đông", "quân đội đang xây dựng ở biên giới Iraq"],
     "def": "prepare oneself for a military confrontation"
   },
   "army": {
@@ -1692,14 +1572,8 @@
   "around": {
     "part": "r",
     "vi": "xung quanh",
-    "sentences": [
-      ["a few spectators standing about", "hanging around", "waited around for the next flight"]
-    ],
-    "viSentences": [
-      "một vài khán giả đứng xung quanh",
-      "quanh quẩn",
-      "đợi xung quanh cho chuyến bay tiếp theo"
-    ],
+    "sentences": [["a few spectators standing about", "hanging around", "waited around for the next flight"]],
+    "viSentences": ["một vài khán giả đứng xung quanh", "quanh quẩn", "đợi xung quanh cho chuyến bay tiếp theo"],
     "def": "in the area or vicinity"
   },
   "arrange": {
@@ -1733,9 +1607,7 @@
   "arrive": {
     "part": "v",
     "vi": "đến",
-    "sentences": [
-      ["She arrived home at 7 o'clock", "She didn't get to Chicago until after midnight"]
-    ],
+    "sentences": [["She arrived home at 7 o'clock", "She didn't get to Chicago until after midnight"]],
     "viSentences": ["Cô ấy về đến nhà lúc 7 giờ", "Cô ấy đã không đến Chicago cho đến sau nửa đêm"],
     "def": "reach a destination; arrive by movement or progress"
   },
@@ -1792,10 +1664,7 @@
     "part": "v",
     "vi": "hỏi",
     "sentences": [["I asked about their special today", "He had to ask directions several times"]],
-    "viSentences": [
-      "Tôi đã hỏi về sự đặc biệt của họ ngày hôm nay",
-      "Anh phải hỏi đường nhiều lần"
-    ],
+    "viSentences": ["Tôi đã hỏi về sự đặc biệt của họ ngày hôm nay", "Anh phải hỏi đường nhiều lần"],
     "def": "inquire about"
   },
   "asleep": {
@@ -1829,9 +1698,7 @@
   "assess": {
     "part": "n",
     "vi": "đánh giá",
-    "sentences": [
-      ["he deserves a good kick in the butt", "are you going to sit on your fanny and do nothing?"]
-    ],
+    "sentences": [["he deserves a good kick in the butt", "are you going to sit on your fanny and do nothing?"]],
     "viSentences": [
       "anh ta xứng đáng được một cú đá tốt vào mông",
       "bạn sẽ ngồi trên fanny của bạn và không làm gì cả?"
@@ -1935,20 +1802,14 @@
   "assumption": {
     "part": "n",
     "vi": "giả thiết",
-    "sentences": [
-      ["on the assumption that he has been injured we can infer that he will not to play"]
-    ],
-    "viSentences": [
-      "với giả định rằng anh ấy bị chấn thương, chúng ta có thể suy ra rằng anh ấy sẽ không thi đấu"
-    ],
+    "sentences": [["on the assumption that he has been injured we can infer that he will not to play"]],
+    "viSentences": ["với giả định rằng anh ấy bị chấn thương, chúng ta có thể suy ra rằng anh ấy sẽ không thi đấu"],
     "def": "a statement that is assumed to be true and from which a conclusion can be drawn"
   },
   "assure": {
     "part": "v",
     "vi": "cam đoan",
-    "sentences": [
-      ["This nest egg will ensure a nice retirement for us", "Preparation will guarantee success!"]
-    ],
+    "sentences": [["This nest egg will ensure a nice retirement for us", "Preparation will guarantee success!"]],
     "viSentences": [
       "Tổ trứng này sẽ đảm bảo một cuộc nghỉ hưu tốt đẹp cho chúng ta",
       "Chuẩn bị sẽ đảm bảo thành công!"
@@ -2001,11 +1862,7 @@
     "part": "n",
     "vi": "nỗ lực",
     "sentences": [
-      [
-        "made an effort to cover all the reading material",
-        "wished him luck in his endeavor",
-        "she gave it a good try"
-      ]
+      ["made an effort to cover all the reading material", "wished him luck in his endeavor", "she gave it a good try"]
     ],
     "viSentences": [
       "đã nỗ lực để trang trải tất cả các tài liệu đọc",
@@ -2018,11 +1875,7 @@
     "part": "v",
     "vi": "tham gia",
     "sentences": [
-      [
-        "She attends class regularly",
-        "I rarely attend services at my church",
-        "did you go to the meeting?"
-      ]
+      ["She attends class regularly", "I rarely attend services at my church", "did you go to the meeting?"]
     ],
     "viSentences": [
       "Cô tham dự lớp học thường xuyên",
@@ -2212,16 +2065,8 @@
   "away": {
     "part": "s",
     "vi": "xa",
-    "sentences": [
-      [
-        "he's away right now",
-        "you must not allow a stranger into the house when your mother is away"
-      ]
-    ],
-    "viSentences": [
-      "anh ấy đi vắng ngay bây giờ",
-      "không được cho người lạ vào nhà khi mẹ đi vắng"
-    ],
+    "sentences": [["he's away right now", "you must not allow a stranger into the house when your mother is away"]],
+    "viSentences": ["anh ấy đi vắng ngay bây giờ", "không được cho người lạ vào nhà khi mẹ đi vắng"],
     "def": "not present; having left"
   },
   "awful": {
@@ -2363,12 +2208,7 @@
   "bank": {
     "part": "n",
     "vi": "ngân hàng",
-    "sentences": [
-      [
-        "they pulled the canoe up on the bank",
-        "he sat on the bank of the river and watched the currents"
-      ]
-    ],
+    "sentences": [["they pulled the canoe up on the bank", "he sat on the bank of the river and watched the currents"]],
     "viSentences": ["họ kéo ca nô lên bờ", "anh ấy ngồi trên bờ sông và nhìn dòng chảy"],
     "def": "sloping land (especially the slope beside a body of water)"
   },
@@ -2546,22 +2386,14 @@
     "part": "n",
     "vi": "đánh đập",
     "sentences": [["in the old days a policeman walked a beat and knew all his people by name"]],
-    "viSentences": [
-      "ngày xưa, một viên cảnh sát đi một nhịp và biết tên tất cả những người của mình"
-    ],
+    "viSentences": ["ngày xưa, một viên cảnh sát đi một nhịp và biết tên tất cả những người của mình"],
     "def": "a regular route for a sentry or policeman"
   },
   "beautiful": {
     "part": "a",
     "vi": "đẹp",
     "sentences": [
-      [
-        "a beautiful child",
-        "beautiful country",
-        "a beautiful painting",
-        "a beautiful theory",
-        "a beautiful party"
-      ]
+      ["a beautiful child", "beautiful country", "a beautiful painting", "a beautiful theory", "a beautiful party"]
     ],
     "viSentences": [
       "một đứa trẻ xinh đẹp",
@@ -2667,9 +2499,7 @@
   "behind": {
     "part": "n",
     "vi": "phía sau",
-    "sentences": [
-      ["he deserves a good kick in the butt", "are you going to sit on your fanny and do nothing?"]
-    ],
+    "sentences": [["he deserves a good kick in the butt", "are you going to sit on your fanny and do nothing?"]],
     "viSentences": [
       "anh ta xứng đáng được một cú đá tốt vào mông",
       "bạn sẽ ngồi trên fanny của bạn và không làm gì cả?"
@@ -2679,9 +2509,7 @@
   "being": {
     "part": "n",
     "vi": "hiện tại",
-    "sentences": [
-      ["a point of view gradually coming into being", "laws in existence for centuries"]
-    ],
+    "sentences": [["a point of view gradually coming into being", "laws in existence for centuries"]],
     "viSentences": ["một quan điểm đang dần hình thành", "pháp luật tồn tại trong nhiều thế kỷ"],
     "def": "the state or fact of existing"
   },
@@ -2695,13 +2523,7 @@
   "believe": {
     "part": "v",
     "vi": "tin",
-    "sentences": [
-      [
-        "I believed his report",
-        "We didn't believe his stories from the War",
-        "She believes in spirits"
-      ]
-    ],
+    "sentences": [["I believed his report", "We didn't believe his stories from the War", "She believes in spirits"]],
     "viSentences": [
       "tôi tin báo cáo của mình",
       "Chúng tôi không tin những câu chuyện của anh ấy từ Chiến tranh",
@@ -2909,13 +2731,8 @@
   "birth": {
     "part": "n",
     "vi": "Sinh",
-    "sentences": [
-      ["they divorced after the birth of the child", "his election signaled the birth of a new age"]
-    ],
-    "viSentences": [
-      "họ ly hôn sau khi sinh con",
-      "cuộc bầu cử của ông báo hiệu sự ra đời của một thời đại mới"
-    ],
+    "sentences": [["they divorced after the birth of the child", "his election signaled the birth of a new age"]],
+    "viSentences": ["họ ly hôn sau khi sinh con", "cuộc bầu cử của ông báo hiệu sự ra đời của một thời đại mới"],
     "def": "the time when something begins (especially life)"
   },
   "birthday": {
@@ -2928,15 +2745,8 @@
   "bit": {
     "part": "n",
     "vi": "chút",
-    "sentences": [
-      ["a spot of tea", "a bit of paper", "a bit of lint", "I gave him a bit of my mind"]
-    ],
-    "viSentences": [
-      "một chỗ trà",
-      "một chút giấy",
-      "một chút xơ vải",
-      "Tôi đã cho anh ta một chút tâm trí của tôi"
-    ],
+    "sentences": [["a spot of tea", "a bit of paper", "a bit of lint", "I gave him a bit of my mind"]],
+    "viSentences": ["một chỗ trà", "một chút giấy", "một chút xơ vải", "Tôi đã cho anh ta một chút tâm trí của tôi"],
     "def": "a small piece or quantity of something"
   },
   "bite": {
@@ -2963,13 +2773,8 @@
   "blame": {
     "part": "n",
     "vi": "lỗi",
-    "sentences": [
-      ["his incrimination was based on my testimony", "the police laid the blame on the driver"]
-    ],
-    "viSentences": [
-      "lời buộc tội của anh ấy dựa trên lời khai của tôi",
-      "cảnh sát đổ lỗi cho tài xế"
-    ],
+    "sentences": [["his incrimination was based on my testimony", "the police laid the blame on the driver"]],
+    "viSentences": ["lời buộc tội của anh ấy dựa trên lời khai của tôi", "cảnh sát đổ lỗi cho tài xế"],
     "def": "an accusation that you are responsible for some lapse or misdeed"
   },
   "blanket": {
@@ -3173,11 +2978,7 @@
     "part": "n",
     "vi": "cậu bé",
     "sentences": [
-      [
-        "the baby was a boy",
-        "she made the boy brush his teeth every night",
-        "most soldiers are only boys in uniform"
-      ]
+      ["the baby was a boy", "she made the boy brush his teeth every night", "most soldiers are only boys in uniform"]
     ],
     "viSentences": [
       "đứa bé là một cậu bé",
@@ -3204,11 +3005,7 @@
     "part": "n",
     "vi": "chi nhánh",
     "sentences": [
-      [
-        "a branch of Congress",
-        "botany is a branch of biology",
-        "the Germanic branch of Indo-European languages"
-      ]
+      ["a branch of Congress", "botany is a branch of biology", "the Germanic branch of Indo-European languages"]
     ],
     "viSentences": [
       "một chi nhánh của Quốc hội",
@@ -3235,10 +3032,7 @@
     "part": "n",
     "vi": "nghỉ",
     "sentences": [
-      [
-        "the telephone is an annoying interruption",
-        "there was a break in the action when a player was hurt"
-      ]
+      ["the telephone is an annoying interruption", "there was a break in the action when a player was hurt"]
     ],
     "viSentences": [
       "điện thoại là một sự gián đoạn khó chịu",
@@ -3263,13 +3057,8 @@
   "breath": {
     "part": "n",
     "vi": "hơi thở",
-    "sentences": [
-      ["he took a deep breath and dived into the pool", "he was fighting to his last breath"]
-    ],
-    "viSentences": [
-      "anh ấy hít một hơi thật sâu và lặn xuống hồ bơi",
-      "anh ấy đã chiến đấu đến hơi thở cuối cùng"
-    ],
+    "sentences": [["he took a deep breath and dived into the pool", "he was fighting to his last breath"]],
+    "viSentences": ["anh ấy hít một hơi thật sâu và lặn xuống hồ bơi", "anh ấy đã chiến đấu đến hơi thở cuối cùng"],
     "def": "the process of taking in and expelling air during breathing"
   },
   "breathe": {
@@ -3304,10 +3093,7 @@
     "part": "r",
     "vi": "Tóm tắt",
     "sentences": [["she visited him briefly", "was briefly associated with IBM"]],
-    "viSentences": [
-      "cô ấy đã đến thăm anh ấy một thời gian ngắn",
-      "đã được liên kết một thời gian ngắn với IBM"
-    ],
+    "viSentences": ["cô ấy đã đến thăm anh ấy một thời gian ngắn", "đã được liên kết một thời gian ngắn với IBM"],
     "def": "for a short time"
   },
   "bright": {
@@ -3328,11 +3114,7 @@
     "part": "v",
     "vi": "mang đến ",
     "sentences": [
-      [
-        "Bring me the box from the other room",
-        "Take these letters to the boss",
-        "This brings me to the main point"
-      ]
+      ["Bring me the box from the other room", "Take these letters to the boss", "This brings me to the main point"]
     ],
     "viSentences": [
       "Mang cho tôi cái hộp từ phòng khác",
@@ -3358,9 +3140,7 @@
   "broken": {
     "part": "v",
     "vi": "vỡ",
-    "sentences": [
-      ["She interrupted her pregnancy", "break a lucky streak", "break the cycle of poverty"]
-    ],
+    "sentences": [["She interrupted her pregnancy", "break a lucky streak", "break the cycle of poverty"]],
     "viSentences": ["Cô ấy đã phá thai", "phá vỡ một chuỗi may mắn", "phá vỡ vòng nghèo đói"],
     "def": "terminate"
   },
@@ -3459,11 +3239,7 @@
     "part": "n",
     "vi": "kinh doanh",
     "sentences": [
-      [
-        "he bought his brother's business",
-        "a small mom-and-pop business",
-        "a racially integrated business concern"
-      ]
+      ["he bought his brother's business", "a small mom-and-pop business", "a racially integrated business concern"]
     ],
     "viSentences": [
       "anh ấy đã mua doanh nghiệp của anh trai mình",
@@ -3518,10 +3294,7 @@
     "part": "n",
     "vi": "mua",
     "sentences": [["she got a bargain at the auction", "the stock was a real buy at that price"]],
-    "viSentences": [
-      "cô ấy đã có một món hời tại cuộc đấu giá",
-      "cổ phiếu là một mua thực sự ở mức giá đó"
-    ],
+    "viSentences": ["cô ấy đã có một món hời tại cuộc đấu giá", "cổ phiếu là một mua thực sự ở mức giá đó"],
     "def": "an advantageous purchase"
   },
   "buyer": {
@@ -3667,22 +3440,14 @@
     "part": "a",
     "vi": "có khả năng",
     "sentences": [["capable of winning", "capable of hard work", "capable of walking on two feet"]],
-    "viSentences": [
-      "có khả năng chiến thắng",
-      "có khả năng làm việc chăm chỉ",
-      "có khả năng đi bằng hai chân"
-    ],
+    "viSentences": ["có khả năng chiến thắng", "có khả năng làm việc chăm chỉ", "có khả năng đi bằng hai chân"],
     "def": "(usually followed by `of') having capacity or ability"
   },
   "capacity": {
     "part": "n",
     "vi": "dung tích",
     "sentences": [
-      [
-        "among his gifts is his capacity for true altruism",
-        "limited runway capacity",
-        "a great capacity for growth"
-      ]
+      ["among his gifts is his capacity for true altruism", "limited runway capacity", "a great capacity for growth"]
     ],
     "viSentences": [
       "trong số những món quà của anh ấy là khả năng vị tha thực sự",
@@ -4039,13 +3804,8 @@
   "chance": {
     "part": "n",
     "vi": "cơ hội",
-    "sentences": [
-      ["the holiday gave us the opportunity to visit Washington", "now is your chance"]
-    ],
-    "viSentences": [
-      "kỳ nghỉ đã cho chúng tôi cơ hội đến thăm Washington",
-      "bây giờ là cơ hội của bạn"
-    ],
+    "sentences": [["the holiday gave us the opportunity to visit Washington", "now is your chance"]],
+    "viSentences": ["kỳ nghỉ đã cho chúng tôi cơ hội đến thăm Washington", "bây giờ là cơ hội của bạn"],
     "def": "a possibility due to a favorable combination of circumstances"
   },
   "change": {
@@ -4104,9 +3864,7 @@
   "characteristic": {
     "part": "n",
     "vi": "đặc trưng",
-    "sentences": [
-      ["the map showed roads and other features", "generosity is one of his best characteristics"]
-    ],
+    "sentences": [["the map showed roads and other features", "generosity is one of his best characteristics"]],
     "viSentences": [
       "bản đồ cho thấy các con đường và các tính năng khác",
       "hào phóng là một trong những đặc điểm tốt nhất của anh ấy"
@@ -4131,12 +3889,7 @@
   "charge": {
     "part": "n",
     "vi": "sạc điện",
-    "sentences": [
-      [
-        "the wrestler's charge carried him past his adversary",
-        "the battle began with a cavalry charge"
-      ]
-    ],
+    "sentences": [["the wrestler's charge carried him past his adversary", "the battle began with a cavalry charge"]],
     "viSentences": [
       "đòn tấn công của đô vật đã đưa anh ta vượt qua đối thủ của mình",
       "trận chiến bắt đầu với một cuộc tấn công của kỵ binh"
@@ -4167,9 +3920,7 @@
   "cheap": {
     "part": "a",
     "vi": "rẻ",
-    "sentences": [
-      ["it would have been cheap at twice the price", "inexpensive family restaurants"]
-    ],
+    "sentences": [["it would have been cheap at twice the price", "inexpensive family restaurants"]],
     "viSentences": ["nó sẽ rẻ với giá gấp đôi", "nhà hàng gia đình giá rẻ"],
     "def": "relatively low in price or charging low prices"
   },
@@ -4232,13 +3983,7 @@
   "child": {
     "part": "n",
     "vi": "trẻ em",
-    "sentences": [
-      [
-        "she writes books for children",
-        "they're just kids",
-        "`tiddler' is a British term for youngster"
-      ]
-    ],
+    "sentences": [["she writes books for children", "they're just kids", "`tiddler' is a British term for youngster"]],
     "viSentences": [
       "cô ấy viết sách cho trẻ em",
       "họ chỉ là những đứa trẻ",
@@ -4451,13 +4196,8 @@
   "climate": {
     "part": "n",
     "vi": "khí hậu",
-    "sentences": [
-      ["the dank climate of southern Wales", "plants from a cold clime travel best in winter"]
-    ],
-    "viSentences": [
-      "khí hậu ẩm ướt của miền nam xứ Wales",
-      "thực vật từ khí hậu lạnh di chuyển tốt nhất vào mùa đông"
-    ],
+    "sentences": [["the dank climate of southern Wales", "plants from a cold clime travel best in winter"]],
+    "viSentences": ["khí hậu ẩm ướt của miền nam xứ Wales", "thực vật từ khí hậu lạnh di chuyển tốt nhất vào mùa đông"],
     "def": "the weather in some location averaged over some long period of time"
   },
   "climb": {
@@ -4648,9 +4388,7 @@
     "part": "n",
     "vi": "sự sụp đổ",
     "sentences": [["the commander's prostration demoralized his men"]],
-    "viSentences": [
-      "sự phủ phục của người chỉ huy đã làm mất tinh thần của người đàn ông của mình"
-    ],
+    "viSentences": ["sự phủ phục của người chỉ huy đã làm mất tinh thần của người đàn ông của mình"],
     "def": "an abrupt failure of function or complete physical exhaustion"
   },
   "colleague": {
@@ -4740,9 +4478,7 @@
   "comfort": {
     "part": "n",
     "vi": "an ủi",
-    "sentences": [
-      ["he is a man who enjoys his comfort", "she longed for the comfortableness of her armchair"]
-    ],
+    "sentences": [["he is a man who enjoys his comfort", "she longed for the comfortableness of her armchair"]],
     "viSentences": [
       "anh ấy là một người đàn ông thích sự thoải mái của mình",
       "cô khao khát sự thoải mái của chiếc ghế bành của mình"
@@ -4839,10 +4575,7 @@
     "part": "v",
     "vi": "giao tiếp",
     "sentences": [["Please communicate this message to all employees", "pass along the good news"]],
-    "viSentences": [
-      "Vui lòng gửi thông báo này đến tất cả nhân viên",
-      "truyền đi những tin tốt lành"
-    ],
+    "viSentences": ["Vui lòng gửi thông báo này đến tất cả nhân viên", "truyền đi những tin tốt lành"],
     "def": "transmit information"
   },
   "communication": {
@@ -4862,12 +4595,7 @@
   "company": {
     "part": "n",
     "vi": "Công ty",
-    "sentences": [
-      [
-        "he only invests in large well-established companies",
-        "he started the company in his garage"
-      ]
-    ],
+    "sentences": [["he only invests in large well-established companies", "he started the company in his garage"]],
     "viSentences": [
       "anh ấy chỉ đầu tư vào các công ty lớn được thành lập tốt",
       "anh ấy thành lập công ty trong nhà để xe của mình"
@@ -4920,13 +4648,8 @@
   "competitor": {
     "part": "n",
     "vi": "đối thủ",
-    "sentences": [
-      ["he had respect for his rivals", "he wanted to know what the competition was doing"]
-    ],
-    "viSentences": [
-      "anh ấy tôn trọng các đối thủ của mình",
-      "anh ấy muốn biết cuộc thi đang làm gì"
-    ],
+    "sentences": [["he had respect for his rivals", "he wanted to know what the competition was doing"]],
+    "viSentences": ["anh ấy tôn trọng các đối thủ của mình", "anh ấy muốn biết cuộc thi đang làm gì"],
     "def": "the contestant you hope to defeat"
   },
   "complain": {
@@ -5084,10 +4807,7 @@
     "part": "v",
     "vi": "lo lắng",
     "sentences": [
-      [
-        "There were lots of questions referring to her talk",
-        "My remark pertained to your earlier comments"
-      ]
+      ["There were lots of questions referring to her talk", "My remark pertained to your earlier comments"]
     ],
     "viSentences": [
       "Có rất nhiều câu hỏi liên quan đến bài nói chuyện của cô ấy",
@@ -5136,9 +4856,7 @@
   "condition": {
     "part": "n",
     "vi": "điều kiện, tình trạng, trạng thái",
-    "sentences": [
-      ["a condition (or state) of disrepair", "the current status of the arms negotiations"]
-    ],
+    "sentences": [["a condition (or state) of disrepair", "the current status of the arms negotiations"]],
     "viSentences": [
       "một điều kiện (hoặc trạng thái) của sự hư hỏng",
       "tình trạng hiện tại của các cuộc đàm phán vũ khí"
@@ -5199,10 +4917,7 @@
     "part": "v",
     "vi": "xác nhận",
     "sentences": [["his story confirmed my doubts", "The evidence supports the defendant"]],
-    "viSentences": [
-      "câu chuyện của anh ấy đã xác nhận những nghi ngờ của tôi",
-      "Bằng chứng ủng hộ bị cáo"
-    ],
+    "viSentences": ["câu chuyện của anh ấy đã xác nhận những nghi ngờ của tôi", "Bằng chứng ủng hộ bị cáo"],
     "def": "establish or strengthen as with new evidence or facts"
   },
   "conflict": {
@@ -5437,28 +5152,17 @@
   "construction": {
     "part": "n",
     "vi": "xây dựng",
-    "sentences": [
-      ["during the construction we had to take a detour", "his hobby was the building of boats"]
-    ],
-    "viSentences": [
-      "trong quá trình xây dựng chúng tôi phải đi đường vòng",
-      "sở thích của anh ấy là đóng thuyền"
-    ],
+    "sentences": [["during the construction we had to take a detour", "his hobby was the building of boats"]],
+    "viSentences": ["trong quá trình xây dựng chúng tôi phải đi đường vòng", "sở thích của anh ấy là đóng thuyền"],
     "def": "the act of constructing something"
   },
   "consultant": {
     "part": "n",
     "vi": "tư vấn",
     "sentences": [
-      [
-        "an adviser helped students select their courses",
-        "the United States sent military advisors to Guatemala"
-      ]
+      ["an adviser helped students select their courses", "the United States sent military advisors to Guatemala"]
     ],
-    "viSentences": [
-      "một cố vấn đã giúp sinh viên chọn các khóa học của họ",
-      "Hoa Kỳ cử cố vấn quân sự đến Guatemala"
-    ],
+    "viSentences": ["một cố vấn đã giúp sinh viên chọn các khóa học của họ", "Hoa Kỳ cử cố vấn quân sự đến Guatemala"],
     "def": "an expert who gives advice"
   },
   "consume": {
@@ -5486,25 +5190,16 @@
     "part": "n",
     "vi": "liên hệ",
     "sentences": [
-      [
-        "they kept in daily contact",
-        "they claimed that they had been in contact with extraterrestrial beings"
-      ]
+      ["they kept in daily contact", "they claimed that they had been in contact with extraterrestrial beings"]
     ],
-    "viSentences": [
-      "họ giữ liên lạc hàng ngày",
-      "họ tuyên bố rằng họ đã tiếp xúc với những sinh vật ngoài trái đất"
-    ],
+    "viSentences": ["họ giữ liên lạc hàng ngày", "họ tuyên bố rằng họ đã tiếp xúc với những sinh vật ngoài trái đất"],
     "def": "close interaction"
   },
   "contain": {
     "part": "v",
     "vi": "Lưu trữ",
     "sentences": [
-      [
-        "A totally new idea is comprised in this paper",
-        "The record contains many old songs from the 1930's"
-      ]
+      ["A totally new idea is comprised in this paper", "The record contains many old songs from the 1930's"]
     ],
     "viSentences": [
       "Một ý tưởng hoàn toàn mới được bao gồm trong bài báo này",
@@ -5529,13 +5224,8 @@
   "content": {
     "part": "n",
     "vi": "Nội dung",
-    "sentences": [
-      ["he emptied the contents of his pockets", "the two groups were similar in content"]
-    ],
-    "viSentences": [
-      "anh ấy đã làm trống mọi thứ trong túi của mình",
-      "hai nhóm giống nhau về nội dung"
-    ],
+    "sentences": [["he emptied the contents of his pockets", "the two groups were similar in content"]],
+    "viSentences": ["anh ấy đã làm trống mọi thứ trong túi của mình", "hai nhóm giống nhau về nội dung"],
     "def": "everything that is included in a collection and that is held or included in something"
   },
   "contest": {
@@ -5626,12 +5316,7 @@
   "contribution": {
     "part": "n",
     "vi": "sự đóng góp",
-    "sentences": [
-      [
-        "I am proud of my contribution in advancing the project",
-        "they all did their share of the work"
-      ]
-    ],
+    "sentences": [["I am proud of my contribution in advancing the project", "they all did their share of the work"]],
     "viSentences": [
       "Tôi tự hào về sự đóng góp của mình trong việc thúc đẩy dự án",
       "tất cả họ đã chia sẻ công việc của họ"
@@ -5680,11 +5365,7 @@
     "part": "a",
     "vi": "thông thường",
     "sentences": [
-      [
-        "conventional wisdom",
-        "she had strayed from the path of conventional behavior",
-        "conventional forms of address"
-      ]
+      ["conventional wisdom", "she had strayed from the path of conventional behavior", "conventional forms of address"]
     ],
     "viSentences": [
       "trí tuệ thông thường",
@@ -5718,9 +5399,7 @@
     "part": "v",
     "vi": "thuyết phục",
     "sentences": [["He had finally convinced several customers of the advantages of his product"]],
-    "viSentences": [
-      "Cuối cùng anh ấy đã thuyết phục được một số khách hàng về những ưu điểm của sản phẩm của mình"
-    ],
+    "viSentences": ["Cuối cùng anh ấy đã thuyết phục được một số khách hàng về những ưu điểm của sản phẩm của mình"],
     "def": "make (someone) agree, understand, or realize the truth or validity of something"
   },
   "cook": {
@@ -5765,9 +5444,7 @@
     "part": "n",
     "vi": "sự hợp tác",
     "sentences": [["their cooperation with us was essential for the success of our mission"]],
-    "viSentences": [
-      "sự hợp tác của họ với chúng tôi là cần thiết cho sự thành công của nhiệm vụ của chúng tôi"
-    ],
+    "viSentences": ["sự hợp tác của họ với chúng tôi là cần thiết cho sự thành công của nhiệm vụ của chúng tôi"],
     "def": "joint operation or action"
   },
   "cop": {
@@ -5808,9 +5485,7 @@
   "corner": {
     "part": "n",
     "vi": "góc",
-    "sentences": [
-      ["he tripled to the rightfield corner", "the southeastern corner of the Mediterranean"]
-    ],
+    "sentences": [["he tripled to the rightfield corner", "the southeastern corner of the Mediterranean"]],
     "viSentences": ["anh ấy tăng gấp ba lần ở góc sân bên phải", "góc đông nam của Địa Trung Hải"],
     "def": "a place off to the side of an area"
   },
@@ -5937,9 +5612,7 @@
   "course": {
     "part": "n",
     "vi": "món ăn",
-    "sentences": [
-      ["he took a course in basket weaving", "flirting is not unknown in college classes"]
-    ],
+    "sentences": [["he took a course in basket weaving", "flirting is not unknown in college classes"]],
     "viSentences": [
       "anh ấy đã tham gia một khóa học đan rổ",
       "tán tỉnh không phải là không biết trong các lớp học đại học"
@@ -6060,11 +5733,7 @@
     "part": "n",
     "vi": "tín dụng",
     "sentences": [
-      [
-        "give her recognition for trying",
-        "he was given credit for his work",
-        "give her credit for trying"
-      ]
+      ["give her recognition for trying", "he was given credit for his work", "give her credit for trying"]
     ],
     "viSentences": [
       "công nhận cô ấy đã cố gắng",
@@ -6104,9 +5773,7 @@
   "criteria": {
     "part": "n",
     "vi": "tiêu chuẩn",
-    "sentences": [
-      ["the schools comply with federal standards", "they set the measure for all subsequent work"]
-    ],
+    "sentences": [["the schools comply with federal standards", "they set the measure for all subsequent work"]],
     "viSentences": [
       "các trường tuân thủ các tiêu chuẩn liên bang",
       "họ đặt thước đo cho tất cả các công việc tiếp theo"
@@ -6165,9 +5832,7 @@
   "crucial": {
     "part": "a",
     "vi": "quan trọng",
-    "sentences": [
-      ["a crucial moment in his career", "a crucial election", "a crucial issue for women"]
-    ],
+    "sentences": [["a crucial moment in his career", "a crucial election", "a crucial issue for women"]],
     "viSentences": [
       "một thời điểm quan trọng trong sự nghiệp của mình",
       "một cuộc bầu cử quan trọng",
@@ -6240,13 +5905,8 @@
   "currently": {
     "part": "r",
     "vi": "hiện nay",
-    "sentences": [
-      ["he is presently our ambassador to the United Nations", "currently they live in Connecticut"]
-    ],
-    "viSentences": [
-      "anh ấy hiện là đại sứ của chúng tôi tại Liên hợp quốc",
-      "hiện tại họ sống ở Connecticut"
-    ],
+    "sentences": [["he is presently our ambassador to the United Nations", "currently they live in Connecticut"]],
+    "viSentences": ["anh ấy hiện là đại sứ của chúng tôi tại Liên hợp quốc", "hiện tại họ sống ở Connecticut"],
     "def": "at this time or period; now"
   },
   "curriculum": {
@@ -6322,14 +5982,8 @@
   "dangerous": {
     "part": "a",
     "vi": "nguy hiểm",
-    "sentences": [
-      ["a dangerous criminal", "a dangerous bridge", "unemployment reached dangerous proportions"]
-    ],
-    "viSentences": [
-      "một tên tội phạm nguy hiểm",
-      "cây cầu nguy hiểm",
-      "thất nghiệp đạt tỷ lệ nguy hiểm"
-    ],
+    "sentences": [["a dangerous criminal", "a dangerous bridge", "unemployment reached dangerous proportions"]],
+    "viSentences": ["một tên tội phạm nguy hiểm", "cây cầu nguy hiểm", "thất nghiệp đạt tỷ lệ nguy hiểm"],
     "def": "involving or causing danger or risk; liable to hurt or harm"
   },
   "dare": {
@@ -6378,11 +6032,7 @@
     "part": "n",
     "vi": "ngày",
     "sentences": [
-      [
-        "two days later they left",
-        "they put on two performances every day",
-        "there are 30,000 passengers per day"
-      ]
+      ["two days later they left", "they put on two performances every day", "there are 30,000 passengers per day"]
     ],
     "viSentences": [
       "hai ngày sau họ rời đi",
@@ -6401,13 +6051,7 @@
   "deal": {
     "part": "n",
     "vi": "đối phó",
-    "sentences": [
-      [
-        "it was a package deal",
-        "I had no further trade with him",
-        "he's a master of the business deal"
-      ]
-    ],
+    "sentences": [["it was a package deal", "I had no further trade with him", "he's a master of the business deal"]],
     "viSentences": [
       "đó là một thỏa thuận trọn gói",
       "Tôi không có giao dịch nào với anh ta nữa",
@@ -6433,15 +6077,9 @@
     "part": "n",
     "vi": "cái chết",
     "sentences": [
-      [
-        "her death came as a terrible shock",
-        "upon your decease the capital will pass to your grandchildren"
-      ]
+      ["her death came as a terrible shock", "upon your decease the capital will pass to your grandchildren"]
     ],
-    "viSentences": [
-      "cái chết của cô đến như một cú sốc khủng khiếp",
-      "khi bạn qua đời vốn sẽ chuyển cho cháu của bạn"
-    ],
+    "viSentences": ["cái chết của cô đến như một cú sốc khủng khiếp", "khi bạn qua đời vốn sẽ chuyển cho cháu của bạn"],
     "def": "the event of dying or departure from life"
   },
   "debate": {
@@ -6476,10 +6114,7 @@
     "part": "n",
     "vi": "phán quyết",
     "sentences": [["the burden of decision was his", "he drew his conclusions quickly"]],
-    "viSentences": [
-      "gánh nặng của quyết định là của mình",
-      "ông đã rút ra kết luận của mình một cách nhanh chóng"
-    ],
+    "viSentences": ["gánh nặng của quyết định là của mình", "ông đã rút ra kết luận của mình một cách nhanh chóng"],
     "def": "the act of making up your mind about something"
   },
   "deck": {
@@ -6492,12 +6127,8 @@
   "declare": {
     "part": "v",
     "vi": "tuyên bố",
-    "sentences": [
-      ["He declared that he needed more money to carry out the task he was charged with"]
-    ],
-    "viSentences": [
-      "Anh ta khai rằng anh ta cần thêm tiền để thực hiện nhiệm vụ mà anh ta được giao"
-    ],
+    "sentences": [["He declared that he needed more money to carry out the task he was charged with"]],
+    "viSentences": ["Anh ta khai rằng anh ta cần thêm tiền để thực hiện nhiệm vụ mà anh ta được giao"],
     "def": "state emphatically and authoritatively"
   },
   "decline": {
@@ -6511,10 +6142,7 @@
     "part": "n",
     "vi": "giảm bớt",
     "sentences": [
-      [
-        "there was a decrease in his temperature as the fever subsided",
-        "there was a sharp drop-off in sales"
-      ]
+      ["there was a decrease in his temperature as the fever subsided", "there was a sharp drop-off in sales"]
     ],
     "viSentences": [
       "có sự giảm nhiệt độ của anh ấy khi cơn sốt giảm xuống",
@@ -6546,14 +6174,8 @@
   "defeat": {
     "part": "n",
     "vi": "đánh bại",
-    "sentences": [
-      ["it was a narrow defeat", "the army's only defeat", "they suffered a convincing licking"]
-    ],
-    "viSentences": [
-      "đó là một thất bại sít sao",
-      "thất bại duy nhất của quân đội",
-      "họ bị liếm một cách thuyết phục"
-    ],
+    "sentences": [["it was a narrow defeat", "the army's only defeat", "they suffered a convincing licking"]],
+    "viSentences": ["đó là một thất bại sít sao", "thất bại duy nhất của quân đội", "họ bị liếm một cách thuyết phục"],
     "def": "an unsuccessful ending to a struggle or contest"
   },
   "defend": {
@@ -6573,13 +6195,8 @@
   "defense": {
     "part": "n",
     "vi": "phòng thủ",
-    "sentences": [
-      ["they died in the defense of Stalingrad", "they were developed for the defense program"]
-    ],
-    "viSentences": [
-      "họ đã chết khi bảo vệ Stalingrad",
-      "chúng được phát triển cho chương trình phòng thủ"
-    ],
+    "sentences": [["they died in the defense of Stalingrad", "they were developed for the defense program"]],
+    "viSentences": ["họ đã chết khi bảo vệ Stalingrad", "chúng được phát triển cho chương trình phòng thủ"],
     "def": "(military) military action or resources protecting a country against potential enemies"
   },
   "defensive": {
@@ -6593,13 +6210,9 @@
     "part": "n",
     "vi": "thiếu hụt hoặc khuyết",
     "sentences": [
-      [
-        "new blood vessels bud out from the already dilated vascular bed to make up the nutritional deficit"
-      ]
+      ["new blood vessels bud out from the already dilated vascular bed to make up the nutritional deficit"]
     ],
-    "viSentences": [
-      "các mạch máu mới mọc ra từ giường mạch đã giãn ra để bù đắp sự thiếu hụt dinh dưỡng"
-    ],
+    "viSentences": ["các mạch máu mới mọc ra từ giường mạch đã giãn ra để bù đắp sự thiếu hụt dinh dưỡng"],
     "def": "the property of being an amount by which something is less than expected or required"
   },
   "define": {
@@ -6612,13 +6225,7 @@
   "definitely": {
     "part": "r",
     "vi": "chắc chắn",
-    "sentences": [
-      [
-        "it was decidedly too expensive",
-        "she told him off in spades",
-        "by all odds they should win"
-      ]
-    ],
+    "sentences": [["it was decidedly too expensive", "she told him off in spades", "by all odds they should win"]],
     "viSentences": [
       "nó chắc chắn là quá đắt",
       "cô nói với anh ta trong thuổng",
@@ -6637,38 +6244,23 @@
     "part": "n",
     "vi": "bằng cấp",
     "sentences": [
-      [
-        "a moderate grade of intelligence",
-        "a high level of care is required",
-        "it is all a matter of degree"
-      ]
+      ["a moderate grade of intelligence", "a high level of care is required", "it is all a matter of degree"]
     ],
-    "viSentences": [
-      "mức độ thông minh vừa phải",
-      "mức độ chăm sóc cao là cần thiết",
-      "tất cả chỉ là vấn đề mức độ"
-    ],
+    "viSentences": ["mức độ thông minh vừa phải", "mức độ chăm sóc cao là cần thiết", "tất cả chỉ là vấn đề mức độ"],
     "def": "a position on a scale of intensity or amount or quality"
   },
   "delay": {
     "part": "n",
     "vi": "sự chậm trễ",
     "sentences": [["instant replay caused too long a delay", "he ordered a hold in the action"]],
-    "viSentences": [
-      "phát lại ngay lập tức gây ra sự chậm trễ quá lâu",
-      "ông đã ra lệnh giữ hành động"
-    ],
+    "viSentences": ["phát lại ngay lập tức gây ra sự chậm trễ quá lâu", "ông đã ra lệnh giữ hành động"],
     "def": "time during which some action is awaited"
   },
   "deliver": {
     "part": "v",
     "vi": "giao",
-    "sentences": [
-      ["The commencement speaker presented a forceful speech that impressed the students"]
-    ],
-    "viSentences": [
-      "Diễn giả khai mạc đã trình bày một bài phát biểu mạnh mẽ gây ấn tượng với các sinh viên"
-    ],
+    "sentences": [["The commencement speaker presented a forceful speech that impressed the students"]],
+    "viSentences": ["Diễn giả khai mạc đã trình bày một bài phát biểu mạnh mẽ gây ấn tượng với các sinh viên"],
     "def": "deliver (a speech, oration, or idea)"
   },
   "delivery": {
@@ -6702,13 +6294,7 @@
   "democratic": {
     "part": "a",
     "vi": "dân chủ",
-    "sentences": [
-      [
-        "democratic government",
-        "a democratic country",
-        "a democratic scorn for bloated dukes and lords"
-      ]
-    ],
+    "sentences": [["democratic government", "a democratic country", "a democratic scorn for bloated dukes and lords"]],
     "viSentences": [
       "chính phủ dân chủ",
       "một đất nước dân chủ",
@@ -6720,10 +6306,7 @@
     "part": "v",
     "vi": "chứng tỏ",
     "sentences": [["She shows her dogs frequently", "We will demo the new software in Washington"]],
-    "viSentences": [
-      "Cô thường xuyên khoe những chú chó của mình",
-      "Chúng tôi sẽ giới thiệu phần mềm mới ở Washington"
-    ],
+    "viSentences": ["Cô thường xuyên khoe những chú chó của mình", "Chúng tôi sẽ giới thiệu phần mềm mới ở Washington"],
     "def": "give an exhibition of to an interested audience"
   },
   "demonstration": {
@@ -6744,10 +6327,7 @@
     "part": "n",
     "vi": "Phòng ban",
     "sentences": [
-      [
-        "you'll find it in the hardware department",
-        "she got a job in the historical section of the Treasury"
-      ]
+      ["you'll find it in the hardware department", "she got a job in the historical section of the Treasury"]
     ],
     "viSentences": [
       "bạn sẽ tìm thấy nó trong bộ phận phần cứng",
@@ -6780,10 +6360,7 @@
     "part": "v",
     "vi": "miêu tả",
     "sentences": [
-      [
-        "This scene depicts country life",
-        "the face of the child is rendered with much tenderness in this painting"
-      ]
+      ["This scene depicts country life", "the face of the child is rendered with much tenderness in this painting"]
     ],
     "viSentences": [
       "Cảnh này mô tả cuộc sống nông thôn",
@@ -6844,9 +6421,7 @@
     "part": "v",
     "vi": "xứng đáng",
     "sentences": [["You deserve a promotion after all the hard work you have done"]],
-    "viSentences": [
-      "Bạn xứng đáng được thăng chức sau tất cả những công việc khó khăn mà bạn đã làm"
-    ],
+    "viSentences": ["Bạn xứng đáng được thăng chức sau tất cả những công việc khó khăn mà bạn đã làm"],
     "def": "be worthy or deserving"
   },
   "design": {
@@ -6887,13 +6462,8 @@
   "despite": {
     "part": "n",
     "vi": "cho dù",
-    "sentences": [
-      ["he was held in contempt", "the despite in which outsiders were held is legendary"]
-    ],
-    "viSentences": [
-      "anh ta bị coi thường",
-      "mặc dù trong đó người ngoài bị giam giữ là huyền thoại"
-    ],
+    "sentences": [["he was held in contempt", "the despite in which outsiders were held is legendary"]],
+    "viSentences": ["anh ta bị coi thường", "mặc dù trong đó người ngoài bị giam giữ là huyền thoại"],
     "def": "lack of respect accompanied by a feeling of intense dislike"
   },
   "destroy": {
@@ -6927,12 +6497,7 @@
   "detect": {
     "part": "v",
     "vi": "phát hiện",
-    "sentences": [
-      [
-        "She detected high levels of lead in her drinking water",
-        "We found traces of lead in the paint"
-      ]
-    ],
+    "sentences": [["She detected high levels of lead in her drinking water", "We found traces of lead in the paint"]],
     "viSentences": [
       "Cô phát hiện hàm lượng chì cao trong nước uống của mình",
       "Chúng tôi tìm thấy dấu vết của chì trong sơn"
@@ -6943,10 +6508,7 @@
     "part": "v",
     "vi": "quyết tâm",
     "sentences": [
-      [
-        "find the product of two numbers",
-        "The physicist who found the elusive particle won the Nobel Prize"
-      ]
+      ["find the product of two numbers", "The physicist who found the elusive particle won the Nobel Prize"]
     ],
     "viSentences": ["tìm tích của hai số", "Nhà vật lý tìm ra hạt khó nắm bắt đoạt giải Nobel"],
     "def": "establish after a calculation, investigation, experiment, survey, or study"
@@ -6991,13 +6553,8 @@
   "device": {
     "part": "n",
     "vi": "thiết bị",
-    "sentences": [
-      ["the device is small enough to wear on your wrist", "a device intended to conserve water"]
-    ],
-    "viSentences": [
-      "thiết bị đủ nhỏ để đeo trên cổ tay của bạn",
-      "một thiết bị nhằm tiết kiệm nước"
-    ],
+    "sentences": [["the device is small enough to wear on your wrist", "a device intended to conserve water"]],
+    "viSentences": ["thiết bị đủ nhỏ để đeo trên cổ tay của bạn", "một thiết bị nhằm tiết kiệm nước"],
     "def": "an instrumentality invented for a particular purpose"
   },
   "devote": {
@@ -7077,11 +6634,7 @@
     "part": "r",
     "vi": "khác nhau",
     "sentences": [
-      [
-        "very soon you will know differently",
-        "she thought otherwise",
-        "there is no way out other than the fire escape"
-      ]
+      ["very soon you will know differently", "she thought otherwise", "there is no way out other than the fire escape"]
     ],
     "viSentences": [
       "rất sớm thôi bạn sẽ biết khác",
@@ -7159,13 +6712,8 @@
   "dinner": {
     "part": "n",
     "vi": "bữa ăn tối",
-    "sentences": [
-      ["dinner will be at 8", "on Sundays they had a large dinner when they returned from church"]
-    ],
-    "viSentences": [
-      "bữa tối sẽ được lúc 8",
-      "vào Chủ nhật, họ đã có một bữa tối thịnh soạn khi họ trở về từ nhà thờ"
-    ],
+    "sentences": [["dinner will be at 8", "on Sundays they had a large dinner when they returned from church"]],
+    "viSentences": ["bữa tối sẽ được lúc 8", "vào Chủ nhật, họ đã có một bữa tối thịnh soạn khi họ trở về từ nhà thờ"],
     "def": "the main meal of the day served in the evening or at midday"
   },
   "direct": {
@@ -7235,10 +6783,7 @@
     "part": "n",
     "vi": "thảm họa",
     "sentences": [
-      [
-        "lack of funds has resulted in a catastrophe for our school system",
-        "his policies were a disaster"
-      ]
+      ["lack of funds has resulted in a catastrophe for our school system", "his policies were a disaster"]
     ],
     "viSentences": [
       "thiếu kinh phí đã dẫn đến một thảm họa cho hệ thống trường học của chúng tôi",
@@ -7273,12 +6818,7 @@
   "discover": {
     "part": "v",
     "vi": "phát hiện",
-    "sentences": [
-      [
-        "She detected high levels of lead in her drinking water",
-        "We found traces of lead in the paint"
-      ]
-    ],
+    "sentences": [["She detected high levels of lead in her drinking water", "We found traces of lead in the paint"]],
     "viSentences": [
       "Cô phát hiện hàm lượng chì cao trong nước uống của mình",
       "Chúng tôi tìm thấy dấu vết của chì trong sơn"
@@ -7310,10 +6850,7 @@
     "part": "n",
     "vi": "thảo luận",
     "sentences": [
-      [
-        "the book contains an excellent discussion of modal logic",
-        "his treatment of the race question is badly biased"
-      ]
+      ["the book contains an excellent discussion of modal logic", "his treatment of the race question is badly biased"]
     ],
     "viSentences": [
       "cuốn sách chứa một cuộc thảo luận tuyệt vời về logic phương thức",
@@ -7346,28 +6883,16 @@
     "part": "n",
     "vi": "rối loạn",
     "sentences": [
-      [
-        "the doctor prescribed some medicine for the disorder",
-        "everyone gets stomach upsets from time to time"
-      ]
+      ["the doctor prescribed some medicine for the disorder", "everyone gets stomach upsets from time to time"]
     ],
-    "viSentences": [
-      "bác sĩ đã kê một số loại thuốc cho chứng rối loạn",
-      "mọi người thỉnh thoảng bị đau bụng"
-    ],
+    "viSentences": ["bác sĩ đã kê một số loại thuốc cho chứng rối loạn", "mọi người thỉnh thoảng bị đau bụng"],
     "def": "a physical condition in which there is a disturbance of normal functioning"
   },
   "display": {
     "part": "n",
     "vi": "trưng bày",
-    "sentences": [
-      ["made a display of strength", "a show of impatience", "a good show of looking interested"]
-    ],
-    "viSentences": [
-      "đã thể hiện sức mạnh",
-      "một biểu hiện của sự thiếu kiên nhẫn",
-      "một biểu hiện tốt về sự quan tâm"
-    ],
+    "sentences": [["made a display of strength", "a show of impatience", "a good show of looking interested"]],
+    "viSentences": ["đã thể hiện sức mạnh", "một biểu hiện của sự thiếu kiên nhẫn", "một biểu hiện tốt về sự quan tâm"],
     "def": "something intended to communicate a particular impression"
   },
   "dispute": {
@@ -7397,20 +6922,8 @@
   "distant": {
     "part": "a",
     "vi": "xa xôi",
-    "sentences": [
-      [
-        "distant villages",
-        "the sound of distant traffic",
-        "a distant sound",
-        "a distant telephone call"
-      ]
-    ],
-    "viSentences": [
-      "những ngôi làng xa xôi",
-      "tiếng xe cộ xa xôi",
-      "một âm thanh xa",
-      "một cuộc gọi điện thoại xa"
-    ],
+    "sentences": [["distant villages", "the sound of distant traffic", "a distant sound", "a distant telephone call"]],
+    "viSentences": ["những ngôi làng xa xôi", "tiếng xe cộ xa xôi", "một âm thanh xa", "một cuộc gọi điện thoại xa"],
     "def": "separated in space or coming from or going to a distance"
   },
   "distinct": {
@@ -7487,20 +7000,14 @@
     "part": "s",
     "vi": "phong phú",
     "sentences": [["tourist offices of divers nationalities", "a person of diverse talents"]],
-    "viSentences": [
-      "văn phòng du lịch của các quốc tịch khác nhau",
-      "một người có tài năng đa dạng"
-    ],
+    "viSentences": ["văn phòng du lịch của các quốc tịch khác nhau", "một người có tài năng đa dạng"],
     "def": "many and different"
   },
   "diversity": {
     "part": "n",
     "vi": "đa dạng",
     "sentences": [["a diversity of possibilities", "the range and variety of his work is amazing"]],
-    "viSentences": [
-      "một loạt các khả năng",
-      "phạm vi và sự đa dạng trong công việc của anh ấy thật đáng kinh ngạc"
-    ],
+    "viSentences": ["một loạt các khả năng", "phạm vi và sự đa dạng trong công việc của anh ấy thật đáng kinh ngạc"],
     "def": "noticeable heterogeneity"
   },
   "divide": {
@@ -7577,10 +7084,7 @@
     "part": "v",
     "vi": "thống trị",
     "sentences": [["Money reigns supreme here", "Hispanics predominate in this neighborhood"]],
-    "viSentences": [
-      "Tiền trị vì tối cao ở đây",
-      "Người gốc Tây Ban Nha chiếm ưu thế trong khu phố này"
-    ],
+    "viSentences": ["Tiền trị vì tối cao ở đây", "Người gốc Tây Ban Nha chiếm ưu thế trong khu phố này"],
     "def": "be larger in number, quantity, power, status or importance"
   },
   "door": {
@@ -7643,19 +7147,14 @@
     "part": "n",
     "vi": "kịch",
     "sentences": [["he wrote several plays but only one was produced on Broadway"]],
-    "viSentences": [
-      "anh ấy đã viết một số vở kịch nhưng chỉ có một vở được sản xuất trên sân khấu Broadway"
-    ],
+    "viSentences": ["anh ấy đã viết một số vở kịch nhưng chỉ có một vở được sản xuất trên sân khấu Broadway"],
     "def": "a dramatic work intended for performance by actors on a stage"
   },
   "dramatic": {
     "part": "a",
     "vi": "kịch",
     "sentences": [["a dramatic entrance in a swirling cape", "a dramatic rescue at sea"]],
-    "viSentences": [
-      "một lối vào ấn tượng trong một chiếc áo choàng xoáy",
-      "cuộc giải cứu kịch tính trên biển"
-    ],
+    "viSentences": ["một lối vào ấn tượng trong một chiếc áo choàng xoáy", "cuộc giải cứu kịch tính trên biển"],
     "def": "suitable to or characteristic of drama"
   },
   "dramatically": {
@@ -7717,13 +7216,8 @@
   "drop": {
     "part": "n",
     "vi": "rơi vãi",
-    "sentences": [
-      ["he studied the shapes of low-viscosity drops", "beads of sweat on his forehead"]
-    ],
-    "viSentences": [
-      "ông đã nghiên cứu hình dạng của những giọt nước có độ nhớt thấp",
-      "giọt mồ hôi trên trán"
-    ],
+    "sentences": [["he studied the shapes of low-viscosity drops", "beads of sweat on his forehead"]],
+    "viSentences": ["ông đã nghiên cứu hình dạng của những giọt nước có độ nhớt thấp", "giọt mồ hôi trên trán"],
     "def": "a shape that is spherical and small"
   },
   "drug": {
@@ -7846,10 +7340,7 @@
     "part": "n",
     "vi": "Trái đất",
     "sentences": [["the Earth moves around the sun", "he sailed around the world"]],
-    "viSentences": [
-      "trái đất chuyển động xung quanh mặt trời",
-      "anh ấy đi thuyền vòng quanh thế giới"
-    ],
+    "viSentences": ["trái đất chuyển động xung quanh mặt trời", "anh ấy đi thuyền vòng quanh thế giới"],
     "def": "the 3rd planet from the sun; the planet we live on"
   },
   "ease": {
@@ -7938,10 +7429,7 @@
     "part": "a",
     "vi": "thuộc kinh tế",
     "sentences": [["economic growth", "aspects of social, political, and economical life"]],
-    "viSentences": [
-      "tăng trưởng kinh tế",
-      "các khía cạnh của đời sống xã hội, chính trị và kinh tế"
-    ],
+    "viSentences": ["tăng trưởng kinh tế", "các khía cạnh của đời sống xã hội, chính trị và kinh tế"],
     "def": "of or relating to an economy, the system of production and management of material wealth"
   },
   "economics": {
@@ -8067,12 +7555,8 @@
   "effectively": {
     "part": "r",
     "vi": "có hiệu quả",
-    "sentences": [
-      ["these are real problems that can be dealt with most effectively by rational discussion"]
-    ],
-    "viSentences": [
-      "đây là những vấn đề thực tế có thể được giải quyết hiệu quả nhất bằng thảo luận hợp lý"
-    ],
+    "sentences": [["these are real problems that can be dealt with most effectively by rational discussion"]],
+    "viSentences": ["đây là những vấn đề thực tế có thể được giải quyết hiệu quả nhất bằng thảo luận hợp lý"],
     "def": "in an effective manner"
   },
   "efficiency": {
@@ -8093,11 +7577,7 @@
     "part": "n",
     "vi": "cố gắng",
     "sentences": [
-      [
-        "made an effort to cover all the reading material",
-        "wished him luck in his endeavor",
-        "she gave it a good try"
-      ]
+      ["made an effort to cover all the reading material", "wished him luck in his endeavor", "she gave it a good try"]
     ],
     "viSentences": [
       "đã nỗ lực để trang trải tất cả các tài liệu đọc",
@@ -8319,9 +7799,7 @@
     "part": "v",
     "vi": "nhấn mạnh",
     "sentences": [["Dr. Jones emphasizes exercise in addition to a change in diet"]],
-    "viSentences": [
-      "Tiến sĩ Jones nhấn mạnh việc tập thể dục bên cạnh sự thay đổi trong chế độ ăn uống"
-    ],
+    "viSentences": ["Tiến sĩ Jones nhấn mạnh việc tập thể dục bên cạnh sự thay đổi trong chế độ ăn uống"],
     "def": "to stress, single out as important"
   },
   "employ": {
@@ -8501,21 +7979,14 @@
   "enough": {
     "part": "n",
     "vi": "đầy đủ",
-    "sentences": [
-      [
-        "enough is as good as a feast",
-        "there is more than a sufficiency of lawyers in this country"
-      ]
-    ],
+    "sentences": [["enough is as good as a feast", "there is more than a sufficiency of lawyers in this country"]],
     "viSentences": ["đủ là tốt như một bữa tiệc", "có quá nhiều luật sư ở đất nước này"],
     "def": "an adequate quantity; a quantity that is large enough to achieve a purpose"
   },
   "ensure": {
     "part": "v",
     "vi": "chắc chắn",
-    "sentences": [
-      ["This nest egg will ensure a nice retirement for us", "Preparation will guarantee success!"]
-    ],
+    "sentences": [["This nest egg will ensure a nice retirement for us", "Preparation will guarantee success!"]],
     "viSentences": [
       "Tổ trứng này sẽ đảm bảo một cuộc nghỉ hưu tốt đẹp cho chúng ta",
       "Chuẩn bị sẽ đảm bảo thành công!"
@@ -8583,15 +8054,9 @@
     "part": "n",
     "vi": "cổng vào",
     "sentences": [
-      [
-        "they waited at the entrance to the garden",
-        "beggars waited just outside the entryway to the cathedral"
-      ]
+      ["they waited at the entrance to the garden", "beggars waited just outside the entryway to the cathedral"]
     ],
-    "viSentences": [
-      "họ đợi ở lối vào khu vườn",
-      "những người ăn xin đợi ngay bên ngoài lối vào nhà thờ"
-    ],
+    "viSentences": ["họ đợi ở lối vào khu vườn", "những người ăn xin đợi ngay bên ngoài lối vào nhà thờ"],
     "def": "something that provides access (to get in or get out)"
   },
   "entry": {
@@ -8822,10 +8287,7 @@
     "part": "v",
     "vi": "đánh giá",
     "sentences": [
-      [
-        "I will have the family jewels appraised by a professional",
-        "access all the factors when taking a risk"
-      ]
+      ["I will have the family jewels appraised by a professional", "access all the factors when taking a risk"]
     ],
     "viSentences": [
       "Tôi sẽ nhờ một chuyên gia thẩm định đồ trang sức của gia đình",
@@ -8879,12 +8341,7 @@
     "part": "s",
     "vi": "mọi",
     "sentences": [
-      [
-        "every person is mortal",
-        "every party is welcome",
-        "had every hope of success",
-        "every chance of winning"
-      ]
+      ["every person is mortal", "every party is welcome", "had every hope of success", "every chance of winning"]
     ],
     "viSentences": [
       "mỗi người đều chết",
@@ -8999,11 +8456,7 @@
     "part": "v",
     "vi": "nghiên cứu",
     "sentences": [
-      [
-        "analyze a sonnet by Shakespeare",
-        "analyze the evidence in a criminal trial",
-        "analyze your real motives"
-      ]
+      ["analyze a sonnet by Shakespeare", "analyze the evidence in a criminal trial", "analyze your real motives"]
     ],
     "viSentences": [
       "phân tích một sonnet của Shakespeare",
@@ -9015,13 +8468,8 @@
   "example": {
     "part": "n",
     "vi": "ví dụ",
-    "sentences": [
-      ["this patient provides a typical example of the syndrome", "there is an example on page 10"]
-    ],
-    "viSentences": [
-      "bệnh nhân này cung cấp một ví dụ điển hình của hội chứng",
-      "có ví dụ ở trang 10"
-    ],
+    "sentences": [["this patient provides a typical example of the syndrome", "there is an example on page 10"]],
+    "viSentences": ["bệnh nhân này cung cấp một ví dụ điển hình của hội chứng", "có ví dụ ở trang 10"],
     "def": "an item of information that is typical of a class or group"
   },
   "exceed": {
@@ -9034,14 +8482,8 @@
   "excellent": {
     "part": "s",
     "vi": "Xuất sắc",
-    "sentences": [
-      ["made an excellent speech", "the school has excellent teachers", "a first-class mind"]
-    ],
-    "viSentences": [
-      "đã có một bài phát biểu xuất sắc",
-      "trường có giáo viên xuất sắc",
-      "một tâm trí hạng nhất"
-    ],
+    "sentences": [["made an excellent speech", "the school has excellent teachers", "a first-class mind"]],
+    "viSentences": ["đã có một bài phát biểu xuất sắc", "trường có giáo viên xuất sắc", "một tâm trí hạng nhất"],
     "def": "very good;of the highest quality"
   },
   "except": {
@@ -9120,9 +8562,7 @@
   "existence": {
     "part": "n",
     "vi": "sự tồn tại",
-    "sentences": [
-      ["a point of view gradually coming into being", "laws in existence for centuries"]
-    ],
+    "sentences": [["a point of view gradually coming into being", "laws in existence for centuries"]],
     "viSentences": ["một quan điểm đang dần hình thành", "pháp luật tồn tại trong nhiều thế kỷ"],
     "def": "the state or fact of existing"
   },
@@ -9245,9 +8685,7 @@
     "part": "n",
     "vi": "lộ ra",
     "sentences": [["he published an expose of the graft and corruption in city government"]],
-    "viSentences": [
-      "ông đã xuất bản một bài vạch trần nạn hối lộ và tham nhũng trong chính quyền thành phố"
-    ],
+    "viSentences": ["ông đã xuất bản một bài vạch trần nạn hối lộ và tham nhũng trong chính quyền thành phố"],
     "def": "the exposure of an impostor or a fraud"
   },
   "exposure": {
@@ -9319,18 +8757,8 @@
   "extent": {
     "part": "n",
     "vi": "mức độ",
-    "sentences": [
-      [
-        "the extent of the damage",
-        "the full extent of the law",
-        "to a certain extent she was right"
-      ]
-    ],
-    "viSentences": [
-      "mức độ thiệt hại",
-      "phạm vi đầy đủ của pháp luật",
-      "ở một mức độ nào đó cô ấy đã đúng"
-    ],
+    "sentences": [["the extent of the damage", "the full extent of the law", "to a certain extent she was right"]],
+    "viSentences": ["mức độ thiệt hại", "phạm vi đầy đủ của pháp luật", "ở một mức độ nào đó cô ấy đã đúng"],
     "def": "the point or degree to which something extends"
   },
   "external": {
@@ -9381,12 +8809,7 @@
     "part": "r",
     "vi": "cực kì",
     "sentences": [
-      [
-        "highly successful",
-        "He spoke highly of her",
-        "does not think highly of his writing",
-        "extremely interesting"
-      ]
+      ["highly successful", "He spoke highly of her", "does not think highly of his writing", "extremely interesting"]
     ],
     "viSentences": [
       "rất thành công",
@@ -9423,13 +8846,8 @@
   "face": {
     "part": "n",
     "vi": "mặt",
-    "sentences": [
-      ["he washed his face", "I wish I had seen the look on his face when he got the news"]
-    ],
-    "viSentences": [
-      "anh ấy đã rửa mặt",
-      "Tôi ước tôi đã nhìn thấy vẻ mặt của anh ấy khi anh ấy nhận được tin"
-    ],
+    "sentences": [["he washed his face", "I wish I had seen the look on his face when he got the news"]],
+    "viSentences": ["anh ấy đã rửa mặt", "Tôi ước tôi đã nhìn thấy vẻ mặt của anh ấy khi anh ấy nhận được tin"],
     "def": "the front of the human head from the forehead to the chin and ear to ear"
   },
   "facility": {
@@ -9542,10 +8960,7 @@
     "part": "a",
     "vi": "SAI",
     "sentences": [["gave false testimony under oath", "false tales of bravery"]],
-    "viSentences": [
-      "đưa ra lời khai sai dưới lời thề",
-      "những câu chuyện sai lầm về lòng dũng cảm"
-    ],
+    "viSentences": ["đưa ra lời khai sai dưới lời thề", "những câu chuyện sai lầm về lòng dũng cảm"],
     "def": "not in accordance with the fact or reality or actuality"
   },
   "familiar": {
@@ -9724,9 +9139,7 @@
   "feature": {
     "part": "n",
     "vi": "tính năng",
-    "sentences": [
-      ["the map showed roads and other features", "generosity is one of his best characteristics"]
-    ],
+    "sentences": [["the map showed roads and other features", "generosity is one of his best characteristics"]],
     "viSentences": [
       "bản đồ cho thấy các con đường và các tính năng khác",
       "hào phóng là một trong những đặc điểm tốt nhất của anh ấy"
@@ -9782,12 +9195,7 @@
     "part": "n",
     "vi": "đồng nghiệp",
     "sentences": [
-      [
-        "that chap is your host",
-        "there's a fellow at the door",
-        "he's a likable cuss",
-        "he's a good bloke"
-      ]
+      ["that chap is your host", "there's a fellow at the door", "he's a likable cuss", "he's a good bloke"]
     ],
     "viSentences": [
       "chap đó là chủ nhà của bạn",
@@ -9821,9 +9229,7 @@
   "fewer": {
     "part": "a",
     "vi": "ít hơn",
-    "sentences": [
-      ["fewer birds came this year", "the birds are fewer this year", "fewer trains were late"]
-    ],
+    "sentences": [["fewer birds came this year", "the birds are fewer this year", "fewer trains were late"]],
     "viSentences": ["ít chim đến trong năm nay", "năm nay chim ít hơn", "ít chuyến tàu bị trễ hơn"],
     "def": "(comparative of `few' used with count nouns) quantifier meaning a smaller number of"
   },
@@ -9926,10 +9332,7 @@
     "part": "n",
     "vi": "lấp đầy",
     "sentences": [["he ate his fill of potatoes", "she had heard her fill of gossip"]],
-    "viSentences": [
-      "anh ấy đã ăn đầy khoai tây của mình",
-      "cô ấy đã nghe cô ấy nói chuyện tầm phào"
-    ],
+    "viSentences": ["anh ấy đã ăn đầy khoai tây của mình", "cô ấy đã nghe cô ấy nói chuyện tầm phào"],
     "def": "a quantity sufficient to satisfy"
   },
   "film": {
@@ -10036,9 +9439,7 @@
   "fish": {
     "part": "n",
     "vi": "cá",
-    "sentences": [
-      ["the shark is a large fish", "in the living room there was a tank of colorful fish"]
-    ],
+    "sentences": [["the shark is a large fish", "in the living room there was a tank of colorful fish"]],
     "viSentences": ["cá mập là một loài cá lớn", "trong phòng khách có một bể cá đầy màu sắc"],
     "def": "any of various mostly cold-blooded aquatic vertebrates usually having scales and breathing through gills"
   },
@@ -10074,10 +9475,7 @@
     "part": "n",
     "vi": "sửa chữa",
     "sentences": [["he got into a terrible fix", "he made a muddle of his marriage"]],
-    "viSentences": [
-      "anh ta đã vào một sửa chữa khủng khiếp",
-      "anh ấy đã làm rối tung cuộc hôn nhân của mình"
-    ],
+    "viSentences": ["anh ta đã vào một sửa chữa khủng khiếp", "anh ấy đã làm rối tung cuộc hôn nhân của mình"],
     "def": "informal terms for a difficult situation"
   },
   "flag": {
@@ -10150,15 +9548,9 @@
     "part": "n",
     "vi": "tầng lầu",
     "sentences": [
-      [
-        "they needed rugs to cover the bare floors",
-        "we spread our sleeping bags on the dry floor of the tent"
-      ]
+      ["they needed rugs to cover the bare floors", "we spread our sleeping bags on the dry floor of the tent"]
     ],
-    "viSentences": [
-      "họ cần những tấm thảm để trải sàn nhà trống",
-      "chúng tôi trải túi ngủ trên sàn lều khô ráo"
-    ],
+    "viSentences": ["họ cần những tấm thảm để trải sàn nhà trống", "chúng tôi trải túi ngủ trên sàn lều khô ráo"],
     "def": "the inside lower horizontal surface (as of a room, hallway, tent, or other structure)"
   },
   "flow": {
@@ -10185,9 +9577,7 @@
   "focus": {
     "part": "n",
     "vi": "tiêu điểm",
-    "sentences": [
-      ["the focus of activity shifted to molecular biology", "he had no direction in his life"]
-    ],
+    "sentences": [["the focus of activity shifted to molecular biology", "he had no direction in his life"]],
     "viSentences": [
       "trọng tâm của hoạt động chuyển sang sinh học phân tử",
       "anh ấy không có định hướng trong cuộc sống của mình"
@@ -10215,10 +9605,7 @@
     "part": "v",
     "vi": "theo",
     "sentences": [
-      [
-        "The ducklings followed their mother around the pond",
-        "Please follow the guide through the museum"
-      ]
+      ["The ducklings followed their mother around the pond", "Please follow the guide through the museum"]
     ],
     "viSentences": ["Đàn vịt con theo mẹ đi khắp ao", "Vui lòng đi theo hướng dẫn qua bảo tàng"],
     "def": "to travel behind, go after, come after"
@@ -10276,9 +9663,7 @@
   "forever": {
     "part": "r",
     "vi": "mãi mãi",
-    "sentences": [
-      ["no one can live forever", "brightly beams our Father's mercy from his lighthouse evermore"]
-    ],
+    "sentences": [["no one can live forever", "brightly beams our Father's mercy from his lighthouse evermore"]],
     "viSentences": [
       "không ai có thể sống mãi mãi",
       "tỏa sáng rực rỡ lòng thương xót của Cha chúng ta từ ngọn hải đăng của Người mãi mãi"
@@ -10296,9 +9681,7 @@
     "part": "n",
     "vi": "mẫu đơn",
     "sentences": [
-      [
-        "the inflected forms of a word can be represented by a stem and a list of inflections to be attached"
-      ]
+      ["the inflected forms of a word can be represented by a stem and a list of inflections to be attached"]
     ],
     "viSentences": [
       "các dạng biến tố của một từ có thể được biểu thị bằng một gốc và một danh sách các biến tố được đính kèm"
@@ -10344,10 +9727,7 @@
     "part": "n",
     "vi": "tài sản",
     "sentences": [["bad luck caused his downfall", "we ran into each other by pure chance"]],
-    "viSentences": [
-      "xui xẻo gây ra sự sụp đổ của mình",
-      "chúng tôi tình cờ gặp nhau hoàn toàn tình cờ"
-    ],
+    "viSentences": ["xui xẻo gây ra sự sụp đổ của mình", "chúng tôi tình cờ gặp nhau hoàn toàn tình cờ"],
     "def": "an unknown and unpredictable phenomenon that causes an event to result one way rather than another"
   },
   "forward": {
@@ -10402,9 +9782,7 @@
   "framework": {
     "part": "n",
     "vi": "khuôn khổ",
-    "sentences": [
-      ["the computer program was based on a model of the circulatory and respiratory systems"]
-    ],
+    "sentences": [["the computer program was based on a model of the circulatory and respiratory systems"]],
     "viSentences": ["chương trình máy tính dựa trên mô hình của hệ thống tuần hoàn và hô hấp"],
     "def": "a hypothetical description of a complex entity or process"
   },
@@ -10445,10 +9823,7 @@
         "the frequency of his seizures increased as he grew older"
       ]
     ],
-    "viSentences": [
-      "tần số điều chế là 40 chu kỳ mỗi giây",
-      "tần suất co giật của anh ta tăng lên khi anh ta già đi"
-    ],
+    "viSentences": ["tần số điều chế là 40 chu kỳ mỗi giây", "tần suất co giật của anh ta tăng lên khi anh ta già đi"],
     "def": "the number of occurrences within a given time period"
   },
   "frequent": {
@@ -10518,12 +9893,7 @@
   "fuel": {
     "part": "n",
     "vi": "nhiên liệu",
-    "sentences": [
-      [
-        "more fuel is needed during the winter months",
-        "they developed alternative fuels for aircraft"
-      ]
-    ],
+    "sentences": [["more fuel is needed during the winter months", "they developed alternative fuels for aircraft"]],
     "viSentences": [
       "cần nhiều nhiên liệu hơn trong những tháng mùa đông",
       "họ đã phát triển nhiên liệu thay thế cho máy bay"
@@ -10540,16 +9910,8 @@
   "fully": {
     "part": "r",
     "vi": "đầy đủ",
-    "sentences": [
-      ["fully grown", "he didn't fully understand", "knew full well", "full-grown", "full-fledged"]
-    ],
-    "viSentences": [
-      "phát triển đầy đủ",
-      "anh ấy không hiểu hết",
-      "biết rõ",
-      "trưởng thành",
-      "chính thức"
-    ],
+    "sentences": [["fully grown", "he didn't fully understand", "knew full well", "full-grown", "full-fledged"]],
+    "viSentences": ["phát triển đầy đủ", "anh ấy không hiểu hết", "biết rõ", "trưởng thành", "chính thức"],
     "def": "to the greatest degree or extent; completely or entirely; (`full' in this sense is used as a combining form)"
   },
   "fun": {
@@ -10576,11 +9938,7 @@
   "fundamental": {
     "part": "n",
     "vi": "cơ bản",
-    "sentences": [
-      [
-        "fundamentals include a company's growth, revenues, earnings, management, and capital structure"
-      ]
-    ],
+    "sentences": [["fundamentals include a company's growth, revenues, earnings, management, and capital structure"]],
     "viSentences": [
       "các nguyên tắc cơ bản bao gồm tăng trưởng, doanh thu, thu nhập, quản lý và cấu trúc vốn của công ty"
     ],
@@ -10611,15 +9969,9 @@
     "part": "n",
     "vi": "đồ nội thất",
     "sentences": [
-      [
-        "they had too much furniture for the small apartment",
-        "there was only one piece of furniture in the room"
-      ]
+      ["they had too much furniture for the small apartment", "there was only one piece of furniture in the room"]
     ],
-    "viSentences": [
-      "họ có quá nhiều đồ đạc cho căn hộ nhỏ",
-      "chỉ có một món đồ nội thất trong phòng"
-    ],
+    "viSentences": ["họ có quá nhiều đồ đạc cho căn hộ nhỏ", "chỉ có một món đồ nội thất trong phòng"],
     "def": "furnishings that make a room or other area ready for occupancy"
   },
   "furthermore": {
@@ -10692,13 +10044,8 @@
   "gap": {
     "part": "n",
     "vi": "lỗ hổng",
-    "sentences": [
-      ["gap between income and outgo", "the spread between lending and borrowing costs"]
-    ],
-    "viSentences": [
-      "khoảng cách giữa thu nhập và chi tiêu",
-      "chênh lệch giữa chi phí cho vay và đi vay"
-    ],
+    "sentences": [["gap between income and outgo", "the spread between lending and borrowing costs"]],
+    "viSentences": ["khoảng cách giữa thu nhập và chi tiêu", "chênh lệch giữa chi phí cho vay và đi vay"],
     "def": "a conspicuous disparity or difference as between two figures"
   },
   "garage": {
@@ -11020,9 +10367,7 @@
   "government": {
     "part": "n",
     "vi": "chính quyền",
-    "sentences": [
-      ["the government reduced taxes", "the matter was referred to higher authorities"]
-    ],
+    "sentences": [["the government reduced taxes", "the matter was referred to higher authorities"]],
     "viSentences": ["chính phủ giảm thuế", "sự việc đã được chuyển đến cơ quan cấp trên"],
     "def": "the organization that is the governing authority of a political unit"
   },
@@ -11292,10 +10637,7 @@
     "part": "n",
     "vi": "tay",
     "sentences": [["he had the hands of a surgeon", "he extended his mitt"]],
-    "viSentences": [
-      "anh ta có bàn tay của một bác sĩ phẫu thuật",
-      "anh ấy mở rộng găng tay của mình"
-    ],
+    "viSentences": ["anh ta có bàn tay của một bác sĩ phẫu thuật", "anh ấy mở rộng găng tay của mình"],
     "def": "the (prehensile) extremity of the superior limb"
   },
   "handful": {
@@ -11308,27 +10650,15 @@
   "handle": {
     "part": "n",
     "vi": "xử lý",
-    "sentences": [
-      [
-        "he grabbed the hammer by the handle",
-        "it was an old briefcase but it still had a good grip"
-      ]
-    ],
-    "viSentences": [
-      "anh ta nắm lấy cái búa bằng tay cầm",
-      "đó là một chiếc cặp cũ nhưng nó vẫn có độ bám tốt"
-    ],
+    "sentences": [["he grabbed the hammer by the handle", "it was an old briefcase but it still had a good grip"]],
+    "viSentences": ["anh ta nắm lấy cái búa bằng tay cầm", "đó là một chiếc cặp cũ nhưng nó vẫn có độ bám tốt"],
     "def": "the appendage to an object that is designed to be held in order to use or move it"
   },
   "hang": {
     "part": "n",
     "vi": "treo",
     "sentences": [
-      [
-        "he had a bent for it",
-        "he had a special knack for getting into trouble",
-        "he couldn't get the hang of it"
-      ]
+      ["he had a bent for it", "he had a special knack for getting into trouble", "he couldn't get the hang of it"]
     ],
     "viSentences": [
       "anh ấy đã có một khuynh hướng cho nó",
@@ -11347,11 +10677,7 @@
         "Nothing occurred that seemed important"
       ]
     ],
-    "viSentences": [
-      "Điều gì đang xảy ra?",
-      "Cuộc họp diễn ra không có sự cố",
-      "Không có gì xảy ra có vẻ quan trọng"
-    ],
+    "viSentences": ["Điều gì đang xảy ra?", "Cuộc họp diễn ra không có sự cố", "Không có gì xảy ra có vẻ quan trọng"],
     "def": "come to pass"
   },
   "happy": {
@@ -11544,18 +10870,8 @@
   "hell": {
     "part": "n",
     "vi": "Địa ngục",
-    "sentences": [
-      [
-        "the hell of battle",
-        "the inferno of the engine room",
-        "when you're alone Christmas is the pits"
-      ]
-    ],
-    "viSentences": [
-      "địa ngục của trận chiến",
-      "địa ngục của phòng máy",
-      "khi bạn cô đơn Giáng sinh là cái hố"
-    ],
+    "sentences": [["the hell of battle", "the inferno of the engine room", "when you're alone Christmas is the pits"]],
+    "viSentences": ["địa ngục của trận chiến", "địa ngục của phòng máy", "khi bạn cô đơn Giáng sinh là cái hố"],
     "def": "any place of pain and turmoil"
   },
   "hello": {
@@ -11647,12 +10963,7 @@
     "part": "r",
     "vi": "đánh giá cao",
     "sentences": [
-      [
-        "highly successful",
-        "He spoke highly of her",
-        "does not think highly of his writing",
-        "extremely interesting"
-      ]
+      ["highly successful", "He spoke highly of her", "does not think highly of his writing", "extremely interesting"]
     ],
     "viSentences": [
       "rất thành công",
@@ -11703,14 +11014,8 @@
   "historic": {
     "part": "s",
     "vi": "mang tính lịch sử",
-    "sentences": [
-      ["historic victories", "historical (or historic) times", "a historical character"]
-    ],
-    "viSentences": [
-      "chiến thắng lịch sử",
-      "thời gian lịch sử (hoặc lịch sử)",
-      "một nhân vật lịch sử"
-    ],
+    "sentences": [["historic victories", "historical (or historic) times", "a historical character"]],
+    "viSentences": ["chiến thắng lịch sử", "thời gian lịch sử (hoặc lịch sử)", "một nhân vật lịch sử"],
     "def": "belonging to the past; of what is important or famous in the past"
   },
   "historical": {
@@ -11738,11 +11043,7 @@
     "part": "n",
     "vi": "tổ chức",
     "sentences": [
-      [
-        "he released his clasp on my arm",
-        "he has a strong grip for an old man",
-        "she kept a firm hold on the railing"
-      ]
+      ["he released his clasp on my arm", "he has a strong grip for an old man", "she kept a firm hold on the railing"]
     ],
     "viSentences": [
       "anh ấy thả cái móc trên cánh tay tôi",
@@ -11761,13 +11062,8 @@
   "holiday": {
     "part": "n",
     "vi": "ngày lễ",
-    "sentences": [
-      ["we get two weeks of vacation every summer", "we took a short holiday in Puerto Rico"]
-    ],
-    "viSentences": [
-      "chúng tôi có hai tuần nghỉ hè mỗi mùa hè",
-      "chúng tôi đã có một kỳ nghỉ ngắn ở Puerto Rico"
-    ],
+    "sentences": [["we get two weeks of vacation every summer", "we took a short holiday in Puerto Rico"]],
+    "viSentences": ["chúng tôi có hai tuần nghỉ hè mỗi mùa hè", "chúng tôi đã có một kỳ nghỉ ngắn ở Puerto Rico"],
     "def": "leisure time away from work devoted to rest or pleasure"
   },
   "holy": {
@@ -11780,14 +11076,8 @@
   "home": {
     "part": "n",
     "vi": "Trang Chủ",
-    "sentences": [
-      ["deliver the package to my home", "he doesn't have a home to go to", "your place or mine?"]
-    ],
-    "viSentences": [
-      "giao gói hàng đến nhà tôi",
-      "anh ấy không có nhà để về",
-      "chỗ của bạn hay của tôi?"
-    ],
+    "sentences": [["deliver the package to my home", "he doesn't have a home to go to", "your place or mine?"]],
+    "viSentences": ["giao gói hàng đến nhà tôi", "anh ấy không có nhà để về", "chỗ của bạn hay của tôi?"],
     "def": "where you live at a particular time"
   },
   "homeless": {
@@ -11864,14 +11154,7 @@
     "part": "a",
     "vi": "nóng bức",
     "sentences": [
-      [
-        "hot stove",
-        "hot water",
-        "a hot August day",
-        "a hot stuffy room",
-        "she's hot and tired",
-        "a hot forehead"
-      ]
+      ["hot stove", "hot water", "a hot August day", "a hot stuffy room", "she's hot and tired", "a hot forehead"]
     ],
     "viSentences": [
       "bếp nóng",
@@ -12060,10 +11343,7 @@
     "part": "n",
     "vi": "ý tưởng",
     "sentences": [["it was not a good idea", "the thought never entered my mind"]],
-    "viSentences": [
-      "nó không phải là một ý tưởng tốt",
-      "ý nghĩ chưa bao giờ xuất hiện trong đầu tôi"
-    ],
+    "viSentences": ["nó không phải là một ý tưởng tốt", "ý nghĩ chưa bao giờ xuất hiện trong đầu tôi"],
     "def": "the content of cognition; the main thing you are thinking about"
   },
   "ideal": {
@@ -12149,12 +11429,7 @@
   "imagination": {
     "part": "n",
     "vi": "trí tưởng tượng",
-    "sentences": [
-      [
-        "popular imagination created a world of demons",
-        "imagination reveals what the world could be"
-      ]
-    ],
+    "sentences": [["popular imagination created a world of demons", "imagination reveals what the world could be"]],
     "viSentences": [
       "trí tưởng tượng phổ biến đã tạo ra một thế giới của ma quỷ",
       "trí tưởng tượng tiết lộ thế giới có thể là gì"
@@ -12400,10 +11675,7 @@
     "part": "a",
     "vi": "không thể tin được",
     "sentences": [["at incredible speed", "the book's plot is simply incredible"]],
-    "viSentences": [
-      "với tốc độ đáng kinh ngạc",
-      "cốt truyện của cuốn sách đơn giản là không thể tin được"
-    ],
+    "viSentences": ["với tốc độ đáng kinh ngạc", "cốt truyện của cuốn sách đơn giản là không thể tin được"],
     "def": "beyond belief or understanding"
   },
   "indeed": {
@@ -12476,17 +11748,9 @@
     "part": "n",
     "vi": "dấu hiệu",
     "sentences": [
-      [
-        "an indication of foul play",
-        "indications of strain",
-        "symptoms are the prime indicants of disease"
-      ]
+      ["an indication of foul play", "indications of strain", "symptoms are the prime indicants of disease"]
     ],
-    "viSentences": [
-      "một dấu hiệu của chơi xấu",
-      "dấu hiệu căng thẳng",
-      "triệu chứng là dấu hiệu chính của bệnh"
-    ],
+    "viSentences": ["một dấu hiệu của chơi xấu", "dấu hiệu căng thẳng", "triệu chứng là dấu hiệu chính của bệnh"],
     "def": "something that serves to indicate or suggest"
   },
   "individual": {
@@ -12683,9 +11947,7 @@
   "instead": {
     "part": "r",
     "vi": "thay thế",
-    "sentences": [
-      ["Felix became a herpetologist instead", "alternatively we could buy a used car"]
-    ],
+    "sentences": [["Felix became a herpetologist instead", "alternatively we could buy a used car"]],
     "viSentences": [
       "Thay vào đó, Felix đã trở thành một nhà chăn nuôi bò sát",
       "cách khác chúng ta có thể mua một chiếc xe đã qua sử dụng"
@@ -12795,13 +12057,8 @@
   "intensity": {
     "part": "n",
     "vi": "cường độ",
-    "sentences": [
-      ["he adjusted the intensity of the sound", "they measured the station's signal strength"]
-    ],
-    "viSentences": [
-      "anh ấy đã điều chỉnh cường độ của âm thanh",
-      "họ đã đo cường độ tín hiệu của trạm"
-    ],
+    "sentences": [["he adjusted the intensity of the sound", "they measured the station's signal strength"]],
+    "viSentences": ["anh ấy đã điều chỉnh cường độ của âm thanh", "họ đã đo cường độ tín hiệu của trạm"],
     "def": "the amount of energy transmitted (as by acoustic or electromagnetic radiation)"
   },
   "intention": {
@@ -12875,13 +12132,8 @@
   "interpret": {
     "part": "v",
     "vi": "thông dịch",
-    "sentences": [
-      ["What message do you see in this letter?", "How do you interpret his behavior?"]
-    ],
-    "viSentences": [
-      "Bạn thấy thông điệp gì trong bức thư này?",
-      "Làm thế nào để bạn giải thích hành vi của mình?"
-    ],
+    "sentences": [["What message do you see in this letter?", "How do you interpret his behavior?"]],
+    "viSentences": ["Bạn thấy thông điệp gì trong bức thư này?", "Làm thế nào để bạn giải thích hành vi của mình?"],
     "def": "make sense of; assign a meaning to"
   },
   "interpretation": {
@@ -12902,18 +12154,14 @@
     "part": "n",
     "vi": "phỏng vấn",
     "sentences": [["my interviews with teenagers revealed a weakening of religious bonds"]],
-    "viSentences": [
-      "các cuộc phỏng vấn của tôi với thanh thiếu niên cho thấy sự suy yếu của các mối quan hệ tôn giáo"
-    ],
+    "viSentences": ["các cuộc phỏng vấn của tôi với thanh thiếu niên cho thấy sự suy yếu của các mối quan hệ tôn giáo"],
     "def": "the questioning of a person (or a conversation in which information is elicited); often conducted by journalists"
   },
   "into": "vào trong",
   "introduce": {
     "part": "v",
     "vi": "giới thiệu",
-    "sentences": [
-      ["permit me to acquaint you with my son", "introduce the new neighbors to the community"]
-    ],
+    "sentences": [["permit me to acquaint you with my son", "introduce the new neighbors to the community"]],
     "viSentences": [
       "cho phép tôi làm quen với bạn với con trai tôi",
       "giới thiệu những người hàng xóm mới với cộng đồng"
@@ -13001,19 +12249,13 @@
     "part": "n",
     "vi": "sự tham gia",
     "sentences": [["the teacher tried to increase his students' engagement in class activities"]],
-    "viSentences": [
-      "giáo viên đã cố gắng tăng sự tham gia của học sinh vào các hoạt động trong lớp"
-    ],
+    "viSentences": ["giáo viên đã cố gắng tăng sự tham gia của học sinh vào các hoạt động trong lớp"],
     "def": "the act of sharing in the activities of a group"
   },
   "Iraqi": {
     "part": "n",
     "vi": "người Iraq",
-    "sentences": [
-      [
-        "the majority of Iraqi are Arab Shiite Muslims although Sunni Muslims control the government"
-      ]
-    ],
+    "sentences": [["the majority of Iraqi are Arab Shiite Muslims although Sunni Muslims control the government"]],
     "viSentences": [
       "phần lớn người Iraq là người Hồi giáo Shiite Ả Rập mặc dù người Hồi giáo Sunni kiểm soát chính phủ"
     ],
@@ -13231,10 +12473,7 @@
     "part": "n",
     "vi": "sự phán xét",
     "sentences": [["he was reluctant to make his judgment known", "she changed her mind"]],
-    "viSentences": [
-      "anh ấy miễn cưỡng đưa ra phán quyết của mình",
-      "cô ấy đã thay đổi suy nghĩ của mình"
-    ],
+    "viSentences": ["anh ấy miễn cưỡng đưa ra phán quyết của mình", "cô ấy đã thay đổi suy nghĩ của mình"],
     "def": "an opinion formed by judging something"
   },
   "juice": {
@@ -13268,9 +12507,7 @@
   "just": {
     "part": "a",
     "vi": "chỉ cần",
-    "sentences": [
-      ["a just and lasting peace", "a kind and just man", "a just reward", "his just inheritance"]
-    ],
+    "sentences": [["a just and lasting peace", "a kind and just man", "a just reward", "his just inheritance"]],
     "viSentences": [
       "một nền hòa bình công bằng và lâu dài",
       "một người đàn ông tốt bụng và công bằng",
@@ -13289,13 +12526,8 @@
   "justify": {
     "part": "v",
     "vi": "biện minh",
-    "sentences": [
-      ["The emergency does not warrant all of us buying guns", "The end justifies the means"]
-    ],
-    "viSentences": [
-      "Trường hợp khẩn cấp không bảo đảm tất cả chúng ta mua súng",
-      "Mục đích biện minh cho phương tiện"
-    ],
+    "sentences": [["The emergency does not warrant all of us buying guns", "The end justifies the means"]],
+    "viSentences": ["Trường hợp khẩn cấp không bảo đảm tất cả chúng ta mua súng", "Mục đích biện minh cho phương tiện"],
     "def": "show to be reasonable or provide adequate ground for"
   },
   "keep": {
@@ -13332,13 +12564,7 @@
   "kid": {
     "part": "n",
     "vi": "đứa trẻ",
-    "sentences": [
-      [
-        "she writes books for children",
-        "they're just kids",
-        "`tiddler' is a British term for youngster"
-      ]
-    ],
+    "sentences": [["she writes books for children", "they're just kids", "`tiddler' is a British term for youngster"]],
     "viSentences": [
       "cô ấy viết sách cho trẻ em",
       "họ chỉ là những đứa trẻ",
@@ -13561,22 +12787,8 @@
   "late": {
     "part": "a",
     "vi": "muộn",
-    "sentences": [
-      [
-        "late evening",
-        "late 18th century",
-        "a late movie",
-        "took a late flight",
-        "had a late breakfast"
-      ]
-    ],
-    "viSentences": [
-      "buổi tối muộn",
-      "cuối thế kỷ 18",
-      "một bộ phim muộn",
-      "đáp chuyến bay muộn",
-      "ăn sáng muộn"
-    ],
+    "sentences": [["late evening", "late 18th century", "a late movie", "took a late flight", "had a late breakfast"]],
+    "viSentences": ["buổi tối muộn", "cuối thế kỷ 18", "một bộ phim muộn", "đáp chuyến bay muộn", "ăn sáng muộn"],
     "def": "being or occurring at an advanced period of time or after a usual or expected time"
   },
   "later": {
@@ -13727,11 +12939,7 @@
     "part": "v",
     "vi": "học hỏi",
     "sentences": [
-      [
-        "She learned dancing from her sister",
-        "I learned Sanskrit",
-        "Children acquire language at an amazing rate"
-      ]
+      ["She learned dancing from her sister", "I learned Sanskrit", "Children acquire language at an amazing rate"]
     ],
     "viSentences": [
       "Cô ấy đã học khiêu vũ từ chị gái của cô ấy",
@@ -13863,17 +13071,9 @@
     "part": "n",
     "vi": "cấp độ",
     "sentences": [
-      [
-        "a moderate grade of intelligence",
-        "a high level of care is required",
-        "it is all a matter of degree"
-      ]
+      ["a moderate grade of intelligence", "a high level of care is required", "it is all a matter of degree"]
     ],
-    "viSentences": [
-      "mức độ thông minh vừa phải",
-      "mức độ chăm sóc cao là cần thiết",
-      "tất cả chỉ là vấn đề mức độ"
-    ],
+    "viSentences": ["mức độ thông minh vừa phải", "mức độ chăm sóc cao là cần thiết", "tất cả chỉ là vấn đề mức độ"],
     "def": "a position on a scale of intensity or amount or quality"
   },
   "liberal": {
@@ -13943,10 +13143,7 @@
     "part": "n",
     "vi": "Thích",
     "sentences": [["dogs, foxes, and the like", "we don't want the likes of you around here"]],
-    "viSentences": [
-      "chó, cáo, và những thứ tương tự",
-      "chúng tôi không muốn những người như bạn quanh đây"
-    ],
+    "viSentences": ["chó, cáo, và những thứ tương tự", "chúng tôi không muốn những người như bạn quanh đây"],
     "def": "a similar kind; ,"
   },
   "likely": {
@@ -13977,9 +13174,7 @@
   "limit": {
     "part": "n",
     "vi": "giới hạn",
-    "sentences": [
-      ["what he did was beyond the bounds of acceptable behavior", "to the limit of his ability"]
-    ],
+    "sentences": [["what he did was beyond the bounds of acceptable behavior", "to the limit of his ability"]],
     "viSentences": [
       "những gì anh ấy đã làm là vượt quá giới hạn của hành vi chấp nhận được",
       "đến giới hạn khả năng của mình"
@@ -13990,9 +13185,7 @@
     "part": "n",
     "vi": "giới hạn",
     "sentences": [["I am willing to accept certain restrictions on my movements"]],
-    "viSentences": [
-      "Tôi sẵn sàng chấp nhận những hạn chế nhất định đối với việc di chuyển của mình"
-    ],
+    "viSentences": ["Tôi sẵn sàng chấp nhận những hạn chế nhất định đối với việc di chuyển của mình"],
     "def": "a principle that limits the extent of something"
   },
   "limited": {
@@ -14126,10 +13319,7 @@
     "part": "v",
     "vi": "định vị",
     "sentences": [["Can you locate your cousins in the Midwest?", "My search turned up nothing"]],
-    "viSentences": [
-      "Bạn có thể xác định vị trí anh em họ của bạn ở Trung Tây?",
-      "Tìm kiếm của tôi không có gì"
-    ],
+    "viSentences": ["Bạn có thể xác định vị trí anh em họ của bạn ở Trung Tây?", "Tìm kiếm của tôi không có gì"],
     "def": "discover the location of; determine the place of; find by searching or examining"
   },
   "location": {
@@ -14242,25 +13432,15 @@
   "loud": {
     "part": "a",
     "vi": "lớn",
-    "sentences": [
-      ["a group of loud children", "loud thunder", "her voice was too loud", "loud trombones"]
-    ],
-    "viSentences": [
-      "một nhóm trẻ ồn ào",
-      "sấm sét lớn",
-      "giọng cô ấy to quá",
-      "kèn trombone ồn ào"
-    ],
+    "sentences": [["a group of loud children", "loud thunder", "her voice was too loud", "loud trombones"]],
+    "viSentences": ["một nhóm trẻ ồn ào", "sấm sét lớn", "giọng cô ấy to quá", "kèn trombone ồn ào"],
     "def": "characterized by or producing sound of great volume or intensity"
   },
   "love": {
     "part": "n",
     "vi": "yêu và quý",
     "sentences": [["his love for his work", "children need a lot of love"]],
-    "viSentences": [
-      "tình yêu của anh ấy dành cho công việc của mình",
-      "trẻ em cần rất nhiều tình yêu"
-    ],
+    "viSentences": ["tình yêu của anh ấy dành cho công việc của mình", "trẻ em cần rất nhiều tình yêu"],
     "def": "a strong positive emotion of regard and affection"
   },
   "lovely": {
@@ -14393,12 +13573,7 @@
     "part": "v",
     "vi": "duy trì",
     "sentences": [
-      [
-        "keep clean",
-        "hold in place",
-        "She always held herself as a lady",
-        "The students keep me on my toes"
-      ]
+      ["keep clean", "hold in place", "She always held herself as a lady", "The students keep me on my toes"]
     ],
     "viSentences": [
       "giữ sạch sẽ",
@@ -14494,10 +13669,7 @@
     "part": "n",
     "vi": "sự quản lý",
     "sentences": [
-      [
-        "he was given overall management of the program",
-        "is the direction of the economy a function of government?"
-      ]
+      ["he was given overall management of the program", "is the direction of the economy a function of government?"]
     ],
     "viSentences": [
       "anh ấy được giao quản lý tổng thể chương trình",
@@ -14603,9 +13775,7 @@
   "mark": {
     "part": "n",
     "vi": "dấu",
-    "sentences": [
-      ["she made good marks in algebra", "grade A milk", "what was your score on your homework?"]
-    ],
+    "sentences": [["she made good marks in algebra", "grade A milk", "what was your score on your homework?"]],
     "viSentences": [
       "cô ấy đã đạt điểm cao trong môn đại số",
       "sữa loại A",
@@ -14616,9 +13786,7 @@
   "market": {
     "part": "n",
     "vi": "thị trường",
-    "sentences": [
-      ["without competition there would be no market", "they were driven from the marketplace"]
-    ],
+    "sentences": [["without competition there would be no market", "they were driven from the marketplace"]],
     "viSentences": ["không có cạnh tranh sẽ không có thị trường", "họ đã bị đuổi khỏi thị trường"],
     "def": "the world of commercial activity where goods and services are bought and sold"
   },
@@ -14693,13 +13861,8 @@
   "match": {
     "part": "n",
     "vi": "trận đấu",
-    "sentences": [
-      ["he always carries matches to light his pipe", "as long you've a lucifer to light your fag"]
-    ],
-    "viSentences": [
-      "anh ấy luôn mang theo diêm để châm tẩu",
-      "miễn là bạn có một lucifer để thắp sáng fag của bạn"
-    ],
+    "sentences": [["he always carries matches to light his pipe", "as long you've a lucifer to light your fag"]],
+    "viSentences": ["anh ấy luôn mang theo diêm để châm tẩu", "miễn là bạn có một lucifer để thắp sáng fag của bạn"],
     "def": "lighter consisting of a thin piece of wood or cardboard tipped with combustible chemical; ignites with friction"
   },
   "material": {
@@ -14719,14 +13882,8 @@
   "matter": {
     "part": "n",
     "vi": "vấn đề",
-    "sentences": [
-      ["several matters to attend to", "it is none of your affair", "things are going well"]
-    ],
-    "viSentences": [
-      "một số vấn đề cần tham gia",
-      "đó không phải là chuyện của bạn",
-      "mọi thứ đang diễn ra tốt đẹp"
-    ],
+    "sentences": [["several matters to attend to", "it is none of your affair", "things are going well"]],
+    "viSentences": ["một số vấn đề cần tham gia", "đó không phải là chuyện của bạn", "mọi thứ đang diễn ra tốt đẹp"],
     "def": "a vaguely specified concern"
   },
   "may": {
@@ -14810,21 +13967,14 @@
   "measure": {
     "part": "n",
     "vi": "đo lường",
-    "sentences": [
-      ["the situation called for strong measures", "the police took steps to reduce crime"]
-    ],
-    "viSentences": [
-      "tình hình kêu gọi các biện pháp mạnh mẽ",
-      "cảnh sát đã thực hiện các bước để giảm tội phạm"
-    ],
+    "sentences": [["the situation called for strong measures", "the police took steps to reduce crime"]],
+    "viSentences": ["tình hình kêu gọi các biện pháp mạnh mẽ", "cảnh sát đã thực hiện các bước để giảm tội phạm"],
     "def": "any maneuver made as part of progress toward a goal"
   },
   "measurement": {
     "part": "n",
     "vi": "đo đạc",
-    "sentences": [
-      ["the measurements were carefully done", "his mental measurings proved remarkably accurate"]
-    ],
+    "sentences": [["the measurements were carefully done", "his mental measurings proved remarkably accurate"]],
     "viSentences": [
       "các phép đo đã được thực hiện một cách cẩn thận",
       "phép đo tinh thần của anh ấy tỏ ra chính xác đáng kinh ngạc"
@@ -14890,9 +14040,7 @@
   "meeting": {
     "part": "n",
     "vi": "gặp gỡ",
-    "sentences": [
-      ["next year the meeting will be in Chicago", "the meeting elected a chairperson"]
-    ],
+    "sentences": [["next year the meeting will be in Chicago", "the meeting elected a chairperson"]],
     "viSentences": ["năm tới cuộc họp sẽ diễn ra ở Chicago", "cuộc họp bầu chủ tịch"],
     "def": "a formally arranged gathering"
   },
@@ -15129,13 +14277,7 @@
   "minor": {
     "part": "n",
     "vi": "diễn viên phụ",
-    "sentences": [
-      [
-        "she writes books for children",
-        "they're just kids",
-        "`tiddler' is a British term for youngster"
-      ]
-    ],
+    "sentences": [["she writes books for children", "they're just kids", "`tiddler' is a British term for youngster"]],
     "viSentences": [
       "cô ấy viết sách cho trẻ em",
       "họ chỉ là những đứa trẻ",
@@ -15250,9 +14392,7 @@
   "model": {
     "part": "n",
     "vi": "kiểu mẫu",
-    "sentences": [
-      ["the computer program was based on a model of the circulatory and respiratory systems"]
-    ],
+    "sentences": [["the computer program was based on a model of the circulatory and respiratory systems"]],
     "viSentences": ["chương trình máy tính dựa trên mô hình của hệ thống tuần hoàn và hô hấp"],
     "def": "a hypothetical description of a complex entity or process"
   },
@@ -15315,27 +14455,14 @@
   "mood": {
     "part": "n",
     "vi": "khí sắc",
-    "sentences": [
-      [
-        "whether he praised or cursed me depended on his temper at the time",
-        "he was in a bad humor"
-      ]
-    ],
-    "viSentences": [
-      "khen hay chê là tùy tâm trạng lúc đó",
-      "anh ấy đang ở trong một sự hài hước tồi tệ"
-    ],
+    "sentences": [["whether he praised or cursed me depended on his temper at the time", "he was in a bad humor"]],
+    "viSentences": ["khen hay chê là tùy tâm trạng lúc đó", "anh ấy đang ở trong một sự hài hước tồi tệ"],
     "def": "a characteristic (habitual or relatively temporary) state of feeling"
   },
   "moon": {
     "part": "n",
     "vi": "mặt trăng",
-    "sentences": [
-      [
-        "the average distance to the Moon is 384,400 kilometers",
-        "men first stepped on the moon in 1969"
-      ]
-    ],
+    "sentences": [["the average distance to the Moon is 384,400 kilometers", "men first stepped on the moon in 1969"]],
     "viSentences": [
       "khoảng cách trung bình đến Mặt trăng là 384.400 km",
       "con người lần đầu tiên đặt chân lên mặt trăng vào năm 1969"
@@ -15391,11 +14518,7 @@
     "part": "a",
     "vi": "phần lớn",
     "sentences": [["who has the most apples?", "most people like eggs", "most fishes have fins"]],
-    "viSentences": [
-      "Ai có nhiều táo nhất?",
-      "hầu hết mọi người thích trứng",
-      "hầu hết các loài cá đều có vây"
-    ],
+    "viSentences": ["Ai có nhiều táo nhất?", "hầu hết mọi người thích trứng", "hầu hết các loài cá đều có vây"],
     "def": "(superlative of `many' used with count nouns and often preceded by `the') quantifier meaning the greatest in number"
   },
   "mostly": {
@@ -15423,10 +14546,7 @@
     "part": "n",
     "vi": "động lực",
     "sentences": [["we did not understand his motivation", "he acted with the best of motives"]],
-    "viSentences": [
-      "chúng tôi không hiểu động cơ của anh ấy",
-      "anh ấy đã hành động với động cơ tốt nhất"
-    ],
+    "viSentences": ["chúng tôi không hiểu động cơ của anh ấy", "anh ấy đã hành động với động cơ tốt nhất"],
     "def": "the psychological feature that arouses an organism to action toward a desired goal; the reason for the action; that which gives purpose and direction to behavior"
   },
   "motor": {
@@ -15604,10 +14724,7 @@
     "part": "n",
     "vi": "huyền bí",
     "sentences": [["how it got out is a mystery", "it remains one of nature's secrets"]],
-    "viSentences": [
-      "làm thế nào nó thoát ra được là một bí ẩn",
-      "nó vẫn là một trong những bí mật của tự nhiên"
-    ],
+    "viSentences": ["làm thế nào nó thoát ra được là một bí ẩn", "nó vẫn là một trong những bí mật của tự nhiên"],
     "def": "something that baffles understanding and cannot be explained"
   },
   "myth": {
@@ -15627,21 +14744,14 @@
   "name": {
     "part": "n",
     "vi": "Tên",
-    "sentences": [
-      ["his name really is George Washington", "those are two names for the same thing"]
-    ],
-    "viSentences": [
-      "tên thật của anh ấy là George Washington",
-      "đó là hai cái tên cho cùng một thứ"
-    ],
+    "sentences": [["his name really is George Washington", "those are two names for the same thing"]],
+    "viSentences": ["tên thật của anh ấy là George Washington", "đó là hai cái tên cho cùng một thứ"],
     "def": "a language unit by which a person or thing is known"
   },
   "narrative": {
     "part": "n",
     "vi": "chuyện kể",
-    "sentences": [
-      ["his narrative was interesting", "Disney's stories entertain adults as well as children"]
-    ],
+    "sentences": [["his narrative was interesting", "Disney's stories entertain adults as well as children"]],
     "viSentences": [
       "câu chuyện của anh ấy thật thú vị",
       "Những câu chuyện của Disney giải trí cho người lớn cũng như trẻ em"
@@ -15723,27 +14833,16 @@
     "part": "v",
     "vi": "gần",
     "sentences": [
-      [
-        "We were approaching our destination",
-        "They are drawing near",
-        "The enemy army came nearer and nearer"
-      ]
+      ["We were approaching our destination", "They are drawing near", "The enemy army came nearer and nearer"]
     ],
-    "viSentences": [
-      "Chúng tôi đã đến gần điểm đến của chúng tôi",
-      "Họ đang đến gần",
-      "Quân địch ngày càng đến gần"
-    ],
+    "viSentences": ["Chúng tôi đã đến gần điểm đến của chúng tôi", "Họ đang đến gần", "Quân địch ngày càng đến gần"],
     "def": "move towards"
   },
   "nearby": {
     "part": "s",
     "vi": "lân cận",
     "sentences": [["the nearby towns", "concentrated his study on the nearby planet Venus"]],
-    "viSentences": [
-      "các thị trấn lân cận",
-      "tập trung nghiên cứu của mình trên hành tinh gần đó là Venus"
-    ],
+    "viSentences": ["các thị trấn lân cận", "tập trung nghiên cứu của mình trên hành tinh gần đó là Venus"],
     "def": "close at hand"
   },
   "nearly": {
@@ -15972,17 +15071,8 @@
   "new": {
     "part": "a",
     "vi": "Mới",
-    "sentences": [
-      ["a new law", "new cars", "a new comet", "a new friend", "a new year", "the New World"]
-    ],
-    "viSentences": [
-      "một luật mới",
-      "xe mới",
-      "một sao chổi mới",
-      "một người bạn mới",
-      "năm mới",
-      "thế giới mới"
-    ],
+    "sentences": [["a new law", "new cars", "a new comet", "a new friend", "a new year", "the New World"]],
+    "viSentences": ["một luật mới", "xe mới", "một sao chổi mới", "một người bạn mới", "năm mới", "thế giới mới"],
     "def": "not of long duration; having just (or relatively recently) come into being or been made or acquired or discovered"
   },
   "newly": {
@@ -16025,15 +15115,8 @@
   "next": {
     "part": "s",
     "vi": "tiếp theo",
-    "sentences": [
-      ["the following day", "next in line", "the next president", "the next item on the list"]
-    ],
-    "viSentences": [
-      "ngày hôm sau",
-      "xếp hàng tiếp theo",
-      "tổng thống tiếp theo",
-      "mục tiếp theo trong danh sách"
-    ],
+    "sentences": [["the following day", "next in line", "the next president", "the next item on the list"]],
+    "viSentences": ["ngày hôm sau", "xếp hàng tiếp theo", "tổng thống tiếp theo", "mục tiếp theo trong danh sách"],
     "def": "immediately following in time or order"
   },
   "nice": {
@@ -16178,14 +15261,7 @@
     "part": "r",
     "vi": "không phải",
     "sentences": [
-      [
-        "he does not speak French",
-        "she is not going",
-        "they are not friends",
-        "not many",
-        "not much",
-        "not at all"
-      ]
+      ["he does not speak French", "she is not going", "they are not friends", "not many", "not much", "not at all"]
     ],
     "viSentences": [
       "anh ấy không nói tiếng pháp",
@@ -16284,17 +15360,9 @@
     "part": "n",
     "vi": "con số",
     "sentences": [
-      [
-        "he had a number of chores to do",
-        "the number of parameters is small",
-        "the figure was about a thousand"
-      ]
+      ["he had a number of chores to do", "the number of parameters is small", "the figure was about a thousand"]
     ],
-    "viSentences": [
-      "anh ấy có một số công việc phải làm",
-      "số lượng tham số ít",
-      "con số này là khoảng một ngàn"
-    ],
+    "viSentences": ["anh ấy có một số công việc phải làm", "số lượng tham số ít", "con số này là khoảng một ngàn"],
     "def": "the property possessed by a sum or total or indefinite quantity of units or individuals"
   },
   "numerous": {
@@ -16329,9 +15397,7 @@
     "part": "n",
     "vi": "khách quan",
     "sentences": [["the sole object of her trip was to see her children"]],
-    "viSentences": [
-      "đối tượng duy nhất của chuyến đi của cô ấy là để nhìn thấy những đứa con của cô ấy"
-    ],
+    "viSentences": ["đối tượng duy nhất của chuyến đi của cô ấy là để nhìn thấy những đứa con của cô ấy"],
     "def": "the goal intended to be attained (and which is believed to be attainable)"
   },
   "obligation": {
@@ -16359,12 +15425,7 @@
   "observe": {
     "part": "v",
     "vi": "quan sát",
-    "sentences": [
-      [
-        "She detected high levels of lead in her drinking water",
-        "We found traces of lead in the paint"
-      ]
-    ],
+    "sentences": [["She detected high levels of lead in her drinking water", "We found traces of lead in the paint"]],
     "viSentences": [
       "Cô phát hiện hàm lượng chì cao trong nước uống của mình",
       "Chúng tôi tìm thấy dấu vết của chì trong sơn"
@@ -16422,12 +15483,7 @@
   "occasion": {
     "part": "n",
     "vi": "dịp",
-    "sentences": [
-      [
-        "at such junctures he always had an impulse to leave",
-        "it was needed only on special occasions"
-      ]
-    ],
+    "sentences": [["at such junctures he always had an impulse to leave", "it was needed only on special occasions"]],
     "viSentences": [
       "vào những thời điểm như vậy, anh ấy luôn có một động lực để rời đi",
       "nó chỉ cần thiết vào những dịp đặc biệt"
@@ -16479,11 +15535,7 @@
         "Nothing occurred that seemed important"
       ]
     ],
-    "viSentences": [
-      "Điều gì đang xảy ra?",
-      "Cuộc họp diễn ra không có sự cố",
-      "Không có gì xảy ra có vẻ quan trọng"
-    ],
+    "viSentences": ["Điều gì đang xảy ra?", "Cuộc họp diễn ra không có sự cố", "Không có gì xảy ra có vẻ quan trọng"],
     "def": "come to pass"
   },
   "ocean": {
@@ -16623,13 +15675,8 @@
   "one": {
     "part": "n",
     "vi": "một",
-    "sentences": [
-      ["he has the one but will need a two and three to go with it", "they had lunch at one"]
-    ],
-    "viSentences": [
-      "anh ta có một nhưng sẽ cần hai và ba để đi cùng với nó",
-      "họ đã ăn trưa tại một"
-    ],
+    "sentences": [["he has the one but will need a two and three to go with it", "they had lunch at one"]],
+    "viSentences": ["anh ta có một nhưng sẽ cần hai và ba để đi cùng với nó", "họ đã ăn trưa tại một"],
     "def": "the smallest whole number or a numeral representing this number"
   },
   "ongoing": {
@@ -16689,13 +15736,8 @@
   "opening": {
     "part": "n",
     "vi": "khai mạc",
-    "sentences": [
-      ["there was a small opening between the trees", "the explosion made a gap in the wall"]
-    ],
-    "viSentences": [
-      "có một khe hở nhỏ giữa những cái cây",
-      "vụ nổ tạo ra một khoảng trống trên tường"
-    ],
+    "sentences": [["there was a small opening between the trees", "the explosion made a gap in the wall"]],
+    "viSentences": ["có một khe hở nhỏ giữa những cái cây", "vụ nổ tạo ra một khoảng trống trên tường"],
     "def": "an open or empty space in or between things"
   },
   "operate": {
@@ -16729,18 +15771,8 @@
   "opinion": {
     "part": "n",
     "vi": "ý kiến",
-    "sentences": [
-      [
-        "my opinion differs from yours",
-        "I am not of your persuasion",
-        "what are your thoughts on Haiti?"
-      ]
-    ],
-    "viSentences": [
-      "ý kiến ​​​​của tôi khác với bạn",
-      "Tôi không thuyết phục bạn",
-      "bạn nghĩ gì về Haiti?"
-    ],
+    "sentences": [["my opinion differs from yours", "I am not of your persuasion", "what are your thoughts on Haiti?"]],
+    "viSentences": ["ý kiến ​​​​của tôi khác với bạn", "Tôi không thuyết phục bạn", "bạn nghĩ gì về Haiti?"],
     "def": "a personal belief or judgment that is not founded on proof or certainty"
   },
   "opponent": {
@@ -16753,13 +15785,8 @@
   "opportunity": {
     "part": "n",
     "vi": "cơ hội",
-    "sentences": [
-      ["the holiday gave us the opportunity to visit Washington", "now is your chance"]
-    ],
-    "viSentences": [
-      "kỳ nghỉ đã cho chúng tôi cơ hội đến thăm Washington",
-      "bây giờ là cơ hội của bạn"
-    ],
+    "sentences": [["the holiday gave us the opportunity to visit Washington", "now is your chance"]],
+    "viSentences": ["kỳ nghỉ đã cho chúng tôi cơ hội đến thăm Washington", "bây giờ là cơ hội của bạn"],
     "def": "a possibility due to a favorable combination of circumstances"
   },
   "oppose": {
@@ -17030,9 +16057,7 @@
   "pack": {
     "part": "n",
     "vi": "đóng gói",
-    "sentences": [
-      ["a battalion of ants", "a multitude of TV antennas", "a plurality of religions"]
-    ],
+    "sentences": [["a battalion of ants", "a multitude of TV antennas", "a plurality of religions"]],
     "viSentences": ["một đàn kiến", "vô số ăng-ten TV", "nhiều tôn giáo"],
     "def": "a large indefinite number"
   },
@@ -17082,11 +16107,7 @@
     "part": "n",
     "vi": "bức vẽ",
     "sentences": [
-      [
-        "a small painting by Picasso",
-        "he bought the painting as an investment",
-        "his pictures hang in the Louvre"
-      ]
+      ["a small painting by Picasso", "he bought the painting as an investment", "his pictures hang in the Louvre"]
     ],
     "viSentences": [
       "một bức tranh nhỏ của Picasso",
@@ -17209,9 +16230,7 @@
     "part": "n",
     "vi": "sự tham gia",
     "sentences": [["the teacher tried to increase his students' engagement in class activities"]],
-    "viSentences": [
-      "giáo viên đã cố gắng tăng sự tham gia của học sinh vào các hoạt động trong lớp"
-    ],
+    "viSentences": ["giáo viên đã cố gắng tăng sự tham gia của học sinh vào các hoạt động trong lớp"],
     "def": "the act of sharing in the activities of a group"
   },
   "particular": {
@@ -17306,22 +16325,8 @@
   "patch": {
     "part": "n",
     "vi": "vá",
-    "sentences": [
-      [
-        "a bald spot",
-        "a leopard's spots",
-        "a patch of clouds",
-        "patches of thin ice",
-        "a fleck of red"
-      ]
-    ],
-    "viSentences": [
-      "một điểm hói",
-      "đốm của một con báo",
-      "một đám mây",
-      "những mảng băng mỏng",
-      "một đốm đỏ"
-    ],
+    "sentences": [["a bald spot", "a leopard's spots", "a patch of clouds", "patches of thin ice", "a fleck of red"]],
+    "viSentences": ["một điểm hói", "đốm của một con báo", "một đám mây", "những mảng băng mỏng", "một đốm đỏ"],
     "def": "a small contrasting part of something"
   },
   "path": {
@@ -17376,11 +16381,7 @@
     "part": "n",
     "vi": "trả",
     "sentences": [
-      [
-        "wages were paid by check",
-        "he wasted his pay on drink",
-        "they saved a quarter of all their earnings"
-      ]
+      ["wages were paid by check", "he wasted his pay on drink", "they saved a quarter of all their earnings"]
     ],
     "viSentences": [
       "tiền lương được trả bằng séc",
@@ -17554,11 +16555,7 @@
     "part": "n",
     "vi": "khoảng thời gian",
     "sentences": [
-      [
-        "a time period of 30 years",
-        "hastened the period of time of his recovery",
-        "Picasso's blue period"
-      ]
+      ["a time period of 30 years", "hastened the period of time of his recovery", "Picasso's blue period"]
     ],
     "viSentences": [
       "khoảng thời gian 30 năm",
@@ -17606,10 +16603,7 @@
     "part": "n",
     "vi": "tính cách",
     "sentences": [
-      [
-        "their different reactions reflected their very different personalities",
-        "it is his nature to help others"
-      ]
+      ["their different reactions reflected their very different personalities", "it is his nature to help others"]
     ],
     "viSentences": [
       "phản ứng khác nhau của họ phản ánh tính cách rất khác nhau của họ",
@@ -17655,9 +16649,7 @@
   "phase": {
     "part": "n",
     "vi": "giai đoạn",
-    "sentences": [
-      ["we are in a transitional stage in which many former ideas must be revised or rejected"]
-    ],
+    "sentences": [["we are in a transitional stage in which many former ideas must be revised or rejected"]],
     "viSentences": [
       "chúng tôi đang trong giai đoạn chuyển tiếp, trong đó nhiều ý tưởng trước đây phải được sửa đổi hoặc từ chối"
     ],
@@ -17716,11 +16708,7 @@
     "part": "a",
     "vi": "thuộc vật chất",
     "sentences": [
-      [
-        "physical exercise",
-        "physical suffering",
-        "was sloppy about everything but her physical appearance"
-      ]
+      ["physical exercise", "physical suffering", "was sloppy about everything but her physical appearance"]
     ],
     "viSentences": ["tập thể dục", "đau khổ về thể xác", "luộm thuộm về mọi thứ trừ ngoại hình"],
     "def": "involving the body as distinguished from the mind or spirit"
@@ -17828,20 +16816,14 @@
     "part": "n",
     "vi": "nơi",
     "sentences": [["this is a nice place for a picnic", "a bright spot on a planet"]],
-    "viSentences": [
-      "đây là một nơi tốt đẹp cho một chuyến dã ngoại",
-      "một điểm sáng trên một hành tinh"
-    ],
+    "viSentences": ["đây là một nơi tốt đẹp cho một chuyến dã ngoại", "một điểm sáng trên một hành tinh"],
     "def": "a point located with respect to surface features of some region"
   },
   "plan": {
     "part": "n",
     "vi": "kế hoạch",
     "sentences": [["they drew up a six-step plan", "they discussed plans for a new bond issue"]],
-    "viSentences": [
-      "họ đã vạch ra một kế hoạch sáu bước",
-      "họ đã thảo luận về kế hoạch phát hành trái phiếu mới"
-    ],
+    "viSentences": ["họ đã vạch ra một kế hoạch sáu bước", "họ đã thảo luận về kế hoạch phát hành trái phiếu mới"],
     "def": "a series of steps to be carried out or goals to be accomplished"
   },
   "plane": {
@@ -17897,9 +16879,7 @@
     "part": "n",
     "vi": "chơi",
     "sentences": [["he wrote several plays but only one was produced on Broadway"]],
-    "viSentences": [
-      "anh ấy đã viết một số vở kịch nhưng chỉ có một vở được sản xuất trên sân khấu Broadway"
-    ],
+    "viSentences": ["anh ấy đã viết một số vở kịch nhưng chỉ có một vở được sản xuất trên sân khấu Broadway"],
     "def": "a dramatic work intended for performance by actors on a stage"
   },
   "player": {
@@ -17933,12 +16913,7 @@
   "plot": {
     "part": "n",
     "vi": "mảnh đất",
-    "sentences": [
-      [
-        "they concocted a plot to discredit the governor",
-        "I saw through his little game from the start"
-      ]
-    ],
+    "sentences": [["they concocted a plot to discredit the governor", "I saw through his little game from the start"]],
     "viSentences": [
       "họ lập một âm mưu để làm mất uy tín của thống đốc",
       "Tôi đã nhìn thấu trò chơi nhỏ của anh ấy ngay từ đầu"
@@ -18012,10 +16987,7 @@
     "part": "n",
     "vi": "chính sách",
     "sentences": [["it was a policy of retribution", "a politician keeps changing his policies"]],
-    "viSentences": [
-      "đó là một chính sách trả thù",
-      "một chính trị gia liên tục thay đổi chính sách của mình"
-    ],
+    "viSentences": ["đó là một chính sách trả thù", "một chính trị gia liên tục thay đổi chính sách của mình"],
     "def": "a plan of action adopted by an individual or social group"
   },
   "political": {
@@ -18098,13 +17070,7 @@
   "popular": {
     "part": "a",
     "vi": "phổ biến",
-    "sentences": [
-      [
-        "a popular tourist attraction",
-        "a popular girl",
-        "cabbage patch dolls are no longer popular"
-      ]
-    ],
+    "sentences": [["a popular tourist attraction", "a popular girl", "cabbage patch dolls are no longer popular"]],
     "viSentences": [
       "một điểm thu hút khách du lịch nổi tiếng",
       "một cô gái nổi tiếng",
@@ -18350,13 +17316,8 @@
   "practice": {
     "part": "n",
     "vi": "luyện tập",
-    "sentences": [
-      ["it is their practice to give annual raises", "they changed their dietary pattern"]
-    ],
-    "viSentences": [
-      "thông lệ của họ là tăng lương hàng năm",
-      "họ đã thay đổi chế độ ăn uống của họ"
-    ],
+    "sentences": [["it is their practice to give annual raises", "they changed their dietary pattern"]],
+    "viSentences": ["thông lệ của họ là tăng lương hàng năm", "họ đã thay đổi chế độ ăn uống của họ"],
     "def": "a customary way of operation or behavior"
   },
   "pray": {
@@ -18400,25 +17361,15 @@
   "prefer": {
     "part": "v",
     "vi": "thích hơn",
-    "sentences": [
-      ["Some people prefer camping to staying in hotels", "We prefer sleeping outside"]
-    ],
-    "viSentences": [
-      "Một số người thích cắm trại hơn ở trong khách sạn",
-      "Chúng tôi thích ngủ bên ngoài hơn"
-    ],
+    "sentences": [["Some people prefer camping to staying in hotels", "We prefer sleeping outside"]],
+    "viSentences": ["Một số người thích cắm trại hơn ở trong khách sạn", "Chúng tôi thích ngủ bên ngoài hơn"],
     "def": "like better; value more highly"
   },
   "preference": {
     "part": "n",
     "vi": "sự ưa thích",
-    "sentences": [
-      ["my own preference is for good literature", "the Irish have a penchant for blarney"]
-    ],
-    "viSentences": [
-      "sở thích của riêng tôi là cho văn học tốt",
-      "người Ireland có xu hướng thích blarney"
-    ],
+    "sentences": [["my own preference is for good literature", "the Irish have a penchant for blarney"]],
+    "viSentences": ["sở thích của riêng tôi là cho văn học tốt", "người Ireland có xu hướng thích blarney"],
     "def": "a strong liking"
   },
   "pregnancy": {
@@ -18476,13 +17427,8 @@
   "present": {
     "part": "n",
     "vi": "hiện nay",
-    "sentences": [
-      ["that is enough for the present", "he lives in the present with no thought of tomorrow"]
-    ],
-    "viSentences": [
-      "thế là đủ cho hiện tại",
-      "anh ấy sống trong hiện tại mà không nghĩ đến ngày mai"
-    ],
+    "sentences": [["that is enough for the present", "he lives in the present with no thought of tomorrow"]],
+    "viSentences": ["thế là đủ cho hiện tại", "anh ấy sống trong hiện tại mà không nghĩ đến ngày mai"],
     "def": "the period of time that is happening now; any continuous stretch of time including the moment of speech"
   },
   "presentation": {
@@ -18734,18 +17680,14 @@
   "procedure": {
     "part": "n",
     "vi": "thủ tục",
-    "sentences": [
-      ["the procedure of obtaining a driver's license", "it was a process of trial and error"]
-    ],
+    "sentences": [["the procedure of obtaining a driver's license", "it was a process of trial and error"]],
     "viSentences": ["thủ tục lấy bằng lái xe", "đó là một quá trình thử và sai"],
     "def": "a particular course of action intended to achieve a result"
   },
   "proceed": {
     "part": "v",
     "vi": "tiếp tục",
-    "sentences": [
-      ["I know it's hard,", "but there is no choice", "carry on--pretend we are not in the room"]
-    ],
+    "sentences": [["I know it's hard,", "but there is no choice", "carry on--pretend we are not in the room"]],
     "viSentences": [
       "Tôi biết điều đó thật khó khăn,",
       "nhưng không có sự lựa chọn",
@@ -18756,9 +17698,7 @@
   "process": {
     "part": "n",
     "vi": "tiến trình",
-    "sentences": [
-      ["the procedure of obtaining a driver's license", "it was a process of trial and error"]
-    ],
+    "sentences": [["the procedure of obtaining a driver's license", "it was a process of trial and error"]],
     "viSentences": ["thủ tục lấy bằng lái xe", "đó là một quá trình thử và sai"],
     "def": "a particular course of action intended to achieve a result"
   },
@@ -18779,40 +17719,22 @@
   "product": {
     "part": "n",
     "vi": "sản phẩm",
-    "sentences": [
-      [
-        "good business depends on having good merchandise",
-        "that store offers a variety of products"
-      ]
-    ],
-    "viSentences": [
-      "kinh doanh tốt phụ thuộc vào việc có hàng hóa tốt",
-      "cửa hàng đó cung cấp nhiều loại sản phẩm"
-    ],
+    "sentences": [["good business depends on having good merchandise", "that store offers a variety of products"]],
+    "viSentences": ["kinh doanh tốt phụ thuộc vào việc có hàng hóa tốt", "cửa hàng đó cung cấp nhiều loại sản phẩm"],
     "def": "commodities offered for sale"
   },
   "production": {
     "part": "n",
     "vi": "sản lượng",
-    "sentences": [
-      ["Shakespeare's production of poetry was enormous", "the production of white blood cells"]
-    ],
+    "sentences": [["Shakespeare's production of poetry was enormous", "the production of white blood cells"]],
     "viSentences": ["Sản xuất thơ của Shakespeare là rất lớn", "sản xuất tế bào bạch cầu"],
     "def": "the act or process of producing something"
   },
   "profession": {
     "part": "n",
     "vi": "nghề nghiệp",
-    "sentences": [
-      [
-        "the news spread rapidly through the medical profession",
-        "they formed a community of scientists"
-      ]
-    ],
-    "viSentences": [
-      "tin tức lan truyền nhanh chóng trong ngành y tế",
-      "họ thành lập một cộng đồng các nhà khoa học"
-    ],
+    "sentences": [["the news spread rapidly through the medical profession", "they formed a community of scientists"]],
+    "viSentences": ["tin tức lan truyền nhanh chóng trong ngành y tế", "họ thành lập một cộng đồng các nhà khoa học"],
     "def": "the body of people in a learned occupation"
   },
   "professional": {
@@ -18833,10 +17755,7 @@
     "part": "n",
     "vi": "Hồ sơ",
     "sentences": [["a biochemical profile of blood", "a psychological profile of serial killers"]],
-    "viSentences": [
-      "một hồ sơ sinh hóa của máu",
-      "một hồ sơ tâm lý của những kẻ giết người hàng loạt"
-    ],
+    "viSentences": ["một hồ sơ sinh hóa của máu", "một hồ sơ tâm lý của những kẻ giết người hàng loạt"],
     "def": "an analysis (often in graphical form) representing the extent to which something exhibits various characteristics"
   },
   "profit": {
@@ -18850,10 +17769,7 @@
     "part": "n",
     "vi": "chương trình",
     "sentences": [["they drew up a six-step plan", "they discussed plans for a new bond issue"]],
-    "viSentences": [
-      "họ đã vạch ra một kế hoạch sáu bước",
-      "họ đã thảo luận về kế hoạch phát hành trái phiếu mới"
-    ],
+    "viSentences": ["họ đã vạch ra một kế hoạch sáu bước", "họ đã thảo luận về kế hoạch phát hành trái phiếu mới"],
     "def": "a series of steps to be carried out or goals to be accomplished"
   },
   "progress": {
@@ -18918,9 +17834,7 @@
     "part": "n",
     "vi": "bằng chứng",
     "sentences": [["if you have any proof for what you say, now is the time to produce it"]],
-    "viSentences": [
-      "nếu bạn có bất kỳ bằng chứng nào cho những gì bạn nói, bây giờ là lúc để sản xuất nó"
-    ],
+    "viSentences": ["nếu bạn có bất kỳ bằng chứng nào cho những gì bạn nói, bây giờ là lúc để sản xuất nó"],
     "def": "any factual evidence that helps to establish the truth of something"
   },
   "proper": {
@@ -19050,13 +17964,7 @@
   "prove": {
     "part": "v",
     "vi": "chứng minh",
-    "sentences": [
-      [
-        "She proved to be right",
-        "The medicine turned out to save her life",
-        "She turned up HIV positive"
-      ]
-    ],
+    "sentences": [["She proved to be right", "The medicine turned out to save her life", "She turned up HIV positive"]],
     "viSentences": [
       "Cô ấy đã chứng minh là đúng",
       "Thuốc hóa ra đã cứu sống cô ấy",
@@ -19138,15 +18046,9 @@
     "part": "v",
     "vi": "công bố",
     "sentences": [
-      [
-        "The newspaper published the news of the royal couple's divorce",
-        "These news should not be printed"
-      ]
+      ["The newspaper published the news of the royal couple's divorce", "These news should not be printed"]
     ],
-    "viSentences": [
-      "Các báo đăng tin ly hôn của cặp đôi hoàng gia",
-      "Những tin tức này không nên được in"
-    ],
+    "viSentences": ["Các báo đăng tin ly hôn của cặp đôi hoàng gia", "Những tin tức này không nên được in"],
     "def": "put into print"
   },
   "publisher": {
@@ -19159,9 +18061,7 @@
   "pull": {
     "part": "n",
     "vi": "kéo",
-    "sentences": [
-      ["the pull up the hill had him breathing harder", "his strenuous pulling strained his back"]
-    ],
+    "sentences": [["the pull up the hill had him breathing harder", "his strenuous pulling strained his back"]],
     "viSentences": [
       "việc kéo lên đồi khiến anh ấy thở khó khăn hơn",
       "sự kéo căng của anh ấy làm căng thẳng lưng anh ấy"
@@ -19276,13 +18176,8 @@
   "question": {
     "part": "n",
     "vi": "câu hỏi",
-    "sentences": [
-      ["there was a question about my training", "we made inquiries of all those who were present"]
-    ],
-    "viSentences": [
-      "có một câu hỏi về đào tạo của tôi",
-      "chúng tôi đã hỏi tất cả những người có mặt"
-    ],
+    "sentences": [["there was a question about my training", "we made inquiries of all those who were present"]],
+    "viSentences": ["có một câu hỏi về đào tạo của tôi", "chúng tôi đã hỏi tất cả những người có mặt"],
     "def": "an instance of questioning"
   },
   "quick": {
@@ -19310,17 +18205,9 @@
     "part": "r",
     "vi": "lặng lẽ",
     "sentences": [
-      [
-        "speak softly but carry a big stick",
-        "she spoke quietly to the child",
-        "the radio was playing softly"
-      ]
+      ["speak softly but carry a big stick", "she spoke quietly to the child", "the radio was playing softly"]
     ],
-    "viSentences": [
-      "nói nhẹ nhàng nhưng mang theo một cây gậy lớn",
-      "cô khẽ nói với trẻ",
-      "radio đang phát nhẹ nhàng"
-    ],
+    "viSentences": ["nói nhẹ nhàng nhưng mang theo một cây gậy lớn", "cô khẽ nói với trẻ", "radio đang phát nhẹ nhàng"],
     "def": "with low volume"
   },
   "quit": {
@@ -19456,12 +18343,7 @@
   "rate": {
     "part": "n",
     "vi": "tỷ lệ",
-    "sentences": [
-      [
-        "they traveled at a rate of 55 miles per hour",
-        "the rate of change was faster than expected"
-      ]
-    ],
+    "sentences": [["they traveled at a rate of 55 miles per hour", "the rate of change was faster than expected"]],
     "viSentences": ["họ di chuyển với tốc độ 55 dặm một giờ", "tốc độ thay đổi nhanh hơn dự kiến"],
     "def": "a magnitude or frequency relative to a time unit"
   },
@@ -19586,9 +18468,7 @@
   "really": {
     "part": "r",
     "vi": "Thực ra",
-    "sentences": [
-      ["she was now truly American", "a genuinely open society", "they don't really listen to us"]
-    ],
+    "sentences": [["she was now truly American", "a genuinely open society", "they don't really listen to us"]],
     "viSentences": [
       "bây giờ cô ấy đã thực sự là người Mỹ",
       "một xã hội cởi mở thực sự",
@@ -19678,10 +18558,7 @@
     "part": "v",
     "vi": "nhận ra",
     "sentences": [
-      [
-        "The Crown Prince was acknowledged as the true heir to the throne",
-        "We do not recognize your gods"
-      ]
+      ["The Crown Prince was acknowledged as the true heir to the throne", "We do not recognize your gods"]
     ],
     "viSentences": [
       "Thái tử được công nhận là người thừa kế ngai vàng thực sự",
@@ -19721,10 +18598,7 @@
     "part": "v",
     "vi": "hồi phục",
     "sentences": [["She regained control of herself", "She found her voice and replied quickly"]],
-    "viSentences": [
-      "Cô lấy lại quyền kiểm soát bản thân",
-      "Cô ấy tìm thấy giọng nói của mình và trả lời nhanh chóng"
-    ],
+    "viSentences": ["Cô lấy lại quyền kiểm soát bản thân", "Cô ấy tìm thấy giọng nói của mình và trả lời nhanh chóng"],
     "def": "get or find back; recover the use of"
   },
   "recovery": {
@@ -19751,13 +18625,8 @@
   "reduce": {
     "part": "v",
     "vi": "giảm",
-    "sentences": [
-      ["reduce your daily fat intake", "The employer wants to cut back health benefits"]
-    ],
-    "viSentences": [
-      "giảm lượng chất béo hàng ngày của bạn",
-      "Người sử dụng lao động muốn cắt giảm lợi ích sức khỏe"
-    ],
+    "sentences": [["reduce your daily fat intake", "The employer wants to cut back health benefits"]],
+    "viSentences": ["giảm lượng chất béo hàng ngày của bạn", "Người sử dụng lao động muốn cắt giảm lợi ích sức khỏe"],
     "def": "cut down on; make a reduction in"
   },
   "reduction": {
@@ -19860,27 +18729,15 @@
   "regime": {
     "part": "n",
     "vi": "chế độ",
-    "sentences": [
-      ["the government reduced taxes", "the matter was referred to higher authorities"]
-    ],
+    "sentences": [["the government reduced taxes", "the matter was referred to higher authorities"]],
     "viSentences": ["chính phủ giảm thuế", "sự việc đã được chuyển đến cơ quan cấp trên"],
     "def": "the organization that is the governing authority of a political unit"
   },
   "region": {
     "part": "n",
     "vi": "khu vực",
-    "sentences": [
-      [
-        "the farming regions of France",
-        "religions in all parts of the world",
-        "regions of outer space"
-      ]
-    ],
-    "viSentences": [
-      "các vùng nông nghiệp của Pháp",
-      "các tôn giáo ở mọi nơi trên thế giới",
-      "các vùng ngoài vũ trụ"
-    ],
+    "sentences": [["the farming regions of France", "religions in all parts of the world", "regions of outer space"]],
+    "viSentences": ["các vùng nông nghiệp của Pháp", "các tôn giáo ở mọi nơi trên thế giới", "các vùng ngoài vũ trụ"],
     "def": "the extended spatial location of something"
   },
   "regional": {
@@ -19901,10 +18758,7 @@
     "part": "n",
     "vi": "thường xuyên",
     "sentences": [["an habitue of the racetrack", "a bum who is a Central Park fixture"]],
-    "viSentences": [
-      "một thói quen của đường đua",
-      "một kẻ ăn bám là một vật cố định của Công viên Trung tâm"
-    ],
+    "viSentences": ["một thói quen của đường đua", "một kẻ ăn bám là một vật cố định của Công viên Trung tâm"],
     "def": "a regular patron"
   },
   "regularly": {
@@ -19977,15 +18831,9 @@
     "part": "n",
     "vi": "liên quan đến",
     "sentences": [
-      [
-        "police are searching for relatives of the deceased",
-        "he has distant relations back in New Jersey"
-      ]
+      ["police are searching for relatives of the deceased", "he has distant relations back in New Jersey"]
     ],
-    "viSentences": [
-      "cảnh sát đang tìm kiếm người thân của người chết",
-      "anh ấy có quan hệ xa ở New Jersey"
-    ],
+    "viSentences": ["cảnh sát đang tìm kiếm người thân của người chết", "anh ấy có quan hệ xa ở New Jersey"],
     "def": "a person related by blood or marriage"
   },
   "relatively": {
@@ -19999,10 +18847,7 @@
     "part": "v",
     "vi": "thư giãn",
     "sentences": [["He relaxed in the hot tub", "Let's all relax after a hard day's work"]],
-    "viSentences": [
-      "Anh thư giãn trong bồn tắm nước nóng",
-      "Mọi người cùng thư giãn sau một ngày làm việc mệt mỏi"
-    ],
+    "viSentences": ["Anh thư giãn trong bồn tắm nước nóng", "Mọi người cùng thư giãn sau một ngày làm việc mệt mỏi"],
     "def": "become less tense, rest, or take one's ease"
   },
   "release": {
@@ -20016,9 +18861,7 @@
     "part": "a",
     "vi": "liên quan, thích hợp",
     "sentences": [
-      [
-        "the scientist corresponds with colleagues in order to learn about matters relevant to her own research"
-      ]
+      ["the scientist corresponds with colleagues in order to learn about matters relevant to her own research"]
     ],
     "viSentences": [
       "nhà khoa học tương ứng với các đồng nghiệp để tìm hiểu về các vấn đề liên quan đến nghiên cứu của chính mình"
@@ -20111,10 +18954,7 @@
     "part": "s",
     "vi": "đáng chú ý",
     "sentences": [["a remarkable sight", "such poise is singular in one so young"]],
-    "viSentences": [
-      "một cảnh tượng đáng chú ý",
-      "sự đĩnh đạc như vậy là số ít ở một người quá trẻ"
-    ],
+    "viSentences": ["một cảnh tượng đáng chú ý", "sự đĩnh đạc như vậy là số ít ở một người quá trẻ"],
     "def": "unusual or striking"
   },
   "remember": {
@@ -20155,13 +18995,8 @@
   "remove": {
     "part": "n",
     "vi": "gỡ bỏ",
-    "sentences": [
-      ["just one remove from madness", "it imitates at many removes a Shakespearean tragedy"]
-    ],
-    "viSentences": [
-      "chỉ cần một lần thoát khỏi sự điên rồ",
-      "nó bắt chước nhiều lần một vở bi kịch của Shakespearean"
-    ],
+    "sentences": [["just one remove from madness", "it imitates at many removes a Shakespearean tragedy"]],
+    "viSentences": ["chỉ cần một lần thoát khỏi sự điên rồ", "nó bắt chước nhiều lần một vở bi kịch của Shakespearean"],
     "def": "degree of figurative distance or separation;  or"
   },
   "repeat": {
@@ -20200,9 +19035,7 @@
   "reply": {
     "part": "n",
     "vi": "Đáp lại",
-    "sentences": [
-      ["I waited several days for his answer", "he wrote replies to several of his critics"]
-    ],
+    "sentences": [["I waited several days for his answer", "he wrote replies to several of his critics"]],
     "viSentences": [
       "Tôi đã đợi vài ngày cho câu trả lời của anh ấy",
       "ông đã viết trả lời cho một số nhà phê bình của mình"
@@ -20227,9 +19060,7 @@
     "part": "v",
     "vi": "đại diện",
     "sentences": [
-      [
-        "Because of the sound changes in the course of history, an 'h' in Greek stands for an 's' in Latin"
-      ]
+      ["Because of the sound changes in the course of history, an 'h' in Greek stands for an 's' in Latin"]
     ],
     "viSentences": [
       "Do sự thay đổi âm thanh trong quá trình lịch sử, chữ 'h' trong tiếng Hy Lạp là viết tắt của chữ 's' trong tiếng Latinh"
@@ -20297,9 +19128,7 @@
   "requirement": {
     "part": "n",
     "vi": "yêu cầu",
-    "sentences": [
-      ["the requirements of his work affected his health", "there were many demands on his time"]
-    ],
+    "sentences": [["the requirements of his work affected his health", "there were many demands on his time"]],
     "viSentences": [
       "các yêu cầu của công việc ảnh hưởng đến sức khỏe của mình",
       "có nhiều yêu cầu về thời gian của anh ấy"
@@ -20374,10 +19203,7 @@
     "part": "n",
     "vi": "giải quyết",
     "sentences": [
-      [
-        "his resoluteness carried him through the battle",
-        "it was his unshakeable resolution to finish the work"
-      ]
+      ["his resoluteness carried him through the battle", "it was his unshakeable resolution to finish the work"]
     ],
     "viSentences": [
       "sự kiên quyết của anh ấy đã đưa anh ấy vượt qua trận chiến",
@@ -20466,13 +19292,7 @@
   "rest": {
     "part": "n",
     "vi": "còn lại",
-    "sentences": [
-      [
-        "there was no remainder",
-        "he threw away the rest",
-        "he took what he wanted and I got the balance"
-      ]
-    ],
+    "sentences": [["there was no remainder", "he threw away the rest", "he took what he wanted and I got the balance"]],
     "viSentences": [
       "không có phần còn lại",
       "anh ấy đã ném đi phần còn lại",
@@ -20498,9 +19318,7 @@
     "part": "n",
     "vi": "sự hạn chế",
     "sentences": [["I am willing to accept certain restrictions on my movements"]],
-    "viSentences": [
-      "Tôi sẵn sàng chấp nhận những hạn chế nhất định đối với việc di chuyển của mình"
-    ],
+    "viSentences": ["Tôi sẵn sàng chấp nhận những hạn chế nhất định đối với việc di chuyển của mình"],
     "def": "a principle that limits the extent of something"
   },
   "result": {
@@ -20523,14 +19341,8 @@
   "retain": {
     "part": "v",
     "vi": "giữ lại",
-    "sentences": [
-      ["This soil retains water", "I retain this drug for a long time", "the dam retains the water"]
-    ],
-    "viSentences": [
-      "Loại đất này giữ nước",
-      "Tôi giữ thuốc này trong một thời gian dài",
-      "con đập giữ nước"
-    ],
+    "sentences": [["This soil retains water", "I retain this drug for a long time", "the dam retains the water"]],
+    "viSentences": ["Loại đất này giữ nước", "Tôi giữ thuốc này trong một thời gian dài", "con đập giữ nước"],
     "def": "hold back within"
   },
   "retire": {
@@ -20558,10 +19370,7 @@
     "part": "v",
     "vi": "bộc lộ",
     "sentences": [["Summer brings out bright clothes", "He brings out the best in her"]],
-    "viSentences": [
-      "Mùa hè mang đến những bộ quần áo rực rỡ",
-      "Anh ấy mang đến những điều tốt đẹp nhất cho cô ấy"
-    ],
+    "viSentences": ["Mùa hè mang đến những bộ quần áo rực rỡ", "Anh ấy mang đến những điều tốt đẹp nhất cho cô ấy"],
     "def": "make visible"
   },
   "revenue": {
@@ -20689,14 +19498,8 @@
   "role": {
     "part": "n",
     "vi": "vai trò",
-    "sentences": [
-      ["the function of a teacher", "the government must do its part", "play its role"]
-    ],
-    "viSentences": [
-      "chức năng của một giáo viên",
-      "chính phủ phải làm phần việc của mình",
-      "đóng vai trò của nó"
-    ],
+    "sentences": [["the function of a teacher", "the government must do its part", "play its role"]],
+    "viSentences": ["chức năng của một giáo viên", "chính phủ phải làm phần việc của mình", "đóng vai trò của nó"],
     "def": "the actions and activities assigned to or required or expected of a person or group"
   },
   "roll": {
@@ -20824,49 +19627,29 @@
   "rule": {
     "part": "n",
     "vi": "quy tắc",
-    "sentences": [
-      ["it was his rule to take a walk before breakfast", "short haircuts were the regulation"]
-    ],
+    "sentences": [["it was his rule to take a walk before breakfast", "short haircuts were the regulation"]],
     "viSentences": ["quy tắc của anh ấy là đi dạo trước khi ăn sáng", "cắt tóc ngắn là quy định"],
     "def": "a principle or condition that customarily governs behavior"
   },
   "run": {
     "part": "n",
     "vi": "chạy",
-    "sentences": [
-      [
-        "the Yankees scored 3 runs in the bottom of the 9th",
-        "their first tally came in the 3rd inning"
-      ]
-    ],
-    "viSentences": [
-      "Yankees đã ghi được 3 điểm ở vị trí cuối bảng 9",
-      "lần kiểm đếm đầu tiên của họ đến ở hiệp thứ 3"
-    ],
+    "sentences": [["the Yankees scored 3 runs in the bottom of the 9th", "their first tally came in the 3rd inning"]],
+    "viSentences": ["Yankees đã ghi được 3 điểm ở vị trí cuối bảng 9", "lần kiểm đếm đầu tiên của họ đến ở hiệp thứ 3"],
     "def": "a score in baseball made by a runner touching all four bases safely"
   },
   "running": {
     "part": "n",
     "vi": "đang chạy",
-    "sentences": [
-      ["the defensive line braced to stop the run", "the coach put great emphasis on running"]
-    ],
-    "viSentences": [
-      "tuyến phòng thủ chuẩn bị để ngăn chặn cuộc chạy",
-      "huấn luyện viên rất chú trọng đến việc chạy"
-    ],
+    "sentences": [["the defensive line braced to stop the run", "the coach put great emphasis on running"]],
+    "viSentences": ["tuyến phòng thủ chuẩn bị để ngăn chặn cuộc chạy", "huấn luyện viên rất chú trọng đến việc chạy"],
     "def": "(American football) a play in which a player attempts to carry the ball through or past the opposing team"
   },
   "rural": {
     "part": "a",
     "vi": "nông thôn",
     "sentences": [
-      [
-        "rural people",
-        "large rural households",
-        "unpaved rural roads",
-        "an economy that is basically rural"
-      ]
+      ["rural people", "large rural households", "unpaved rural roads", "an economy that is basically rural"]
     ],
     "viSentences": [
       "Dân nông thôn",
@@ -20930,19 +19713,9 @@
     "part": "n",
     "vi": "lợi ích",
     "sentences": [
-      [
-        "for your sake",
-        "died for the sake of his country",
-        "in the interest of safety",
-        "in the common interest"
-      ]
+      ["for your sake", "died for the sake of his country", "in the interest of safety", "in the common interest"]
     ],
-    "viSentences": [
-      "vì lợi ích của bạn",
-      "chết vì nước",
-      "vì lợi ích của sự an toàn",
-      "vì lợi ích chung"
-    ],
+    "viSentences": ["vì lợi ích của bạn", "chết vì nước", "vì lợi ích của sự an toàn", "vì lợi ích chung"],
     "def": "a reason for wanting something done"
   },
   "salad": {
@@ -20956,11 +19729,7 @@
     "part": "n",
     "vi": "lương",
     "sentences": [
-      [
-        "wages were paid by check",
-        "he wasted his pay on drink",
-        "they saved a quarter of all their earnings"
-      ]
+      ["wages were paid by check", "he wasted his pay on drink", "they saved a quarter of all their earnings"]
     ],
     "viSentences": [
       "tiền lương được trả bằng séc",
@@ -20972,9 +19741,7 @@
   "sale": {
     "part": "n",
     "vi": "giảm giá",
-    "sentences": [
-      ["he has just made his first sale", "they had to complete the sale before the banks closed"]
-    ],
+    "sentences": [["he has just made his first sale", "they had to complete the sale before the banks closed"]],
     "viSentences": [
       "anh ấy vừa thực hiện lần bán hàng đầu tiên",
       "họ phải hoàn thành việc bán hàng trước khi các ngân hàng đóng cửa"
@@ -21064,13 +19831,8 @@
   "saving": {
     "part": "n",
     "vi": "tiết kiệm",
-    "sentences": [
-      ["it was a small economy to walk to work every day", "there was a saving of 50 cents"]
-    ],
-    "viSentences": [
-      "đó là một nền kinh tế nhỏ để đi bộ đến nơi làm việc mỗi ngày",
-      "đã tiết kiệm được 50 xu"
-    ],
+    "sentences": [["it was a small economy to walk to work every day", "there was a saving of 50 cents"]],
+    "viSentences": ["đó là một nền kinh tế nhỏ để đi bộ đến nơi làm việc mỗi ngày", "đã tiết kiệm được 50 xu"],
     "def": "an act of economizing; reduction in cost"
   },
   "say": {
@@ -21097,9 +19859,7 @@
   "scared": {
     "part": "v",
     "vi": "sợ hãi",
-    "sentences": [
-      ["The stranger who hangs around the building frightens me", "Ghosts could never affright her"]
-    ],
+    "sentences": [["The stranger who hangs around the building frightens me", "Ghosts could never affright her"]],
     "viSentences": [
       "Người lạ lảng vảng quanh tòa nhà khiến tôi sợ hãi",
       "Những hồn ma không bao giờ có thể làm cô sợ hãi"
@@ -21204,9 +19964,7 @@
   "score": {
     "part": "n",
     "vi": "ghi bàn",
-    "sentences": [
-      ["she made good marks in algebra", "grade A milk", "what was your score on your homework?"]
-    ],
+    "sentences": [["she made good marks in algebra", "grade A milk", "what was your score on your homework?"]],
     "viSentences": [
       "cô ấy đã đạt điểm cao trong môn đại số",
       "sữa loại A",
@@ -21253,15 +20011,9 @@
     "part": "n",
     "vi": "Mùa",
     "sentences": [
-      [
-        "he celebrated his 10th season with the ballet company",
-        "she always looked forward to the avocado season"
-      ]
+      ["he celebrated his 10th season with the ballet company", "she always looked forward to the avocado season"]
     ],
-    "viSentences": [
-      "anh ấy đã kỷ niệm mùa thứ 10 của mình với vũ đoàn ba lê",
-      "cô ấy luôn mong chờ mùa bơ"
-    ],
+    "viSentences": ["anh ấy đã kỷ niệm mùa thứ 10 của mình với vũ đoàn ba lê", "cô ấy luôn mong chờ mùa bơ"],
     "def": "a period of the year marked by special events or activities in some field"
   },
   "seat": {
@@ -21281,13 +20033,8 @@
   "secret": {
     "part": "n",
     "vi": "bí mật",
-    "sentences": [
-      ["the combination to the safe was a secret", "he tried to keep his drinking a secret"]
-    ],
-    "viSentences": [
-      "sự kết hợp để an toàn là một bí mật",
-      "anh ấy đã cố gắng giữ bí mật về việc uống rượu của mình"
-    ],
+    "sentences": [["the combination to the safe was a secret", "he tried to keep his drinking a secret"]],
+    "viSentences": ["sự kết hợp để an toàn là một bí mật", "anh ấy đã cố gắng giữ bí mật về việc uống rượu của mình"],
     "def": "something that should remain hidden from others (especially information that is not to be passed on)"
   },
   "secretary": {
@@ -21301,10 +20048,7 @@
     "part": "n",
     "vi": "tiết diện",
     "sentences": [
-      [
-        "he always turns first to the business section",
-        "the history of this work is discussed in the next section"
-      ]
+      ["he always turns first to the business section", "the history of this work is discussed in the next section"]
     ],
     "viSentences": [
       "anh ấy luôn chuyển sang phần kinh doanh đầu tiên",
@@ -21377,11 +20121,7 @@
     "part": "n",
     "vi": "bộ phận",
     "sentences": [
-      [
-        "a section of a fishing rod",
-        "metal sections were used below ground",
-        "finished the final segment of the road"
-      ]
+      ["a section of a fishing rod", "metal sections were used below ground", "finished the final segment of the road"]
     ],
     "viSentences": [
       "một phần của cần câu",
@@ -21488,9 +20228,7 @@
   "sense": {
     "part": "n",
     "vi": "cảm giác",
-    "sentences": [
-      ["a sense of security", "a sense of happiness", "a sense of danger", "a sense of self"]
-    ],
+    "sentences": [["a sense of security", "a sense of happiness", "a sense of danger", "a sense of self"]],
     "viSentences": [
       "một cảm giác an toàn",
       "một cảm giác hạnh phúc",
@@ -21641,9 +20379,7 @@
   "several": {
     "part": "s",
     "vi": "một số",
-    "sentences": [
-      ["several letters came in the mail", "several people were injured in the accident"]
-    ],
+    "sentences": [["several letters came in the mail", "several people were injured in the accident"]],
     "viSentences": ["một vài lá thư đến trong thư", "một số người bị thương trong vụ tai nạn"],
     "def": "(used with count nouns) of an indefinite number more than 2 or 3 but not many"
   },
@@ -21685,13 +20421,8 @@
   "shade": {
     "part": "n",
     "vi": "bóng râm",
-    "sentences": [
-      ["it is much cooler in the shade", "there's too much shadiness to take good photographs"]
-    ],
-    "viSentences": [
-      "trời mát hơn nhiều trong bóng râm",
-      "có quá nhiều bóng râm để chụp những bức ảnh đẹp"
-    ],
+    "sentences": [["it is much cooler in the shade", "there's too much shadiness to take good photographs"]],
+    "viSentences": ["trời mát hơn nhiều trong bóng râm", "có quá nhiều bóng râm để chụp những bức ảnh đẹp"],
     "def": "relative darkness caused by light rays being intercepted by an opaque body"
   },
   "shadow": {
@@ -21832,12 +20563,7 @@
   "shopping": {
     "part": "n",
     "vi": "mua đồ",
-    "sentences": [
-      [
-        "went shopping for a reliable plumber",
-        "does her shopping at the mall rather than down town"
-      ]
-    ],
+    "sentences": [["went shopping for a reliable plumber", "does her shopping at the mall rather than down town"]],
     "viSentences": [
       "đã đi mua sắm cho một thợ sửa ống nước đáng tin cậy",
       "cô ấy mua sắm ở trung tâm mua sắm chứ không phải xuống thị trấn"
@@ -21939,13 +20665,8 @@
   "sight": {
     "part": "n",
     "vi": "thị giác",
-    "sentences": [
-      ["the sight of his wife brought him back to reality", "the train was an unexpected sight"]
-    ],
-    "viSentences": [
-      "hình ảnh của vợ đưa anh trở lại thực tế",
-      "chuyến tàu là một cảnh tượng bất ngờ"
-    ],
+    "sentences": [["the sight of his wife brought him back to reality", "the train was an unexpected sight"]],
+    "viSentences": ["hình ảnh của vợ đưa anh trở lại thực tế", "chuyến tàu là một cảnh tượng bất ngờ"],
     "def": "an instance of visual perception"
   },
   "sign": {
@@ -22021,14 +20742,8 @@
   "similar": {
     "part": "a",
     "vi": "tương tự",
-    "sentences": [
-      ["similar food at similar prices", "problems similar to mine", "they wore similar coats"]
-    ],
-    "viSentences": [
-      "thực phẩm tương tự với giá tương tự",
-      "vấn đề tương tự như của tôi",
-      "họ mặc áo khoác giống nhau"
-    ],
+    "sentences": [["similar food at similar prices", "problems similar to mine", "they wore similar coats"]],
+    "viSentences": ["thực phẩm tương tự với giá tương tự", "vấn đề tương tự như của tôi", "họ mặc áo khoác giống nhau"],
     "def": "marked by correspondence or resemblance"
   },
   "similarly": {
@@ -22207,13 +20922,8 @@
   "sleep": {
     "part": "n",
     "vi": "ngủ",
-    "sentences": [
-      ["he didn't get enough sleep last night", "calm as a child in dreamless slumber"]
-    ],
-    "viSentences": [
-      "anh ấy đã không ngủ đủ giấc đêm qua",
-      "bình tĩnh như một đứa trẻ trong giấc ngủ không mộng mị"
-    ],
+    "sentences": [["he didn't get enough sleep last night", "calm as a child in dreamless slumber"]],
+    "viSentences": ["anh ấy đã không ngủ đủ giấc đêm qua", "bình tĩnh như một đứa trẻ trong giấc ngủ không mộng mị"],
     "def": "a natural and periodic state of rest during which consciousness of the world is suspended"
   },
   "slice": {
@@ -22464,13 +21174,7 @@
     "part": "a",
     "vi": "một số",
     "sentences": [
-      [
-        "have some milk",
-        "some roses were still blooming",
-        "having some friends over",
-        "some apples",
-        "some paper"
-      ]
+      ["have some milk", "some roses were still blooming", "having some friends over", "some apples", "some paper"]
     ],
     "viSentences": [
       "có một ít sữa",
@@ -22556,10 +21260,7 @@
     "part": "n",
     "vi": "Con trai",
     "sentences": [["their son became a famous judge", "his boy is taller than he is"]],
-    "viSentences": [
-      "con trai họ đã trở thành một thẩm phán nổi tiếng",
-      "cậu bé của anh ấy cao hơn anh ấy"
-    ],
+    "viSentences": ["con trai họ đã trở thành một thẩm phán nổi tiếng", "cậu bé của anh ấy cao hơn anh ấy"],
     "def": "a male human offspring"
   },
   "song": {
@@ -22683,12 +21384,7 @@
   "space": {
     "part": "n",
     "vi": "khoảng trống",
-    "sentences": [
-      [
-        "they tested his ability to locate objects in space",
-        "the boundless regions of the infinite"
-      ]
-    ],
+    "sentences": [["they tested his ability to locate objects in space", "the boundless regions of the infinite"]],
     "viSentences": [
       "họ đã kiểm tra khả năng xác định vị trí các vật thể trong không gian của anh ấy",
       "những vùng vô tận của vô hạn"
@@ -22706,10 +21402,7 @@
     "part": "v",
     "vi": "nói chuyện",
     "sentences": [["She talks a lot of nonsense", "This depressed patient does not verbalize"]],
-    "viSentences": [
-      "Cô ấy nói rất nhiều điều vô nghĩa",
-      "Bệnh nhân trầm cảm này không nói thành lời"
-    ],
+    "viSentences": ["Cô ấy nói rất nhiều điều vô nghĩa", "Bệnh nhân trầm cảm này không nói thành lời"],
     "def": "express in speech"
   },
   "speaker": {
@@ -22750,13 +21443,8 @@
   "specifically": {
     "part": "r",
     "vi": "đặc biệt",
-    "sentences": [
-      ["a program specifically for teenagers", "he is interested specifically in poisonous snakes"]
-    ],
-    "viSentences": [
-      "một chương trình dành riêng cho thanh thiếu niên",
-      "anh ấy đặc biệt quan tâm đến rắn độc"
-    ],
+    "sentences": [["a program specifically for teenagers", "he is interested specifically in poisonous snakes"]],
+    "viSentences": ["một chương trình dành riêng cho thanh thiếu niên", "anh ấy đặc biệt quan tâm đến rắn độc"],
     "def": "in distinction from others"
   },
   "speech": {
@@ -22833,10 +21521,7 @@
     "part": "n",
     "vi": "điểm",
     "sentences": [["this is a nice place for a picnic", "a bright spot on a planet"]],
-    "viSentences": [
-      "đây là một nơi tốt đẹp cho một chuyến dã ngoại",
-      "một điểm sáng trên một hành tinh"
-    ],
+    "viSentences": ["đây là một nơi tốt đẹp cho một chuyến dã ngoại", "một điểm sáng trên một hành tinh"],
     "def": "a point located with respect to surface features of some region"
   },
   "spread": {
@@ -22850,15 +21535,9 @@
     "part": "n",
     "vi": "mùa xuân",
     "sentences": [
-      [
-        "the emerging buds were a sure sign of spring",
-        "he will hold office until the spring of next year"
-      ]
+      ["the emerging buds were a sure sign of spring", "he will hold office until the spring of next year"]
     ],
-    "viSentences": [
-      "chồi mới nhú là dấu hiệu chắc chắn của mùa xuân",
-      "ông sẽ giữ chức vụ cho đến mùa xuân năm sau"
-    ],
+    "viSentences": ["chồi mới nhú là dấu hiệu chắc chắn của mùa xuân", "ông sẽ giữ chức vụ cho đến mùa xuân năm sau"],
     "def": "the season of growth"
   },
   "square": {
@@ -22893,10 +21572,7 @@
     "part": "n",
     "vi": "Nhân Viên",
     "sentences": [
-      [
-        "the hospital has an excellent nursing staff",
-        "the general relied on his staff to make routine decisions"
-      ]
+      ["the hospital has an excellent nursing staff", "the general relied on his staff to make routine decisions"]
     ],
     "viSentences": [
       "bệnh viện có một đội ngũ điều dưỡng xuất sắc",
@@ -22907,9 +21583,7 @@
   "stage": {
     "part": "n",
     "vi": "sân khấu",
-    "sentences": [
-      ["we are in a transitional stage in which many former ideas must be revised or rejected"]
-    ],
+    "sentences": [["we are in a transitional stage in which many former ideas must be revised or rejected"]],
     "viSentences": [
       "chúng tôi đang trong giai đoạn chuyển tiếp, trong đó nhiều ý tưởng trước đây phải được sửa đổi hoặc từ chối"
     ],
@@ -22939,9 +21613,7 @@
   "standard": {
     "part": "n",
     "vi": "Tiêu chuẩn",
-    "sentences": [
-      ["the schools comply with federal standards", "they set the measure for all subsequent work"]
-    ],
+    "sentences": [["the schools comply with federal standards", "they set the measure for all subsequent work"]],
     "viSentences": [
       "các trường tuân thủ các tiêu chuẩn liên bang",
       "họ đặt thước đo cho tất cả các công việc tiếp theo"
@@ -23025,11 +21697,7 @@
     "part": "n",
     "vi": "ở lại",
     "sentences": [
-      [
-        "they had a nice stay in Paris",
-        "a lengthy hospital stay",
-        "a four-month stay in bankruptcy court"
-      ]
+      ["they had a nice stay in Paris", "a lengthy hospital stay", "a four-month stay in bankruptcy court"]
     ],
     "viSentences": [
       "họ đã có một kỳ nghỉ tuyệt vời ở Paris",
@@ -23049,10 +21717,7 @@
     "part": "n",
     "vi": "ăn cắp",
     "sentences": [["she got a bargain at the auction", "the stock was a real buy at that price"]],
-    "viSentences": [
-      "cô ấy đã có một món hời tại cuộc đấu giá",
-      "cổ phiếu là một mua thực sự ở mức giá đó"
-    ],
+    "viSentences": ["cô ấy đã có một món hời tại cuộc đấu giá", "cổ phiếu là một mua thực sự ở mức giá đó"],
     "def": "an advantageous purchase"
   },
   "steel": {
@@ -23065,25 +21730,15 @@
   "step": {
     "part": "n",
     "vi": "bước chân",
-    "sentences": [
-      ["the situation called for strong measures", "the police took steps to reduce crime"]
-    ],
-    "viSentences": [
-      "tình hình kêu gọi các biện pháp mạnh mẽ",
-      "cảnh sát đã thực hiện các bước để giảm tội phạm"
-    ],
+    "sentences": [["the situation called for strong measures", "the police took steps to reduce crime"]],
+    "viSentences": ["tình hình kêu gọi các biện pháp mạnh mẽ", "cảnh sát đã thực hiện các bước để giảm tội phạm"],
     "def": "any maneuver made as part of progress toward a goal"
   },
   "stick": {
     "part": "n",
     "vi": "gậy",
-    "sentences": [
-      ["he collected dry sticks for a campfire", "the kid had a candied apple on a stick"]
-    ],
-    "viSentences": [
-      "anh ấy thu thập những que củi khô để đốt lửa trại",
-      "đứa trẻ có một quả táo kẹo trên que"
-    ],
+    "sentences": [["he collected dry sticks for a campfire", "the kid had a candied apple on a stick"]],
+    "viSentences": ["anh ấy thu thập những que củi khô để đốt lửa trại", "đứa trẻ có một quả táo kẹo trên que"],
     "def": "an implement consisting of a length of wood"
   },
   "still": {
@@ -23152,9 +21807,7 @@
   "story": {
     "part": "n",
     "vi": "câu chuyện",
-    "sentences": [
-      ["his narrative was interesting", "Disney's stories entertain adults as well as children"]
-    ],
+    "sentences": [["his narrative was interesting", "Disney's stories entertain adults as well as children"]],
     "viSentences": [
       "câu chuyện của anh ấy thật thú vị",
       "Những câu chuyện của Disney giải trí cho người lớn cũng như trẻ em"
@@ -23195,14 +21848,8 @@
   "strategic": {
     "part": "a",
     "vi": "chiến lược",
-    "sentences": [
-      ["strategic weapon", "the islands are of strategic importance", "strategic considerations"]
-    ],
-    "viSentences": [
-      "vũ khí chiến lược",
-      "quần đảo có tầm quan trọng chiến lược",
-      "cân nhắc chiến lược"
-    ],
+    "sentences": [["strategic weapon", "the islands are of strategic importance", "strategic considerations"]],
+    "viSentences": ["vũ khí chiến lược", "quần đảo có tầm quan trọng chiến lược", "cân nhắc chiến lược"],
     "def": "relating to or concerned with strategy"
   },
   "strategy": {
@@ -23237,10 +21884,7 @@
     "part": "v",
     "vi": "củng cố",
     "sentences": [
-      [
-        "This exercise will strengthen your upper body",
-        "strengthen the relations between the two countries"
-      ]
+      ["This exercise will strengthen your upper body", "strengthen the relations between the two countries"]
     ],
     "viSentences": [
       "Bài tập này sẽ tăng cường sức mạnh cho phần thân trên của bạn",
@@ -23310,13 +21954,8 @@
   "strongly": {
     "part": "r",
     "vi": "mạnh mẽ",
-    "sentences": [
-      ["argues very strongly for his proposal", "he was strongly opposed to the government"]
-    ],
-    "viSentences": [
-      "lập luận rất mạnh mẽ cho đề xuất của mình",
-      "ông đã phản đối mạnh mẽ chính phủ"
-    ],
+    "sentences": [["argues very strongly for his proposal", "he was strongly opposed to the government"]],
+    "viSentences": ["lập luận rất mạnh mẽ cho đề xuất của mình", "ông đã phản đối mạnh mẽ chính phủ"],
     "def": "with strength or in a strong manner"
   },
   "structure": {
@@ -23328,22 +21967,14 @@
         "she wore her hair in an amazing construction of whirls and ribbons"
       ]
     ],
-    "viSentences": [
-      "cấu trúc bao gồm một loạt các vòm",
-      "cô ấy để tóc theo kiểu xoắn và ruy băng tuyệt vời"
-    ],
+    "viSentences": ["cấu trúc bao gồm một loạt các vòm", "cô ấy để tóc theo kiểu xoắn và ruy băng tuyệt vời"],
     "def": "a thing constructed; a complex entity constructed of many parts"
   },
   "struggle": {
     "part": "n",
     "vi": "đấu tranh ",
-    "sentences": [
-      ["getting through the crowd was a real struggle", "he fought a battle for recognition"]
-    ],
-    "viSentences": [
-      "vượt qua đám đông là một cuộc đấu tranh thực sự",
-      "anh ấy đã chiến đấu để được công nhận"
-    ],
+    "sentences": [["getting through the crowd was a real struggle", "he fought a battle for recognition"]],
+    "viSentences": ["vượt qua đám đông là một cuộc đấu tranh thực sự", "anh ấy đã chiến đấu để được công nhận"],
     "def": "an energetic attempt to achieve something"
   },
   "student": {
@@ -23480,10 +22111,7 @@
     "part": "n",
     "vi": "thành công",
     "sentences": [
-      [
-        "let's call heads a success and tails a failure",
-        "the election was a remarkable success for the Whigs"
-      ]
+      ["let's call heads a success and tails a failure", "the election was a remarkable success for the Whigs"]
     ],
     "viSentences": [
       "hãy coi cái đầu là thành công và cái đuôi là thất bại",
@@ -23508,15 +22136,7 @@
   "such": {
     "part": "s",
     "vi": "như là",
-    "sentences": [
-      [
-        "such weeping",
-        "so much weeping",
-        "such a help",
-        "such grief",
-        "never dreamed of such beauty"
-      ]
-    ],
+    "sentences": [["such weeping", "so much weeping", "such a help", "such grief", "never dreamed of such beauty"]],
     "viSentences": [
       "khóc như vậy",
       "khóc rất nhiều",
@@ -23635,16 +22255,8 @@
   "sun": {
     "part": "n",
     "vi": "mặt trời",
-    "sentences": [
-      [
-        "the sun contains 99.85% of the mass in the solar system",
-        "the Earth revolves around the Sun"
-      ]
-    ],
-    "viSentences": [
-      "mặt trời chứa 99,85% khối lượng trong hệ mặt trời",
-      "trái đất xoay quanh mặt trời"
-    ],
+    "sentences": [["the sun contains 99.85% of the mass in the solar system", "the Earth revolves around the Sun"]],
+    "viSentences": ["mặt trời chứa 99,85% khối lượng trong hệ mặt trời", "trái đất xoay quanh mặt trời"],
     "def": "the star that is the source of light and heat for the planets in the solar system"
   },
   "super": {
@@ -23664,12 +22276,7 @@
   "support": {
     "part": "n",
     "vi": "hỗ trợ",
-    "sentences": [
-      [
-        "his support kept the family together",
-        "they gave him emotional support during difficult times"
-      ]
-    ],
+    "sentences": [["his support kept the family together", "they gave him emotional support during difficult times"]],
     "viSentences": [
       "sự hỗ trợ của anh ấy đã giữ gia đình lại với nhau",
       "họ đã hỗ trợ tinh thần cho anh ấy trong thời điểm khó khăn"
@@ -23679,23 +22286,15 @@
   "supporter": {
     "part": "n",
     "vi": "người ủng hộ",
-    "sentences": [
-      ["all their supporters came out for the game", "they are friends of the library"]
-    ],
-    "viSentences": [
-      "tất cả những người ủng hộ họ đã ra ngoài cho trò chơi",
-      "họ là bạn của thư viện"
-    ],
+    "sentences": [["all their supporters came out for the game", "they are friends of the library"]],
+    "viSentences": ["tất cả những người ủng hộ họ đã ra ngoài cho trò chơi", "họ là bạn của thư viện"],
     "def": "a person who backs a politician or a team etc."
   },
   "suppose": {
     "part": "v",
     "vi": "giả sử",
     "sentences": [
-      [
-        "Let us say that he did not tell the truth",
-        "Let's say you had a lot of money--what would you do?"
-      ]
+      ["Let us say that he did not tell the truth", "Let's say you had a lot of money--what would you do?"]
     ],
     "viSentences": [
       "Hãy để chúng tôi nói rằng anh ấy đã không nói sự thật",
@@ -23707,10 +22306,7 @@
     "part": "v",
     "vi": "giả sử",
     "sentences": [
-      [
-        "Let us say that he did not tell the truth",
-        "Let's say you had a lot of money--what would you do?"
-      ]
+      ["Let us say that he did not tell the truth", "Let's say you had a lot of money--what would you do?"]
     ],
     "viSentences": [
       "Hãy để chúng tôi nói rằng anh ấy đã không nói sự thật",
@@ -23775,15 +22371,9 @@
     "part": "n",
     "vi": "mặt",
     "sentences": [
-      [
-        "there is a special cleaner for these surfaces",
-        "the cloth had a pattern of red dots on a white surface"
-      ]
+      ["there is a special cleaner for these surfaces", "the cloth had a pattern of red dots on a white surface"]
     ],
-    "viSentences": [
-      "có một chất tẩy rửa đặc biệt cho những bề mặt này",
-      "vải có hoa văn chấm đỏ trên bề mặt trắng"
-    ],
+    "viSentences": ["có một chất tẩy rửa đặc biệt cho những bề mặt này", "vải có hoa văn chấm đỏ trên bề mặt trắng"],
     "def": "the outer boundary of an artifact or a material layer constituting or resembling such a boundary"
   },
   "surgery": {
@@ -23924,10 +22514,7 @@
     "part": "n",
     "vi": "lung lay",
     "sentences": [["the party went with a swing", "it took time to get into the swing of things"]],
-    "viSentences": [
-      "bữa tiệc diễn ra sôi nổi",
-      "phải mất thời gian để hòa mình vào vòng xoáy của mọi thứ"
-    ],
+    "viSentences": ["bữa tiệc diễn ra sôi nổi", "phải mất thời gian để hòa mình vào vòng xoáy của mọi thứ"],
     "def": "a state of steady vigorous action that is characteristic of an activity"
   },
   "switch": {
@@ -23954,13 +22541,8 @@
   "system": {
     "part": "n",
     "vi": "hệ thống",
-    "sentences": [
-      ["he bought a new stereo system", "the system consists of a motor and a small computer"]
-    ],
-    "viSentences": [
-      "anh ấy đã mua một hệ thống âm thanh nổi mới",
-      "hệ thống bao gồm một động cơ và một máy tính nhỏ"
-    ],
+    "sentences": [["he bought a new stereo system", "the system consists of a motor and a small computer"]],
+    "viSentences": ["anh ấy đã mua một hệ thống âm thanh nổi mới", "hệ thống bao gồm một động cơ và một máy tính nhỏ"],
     "def": "instrumentality that combines interrelated interacting artifacts designed to work as a coherent entity"
   },
   "table": {
@@ -24001,9 +22583,7 @@
   "tale": {
     "part": "n",
     "vi": "câu chuyện",
-    "sentences": [
-      ["his narrative was interesting", "Disney's stories entertain adults as well as children"]
-    ],
+    "sentences": [["his narrative was interesting", "Disney's stories entertain adults as well as children"]],
     "viSentences": [
       "câu chuyện của anh ấy thật thú vị",
       "Những câu chuyện của Disney giải trí cho người lớn cũng như trẻ em"
@@ -24115,10 +22695,7 @@
     "part": "n",
     "vi": "giảng bài",
     "sentences": [
-      [
-        "he prepared for teaching while still in college",
-        "pedagogy is recognized as an important profession"
-      ]
+      ["he prepared for teaching while still in college", "pedagogy is recognized as an important profession"]
     ],
     "viSentences": [
       "anh ấy đã chuẩn bị cho việc giảng dạy khi còn học đại học",
@@ -24200,10 +22777,7 @@
     "part": "n",
     "vi": "vô tuyến",
     "sentences": [
-      [
-        "she is a star of screen and video",
-        "Television is a medium because it is neither rare nor well done"
-      ]
+      ["she is a star of screen and video", "Television is a medium because it is neither rare nor well done"]
     ],
     "viSentences": [
       "cô ấy là một ngôi sao của màn hình và video",
@@ -24243,11 +22817,7 @@
     "part": "v",
     "vi": "có xu hướng",
     "sentences": [
-      [
-        "She tends to be nervous before her lectures",
-        "These dresses run small",
-        "He inclined to corpulence"
-      ]
+      ["She tends to be nervous before her lectures", "These dresses run small", "He inclined to corpulence"]
     ],
     "viSentences": [
       "Cô ấy có xu hướng lo lắng trước bài giảng của mình",
@@ -24273,9 +22843,7 @@
   "tension": {
     "part": "n",
     "vi": "căng thẳng",
-    "sentences": [
-      ["he suffered from fatigue and emotional tension", "stress is a vasoconstrictor"]
-    ],
+    "sentences": [["he suffered from fatigue and emotional tension", "stress is a vasoconstrictor"]],
     "viSentences": ["anh ấy bị mệt mỏi và căng thẳng về cảm xúc", "căng thẳng là một chất co mạch"],
     "def": "(psychology) a state of mental or emotional strain or suspense"
   },
@@ -24362,9 +22930,7 @@
   "test": {
     "part": "n",
     "vi": "kiểm tra",
-    "sentences": [
-      ["a sample for ten days free trial", "a trial of progesterone failed to relieve the pain"]
-    ],
+    "sentences": [["a sample for ten days free trial", "a trial of progesterone failed to relieve the pain"]],
     "viSentences": [
       "một mẫu cho mười ngày dùng thử miễn phí",
       "một thử nghiệm của progesterone thất bại trong việc giảm đau"
@@ -24463,9 +23029,7 @@
   "theory": {
     "part": "n",
     "vi": "học thuyết",
-    "sentences": [
-      ["theories can incorporate facts and laws and tested hypotheses", "true in fact and theory"]
-    ],
+    "sentences": [["theories can incorporate facts and laws and tested hypotheses", "true in fact and theory"]],
     "viSentences": [
       "các lý thuyết có thể kết hợp các sự kiện và quy luật và các giả thuyết đã được kiểm tra",
       "đúng trong thực tế và lý thuyết"
@@ -24581,10 +23145,7 @@
     "part": "n",
     "vi": "tư tưởng",
     "sentences": [["it was not a good idea", "the thought never entered my mind"]],
-    "viSentences": [
-      "nó không phải là một ý tưởng tốt",
-      "ý nghĩ chưa bao giờ xuất hiện trong đầu tôi"
-    ],
+    "viSentences": ["nó không phải là một ý tưởng tốt", "ý nghĩ chưa bao giờ xuất hiện trong đầu tôi"],
     "def": "the content of cognition; the main thing you are thinking about"
   },
   "thousand": {
@@ -24672,9 +23233,7 @@
   "tie": {
     "part": "n",
     "vi": "buộc",
-    "sentences": [
-      ["he stood in front of the mirror tightening his necktie", "he wore a vest and tie"]
-    ],
+    "sentences": [["he stood in front of the mirror tightening his necktie", "he wore a vest and tie"]],
     "viSentences": ["anh đứng trước gương thắt cà vạt", "anh ấy mặc vest và thắt cà vạt"],
     "def": "neckwear consisting of a long narrow piece of material worn (mostly by men) under a collar and tied in knot at the front"
   },
@@ -24701,11 +23260,7 @@
     "part": "n",
     "vi": "thời gian",
     "sentences": [["this time he succeeded", "he called four times", "he could do ten at a clip"]],
-    "viSentences": [
-      "lần này anh đã thành công",
-      "anh ấy đã gọi bốn lần",
-      "anh ấy có thể làm mười trong một clip"
-    ],
+    "viSentences": ["lần này anh đã thành công", "anh ấy đã gọi bốn lần", "anh ấy có thể làm mười trong một clip"],
     "def": "an instance or single occasion for some event"
   },
   "tiny": {
@@ -24747,9 +23302,7 @@
     "part": "v",
     "vi": "mệt mỏi",
     "sentences": [["I'm so tired of your mother and her complaints about my food"]],
-    "viSentences": [
-      "Tôi quá mệt mỏi với mẹ của bạn và những lời phàn nàn của bà về thức ăn của tôi"
-    ],
+    "viSentences": ["Tôi quá mệt mỏi với mẹ của bạn và những lời phàn nàn của bà về thức ăn của tôi"],
     "def": "lose interest or become bored with something or somebody"
   },
   "tissue": {
@@ -24855,10 +23408,7 @@
     "part": "n",
     "vi": "hàng đầu",
     "sentences": [
-      [
-        "the mower cuts off the tops of the grass",
-        "the title should be written at the top of the first page"
-      ]
+      ["the mower cuts off the tops of the grass", "the title should be written at the top of the first page"]
     ],
     "viSentences": ["máy cắt cắt ngọn cỏ", "tiêu đề nên được viết ở đầu trang đầu tiên"],
     "def": "the upper part of anything"
@@ -24927,10 +23477,7 @@
     "part": "n",
     "vi": "chạm",
     "sentences": [["he longed for the touch of her hand", "the cooling touch of the night air"]],
-    "viSentences": [
-      "anh khao khát được chạm vào bàn tay cô",
-      "cảm giác mát mẻ của không khí ban đêm"
-    ],
+    "viSentences": ["anh khao khát được chạm vào bàn tay cô", "cảm giác mát mẻ của không khí ban đêm"],
     "def": "the event of something coming in contact with the body"
   },
   "tough": {
@@ -25004,28 +23551,15 @@
   "track": {
     "part": "n",
     "vi": "theo dõi",
-    "sentences": [
-      [
-        "the hurricane demolished houses in its path",
-        "the track of an animal",
-        "the course of the river"
-      ]
-    ],
-    "viSentences": [
-      "cơn bão phá hủy những ngôi nhà trên đường đi của nó",
-      "dấu vết của một con vật",
-      "dòng sông"
-    ],
+    "sentences": [["the hurricane demolished houses in its path", "the track of an animal", "the course of the river"]],
+    "viSentences": ["cơn bão phá hủy những ngôi nhà trên đường đi của nó", "dấu vết của một con vật", "dòng sông"],
     "def": "a line or route along which something travels or moves"
   },
   "trade": {
     "part": "n",
     "vi": "buôn bán",
     "sentences": [
-      [
-        "Venice was an important center of trade with the East",
-        "they are accused of conspiring to constrain trade"
-      ]
+      ["Venice was an important center of trade with the East", "they are accused of conspiring to constrain trade"]
     ],
     "viSentences": [
       "Venice là một trung tâm thương mại quan trọng với phương Đông",
@@ -25057,13 +23591,8 @@
   "tragedy": {
     "part": "n",
     "vi": "bi kịch",
-    "sentences": [
-      ["the whole city was affected by the irremediable calamity", "the earthquake was a disaster"]
-    ],
-    "viSentences": [
-      "cả thành phố bị ảnh hưởng bởi thiên tai không thể khắc phục",
-      "trận động đất là một thảm họa"
-    ],
+    "sentences": [["the whole city was affected by the irremediable calamity", "the earthquake was a disaster"]],
+    "viSentences": ["cả thành phố bị ảnh hưởng bởi thiên tai không thể khắc phục", "trận động đất là một thảm họa"],
     "def": "an event resulting in great loss and misfortune"
   },
   "trail": {
@@ -25230,10 +23759,7 @@
     "part": "n",
     "vi": "lừa",
     "sentences": [["he played a trick on me", "he pulled a fast one and got away with it"]],
-    "viSentences": [
-      "anh ấy đã giở trò đồi bại với tôi",
-      "anh ta kéo một cái thật nhanh và thoát khỏi nó"
-    ],
+    "viSentences": ["anh ấy đã giở trò đồi bại với tôi", "anh ta kéo một cái thật nhanh và thoát khỏi nó"],
     "def": "a cunning or deceitful action or device"
   },
   "trip": {
@@ -25274,9 +23800,7 @@
   "truly": {
     "part": "r",
     "vi": "thực sự",
-    "sentences": [
-      ["she was now truly American", "a genuinely open society", "they don't really listen to us"]
-    ],
+    "sentences": [["she was now truly American", "a genuinely open society", "they don't really listen to us"]],
     "viSentences": [
       "bây giờ cô ấy đã thực sự là người Mỹ",
       "một xã hội cởi mở thực sự",
@@ -25288,9 +23812,7 @@
     "part": "n",
     "vi": "Lòng tin",
     "sentences": [["he is the beneficiary of a generous trust set up by his father"]],
-    "viSentences": [
-      "anh ta là người thụ hưởng của một sự tin tưởng hào phóng do cha anh ta thiết lập"
-    ],
+    "viSentences": ["anh ta là người thụ hưởng của một sự tin tưởng hào phóng do cha anh ta thiết lập"],
     "def": "something (as property) held by one party (the trustee) for the benefit of another (the beneficiary)"
   },
   "truth": {
@@ -25304,11 +23826,7 @@
     "part": "n",
     "vi": "cố gắng",
     "sentences": [
-      [
-        "made an effort to cover all the reading material",
-        "wished him luck in his endeavor",
-        "she gave it a good try"
-      ]
+      ["made an effort to cover all the reading material", "wished him luck in his endeavor", "she gave it a good try"]
     ],
     "viSentences": [
       "đã nỗ lực để trang trải tất cả các tài liệu đọc",
@@ -25342,10 +23860,7 @@
     "part": "n",
     "vi": "TV",
     "sentences": [
-      [
-        "she is a star of screen and video",
-        "Television is a medium because it is neither rare nor well done"
-      ]
+      ["she is a star of screen and video", "Television is a medium because it is neither rare nor well done"]
     ],
     "viSentences": [
       "cô ấy là một ngôi sao của màn hình và video",
@@ -25471,11 +23986,7 @@
     "part": "v",
     "vi": "trải qua",
     "sentences": [
-      [
-        "The chemical undergoes a sudden change",
-        "The fluid undergoes shear",
-        "undergo a strange sensation"
-      ]
+      ["The chemical undergoes a sudden change", "The fluid undergoes shear", "undergo a strange sensation"]
     ],
     "viSentences": [
       "Hóa chất trải qua một sự thay đổi đột ngột",
@@ -25546,11 +24057,7 @@
     "part": "n",
     "vi": "đơn vị",
     "sentences": [
-      [
-        "the dollar is the United States unit of currency",
-        "a unit of wheat is a bushel",
-        "change per unit volume"
-      ]
+      ["the dollar is the United States unit of currency", "a unit of wheat is a bushel", "change per unit volume"]
     ],
     "viSentences": [
       "đô la là đơn vị tiền tệ của Hoa Kỳ",
@@ -25614,12 +24121,7 @@
     "part": "a",
     "vi": "không bình thường",
     "sentences": [
-      [
-        "a scene of unusual beauty",
-        "a man of unusual ability",
-        "cruel and unusual punishment",
-        "an unusual meteorite"
-      ]
+      ["a scene of unusual beauty", "a man of unusual ability", "cruel and unusual punishment", "an unusual meteorite"]
     ],
     "viSentences": [
       "một cảnh đẹp khác thường",
@@ -25668,13 +24170,8 @@
   "use": {
     "part": "n",
     "vi": "sử dụng",
-    "sentences": [
-      ["he warned against the use of narcotic drugs", "skilled in the utilization of computers"]
-    ],
-    "viSentences": [
-      "ông đã cảnh báo chống lại việc sử dụng thuốc gây nghiện",
-      "có kỹ năng sử dụng máy vi tính"
-    ],
+    "sentences": [["he warned against the use of narcotic drugs", "skilled in the utilization of computers"]],
+    "viSentences": ["ông đã cảnh báo chống lại việc sử dụng thuốc gây nghiện", "có kỹ năng sử dụng máy vi tính"],
     "def": "the act of using"
   },
   "used": {
@@ -25709,14 +24206,8 @@
   "useful": {
     "part": "a",
     "vi": "có ích",
-    "sentences": [
-      ["the girl felt motherly and useful", "a useful job", "a useful member of society"]
-    ],
-    "viSentences": [
-      "cô gái cảm thấy mẹ và hữu ích",
-      "một công việc hữu ích",
-      "một thành viên hữu ích của xã hội"
-    ],
+    "sentences": [["the girl felt motherly and useful", "a useful job", "a useful member of society"]],
+    "viSentences": ["cô gái cảm thấy mẹ và hữu ích", "một công việc hữu ích", "một thành viên hữu ích của xã hội"],
     "def": "being of use or service"
   },
   "user": {
@@ -25730,12 +24221,7 @@
     "part": "a",
     "vi": "bình thường",
     "sentences": [
-      [
-        "grew the usual vegetables",
-        "the usual summer heat",
-        "came at the usual time",
-        "the child's usual bedtime"
-      ]
+      ["grew the usual vegetables", "the usual summer heat", "came at the usual time", "the child's usual bedtime"]
     ],
     "viSentences": [
       "trồng các loại rau thông thường",
@@ -25762,13 +24248,8 @@
   "vacation": {
     "part": "n",
     "vi": "kì nghỉ",
-    "sentences": [
-      ["we get two weeks of vacation every summer", "we took a short holiday in Puerto Rico"]
-    ],
-    "viSentences": [
-      "chúng tôi có hai tuần nghỉ hè mỗi mùa hè",
-      "chúng tôi đã có một kỳ nghỉ ngắn ở Puerto Rico"
-    ],
+    "sentences": [["we get two weeks of vacation every summer", "we took a short holiday in Puerto Rico"]],
+    "viSentences": ["chúng tôi có hai tuần nghỉ hè mỗi mùa hè", "chúng tôi đã có một kỳ nghỉ ngắn ở Puerto Rico"],
     "def": "leisure time away from work devoted to rest or pleasure"
   },
   "valley": {
@@ -25851,10 +24332,7 @@
         "The supermarket's selection of vegetables varies according to the season"
       ]
     ],
-    "viSentences": [
-      "tâm trạng của cô ấy thay đổi theo thời tiết",
-      "Lựa chọn rau của siêu thị thay đổi theo mùa"
-    ],
+    "viSentences": ["tâm trạng của cô ấy thay đổi theo thời tiết", "Lựa chọn rau của siêu thị thay đổi theo mùa"],
     "def": "become different in some particular way, without permanently losing one's or its former characteristics or essence"
   },
   "vast": {
@@ -25983,11 +24461,7 @@
     "part": "n",
     "vi": "người xem",
     "sentences": [
-      [
-        "the spectators applauded the performance",
-        "television viewers",
-        "sky watchers discovered a new star"
-      ]
+      ["the spectators applauded the performance", "television viewers", "sky watchers discovered a new star"]
     ],
     "viSentences": [
       "khán giả vỗ tay tán thưởng màn biểu diễn",
@@ -26021,9 +24495,7 @@
     "part": "n",
     "vi": "bạo lực",
     "sentences": [
-      [
-        "he may accomplish by craft in the long run what he cannot do by force and violence in the short one"
-      ]
+      ["he may accomplish by craft in the long run what he cannot do by force and violence in the short one"]
     ],
     "viSentences": [
       "anh ta có thể hoàn thành bằng thủ công trong thời gian dài những gì anh ta không thể làm bằng vũ lực và bạo lực trong thời gian ngắn"
@@ -26034,13 +24506,7 @@
     "part": "a",
     "vi": "hung bạo",
     "sentences": [
-      [
-        "a violent attack",
-        "a violent person",
-        "violent feelings",
-        "a violent rage",
-        "felt a violent dislike"
-      ]
+      ["a violent attack", "a violent person", "violent feelings", "a violent rage", "felt a violent dislike"]
     ],
     "viSentences": [
       "một cuộc tấn công bạo lực",
@@ -26117,15 +24583,8 @@
   "visual": {
     "part": "a",
     "vi": "thị giác",
-    "sentences": [
-      ["ocular inspection", "an optical illusion", "visual powers", "visual navigation"]
-    ],
-    "viSentences": [
-      "kiểm tra bằng mắt",
-      "một ảo ảnh quang học",
-      "sức mạnh thị giác",
-      "điều hướng trực quan"
-    ],
+    "sentences": [["ocular inspection", "an optical illusion", "visual powers", "visual navigation"]],
+    "viSentences": ["kiểm tra bằng mắt", "một ảo ảnh quang học", "sức mạnh thị giác", "điều hướng trực quan"],
     "def": "relating to or using sight"
   },
   "vital": {
@@ -26171,13 +24630,8 @@
   "vote": {
     "part": "n",
     "vi": "bầu cử",
-    "sentences": [
-      ["there were only 17 votes in favor of the motion", "they allowed just one vote per person"]
-    ],
-    "viSentences": [
-      "chỉ có 17 phiếu ủng hộ kiến ​​nghị",
-      "họ chỉ cho phép một phiếu bầu cho mỗi người"
-    ],
+    "sentences": [["there were only 17 votes in favor of the motion", "they allowed just one vote per person"]],
+    "viSentences": ["chỉ có 17 phiếu ủng hộ kiến ​​nghị", "họ chỉ cho phép một phiếu bầu cho mỗi người"],
     "def": "a choice that is made by counting the number of people in favor of each alternative"
   },
   "voter": {
@@ -26205,11 +24659,7 @@
     "part": "n",
     "vi": "tiền công",
     "sentences": [
-      [
-        "wages were paid by check",
-        "he wasted his pay on drink",
-        "they saved a quarter of all their earnings"
-      ]
+      ["wages were paid by check", "he wasted his pay on drink", "they saved a quarter of all their earnings"]
     ],
     "viSentences": [
       "tiền lương được trả bằng séc",
@@ -26222,22 +24672,14 @@
     "part": "n",
     "vi": "đợi đã",
     "sentences": [["instant replay caused too long a delay", "he ordered a hold in the action"]],
-    "viSentences": [
-      "phát lại ngay lập tức gây ra sự chậm trễ quá lâu",
-      "ông đã ra lệnh giữ hành động"
-    ],
+    "viSentences": ["phát lại ngay lập tức gây ra sự chậm trễ quá lâu", "ông đã ra lệnh giữ hành động"],
     "def": "time during which some action is awaited"
   },
   "wake": {
     "part": "n",
     "vi": "đánh thức",
-    "sentences": [
-      ["the aftermath of war", "in the wake of the accident no one knew how many had been injured"]
-    ],
-    "viSentences": [
-      "hậu quả của chiến tranh",
-      "sau vụ tai nạn không ai biết có bao nhiêu người đã bị thương"
-    ],
+    "sentences": [["the aftermath of war", "in the wake of the accident no one knew how many had been injured"]],
+    "viSentences": ["hậu quả của chiến tranh", "sau vụ tai nạn không ai biết có bao nhiêu người đã bị thương"],
     "def": "the consequences of an event (especially a catastrophic event)"
   },
   "walk": {
@@ -26251,10 +24693,7 @@
     "part": "n",
     "vi": "Tường",
     "sentences": [["the south wall had a small window", "the walls were covered with pictures"]],
-    "viSentences": [
-      "bức tường phía nam có một cửa sổ nhỏ",
-      "các bức tường được bao phủ bởi hình ảnh"
-    ],
+    "viSentences": ["bức tường phía nam có một cửa sổ nhỏ", "các bức tường được bao phủ bởi hình ảnh"],
     "def": "an architectural partition with a height and length greater than its thickness; used to divide or enclose an area or to support another structure"
   },
   "wander": {
@@ -26305,10 +24744,7 @@
     "part": "v",
     "vi": "cảnh báo",
     "sentences": [
-      [
-        "The director warned him that he might be fired",
-        "The doctor warned me about the dangers of smoking"
-      ]
+      ["The director warned him that he might be fired", "The doctor warned me about the dangers of smoking"]
     ],
     "viSentences": [
       "Giám đốc đã cảnh báo anh ta rằng anh ta có thể bị sa thải",
@@ -26333,16 +24769,8 @@
   "waste": {
     "part": "n",
     "vi": "chất thải",
-    "sentences": [
-      [
-        "they collect the waste once a week",
-        "much of the waste material is carried off in the sewers"
-      ]
-    ],
-    "viSentences": [
-      "họ thu gom rác mỗi tuần một lần",
-      "phần lớn chất thải được mang đi trong hệ thống cống rãnh"
-    ],
+    "sentences": [["they collect the waste once a week", "much of the waste material is carried off in the sewers"]],
+    "viSentences": ["họ thu gom rác mỗi tuần một lần", "phần lớn chất thải được mang đi trong hệ thống cống rãnh"],
     "def": "any materials unused and rejected as worthless or unwanted"
   },
   "watch": {
@@ -26801,10 +25229,7 @@
     "part": "n",
     "vi": "muốn",
     "sentences": [["he got his wish", "he was above all wishing and desire"]],
-    "viSentences": [
-      "anh ấy đã có được điều ước của mình",
-      "trên hết anh ấy mong muốn và khao khát"
-    ],
+    "viSentences": ["anh ấy đã có được điều ước của mình", "trên hết anh ấy mong muốn và khao khát"],
     "def": "a specific feeling of desire"
   },
   "with": "với",
@@ -26884,13 +25309,8 @@
   "word": {
     "part": "n",
     "vi": "từ",
-    "sentences": [
-      ["words are the blocks from which sentences are made", "he hardly said ten words all morning"]
-    ],
-    "viSentences": [
-      "từ là các khối mà từ đó các câu được thực hiện",
-      "anh ấy hầu như không nói mười từ cả buổi sáng"
-    ],
+    "sentences": [["words are the blocks from which sentences are made", "he hardly said ten words all morning"]],
+    "viSentences": ["từ là các khối mà từ đó các câu được thực hiện", "anh ấy hầu như không nói mười từ cả buổi sáng"],
     "def": "a unit of language that native speakers can identify"
   },
   "work": {
@@ -26946,10 +25366,7 @@
     "part": "n",
     "vi": "lo",
     "sentences": [["New York traffic is a constant concern", "it's a major worry"]],
-    "viSentences": [
-      "Giao thông New York là một mối quan tâm thường xuyên",
-      "đó là một lo lắng lớn"
-    ],
+    "viSentences": ["Giao thông New York là một mối quan tâm thường xuyên", "đó là một lo lắng lớn"],
     "def": "something or someone that causes anxiety; a source of unhappiness"
   },
   "worth": {
@@ -26991,13 +25408,8 @@
   "writing": {
     "part": "n",
     "vi": "viết",
-    "sentences": [
-      ["writing was a form of therapy for him", "it was a matter of disputed authorship"]
-    ],
-    "viSentences": [
-      "viết lách là một hình thức trị liệu cho anh ấy",
-      "đó là một vấn đề của quyền tác giả tranh chấp"
-    ],
+    "sentences": [["writing was a form of therapy for him", "it was a matter of disputed authorship"]],
+    "viSentences": ["viết lách là một hình thức trị liệu cho anh ấy", "đó là một vấn đề của quyền tác giả tranh chấp"],
     "def": "the act of creating written works"
   },
   "wrong": {

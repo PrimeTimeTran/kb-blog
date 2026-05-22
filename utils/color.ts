@@ -1,4 +1,4 @@
-import { argbFromHex, hexFromArgb, themeFromSourceColor } from '@material/material-color-utilities'
+import { argbFromHex, hexFromArgb, themeFromSourceColor } from '@material/material-color-utilities';
 
 export const PALETTES = [
   /* 🌲 Nature / Calm */
@@ -48,7 +48,7 @@ export const PALETTES = [
   { name: 'Neon Purple', color: '#c084fc' },
   { name: 'Laser', color: '#22c55e' },
   { name: 'Bubblegum', color: '#f472b6' },
-]
+];
 
 // Custom seeds for semantic colors
 // You can adjust these hex codes to match your brand preferences
@@ -56,10 +56,10 @@ const SEMANTIC_SEEDS = {
   info: '#38bdf8',
   success: '#10b981',
   warning: '#f59e0b',
-}
+};
 
 const mix = (base: string, overlay: string, percent: number) =>
-  `color-mix(in srgb, ${base} ${100 - percent}%, ${overlay} ${percent}%)`
+  `color-mix(in srgb, ${base} ${100 - percent}%, ${overlay} ${percent}%)`;
 
 export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
   // Generate the main theme from the primary seed
@@ -75,36 +75,36 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
       blend: true,
     },
     { name: 'info', value: argbFromHex(SEMANTIC_SEEDS.info), blend: true },
-  ])
-  const scheme = mode === 'light' ? theme.schemes.light : theme.schemes.dark
+  ]);
+  const scheme = mode === 'light' ? theme.schemes.light : theme.schemes.dark;
 
-  const c = (v: number) => hexFromArgb(v)
+  const c = (v: number) => hexFromArgb(v);
 
   // Helper to extract custom colors from the generated theme
   // Material Color Utilities custom colors are stored in the 'customColors' array
   // We need to find them by name and extract their light/dark scheme values
   const getCustomColor = (key: string) => {
-    const customColorGroup = theme.customColors.find((c) => c.color.name === key)
-    if (!customColorGroup) return null
-    return mode === 'light' ? customColorGroup.light : customColorGroup.dark
-  }
+    const customColorGroup = theme.customColors.find((c) => c.color.name === key);
+    if (!customColorGroup) return null;
+    return mode === 'light' ? customColorGroup.light : customColorGroup.dark;
+  };
 
-  const successGroup = getCustomColor('success')
-  const warningGroup = getCustomColor('warning')
-  const infoGroup = getCustomColor('info')
+  const successGroup = getCustomColor('success');
+  const warningGroup = getCustomColor('warning');
+  const infoGroup = getCustomColor('info');
 
-  const background = c(scheme.background)
-  const surfaceBase = c(scheme.surface)
+  const background = c(scheme.background);
+  const surfaceBase = c(scheme.surface);
 
   // Web elevation tuning (very subtle)
   const surface =
     mode === 'light'
       ? mix(background, '#000000', 2) // slightly darker than bg
-      : mix(background, '#ffffff', 4) // slightly lighter than bg
+      : mix(background, '#ffffff', 4); // slightly lighter than bg
 
-  const surface1 = mode === 'light' ? mix(background, '#000000', 4) : mix(background, '#ffffff', 6)
+  const surface1 = mode === 'light' ? mix(background, '#000000', 4) : mix(background, '#ffffff', 6);
 
-  const surface2 = mode === 'light' ? mix(background, '#000000', 6) : mix(background, '#ffffff', 8)
+  const surface2 = mode === 'light' ? mix(background, '#000000', 6) : mix(background, '#ffffff', 8);
 
   return {
     '--primary': c(scheme.primary),
@@ -157,13 +157,13 @@ export function generateTheme(seedHex: string, mode: 'light' | 'dark') {
 
     '--outline': c(scheme.outline),
     '--outline-variant': c(scheme.outlineVariant),
-  } as Record<string, string>
+  } as Record<string, string>;
 }
 
 export function applyTheme(vars: Record<string, string>) {
-  const root = document.documentElement
+  const root = document.documentElement;
 
   Object.entries(vars).forEach(([key, value]) => {
-    root.style.setProperty(key, value)
-  })
+    root.style.setProperty(key, value);
+  });
 }

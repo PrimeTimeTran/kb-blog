@@ -13,14 +13,7 @@ category: 'machine_learning'
 subCategory: 'model_evaluation'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'bias-variance-tradeoff',
-    'confusion-matrix',
-    'log-loss',
-    'mean-squared-error',
-    'mean-absolute-error',
-  ]
+leadsTo: ['bias-variance-tradeoff', 'confusion-matrix', 'log-loss', 'mean-squared-error', 'mean-absolute-error']
 related: ['cross-validation', 'k-fold-cross-validation']
 seeAlso:
   [

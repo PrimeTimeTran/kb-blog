@@ -1,31 +1,31 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { useTheme } from '@teispace/next-themes'
-import { motion, AnimatePresence } from 'framer-motion'
-import { logEvent } from './analytics/GoogleAnalytics'
+import { useEffect, useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
+import { motion, AnimatePresence } from 'framer-motion';
+import { logEvent } from './analytics/GoogleAnalytics';
 
 const ThemeSwitch = () => {
-  const [mounted, setMounted] = useState(false)
-  const [isSpinning, setIsSpinning] = useState(false)
-  const { theme, setTheme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false);
+  const [isSpinning, setIsSpinning] = useState(false);
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="h-9 w-9" />
+  if (!mounted) return <div className="h-9 w-9" />;
 
-  const isDark = theme === 'dark' || resolvedTheme === 'dark'
+  const isDark = theme === 'dark' || resolvedTheme === 'dark';
 
   const onToggleTheme = () => {
-    setIsSpinning(true)
-    const newTheme = isDark ? 'light' : 'dark'
+    setIsSpinning(true);
+    const newTheme = isDark ? 'light' : 'dark';
 
     // Duration matches the animation timing
-    setTimeout(() => setIsSpinning(false), 500)
+    setTimeout(() => setIsSpinning(false), 500);
 
-    logEvent('Changes theme', 'Behavior', 'Style', newTheme)
-    setTheme(newTheme)
-  }
+    logEvent('Changes theme', 'Behavior', 'Style', newTheme);
+    setTheme(newTheme);
+  };
 
   return (
     <button
@@ -94,18 +94,14 @@ const ThemeSwitch = () => {
                 strokeLinejoin="round"
                 className="h-5 w-5 text-primary"
               >
-                <path
-                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
-                  fill="currentColor"
-                  fillOpacity="0.2"
-                />
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" fillOpacity="0.2" />
               </svg>
             )}
           </motion.div>
         </AnimatePresence>
       </div>
     </button>
-  )
-}
+  );
+};
 
-export default ThemeSwitch
+export default ThemeSwitch;

@@ -1,92 +1,92 @@
-import fs from 'fs'
-import path from 'path'
+import fs from 'fs';
+import path from 'path';
 
-import matter from 'gray-matter'
-import getAllFilesRecursively from '../server/files'
-import { isPublished } from '../core/is-published'
-import { createTrace } from '@/lib/debug'
+import matter from 'gray-matter';
+import getAllFilesRecursively from '../server/files';
+import { isPublished } from '../core/is-published';
+import { createTrace } from '@/lib/trace';
 
 type ContentIndexOptions = {
-  rootDir: string
-  filter?: (file: string) => boolean
-  toKey?: (slug: string, file: string) => string
-}
-const ALLOWED_EXTENSIONS = new Set(['.md', '.mdx'])
+  rootDir: string;
+  filter?: (file: string) => boolean;
+  toKey?: (slug: string, file: string) => string;
+};
+const ALLOWED_EXTENSIONS = new Set(['.md', '.mdx']);
 
 export async function buildContentIndex(options: ContentIndexOptions) {
-  const trace = createTrace('content:index')
+  const trace = createTrace('content:index');
 
-  let { rootDir, filter } = options
-  rootDir = path.join(rootDir, 'kb')
+  let { rootDir, filter } = options;
+  rootDir = path.join(rootDir, 'kb');
 
-  trace.event('START', { rootDir })
+  trace.event('START', { rootDir });
 
-  const files = await getAllFilesRecursively(rootDir)
+  const files = await getAllFilesRecursively(rootDir);
 
   trace.event('FILES_FOUND', {
     count: files.length,
-  })
+  });
 
-  const registry: Record<string, any> = {}
+  const registry: Record<string, any> = {};
 
-  let skippedExt = 0
-  let skippedFilter = 0
-  let skippedPublished = 0
-  let failed = 0
+  let skippedExt = 0;
+  let skippedFilter = 0;
+  let skippedPublished = 0;
+  let failed = 0;
 
   for (const file of files) {
     try {
-      const ext = path.extname(file).toLowerCase()
+      const ext = path.extname(file).toLowerCase();
 
       if (!ALLOWED_EXTENSIONS.has(ext)) {
-        skippedExt++
-        continue
+        skippedExt++;
+        continue;
       }
 
       if (filter && !filter(file)) {
-        skippedFilter++
-        continue
+        skippedFilter++;
+        continue;
       }
 
-      const source = fs.readFileSync(file, 'utf8')
-      const parsed = matter(source)
+      const source = fs.readFileSync(file, 'utf8');
+      const parsed = matter(source);
 
-      const isPub = isPublished({ frontMatter: parsed.data })
+      const isPub = isPublished({ frontMatter: parsed.data });
 
       if (!isPub) {
-        skippedPublished++
+        skippedPublished++;
         trace.event('SKIP_UNPUBLISHED', {
           file,
           slug: file,
-        })
-        continue
+        });
+        continue;
       }
 
       const slug = path
         .relative(rootDir, file)
         .replace(/\.mdx?$/, '')
-        .replace(/\\/g, '/')
+        .replace(/\\/g, '/');
 
       registry[slug] = {
         mdxSource: parsed.content,
         frontMatter: parsed.data,
         slug,
-      }
+      };
 
       trace.event('INDEXED', {
         slug,
         file,
-      })
+      });
     } catch (e) {
-      failed++
+      failed++;
 
       trace.event('INDEX_ERROR', {
         file,
         error: e instanceof Error ? e.message : String(e),
-      })
+      });
 
-      console.error('❌ CONTENT INDEX FAILED:', file)
-      console.error(e)
+      console.error('❌ CONTENT INDEX FAILED:', file);
+      console.error(e);
     }
   }
 
@@ -97,9 +97,9 @@ export async function buildContentIndex(options: ContentIndexOptions) {
     skippedFilter,
     skippedPublished,
     failed,
-  })
+  });
 
-  trace.end()
+  trace.end();
 
-  return registry
+  return registry;
 }

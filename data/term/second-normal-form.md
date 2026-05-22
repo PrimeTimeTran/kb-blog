@@ -13,14 +13,7 @@ category: 'sql'
 subCategory: 'schema_design'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'data-integrity',
-    'referential-integrity',
-    'constraints',
-    'unique-constraint',
-    'check-constraint',
-  ]
+leadsTo: ['data-integrity', 'referential-integrity', 'constraints', 'unique-constraint', 'check-constraint']
 related: ['first-normal-form', 'third-normal-form', 'boyce-codd-normal-form']
 seeAlso:
   [

@@ -26,8 +26,7 @@ leadsTo:
     'lasso-regression',
     'auc',
   ]
-related:
-  ['logistic-regression', 'support-vector-machine', 'decision-tree', 'random-forest', 'naive-bayes']
+related: ['logistic-regression', 'support-vector-machine', 'decision-tree', 'random-forest', 'naive-bayes']
 seeAlso:
   [
     'variance',

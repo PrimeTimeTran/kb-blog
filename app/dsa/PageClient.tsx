@@ -1,19 +1,19 @@
-'use client'
-import { useEffect, useState, useRef, Suspense } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+'use client';
+import { useEffect, useState, useRef, Suspense } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // import siteMetadata from '../data/site-metadata.js'
 
-import { BaseScroll } from '@/components/BaseScroll'
-import { CenterRegion } from '@/components/layout/CenterRegion'
+import { BaseScroll } from '@/components/BaseScroll';
+import { CenterRegion } from '@/components/layout/CenterRegion';
 
-import { Solution } from '@/components/Solution.jsx'
+import { Solution } from '@/components/Solution.jsx';
 
-import { useProblemEngine } from '@/hooks/useProblemEngine'
-import { Tooltip } from '@/components/ToolTip'
+import { useProblemEngine } from '@/hooks/useProblemEngine';
+import { Tooltip } from '@/components/ToolTip';
 
-import { TagExplorer } from './TagExplorer'
-import { FilterToolbar } from './FilterToolbar'
+import { TagExplorer } from './TagExplorer';
+import { FilterToolbar } from './FilterToolbar';
 
 export function PageClient() {
   const {
@@ -26,60 +26,55 @@ export function PageClient() {
     randomlySelected,
     getDifficulty,
     hasSolution,
-  } = useProblemEngine()
+  } = useProblemEngine();
 
-  const sidebarRef = useRef<HTMLDivElement>(null)
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [focusedSolution, setFocusedSolution] = useState(null)
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [focusedSolution, setFocusedSolution] = useState(null);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.altKey && e.code === 'KeyO') {
-        e.preventDefault()
-        actions.handleShuffle()
+        e.preventDefault();
+        actions.handleShuffle();
       }
       if (e.altKey && e.code === 'KeyR') {
-        e.preventDefault()
-        actions.handleRandom()
+        e.preventDefault();
+        actions.handleRandom();
       }
       if (e.altKey && e.code === 'KeyP') {
-        e.preventDefault()
-        actions.handleNext()
+        e.preventDefault();
+        actions.handleNext();
       }
-    }
-    window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [actions])
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [actions]);
 
   const showProblemSolutions = (e, problem) => {
-    e.preventDefault()
-    e.stopPropagation()
-    const solution = solutions.find((s) => s.id === problem.lc.id)
+    e.preventDefault();
+    e.stopPropagation();
+    const solution = solutions.find((s) => s.id === problem.lc.id);
     if (solution) {
-      setFocusedSolution(solution)
-      if (!isSidebarOpen) setIsSidebarOpen(true)
+      setFocusedSolution(solution);
+      if (!isSidebarOpen) setIsSidebarOpen(true);
     }
-  }
+  };
 
   return (
     <div className="h-full min-h-0 flex flex-col not-prose">
       <BaseScroll>
         <div className="space-y-2 px-2 mt-2 w-full mb-2">
-          <TagExplorer
-            actions={actions}
-            filters={filters}
-            orderedTags={orderedTags}
-            tagCounts={tagCounts}
-          />
+          <TagExplorer actions={actions} filters={filters} orderedTags={orderedTags} tagCounts={tagCounts} />
           <FilterToolbar
             actions={actions}
             filters={filters}
             resetFilters={() => {
-              actions.setSelectedList('all')
-              actions.setSortBy('difficulty-asc')
-              actions.setSelectedPremium(['free', 'premium'])
-              actions.setSelectedDifficulties(['e', 'm', 'h'])
-              actions.setSelectedTags([])
+              actions.setSelectedList('all');
+              actions.setSortBy('difficulty-asc');
+              actions.setSelectedPremium(['free', 'premium']);
+              actions.setSelectedDifficulties(['e', 'm', 'h']);
+              actions.setSelectedTags([]);
             }}
           />
         </div>
@@ -89,19 +84,16 @@ export function PageClient() {
       </BaseScroll>
       {renderSidebarAndBackdrop()}
     </div>
-  )
+  );
   function renderSidebarAndBackdrop() {
     return (
       <>
         {isSidebarOpen && (
-          <div
-            className="fixed inset-0 z-40 bg-scrim/30 transition-opacity"
-            onClick={() => setIsSidebarOpen(false)}
-          />
+          <div className="fixed inset-0 z-40 bg-scrim/30 transition-opacity" onClick={() => setIsSidebarOpen(false)} />
         )}
         {renderSidebar()}
       </>
-    )
+    );
   }
   function renderSidebar() {
     return (
@@ -128,12 +120,10 @@ export function PageClient() {
         {/* CONTENT */}
         <div className="space-y-4 w-full">
           {focusedSolution &&
-            (focusedSolution?.solutions ?? []).map((solution, idx) => (
-              <Solution key={idx} solution={solution} />
-            ))}
+            (focusedSolution?.solutions ?? []).map((solution, idx) => <Solution key={idx} solution={solution} />)}
         </div>
       </div>
-    )
+    );
   }
 
   function renderProblemList() {
@@ -169,24 +159,20 @@ export function PageClient() {
                   >
                     {problem.title}
                   </span>
-                  <span className={'text-sm ' + getDifficulty(problem.difficulty)}>
-                    [{problem.difficulty}]
-                  </span>
-                  {hasSolution(problem) && (
-                    <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>
-                  )}
+                  <span className={'text-sm ' + getDifficulty(problem.difficulty)}>[{problem.difficulty}]</span>
+                  {hasSolution(problem) && <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>}
                 </div>
               </a>
             </div>
           </motion.div>
         ))}
       </AnimatePresence>
-    )
+    );
   }
 }
 
 export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
-  const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]']
+  const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]'];
 
   return (
     <div className="flex flex-col bg-surface-container-low">
@@ -213,5 +199,5 @@ export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
         </div>
       ))}
     </div>
-  )
+  );
 }

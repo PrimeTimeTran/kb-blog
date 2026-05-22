@@ -12,9 +12,8 @@ export default function MaterialThemePreviewPage() {
             <h1 className="text-5xl font-black tracking-tight">Design System Surface Lab</h1>
 
             <p className="max-w-3xl text-lg leading-relaxed text-on-surface-variant">
-              A comprehensive visual reference for your Material-inspired token system, semantic
-              surfaces, elevation hierarchy, interaction states, chips, controls, and typography
-              behavior.
+              A comprehensive visual reference for your Material-inspired token system, semantic surfaces, elevation
+              hierarchy, interaction states, chips, controls, and typography behavior.
             </p>
           </div>
         </header>
@@ -28,33 +27,22 @@ export default function MaterialThemePreviewPage() {
 
             <ColorCard title="Secondary" className="bg-secondary text-on-secondary" />
 
-            <ColorCard
-              title="Secondary Container"
-              className="bg-secondary-container text-on-secondary"
-            />
+            <ColorCard title="Secondary Container" className="bg-secondary-container text-on-secondary" />
 
             <ColorCard title="Tertiary" className="bg-tertiary text-on-tertiary" />
 
             <ColorCard title="Error" className="bg-error text-on-error" />
 
-            <ColorCard
-              title="Surface"
-              className="bg-surface text-on-surface border border-outline-variant"
-            />
+            <ColorCard title="Surface" className="bg-surface text-on-surface border border-outline-variant" />
 
-            <ColorCard
-              title="Surface Variant"
-              className="bg-surface-variant text-on-surface-variant"
-            />
+            <ColorCard title="Surface Variant" className="bg-surface-variant text-on-surface-variant" />
           </div>
         </Section>
 
         {/* SURFACE HIERARCHY */}
         <Section title="Surface Hierarchy">
           <div className="grid gap-6 lg:grid-cols-2">
-            <SurfaceCard className="bg-surface-container-lowest">
-              surface-container-lowest
-            </SurfaceCard>
+            <SurfaceCard className="bg-surface-container-lowest">surface-container-lowest</SurfaceCard>
 
             <SurfaceCard className="bg-surface-container-low">surface-container-low</SurfaceCard>
 
@@ -62,9 +50,7 @@ export default function MaterialThemePreviewPage() {
 
             <SurfaceCard className="bg-surface-container-high">surface-container-high</SurfaceCard>
 
-            <SurfaceCard className="bg-surface-container-highest">
-              surface-container-highest
-            </SurfaceCard>
+            <SurfaceCard className="bg-surface-container-highest">surface-container-highest</SurfaceCard>
           </div>
         </Section>
 
@@ -77,18 +63,14 @@ export default function MaterialThemePreviewPage() {
             <h4 className="text-3xl font-semibold">Title Large</h4>
 
             <p className="max-w-4xl text-lg leading-relaxed text-on-surface-variant">
-              Material typography should maintain strong readability and clear visual hierarchy
-              while adapting gracefully to both light and dark surfaces.
+              Material typography should maintain strong readability and clear visual hierarchy while adapting
+              gracefully to both light and dark surfaces.
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <span className="rounded-full bg-surface-container px-3 py-1 text-sm">
-                Label Small
-              </span>
+              <span className="rounded-full bg-surface-container px-3 py-1 text-sm">Label Small</span>
 
-              <span className="rounded-full bg-surface-container-high px-4 py-2 text-base">
-                Label Medium
-              </span>
+              <span className="rounded-full bg-surface-container-high px-4 py-2 text-base">Label Medium</span>
 
               <span className="rounded-full bg-primary-container px-5 py-2 font-medium text-on-primary">
                 Emphasized Label
@@ -135,9 +117,7 @@ export default function MaterialThemePreviewPage() {
           </div>
 
           <div className="rounded-2xl bg-surface-container p-6">
-            <p className="mb-4 text-sm text-on-surface-variant">
-              Chips acting as page-state controls:
-            </p>
+            <p className="mb-4 text-sm text-on-surface-variant">Chips acting as page-state controls:</p>
 
             <div className="flex flex-wrap gap-3">
               <Chip label="Architecture" active count={9} />
@@ -211,12 +191,7 @@ export default function MaterialThemePreviewPage() {
         {/* NAV / LISTS */}
         <Section title="Lists / Navigation">
           <div className="overflow-hidden rounded-3xl border border-outline-variant bg-surface">
-            {[
-              'Design Systems',
-              'Tailwind Architecture',
-              'Animation Tokens',
-              'Material Surfaces',
-            ].map((item) => (
+            {['Design Systems', 'Tailwind Architecture', 'Animation Tokens', 'Material Surfaces'].map((item) => (
               <button
                 key={item}
                 className="
@@ -249,7 +224,7 @@ export default function MaterialThemePreviewPage() {
         </Section>
       </div>
     </div>
-  )
+  );
 }
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -261,7 +236,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 
       {children}
     </section>
-  )
+  );
 }
 
 function ColorCard({ title, className }: { title: string; className?: string }) {
@@ -273,7 +248,7 @@ function ColorCard({ title, className }: { title: string; className?: string }) 
         <p className="text-sm opacity-80">Material semantic color role</p>
       </div>
     </div>
-  )
+  );
 }
 
 function SurfaceCard({ children, className }: { children: React.ReactNode; className?: string }) {
@@ -291,7 +266,7 @@ function SurfaceCard({ children, className }: { children: React.ReactNode; class
         <p className="text-on-surface-variant">Surface elevation and containment preview.</p>
       </div>
     </div>
-  )
+  );
 }
 
 function Chip({
@@ -300,10 +275,10 @@ function Chip({
   active,
   disabled,
 }: {
-  label: string
-  count?: number
-  active?: boolean
-  disabled?: boolean
+  label: string;
+  count?: number;
+  active?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <button
@@ -337,7 +312,7 @@ function Chip({
         </span>
       )}
     </button>
-  )
+  );
 }
 
 function StateBox({ label, className }: { label: string; className?: string }) {
@@ -352,5 +327,5 @@ function StateBox({ label, className }: { label: string; className?: string }) {
     >
       {label}
     </button>
-  )
+  );
 }

@@ -1,23 +1,23 @@
-'use client'
+'use client';
 
-import clsx from 'clsx'
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import clsx from 'clsx';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function DropdownPanel() {
-  const [isOpen, setIsOpen] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
+        setIsOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <div
@@ -27,10 +27,7 @@ export function DropdownPanel() {
       onMouseLeave={() => setIsOpen(false)}
     >
       {/* Trigger Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="px-4 py-2 bg-blue-600 text-white rounded-md"
-      >
+      <button onClick={() => setIsOpen(!isOpen)} className="px-4 py-2 bg-blue-600 text-white rounded-md">
         Options
       </button>
 
@@ -58,10 +55,7 @@ export function DropdownPanel() {
               </li>
 
               <li>
-                <a
-                  href="#logout"
-                  className="block px-4 py-2 hover:bg-gray-100 font-semibold text-red-600"
-                >
+                <a href="#logout" className="block px-4 py-2 hover:bg-gray-100 font-semibold text-red-600">
                   Logout
                 </a>
               </li>
@@ -70,50 +64,47 @@ export function DropdownPanel() {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
 
 export default function BaseNavbar() {
-  const navRef = useRef<HTMLDivElement>(null)
-  const [mounted, setMounted] = useState(false)
-  const [displayIndex, setDisplayIndex] = useState<number | null>(null)
-  const [prevIndex, setPrevIndex] = useState<number | null>(null)
-  const [direction, setDirection] = useState<'left' | 'right'>('right')
+  const navRef = useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [displayIndex, setDisplayIndex] = useState<number | null>(null);
+  const [prevIndex, setPrevIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState<'left' | 'right'>('right');
 
   function open(index: number) {
     if (displayIndex !== null) {
-      setDirection(index > displayIndex ? 'right' : 'left')
-      setPrevIndex(displayIndex)
+      setDirection(index > displayIndex ? 'right' : 'left');
+      setPrevIndex(displayIndex);
     }
 
-    setDisplayIndex(index)
-    setMounted(true)
+    setDisplayIndex(index);
+    setMounted(true);
   }
 
   function close() {
-    setMounted(false)
-    setDisplayIndex(null)
-    setPrevIndex(null)
+    setMounted(false);
+    setDisplayIndex(null);
+    setPrevIndex(null);
   }
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
-      if (!navRef.current) return
+      if (!navRef.current) return;
 
-      const rect = navRef.current.getBoundingClientRect()
+      const rect = navRef.current.getBoundingClientRect();
 
       const inside =
-        e.clientX >= rect.left &&
-        e.clientX <= rect.right &&
-        e.clientY >= rect.top &&
-        e.clientY <= rect.bottom + 300
+        e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom + 300;
 
-      if (!inside) close()
-    }
+      if (!inside) close();
+    };
 
-    window.addEventListener('mousemove', onMove)
-    return () => window.removeEventListener('mousemove', onMove)
-  }, [displayIndex])
+    window.addEventListener('mousemove', onMove);
+    return () => window.removeEventListener('mousemove', onMove);
+  }, [displayIndex]);
 
   return (
     <div
@@ -121,11 +112,7 @@ export default function BaseNavbar() {
       className="fixed w-full h-16 z-20 flex border-b border-outline-variant/60 bg-surface/80 backdrop-blur-xl debug"
     >
       {items.map((item, index) => (
-        <div
-          key={index}
-          className="flex justify-center debug px-16 group"
-          onMouseEnter={() => open(index)}
-        >
+        <div key={index} className="flex justify-center debug px-16 group" onMouseEnter={() => open(index)}>
           <button key={item.label} className="flex items-center gap-1 py-2 text-sm">
             <span>{item.label}</span>
 
@@ -147,9 +134,7 @@ export default function BaseNavbar() {
       <div
         className={clsx(
           'absolute left-0 top-full w-full overflow-hidden border bg-surface shadow-xl transition-all duration-300',
-          mounted
-            ? 'opacity-100 translate-y-0 pointer-events-auto'
-            : 'opacity-0 -translate-y-2 pointer-events-none'
+          mounted ? 'opacity-100 translate-y-0 pointer-events-auto' : 'opacity-0 -translate-y-2 pointer-events-none',
         )}
       >
         <div className="relative ">
@@ -157,12 +142,7 @@ export default function BaseNavbar() {
             <motion.div
               className="flex w-full bg-surface will-change-transform"
               animate={{
-                x:
-                  displayIndex != null
-                    ? `-${displayIndex * 100}%`
-                    : direction === 'right'
-                      ? '100%'
-                      : '-100%',
+                x: displayIndex != null ? `-${displayIndex * 100}%` : direction === 'right' ? '100%' : '-100%',
               }}
               initial={false}
               transition={{
@@ -171,10 +151,7 @@ export default function BaseNavbar() {
               }}
             >
               {items.map((item) => (
-                <div
-                  key={item.label}
-                  className="w-screen flex flex-col justify-around shrink-0 h-[220px]"
-                >
+                <div key={item.label} className="w-screen flex flex-col justify-around shrink-0 h-[220px]">
                   <div className="px-6">{item.content}</div>
                   <div className="bg-surface-variant w-screen h-16">stuff</div>
                 </div>
@@ -184,7 +161,7 @@ export default function BaseNavbar() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 const items = [
@@ -220,16 +197,16 @@ const items = [
       </div>
     ),
   },
-]
+];
 
 function Card({ title }: { title: string }) {
   return (
     <div className="rounded-2xl border border-white/10 bg-white/5 p-4 transition-colors hover:bg-white/10">
       <div className="text-sm font-medium">{title}</div>
     </div>
-  )
+  );
 }
 
 function PanelLink({ children }: { children: React.ReactNode }) {
-  return <div className="rounded-xl p-3 transition-colors hover:bg-white/5">{children}</div>
+  return <div className="rounded-xl p-3 transition-colors hover:bg-white/5">{children}</div>;
 }

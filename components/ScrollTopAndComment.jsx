@@ -1,40 +1,37 @@
-import siteMetadata from '../data/site-metadata'
-import { useEffect, useState } from 'react'
+import siteMetadata from '../data/site-metadata';
+import { useEffect, useState } from 'react';
 
 const ScrollTopAndComment = () => {
-  const [show, setShow] = useState(false)
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     const handleWindowScroll = () => {
-      if (window.scrollY > 50) setShow(true)
-      else setShow(false)
-    }
+      if (window.scrollY > 50) setShow(true);
+      else setShow(false);
+    };
 
-    window.addEventListener('scroll', handleWindowScroll)
-    return () => window.removeEventListener('scroll', handleWindowScroll)
-  }, [])
+    window.addEventListener('scroll', handleWindowScroll);
+    return () => window.removeEventListener('scroll', handleWindowScroll);
+  }, []);
 
   const toggleSidebars = () => {
-    const author = document.getElementById('authorSidebar')
-    const toc = document.getElementById('tocSidebar')
+    const author = document.getElementById('authorSidebar');
+    const toc = document.getElementById('tocSidebar');
 
-      ;[author, toc].forEach((el) => {
-        if (!el) return
-        el.classList.toggle('sidebar-collapsed')
-      })
-  }
+    [author, toc].forEach((el) => {
+      if (!el) return;
+      el.classList.toggle('sidebar-collapsed');
+    });
+  };
 
   const handleScrollTop = () => {
-    window.scrollTo({ top: 0 })
-  }
+    window.scrollTo({ top: 0 });
+  };
   const handleScrollToComment = () => {
-    document.getElementById('comment').scrollIntoView()
-  }
+    document.getElementById('comment').scrollIntoView();
+  };
   return (
-    <div
-      className={`fixed bottom-8 right-8 z-50 flex-col gap-3 ${show ? 'md:flex' : 'hidden md:hidden'
-        }`}
-    >
+    <div className={`fixed bottom-8 right-8 z-50 flex-col gap-3 ${show ? 'md:flex' : 'hidden md:hidden'}`}>
       <button
         aria-label="Toggle Sidebars"
         type="button"
@@ -76,7 +73,7 @@ const ScrollTopAndComment = () => {
         </svg>
       </button>
     </div>
-  )
-}
+  );
+};
 
-export default ScrollTopAndComment
+export default ScrollTopAndComment;

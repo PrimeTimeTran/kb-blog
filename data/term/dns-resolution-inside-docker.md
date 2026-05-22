@@ -13,8 +13,7 @@ category: 'docker'
 subCategory: 'networking'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['container-networking', 'bridge-network', 'host-network', 'port-mapping', 'overlay-network']
+leadsTo: ['container-networking', 'bridge-network', 'host-network', 'port-mapping', 'overlay-network']
 related: ['container-to-container-communication']
 seeAlso:
   [

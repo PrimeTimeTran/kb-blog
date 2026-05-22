@@ -13,22 +13,9 @@ category: 'next_js'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'file-based-routing',
-    'hybrid-rendering-model',
-    'server-first-rendering',
-    'progressive-enhancement',
-  ]
+leadsTo: ['file-based-routing', 'hybrid-rendering-model', 'server-first-rendering', 'progressive-enhancement']
 related:
-  [
-    'nextjs',
-    'react-framework',
-    'full-stack-framework',
-    'static-site-generation',
-    'hybrid-rendering',
-    'routing-system',
-  ]
+  ['nextjs', 'react-framework', 'full-stack-framework', 'static-site-generation', 'hybrid-rendering', 'routing-system']
 seeAlso:
   [
     'tailwind-css',

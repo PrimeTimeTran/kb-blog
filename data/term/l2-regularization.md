@@ -14,13 +14,7 @@ subCategory: 'optimization'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'gradient-descent',
-    'stochastic-gradient-descent',
-    'mini-batch-gradient-descent',
-    'adam-optimizer',
-    'momentum',
-  ]
+  ['gradient-descent', 'stochastic-gradient-descent', 'mini-batch-gradient-descent', 'adam-optimizer', 'momentum']
 related: ['l1-regularization', 'dropout', 'early-stopping']
 seeAlso:
   [

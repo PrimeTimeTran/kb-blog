@@ -1,52 +1,58 @@
 @reference "tailwindcss";
+blockquote {
+  /* 
+  Top, Right, Bottom, Left. 
+  padding: 10px 5px 15px 20px;
+  Top/Bottom; second is Left/Right.
+  padding: 10px 20px;.
+  */
+  padding: 0px 20px;
+}
 
 /* Base Code Styles */
 html.light pre code {
   color: #1f2937;
 }
 
-/* 1. JSX / TSX Specific Fixes */
+/* .prose > * {
+  margin-top: 1rem;
+}
+
+.prose {
+  margin-top: 2rem;
+} */
 .token.tag {
   color: rgb(127, 219, 202);
 }
-
 .token.attr-name {
   color: rgb(173, 219, 103);
   font-style: italic;
 }
-
 .token.attr-value {
   color: rgb(255, 203, 139);
 }
-
 .token.script {
   color: rgb(214, 222, 235);
 }
-
 .token.plain-text {
   color: rgb(214, 222, 235);
 }
-
 .token.comment,
 .token.prolog,
 .token.cdata {
   color: rgb(99, 119, 119);
   font-style: italic;
 }
-
 .token.punctuation {
   color: rgb(199, 146, 234);
 }
-
 .token.operator,
 .token.keyword {
   color: rgb(127, 219, 202);
 }
-
 .token.function {
   color: rgb(130, 170, 255);
 }
-
 .token.string {
   color: rgb(173, 219, 103);
 }
@@ -54,7 +60,6 @@ html.light pre code {
 .token.class-name {
   color: rgb(255, 203, 139);
 }
-
 /* 3. The "Clipping" Fix */
 /* Ensure the highlight-line and code-line don't shrink */
 .code-highlight {

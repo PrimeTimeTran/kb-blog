@@ -1,25 +1,25 @@
-import matter from 'gray-matter'
+import matter from 'gray-matter';
 
-import { filesystemSource } from '../source/fs'
+import { filesystemSource } from '../source/fs';
 
 export async function listAuthor() {
-  const files = await filesystemSource.list?.({ type: 'authors' })
+  const files = await filesystemSource.list?.({ type: 'authors' });
 
-  if (!files) return []
+  if (!files) return [];
 
-  const authors = []
+  const authors = [];
 
   for (const file of files) {
     const source = await filesystemSource.resolve({
       type: 'authors',
       slug: file,
-    })
+    });
 
-    if (!source) continue
+    if (!source) continue;
 
-    const raw = await filesystemSource.read(source)
+    const raw = await filesystemSource.read(source);
 
-    const { data } = matter(raw.raw)
+    const { data } = matter(raw.raw);
 
     authors.push({
       id: source.slug,
@@ -27,8 +27,8 @@ export async function listAuthor() {
       bio: data.bio ?? '',
       avatar: data.avatar ?? '',
       links: data.links ?? {},
-    })
+    });
   }
 
-  return authors
+  return authors;
 }

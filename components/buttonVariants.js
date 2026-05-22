@@ -1,11 +1,11 @@
 export function buttonVariants({ active = false, tone = 'default', size = 'xs' } = {}) {
-  const base = 'px-2 py-1 rounded transition-all font-medium border focus:outline-none'
+  const base = 'px-2 py-1 rounded transition-all font-medium border focus:outline-none';
 
   const sizes = {
     xs: 'text-xs',
     sm: 'text-sm',
     md: 'text-base',
-  }
+  };
 
   const variants = {
     primary: active
@@ -54,7 +54,7 @@ export function buttonVariants({ active = false, tone = 'default', size = 'xs' }
         hover:bg-[var(--surface-variant)]
       `,
     },
-  }
+  };
 
   const v =
     tone === 'difficulty'
@@ -65,7 +65,7 @@ export function buttonVariants({ active = false, tone = 'default', size = 'xs' }
         ? active
           ? variants.list.active
           : variants.list.inactive
-        : variants[tone] || variants.primary
+        : variants[tone] || variants.primary;
 
-  return [base, sizes[size], v].join(' ')
+  return [base, sizes[size], v].join(' ');
 }

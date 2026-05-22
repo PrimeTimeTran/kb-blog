@@ -1,16 +1,11 @@
-import type {
-  RawContent,
-  ContentRequest,
-  PipelineContext,
-  ResolvedContentSource,
-} from '../../core/types'
+import type { RawContent, ContentRequest, PipelineContext, ResolvedContentSource } from '../../core/types';
 
 export function createPipelineContext(input: {
-  request: ContentRequest
-  source: ResolvedContentSource
-  raw: RawContent
-  index?: Record<string, unknown>
-  analysis?: Record<string, unknown>
+  request: ContentRequest;
+  source: ResolvedContentSource;
+  raw: RawContent;
+  index?: Record<string, unknown>;
+  analysis?: Record<string, unknown>;
 }): PipelineContext {
   return {
     request: input.request,
@@ -28,5 +23,5 @@ export function createPipelineContext(input: {
 
     diagnostics: [],
     artifacts: {},
-  }
+  };
 }

@@ -1,6 +1,6 @@
-import { SafeLink as Link } from '../components/mdx/Link'
-import { PageSEO } from '../components/SEO'
-import siteMetadata from '../data/site-metadata'
+import { SafeLink as Link } from '../components/mdx/Link';
+import { PageSEO } from '../components/SEO';
+import siteMetadata from '../data/site-metadata';
 
 export default function FourZeroFour() {
   return (
@@ -37,5 +37,5 @@ export default function FourZeroFour() {
         </div>
       </div>
     </div>
-  )
+  );
 }

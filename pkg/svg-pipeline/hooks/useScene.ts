@@ -1,6 +1,6 @@
-import { useMemo } from 'react'
+import { useMemo } from 'react';
 
-import { extractLayers } from '../lib'
+import { extractLayers } from '../lib';
 
 export function useScene(assets: any[]) {
   return useMemo(() => {
@@ -8,13 +8,13 @@ export function useScene(assets: any[]) {
       const layers = extractLayers(asset.svg).map((l: any) => ({
         ...l,
         visible: true,
-      }))
+      }));
 
       return {
         ...asset,
         layers,
         layerMap: Object.fromEntries(layers.map((l) => [l.id, l])),
-      }
-    })
-  }, [assets])
+      };
+    });
+  }, [assets]);
 }

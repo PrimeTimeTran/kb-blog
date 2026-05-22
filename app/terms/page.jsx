@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { useMemo, useState } from 'react'
-import { RiBloggerLine } from 'react-icons/ri'
-import { FiSearch, FiFilter, FiBookOpen, FiClock } from 'react-icons/fi'
-import { HiOutlineSortAscending } from 'react-icons/hi'
+import { useMemo, useState } from 'react';
+import { RiBloggerLine } from 'react-icons/ri';
+import { FiSearch, FiFilter, FiBookOpen, FiClock } from 'react-icons/fi';
+import { HiOutlineSortAscending } from 'react-icons/hi';
 
 const MOCK_TERMS = [
   {
@@ -24,42 +24,40 @@ const MOCK_TERMS = [
     category: 'Computer Science',
     updatedAt: '2026-02-18',
   },
-]
+];
 
 export default function TermsPage() {
-  const [query, setQuery] = useState('')
-  const [sort, setSort] = useState('title') // title | recent
-  const [category, setCategory] = useState('all')
+  const [query, setQuery] = useState('');
+  const [sort, setSort] = useState('title'); // title | recent
+  const [category, setCategory] = useState('all');
 
   const categories = useMemo(() => {
-    return ['all', ...new Set(MOCK_TERMS.map((t) => t.category))]
-  }, [])
+    return ['all', ...new Set(MOCK_TERMS.map((t) => t.category))];
+  }, []);
 
   const filtered = useMemo(() => {
-    let data = [...MOCK_TERMS]
+    let data = [...MOCK_TERMS];
 
     // filter by category
     if (category !== 'all') {
-      data = data.filter((t) => t.category === category)
+      data = data.filter((t) => t.category === category);
     }
 
     // search
     if (query.trim()) {
-      const q = query.toLowerCase()
-      data = data.filter(
-        (t) => t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q)
-      )
+      const q = query.toLowerCase();
+      data = data.filter((t) => t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
     }
 
     // sort
     if (sort === 'title') {
-      data.sort((a, b) => a.title.localeCompare(b.title))
+      data.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sort === 'recent') {
-      data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+      data.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
     }
 
-    return data
-  }, [query, sort, category])
+    return data;
+  }, [query, sort, category]);
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
@@ -74,8 +72,7 @@ export default function TermsPage() {
           </div>
 
           <p className="mt-2 text-sm text-neutral-600">
-            Explore concepts, definitions, and patterns. Filter, search, and navigate knowledge like
-            a living index.
+            Explore concepts, definitions, and patterns. Filter, search, and navigate knowledge like a living index.
           </p>
         </div>
       </header>
@@ -115,11 +112,7 @@ export default function TermsPage() {
             {/* Sort */}
             <div className="flex items-center gap-2 rounded-xl border bg-white px-3 py-2">
               <HiOutlineSortAscending className="text-neutral-500" />
-              <select
-                value={sort}
-                onChange={(e) => setSort(e.target.value)}
-                className="bg-transparent outline-none"
-              >
+              <select value={sort} onChange={(e) => setSort(e.target.value)} className="bg-transparent outline-none">
                 <option value="title">A → Z</option>
                 <option value="recent">Most Recent</option>
               </select>
@@ -149,9 +142,7 @@ export default function TermsPage() {
                   <h2 className="text-lg font-semibold group-hover:underline">{term.title}</h2>
                 </div>
 
-                <span className="rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-600">
-                  {term.category}
-                </span>
+                <span className="rounded-full bg-neutral-100 px-2 py-1 text-xs text-neutral-600">{term.category}</span>
               </div>
 
               <p className="mt-2 text-sm text-neutral-600">{term.description}</p>
@@ -172,5 +163,5 @@ export default function TermsPage() {
         )}
       </main>
     </div>
-  )
+  );
 }

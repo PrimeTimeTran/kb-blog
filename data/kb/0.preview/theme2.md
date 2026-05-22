@@ -57,9 +57,9 @@ This line has an ~~strikethrough~~.
 
 #### Single
 
-> "If it was easy everyone would do it."
+> If it was easy everyone would do it.
 
-> "If it was easy everyone would do it."
+> If it was easy everyone would do it.
 >
 > - unknown
 
@@ -67,7 +67,7 @@ This line has an ~~strikethrough~~.
 
 > Then why aren't you doing it?
 >
-> > "If it was easy everyone would do it."
+> > If it was easy everyone would do it.
 
 #### With Elements
 
@@ -110,7 +110,7 @@ This line has an ~~strikethrough~~.
 >
 > ```js
 > function helloWorld() {
->   console.log('hi')
+>   console.log('hi');
 > }
 > ```
 

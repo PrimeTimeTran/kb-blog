@@ -1,12 +1,12 @@
-import React from 'react'
-import { HiCollection, HiColorSwatch, HiPlus } from 'react-icons/hi'
-import { THEME_VAULT } from '@/lib/theme/palette'
+import React from 'react';
+import { HiCollection, HiColorSwatch, HiPlus } from 'react-icons/hi';
+import { THEME_VAULT } from '@/lib/theme/palette';
 
 interface ColorBoxProps {
-  label: string
-  bg: string
-  text: string
-  sub: string
+  label: string;
+  bg: string;
+  text: string;
+  sub: string;
 }
 
 export function ColorBox({ label, bg, text, sub }: ColorBoxProps) {
@@ -24,17 +24,17 @@ export function ColorBox({ label, bg, text, sub }: ColorBoxProps) {
       </p>
       <p className="text-[9px] font-bold opacity-60 uppercase tracking-tight">{sub}</p>
     </div>
-  )
+  );
 }
 
 interface FloatingPickerProps {
-  seed: string
-  setSeed: (color: string) => void
+  seed: string;
+  setSeed: (color: string) => void;
 }
 
 export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
   // Find the active theme name for the tooltip
-  const activeTheme = THEME_VAULT.find((t) => t.seed === seed)
+  const activeTheme = THEME_VAULT.find((t) => t.seed === seed);
 
   return (
     <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-100 flex flex-col items-center gap-4 w-max">
@@ -61,9 +61,7 @@ export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
               <div className="absolute -top-16 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover:translate-y-0">
                 <div className="bg-on-surface text-surface p-2 rounded-xl shadow-xl w-48 text-center border border-outline/10">
                   <p className="text-[10px] font-black uppercase tracking-tighter">{theme.name}</p>
-                  <p className="text-[8px] font-medium leading-tight mt-1 opacity-80">
-                    {theme.description}
-                  </p>
+                  <p className="text-[8px] font-medium leading-tight mt-1 opacity-80">{theme.description}</p>
                 </div>
                 <div className="w-2 h-2 bg-on-surface rotate-45 -mt-1" />
               </div>
@@ -87,7 +85,7 @@ export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // Section: Data & Feedback Elements
@@ -102,10 +100,7 @@ export const DataPreview = () => (
           <span className="text-primary">85%</span>
         </div>
         <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
-          <div
-            className="h-full bg-primary transition-all duration-1000"
-            style={{ width: '85%' }}
-          />
+          <div className="h-full bg-primary transition-all duration-1000" style={{ width: '85%' }} />
         </div>
       </div>
 
@@ -117,13 +112,11 @@ export const DataPreview = () => (
         <span className="px-3 py-1 rounded-full bg-tertiary/10 text-tertiary text-[10px] font-bold border border-tertiary/20">
           Tertiary Tag
         </span>
-        <span className="px-3 py-1 rounded-full bg-primary text-on-primary text-[10px] font-bold">
-          Primary Badge
-        </span>
+        <span className="px-3 py-1 rounded-full bg-primary text-on-primary text-[10px] font-bold">Primary Badge</span>
       </div>
     </div>
   </section>
-)
+);
 
 // Section: Navigation & Selection
 export const SelectionPreview = () => (
@@ -135,9 +128,7 @@ export const SelectionPreview = () => (
           <div
             key={item}
             className={`px-4 py-3 rounded-xl flex items-center justify-between cursor-pointer transition-colors ${
-              i === 0
-                ? 'bg-primary/10 text-primary'
-                : 'hover:bg-surface-container-highest text-on-surface-variant'
+              i === 0 ? 'bg-primary/10 text-primary' : 'hover:bg-surface-container-highest text-on-surface-variant'
             }`}
           >
             <span className="text-sm font-bold">{item}</span>
@@ -147,16 +138,14 @@ export const SelectionPreview = () => (
       </nav>
     </div>
   </section>
-)
+);
 
 export const FormsAndTables = () => (
   <section className="lg:col-span-12 space-y-8 mt-12">
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
       {/* INPUT STATES COLUMN */}
       <div className="space-y-4">
-        <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">
-          Input States
-        </h3>
+        <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Input States</h3>
         <div className="bg-surface-container-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
           <div className="bg-surface-container-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
             {/* Standard states */}
@@ -167,11 +156,7 @@ export const FormsAndTables = () => (
 
             <InputGroup label="Focused State" placeholder="Primary glow..." isFocused />
 
-            <InputGroup
-              label="Error State"
-              placeholder="Invalid data..."
-              error="This field is required"
-            />
+            <InputGroup label="Error State" placeholder="Invalid data..." error="This field is required" />
 
             <InputGroup label="Disabled State" placeholder="You cannot edit this" isDisabled />
           </div>
@@ -201,26 +186,19 @@ export const FormsAndTables = () => (
       </div>
     </div>
   </section>
-)
+);
 
 // --- INPUT GROUP ---
 interface InputProps {
-  label: string
-  placeholder: string
-  error?: string
-  isFocused?: boolean
-  isDisabled?: boolean
-  isHovered?: boolean // New prop for the showcase
+  label: string;
+  placeholder: string;
+  error?: string;
+  isFocused?: boolean;
+  isDisabled?: boolean;
+  isHovered?: boolean; // New prop for the showcase
 }
 
-export const InputGroup = ({
-  label,
-  placeholder,
-  error,
-  isFocused,
-  isDisabled,
-  isHovered,
-}: InputProps) => (
+export const InputGroup = ({ label, placeholder, error, isFocused, isDisabled, isHovered }: InputProps) => (
   <div className="space-y-1.5 group">
     <label
       className={`text-[10px] font-black uppercase tracking-tight transition-colors ${
@@ -257,20 +235,16 @@ export const InputGroup = ({
     ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale bg-surface-container-highest border-outline/10' : ''}
   `}
     />
-    {error && (
-      <p className="text-[9px] font-bold text-error mt-1 uppercase tracking-tighter animate-fadeIn">
-        {error}
-      </p>
-    )}
+    {error && <p className="text-[9px] font-bold text-error mt-1 uppercase tracking-tighter animate-fadeIn">{error}</p>}
   </div>
-)
+);
 
 // --- TABLE ROW ---
 interface TableRowProps {
-  name: string
-  status: string
-  tone: 'success' | 'warning' | 'error' | 'default'
-  load: number
+  name: string;
+  status: string;
+  tone: 'success' | 'warning' | 'error' | 'default';
+  load: number;
 }
 
 const TableRow = ({ name, status, tone, load }: TableRowProps) => {
@@ -279,7 +253,7 @@ const TableRow = ({ name, status, tone, load }: TableRowProps) => {
     warning: 'text-warning bg-warning/10',
     error: 'text-error bg-error/10',
     default: 'text-on-surface-variant bg-surface-container-highest',
-  }
+  };
 
   return (
     <tr className="hover:bg-surface-container-highest/30 transition-colors group">
@@ -305,16 +279,15 @@ const TableRow = ({ name, status, tone, load }: TableRowProps) => {
         </div>
       </td>
     </tr>
-  )
-}
+  );
+};
 
 export const SurfaceDeepDive = () => (
   <section className="lg:col-span-12 space-y-6 mt-12">
     <div className="flex flex-col gap-2">
       <h3 className="text-xl font-black tracking-tight text-on-surface">The Surface Stack</h3>
       <p className="text-sm text-on-surface-variant max-w-2xl">
-        In Material 3, we don't just use one grey. We use a stack of "Containers" that get lighter
-        as they float higher.
+        In Material 3, we don't just use one grey. We use a stack of "Containers" that get lighter as they float higher.
       </p>
     </div>
 
@@ -375,15 +348,13 @@ export const SurfaceDeepDive = () => (
       </div>
     </div>
   </section>
-)
+);
 
 export const ColorTokenGuide = () => (
   <section className="lg:col-span-12 space-y-8 mt-16">
     <div className="flex flex-col gap-2">
       <h3 className="text-xl font-black tracking-tight">The Material Role Map</h3>
-      <p className="text-sm opacity-60">
-        Understanding when to use Primary vs. Secondary vs. Surface.
-      </p>
+      <p className="text-sm opacity-60">Understanding when to use Primary vs. Secondary vs. Surface.</p>
     </div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -445,7 +416,7 @@ export const ColorTokenGuide = () => (
       />
     </div>
   </section>
-)
+);
 
 const TokenCard = ({ title, bg, text, desc, className = '' }: any) => (
   <div
@@ -457,4 +428,4 @@ const TokenCard = ({ title, bg, text, desc, className = '' }: any) => (
     </div>
     <p className="text-[9px] font-mono opacity-50 uppercase tracking-tighter">css-variable-token</p>
   </div>
-)
+);

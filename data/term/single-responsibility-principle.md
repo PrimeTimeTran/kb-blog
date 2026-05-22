@@ -13,14 +13,7 @@ category: 'oop'
 subCategory: 'design_principles'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'singleton-pattern',
-    'factory-pattern',
-    'observer-pattern',
-    'strategy-pattern',
-    'decorator-pattern',
-  ]
+leadsTo: ['singleton-pattern', 'factory-pattern', 'observer-pattern', 'strategy-pattern', 'decorator-pattern']
 related:
   [
     'open-closed-principle',

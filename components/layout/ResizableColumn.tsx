@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import React from 'react'
-import { ReactNode } from 'react'
-import { useResize } from '@/hooks/useResize'
-import { useLayout } from '@/providers/LayoutProvider'
+import React from 'react';
+import { ReactNode } from 'react';
+import { useResize } from '@/hooks/useResize';
+import { useLayout } from '@/providers/LayoutProvider';
 
 function Resizer({ onMouseDown }) {
   return (
@@ -37,26 +37,23 @@ function Resizer({ onMouseDown }) {
         "
       />
     </div>
-  )
+  );
 }
 
 type ResizableColumnProps = {
-  side: 'left' | 'right'
-  className?: string
-  children: ReactNode
-}
+  side: 'left' | 'right';
+  className?: string;
+  children: ReactNode;
+};
 
 export function ResizableColumn({ side, className, children }: ResizableColumnProps) {
-  const { layout } = useLayout()
-  const resize = useResize(side)
-  const isLeft = side === 'left'
+  const { layout } = useLayout();
+  const resize = useResize(side);
+  const isLeft = side === 'left';
 
   return (
     <div
-      className={`group flex h-full shrink-0 
-        ${className ? className : ''}
-        ${isLeft ? 'overflow-hidden left-sidebar' : 'right-sidebar'}
-      `}
+      className={`group flex h-full  shrink-0 ${className ? className : ''} ${isLeft ? 'overflow-hidden left-sidebar' : 'right-sidebar'}`}
       style={{
         width: layout[side],
         minWidth: layout[side],
@@ -67,9 +64,9 @@ export function ResizableColumn({ side, className, children }: ResizableColumnPr
       {!isLeft && <Resizer onMouseDown={resize} />}
 
       {/* <div className="flex-1 min-w-0 h-full overflow-hidden">{children}</div> */}
-      <div className="flex-1 min-w-0 h-full overflow-y-auto no-scrollbar ">{children}</div>
+      <div className="flex-1 min-w-0 h-full overflow-y-auto no-scrollbar border-0">{children}</div>
 
       {isLeft && <Resizer onMouseDown={resize} />}
     </div>
-  )
+  );
 }

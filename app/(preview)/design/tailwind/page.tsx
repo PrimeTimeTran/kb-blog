@@ -1,14 +1,14 @@
-'use client'
-import { useEffect } from 'react'
-import { Box } from 'lucide-react'
-import { SectionTitle } from './components'
-import { Page3 } from './animated-hover-icons'
+'use client';
+import { useEffect } from 'react';
+import { Box } from 'lucide-react';
+import { SectionTitle } from './components';
+import { Page3 } from './animated-hover-icons';
 
 // Inspiration Sites.
 // https://list.swajp.me/
 // https://godly.website/website/v-a-c-sreda-242
 
-export default Page
+export default Page;
 
 export function Page() {
   // Causes infinite css compilation in root pages
@@ -78,7 +78,7 @@ export function Page() {
       {/* EFFECTS */}
       {renderEffects()}
     </div>
-  )
+  );
 }
 
 function renderTextAnimations() {
@@ -89,7 +89,7 @@ function renderTextAnimations() {
       <h1 className="gradient-text text-5xl font-extrabold">Hello World</h1>
       <h1 className="gradient-text text-5xl font-extrabold">Hello World</h1>
     </section>
-  )
+  );
 }
 
 // https://tailwindcss.com/docs/animation
@@ -140,13 +140,11 @@ function renderAnimations() {
         {/* BACKDROP BLUR DEMO */}
         <div className="relative rounded-xl overflow-hidden p-6 bg-zinc-200 dark:bg-zinc-900/60 flex flex-col items-center gap-2">
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-purple-500/30 blur-xl" />
-          <div className="relative backdrop-blur-md px-3 py-1 rounded bg-white/30 dark:bg-black/30">
-            Glass Blur
-          </div>
+          <div className="relative backdrop-blur-md px-3 py-1 rounded bg-white/30 dark:bg-black/30">Glass Blur</div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderEffects() {
@@ -161,16 +159,12 @@ function renderEffects() {
           Hover Scale
         </div>
 
-        <div className="rounded-xl bg-linear-to-r from-blue-500 to-purple-500 p-6 text-white">
-          Gradient
-        </div>
+        <div className="rounded-xl bg-linear-to-r from-blue-500 to-purple-500 p-6 text-white">Gradient</div>
 
-        <div className="rounded-xl bg-zinc-100 p-6 backdrop-blur dark:bg-zinc-900/60">
-          Backdrop Blur
-        </div>
+        <div className="rounded-xl bg-zinc-100 p-6 backdrop-blur dark:bg-zinc-900/60">Backdrop Blur</div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderInputs() {
@@ -195,7 +189,7 @@ function renderInputs() {
         </select>
       </div>
     </section>
-  )
+  );
 }
 
 function renderButtons() {
@@ -212,16 +206,14 @@ function renderButtons() {
           Secondary
         </button>
 
-        <button className="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600 transition">
-          Destructive
-        </button>
+        <button className="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600 transition">Destructive</button>
 
         <button className="rounded-lg bg-zinc-200 px-4 py-2 opacity-50 cursor-not-allowed dark:bg-zinc-800">
           Disabled
         </button>
       </div>
     </section>
-  )
+  );
 }
 
 function renderFlexAndGrid() {
@@ -244,7 +236,7 @@ function renderFlexAndGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderSpacing() {
@@ -279,7 +271,7 @@ function renderSpacing() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderSurfaces() {
@@ -295,7 +287,7 @@ function renderSurfaces() {
         <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-zinc-900">Shadow</div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderColors() {
@@ -322,16 +314,13 @@ function renderColors() {
           'pink',
           'rose',
         ].map((c) => (
-          <div
-            key={c}
-            className={`rounded-xl border border-zinc-200 p-4 dark:border-zinc-800 bg-${c}-500 text-white`}
-          >
+          <div key={c} className={`rounded-xl border border-zinc-200 p-4 dark:border-zinc-800 bg-${c}-500 text-white`}>
             {c}
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }
 
 function renderTypography() {
@@ -373,7 +362,7 @@ function renderTypography() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function renderHeader() {
@@ -385,10 +374,10 @@ function renderHeader() {
         <h1 className="text-5xl font-black tracking-tight">Tailwind Utility Reference</h1>
 
         <p className="max-w-3xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          A living page for inspecting raw Tailwind utility behavior independent of your design
-          system abstractions and semantic tokens.
+          A living page for inspecting raw Tailwind utility behavior independent of your design system abstractions and
+          semantic tokens.
         </p>
       </div>
     </header>
-  )
+  );
 }

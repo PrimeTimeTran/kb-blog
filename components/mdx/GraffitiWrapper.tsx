@@ -1,31 +1,31 @@
-'use client'
-import Prism from 'prismjs'
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { motion, useTime, useTransform } from 'framer-motion'
+'use client';
+import Prism from 'prismjs';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { motion, useTime, useTransform } from 'framer-motion';
 
-import '@/data/code-formatting'
-import { useScroll } from '@/providers/ScrollProvider'
-import { graffitiWords } from '@/data/graffiti'
+import '@/data/code-formatting';
+import { useScroll } from '@/providers/ScrollProvider';
+import { graffitiWords } from '@/data/graffiti';
 
 function GraffitiItem({ a, scrollY, time }: any) {
-  const idleX = useTransform(time, () => 0)
+  const idleX = useTransform(time, () => 0);
   const idleY = useTransform(time, (t) => {
     // slow upward flow
-    const driftUp = -t * 0.02 * (0.5 + a.drift)
+    const driftUp = -t * 0.02 * (0.5 + a.drift);
 
     // soft breathing (tiny, not directional)
-    const breathe = Math.cos(t * 0.0006 + a.top * 0.01) * 1.2
+    const breathe = Math.cos(t * 0.0006 + a.top * 0.01) * 1.2;
 
-    return driftUp + breathe
-  })
+    return driftUp + breathe;
+  });
 
-  const speed = 0.4 + a.drift * 1.6
-  const depth = 0.6 + a.opacity
+  const speed = 0.4 + a.drift * 1.6;
+  const depth = 0.6 + a.opacity;
 
   // 🚨 IMPORTANT: scrollY is a NUMBER, not MotionValue
-  const scrollMotion = scrollY * speed * depth * -1
+  const scrollMotion = scrollY * speed * depth * -1;
 
-  const wobble = Math.sin(scrollY * 0.002 + a.left * 0.01) * 5
+  const wobble = Math.sin(scrollY * 0.002 + a.left * 0.01) * 5;
 
   return (
     <div
@@ -49,32 +49,32 @@ function GraffitiItem({ a, scrollY, time }: any) {
         {a.text}
       </motion.div>
     </div>
-  )
+  );
 }
 export default function GraffitiWrapper({ children }: { children: React.ReactNode }) {
-  const contentRef = useRef<HTMLDivElement>(null)
-  const [anchors, setAnchors] = useState<GraffitiAnchor[]>([])
-  const { scrollY } = useScroll()
-  const time = useTime()
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [anchors, setAnchors] = useState<GraffitiAnchor[]>([]);
+  const { scrollY } = useScroll();
+  const time = useTime();
 
   useEffect(() => {
-    Prism.highlightAll()
-  }, [children])
+    Prism.highlightAll();
+  }, [children]);
 
   useLayoutEffect(() => {
-    if (!contentRef.current) return
+    if (!contentRef.current) return;
 
     const frame1 = requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        const root = contentRef.current
-        if (!root) return
+        const root = contentRef.current;
+        if (!root) return;
 
-        setAnchors(buildGraffitiAnchors(root))
-      })
-    })
+        setAnchors(buildGraffitiAnchors(root));
+      });
+    });
 
-    return () => cancelAnimationFrame(frame1)
-  }, [])
+    return () => cancelAnimationFrame(frame1);
+  }, []);
 
   return (
     <div className="relative overflow-hidden">
@@ -90,29 +90,29 @@ export default function GraffitiWrapper({ children }: { children: React.ReactNod
         {children}
       </div>
     </div>
-  )
+  );
 }
 function buildGraffitiAnchors(root: HTMLElement): GraffitiAnchor[] {
-  const articles = root.querySelectorAll('article')
+  const articles = root.querySelectorAll('article');
   return Array.from(articles).map((el, i) => {
-    const rect = el.getBoundingClientRect()
+    const rect = el.getBoundingClientRect();
 
-    const seed = Math.floor(rect.top) * 31 + Math.floor(rect.left) * 17
+    const seed = Math.floor(rect.top) * 31 + Math.floor(rect.left) * 17;
 
-    const r1 = seededRandom(seed + 11)
-    const r2 = seededRandom(seed + 21)
-    const r3 = seededRandom(seed + 31)
-    const r4 = seededRandom(seed + 41)
+    const r1 = seededRandom(seed + 11);
+    const r2 = seededRandom(seed + 21);
+    const r3 = seededRandom(seed + 31);
+    const r4 = seededRandom(seed + 41);
 
-    const side = r1 > 0.5 ? 1 : -1
+    const side = r1 > 0.5 ? 1 : -1;
 
-    const center = rect.left + window.scrollX + rect.width / 2
-    const maxOffset = rect.width * 0.6 + 120
+    const center = rect.left + window.scrollX + rect.width / 2;
+    const maxOffset = rect.width * 0.6 + 120;
     // symmetric signed offset
-    const direction = r1 < 0.5 ? -1 : 1
-    const offset = r2 * maxOffset * direction
-    const jitter = (r3 - 0.5) * 30
-    const left = center + offset + jitter
+    const direction = r1 < 0.5 ? -1 : 1;
+    const offset = r2 * maxOffset * direction;
+    const jitter = (r3 - 0.5) * 30;
+    const left = center + offset + jitter;
     return {
       id: `graffiti-${i}`,
 
@@ -126,8 +126,8 @@ function buildGraffitiAnchors(root: HTMLElement): GraffitiAnchor[] {
       size: r2 > 0.66 ? 'text-6xl' : r2 > 0.33 ? 'text-4xl' : 'text-2xl',
 
       color: graffitiColors[Math.floor(r1 * graffitiColors.length)],
-    }
-  })
+    };
+  });
 }
 const graffitiColors = [
   'text-primary',
@@ -148,7 +148,7 @@ const graffitiColors = [
   // optional vivid accents
   'text-error',
   'text-error/80',
-]
+];
 const graffitiColors2 = [
   'text-on-surface/20',
   'text-on-surface/30',
@@ -162,20 +162,20 @@ const graffitiColors2 = [
 
   'text-tertiary/30',
   'text-tertiary/40',
-]
+];
 type GraffitiAnchor = {
-  id: string
-  top: number
-  left: number
-  text: string
-  rotate: number
-  drift: number
-  opacity: number
-  size: string
-  color: string
-}
+  id: string;
+  top: number;
+  left: number;
+  text: string;
+  rotate: number;
+  drift: number;
+  opacity: number;
+  size: string;
+  color: string;
+};
 
 function seededRandom(seed: number) {
-  const x = Math.sin(seed) * 10000
-  return x - Math.floor(x)
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
 }

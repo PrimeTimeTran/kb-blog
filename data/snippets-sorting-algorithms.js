@@ -193,4 +193,4 @@ function merge(left, right) {
 }`,
     },
   },
-}
+};

@@ -9,4 +9,4 @@ export const ABBREVIATIONS = {
   IPO: 'IPO',
   RDO: 'RDO',
   VMS: 'VMS',
-}
+};

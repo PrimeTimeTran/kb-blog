@@ -1,15 +1,13 @@
 // You'll need a tiny helper to convert Hex to HSL
 // Or use a library like 'tinycolor2' or 'chroma-js'
-import chroma from 'chroma-js'
+import chroma from 'chroma-js';
 
 const makeTokens = (seed, color, isDark, n, nv, sat, hue, getSemantic) => {
   return {
     // PRIMARY (The Brand)
     '--primary': seed,
     '--on-primary': color.luminance() > 0.5 ? '#000000' : '#ffffff',
-    '--primary-container': isDark
-      ? color.darken(2.5).desaturate(0.5).hex()
-      : color.brighten(2.5).desaturate(0.2).hex(),
+    '--primary-container': isDark ? color.darken(2.5).desaturate(0.5).hex() : color.brighten(2.5).desaturate(0.2).hex(),
     '--on-primary-container': isDark ? color.brighten(3).hex() : color.darken(2).hex(),
 
     // SECONDARY & TERTIARY (Hue shifts)
@@ -58,39 +56,39 @@ const makeTokens = (seed, color, isDark, n, nv, sat, hue, getSemantic) => {
     '--inverse-surface': isDark ? n.brighten(6).hex() : n.darken(4).hex(),
     '--inverse-on-surface': isDark ? n.darken(4).hex() : n.brighten(6).hex(),
     // SECONDARY (30 degree shift)
-  }
-}
+  };
+};
 
 export const applyMaterialTheme = async (seed: string, isDark: boolean) => {
-  const color = chroma(seed)
-  const hue = color.get('hsl.h')
-  const sat = color.get('hsl.s')
-  const root = document.documentElement
+  const color = chroma(seed);
+  const hue = color.get('hsl.h');
+  const sat = color.get('hsl.s');
+  const root = document.documentElement;
 
   // 1. BRAND HARMONY HELPER
   // This ensures semantic colors (Red/Green) feel like they belong to the brand.
   const getSemantic = (baseHue: number, s: number, l: number) => {
-    const blendedHue = baseHue * 0.85 + hue * 0.15 // 15% brand injection
-    return chroma.hsl(blendedHue, s, l)
-  }
+    const blendedHue = baseHue * 0.85 + hue * 0.15; // 15% brand injection
+    return chroma.hsl(blendedHue, s, l);
+  };
 
   // 2. NEUTRAL GENERATOR (For Surfaces)
   // M3 uses Neutral (N) and Neutral Variant (NV) for backgrounds and text.
-  const n = chroma.hsl(hue, sat * 0.1, isDark ? 0.1 : 0.98) // Very desaturated seed
-  const nv = chroma.hsl(hue, sat * 0.2, isDark ? 0.2 : 0.9) // Slightly more saturated
-  const palette = makeTokens(seed, color, isDark, n, nv, sat, hue, getSemantic)
+  const n = chroma.hsl(hue, sat * 0.1, isDark ? 0.1 : 0.98); // Very desaturated seed
+  const nv = chroma.hsl(hue, sat * 0.2, isDark ? 0.2 : 0.9); // Slightly more saturated
+  const palette = makeTokens(seed, color, isDark, n, nv, sat, hue, getSemantic);
 
   Object.entries(palette).forEach(([prop, val]) => {
-    root.style.setProperty(prop, val)
-  })
+    root.style.setProperty(prop, val);
+  });
   // await updateFavicon(seed, isDark)
-  await updateDynamicFavicon(seed, isDark)
-}
+  await updateDynamicFavicon(seed, isDark);
+};
 
 export function generateThemeTokens(seedColor) {
-  const color = chroma(seedColor)
-  const hue = color.get('hsl.h')
-  const sat = color.get('hsl.s')
+  const color = chroma(seedColor);
+  const hue = color.get('hsl.h');
+  const sat = color.get('hsl.s');
   // eslint-disable-next-line react-hooks/rules-of-hooks
   return {
     // Primary remains the seed
@@ -112,22 +110,22 @@ export function generateThemeTokens(seedColor) {
     '--surface': chroma.hsl(hue, sat * 0.1, 0.98).hex(),
     '--on-surface': '#1c1b1f',
     '--outline': chroma.hsl(hue, sat * 0.2, 0.5).hex(),
-  }
+  };
 }
 
 export const applyTheme = (seed) => {
-  const palette = generateThemeTokens(seed)
-  const root = document.documentElement
+  const palette = generateThemeTokens(seed);
+  const root = document.documentElement;
 
   Object.entries(palette).forEach(([property, value]) => {
-    root.style.setProperty(property, value)
-  })
-}
+    root.style.setProperty(property, value);
+  });
+};
 export type Theme = {
-  name: string
-  seed: string
-  description: string
-}
+  name: string;
+  seed: string;
+  description: string;
+};
 export const THEME_VAULT: Theme[] = [
   {
     name: 'Vampire Mode',
@@ -179,13 +177,13 @@ export const THEME_VAULT: Theme[] = [
     seed: '#6750a4',
     desc: 'Soft purple. High-end look for SaaS or creative tools.',
   },
-]
+];
 
 const updateDynamicFavicon = (seed: string, isDark: boolean) => {
   try {
-    const color = chroma(seed)
+    const color = chroma(seed);
     // Contrast color for the text (the "LT")
-    const textColor = color.luminance() > 0.5 ? '#000000' : '#FFFFFF'
+    const textColor = color.luminance() > 0.5 ? '#000000' : '#FFFFFF';
 
     // 1. Define the SVG Structure
     // - rect: The rounded square background (using the seed color)
@@ -206,21 +204,21 @@ const updateDynamicFavicon = (seed: string, isDark: boolean) => {
           LT
         </text>
       </svg>
-    `.trim()
+    `.trim();
 
     // 2. Encode to Base64
-    const encodedSvg = window.btoa(unescape(encodeURIComponent(svgString)))
-    const dataUrl = `data:image/svg+xml;base64,${encodedSvg}`
+    const encodedSvg = window.btoa(unescape(encodeURIComponent(svgString)));
+    const dataUrl = `data:image/svg+xml;base64,${encodedSvg}`;
 
     // 3. Update the link tag
-    let link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']")
+    let link: HTMLLinkElement | null = document.querySelector("link[rel~='icon']");
     if (!link) {
-      link = document.createElement('link')
-      link.rel = 'icon'
-      document.head.appendChild(link)
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
     }
-    link.href = dataUrl
+    link.href = dataUrl;
   } catch (error) {
-    console.error('Favicon error:', error)
+    console.error('Favicon error:', error);
   }
-}
+};

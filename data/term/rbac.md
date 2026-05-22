@@ -14,8 +14,7 @@ subCategory: 'security'
 prerequisites: []
 buildsUpon: []
 leadsTo: []
-related:
-  ['role-based-access-control', 'network-policies', 'pod-security-policies', 'secrets-management']
+related: ['role-based-access-control', 'network-policies', 'pod-security-policies', 'secrets-management']
 seeAlso:
   [
     'deployment',

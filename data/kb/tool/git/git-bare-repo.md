@@ -1,10 +1,10 @@
 ---
 draft: false
 slug: tool/git/tag-cheatsheet
-date: "2026-05-03"
-title: "Git Bare Repo"
-summary: "Git Bare Repo use case explained simply"
-tags: ["git", "version-control", "architecture", "dev-tools"]
+date: '2026-05-03'
+title: 'Git Bare Repo'
+summary: 'Git Bare Repo use case explained simply'
+tags: ['git', 'version-control', 'architecture', 'dev-tools']
 ---
 
 # 📌 Bare Git Repo (Dotfiles Model)
@@ -39,7 +39,7 @@ There are **no checked-out files inside it**.
 
 # ⚙️ Key configuration concept
 
-A bare repo is usually paired with a *work tree*:
+A bare repo is usually paired with a _work tree_:
 
 ```bash
 git --git-dir=$HOME/.cfg --work-tree=$HOME
@@ -88,8 +88,8 @@ Think of it as:
 
 But unlike normal repos:
 
-* there is no `.git` folder inside project files
-* everything is tracked from the root (`~`)
+- there is no `.git` folder inside project files
+- everything is tracked from the root (`~`)
 
 ---
 
@@ -97,16 +97,16 @@ But unlike normal repos:
 
 ## ✅ Pros
 
-* Tracks entire system configs
-* No need to move files
-* Reproducible environment
-* Works across machines
+- Tracks entire system configs
+- No need to move files
+- Reproducible environment
+- Works across machines
 
 ## ⚠️ Cons
 
-* Easy to accidentally track sensitive files
-* Can include system noise if not curated
-* Harder mental model than normal repos
+- Easy to accidentally track sensitive files
+- Can include system noise if not curated
+- Harder mental model than normal repos
 
 ---
 
@@ -114,10 +114,10 @@ But unlike normal repos:
 
 Primarily:
 
-* dotfiles management
-* shell configuration (`.zshrc`, `.bashrc`)
-* editor configs (`nvim`, `tmux`, `kitty`)
-* system tooling setup
+- dotfiles management
+- shell configuration (`.zshrc`, `.bashrc`)
+- editor configs (`nvim`, `tmux`, `kitty`)
+- system tooling setup
 
 ---
 
@@ -129,7 +129,7 @@ Primarily:
 
 If you want, I can also turn this into a **Zettelkasten link map** connecting:
 
-* dotfiles systems
-* symlinks
-* XDG config standard
-* stow vs bare repo patterns
+- dotfiles systems
+- symlinks
+- XDG config standard
+- stow vs bare repo patterns

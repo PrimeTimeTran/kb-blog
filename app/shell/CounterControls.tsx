@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
 type CounterControlsProps = {
-  count: number
-  inc: () => void
-  dec: () => void
-  reset: () => void
-}
+  count: number;
+  inc: () => void;
+  dec: () => void;
+  reset: () => void;
+};
 
 export function CounterControls({ count, inc, dec, reset }: CounterControlsProps) {
   const baseBtn =
@@ -13,12 +13,12 @@ export function CounterControls({ count, inc, dec, reset }: CounterControlsProps
     'border-gray-300 dark:border-gray-600 ' +
     'bg-white dark:bg-gray-800 ' +
     'text-gray-800 dark:text-gray-200 ' +
-    'hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-[0.98]'
+    'hover:bg-gray-100 dark:hover:bg-gray-700 active:scale-[0.98]';
 
   const primaryBtn =
     'h-8 px-3 text-sm rounded-md transition ' +
     'bg-black text-white dark:bg-white dark:text-black ' +
-    'hover:opacity-90 active:opacity-80'
+    'hover:opacity-90 active:opacity-80';
 
   return (
     <div className="flex items-center gap-2 p-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 w-fit">
@@ -36,5 +36,5 @@ export function CounterControls({ count, inc, dec, reset }: CounterControlsProps
         reset
       </button>
     </div>
-  )
+  );
 }

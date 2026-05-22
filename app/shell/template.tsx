@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Template({ children }: { children: React.ReactNode }) {
-  const [count, setCount] = useState(0)
-  const pathname = usePathname()
+  const [count, setCount] = useState(0);
+  const pathname = usePathname();
   return (
     <AnimatePresence mode="wait">
       <motion.div
@@ -39,9 +39,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
                 −
               </button>
 
-              <div className="min-w-10 text-center text-sm text-gray-800 dark:text-gray-200">
-                {count}
-              </div>
+              <div className="min-w-10 text-center text-sm text-gray-800 dark:text-gray-200">{count}</div>
 
               <button
                 onClick={() => setCount((c) => c + 1)}
@@ -84,5 +82,5 @@ export default function Template({ children }: { children: React.ReactNode }) {
         </div>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }

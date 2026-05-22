@@ -1,18 +1,18 @@
-import { useMemo, useState } from 'react'
-import { TOPICS } from '../data/constants'
-import type { Topic } from '../data/constants'
+import { useMemo, useState } from 'react';
+import { TOPICS } from '../data/constants';
+import type { Topic } from '../data/constants';
 
-type SortOrder = 'asc' | 'desc'
-type SortField = 'date' | 'title'
+type SortOrder = 'asc' | 'desc';
+type SortField = 'date' | 'title';
 
 type UsePostsOptions<T> = {
-  fetchedPosts: T[]
-  initialSortField?: SortField
-  initialSortOrder?: SortOrder
-}
+  fetchedPosts: T[];
+  initialSortField?: SortField;
+  initialSortOrder?: SortOrder;
+};
 
 function normalizeTag(tag: string) {
-  return String(tag).trim().replace(/\s+/g, '-').toLowerCase()
+  return String(tag).trim().replace(/\s+/g, '-').toLowerCase();
 }
 
 export function usePosts<T extends Record<string, any>>({
@@ -24,36 +24,36 @@ export function usePosts<T extends Record<string, any>>({
   // UI STATE
   // -----------------------------------
 
-  const [searchTerm, setSearchTerm] = useState('')
-  const [filteredTopics, setFilteredTopics] = useState<string[]>([])
-  const [sortField, setSortField] = useState<SortField>(initialSortField)
-  const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder)
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredTopics, setFilteredTopics] = useState<string[]>([]);
+  const [sortField, setSortField] = useState<SortField>(initialSortField);
+  const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
 
   // -----------------------------------
   // NORMALIZATION
   // -----------------------------------
   const disabledTagSet = useMemo(() => {
-    const set = new Set<string>()
+    const set = new Set<string>();
 
     for (const topic of filteredTopics as Topic[]) {
-      const tags = TOPICS[topic] ?? []
+      const tags = TOPICS[topic] ?? [];
       for (const tag of tags) {
-        set.add(tag)
+        set.add(tag);
       }
     }
 
-    return set
-  }, [filteredTopics])
+    return set;
+  }, [filteredTopics]);
 
   const normalizedPosts = useMemo(() => {
     return fetchedPosts.map((post) => {
-      const rawTags = post.frontMatter?.tags
+      const rawTags = post.frontMatter?.tags;
 
-      const tags = Array.isArray(rawTags) ? rawTags.map(normalizeTag) : []
+      const tags = Array.isArray(rawTags) ? rawTags.map(normalizeTag) : [];
 
-      const title = String(post.title ?? '')
-      const summary = String(post.summary ?? '')
-      const body = String(post.body ?? '')
+      const title = String(post.title ?? '');
+      const summary = String(post.summary ?? '');
+      const body = String(post.body ?? '');
 
       return {
         ...post,
@@ -63,33 +63,31 @@ export function usePosts<T extends Record<string, any>>({
         tags,
         date: post.date ? new Date(post.date) : null,
         searchIndex: [title, summary, body, ...tags].join(' ').toLowerCase(),
-      }
-    })
-  }, [fetchedPosts])
+      };
+    });
+  }, [fetchedPosts]);
 
   // -----------------------------------
   // ALL UNIQUE TAGS
   // -----------------------------------
 
   const allTags = useMemo(() => {
-    const set = new Set<string>()
+    const set = new Set<string>();
 
     for (const post of normalizedPosts) {
       for (const tag of post.tags) {
-        set.add(tag)
+        set.add(tag);
       }
     }
 
-    return Array.from(set).sort()
-  }, [normalizedPosts])
+    return Array.from(set).sort();
+  }, [normalizedPosts]);
   // -----------------------------------
   // TAG TOGGLE
   // -----------------------------------
 
   function toggleTag(tag: string) {
-    setFilteredTopics((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    )
+    setFilteredTopics((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]));
   }
 
   // -----------------------------------
@@ -97,7 +95,7 @@ export function usePosts<T extends Record<string, any>>({
   // -----------------------------------
 
   const filteredPosts = useMemo(() => {
-    let result = normalizedPosts
+    let result = normalizedPosts;
 
     // -----------------------------
     // TAG FILTER
@@ -110,34 +108,34 @@ export function usePosts<T extends Record<string, any>>({
 
     if (filteredTopics.length > 0) {
       result = result.filter((post) => {
-        const tags = post.tags ?? []
+        const tags = post.tags ?? [];
 
         // keep post only if it does NOT contain disabled tags
-        return !tags.some((tag) => disabledTagSet.has(tag))
-      })
+        return !tags.some((tag) => disabledTagSet.has(tag));
+      });
     }
 
     // -----------------------------
     // SEARCH FILTER
     // -----------------------------
 
-    const term = searchTerm.trim().toLowerCase()
+    const term = searchTerm.trim().toLowerCase();
 
     if (term) {
       result = result.filter((post) => {
-        return post.searchIndex.includes(term)
-      })
+        return post.searchIndex.includes(term);
+      });
     }
 
-    return result
-  }, [searchTerm, normalizedPosts, filteredTopics, disabledTagSet])
+    return result;
+  }, [searchTerm, normalizedPosts, filteredTopics, disabledTagSet]);
 
   // -----------------------------------
   // SORTING
   // -----------------------------------
 
   const sortedPosts = useMemo(() => {
-    const sorted = [...filteredPosts]
+    const sorted = [...filteredPosts];
 
     sorted.sort((a, b) => {
       // -------------------------
@@ -145,26 +143,26 @@ export function usePosts<T extends Record<string, any>>({
       // -------------------------
 
       if (sortField === 'date') {
-        const aTime = a.date?.getTime() ?? 0
-        const bTime = b.date?.getTime() ?? 0
+        const aTime = a.date?.getTime() ?? 0;
+        const bTime = b.date?.getTime() ?? 0;
 
-        return sortOrder === 'desc' ? bTime - aTime : aTime - bTime
+        return sortOrder === 'desc' ? bTime - aTime : aTime - bTime;
       }
 
       // -------------------------
       // TITLE SORT
       // -------------------------
 
-      const aTitle = a.title.toLowerCase()
-      const bTitle = b.title.toLowerCase()
+      const aTitle = a.title.toLowerCase();
+      const bTitle = b.title.toLowerCase();
 
-      const result = aTitle.localeCompare(bTitle)
+      const result = aTitle.localeCompare(bTitle);
 
-      return sortOrder === 'desc' ? -result : result
-    })
+      return sortOrder === 'desc' ? -result : result;
+    });
 
-    return sorted
-  }, [filteredPosts, sortField, sortOrder])
+    return sorted;
+  }, [filteredPosts, sortField, sortOrder]);
 
   // -----------------------------------
   // METRICS
@@ -175,8 +173,8 @@ export function usePosts<T extends Record<string, any>>({
       total: fetchedPosts.length,
       filtered: filteredPosts.length,
     }),
-    [fetchedPosts, filteredPosts]
-  )
+    [fetchedPosts, filteredPosts],
+  );
 
   // -----------------------------------
   // API
@@ -201,5 +199,5 @@ export function usePosts<T extends Record<string, any>>({
 
     sortOrder,
     setSortOrder,
-  }
+  };
 }

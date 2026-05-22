@@ -34,4 +34,4 @@ export const images = [
     height: 933,
     description: 'space',
   },
-]
+];

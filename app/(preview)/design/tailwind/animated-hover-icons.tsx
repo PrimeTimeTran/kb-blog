@@ -1,16 +1,16 @@
-'use client'
-import React, { useState, useEffect, useRef } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+'use client';
+import React, { useState, useEffect, useRef } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 
-import { SectionTitle } from './components'
-import { BaseScroll } from '@/components/BaseScroll'
-import { useThemeStore } from '@/hooks/useThemeStore'
-import { useTheme } from '@teispace/next-themes'
-import type { Theme } from '@/lib/theme/palette'
-import { applyMaterialTheme, THEME_VAULT } from '@/lib/theme/palette'
+import { SectionTitle } from './components';
+import { BaseScroll } from '@/components/BaseScroll';
+import { useThemeStore } from '@/hooks/useThemeStore';
+import { useTheme } from '@teispace/next-themes';
+import type { Theme } from '@/lib/theme/palette';
+import { applyMaterialTheme, THEME_VAULT } from '@/lib/theme/palette';
 
 export function Page1() {
-  const [active, setActive] = useState<number | null>(null)
+  const [active, setActive] = useState<number | null>(null);
   return (
     <BaseScroll>
       <div className="h-full w-full overflow-y-scroll space-y-16 p-8">
@@ -18,11 +18,11 @@ export function Page1() {
         {renderHoverIcons(active, setActive)}
       </div>
     </BaseScroll>
-  )
+  );
 }
 
 export function renderHoverIcons(active, setActive) {
-  const items = Array.from({ length: 5 }, (_, i) => i + 1)
+  const items = Array.from({ length: 5 }, (_, i) => i + 1);
 
   return (
     <section className="space-y-6 relative">
@@ -44,7 +44,7 @@ export function renderHoverIcons(active, setActive) {
       {/* GLOBAL OVERLAY LAYER */}
       <HoverOverlay active={active} />
     </section>
-  )
+  );
 }
 
 export function HoverOverlay({ active }: { active: number | null }) {
@@ -79,7 +79,7 @@ export function HoverOverlay({ active }: { active: number | null }) {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
 
 // Creates per list item hover pops out and hover exit shrinks
@@ -89,12 +89,12 @@ export function Page2() {
       <SectionTitle title="Text Animations" />
       <HoverList />
     </div>
-  )
+  );
 }
 function HoverList() {
-  const items = Array.from({ length: 5 }, (_, i) => i + 1)
+  const items = Array.from({ length: 5 }, (_, i) => i + 1);
 
-  const [hovered, setHovered] = useState<number | null>(null)
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <div className="space-y-4">
@@ -108,7 +108,7 @@ function HoverList() {
         />
       ))}
     </div>
-  )
+  );
 }
 
 function HoverItem({
@@ -117,10 +117,10 @@ function HoverItem({
   onEnter,
   onLeave,
 }: {
-  n: number
-  active: boolean
-  onEnter: () => void
-  onLeave: () => void
+  n: number;
+  active: boolean;
+  onEnter: () => void;
+  onLeave: () => void;
 }) {
   return (
     <div
@@ -146,58 +146,58 @@ function HoverItem({
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export function Page3({ children }) {
-  const { resolvedTheme } = useTheme()
-  const { seed, setSeed } = useThemeStore()
+  const { resolvedTheme } = useTheme();
+  const { seed, setSeed } = useThemeStore();
 
-  const isDark = resolvedTheme === 'dark'
-  const isTransitioningRef = useRef(false)
+  const isDark = resolvedTheme === 'dark';
+  const isTransitioningRef = useRef(false);
 
-  const [transition, setTransition] = useState(false)
-  const [nextThemeIndex, setNextThemeIndex] = useState<number | null>(null)
-  const [origin, setOrigin] = useState({ x: 0, y: 0 })
-  const [snapshotSeed, setSnapshotSeed] = useState<string | null>(null)
+  const [transition, setTransition] = useState(false);
+  const [nextThemeIndex, setNextThemeIndex] = useState<number | null>(null);
+  const [origin, setOrigin] = useState({ x: 0, y: 0 });
+  const [snapshotSeed, setSnapshotSeed] = useState<string | null>(null);
 
   useEffect(() => {
-    applyMaterialTheme(seed, isDark)
-    document.documentElement.classList.toggle('dark', isDark)
-  }, [seed, isDark])
+    applyMaterialTheme(seed, isDark);
+    document.documentElement.classList.toggle('dark', isDark);
+  }, [seed, isDark]);
 
   const triggerThemeChange = (e: React.MouseEvent) => {
-    if (isTransitioningRef.current) return
+    if (isTransitioningRef.current) return;
 
-    isTransitioningRef.current = true
+    isTransitioningRef.current = true;
 
-    const nextIndex = (THEME_VAULT.findIndex((t) => t.seed === seed) + 1) % THEME_VAULT.length
+    const nextIndex = (THEME_VAULT.findIndex((t) => t.seed === seed) + 1) % THEME_VAULT.length;
 
-    const nextTheme = THEME_VAULT[nextIndex]
+    const nextTheme = THEME_VAULT[nextIndex];
 
-    setNextThemeIndex(nextIndex)
-    setSnapshotSeed(nextTheme.seed)
+    setNextThemeIndex(nextIndex);
+    setSnapshotSeed(nextTheme.seed);
 
     // ✅ EXACT SAME SYSTEM AS YOUR RED DOT
     setOrigin({
       x: e.clientX,
       y: e.clientY,
-    })
+    });
 
-    setTransition(true)
-  }
+    setTransition(true);
+  };
 
   const onTransitionEnd = () => {
-    if (nextThemeIndex === null) return
+    if (nextThemeIndex === null) return;
 
-    setSeed(THEME_VAULT[nextThemeIndex].seed)
+    setSeed(THEME_VAULT[nextThemeIndex].seed);
 
-    setNextThemeIndex(null)
-    setSnapshotSeed(null)
-    setTransition(false)
+    setNextThemeIndex(null);
+    setSnapshotSeed(null);
+    setTransition(false);
 
-    isTransitioningRef.current = false
-  }
+    isTransitioningRef.current = false;
+  };
 
   return (
     <div className="relative w-full h-full" onClick={triggerThemeChange}>
@@ -219,21 +219,16 @@ export function Page3({ children }) {
         }}
       />
 
-      <ThemeExplosion
-        active={transition}
-        origin={origin}
-        color={snapshotSeed ?? seed}
-        onDone={onTransitionEnd}
-      />
+      <ThemeExplosion active={transition} origin={origin} color={snapshotSeed ?? seed} onDone={onTransitionEnd} />
     </div>
-  )
+  );
 }
 function ThemeExplosion({ active, origin, color, onDone }: any) {
   useEffect(() => {
-    if (!active) return
-    const t = setTimeout(onDone, 650)
-    return () => clearTimeout(t)
-  }, [active, onDone])
+    if (!active) return;
+    const t = setTimeout(onDone, 650);
+    return () => clearTimeout(t);
+  }, [active, onDone]);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
@@ -252,5 +247,5 @@ function ThemeExplosion({ active, origin, color, onDone }: any) {
         }}
       />
     </div>
-  )
+  );
 }

@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useShellCounter } from './useShellCounter'
-import { CounterControls } from './CounterControls'
+import { useShellCounter } from './useShellCounter';
+import { CounterControls } from './CounterControls';
 
 export default function Layout({ children }) {
-  const counter = useShellCounter()
+  const counter = useShellCounter();
 
   return (
     <div className="grid grid-cols-[240px_1fr_240px] min-h-screen">
@@ -23,5 +23,5 @@ export default function Layout({ children }) {
       {/* RIGHT PLACEHOLDER */}
       <aside />
     </div>
-  )
+  );
 }

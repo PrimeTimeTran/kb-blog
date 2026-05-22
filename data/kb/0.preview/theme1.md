@@ -7,6 +7,7 @@ title: 'Preview: Theme 1'
 summary: '11'
 tags: ['KB/MD/Obsidian/Blog']
 ---
+
 # Theme 1
 
 ## Table of Contents (TOC)
@@ -56,9 +57,9 @@ This line has an ~~strikethrough~~.
 
 #### Single
 
-> "If it was easy everyone would do it."
+> If it was easy everyone would do it.
 
-> "If it was easy everyone would do it."
+> If it was easy everyone would do it.
 >
 > - unknown
 
@@ -91,7 +92,7 @@ This line has an ~~strikethrough~~.
 
 ```js showLineNumbers
 function helloWorld() {
-  console.log('Hi')
+  console.log('Hi');
 }
 ```
 
@@ -109,7 +110,7 @@ function helloWorld() {
 >
 > ```js
 > function helloWorld() {
->   console.log('hi')
+>   console.log('hi');
 > }
 > ```
 

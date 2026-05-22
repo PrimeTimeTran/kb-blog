@@ -51,10 +51,10 @@ script((type = 'text/javascript')).setInterval(() => {
   fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then((response) => response.json())
     .then((json) => {
-      console.log('JSON:', json)
-      document.getElementsByTagName('p')[0].innerHTML = new Date(Date.now())
-    })
-}, 1500)
+      console.log('JSON:', json);
+      document.getElementsByTagName('p')[0].innerHTML = new Date(Date.now());
+    });
+}, 1500);
 ```
 
 Run application to check it works.
@@ -160,12 +160,12 @@ const wizards = [
   'Salazar Slytherin',
   'Godric Gryffindor',
   'Gellert Grindelwald',
-]
+];
 
 router.get('/magic', function (req, res, next) {
-  const wizard = wizards[Math.floor(Math.random() * wizards.length)]
-  res.json(wizard)
-})
+  const wizard = wizards[Math.floor(Math.random() * wizards.length)];
+  res.json(wizard);
+});
 ```
 
 Run api on different port in order to avoid port number collision.
@@ -182,13 +182,13 @@ script((type = 'text/javascript')).setInterval(() => {
   fetch('http://localhost:3001/magic')
     .then((response) => response.json())
     .then((json) => {
-      console.log('JSON:', json)
-      const p = document.getElementsByTagName('p')[0]
-      const br = document.createElement('br')
-      p.appendChild(br)
-      p.append(new Date(Date.now()) + ' ' + json)
-    })
-}, 1500)
+      console.log('JSON:', json);
+      const p = document.getElementsByTagName('p')[0];
+      const br = document.createElement('br');
+      p.appendChild(br);
+      p.append(new Date(Date.now()) + ' ' + json);
+    });
+}, 1500);
 ```
 
 Resolve CORS issue.
@@ -201,10 +201,10 @@ Update api service config.
 
 ```js
 // ./api/app.js
-var cors = require('cors')
+var cors = require('cors');
 
-var app = express()
-app.use(cors())
+var app = express();
+app.use(cors());
 ```
 
 Start api service.

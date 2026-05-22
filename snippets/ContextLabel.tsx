@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 export function ContextLabel({ children }: React.PropsWithChildren) {
-  return <h3 className="fixed text-3xl">{children}</h3>
+  return <h3 className="fixed text-3xl">{children}</h3>;
 }

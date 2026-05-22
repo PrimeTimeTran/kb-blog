@@ -13,8 +13,7 @@ category: 'k8s'
 subCategory: 'networking'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['kubernetes-networking-model', 'flat-network', 'pod-to-pod-communication', 'dns-in-cluster']
+leadsTo: ['kubernetes-networking-model', 'flat-network', 'pod-to-pod-communication', 'dns-in-cluster']
 related: ['ingress-controller', 'routing-rules', 'path-based-routing']
 seeAlso:
   [

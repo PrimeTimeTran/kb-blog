@@ -1,33 +1,33 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-import { KB_DIR } from '../../core/constants'
-import { normalizeTree } from '../../core/normalize'
-import getAllFilesRecursively from '../../server/files'
+import { KB_DIR } from '../../core/constants';
+import { normalizeTree } from '../../core/normalize';
+import getAllFilesRecursively from '../../server/files';
 
 export async function getKbTree() {
-  const files = await getAllFilesRecursively(KB_DIR)
+  const files = await getAllFilesRecursively(KB_DIR);
 
-  const tree = {}
+  const tree = {};
 
   for (const filePath of files) {
     const relative = filePath
       .replace(/\\/g, '/')
       .replace(KB_DIR.replace(/\\/g, '/'), '')
       .replace(/\.(md|mdx)$/, '')
-      .replace(/^\//, '')
+      .replace(/^\//, '');
 
-    const parts = relative.split('/')
+    const parts = relative.split('/');
 
-    let current = tree
-    let pathSoFar = ''
+    let current = tree;
+    let pathSoFar = '';
 
     for (let i = 0; i < parts.length; i++) {
-      const part = parts[i]
-      const isFile = i === parts.length - 1
+      const part = parts[i];
+      const isFile = i === parts.length - 1;
 
-      pathSoFar = pathSoFar ? `${pathSoFar}/${part}` : part
+      pathSoFar = pathSoFar ? `${pathSoFar}/${part}` : part;
 
       if (!current[part]) {
         current[part] = {
@@ -35,35 +35,35 @@ export async function getKbTree() {
           children: {},
           file: null,
           slug: pathSoFar,
-        }
+        };
       }
 
       if (isFile) {
-        current[part].file = pathSoFar
+        current[part].file = pathSoFar;
       }
 
-      current = current[part].children
+      current = current[part].children;
     }
   }
 
-  return normalizeTree(tree)
+  return normalizeTree(tree);
 }
 
 export async function buildKbRegistry() {
-  const files = await getAllFilesRecursively(KB_DIR)
+  const files = await getAllFilesRecursively(KB_DIR);
 
-  const registry = {}
+  const registry = {};
   for (const file of files) {
     try {
-      const source = fs.readFileSync(file, 'utf8')
-      const parsed = matter(source)
+      const source = fs.readFileSync(file, 'utf8');
+      const parsed = matter(source);
 
       const slug = file
         .replace(KB_DIR, '')
         .replace(/\.mdx?$/, '')
-        .replace(/^\/+/, '')
+        .replace(/^\/+/, '');
 
-      const key = path.basename(slug)
+      const key = path.basename(slug);
 
       // const Content = await compileToComponent(parsed.content)
 
@@ -71,12 +71,12 @@ export async function buildKbRegistry() {
         // Content,
         mdxSource: parsed.content,
         frontMatter: parsed.data,
-      }
+      };
     } catch (e) {
-      console.error('❌ MDX FAILED:', file)
-      console.error(e)
+      console.error('❌ MDX FAILED:', file);
+      console.error(e);
     }
   }
 
-  return registry
+  return registry;
 }

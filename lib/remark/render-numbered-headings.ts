@@ -1,6 +1,6 @@
 export interface KbTreePlugin {
-  name: string
-  apply(tree: any): any
+  name: string;
+  apply(tree: any): any;
 }
 
 export function numberingPlugin(): KbTreePlugin {
@@ -10,24 +10,24 @@ export function numberingPlugin(): KbTreePlugin {
     apply(tree) {
       function walk(nodes, prefix = []) {
         return Object.values(nodes).map((node: any, i: number) => {
-          const number = [...prefix, i + 1]
-          const label = number.join('.')
+          const number = [...prefix, i + 1];
+          const label = number.join('.');
 
           return {
             ...node,
             label: `${label} ${node.name}`,
             children: walk(node.children || {}, number),
-          }
-        })
+          };
+        });
       }
 
-      return walk(tree)
+      return walk(tree);
     },
-  }
+  };
 }
 
 export function applyKbPlugins(tree, plugins: KbTreePlugin[] = []) {
   return plugins.reduce((acc, plugin) => {
-    return plugin.apply(acc)
-  }, tree)
+    return plugin.apply(acc);
+  }, tree);
 }

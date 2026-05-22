@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 export default function Layout({ children, left, right }) {
   return (
@@ -7,5 +7,5 @@ export default function Layout({ children, left, right }) {
       <div className="flex-2 ">{children}</div>
       <div className="flex">{right}</div>
     </div>
-  )
+  );
 }

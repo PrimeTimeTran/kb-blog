@@ -28,7 +28,3 @@ One of the most meaningful parts of my career was teaching mobile development at
 ---
 
 Outside of work, I enjoy exercise, cooking, and travel.
-
----
-
-God bless you until I see you!

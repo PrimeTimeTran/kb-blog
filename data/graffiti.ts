@@ -21,7 +21,7 @@ export const TERM_FIELDS = [
   'updatedAt',
   'definition',
   'lockedFields',
-]
+];
 export const FINANCE_TREE = {
   markets: {
     derivatives: [
@@ -34,16 +34,7 @@ export const FINANCE_TREE = {
       'strike price',
       'implied volatility',
     ],
-    equity: [
-      'stocks',
-      'dividends',
-      'market cap',
-      'ipo',
-      'shares',
-      'equity',
-      'public company',
-      'private company',
-    ],
+    equity: ['stocks', 'dividends', 'market cap', 'ipo', 'shares', 'equity', 'public company', 'private company'],
 
     fixed_income: [
       'bonds',
@@ -66,23 +57,9 @@ export const FINANCE_TREE = {
       'dollar cost averaging',
     ],
 
-    risk: [
-      'volatility',
-      'beta',
-      'alpha',
-      'sharpe ratio',
-      'sortino ratio',
-      'drawdown',
-      'risk adjusted return',
-    ],
+    risk: ['volatility', 'beta', 'alpha', 'sharpe ratio', 'sortino ratio', 'drawdown', 'risk adjusted return'],
 
-    portfolio: [
-      'diversification',
-      'asset allocation',
-      'rebalancing',
-      'correlation',
-      'portfolio optimization',
-    ],
+    portfolio: ['diversification', 'asset allocation', 'rebalancing', 'correlation', 'portfolio optimization'],
   },
 
   accounting: {
@@ -94,26 +71,12 @@ export const FINANCE_TREE = {
   macroeconomics: {
     indicators: ['gdp', 'inflation', 'cpi', 'ppi', 'unemployment rate'],
 
-    policy: [
-      'federal reserve',
-      'monetary policy',
-      'fiscal policy',
-      'interest rates',
-      'quantitative easing',
-    ],
+    policy: ['federal reserve', 'monetary policy', 'fiscal policy', 'interest rates', 'quantitative easing'],
   },
-}
+};
 const STATISTICS_TREE = {
   foundations: {
-    core_concepts: [
-      'statistics',
-      'data',
-      'population',
-      'sample',
-      'parameter',
-      'statistic',
-      'variable',
-    ],
+    core_concepts: ['statistics', 'data', 'population', 'sample', 'parameter', 'statistic', 'variable'],
 
     data_types: ['categorical data', 'numerical data', 'discrete data', 'continuous data'],
   },
@@ -133,12 +96,7 @@ const STATISTICS_TREE = {
   },
 
   distributions: {
-    discrete: [
-      'bernoulli distribution',
-      'binomial distribution',
-      'poisson distribution',
-      'geometric distribution',
-    ],
+    discrete: ['bernoulli distribution', 'binomial distribution', 'poisson distribution', 'geometric distribution'],
 
     continuous: [
       'normal distribution',
@@ -150,12 +108,7 @@ const STATISTICS_TREE = {
   },
 
   inferential_statistics: {
-    estimation: [
-      'point estimation',
-      'interval estimation',
-      'confidence interval',
-      'margin of error',
-    ],
+    estimation: ['point estimation', 'interval estimation', 'confidence interval', 'margin of error'],
 
     hypothesis_testing: [
       'null hypothesis',
@@ -214,7 +167,7 @@ const STATISTICS_TREE = {
 
     data_systems: ['data analysis', 'a b testing', 'metrics tracking'],
   },
-}
+};
 const CALCULUS_I_TREE = {
   foundations: {
     functions: ['function', 'domain', 'range', 'inverse function', 'composition of functions'],
@@ -227,51 +180,24 @@ const CALCULUS_I_TREE = {
 
     rules: ['power rule', 'product rule', 'quotient rule', 'chain rule'],
 
-    applications: [
-      'optimization',
-      'related rates',
-      'linear approximation',
-      'mean value theorem',
-      'rolle theorem',
-    ],
+    applications: ['optimization', 'related rates', 'linear approximation', 'mean value theorem', 'rolle theorem'],
   },
 
   curve_analysis: {
     behavior: ['increasing function', 'decreasing function', 'concavity', 'inflection point'],
 
-    graphing: [
-      'curve sketching',
-      'critical points',
-      'first derivative test',
-      'second derivative test',
-    ],
+    graphing: ['curve sketching', 'critical points', 'first derivative test', 'second derivative test'],
   },
-}
+};
 const CALCULUS_II_TREE = {
   integration: {
-    basics: [
-      'indefinite integral',
-      'definite integral',
-      'riemann sum',
-      'fundamental theorem of calculus',
-    ],
+    basics: ['indefinite integral', 'definite integral', 'riemann sum', 'fundamental theorem of calculus'],
 
-    techniques: [
-      'substitution',
-      'integration by parts',
-      'partial fractions',
-      'trigonometric substitution',
-    ],
+    techniques: ['substitution', 'integration by parts', 'partial fractions', 'trigonometric substitution'],
   },
 
   applications: {
-    area_volume: [
-      'area under curve',
-      'area between curves',
-      'volume of revolution',
-      'disk method',
-      'shell method',
-    ],
+    area_volume: ['area under curve', 'area between curves', 'volume of revolution', 'disk method', 'shell method'],
 
     physical: ['work integral', 'arc length', 'surface area'],
   },
@@ -281,17 +207,11 @@ const CALCULUS_II_TREE = {
 
     series: ['series', 'geometric series', 'harmonic series', 'p-series'],
 
-    convergence_tests: [
-      'ratio test',
-      'root test',
-      'comparison test',
-      'integral test',
-      'alternating series test',
-    ],
+    convergence_tests: ['ratio test', 'root test', 'comparison test', 'integral test', 'alternating series test'],
 
     power_series: ['power series', 'taylor series', 'maclaurin series', 'radius of convergence'],
   },
-}
+};
 const CALCULUS_III_TREE = {
   vectors_geometry: {
     vectors: ['vector', 'magnitude', 'dot product', 'cross product', 'unit vector'],
@@ -314,12 +234,7 @@ const CALCULUS_III_TREE = {
   multiple_integrals: {
     double_integrals: ['double integral', 'iterated integral', 'change of variables'],
 
-    triple_integrals: [
-      'triple integral',
-      'jacobian',
-      'cylindrical coordinates',
-      'spherical coordinates',
-    ],
+    triple_integrals: ['triple integral', 'jacobian', 'cylindrical coordinates', 'spherical coordinates'],
   },
 
   vector_calculus: {
@@ -329,17 +244,10 @@ const CALCULUS_III_TREE = {
 
     operators: ['divergence', 'curl', 'laplacian'],
   },
-}
+};
 const LINEAR_ALGEBRA_TREE = {
   foundations: {
-    core_concepts: [
-      'linear algebra',
-      'vector',
-      'matrix',
-      'scalar',
-      'dimension',
-      'linear transformation',
-    ],
+    core_concepts: ['linear algebra', 'vector', 'matrix', 'scalar', 'dimension', 'linear transformation'],
 
     intuition: ['geometry of vectors', 'spaces', 'transformations', 'linear mappings'],
   },
@@ -411,7 +319,7 @@ const LINEAR_ALGEBRA_TREE = {
 
     spectral_theory: ['spectral radius', 'positive definite matrices'],
   },
-}
+};
 const DISCRETE_MATH_TREE = {
   foundations: {
     core_concepts: ['discrete mathematics', 'countable structures', 'logic', 'proof', 'set theory'],
@@ -420,15 +328,7 @@ const DISCRETE_MATH_TREE = {
   },
 
   logic: {
-    propositional_logic: [
-      'proposition',
-      'logical operators',
-      'and',
-      'or',
-      'not',
-      'implication',
-      'biconditional',
-    ],
+    propositional_logic: ['proposition', 'logical operators', 'and', 'or', 'not', 'implication', 'biconditional'],
 
     predicate_logic: ['predicate', 'quantifiers', 'for all', 'there exists', 'domain of discourse'],
 
@@ -452,11 +352,7 @@ const DISCRETE_MATH_TREE = {
   combinatorics: {
     counting: ['permutations', 'combinations', 'factorial', 'binomial coefficient'],
 
-    principles: [
-      'pigeonhole principle',
-      'inclusion exclusion principle',
-      'multiplication principle',
-    ],
+    principles: ['pigeonhole principle', 'inclusion exclusion principle', 'multiplication principle'],
   },
 
   graph_theory: {
@@ -504,19 +400,10 @@ const DISCRETE_MATH_TREE = {
 
     cs_theory: ['computability', 'complexity theory', 'formal verification'],
   },
-}
+};
 const OOP_TREE = {
   foundations: {
-    core_concepts: [
-      'object',
-      'class',
-      'instance',
-      'method',
-      'attribute',
-      'constructor',
-      'state',
-      'behavior',
-    ],
+    core_concepts: ['object', 'class', 'instance', 'method', 'attribute', 'constructor', 'state', 'behavior'],
 
     principles: ['encapsulation', 'abstraction', 'inheritance', 'polymorphism'],
   },
@@ -536,12 +423,7 @@ const OOP_TREE = {
   inheritance: {
     basics: ['inheritance', 'parent class', 'child class', 'superclass', 'subclass'],
 
-    types: [
-      'single inheritance',
-      'multiple inheritance',
-      'multilevel inheritance',
-      'hierarchical inheritance',
-    ],
+    types: ['single inheritance', 'multiple inheritance', 'multilevel inheritance', 'hierarchical inheritance'],
 
     concepts: ['method overriding', 'method overloading', 'super keyword'],
   },
@@ -565,13 +447,7 @@ const OOP_TREE = {
       'dependency inversion principle',
     ],
 
-    patterns: [
-      'singleton pattern',
-      'factory pattern',
-      'observer pattern',
-      'strategy pattern',
-      'decorator pattern',
-    ],
+    patterns: ['singleton pattern', 'factory pattern', 'observer pattern', 'strategy pattern', 'decorator pattern'],
   },
 
   modeling: {
@@ -581,7 +457,7 @@ const OOP_TREE = {
   advanced_oop: {
     concepts: ['mixins', 'traits', 'composition over inheritance', 'dependency injection'],
   },
-}
+};
 const DSA_TREE = {
   foundations: {
     complexity: [
@@ -600,14 +476,7 @@ const DSA_TREE = {
   },
 
   arrays_and_strings: {
-    arrays: [
-      'array',
-      'dynamic array',
-      'prefix sum',
-      'suffix sum',
-      'sliding window',
-      'two pointers',
-    ],
+    arrays: ['array', 'dynamic array', 'prefix sum', 'suffix sum', 'sliding window', 'two pointers'],
 
     strings: ['string', 'substring', 'anagram', 'palindrome', 'pattern matching'],
   },
@@ -615,12 +484,7 @@ const DSA_TREE = {
   linked_lists: {
     basics: ['linked list', 'singly linked list', 'doubly linked list', 'circular linked list'],
 
-    techniques: [
-      'fast and slow pointers',
-      'reversal linked list',
-      'cycle detection',
-      'merge linked lists',
-    ],
+    techniques: ['fast and slow pointers', 'reversal linked list', 'cycle detection', 'merge linked lists'],
   },
 
   stacks_and_queues: {
@@ -653,20 +517,9 @@ const DSA_TREE = {
   trees: {
     basics: ['tree', 'binary tree', 'n-ary tree', 'root node', 'leaf node', 'height', 'depth'],
 
-    binary_search_tree: [
-      'binary search tree',
-      'bst insertion',
-      'bst deletion',
-      'bst search',
-      'balanced bst',
-    ],
+    binary_search_tree: ['binary search tree', 'bst insertion', 'bst deletion', 'bst search', 'balanced bst'],
 
-    traversals: [
-      'inorder traversal',
-      'preorder traversal',
-      'postorder traversal',
-      'level order traversal',
-    ],
+    traversals: ['inorder traversal', 'preorder traversal', 'postorder traversal', 'level order traversal'],
 
     advanced: ['segment tree', 'fenwick tree', 'trie', 'lca', 'heap'],
   },
@@ -694,13 +547,7 @@ const DSA_TREE = {
       'disjoint set',
     ],
 
-    advanced: [
-      'minimum spanning tree',
-      'kruskal algorithm',
-      'prim algorithm',
-      'cycle detection',
-      'bipartite graph',
-    ],
+    advanced: ['minimum spanning tree', 'kruskal algorithm', 'prim algorithm', 'cycle detection', 'bipartite graph'],
   },
 
   greedy: {
@@ -731,7 +578,7 @@ const DSA_TREE = {
 
     bit_manipulation: ['bit manipulation', 'bit masking', 'xor tricks'],
   },
-}
+};
 const MACHINE_LEARNING_TREE = {
   foundations: {
     concepts: [
@@ -758,14 +605,7 @@ const MACHINE_LEARNING_TREE = {
   },
 
   mathematics: {
-    linear_algebra: [
-      'vector',
-      'matrix',
-      'dot product',
-      'matrix multiplication',
-      'eigenvalues',
-      'eigenvectors',
-    ],
+    linear_algebra: ['vector', 'matrix', 'dot product', 'matrix multiplication', 'eigenvalues', 'eigenvectors'],
 
     probability: [
       'probability distribution',
@@ -780,12 +620,7 @@ const MACHINE_LEARNING_TREE = {
   },
 
   supervised_learning: {
-    regression: [
-      'linear regression',
-      'polynomial regression',
-      'ridge regression',
-      'lasso regression',
-    ],
+    regression: ['linear regression', 'polynomial regression', 'ridge regression', 'lasso regression'],
 
     classification: [
       'logistic regression',
@@ -816,14 +651,7 @@ const MACHINE_LEARNING_TREE = {
       'batch normalization',
     ],
 
-    deep_learning: [
-      'deep learning',
-      'cnn',
-      'convolutional neural network',
-      'rnn',
-      'lstm',
-      'transformer',
-    ],
+    deep_learning: ['deep learning', 'cnn', 'convolutional neural network', 'rnn', 'lstm', 'transformer'],
   },
 
   optimization: {
@@ -841,13 +669,7 @@ const MACHINE_LEARNING_TREE = {
   model_evaluation: {
     validation: ['cross validation', 'k fold cross validation', 'holdout validation'],
 
-    metrics: [
-      'confusion matrix',
-      'bias variance tradeoff',
-      'log loss',
-      'mean squared error',
-      'mean absolute error',
-    ],
+    metrics: ['confusion matrix', 'bias variance tradeoff', 'log loss', 'mean squared error', 'mean absolute error'],
   },
 
   feature_engineering: {
@@ -861,24 +683,13 @@ const MACHINE_LEARNING_TREE = {
   },
 
   advanced_topics: {
-    reinforcement_learning: [
-      'reinforcement learning',
-      'q learning',
-      'policy gradient',
-      'reward function',
-    ],
+    reinforcement_learning: ['reinforcement learning', 'q learning', 'policy gradient', 'reward function'],
 
     generative_models: ['gan', 'generative adversarial network', 'vae', 'variational autoencoder'],
 
-    transformers: [
-      'attention mechanism',
-      'self attention',
-      'transformer architecture',
-      'bert',
-      'gpt',
-    ],
+    transformers: ['attention mechanism', 'self attention', 'transformer architecture', 'bert', 'gpt'],
   },
-}
+};
 const AI_TREE = {
   foundations: {
     concepts: [
@@ -892,14 +703,7 @@ const AI_TREE = {
       'knowledge representation',
     ],
 
-    problem_solving: [
-      'problem solving',
-      'search',
-      'goal state',
-      'initial state',
-      'action space',
-      'transition model',
-    ],
+    problem_solving: ['problem solving', 'search', 'goal state', 'initial state', 'action space', 'transition model'],
   },
 
   search_algorithms: {
@@ -911,45 +715,23 @@ const AI_TREE = {
   },
 
   knowledge_representation: {
-    logic: [
-      'propositional logic',
-      'first order logic',
-      'inference',
-      'entailment',
-      'knowledge base',
-    ],
+    logic: ['propositional logic', 'first order logic', 'inference', 'entailment', 'knowledge base'],
 
     reasoning: ['deductive reasoning', 'inductive reasoning', 'abductive reasoning'],
 
-    uncertainty: [
-      'bayesian networks',
-      'markov decision process',
-      'hidden markov model',
-      'probabilistic reasoning',
-    ],
+    uncertainty: ['bayesian networks', 'markov decision process', 'hidden markov model', 'probabilistic reasoning'],
   },
 
   planning: {
     classical_planning: ['planning problem', 'goal stack planning', 'means ends analysis'],
 
-    decision_making: [
-      'utility function',
-      'decision theory',
-      'expected utility',
-      'risk sensitive planning',
-    ],
+    decision_making: ['utility function', 'decision theory', 'expected utility', 'risk sensitive planning'],
   },
 
   machine_learning_bridge: {
     supervised: ['classification', 'regression', 'training data', 'feature extraction'],
 
-    reinforcement_learning: [
-      'reinforcement learning',
-      'reward function',
-      'policy',
-      'value function',
-      'q learning',
-    ],
+    reinforcement_learning: ['reinforcement learning', 'reward function', 'policy', 'value function', 'q learning'],
   },
 
   neural_ai: {
@@ -959,23 +741,11 @@ const AI_TREE = {
   },
 
   natural_language_processing: {
-    basics: [
-      'natural language processing',
-      'tokenization',
-      'stemming',
-      'lemmatization',
-      'stop words',
-    ],
+    basics: ['natural language processing', 'tokenization', 'stemming', 'lemmatization', 'stop words'],
 
     embeddings: ['word embeddings', 'word2vec', 'glove', 'sentence embeddings'],
 
-    language_models: [
-      'language model',
-      'bert',
-      'gpt',
-      'transformer model',
-      'next token prediction',
-    ],
+    language_models: ['language model', 'bert', 'gpt', 'transformer model', 'next token prediction'],
   },
 
   computer_vision: {
@@ -985,20 +755,13 @@ const AI_TREE = {
   },
 
   advanced_ai: {
-    generative_ai: [
-      'generative ai',
-      'diffusion model',
-      'gan',
-      'vae',
-      'image generation',
-      'text to image',
-    ],
+    generative_ai: ['generative ai', 'diffusion model', 'gan', 'vae', 'image generation', 'text to image'],
 
     agents: ['autonomous agent', 'multi agent system', 'tool use', 'planning agent'],
 
     alignment: ['ai alignment', 'reward modeling', 'human feedback', 'rlhf', 'safety in ai'],
   },
-}
+};
 const WEB_DEVELOPMENT_TREE = {
   foundations: {
     internet_basics: [
@@ -1018,15 +781,7 @@ const WEB_DEVELOPMENT_TREE = {
   html_css: {
     html: ['html', 'semantic html', 'html elements', 'forms', 'accessibility', 'seo'],
 
-    css: [
-      'css',
-      'box model',
-      'flexbox',
-      'grid',
-      'responsive design',
-      'media queries',
-      'positioning',
-    ],
+    css: ['css', 'box model', 'flexbox', 'grid', 'responsive design', 'media queries', 'positioning'],
 
     styling_systems: ['tailwind css', 'sass', 'css modules', 'styled components'],
   },
@@ -1050,16 +805,7 @@ const WEB_DEVELOPMENT_TREE = {
   },
 
   frontend_frameworks: {
-    react: [
-      'react',
-      'components',
-      'props',
-      'state',
-      'hooks',
-      'useEffect',
-      'virtual dom',
-      'reconciliation',
-    ],
+    react: ['react', 'components', 'props', 'state', 'hooks', 'useEffect', 'virtual dom', 'reconciliation'],
 
     nextjs: ['next.js', 'app router', 'pages router', 'server components', 'ssr', 'ssg', 'isr'],
 
@@ -1067,15 +813,7 @@ const WEB_DEVELOPMENT_TREE = {
   },
 
   backend: {
-    core_concepts: [
-      'server',
-      'api',
-      'rest api',
-      'graphql',
-      'middleware',
-      'authentication',
-      'authorization',
-    ],
+    core_concepts: ['server', 'api', 'rest api', 'graphql', 'middleware', 'authentication', 'authorization'],
 
     node_ecosystem: ['express', 'nestjs', 'routing', 'controllers', 'services'],
   },
@@ -1109,18 +847,10 @@ const WEB_DEVELOPMENT_TREE = {
 
     platforms: ['vercel', 'netlify', 'aws', 'docker'],
   },
-}
+};
 const REACT_TREE = {
   foundations: {
-    core_concepts: [
-      'react',
-      'component',
-      'jsx',
-      'virtual dom',
-      'rendering',
-      'reconciliation',
-      'react element',
-    ],
+    core_concepts: ['react', 'component', 'jsx', 'virtual dom', 'rendering', 'reconciliation', 'react element'],
 
     philosophy: [
       'declarative ui',
@@ -1193,7 +923,7 @@ const REACT_TREE = {
 
     testing: ['jest', 'react testing library', 'cypress'],
   },
-}
+};
 const REACT_NATIVE_TREE = {
   foundations: {
     core_concepts: [
@@ -1215,15 +945,7 @@ const REACT_NATIVE_TREE = {
   },
 
   components: {
-    core_components: [
-      'view',
-      'text',
-      'image',
-      'scrollview',
-      'textinput',
-      'flatlist',
-      'sectionlist',
-    ],
+    core_components: ['view', 'text', 'image', 'scrollview', 'textinput', 'flatlist', 'sectionlist'],
 
     interaction: ['touchableopacity', 'pressable', 'gesture handling'],
   },
@@ -1247,13 +969,7 @@ const REACT_NATIVE_TREE = {
   },
 
   native_integration: {
-    concepts: [
-      'native modules',
-      'bridge',
-      'platform channels',
-      'ios integration',
-      'android integration',
-    ],
+    concepts: ['native modules', 'bridge', 'platform channels', 'ios integration', 'android integration'],
 
     capabilities: ['camera access', 'location services', 'file system', 'notifications'],
   },
@@ -1273,38 +989,20 @@ const REACT_NATIVE_TREE = {
   ecosystem: {
     frameworks: ['expo', 'react native cli'],
 
-    libraries: [
-      'react navigation',
-      'react native reanimated',
-      'react native gesture handler',
-      'expo sdk',
-    ],
+    libraries: ['react navigation', 'react native reanimated', 'react native gesture handler', 'expo sdk'],
 
     tooling: ['metro bundler', 'expo go', 'debugger', 'flipper'],
   },
 
   architecture: {
-    patterns: [
-      'component architecture',
-      'feature based structure',
-      'service layer',
-      'state container pattern',
-    ],
+    patterns: ['component architecture', 'feature based structure', 'service layer', 'state container pattern'],
 
     deployment: ['app store deployment', 'google play deployment', 'over the air updates'],
   },
-}
+};
 const FLUTTER_TREE = {
   foundations: {
-    core_concepts: [
-      'flutter',
-      'dart',
-      'widget',
-      'element tree',
-      'render tree',
-      'widget tree',
-      'build context',
-    ],
+    core_concepts: ['flutter', 'dart', 'widget', 'element tree', 'render tree', 'widget tree', 'build context'],
 
     philosophy: [
       'everything is a widget',
@@ -1383,27 +1081,12 @@ const FLUTTER_TREE = {
   native_integration: {
     concepts: ['platform channels', 'native plugins', 'ios integration', 'android integration'],
   },
-}
+};
 const SQL_TREE = {
   foundations: {
-    core_concepts: [
-      'sql',
-      'database',
-      'table',
-      'row',
-      'column',
-      'schema',
-      'primary key',
-      'foreign key',
-    ],
+    core_concepts: ['sql', 'database', 'table', 'row', 'column', 'schema', 'primary key', 'foreign key'],
 
-    relational_model: [
-      'relational database',
-      'entity',
-      'relationship',
-      'normalization',
-      'denormalization',
-    ],
+    relational_model: ['relational database', 'entity', 'relationship', 'normalization', 'denormalization'],
   },
 
   queries: {
@@ -1421,12 +1104,7 @@ const SQL_TREE = {
   },
 
   schema_design: {
-    normalization: [
-      'first normal form',
-      'second normal form',
-      'third normal form',
-      'boyce codd normal form',
-    ],
+    normalization: ['first normal form', 'second normal form', 'third normal form', 'boyce codd normal form'],
 
     design_principles: [
       'data integrity',
@@ -1446,14 +1124,7 @@ const SQL_TREE = {
   },
 
   transactions: {
-    concepts: [
-      'transaction',
-      'acid properties',
-      'atomicity',
-      'consistency',
-      'isolation',
-      'durability',
-    ],
+    concepts: ['transaction', 'acid properties', 'atomicity', 'consistency', 'isolation', 'durability'],
 
     control: ['commit', 'rollback', 'savepoint', 'locking'],
   },
@@ -1481,7 +1152,7 @@ const SQL_TREE = {
   performance: {
     optimization: ['query optimization', 'index optimization', 'denormalization tradeoffs'],
   },
-}
+};
 const NOSQL_TREE = {
   foundations: {
     core_concepts: [
@@ -1493,12 +1164,7 @@ const NOSQL_TREE = {
       'graph database',
     ],
 
-    design_philosophy: [
-      'horizontal scaling',
-      'eventual consistency',
-      'flexible schema',
-      'distributed systems',
-    ],
+    design_philosophy: ['horizontal scaling', 'eventual consistency', 'flexible schema', 'distributed systems'],
   },
 
   data_models: {
@@ -1514,13 +1180,7 @@ const NOSQL_TREE = {
   querying: {
     concepts: ['query language', 'aggregation pipeline', 'filtering', 'indexing'],
 
-    mongodb_specific: [
-      'mongodb query',
-      'aggregation pipeline',
-      'find',
-      'update operators',
-      'projection',
-    ],
+    mongodb_specific: ['mongodb query', 'aggregation pipeline', 'find', 'update operators', 'projection'],
   },
 
   consistency: {
@@ -1546,12 +1206,7 @@ const NOSQL_TREE = {
   },
 
   use_cases: {
-    applications: [
-      'real time apps',
-      'content management systems',
-      'iot data storage',
-      'caching layer',
-    ],
+    applications: ['real time apps', 'content management systems', 'iot data storage', 'caching layer'],
 
     patterns: ['cqrs', 'event driven architecture', 'data denormalization'],
   },
@@ -1570,7 +1225,7 @@ const NOSQL_TREE = {
 
     decision_factors: ['query complexity', 'scalability needs', 'data structure flexibility'],
   },
-}
+};
 const NEXT_JS_TREE = {
   foundations: {
     core_concepts: [
@@ -1583,24 +1238,11 @@ const NEXT_JS_TREE = {
       'routing system',
     ],
 
-    philosophy: [
-      'file based routing',
-      'hybrid rendering model',
-      'server first rendering',
-      'progressive enhancement',
-    ],
+    philosophy: ['file based routing', 'hybrid rendering model', 'server first rendering', 'progressive enhancement'],
   },
 
   routing: {
-    app_router: [
-      'app router',
-      'layout',
-      'page',
-      'loading',
-      'error',
-      'route segment',
-      'parallel routes',
-    ],
+    app_router: ['app router', 'layout', 'page', 'loading', 'error', 'route segment', 'parallel routes'],
 
     pages_router: ['pages router', 'get server side props', 'get static props', 'api routes'],
 
@@ -1622,13 +1264,7 @@ const NEXT_JS_TREE = {
   data_fetching: {
     patterns: ['fetch', 'server side fetch', 'client fetch', 'revalidation'],
 
-    caching: [
-      'cache',
-      'force cache',
-      'no store',
-      'revalidate path',
-      'incremental static regeneration',
-    ],
+    caching: ['cache', 'force cache', 'no store', 'revalidate path', 'incremental static regeneration'],
   },
 
   api_layer: {
@@ -1644,13 +1280,7 @@ const NEXT_JS_TREE = {
   },
 
   optimization: {
-    performance: [
-      'image optimization',
-      'next image',
-      'code splitting',
-      'prefetching',
-      'lazy loading',
-    ],
+    performance: ['image optimization', 'next image', 'code splitting', 'prefetching', 'lazy loading'],
 
     build: ['bundle analysis', 'tree shaking', 'static optimization'],
   },
@@ -1674,7 +1304,7 @@ const NEXT_JS_TREE = {
 
     architecture: ['monorepo support', 'server client boundary', 'full stack composition'],
   },
-}
+};
 const CONTAINERIZATION_TREE = {
   foundations: {
     core_concepts: [
@@ -1688,25 +1318,13 @@ const CONTAINERIZATION_TREE = {
       'cgroups',
     ],
 
-    philosophy: [
-      'immutable infrastructure',
-      'environment parity',
-      'ship run anywhere',
-      'micro environment isolation',
-    ],
+    philosophy: ['immutable infrastructure', 'environment parity', 'ship run anywhere', 'micro environment isolation'],
   },
 
   docker: {
     basics: ['docker', 'dockerfile', 'docker image', 'docker container', 'docker hub'],
 
-    commands: [
-      'docker build',
-      'docker run',
-      'docker ps',
-      'docker stop',
-      'docker exec',
-      'docker logs',
-    ],
+    commands: ['docker build', 'docker run', 'docker ps', 'docker stop', 'docker exec', 'docker logs'],
 
     concepts: ['layers', 'caching layers', 'image tagging', 'volumes', 'bind mounts'],
   },
@@ -1730,15 +1348,7 @@ const CONTAINERIZATION_TREE = {
   orchestration: {
     tools: ['kubernetes', 'docker swarm', 'nomad'],
 
-    kubernetes_concepts: [
-      'pod',
-      'deployment',
-      'service',
-      'ingress',
-      'configmap',
-      'secret',
-      'namespace',
-    ],
+    kubernetes_concepts: ['pod', 'deployment', 'service', 'ingress', 'configmap', 'secret', 'namespace'],
   },
 
   scaling: {
@@ -1752,20 +1362,9 @@ const CONTAINERIZATION_TREE = {
   },
 
   devops: {
-    ci_cd: [
-      'continuous integration',
-      'continuous deployment',
-      'pipeline',
-      'github actions',
-      'docker build pipeline',
-    ],
+    ci_cd: ['continuous integration', 'continuous deployment', 'pipeline', 'github actions', 'docker build pipeline'],
 
-    deployment: [
-      'container registry',
-      'image deployment',
-      'rolling updates',
-      'blue green deployment',
-    ],
+    deployment: ['container registry', 'image deployment', 'rolling updates', 'blue green deployment'],
   },
 
   security: {
@@ -1773,59 +1372,24 @@ const CONTAINERIZATION_TREE = {
   },
 
   optimization: {
-    performance: [
-      'image slimming',
-      'multi stage builds',
-      'layer caching',
-      'startup time optimization',
-    ],
+    performance: ['image slimming', 'multi stage builds', 'layer caching', 'startup time optimization'],
   },
 
   ecosystems: {
     platforms: ['docker desktop', 'aws ecs', 'google cloud run', 'azure container instances'],
   },
-}
+};
 const LINUX_TREE = {
   foundations: {
-    core_concepts: [
-      'linux',
-      'kernel',
-      'operating system',
-      'unix',
-      'system calls',
-      'shell',
-      'terminal',
-    ],
+    core_concepts: ['linux', 'kernel', 'operating system', 'unix', 'system calls', 'shell', 'terminal'],
 
-    philosophy: [
-      'everything is a file',
-      'composability',
-      'small tools do one thing well',
-      'text streams',
-    ],
+    philosophy: ['everything is a file', 'composability', 'small tools do one thing well', 'text streams'],
   },
 
   filesystem: {
-    structure: [
-      'root directory',
-      'home directory',
-      'bin',
-      'etc',
-      'var',
-      'usr',
-      'tmp',
-      'proc',
-      'dev',
-    ],
+    structure: ['root directory', 'home directory', 'bin', 'etc', 'var', 'usr', 'tmp', 'proc', 'dev'],
 
-    concepts: [
-      'file permissions',
-      'ownership',
-      'inode',
-      'mount points',
-      'symbolic links',
-      'hard links',
-    ],
+    concepts: ['file permissions', 'ownership', 'inode', 'mount points', 'symbolic links', 'hard links'],
   },
 
   permissions: {
@@ -1875,14 +1439,7 @@ const LINUX_TREE = {
   },
 
   security: {
-    concepts: [
-      'linux security',
-      'firewall',
-      'ssh',
-      'key based authentication',
-      'selinux',
-      'apparmor',
-    ],
+    concepts: ['linux security', 'firewall', 'ssh', 'key based authentication', 'selinux', 'apparmor'],
   },
 
   devops: {
@@ -1896,7 +1453,7 @@ const LINUX_TREE = {
 
     relation: ['docker dependency', 'kubernetes node base', 'container filesystem layers'],
   },
-}
+};
 const DOCKER_TREE = {
   foundations: {
     core_concepts: [
@@ -1940,19 +1497,9 @@ const DOCKER_TREE = {
   },
 
   networking: {
-    concepts: [
-      'container networking',
-      'bridge network',
-      'host network',
-      'overlay network',
-      'port mapping',
-    ],
+    concepts: ['container networking', 'bridge network', 'host network', 'overlay network', 'port mapping'],
 
-    communication: [
-      'container to container communication',
-      'service discovery',
-      'dns resolution inside docker',
-    ],
+    communication: ['container to container communication', 'service discovery', 'dns resolution inside docker'],
   },
 
   storage: {
@@ -1976,12 +1523,7 @@ const DOCKER_TREE = {
   orchestration_bridge: {
     concepts: ['container orchestration', 'scaling containers', 'service replication'],
 
-    kubernetes_relation: [
-      'docker vs kubernetes',
-      'docker runtime in k8s',
-      'containerd',
-      'pod abstraction',
-    ],
+    kubernetes_relation: ['docker vs kubernetes', 'docker runtime in k8s', 'containerd', 'pod abstraction'],
   },
 
   devops: {
@@ -1999,17 +1541,10 @@ const DOCKER_TREE = {
   performance: {
     concepts: ['image size optimization', 'startup time', 'layer reuse', 'resource limits'],
   },
-}
+};
 const K8S_TREE = {
   foundations: {
-    core_concepts: [
-      'kubernetes',
-      'container orchestration',
-      'cluster',
-      'node',
-      'control plane',
-      'worker node',
-    ],
+    core_concepts: ['kubernetes', 'container orchestration', 'cluster', 'node', 'control plane', 'worker node'],
 
     philosophy: [
       'declarative infrastructure',
@@ -2061,23 +1596,13 @@ const K8S_TREE = {
   },
 
   networking: {
-    concepts: [
-      'kubernetes networking model',
-      'flat network',
-      'pod to pod communication',
-      'dns in cluster',
-    ],
+    concepts: ['kubernetes networking model', 'flat network', 'pod to pod communication', 'dns in cluster'],
 
     ingress: ['ingress controller', 'routing rules', 'path based routing', 'host based routing'],
   },
 
   storage: {
-    concepts: [
-      'persistent volume',
-      'persistent volume claim',
-      'storage class',
-      'ephemeral storage',
-    ],
+    concepts: ['persistent volume', 'persistent volume claim', 'storage class', 'ephemeral storage'],
 
     use_cases: ['database persistence', 'file storage', 'stateful applications'],
   },
@@ -2101,22 +1626,11 @@ const K8S_TREE = {
   },
 
   security: {
-    concepts: [
-      'rbac',
-      'role based access control',
-      'network policies',
-      'pod security policies',
-      'secrets management',
-    ],
+    concepts: ['rbac', 'role based access control', 'network policies', 'pod security policies', 'secrets management'],
   },
 
   lifecycle: {
-    deployment_flow: [
-      'kubectl apply',
-      'scheduler assigns pod',
-      'kubelet runs container',
-      'service exposes pod',
-    ],
+    deployment_flow: ['kubectl apply', 'scheduler assigns pod', 'kubelet runs container', 'service exposes pod'],
 
     states: ['pending', 'running', 'scheduling', 'terminating'],
   },
@@ -2132,28 +1646,28 @@ const K8S_TREE = {
 
     related_systems: ['docker', 'containerd', 'cni plugins'],
   },
-}
+};
 export function flattenTerms(obj: any): string[] {
-  const result: string[] = []
+  const result: string[] = [];
 
   function walk(node: any) {
     for (const key in node) {
-      const value = node[key]
+      const value = node[key];
 
       // leaf array → collect terms
       if (Array.isArray(value)) {
-        result.push(...value)
+        result.push(...value);
       }
 
       // nested object → recurse
       else if (value && typeof value === 'object') {
-        walk(value)
+        walk(value);
       }
     }
   }
 
-  walk(obj)
-  return result
+  walk(obj);
+  return result;
 }
 
 let graffitiWords = flattenTerms({
@@ -2180,19 +1694,19 @@ let graffitiWords = flattenTerms({
   ...LINUX_TREE,
   ...DOCKER_TREE,
   ...K8S_TREE,
-})
+});
 function shuffle(array) {
-  const arr = [...array] // don’t mutate original
+  const arr = [...array]; // don’t mutate original
 
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
+    const j = Math.floor(Math.random() * (i + 1));
 
     // swap
-    ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
 
-  return arr
+  return arr;
 }
 
-graffitiWords = shuffle(graffitiWords)
-export { graffitiWords }
+graffitiWords = shuffle(graffitiWords);
+export { graffitiWords };

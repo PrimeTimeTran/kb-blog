@@ -5,19 +5,19 @@ export function Page2_StackingContextIsolation() {
   // “I leave the document flow and position myself relative to nearest positioned ancestor”
   // 3. position: fixed
   // “I attach to the viewport”
-  const relativeStatements = []
+  const relativeStatements = [];
   const questions = [
     'What changed compared to Page1?',
     'Why does fixed stop behaving globally?',
     'Which ancestor owns RED now?',
     'Can z-index escape this transformed world?',
-  ]
+  ];
   const redStatements = [
     "RED is still part of the same document render tree, but its positioning and stacking calculations are now influenced by GREEN's transformed ancestor.",
     'The transform on GREEN creates a new stacking context and a containing block for fixed descendants, meaning RED no longer participates in global stacking comparisons in the same way.',
     'RED can still visually shift (translate, offset, overflow beyond bounds), but its z-index is resolved within this nested context chain before being composited into the root layer.',
     "Nothing is truly 'trapped' visually — only the rules for stacking and coordinate resolution are localized.",
-  ]
+  ];
   // TRANSFORMED WORLD
   // transform creates:
   // - a new stacking context
@@ -49,9 +49,7 @@ export function Page2_StackingContextIsolation() {
       <section className="relative top-12 left-24 h-full bg-green-900/50 transform scale-100 flex flex-col">
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
           <h1 className="text-5xl font-bold">GREEN CONTEXT</h1>
-          <p className="mt-4 text-lg opacity-80">
-            transform creates a new stacking + positioning context
-          </p>
+          <p className="mt-4 text-lg opacity-80">transform creates a new stacking + positioning context</p>
         </div>
         <section className="relative h-[60%] z-30 bg-red-500/70 px-6">
           <h2 className="absolute bottom-3 left-3 text-3xl">RED LAYER</h2>
@@ -76,5 +74,5 @@ export function Page2_StackingContextIsolation() {
         </section>
       </section>
     </div>
-  )
+  );
 }

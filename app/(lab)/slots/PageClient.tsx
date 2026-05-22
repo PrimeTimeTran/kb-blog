@@ -1,27 +1,27 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { CounterControls } from '@/app/shell/CounterControls'
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { CounterControls } from '@/app/shell/CounterControls';
 
 export default function PageClient({ tree, isCatchAll = false }) {
-  const pathname = usePathname()
-  const [count, setCount] = useState(0)
+  const pathname = usePathname();
+  const [count, setCount] = useState(0);
 
   const [nextPageRoute] = useState(() => {
-    const newPage1 = crypto.randomUUID().substring(0, 4)
+    const newPage1 = crypto.randomUUID().substring(0, 4);
 
-    const parts = pathname?.split('/').filter(Boolean) ?? []
-    const result = parts.slice(1).join('/') + '/'
+    const parts = pathname?.split('/').filter(Boolean) ?? [];
+    const result = parts.slice(1).join('/') + '/';
 
     if (isCatchAll) {
-      const newPage2 = crypto.randomUUID().substring(0, 4)
-      return `/slots/${newPage1}/${newPage2}?prev=${encodeURIComponent(result)}`
+      const newPage2 = crypto.randomUUID().substring(0, 4);
+      return `/slots/${newPage1}/${newPage2}?prev=${encodeURIComponent(result)}`;
     }
 
-    return `/slots/${newPage1}?prev=${encodeURIComponent(result)}`
-  })
+    return `/slots/${newPage1}?prev=${encodeURIComponent(result)}`;
+  });
 
   return (
     <div className="flex flex-1 flex-col gap-2 justify-center items-center w-full">
@@ -51,5 +51,5 @@ export default function PageClient({ tree, isCatchAll = false }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

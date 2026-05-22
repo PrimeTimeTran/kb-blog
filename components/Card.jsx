@@ -1,5 +1,5 @@
-import { Image } from './mdx'
-import { SafeLink as Link } from './mdx/Link'
+import { Image } from './mdx';
+import { SafeLink as Link } from './mdx/Link';
 
 const Card = ({ title, description, imgSrc, href, tech }) => (
   <div className="md p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
@@ -54,9 +54,7 @@ const Card = ({ title, description, imgSrc, href, tech }) => (
           (tech ?? []).map((item) => (
             <a
               key={item}
-              href={`https://loi-tran-blog.netlify.app/tags/${encodeURIComponent(
-                item.toLowerCase()
-              )}`}
+              href={`https://loi-tran-blog.netlify.app/tags/${encodeURIComponent(item.toLowerCase())}`}
               className="mb-2 mr-2 inline-block rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-800 hover:bg-gray-300"
             >
               {item}
@@ -65,6 +63,6 @@ const Card = ({ title, description, imgSrc, href, tech }) => (
       </div>
     </div>
   </div>
-)
+);
 
-export default Card
+export default Card;

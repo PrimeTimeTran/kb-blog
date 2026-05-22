@@ -8,17 +8,16 @@ export const TOCInline = ({
 }) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
-    : new RegExp('^(' + exclude + ')$', 'i')
+    : new RegExp('^(' + exclude + ')$', 'i');
 
   const filteredToc = (toc ?? []).filter(
-    (heading) =>
-      heading.depth >= fromHeading && heading.depth <= toHeading && !re.test(heading.value)
-  )
+    (heading) => heading.depth >= fromHeading && heading.depth <= toHeading && !re.test(heading.value),
+  );
 
   const getMarginClass = (depth) => {
-    const level = depth - 2 // because `##` is depth 2
-    return `ml-${level * 6}`
-  }
+    const level = depth - 2; // because `##` is depth 2
+    return `ml-${level * 6}`;
+  };
 
   const tocList = (
     <ul>
@@ -28,7 +27,7 @@ export const TOCInline = ({
         </li>
       ))}
     </ul>
-  )
+  );
 
   return (
     <>
@@ -41,5 +40,5 @@ export const TOCInline = ({
         tocList
       )}
     </>
-  )
-}
+  );
+};

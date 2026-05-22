@@ -1,27 +1,27 @@
-import Link from 'next/link'
-import { TiTags } from 'react-icons/ti'
-import { RiBloggerLine } from 'react-icons/ri'
-import { SiThealgorithms } from 'react-icons/si'
-import { GoProjectSymlink } from 'react-icons/go'
-import { GiGiftOfKnowledge } from 'react-icons/gi'
-import { SiLibreofficewriter } from 'react-icons/si'
+import Link from 'next/link';
+import { TiTags } from 'react-icons/ti';
+import { RiBloggerLine } from 'react-icons/ri';
+import { SiThealgorithms } from 'react-icons/si';
+import { GoProjectSymlink } from 'react-icons/go';
+import { GiGiftOfKnowledge } from 'react-icons/gi';
+import { SiLibreofficewriter } from 'react-icons/si';
 
-import { terms } from '../../../data/generated/terms'
-import { termBacklinks } from '../../../data/generated/backlinks'
+import { terms } from '../../../data/generated/terms';
+import { termBacklinks } from '../../../data/generated/backlinks';
 
 export default async function TermPage({ params }) {
-  let { slug } = await params
-  slug = Array.isArray(slug) ? slug[0] : slug
-  const key = slug.toLowerCase()
-  const term = terms[key]
-  const backlinks = termBacklinks[key] || []
+  let { slug } = await params;
+  slug = Array.isArray(slug) ? slug[0] : slug;
+  const key = slug.toLowerCase();
+  const term = terms[key];
+  const backlinks = termBacklinks[key] || [];
 
   if (!term) {
     return (
       <div className="mx-auto max-w-3xl p-10">
         <h1 className="text-xl font-medium text-red-500">Term not found</h1>
       </div>
-    )
+    );
   }
 
   return (
@@ -36,9 +36,7 @@ export default async function TermPage({ params }) {
         <h1 className="mt-2 text-4xl font-semibold tracking-tight">{term.term}</h1>
 
         {term.definition && (
-          <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300">
-            {term.definition}
-          </p>
+          <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300">{term.definition}</p>
         )}
       </header>
 
@@ -55,7 +53,7 @@ export default async function TermPage({ params }) {
 
             <div className="flex flex-wrap gap-2">
               {term.tags.map((tag) => {
-                const slug = tag.toLowerCase().trim().replace(/\s+/g, '-')
+                const slug = tag.toLowerCase().trim().replace(/\s+/g, '-');
 
                 return (
                   <Link key={tag} href={`/tags/${slug}`}>
@@ -63,7 +61,7 @@ export default async function TermPage({ params }) {
                       {tag}
                     </span>
                   </Link>
-                )
+                );
               })}
             </div>
           </section>
@@ -132,5 +130,5 @@ export default async function TermPage({ params }) {
         )}
       </div>
     </article>
-  )
+  );
 }

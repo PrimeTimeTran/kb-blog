@@ -13,15 +13,7 @@ category: 'statistics'
 subCategory: 'applications'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'risk-modeling',
-    'portfolio-variance',
-    'expected-return',
-    'data-analysis',
-    'a-b-testing',
-    'metrics-tracking',
-  ]
+leadsTo: ['risk-modeling', 'portfolio-variance', 'expected-return', 'data-analysis', 'a-b-testing', 'metrics-tracking']
 related: []
 seeAlso:
   [

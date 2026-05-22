@@ -1,16 +1,10 @@
-'use client'
-import React from 'react'
+'use client';
+import React from 'react';
 
-import { useScroll } from '@/providers/ScrollProvider'
+import { useScroll } from '@/providers/ScrollProvider';
 
-export function BaseScroll({
-  children,
-  className,
-}: {
-  children: React.ReactNode
-  className?: string
-}) {
-  const { setScrollEl } = useScroll()
+export function BaseScroll({ children, className }: { children: React.ReactNode; className?: string }) {
+  const { setScrollEl } = useScroll();
   return (
     <div
       ref={setScrollEl}
@@ -21,5 +15,5 @@ export function BaseScroll({
     >
       {children}
     </div>
-  )
+  );
 }

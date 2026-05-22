@@ -1,43 +1,43 @@
-'use client'
-import Prism from 'prismjs'
-import React, { useState, useEffect } from 'react'
+'use client';
+import Prism from 'prismjs';
+import React, { useState, useEffect } from 'react';
 
-import { Pre } from './Pre'
+import { Pre } from './Pre';
 
-import { LANG_MAP } from '@/data/constants'
+import { LANG_MAP } from '@/data/constants';
 
 function extractText(node) {
-  if (typeof node === 'string') return node
-  if (Array.isArray(node)) return (node ?? []).map(extractText).join('')
-  if (React.isValidElement(node)) return extractText(node.props.children)
-  return ''
+  if (typeof node === 'string') return node;
+  if (Array.isArray(node)) return (node ?? []).map(extractText).join('');
+  if (React.isValidElement(node)) return extractText(node.props.children);
+  return '';
 }
 
 function safeJsonParse(value, fallback = {}) {
-  if (!value) return fallback
+  if (!value) return fallback;
 
-  if (typeof value !== 'string') return value
+  if (typeof value !== 'string') return value;
 
   try {
-    return JSON.parse(value)
+    return JSON.parse(value);
   } catch {
-    return fallback
+    return fallback;
   }
 }
 
 export function TabGroup({ tabs }) {
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
 
-  const parsed = typeof tabs === 'string' ? safeJsonParse(tabs, []) : tabs
+  const parsed = typeof tabs === 'string' ? safeJsonParse(tabs, []) : tabs;
 
-  if (!parsed?.length) return null
+  if (!parsed?.length) return null;
 
   return (
     <div className="not-prose bg-slate-50 dark:bg-[#0d1117] text-slate-200 bg-red-500">
       <div className="px-4 py-2 font-mono text-xs text-slate-400 border-l-2 border-blue-500 bg-blue-500/10">
         <div className="flex gap-1">
           {(parsed ?? []).map((tab, i) => {
-            const isActive = i === active
+            const isActive = i === active;
 
             return (
               <button
@@ -53,11 +53,9 @@ export function TabGroup({ tabs }) {
                 {tab.label}
 
                 {/* subtle active indicator (optional but nice) */}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-2 right-2 h-0.5 rounded-full bg-blue-500" />
-                )}
+                {isActive && <span className="absolute -bottom-1 left-2 right-2 h-0.5 rounded-full bg-blue-500" />}
               </button>
-            )
+            );
           })}
         </div>
       </div>
@@ -66,7 +64,7 @@ export function TabGroup({ tabs }) {
       <div className="bg-slate-100 transition-colors duration-200 dark:bg-slate-950 ">
         <div className="relative">
           {(parsed ?? []).map((tab, i) => {
-            const isActive = i === active
+            const isActive = i === active;
 
             return (
               <div
@@ -80,16 +78,16 @@ export function TabGroup({ tabs }) {
                   highlight={tab.highlight}
                 />
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export const Code = ({ children, className }) => {
-  const language = className?.replace(/language-/, '') || 'text'
+  const language = className?.replace(/language-/, '') || 'text';
 
   // useEffect(() => {
   //   Prism.highlightAll()
@@ -101,5 +99,5 @@ export const Code = ({ children, className }) => {
         <code className={`language-${language} block w-fit min-w-full`}>{children}</code>
       </pre>
     </div>
-  )
-}
+  );
+};

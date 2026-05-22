@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { ResizableColumn } from '@/components/layout/ResizableColumn'
-import { useScroll } from '@/providers/ScrollProvider'
+import { ResizableColumn } from '@/components/layout/ResizableColumn';
+import { useScroll } from '@/providers/ScrollProvider';
 
 /* ─────────────────────────────
    LEFT
@@ -15,7 +15,7 @@ export function Layout3ColumnLeft({ children, leftCol }) {
 
       {children}
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────
@@ -30,24 +30,20 @@ export function Layout3ColumnRight({ children, rightCol }) {
         <div className="h-full w-full overflow-hidden">{rightCol}</div>
       </ResizableColumn>
     </div>
-  )
+  );
 }
 
 /* ─────────────────────────────
    CENTER (ONLY SCROLL ROOT)
 ───────────────────────────── */
 export function Layout3ColumnCenter({ children }) {
-  const { setScrollEl } = useScroll()
+  const { setScrollEl } = useScroll();
 
   return (
-    <div
-      ref={setScrollEl}
-      data-scroll-root
-      className="flex-1 min-w-0 min-h-0 overflow-y-auto no-scrollbar"
-    >
+    <div ref={setScrollEl} data-scroll-root className="flex-1 min-w-0 min-h-0 overflow-y-auto no-scrollbar">
       {children}
     </div>
-  )
+  );
 }
 
 // export function ScrollContainer({ children }) {

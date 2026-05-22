@@ -1,10 +1,10 @@
-'use client'
-import React, { useState } from 'react'
-import { CgDanger } from 'react-icons/cg'
-import { AiOutlineBug } from 'react-icons/ai'
-import { MdOutlineTipsAndUpdates } from 'react-icons/md'
+'use client';
+import React, { useState } from 'react';
+import { CgDanger } from 'react-icons/cg';
+import { AiOutlineBug } from 'react-icons/ai';
+import { MdOutlineTipsAndUpdates } from 'react-icons/md';
 
-import { callOutTheme } from '../../lib/theme/theme.cjs'
+import { callOutTheme } from '../../lib/theme/theme.cjs';
 
 // 💡 Reference: Icons
 // https://react-icons.github.io/react-icons/icons/ai/
@@ -18,7 +18,7 @@ import {
   FiCheckCircle,
   FiAlertTriangle,
   FiMessageSquare,
-} from 'react-icons/fi'
+} from 'react-icons/fi';
 
 const calloutIcons = {
   info: FiInfo,
@@ -36,30 +36,23 @@ const calloutIcons = {
 
   example: FiCode,
   abstract: FiBookOpen,
-}
+};
 
-export function CallOut({
-  type = 'note',
-  title,
-  collapsible,
-  collapsed: initialCollapsed,
-  children,
-  hasEmbed,
-}) {
-  const [open, setOpen] = useState(!initialCollapsed)
+export function CallOut({ type = 'note', title, collapsible, collapsed: initialCollapsed, children, hasEmbed }) {
+  const [open, setOpen] = useState(!initialCollapsed);
 
-  const Icon = calloutIcons[type]
-  const theme = callOutTheme[type] ?? callOutTheme.note
+  const Icon = calloutIcons[type];
+  const theme = callOutTheme[type] ?? callOutTheme.note;
   function handleContentClick(e) {
-    const target = e.target
+    const target = e.target;
 
     // ignore interactive elements
-    const interactive = target.closest('a, button, input, textarea, select, [data-no-close]')
+    const interactive = target.closest('a, button, input, textarea, select, [data-no-close]');
 
-    if (interactive) return
+    if (interactive) return;
 
     if (collapsible) {
-      setOpen(false)
+      setOpen(false);
     }
   }
 
@@ -75,12 +68,7 @@ export function CallOut({
         </div>
 
         {collapsible && (
-          <span
-            className={`text-lg transition-transform duration-200 ${open ? 'rotate-0' : '-rotate-90'
-              }`}
-          >
-            ▾
-          </span>
+          <span className={`text-lg transition-transform duration-200 ${open ? 'rotate-0' : '-rotate-90'}`}>▾</span>
         )}
       </div>
 
@@ -96,5 +84,5 @@ export function CallOut({
         {children}
       </div>
     </div>
-  )
+  );
 }

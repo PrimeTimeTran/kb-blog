@@ -1,4 +1,4 @@
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react'
+import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from 'react';
 
 // IDE: Editor
 // - QuickFix:
@@ -12,18 +12,18 @@ function inferTypeFromCompBody(a) {}
 // - QuickFix:
 //  - Inter parameter types from usage
 function inferTypeFromCompReturn(a) {
-  return <div>{a}</div>
+  return <div>{a}</div>;
 }
 
 // - Produces
 // function inferTypeFromCompReturn(a: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined) {
 
 export function PropGeneration() {
-  inferTypeFromCompBody(1)
+  inferTypeFromCompBody(1);
   return (
     <div>
       {inferTypeFromCompReturn('string')}
       <h1>TS: Prop Generation</h1>
     </div>
-  )
+  );
 }

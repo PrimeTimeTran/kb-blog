@@ -12,7 +12,7 @@ bibliography: references-data.bib
 ### Intro
 
 ```js
-const airports = ['ATL', 'PEK', 'DXB', 'LAX', 'HND', 'ORD', 'LHR', 'HKG', 'PVG', 'CDG']
+const airports = ['ATL', 'PEK', 'DXB', 'LAX', 'HND', 'ORD', 'LHR', 'HKG', 'PVG', 'CDG'];
 ```
 
 ```js
@@ -27,30 +27,30 @@ const graph = {
 
 ```js
 const depthFirstPrint = (graph, source) => {
-  const stack = [source]
+  const stack = [source];
 
   while (stack.length > 0) {
-    const current = stack.pop()
-    console.log(current)
+    const current = stack.pop();
+    console.log(current);
     for (let neighbor of graph[current]) {
-      stack.push(neighbor)
+      stack.push(neighbor);
     }
   }
-}
+};
 ```
 
 ```js
 const breadthFirstPrint = (graph, source) => {
-  const queue = [source]
+  const queue = [source];
 
   while (queue.length > 0) {
-    const current = queue.shift()
-    console.log(current)
+    const current = queue.shift();
+    console.log(current);
     for (let neighbor of graph[current]) {
-      queue.push(neighbor)
+      queue.push(neighbor);
     }
   }
-}
+};
 ```
 
 Depth first
@@ -62,20 +62,20 @@ let graph = {
   LHR: ['DXB', 'CDG'],
   DXB: ['PVG'],
   CDG: ['DXB', 'PVG'],
-}
+};
 
 let hasPath = (graph, src, dst) => {
-  if (src === dst) return true
+  if (src === dst) return true;
 
   for (let nei of graph[src]) {
     if (hasPath(graph, nei, dst) === true) {
-      return true
+      return true;
     }
   }
-  return false
-}
+  return false;
+};
 
-console.log(hasPath(graph, 'ATL', 'DXB'))
+console.log(hasPath(graph, 'ATL', 'DXB'));
 ```
 
 Breadth first
@@ -87,22 +87,22 @@ let graph = {
   LHR: ['DXB', 'CDG'],
   DXB: ['PVG'],
   CDG: ['DXB', 'PVG'],
-}
+};
 
 let hasPath = (graph, src, dst) => {
-  const queue = [src]
+  const queue = [src];
 
   while (queue.length > 0) {
-    const current = queue.shift()
+    const current = queue.shift();
 
-    if (current === dst) return true
+    if (current === dst) return true;
 
     for (let nei of graph[current]) {
-      queue.push(nei)
+      queue.push(nei);
     }
   }
-  return false
-}
+  return false;
+};
 
-console.log(hasPath(graph, 'ATL', 'DXB'))
+console.log(hasPath(graph, 'ATL', 'DXB'));
 ```

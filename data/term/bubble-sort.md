@@ -14,16 +14,7 @@ subCategory: 'searching_and_sorting'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['binary-search', 'linear-search', 'search-space-reduction']
-related:
-  [
-    'selection-sort',
-    'insertion-sort',
-    'merge-sort',
-    'quick-sort',
-    'heap-sort',
-    'counting-sort',
-    'radix-sort',
-  ]
+related: ['selection-sort', 'insertion-sort', 'merge-sort', 'quick-sort', 'heap-sort', 'counting-sort', 'radix-sort']
 seeAlso:
   [
     'big-o-notation',

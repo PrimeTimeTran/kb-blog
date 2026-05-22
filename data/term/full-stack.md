@@ -13,8 +13,7 @@ category: 'web_development'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['internet', 'https', 'domain-name', 'hosting', 'client-server-model', 'request-response-cycle']
+leadsTo: ['internet', 'https', 'domain-name', 'hosting', 'client-server-model', 'request-response-cycle']
 related: ['web-page', 'website', 'web-application', 'frontend', 'backend']
 seeAlso:
   [

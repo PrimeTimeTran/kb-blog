@@ -57,7 +57,7 @@ Displays all collections (similar to tables) in the current database.
 # 5. Insert a Document
 
 ```js
-db.users.insertOne({ name: 'Alice', age: 30, email: 'alice@example.com' })
+db.users.insertOne({ name: 'Alice', age: 30, email: 'alice@example.com' });
 ```
 
 Inserts a single document into the `users` collection.
@@ -67,13 +67,13 @@ Inserts a single document into the `users` collection.
 # 6. Find Documents
 
 ```js
-db.users.find()
+db.users.find();
 ```
 
 Returns all documents in the `users` collection. You can also add a filter:
 
 ```js
-db.users.find({ age: { $gt: 25 } })
+db.users.find({ age: { $gt: 25 } });
 ```
 
 Finds users older than 25.
@@ -83,7 +83,7 @@ Finds users older than 25.
 # 7. Update a Document
 
 ```js
-db.users.updateOne({ name: 'Alice' }, { $set: { age: 31 } })
+db.users.updateOne({ name: 'Alice' }, { $set: { age: 31 } });
 ```
 
 Updates the age of the user named Alice.
@@ -93,7 +93,7 @@ Updates the age of the user named Alice.
 # 8. Delete a Document
 
 ```js
-db.users.deleteOne({ name: 'Alice' })
+db.users.deleteOne({ name: 'Alice' });
 ```
 
 Deletes the first document that matches the query.
@@ -103,7 +103,7 @@ Deletes the first document that matches the query.
 # 9. Count Documents
 
 ```js
-db.users.countDocuments()
+db.users.countDocuments();
 ```
 
 Returns the total number of documents in the collection.
@@ -111,7 +111,7 @@ Returns the total number of documents in the collection.
 You can also filter:
 
 ```js
-db.users.countDocuments({ age: { $gt: 25 } })
+db.users.countDocuments({ age: { $gt: 25 } });
 ```
 
 ---
@@ -119,7 +119,7 @@ db.users.countDocuments({ age: { $gt: 25 } })
 # 10. Create an Index
 
 ```js
-db.users.createIndex({ email: 1 })
+db.users.createIndex({ email: 1 });
 ```
 
 Creates an ascending index on the `email` field to improve query performance.

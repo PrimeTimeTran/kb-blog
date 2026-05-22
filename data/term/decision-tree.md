@@ -26,14 +26,7 @@ leadsTo:
     'lasso-regression',
     'auc',
   ]
-related:
-  [
-    'logistic-regression',
-    'k-nearest-neighbors',
-    'support-vector-machine',
-    'random-forest',
-    'naive-bayes',
-  ]
+related: ['logistic-regression', 'k-nearest-neighbors', 'support-vector-machine', 'random-forest', 'naive-bayes']
 seeAlso:
   [
     'variance',

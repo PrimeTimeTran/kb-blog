@@ -1,21 +1,21 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { use } from 'react'
+import { useState } from 'react';
+import { use } from 'react';
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { CounterControls } from '../CounterControls'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { CounterControls } from '../CounterControls';
 
 export default function Page({ params }) {
-  const useParams = use(params)
-  const pathname = usePathname()
-  const newPage = crypto.randomUUID()
+  const useParams = use(params);
+  const pathname = usePathname();
+  const newPage = crypto.randomUUID();
 
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  const parts = pathname?.split('/').filter(Boolean) ?? []
-  const result = '/' + parts.slice(1).join('/')
+  const parts = pathname?.split('/').filter(Boolean) ?? [];
+  const result = '/' + parts.slice(1).join('/');
 
   return (
     <div className="flex flex-col gap-6">
@@ -47,9 +47,7 @@ export default function Page({ params }) {
       </div>
 
       {/* RIGHT SIDEBAR */}
-      <aside className="text-sm text-gray-500 dark:text-gray-400">
-        Dynamic right panel could go here
-      </aside>
+      <aside className="text-sm text-gray-500 dark:text-gray-400">Dynamic right panel could go here</aside>
     </div>
-  )
+  );
 }

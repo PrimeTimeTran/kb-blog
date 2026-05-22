@@ -1,17 +1,17 @@
-import AboutLayout from '@/layouts/AboutLayout'
+import AboutLayout from '@/layouts/AboutLayout';
 
-import { content } from '@/lib/content/api/client'
+import { content } from '@/lib/content/api/client';
 
 export default async function Page() {
-  const about = await content.get({ type: 'authors', slug: 'default' })
+  const about = await content.get({ type: 'authors', slug: 'default' });
 
-  if (!about) return null
+  if (!about) return null;
 
   return (
     <AboutLayout>
       <about.Content />
     </AboutLayout>
-  )
+  );
 }
 
 export const metadata = {
@@ -30,4 +30,4 @@ export const metadata = {
     title: 'About',
     description: 'About this project and its goals.',
   },
-}
+};

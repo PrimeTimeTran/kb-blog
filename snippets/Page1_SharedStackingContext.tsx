@@ -4,13 +4,13 @@ export function Page1_SharedStackingContext() {
     'Why does RED beat BLUE here?',
     'What happens if RED becomes -z-10?',
     'Are BLUE and RED competing globally?',
-  ]
+  ];
   const redStatements = [
     'RED and BLUE exist in the same document and share the same stacking context.',
     'Because no ancestor creates a new stacking scope, z-index is evaluated globally within this layer.',
     'RED appears above BLUE because both are competing directly in the same rendering environment.',
     'Fixed positioning resolves against the viewport since no transformed or positioned ancestor redefines its coordinate system.',
-  ]
+  ];
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-zinc-900 text-white">
       <ContextLabel>
@@ -32,5 +32,5 @@ export function Page1_SharedStackingContext() {
         </div>
       </section>
     </div>
-  )
+  );
 }

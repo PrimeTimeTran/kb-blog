@@ -1,29 +1,29 @@
-import { useFloatingPanel } from '@/hooks/useFloatingPanel'
-import React from 'react'
-import { createPortal } from 'react-dom'
+import { useFloatingPanel } from '@/hooks/useFloatingPanel';
+import React from 'react';
+import { createPortal } from 'react-dom';
 
 const unfoldingClasses = {
   top: 'origin-bottom -translate-x-1/2 -translate-y-full animate-in fade-in slide-in-from-bottom-1 zoom-in-95',
   bottom: 'origin-top -translate-x-1/2 animate-in fade-in slide-in-from-top-1 zoom-in-95',
   left: 'origin-right -translate-y-1/2 -translate-x-full animate-in fade-in slide-in-from-right-1 zoom-in-95',
   right: 'origin-left -translate-y-1/2 animate-in fade-in slide-in-from-left-1 zoom-in-95',
-}
+};
 
 interface TooltipAction {
-  label: string
-  icon: React.ReactNode
-  onClick: () => void
+  label: string;
+  icon: React.ReactNode;
+  onClick: () => void;
 }
 
 interface InteractiveTooltipProps {
-  title: string
-  description: string
-  children: React.ReactNode
-  actions?: TooltipAction[]
-  actionsPosition?: 'top' | 'bottom'
-  position?: 'top' | 'bottom' | 'left' | 'right'
-  disabled?: boolean
-  compact?: boolean
+  title: string;
+  description: string;
+  children: React.ReactNode;
+  actions?: TooltipAction[];
+  actionsPosition?: 'top' | 'bottom';
+  position?: 'top' | 'bottom' | 'left' | 'right';
+  disabled?: boolean;
+  compact?: boolean;
 }
 
 export const RichTooltip = ({
@@ -40,11 +40,11 @@ export const RichTooltip = ({
     position,
     disabled,
     hasContent: !!(title || description || actions.length > 0),
-  })
+  });
 
   const renderActions = () => {
-    if (actions.length === 0) return null
-    const isTop = actionsPosition === 'top'
+    if (actions.length === 0) return null;
+    const isTop = actionsPosition === 'top';
 
     return (
       <div
@@ -57,14 +57,12 @@ export const RichTooltip = ({
             <button
               type="button"
               onClick={(e) => {
-                e.stopPropagation()
-                action.onClick()
+                e.stopPropagation();
+                action.onClick();
               }}
               className="p-1.5 rounded-md text-(--on-surface-variant) hover:text-(--primary) hover:bg-(--surface-container-highest) transition-all active:scale-95"
             >
-              <span className="text-base leading-none flex items-center justify-center">
-                {action.icon}
-              </span>
+              <span className="text-base leading-none flex items-center justify-center">{action.icon}</span>
             </button>
 
             {/* MINI TOOLTIP: Explicit contrast and fixed positioning */}
@@ -90,8 +88,8 @@ export const RichTooltip = ({
           </div>
         ))}
       </div>
-    )
-  }
+    );
+  };
 
   return (
     <div
@@ -124,18 +122,14 @@ export const RichTooltip = ({
             <div className="flex flex-col bg-(--background) border border-outline-variant shadow-elevation-2 rounded-lg text-left">
               {actionsPosition === 'top' && renderActions()}
               <div className="px-3 py-2 flex flex-col gap-0.5">
-                <h4 className="text-label-medium text-(--primary) font-bold leading-tight">
-                  {title}
-                </h4>
-                <p className="text-[11px] text-(--on-surface-variant) leading-snug">
-                  {description}
-                </p>
+                <h4 className="text-label-medium text-(--primary) font-bold leading-tight">{title}</h4>
+                <p className="text-[11px] text-(--on-surface-variant) leading-snug">{description}</p>
               </div>
               {actionsPosition === 'bottom' && renderActions()}
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </div>
-  )
-}
+  );
+};

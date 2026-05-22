@@ -13,15 +13,7 @@ category: 'calculus_iii'
 subCategory: 'vector_calculus'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'vector-field',
-    'conservative-field',
-    'scalar-field',
-    'green-theorem',
-    'stokes-theorem',
-    'divergence-theorem',
-  ]
+leadsTo: ['vector-field', 'conservative-field', 'scalar-field', 'green-theorem', 'stokes-theorem', 'divergence-theorem']
 related: ['divergence']
 seeAlso:
   [

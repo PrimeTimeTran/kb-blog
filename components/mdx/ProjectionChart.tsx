@@ -1,11 +1,11 @@
-import { useMemo } from 'react'
+import { useMemo } from 'react';
 
 export function ProjectionChart({ text, base = 10, growth = 1.15, points = 6 }) {
   const data = useMemo(() => {
     return Array.from({ length: points }, (_, i) => {
-      return Math.round(base * Math.pow(growth, i))
-    })
-  }, [base, growth, points])
+      return Math.round(base * Math.pow(growth, i));
+    });
+  }, [base, growth, points]);
 
   return (
     <div className="my-6 rounded-lg border p-4 dark:border-gray-700">
@@ -31,5 +31,5 @@ export function ProjectionChart({ text, base = 10, growth = 1.15, points = 6 }) 
         Base: {base} • Growth: {growth}x
       </p>
     </div>
-  )
+  );
 }

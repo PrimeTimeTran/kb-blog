@@ -1,35 +1,35 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { isPublished } from '../core/is-published'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { isPublished } from '../core/is-published';
 
 function walk(dir) {
-  const entries = fs.readdirSync(dir, { withFileTypes: true })
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
 
-  let files = []
+  let files = [];
 
   for (const entry of entries) {
-    const full = path.join(dir, entry.name)
+    const full = path.join(dir, entry.name);
 
     if (entry.isDirectory()) {
-      files = files.concat(walk(full))
+      files = files.concat(walk(full));
     } else if (entry.isFile() && /\.(mdx?|md)$/.test(entry.name)) {
-      files.push(full)
+      files.push(full);
     }
   }
 
-  return files
+  return files;
 }
 
 export async function getAllFrontMatter(type) {
-  const base = path.join(process.cwd(), 'data', type)
+  const base = path.join(process.cwd(), 'data', type);
 
-  const files = walk(base)
+  const files = walk(base);
 
   return (files ?? [])
     .map((filePath) => {
-      const source = fs.readFileSync(filePath, 'utf8')
-      const { data } = matter(source)
+      const source = fs.readFileSync(filePath, 'utf8');
+      const { data } = matter(source);
 
       return {
         ...data,
@@ -39,7 +39,7 @@ export async function getAllFrontMatter(type) {
           .replace(/\.mdx?$/, '')
           .replace(/\\/g, '/')
           .replace(/^\/|\/$/g, ''),
-      }
+      };
     })
-    ?.filter(isPublished)
+    ?.filter(isPublished);
 }

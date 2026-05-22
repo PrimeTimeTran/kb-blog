@@ -14,8 +14,7 @@ subCategory: 'inferential_statistics'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['point-estimation', 'interval-estimation', 'confidence-interval', 'margin-of-error']
-related:
-  ['null-hypothesis', 'alternative-hypothesis', 'p-value', 'significance-level', 'type-2-error']
+related: ['null-hypothesis', 'alternative-hypothesis', 'p-value', 'significance-level', 'type-2-error']
 seeAlso:
   [
     'statistics',

@@ -26,8 +26,7 @@ leadsTo:
     'rebalancing',
     'portfolio-optimization',
   ]
-related:
-  ['volatility', 'alpha', 'sharpe-ratio', 'sortino-ratio', 'drawdown', 'risk-adjusted-return']
+related: ['volatility', 'alpha', 'sharpe-ratio', 'sortino-ratio', 'drawdown', 'risk-adjusted-return']
 seeAlso:
   [
     'options',

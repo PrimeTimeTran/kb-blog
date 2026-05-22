@@ -25,13 +25,7 @@ leadsTo:
     'eigenvectors',
   ]
 related:
-  [
-    'variance',
-    'conditional-probability',
-    'bayes-theorem',
-    'probability-distribution',
-    'maximum-likelihood-estimation',
-  ]
+  ['variance', 'conditional-probability', 'bayes-theorem', 'probability-distribution', 'maximum-likelihood-estimation']
 seeAlso:
   [
     'bias-variance-tradeoff',

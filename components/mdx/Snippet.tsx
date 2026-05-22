@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export function Snippet({ fileName = '', code = '', language = 'python', showLineNumbers = true }) {
   return (
@@ -9,11 +9,9 @@ export function Snippet({ fileName = '', code = '', language = 'python', showLin
         </button>
       </div>
       <div id={language} className="tabcontent">
-        {fileName && (
-          <div style={{ fontSize: '0.9em', marginBottom: '0.5em', color: '#888' }}>{fileName}</div>
-        )}
+        {fileName && <div style={{ fontSize: '0.9em', marginBottom: '0.5em', color: '#888' }}>{fileName}</div>}
         <pre>{code}</pre>
       </div>
     </div>
-  )
+  );
 }

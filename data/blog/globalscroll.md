@@ -19,36 +19,36 @@
 ```
 
 ```jsx
-'use client'
+'use client';
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 
-import { useScrollState } from '../hooks/useScrollState'
+import { useScrollState } from '../hooks/useScrollState';
 
-const ScrollContext = createContext(null)
+const ScrollContext = createContext(null);
 
 export function ScrollProvider({ children }) {
-  const [toc, setToc] = useState([])
+  const [toc, setToc] = useState([]);
 
   // DOM element lives here
-  const scrollElRef = useRef(null)
+  const scrollElRef = useRef(null);
 
   // React state version (IMPORTANT: triggers hook updates)
-  const [scrollEl, setScrollElState] = useState(null)
+  const [scrollEl, setScrollElState] = useState(null);
 
   /**
    * Callback ref from ScrollContainer
    * This is the ONLY way the DOM node enters React state safely
    */
   const setScrollEl = useCallback((node) => {
-    scrollElRef.current = node
-    setScrollElState(node)
-  }, [])
+    scrollElRef.current = node;
+    setScrollElState(node);
+  }, []);
 
   /**
    * Derived scroll state (single source of truth)
    */
-  const { shrunk, activeId, scrollProgress, scrollY } = useScrollState(scrollEl, toc)
+  const { shrunk, activeId, scrollProgress, scrollY } = useScrollState(scrollEl, toc);
 
   return (
     <ScrollContext.Provider
@@ -64,99 +64,97 @@ export function ScrollProvider({ children }) {
     >
       {children}
     </ScrollContext.Provider>
-  )
+  );
 }
 
 export function useScroll() {
-  const ctx = useContext(ScrollContext)
-  if (!ctx) throw new Error('useScroll must be used within ScrollProvider')
-  return ctx
+  const ctx = useContext(ScrollContext);
+  if (!ctx) throw new Error('useScroll must be used within ScrollProvider');
+  return ctx;
 }
 ```
 
 ```jsx
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 
 export function useScrollState(el, toc = [], threshold = 40) {
-  const ticking = useRef(false)
+  const ticking = useRef(false);
 
-  const [scrollY, setScrollY] = useState(0)
-  const [shrunk, setShrunk] = useState(false)
-  const [activeId, setActiveId] = useState(null)
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const [scrollY, setScrollY] = useState(0);
+  const [shrunk, setShrunk] = useState(false);
+  const [activeId, setActiveId] = useState(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    if (!el) return
+    if (!el) return;
 
     const onScroll = () => {
-      if (ticking.current) return
-      ticking.current = true
+      if (ticking.current) return;
+      ticking.current = true;
 
       requestAnimationFrame(() => {
-        const scrollTop = el.scrollTop
-        const maxScroll = el.scrollHeight - el.clientHeight
+        const scrollTop = el.scrollTop;
+        const maxScroll = el.scrollHeight - el.clientHeight;
 
-        setScrollY(scrollTop)
-        setScrollProgress(maxScroll > 0 ? scrollTop / maxScroll : 0)
+        setScrollY(scrollTop);
+        setScrollProgress(maxScroll > 0 ? scrollTop / maxScroll : 0);
 
         setShrunk((prev) => {
-          if (!prev && scrollTop > threshold) return true
-          if (prev && scrollTop < threshold - 20) return false
-          return prev
-        })
+          if (!prev && scrollTop > threshold) return true;
+          if (prev && scrollTop < threshold - 20) return false;
+          return prev;
+        });
 
-        ticking.current = false
-      })
-    }
+        ticking.current = false;
+      });
+    };
 
-    el.addEventListener('scroll', onScroll, { passive: true })
+    el.addEventListener('scroll', onScroll, { passive: true });
 
     // initial sync
-    onScroll()
+    onScroll();
 
     return () => {
-      el.removeEventListener('scroll', onScroll)
-    }
-  }, [el, toc, threshold])
+      el.removeEventListener('scroll', onScroll);
+    };
+  }, [el, toc, threshold]);
 
   // TOC observer
   useEffect(() => {
-    if (!el || !toc.length) return
+    if (!el || !toc.length) return;
 
-    const elements = toc
-      .map((item) => document.getElementById(item.url.replace('#', '')))
-      .filter(Boolean)
+    const elements = toc.map((item) => document.getElementById(item.url.replace('#', ''))).filter(Boolean);
 
-    if (!elements.length) return
+    if (!elements.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries
           .filter((e) => e.isIntersecting)
-          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
         if (visible.length) {
-          setActiveId(`#${visible[0].target.id}`)
+          setActiveId(`#${visible[0].target.id}`);
         }
       },
       {
         root: el,
         rootMargin: '0px 0px -70% 0px',
         threshold: 0.1,
-      }
-    )
+      },
+    );
 
-    elements.forEach((node) => observer.observe(node))
+    elements.forEach((node) => observer.observe(node));
 
-    return () => observer.disconnect()
-  }, [el, toc])
+    return () => observer.disconnect();
+  }, [el, toc]);
 
   return {
     scrollY,
     scrollProgress,
     shrunk,
     activeId,
-  }
+  };
 }
 ```
 
@@ -219,11 +217,11 @@ export function Graffiti() {
 ```
 
 ```jsx
-'use client'
-import { useScroll } from '@/providers/ScrollProvider'
+'use client';
+import { useScroll } from '@/providers/ScrollProvider';
 
 export function ScrollContainer({ children }) {
-  const { setScrollEl } = useScroll()
+  const { setScrollEl } = useScroll();
 
   return (
     <div
@@ -240,7 +238,7 @@ export function ScrollContainer({ children }) {
     >
       {children}
     </div>
-  )
+  );
 }
 ```
 

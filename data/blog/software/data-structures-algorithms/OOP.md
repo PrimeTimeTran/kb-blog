@@ -52,11 +52,11 @@ const bike = {
     { psi: 200, diameter: 22 },
     { psi: 200, diameter: 22 },
   ],
-}
+};
 
 bike.inflateWheels = function () {
-  this.forEach((wheel) => (wheel.psi += 50))
-}
+  this.forEach((wheel) => (wheel.psi += 50));
+};
 ```
 
 Data inconsistency when something outside of class can change a property of an object
@@ -72,11 +72,11 @@ const bike = {
     { psi: 200, diameter: 22 },
     { psi: 200, diameter: 22 },
   ],
-}
+};
 
 bike.inflateWheels = function () {
-  this.forEach((wheel) => wheel.inflate())
-}
+  this.forEach((wheel) => wheel.inflate());
+};
 ```
 
 - Send message

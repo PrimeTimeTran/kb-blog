@@ -79,13 +79,13 @@ Examples:
 Bad:
 
 ```js
-console.log('parsed keys', Object.keys(data))
+console.log('parsed keys', Object.keys(data));
 ```
 
 Good:
 
 ```js
-trace.event('PARSED', { keys: Object.keys(data) })
+trace.event('PARSED', { keys: Object.keys(data) });
 ```
 
 Why:

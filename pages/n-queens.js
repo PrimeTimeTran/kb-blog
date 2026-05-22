@@ -1,57 +1,57 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 export default function NQueensVisualizer({ n = 4, delay = 300 }) {
-  const emptyBoard = () => Array.from({ length: n }, () => Array(n).fill('.'))
+  const emptyBoard = () => Array.from({ length: n }, () => Array(n).fill('.'));
 
-  const [board, setBoard] = useState(emptyBoard)
-  const [solutions, setSolutions] = useState([])
-  const [running, setRunning] = useState(false)
+  const [board, setBoard] = useState(emptyBoard);
+  const [solutions, setSolutions] = useState([]);
+  const [running, setRunning] = useState(false);
 
   const solve = async () => {
-    setRunning(true)
-    setSolutions([])
+    setRunning(true);
+    setSolutions([]);
 
-    const COL = new Set()
-    const diagP = new Set()
-    const diagN = new Set()
-    const b = emptyBoard()
+    const COL = new Set();
+    const diagP = new Set();
+    const diagN = new Set();
+    const b = emptyBoard();
 
     const backtrack = async (r) => {
       if (r === n) {
-        setSolutions((prev) => [...prev, b.map((row) => [...row])])
+        setSolutions((prev) => [...prev, b.map((row) => [...row])]);
 
-        await sleep(delay * 2)
-        return
+        await sleep(delay * 2);
+        return;
       }
 
       for (let c = 0; c < n; c++) {
-        if (COL.has(c) || diagP.has(r + c) || diagN.has(r - c)) continue
+        if (COL.has(c) || diagP.has(r + c) || diagN.has(r - c)) continue;
 
-        COL.add(c)
-        diagP.add(r + c)
-        diagN.add(r - c)
-        b[r][c] = 'Q'
+        COL.add(c);
+        diagP.add(r + c);
+        diagN.add(r - c);
+        b[r][c] = 'Q';
 
-        setBoard(b.map((row) => [...row]))
-        await sleep(delay)
+        setBoard(b.map((row) => [...row]));
+        await sleep(delay);
 
-        await backtrack(r + 1)
+        await backtrack(r + 1);
 
-        COL.delete(c)
-        diagP.delete(r + c)
-        diagN.delete(r - c)
-        b[r][c] = '.'
+        COL.delete(c);
+        diagP.delete(r + c);
+        diagN.delete(r - c);
+        b[r][c] = '.';
 
-        setBoard(b.map((row) => [...row]))
-        await sleep(delay)
+        setBoard(b.map((row) => [...row]));
+        await sleep(delay);
       }
-    }
+    };
 
-    await backtrack(0)
-    setRunning(false)
-  }
+    await backtrack(0);
+    setRunning(false);
+  };
 
   const renderBoard = (b) => (
     <div className="grid" style={{ gridTemplateColumns: `repeat(${n}, 80px)` }}>
@@ -63,10 +63,10 @@ export default function NQueensVisualizer({ n = 4, delay = 300 }) {
           >
             <span className="text-3xl text-red-600">{cell === 'Q' && '♛'}</span>
           </div>
-        ))
+        )),
       )}
     </div>
-  )
+  );
 
   return (
     <div className="flex flex-col items-center gap-6">
@@ -94,5 +94,5 @@ export default function NQueensVisualizer({ n = 4, delay = 300 }) {
         </div>
       )}
     </div>
-  )
+  );
 }

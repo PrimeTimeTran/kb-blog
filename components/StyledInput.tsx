@@ -1,18 +1,13 @@
-import { HiOutlineSearch } from 'react-icons/hi'
+import { HiOutlineSearch } from 'react-icons/hi';
 
 interface StyledInputProps {
-  value: string
-  onChange: (value: string) => void
-  placeholder?: string
-  className?: string
+  value: string;
+  onChange: (value: string) => void;
+  placeholder?: string;
+  className?: string;
 }
 
-export function StyledInput({
-  value,
-  onChange,
-  placeholder = 'Search...',
-  className = '',
-}: StyledInputProps) {
+export function StyledInput({ value, onChange, placeholder = 'Search...', className = '' }: StyledInputProps) {
   return (
     <div className={`relative group flex items-center ${className}`}>
       {/* Search Icon: Animates color on focus */}
@@ -51,5 +46,5 @@ export function StyledInput({
         "
       />
     </div>
-  )
+  );
 }

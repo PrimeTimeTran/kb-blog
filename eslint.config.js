@@ -1,10 +1,10 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import react from 'eslint-plugin-react'
-import reactHooks from 'eslint-plugin-react-hooks'
-import next from '@next/eslint-plugin-next'
-import tseslint from 'typescript-eslint'
-import prettier from 'eslint-config-prettier'
+import js from '@eslint/js';
+import globals from 'globals';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import next from '@next/eslint-plugin-next';
+import tseslint from 'typescript-eslint';
+import prettier from 'eslint-config-prettier';
 
 export default [
   ...tseslint.configs.recommended,
@@ -99,4 +99,4 @@ export default [
   {
     ignores: ['node_modules/**', '.next/**', 'out/**', 'dist/**', 'coverage/**', '**/*.mdx.js'],
   },
-]
+];

@@ -14,13 +14,7 @@ subCategory: 'inheritance'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'single-inheritance',
-    'multiple-inheritance',
-    'multilevel-inheritance',
-    'hierarchical-inheritance',
-    'super-keyword',
-  ]
+  ['single-inheritance', 'multiple-inheritance', 'multilevel-inheritance', 'hierarchical-inheritance', 'super-keyword']
 related: ['parent-class', 'superclass', 'subclass']
 seeAlso:
   [

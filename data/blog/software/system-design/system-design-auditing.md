@@ -447,15 +447,15 @@ From examples online we know that a closure is a function which wraps an inner v
 ```js showLineNumbers
 function makeAdder(x) {
   return function (y) {
-    return x + y
-  }
+    return x + y;
+  };
 }
 
-const add5 = makeAdder(5)
-const add3 = makeAdder(3)
+const add5 = makeAdder(5);
+const add3 = makeAdder(3);
 
-console.log(add5(2)) // 5 + 2 = 7
-console.log(add3(2)) // 3 + 2 = 5
+console.log(add5(2)); // 5 + 2 = 7
+console.log(add3(2)); // 3 + 2 = 5
 ```
 
 In this example when we initialize our closure by calling `makeAdder`. We pass it a value which is wrapped meaning we can access it later. We then invoke the returned anonymous function from the closure with a new value which sums with the wrapped variable, producing our result.

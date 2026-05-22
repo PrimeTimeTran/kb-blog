@@ -13,18 +13,9 @@ category: 'ai'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  ['problem-solving', 'search', 'goal-state', 'initial-state', 'action-space', 'transition-model']
+leadsTo: ['problem-solving', 'search', 'goal-state', 'initial-state', 'action-space', 'transition-model']
 related:
-  [
-    'artificial-intelligence',
-    'agent',
-    'environment',
-    'rational-agent',
-    'search-problem',
-    'state-space',
-    'heuristic',
-  ]
+  ['artificial-intelligence', 'agent', 'environment', 'rational-agent', 'search-problem', 'state-space', 'heuristic']
 seeAlso:
   [
     'regression',

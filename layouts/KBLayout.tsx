@@ -13,12 +13,12 @@
 // and then leave the the remaining space for each page to handle.
 
 // layouts/ThreeColumnLayout.tsx
-'use client'
-import SidebarTree from '../app/kb/SidebarTree'
-import { ResizableColumn } from '@/components/layout/ResizableColumn'
+'use client';
+import SidebarTree from '../app/kb/SidebarTree';
+import { ResizableColumn } from '@/components/layout/ResizableColumn';
 
 export default function KBLayout({ tree, children }) {
-  console.log('KB')
+  console.log('KB');
   return (
     <div className="flex h-screen overflow-hidden w-full">
       <ResizableColumn side="left">
@@ -26,5 +26,5 @@ export default function KBLayout({ tree, children }) {
       </ResizableColumn>
       <div className="flex-1 min-w-0 h-full flex">{children}</div>
     </div>
-  )
+  );
 }

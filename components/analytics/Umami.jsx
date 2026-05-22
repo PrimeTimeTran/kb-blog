@@ -1,6 +1,6 @@
-import Script from 'next/script'
+import Script from 'next/script';
 
-import siteMetadata from '@/data/site-metadata'
+import siteMetadata from '@/data/site-metadata';
 
 const UmamiScript = () => {
   return (
@@ -12,7 +12,7 @@ const UmamiScript = () => {
         src="https://umami.example.com/umami.js"
       />
     </>
-  )
-}
+  );
+};
 
-export default UmamiScript
+export default UmamiScript;

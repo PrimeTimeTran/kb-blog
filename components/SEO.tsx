@@ -1,11 +1,11 @@
-'use client'
-import React from 'react'
-import Head from 'next/head'
-import { useRouter } from 'next/navigation'
-import siteMetadata from '../data/site-metadata'
+'use client';
+import React from 'react';
+import Head from 'next/head';
+import { useRouter } from 'next/navigation';
+import siteMetadata from '../data/site-metadata';
 
 const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl, publishedAt }) => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <Head>
       {/* Basic page info */}
@@ -16,10 +16,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl,
       <meta property="article:author" content="Loi Tran" />
 
       {/* Canonical URL */}
-      <link
-        rel="canonical"
-        href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}
-      />
+      <link rel="canonical" href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`} />
 
       {/* Open Graph */}
       <meta property="og:site_name" content={siteMetadata.title} />
@@ -55,36 +52,24 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl,
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={twImage || ogImage} />
     </Head>
-  )
-}
+  );
+};
 
 export const PageSEO = ({ title, description }) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
+  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
   return (
-    <CommonSEO
-      title={title}
-      description={description}
-      ogType="website"
-      ogImage={ogImageUrl}
-      twImage={twImageUrl}
-    />
-  )
-}
+    <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} twImage={twImageUrl} />
+  );
+};
 
 export const TagSEO = ({ title, description }) => {
-  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const router = useRouter()
+  const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner;
+  const router = useRouter();
   return (
     <>
-      <CommonSEO
-        title={title}
-        description={description}
-        ogType="website"
-        ogImage={ogImageUrl}
-        twImage={twImageUrl}
-      />
+      <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} twImage={twImageUrl} />
       <Head>
         <link
           rel="alternate"
@@ -94,51 +79,37 @@ export const TagSEO = ({ title, description }) => {
         />
       </Head>
     </>
-  )
-}
+  );
+};
 
-export const BlogSEO = ({
-  authorDetails,
-  title,
-  summary,
-  date,
-  lastmod,
-  url,
-  images = [],
-  canonicalUrl,
-}) => {
-  const router = useRouter()
-  const safeDate = date && !isNaN(new Date(date).getTime()) ? new Date(date) : null
+export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, images = [], canonicalUrl }) => {
+  const router = useRouter();
+  const safeDate = date && !isNaN(new Date(date).getTime()) ? new Date(date) : null;
 
-  const publishedAt = safeDate ? safeDate.toISOString() : null
-  const modifiedAt = new Date(lastmod || publishedAt).toISOString()
-  const imagesArr =
-    images.length === 0
-      ? [siteMetadata.socialBanner]
-      : typeof images === 'string'
-        ? [images]
-        : images
+  const publishedAt = safeDate ? safeDate.toISOString() : null;
+  const modifiedAt = new Date(lastmod || publishedAt).toISOString();
+  const imagesArr = images.length === 0 ? [siteMetadata.socialBanner] : typeof images === 'string' ? [images] : images;
 
   const featuredImages = (imagesArr ?? []).map((img) => {
     return {
       '@type': 'ImageObject',
       url: img.includes('http') ? img : siteMetadata.siteUrl + img,
-    }
-  })
+    };
+  });
 
-  let authorList
+  let authorList;
   if (authorDetails) {
     authorList = (authorDetails ?? []).map((author) => {
       return {
         '@type': 'Person',
         name: author.name,
-      }
-    })
+      };
+    });
   } else {
     authorList = {
       '@type': 'Person',
       name: siteMetadata.author,
-    }
+    };
   }
 
   const structuredData = {
@@ -162,9 +133,9 @@ export const BlogSEO = ({
       },
     },
     description: summary,
-  }
+  };
 
-  const twImageUrl = featuredImages[0].url
+  const twImageUrl = featuredImages[0].url;
 
   return (
     <>
@@ -188,5 +159,5 @@ export const BlogSEO = ({
         />
       </Head>
     </>
-  )
-}
+  );
+};

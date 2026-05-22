@@ -3,16 +3,7 @@ draft: true
 date: 2026-02-05
 title: 'Open Exchanges: Lessons in Building, Sharing, and Growing Trust in Public — Part II'
 summary: 'A walkthrough of our trading platform architecture, showing how the web client, services, and data layers interact with Protobuf, Redis, and Postgres — and why these choices matter for transparency and reliability.'
-tags:
-  [
-    'architecture',
-    'trading platform',
-    'protobuf',
-    'redis',
-    'postgres',
-    'matching engine',
-    'marketplace',
-  ]
+tags: ['architecture', 'trading platform', 'protobuf', 'redis', 'postgres', 'matching engine', 'marketplace']
 series: 'Open Exchanges'
 part: 2
 ---

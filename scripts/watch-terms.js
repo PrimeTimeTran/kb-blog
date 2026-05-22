@@ -1,23 +1,20 @@
-import chokidar from 'chokidar'
-import fs from 'fs'
-import { buildTermsRegistry } from '../lib/content/server/terms.js'
+import chokidar from 'chokidar';
+import fs from 'fs';
+import { buildTermsRegistry } from '../lib/content/server/terms.js';
 
-let timeout
+let timeout;
 
 function build() {
-  const registry = buildTermsRegistry()
+  const registry = buildTermsRegistry();
 
-  fs.writeFileSync(
-    'data/generated/terms.js',
-    `export const terms = ${JSON.stringify(registry, null, 2)}`
-  )
+  fs.writeFileSync('data/generated/terms.js', `export const terms = ${JSON.stringify(registry, null, 2)}`);
 
-  console.log('🔄 terms rebuilt')
+  console.log('🔄 terms rebuilt');
 }
 
 function buildDebounced() {
-  clearTimeout(timeout)
-  timeout = setTimeout(build, 100)
+  clearTimeout(timeout);
+  timeout = setTimeout(build, 100);
 }
 
 chokidar
@@ -27,6 +24,6 @@ chokidar
   })
   .on('add', buildDebounced)
   .on('change', buildDebounced)
-  .on('unlink', buildDebounced)
+  .on('unlink', buildDebounced);
 
-build()
+build();

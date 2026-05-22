@@ -1,61 +1,59 @@
-import { visit } from 'unist-util-visit'
+import { visit } from 'unist-util-visit';
 
 function parseHeader(lang, rest = '') {
   const meta = {
     lang,
     showLineNumbers: false,
     highlight: [],
-  }
+  };
 
-  const tokens = rest.match(/\{[^}]+\}|showLineNumbers|\S+/g) || []
+  const tokens = rest.match(/\{[^}]+\}|showLineNumbers|\S+/g) || [];
 
   for (const t of tokens) {
     if (t === 'showLineNumbers') {
-      meta.showLineNumbers = true
-      continue
+      meta.showLineNumbers = true;
+      continue;
     }
 
     if (t.startsWith('{') && t.endsWith('}')) {
-      const inner = t.slice(1, -1)
+      const inner = t.slice(1, -1);
 
       meta.highlight = inner.split(',').flatMap((p) => {
         if (p.includes('-')) {
-          const [a, b] = (p.split('-') ?? []).map(Number)
-          return Array.from({ length: b - a + 1 }, (_, i) => a + i)
+          const [a, b] = (p.split('-') ?? []).map(Number);
+          return Array.from({ length: b - a + 1 }, (_, i) => a + i);
         }
-        return [Number(p)]
-      })
+        return [Number(p)];
+      });
     }
   }
 
-  return meta
+  return meta;
 }
 
 export function renderTabGroups() {
   return (tree) => {
     visit(tree, 'code', (node, index, parent) => {
-      if (node.lang !== 'tabgroup') return
-      if (!parent || index == null) return
-      const lines = node.value.split(/\r?\n/)
-      const tabs = []
-      let currentTab = null
-      let buffer = []
+      if (node.lang !== 'tabgroup') return;
+      if (!parent || index == null) return;
+      const lines = node.value.split(/\r?\n/);
+      const tabs = [];
+      let currentTab = null;
+      let buffer = [];
 
-      let currentMeta = {}
+      let currentMeta = {};
       let groupMeta = {
         showLineNumbers: false,
         highlight: [],
-      }
+      };
 
       const flush = () => {
-        if (!currentTab) return
+        if (!currentTab) return;
         const mergedMeta = {
           showLineNumbers: currentMeta.showLineNumbers ?? groupMeta.showLineNumbers,
 
-          highlight: Array.from(
-            new Set([...(groupMeta.highlight || []), ...(currentMeta.highlight || [])])
-          ),
-        }
+          highlight: Array.from(new Set([...(groupMeta.highlight || []), ...(currentMeta.highlight || [])])),
+        };
 
         tabs.push({
           lang: currentTab,
@@ -63,45 +61,44 @@ export function renderTabGroups() {
           content: buffer.join('\n'),
           ...mergedMeta,
           showLineNumbers: true,
-        })
+        });
 
-        buffer = []
-        currentTab = null
-        currentMeta = {}
-      }
+        buffer = [];
+        currentTab = null;
+        currentMeta = {};
+      };
 
       for (const raw of lines) {
-        const line = raw
-        const groupMatch =
-          line.match(/^!{3,}tabgroup(?:\s+(.*))?$/) || line.match(/^```tabgroup(?:\s+(.*))?$/)
+        const line = raw;
+        const groupMatch = line.match(/^!{3,}tabgroup(?:\s+(.*))?$/) || line.match(/^```tabgroup(?:\s+(.*))?$/);
 
         if (groupMatch) {
-          groupMeta = parseHeader('tabgroup', groupMatch[1] || '')
-          continue
+          groupMeta = parseHeader('tabgroup', groupMatch[1] || '');
+          continue;
         }
-        const startMatch = line.match(/^!{5,}([a-zA-Z0-9+-]+)\s*([^]*)$/)
+        const startMatch = line.match(/^!{5,}([a-zA-Z0-9+-]+)\s*([^]*)$/);
 
         if (startMatch) {
-          flush()
+          flush();
 
-          const meta = parseHeader(startMatch[1], startMatch[2])
+          const meta = parseHeader(startMatch[1], startMatch[2]);
 
-          currentTab = meta.lang
-          currentMeta = meta
+          currentTab = meta.lang;
+          currentMeta = meta;
 
-          continue
+          continue;
         }
-        const endMatch = line.match(/^([a-zA-Z0-9+-]+)!{5,}$/)
+        const endMatch = line.match(/^([a-zA-Z0-9+-]+)!{5,}$/);
 
         if (endMatch) {
-          flush()
-          continue
+          flush();
+          continue;
         }
-        if (!currentTab) continue
+        if (!currentTab) continue;
 
-        buffer.push(raw)
+        buffer.push(raw);
       }
-      flush()
+      flush();
       parent.children.splice(index, 1, {
         type: 'mdxJsxFlowElement',
         name: 'TabGroup',
@@ -114,7 +111,7 @@ export function renderTabGroups() {
         ],
         children: [],
         data: { _xdmExplicitJsx: true },
-      })
-    })
-  }
+      });
+    });
+  };
 }

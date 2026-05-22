@@ -32,8 +32,7 @@ leadsTo:
     'corporate-bonds',
     'interest-rate-risk',
   ]
-related:
-  ['options', 'futures', 'swaps', 'greeks', 'call-option', 'put-option', 'implied-volatility']
+related: ['options', 'futures', 'swaps', 'greeks', 'call-option', 'put-option', 'implied-volatility']
 seeAlso:
   [
     'correlation',

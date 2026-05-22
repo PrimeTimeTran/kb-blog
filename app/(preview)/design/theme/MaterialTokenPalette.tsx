@@ -1,4 +1,4 @@
-import { Copy } from 'lucide-react'
+import { Copy } from 'lucide-react';
 
 const COLOR_GROUPS = [
   {
@@ -37,7 +37,7 @@ const COLOR_GROUPS = [
       ['text-error', 'bg-surface'],
     ],
   },
-]
+];
 
 const SURFACES = [
   'bg-surface',
@@ -48,7 +48,7 @@ const SURFACES = [
   'bg-surface-container',
   'bg-surface-container-high',
   'bg-surface-container-highest',
-]
+];
 
 function CopyButton({ value }: { value: string }) {
   return (
@@ -58,7 +58,7 @@ function CopyButton({ value }: { value: string }) {
     >
       <Copy className="h-4 w-4" />
     </button>
-  )
+  );
 }
 
 function TokenCard({ bg, fg }: { bg: string; fg: string }) {
@@ -93,14 +93,14 @@ function TokenCard({ bg, fg }: { bg: string; fg: string }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 // 1. Make the token container have a hover effect to indicator we've entered
 // copy able box
-// 2. Enable click anywhere on the in the container holding the copy button copy to clipboard. 
+// 2. Enable click anywhere on the in the container holding the copy button copy to clipboard.
 // 3. Show a notification when copied.
-// 4. Add a sideback 
+// 4. Add a sideback
 export default function MaterialTokenPalette() {
   return (
     <div className="min-h-screen bg-background text-on-background">
@@ -117,8 +117,8 @@ export default function MaterialTokenPalette() {
                 <h1 className="text-4xl font-black tracking-tight">Color Palette Reference</h1>
 
                 <p className="mt-4 max-w-3xl leading-8 text-on-surface-variant">
-                  Compact semantic token reference for developers. Quickly find role pairings,
-                  surface variants, and foreground/background relationships.
+                  Compact semantic token reference for developers. Quickly find role pairings, surface variants, and
+                  foreground/background relationships.
                 </p>
               </div>
             </div>
@@ -138,9 +138,7 @@ export default function MaterialTokenPalette() {
         <section className="rounded-3xl border border-outline/20 bg-surface p-6 shadow-sm">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
-              <div className="text-sm font-bold uppercase tracking-wide text-primary">
-                Quick Reference
-              </div>
+              <div className="text-sm font-bold uppercase tracking-wide text-primary">Quick Reference</div>
               <h2 className="mt-2 text-2xl font-black">Common Semantic Pairs</h2>
             </div>
           </div>
@@ -181,18 +179,13 @@ export default function MaterialTokenPalette() {
         {/* COLOR GROUPS */}
         <section className="space-y-8">
           <div>
-            <div className="text-sm font-bold uppercase tracking-wide text-primary">
-              Token Groups
-            </div>
+            <div className="text-sm font-bold uppercase tracking-wide text-primary">Token Groups</div>
             <h2 className="mt-2 text-3xl font-black">Semantic Color Roles</h2>
           </div>
 
           <div className="space-y-8">
             {COLOR_GROUPS.map((group) => (
-              <div
-                key={group.title}
-                className="rounded-3xl border border-outline/20 bg-surface p-6 shadow-sm"
-              >
+              <div key={group.title} className="rounded-3xl border border-outline/20 bg-surface p-6 shadow-sm">
                 <div className="mb-6 flex flex-col gap-2 lg:flex-row lg:items-end lg:justify-between">
                   <div>
                     <h3 className="text-2xl font-black">{group.title}</h3>
@@ -213,9 +206,7 @@ export default function MaterialTokenPalette() {
         {/* SURFACES */}
         <section className="rounded-3xl border border-outline/20 bg-surface p-6 shadow-sm">
           <div className="mb-8">
-            <div className="text-sm font-bold uppercase tracking-wide text-primary">
-              Layout Foundations
-            </div>
+            <div className="text-sm font-bold uppercase tracking-wide text-primary">Layout Foundations</div>
 
             <h2 className="mt-2 text-3xl font-black">Surface Hierarchy</h2>
 
@@ -230,9 +221,7 @@ export default function MaterialTokenPalette() {
               <div key={surface} className="overflow-hidden rounded-2xl border border-outline/20">
                 <div className={`${surface} p-5 text-on-surface`}>
                   <div className="text-lg font-bold">Surface</div>
-                  <div className="mt-2 text-sm text-on-surface-variant">
-                    Example semantic content.
-                  </div>
+                  <div className="mt-2 text-sm text-on-surface-variant">Example semantic content.</div>
 
                   <div className="mt-5 rounded-xl border border-outline/10 bg-primary px-4 py-3 text-sm font-semibold text-on-primary">
                     Action
@@ -251,9 +240,7 @@ export default function MaterialTokenPalette() {
         {/* FOREGROUND TOKENS */}
         <section className="rounded-3xl border border-outline/20 bg-surface p-6 shadow-sm">
           <div className="mb-8">
-            <div className="text-sm font-bold uppercase tracking-wide text-primary">
-              Foreground Roles
-            </div>
+            <div className="text-sm font-bold uppercase tracking-wide text-primary">Foreground Roles</div>
 
             <h2 className="mt-2 text-3xl font-black">Text & Foreground Tokens</h2>
           </div>
@@ -272,15 +259,10 @@ export default function MaterialTokenPalette() {
               'text-tertiary',
               'text-error',
             ].map((token) => (
-              <div
-                key={token}
-                className="rounded-2xl border border-outline/20 bg-surface-container p-5"
-              >
+              <div key={token} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      Token
-                    </div>
+                    <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">Token</div>
 
                     <div className={`${token} text-xl font-bold`}>Typography Example</div>
                   </div>
@@ -322,5 +304,5 @@ export default function MaterialTokenPalette() {
         </section>
       </div>
     </div>
-  )
+  );
 }

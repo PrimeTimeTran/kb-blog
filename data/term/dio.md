@@ -13,17 +13,7 @@ category: 'flutter'
 subCategory: 'ecosystem'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'flutter-sdk',
-    'dart-sdk',
-    'pub-package-manager',
-    'hot-reload',
-    'ios',
-    'android',
-    'web',
-    'desktop',
-  ]
+leadsTo: ['flutter-sdk', 'dart-sdk', 'pub-package-manager', 'hot-reload', 'ios', 'android', 'web', 'desktop']
 related: ['http', 'provider', 'firebase', 'shared-preferences']
 seeAlso:
   [

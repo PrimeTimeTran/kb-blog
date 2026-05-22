@@ -1,13 +1,11 @@
-import { ContentRequest, ResolvedContentSource, RawContent } from '../core/types'
+import { ContentRequest, ResolvedContentSource, RawContent } from '../core/types';
 
 export interface ContentSource {
-  name: string
+  name: string;
 
-  resolve(request: ContentRequest): Promise<ResolvedContentSource | null>
+  resolve(request: ContentRequest): Promise<ResolvedContentSource | null>;
 
-  read(source: ResolvedContentSource): Promise<RawContent>
+  read(source: ResolvedContentSource): Promise<RawContent>;
 
-  enumerate?(): Promise<ResolvedContentSource[]>
+  enumerate?(): Promise<ResolvedContentSource[]>;
 }
-
-

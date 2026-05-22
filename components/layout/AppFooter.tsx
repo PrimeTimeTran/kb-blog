@@ -1,6 +1,6 @@
-import { SafeLink as Link } from '../mdx/Link'
-import siteMetadata from '@/data/site-metadata'
-import SocialIcon from '../social-icons'
+import { SafeLink as Link } from '../mdx/Link';
+import siteMetadata from '@/data/site-metadata';
+import SocialIcon from '../social-icons';
 
 export function AppFooter() {
   return (
@@ -32,5 +32,5 @@ export function AppFooter() {
 
       <div className="h-8" />
     </footer>
-  )
+  );
 }

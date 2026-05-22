@@ -1,50 +1,39 @@
-'use client'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
-import Prism from 'prismjs'
+'use client';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import Prism from 'prismjs';
 
-import '@/data/code-formatting'
+import '@/data/code-formatting';
 
 type GraffitiAnchor = {
-  id: string
-  top: number
-  left: number
-  text: string
-  rotate: number
-  drift: number
-  opacity: number
-  size: string
-}
+  id: string;
+  top: number;
+  left: number;
+  text: string;
+  rotate: number;
+  drift: number;
+  opacity: number;
+  size: string;
+};
 
-const WORDS = [
-  'BUILD',
-  'SHIP',
-  'ITERATE',
-  'FOCUS',
-  'LEARN',
-  'SYSTEMS',
-  'GRAPH',
-  'VECTOR',
-  'FLOW',
-  'SCROLL',
-]
+const WORDS = ['BUILD', 'SHIP', 'ITERATE', 'FOCUS', 'LEARN', 'SYSTEMS', 'GRAPH', 'VECTOR', 'FLOW', 'SCROLL'];
 
 function seededRandom(seed: number) {
-  const x = Math.sin(seed) * 10000
-  return x - Math.floor(x)
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
 }
 
 function buildGraffitiAnchors(root: HTMLElement): GraffitiAnchor[] {
-  const headings = root.querySelectorAll('h1, h2')
+  const headings = root.querySelectorAll('h1, h2');
 
   return Array.from(headings).map((el, i) => {
-    const rect = el.getBoundingClientRect()
+    const rect = el.getBoundingClientRect();
 
-    const r1 = seededRandom(i * 11)
-    const r2 = seededRandom(i * 21)
-    const r3 = seededRandom(i * 31)
-    const r4 = seededRandom(i * 41)
+    const r1 = seededRandom(i * 11);
+    const r2 = seededRandom(i * 21);
+    const r3 = seededRandom(i * 31);
+    const r4 = seededRandom(i * 41);
 
-    const side = r1 > 0.5 ? 1 : -1
+    const side = r1 > 0.5 ? 1 : -1;
 
     return {
       id: `graffiti-${i}`,
@@ -62,70 +51,70 @@ function buildGraffitiAnchors(root: HTMLElement): GraffitiAnchor[] {
       opacity: 0.15 + r1 * 0.35,
 
       size: r2 > 0.66 ? 'text-6xl' : r2 > 0.33 ? 'text-4xl' : 'text-2xl',
-    }
-  })
+    };
+  });
 }
 
 export default function MDXWrapper({ children }: { children: React.ReactNode }) {
-  const contentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const [anchors, setAnchors] = useState<GraffitiAnchor[]>([])
-  const [scrollY, setScrollY] = useState(0)
+  const [anchors, setAnchors] = useState<GraffitiAnchor[]>([]);
+  const [scrollY, setScrollY] = useState(0);
 
   /**
    * Prism highlighting
    */
   useEffect(() => {
-    Prism.highlightAll()
-  }, [children])
+    Prism.highlightAll();
+  }, [children]);
 
   /**
    * Build graffiti anchors from rendered MDX headings
    */
   useLayoutEffect(() => {
-    if (!contentRef.current) return
+    if (!contentRef.current) return;
 
     const update = () => {
-      const next = buildGraffitiAnchors(contentRef.current!)
-      setAnchors(next)
-    }
+      const next = buildGraffitiAnchors(contentRef.current!);
+      setAnchors(next);
+    };
 
-    update()
+    update();
 
-    const resizeObserver = new ResizeObserver(update)
-    resizeObserver.observe(contentRef.current)
+    const resizeObserver = new ResizeObserver(update);
+    resizeObserver.observe(contentRef.current);
 
-    window.addEventListener('resize', update)
+    window.addEventListener('resize', update);
 
     return () => {
-      resizeObserver.disconnect()
-      window.removeEventListener('resize', update)
-    }
-  }, [children])
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', update);
+    };
+  }, [children]);
 
   /**
    * Scroll sync
    */
   useEffect(() => {
-    let ticking = false
+    let ticking = false;
 
     const onScroll = () => {
-      if (ticking) return
+      if (ticking) return;
 
-      ticking = true
+      ticking = true;
 
       requestAnimationFrame(() => {
-        setScrollY(window.scrollY)
-        ticking = false
-      })
-    }
+        setScrollY(window.scrollY);
+        ticking = false;
+      });
+    };
 
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll);
 
     return () => {
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   return (
     <div className="relative">
@@ -134,7 +123,7 @@ export default function MDXWrapper({ children }: { children: React.ReactNode }) 
       ========================== */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-visible">
         {anchors.map((a) => {
-          const parallaxY = scrollY * a.drift * -1
+          const parallaxY = scrollY * a.drift * -1;
 
           return (
             <div
@@ -163,7 +152,7 @@ export default function MDXWrapper({ children }: { children: React.ReactNode }) 
             >
               {a.text}
             </div>
-          )
+          );
         })}
       </div>
 
@@ -174,5 +163,5 @@ export default function MDXWrapper({ children }: { children: React.ReactNode }) 
         {children}
       </div>
     </div>
-  )
+  );
 }

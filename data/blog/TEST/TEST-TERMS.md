@@ -47,7 +47,7 @@ Example:
 
 ```js
 function greet() {
-  console.log('Hello JS')
+  console.log('Hello JS');
 }
 ```
 

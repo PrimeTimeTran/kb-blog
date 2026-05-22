@@ -14,13 +14,7 @@ subCategory: 'pods'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['succeeded', 'failed', 'crashloop-backoff']
-related:
-  [
-    'single-container-pod',
-    'multi-container-pod',
-    'shared-network-namespace',
-    'shared-storage-volume',
-  ]
+related: ['single-container-pod', 'multi-container-pod', 'shared-network-namespace', 'shared-storage-volume']
 seeAlso:
   [
     'deployment',

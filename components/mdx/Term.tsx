@@ -1,4 +1,4 @@
-import { SafeLink as Link } from './Link'
+import { SafeLink as Link } from './Link';
 
 export function Term({ href, children, short, icon, tone = 'default' }) {
   return (
@@ -10,5 +10,5 @@ export function Term({ href, children, short, icon, tone = 'default' }) {
 
       {short && <div className="term__preview">{short}</div>}
     </span>
-  )
+  );
 }

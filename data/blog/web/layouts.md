@@ -162,7 +162,7 @@ export default async function AppLayout({ children }) {
         </AppShell>
       </body>
     </html>
-  )
+  );
 }
 ```
 
@@ -193,13 +193,13 @@ Next, create a persistent knowledge-base layout.
 
 ```jsx
 // app/kb/layout.tsx
-import { KBLayout } from '@/layouts/ThreeColumnLayout'
-import { getKbTree } from '@/lib/content/domain/kb/kb.server'
+import { KBLayout } from '@/layouts/ThreeColumnLayout';
+import { getKbTree } from '@/lib/content/domain/kb/kb.server';
 
 export default async function Layout({ children }) {
-  const tree = await getKbTree()
+  const tree = await getKbTree();
 
-  return <KBLayout tree={tree}>{children}</KBLayout>
+  return <KBLayout tree={tree}>{children}</KBLayout>;
 }
 ```
 
@@ -222,10 +222,10 @@ Now we create the actual shared layout shell.
 
 ```jsx
 // layouts/ThreeColumnLayout.tsx
-'use client'
+'use client';
 
-import SidebarTree from '../app/kb/SidebarTree'
-import { ResizableColumn } from '@/components/layout/ResizableColumn'
+import SidebarTree from '../app/kb/SidebarTree';
+import { ResizableColumn } from '@/components/layout/ResizableColumn';
 
 export function KBLayout({ tree, children }) {
   return (
@@ -236,7 +236,7 @@ export function KBLayout({ tree, children }) {
 
       <div className="flex-1 min-w-0 h-full flex">{children}</div>
     </div>
-  )
+  );
 }
 ```
 
@@ -265,18 +265,18 @@ The page itself owns the center and right regions.
 
 ```jsx
 // app/kb/[...slug]/page.tsx
-import { notFound } from 'next/navigation'
-import { content } from '@/lib/content/api/client'
-import { ResizableColumn } from '@/components/layout/ResizableColumn'
-import TableOfContents from '@/components/TableOfContents'
-import { ScrollContainer } from './ScrollContainer'
+import { notFound } from 'next/navigation';
+import { content } from '@/lib/content/api/client';
+import { ResizableColumn } from '@/components/layout/ResizableColumn';
+import TableOfContents from '@/components/TableOfContents';
+import { ScrollContainer } from './ScrollContainer';
 
 export default async function Page({ params }) {
-  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug
+  const slug = Array.isArray(params.slug) ? params.slug.join('/') : params.slug;
 
-  const KBItem = await content.get({ type: 'kb', slug })
+  const KBItem = await content.get({ type: 'kb', slug });
 
-  if (!KBItem) notFound()
+  if (!KBItem) notFound();
 
   return (
     <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
@@ -292,7 +292,7 @@ export default async function Page({ params }) {
         <TableOfContents toc={KBItem.toc} />
       </ResizableColumn>
     </div>
-  )
+  );
 }
 ```
 
@@ -317,8 +317,8 @@ Result:
 The fix is:
 
 ```jsx
-min - w - 0
-overflow - hidden
+min - w - 0;
+overflow - hidden;
 ```
 
 on the parent flex container.
@@ -340,12 +340,12 @@ Instead:
 # Scroll Container
 
 ```jsx
-'use client'
+'use client';
 
-import { useScroll } from '@/providers/ScrollProvider'
+import { useScroll } from '@/providers/ScrollProvider';
 
 export function ScrollContainer({ children }) {
-  const { setScrollEl } = useScroll()
+  const { setScrollEl } = useScroll();
 
   return (
     <div
@@ -362,7 +362,7 @@ export function ScrollContainer({ children }) {
     >
       {children}
     </div>
-  )
+  );
 }
 ```
 

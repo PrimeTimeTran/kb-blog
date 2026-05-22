@@ -5,7 +5,7 @@ export function WorkspaceShell({ children }) {
     <div className="h-full w-full min-h-0 overflow-hidden">
       <div className="h-full w-full min-h-0 overflow-y-auto">{children}</div>
     </div>
-  )
+  );
 }
 
 export function WorkspaceHero({ title, description }: { title: string; description: string }) {
@@ -15,14 +15,14 @@ export function WorkspaceHero({ title, description }: { title: string; descripti
 
       <p className="mt-3 max-w-2xl text-on-surface/70">{description}</p>
     </div>
-  )
+  );
 }
 export function ScrollableWorkspaceContent({ children }: { children: React.ReactNode }) {
   return (
     <div className="h-full overflow-y-auto bg-background text-on-background">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 p-6">{children}</div>
     </div>
-  )
+  );
 }
 export function LargeScrollableSection() {
   return (
@@ -37,5 +37,5 @@ export function LargeScrollableSection() {
         </div>
       ))}
     </div>
-  )
+  );
 }

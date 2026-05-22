@@ -14,19 +14,7 @@ subCategory: 'widgets'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'stack',
-    'text',
-    'center',
-    'padding',
-    'scaffold',
-    'flex',
-    'expanded',
-    'flexible',
-    'listview',
-    'gridview',
-    'sliver',
-  ]
+  ['stack', 'text', 'center', 'padding', 'scaffold', 'flex', 'expanded', 'flexible', 'listview', 'gridview', 'sliver']
 related: ['textfield', 'form', 'gesture-detector', 'inkwell']
 seeAlso:
   [

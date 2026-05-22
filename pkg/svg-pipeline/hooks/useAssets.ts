@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 
-import { extractViewBox, extractInner, analyzeSVG, debugGroups } from '../lib'
+import { extractViewBox, extractInner, analyzeSVG, debugGroups } from '../lib';
 
 export function useAssets(paths: string[], debug = false) {
-  const [assets, setAssets] = useState<any[]>([])
+  const [assets, setAssets] = useState<any[]>([]);
 
   useEffect(() => {
     async function load() {
       const loaded = await Promise.all(
         paths.map(async (path) => {
-          const svgText = await fetch(path).then((r) => r.text())
+          const svgText = await fetch(path).then((r) => r.text());
 
           const asset = {
             path,
@@ -17,26 +17,26 @@ export function useAssets(paths: string[], debug = false) {
             inner: extractInner(svgText),
             viewBox: extractViewBox(svgText),
             meta: analyzeSVG(svgText),
-          }
+          };
 
           if (debug) {
-            console.log('================ SVG DEBUG ================')
-            console.log(path)
-            console.log(asset.meta)
-            console.log('===========================================')
+            console.log('================ SVG DEBUG ================');
+            console.log(path);
+            console.log(asset.meta);
+            console.log('===========================================');
 
-            debugGroups(svgText)
+            debugGroups(svgText);
           }
 
-          return asset
-        })
-      )
+          return asset;
+        }),
+      );
 
-      setAssets(loaded)
+      setAssets(loaded);
     }
 
-    load()
-  }, [paths, debug])
+    load();
+  }, [paths, debug]);
 
-  return assets
+  return assets;
 }

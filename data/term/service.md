@@ -14,16 +14,7 @@ subCategory: 'core_objects'
 prerequisites: []
 buildsUpon: []
 leadsTo:
-  [
-    'environment-variables',
-    'secret',
-    'replica-set',
-    'stateful-set',
-    'daemon-set',
-    'job',
-    'cron-job',
-    'config-map',
-  ]
+  ['environment-variables', 'secret', 'replica-set', 'stateful-set', 'daemon-set', 'job', 'cron-job', 'config-map']
 related: ['ingress']
 seeAlso:
   [

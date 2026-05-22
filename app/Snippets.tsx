@@ -1,14 +1,14 @@
-import { useState } from 'react'
-import { useTheme } from '@teispace/next-themes'
-import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { FiClipboard } from 'react-icons/fi'
+import { useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { FiClipboard } from 'react-icons/fi';
 // import SyntaxHighlighter from 'react-syntax-highlighter'
 // import { docco, dark } from 'react-syntax-highlighter/dist/cjs/styles/hljs'
 
-import { snippets } from '../data/snippets-sorting-algorithms.js'
+import { snippets } from '../data/snippets-sorting-algorithms.js';
 
 const LanguagePicker = ({ selectedLanguage, onLanguageChange }) => {
-  const languages = ['python', 'javascript']
+  const languages = ['python', 'javascript'];
 
   return (
     <div className="mb-4 flex space-x-4">
@@ -24,22 +24,22 @@ const LanguagePicker = ({ selectedLanguage, onLanguageChange }) => {
         </button>
       ))}
     </div>
-  )
-}
+  );
+};
 
 function Snippet({ code, language, handleCopy }) {
-  const { theme } = useTheme()
+  const { theme } = useTheme();
   // const snippetStyle = theme === 'dark' ? dark : docco
   // const borderColor = theme === 'dark' ? 'white' : 'black'
-  const snippetStyle = {}
-  const borderColor = {}
+  const snippetStyle = {};
+  const borderColor = {};
   const containerStyle = {
     width: '400px',
     height: '300px',
     overflow: 'auto',
     borderColor: borderColor,
     backgroundColor: snippetStyle?.hljs?.background || 'inherit',
-  }
+  };
   return (
     <div className="relative m-3 flex-1 rounded border" style={containerStyle}>
       <CopyToClipboard text={code} onCopy={handleCopy}>
@@ -52,19 +52,19 @@ function Snippet({ code, language, handleCopy }) {
         {code}
       </SyntaxHighlighter> */}
     </div>
-  )
+  );
 }
 
 export default function Snippets() {
-  const [language, setLanguage] = useState('python')
-  const [copied, setCopied] = useState(false)
+  const [language, setLanguage] = useState('python');
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
-  const props = { language, handleCopy }
+  const props = { language, handleCopy };
 
   return (
     <div className="">
@@ -89,5 +89,5 @@ export default function Snippets() {
         </div>
       )}
     </div>
-  )
+  );
 }

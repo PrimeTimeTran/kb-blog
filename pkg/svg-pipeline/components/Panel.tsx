@@ -1,30 +1,30 @@
-import React, { useMemo, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Eye, GripVertical } from 'lucide-react'
+import React, { useMemo, useState } from 'react';
+import { motion } from 'framer-motion';
+import { Eye, GripVertical } from 'lucide-react';
 
-import { ChevronDown, ChevronRight, Menu } from 'lucide-react'
-import { useDraggable } from '../hooks/useDraggable'
+import { ChevronDown, ChevronRight, Menu } from 'lucide-react';
+import { useDraggable } from '../hooks/useDraggable';
 
 type Tab = {
-  id: string
-  label: string
-  content?: React.ReactNode
-}
+  id: string;
+  label: string;
+  content?: React.ReactNode;
+};
 
 type PanelProps = {
-  className?: string
+  className?: string;
 
-  title?: string
+  title?: string;
 
-  tabs?: Tab[]
+  tabs?: Tab[];
 
-  defaultTab?: string
+  defaultTab?: string;
 
-  footerLeft?: React.ReactNode
-  footerRight?: React.ReactNode
+  footerLeft?: React.ReactNode;
+  footerRight?: React.ReactNode;
 
-  children?: React.ReactNode
-}
+  children?: React.ReactNode;
+};
 
 export function Panel({
   className = '',
@@ -40,21 +40,21 @@ export function Panel({
 
   children,
 }: PanelProps) {
-  const [collapsed, setCollapsed] = useState(false)
+  const [collapsed, setCollapsed] = useState(false);
   const fallbackTabs = useMemo(
     () => [
       { id: 'layers', label: 'Layers', content: <div>BG Clouds</div> },
       { id: 'assets', label: 'Assets', content: <div>assets</div> },
       { id: 'export', label: 'Export', content: <div>export</div> },
     ],
-    []
-  )
+    [],
+  );
 
-  const tabsResolved = tabs?.length ? tabs : fallbackTabs
-  const defaultActiveTab = defaultTab ?? tabsResolved[0].id
-  const [activeTab, setActiveTab] = useState(() => defaultActiveTab)
-  const active = tabsResolved.find((t) => t.id === activeTab)
-  const { pos, bind } = useDraggable({ x: 40, y: 40 })
+  const tabsResolved = tabs?.length ? tabs : fallbackTabs;
+  const defaultActiveTab = defaultTab ?? tabsResolved[0].id;
+  const [activeTab, setActiveTab] = useState(() => defaultActiveTab);
+  const active = tabsResolved.find((t) => t.id === activeTab);
+  const { pos, bind } = useDraggable({ x: 40, y: 40 });
 
   return (
     <div
@@ -77,19 +77,19 @@ export function Panel({
 
           <div className="flex items-center overflow-x-auto">
             {tabsResolved.map((tab) => {
-              const isActive = tab.id === activeTab
+              const isActive = tab.id === activeTab;
 
               return (
                 <button
                   key={tab.id}
                   onClick={() => {
                     if (collapsed) {
-                      setCollapsed(false)
-                      setActiveTab(tab.id)
-                      return
+                      setCollapsed(false);
+                      setActiveTab(tab.id);
+                      return;
                     }
 
-                    setActiveTab(tab.id)
+                    setActiveTab(tab.id);
                   }}
                   className={[
                     'h-[40px] px-3 text-xs transition border-b whitespace-nowrap',
@@ -100,7 +100,7 @@ export function Panel({
                 >
                   {tab.label}
                 </button>
-              )
+              );
             })}
           </div>
         </div>
@@ -141,24 +141,24 @@ export function Panel({
         </div>
       </motion.div>
     </div>
-  )
+  );
 }
 
 export function LayerRow({ node, depth, layerModel }: any) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
-  const visible = layerModel.getLayerState(node.id)?.visible ?? true
+  const visible = layerModel.getLayerState(node.id)?.visible ?? true;
 
-  const groupId = node.parentId ?? node.id
-  const groupColor = layerModel.getColor(groupId)
+  const groupId = node.parentId ?? node.id;
+  const groupColor = layerModel.getColor(groupId);
 
-  const isHovered = layerModel.hovered === node.id || layerModel.hoveredGroup === groupId
+  const isHovered = layerModel.hovered === node.id || layerModel.hoveredGroup === groupId;
 
   const rowClass = [
     'group flex items-center rounded cursor-pointer select-none transition border border-transparent px-2',
     visible ? 'opacity-100' : 'opacity-40',
     isHovered ? 'ring-1' : '',
-  ].join(' ')
+  ].join(' ');
 
   return (
     <div
@@ -170,11 +170,11 @@ export function LayerRow({ node, depth, layerModel }: any) {
         }),
       }}
       onMouseEnter={() => {
-        layerModel.setHoveredId(node.id)
-        layerModel.measure(node.id)
+        layerModel.setHoveredId(node.id);
+        layerModel.measure(node.id);
       }}
       onMouseLeave={() => {
-        layerModel.setHoveredId(null)
+        layerModel.setHoveredId(null);
       }}
     >
       {/* LEFT CONTROLS */}
@@ -182,27 +182,22 @@ export function LayerRow({ node, depth, layerModel }: any) {
         <button
           className="w-7 flex items-center justify-center hover:bg-white/10"
           onClick={(e) => {
-            e.stopPropagation()
-            layerModel.toggleVisibility(node.id)
+            e.stopPropagation();
+            layerModel.toggleVisibility(node.id);
           }}
         >
-          <span className={visible ? 'text-success' : 'text-gray-500'}>
-            {visible ? <Eye /> : <Eye />}
-          </span>
+          <span className={visible ? 'text-success' : 'text-gray-500'}>{visible ? <Eye /> : <Eye />}</span>
         </button>
 
         <div className="relative">
           <div
             className="w-7 flex items-center justify-center cursor-pointer"
             onClick={(e) => {
-              e.stopPropagation()
-              setOpen((v) => !v)
+              e.stopPropagation();
+              setOpen((v) => !v);
             }}
           >
-            <div
-              className="w-3 h-3 rounded-full border border-white/30"
-              style={{ background: groupColor }}
-            />
+            <div className="w-3 h-3 rounded-full border border-white/30" style={{ background: groupColor }} />
           </div>
 
           {open && (
@@ -216,9 +211,9 @@ export function LayerRow({ node, depth, layerModel }: any) {
                   className="w-4 h-4 rounded-full hover:scale-110"
                   style={{ background: c }}
                   onClick={(e) => {
-                    e.stopPropagation()
-                    layerModel.setGroupColor(groupId, c)
-                    setOpen(false)
+                    e.stopPropagation();
+                    layerModel.setGroupColor(groupId, c);
+                    setOpen(false);
                   }}
                 />
               ))}
@@ -239,7 +234,7 @@ export function LayerRow({ node, depth, layerModel }: any) {
         <span className="opacity-50 text-[10px]">z:{node.zIndex}</span>
       </div>
     </div>
-  )
+  );
 }
 export function LayersTab({ layerModel }: any) {
   function renderTree(nodes: any[], depth = 0) {
@@ -249,9 +244,9 @@ export function LayersTab({ layerModel }: any) {
           <LayerRow node={node} depth={depth} layerModel={layerModel} />
           {node.children?.length > 0 && renderTree(node.children, depth + 1)}
         </div>
-      )
-    })
+      );
+    });
   }
 
-  return renderTree(layerModel.tree)
+  return renderTree(layerModel.tree);
 }

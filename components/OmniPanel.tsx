@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import React, { useState, useMemo, useId, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { useTheme } from '@teispace/next-themes'
+import React, { useState, useMemo, useId, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { useTheme } from '@teispace/next-themes';
 
 export function OmniPanel({
   header,
@@ -16,45 +16,43 @@ export function OmniPanel({
   headerClassName = '',
   isHoverable = true,
 }: OmniPanelProps) {
-  const { resolvedTheme, systemTheme } = useTheme()
-  const theme = resolvedTheme ?? systemTheme
+  const { resolvedTheme, systemTheme } = useTheme();
+  const theme = resolvedTheme ?? systemTheme;
 
-  const [mounted, setMounted] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
+  const [mounted, setMounted] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   // Error: Calling setState synchronously within an effect can trigger cascading renders
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   /**
    * 1. ALWAYS SAFE DERIVATIONS (NO EARLY RETURN BEFORE THIS)
    */
-  const id = useId()
-  const isDark = theme === 'dark'
-  const isSemantic = color !== 'surface'
+  const id = useId();
+  const isDark = theme === 'dark';
+  const isSemantic = color !== 'surface';
 
-  const colorMap = useMemo(() => getColorMap(isDark), [isDark])
-  const surfaceMap = useMemo(() => getSurfaceMap(isDark), [isDark])
-  const shadowMap = useMemo(() => getShadowMap(isDark), [isDark])
+  const colorMap = useMemo(() => getColorMap(isDark), [isDark]);
+  const surfaceMap = useMemo(() => getSurfaceMap(isDark), [isDark]);
+  const shadowMap = useMemo(() => getShadowMap(isDark), [isDark]);
 
-  const semantic = isSemantic ? colorMap[color] : null
+  const semantic = isSemantic ? colorMap[color] : null;
 
-  const baseShadow = shadowMap[elevation]
-  const hoverShadow = shadowMap[elevation === 'low' ? 'default' : 'high']
+  const baseShadow = shadowMap[elevation];
+  const hoverShadow = shadowMap[elevation === 'low' ? 'default' : 'high'];
 
-  const bgStyle = isSemantic ? semantic?.container : surfaceMap[variant][elevation]
+  const bgStyle = isSemantic ? semantic?.container : surfaceMap[variant][elevation];
 
-  const borderStyle = isSemantic
-    ? (semantic?.border ?? 'border-outline-variant/30')
-    : 'border-outline-variant/30'
+  const borderStyle = isSemantic ? (semantic?.border ?? 'border-outline-variant/30') : 'border-outline-variant/30';
 
   const traceColors = {
     start: `var(--${isSemantic ? color : 'primary'})`,
     middle: isDark ? `var(--tertiary)` : `var(--secondary)`,
     end: `var(--${isSemantic ? color : 'primary'})`,
     glow: `var(--${isSemantic ? color : 'primary'})`,
-  }
+  };
 
   const motionVariants = useMemo(
     () => ({
@@ -69,14 +67,14 @@ export function OmniPanel({
         transition: { type: 'spring', stiffness: 400, damping: 25 },
       },
     }),
-    [baseShadow, hoverShadow]
-  )
+    [baseShadow, hoverShadow],
+  );
 
   /**
    * 2. ONLY AFTER EVERYTHING: RENDER GUARD
    */
   if (!mounted || !theme) {
-    return <div className="opacity-0">{children}</div>
+    return <div className="opacity-0">{children}</div>;
   }
 
   return (
@@ -134,9 +132,7 @@ export function OmniPanel({
           <header
             className={`px-5 py-3 border-b border-outline-variant/10 backdrop-blur-sm ${isSemantic ? semantic.header : 'bg-surface-container-high'} ${headerClassName}`}
           >
-            <span
-              className={`font-bold tracking-tight ${isSemantic ? semantic.brandText : 'text-on-surface'}`}
-            >
+            <span className={`font-bold tracking-tight ${isSemantic ? semantic.brandText : 'text-on-surface'}`}>
               {header}
             </span>
           </header>
@@ -167,25 +163,25 @@ export function OmniPanel({
         )}
       </div>
     </motion.div>
-  )
+  );
 }
 
-type PanelColor = SemanticColor | 'surface'
-type HoverEffect = 'none' | 'pop' | 'lift' | 'glow' | 'shadow'
-type SemanticColor = 'primary' | 'secondary' | 'error' | 'tertiary'
-type Color = 'primary' | 'secondary' | 'error' | 'tertiary' | 'surface'
+type PanelColor = SemanticColor | 'surface';
+type HoverEffect = 'none' | 'pop' | 'lift' | 'glow' | 'shadow';
+type SemanticColor = 'primary' | 'secondary' | 'error' | 'tertiary';
+type Color = 'primary' | 'secondary' | 'error' | 'tertiary' | 'surface';
 
 interface OmniPanelProps {
-  children: React.ReactNode
-  color?: PanelColor
-  header?: React.ReactNode
-  footer?: React.ReactNode
-  className?: string
-  headerClassName?: string
-  variant?: 'pop' | 'trace' | 'none'
-  elevation?: 'low' | 'default' | 'high'
-  isHoverable?: boolean
-  hoverEffect?: HoverEffect
+  children: React.ReactNode;
+  color?: PanelColor;
+  header?: React.ReactNode;
+  footer?: React.ReactNode;
+  className?: string;
+  headerClassName?: string;
+  variant?: 'pop' | 'trace' | 'none';
+  elevation?: 'low' | 'default' | 'high';
+  isHoverable?: boolean;
+  hoverEffect?: HoverEffect;
 }
 
 // https://prismic.io/blog/css-hover-effects
@@ -201,12 +197,12 @@ const SHADOWS = {
     default: '0 4px 6px rgba(0,0,0,0.05), 0 10px 15px rgba(0,0,0,0.1)',
     high: '0 20px 25px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.04)',
   },
-}
+};
 
 const getShadowMap = (isDark) => {
-  const mode = isDark ? 'dark' : 'light'
-  return SHADOWS[mode] // Returns { low: "...", default: "...", high: "..." }
-}
+  const mode = isDark ? 'dark' : 'light';
+  return SHADOWS[mode]; // Returns { low: "...", default: "...", high: "..." }
+};
 
 const getSurfaceMap = (isDark) => {
   // Define the base colors once to ensure 100% consistency
@@ -214,7 +210,7 @@ const getSurfaceMap = (isDark) => {
     low: isDark ? 'bg-surface-container-low' : 'bg-surface-container-low',
     default: isDark ? 'bg-surface-container' : 'bg-surface-container',
     high: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
-  }
+  };
 
   return {
     // Both 'none' and 'trace' now use the exact same background tokens
@@ -241,8 +237,8 @@ const getSurfaceMap = (isDark) => {
       default: isDark ? 'bg-black/40 shadow-inner' : 'bg-surface-container-highest shadow-inner',
       high: isDark ? 'bg-black/60 shadow-inner' : 'bg-surface-container-highest shadow-inner',
     },
-  }
-}
+  };
+};
 
 const getColorMap = (isDark: boolean) => ({
   primary: {
@@ -278,4 +274,4 @@ const getColorMap = (isDark: boolean) => ({
     border: 'border-error/30',
     brandHex: 'var(--error)',
   },
-})
+});

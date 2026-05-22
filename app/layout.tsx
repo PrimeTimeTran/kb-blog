@@ -1,15 +1,15 @@
-import 'katex/dist/katex.min.css'
-import '../css/tailwind.css'
+import 'katex/dist/katex.min.css';
+import '../css/tailwind.css';
 
-import { AppShell } from '@/components/layout/AppShell'
-import { siteMetaDataHeader } from '../data/site-metadata-header'
-import ShowcasePage from './(lab)/workspaces/page'
-export const dynamic = 'force-dynamic'
+import { AppShell } from '@/components/layout/AppShell';
+import { siteMetaDataHeader } from '../data/site-metadata-header';
+import ShowcasePage from './(lab)/workspaces/page';
+export const dynamic = 'force-dynamic';
 // NOTE:
 // Instead of messing with layout.tsx structure frequency,
 // Create a new root project root to experiment and export from layout.tsx
 // to skip dependencies and try new things out quickly.
-export default RootLayout
+export default RootLayout;
 
 export function RootLayout({ children }) {
   return (
@@ -94,7 +94,7 @@ export function RootLayout({ children }) {
         </AppShell>
       </body>
     </html>
-  )
+  );
 }
 
 export const metadata = {
@@ -128,6 +128,6 @@ export const metadata = {
     index: true,
     follow: true,
   },
-}
+};
 
-export const metadata2 = siteMetaDataHeader
+export const metadata2 = siteMetaDataHeader;

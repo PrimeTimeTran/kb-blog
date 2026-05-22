@@ -63,14 +63,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -92,14 +89,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -121,14 +115,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -150,14 +141,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -179,14 +167,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -209,14 +194,11 @@ export default function Page() {
             </header>
 
             <div className="post-content">
-              <p>
-                One underrated skill in software engineering is learning how to communicate
-                constraints clearly.
-              </p>
+              <p>One underrated skill in software engineering is learning how to communicate constraints clearly.</p>
 
               <p>
-                Most project delays aren’t caused by code — they come from unclear expectations,
-                changing requirements, and hidden assumptions.
+                Most project delays aren’t caused by code — they come from unclear expectations, changing requirements,
+                and hidden assumptions.
               </p>
             </div>
 
@@ -274,5 +256,5 @@ export default function Page() {
         </nav>
       </footer>
     </div>
-  )
+  );
 }

@@ -24,14 +24,7 @@ leadsTo:
     'eigenvalues',
     'eigenvectors',
   ]
-related:
-  [
-    'variance',
-    'conditional-probability',
-    'bayes-theorem',
-    'probability-distribution',
-    'expectation',
-  ]
+related: ['variance', 'conditional-probability', 'bayes-theorem', 'probability-distribution', 'expectation']
 seeAlso:
   [
     'bias-variance-tradeoff',

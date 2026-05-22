@@ -1,8 +1,8 @@
-import { BaseScroll } from '@/components/BaseScroll'
-import { ButtonShowcase } from './ButtonShowcase'
+import { BaseScroll } from '@/components/BaseScroll';
+import { ButtonShowcase } from './ButtonShowcase';
 
 export default function ScrollPreview() {
-  const items = Array.from({ length: 50 }, (_, i) => i + 1)
+  const items = Array.from({ length: 50 }, (_, i) => i + 1);
 
   return (
     <div className="h-full min-h-0 flex flex-col">
@@ -12,9 +12,7 @@ export default function ScrollPreview() {
           {items.map((n) => (
             <div
               key={n}
-              className={`h-16 flex items-center px-4 rounded ${
-                n % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-400'
-              }`}
+              className={`h-16 flex items-center px-4 rounded ${n % 2 === 0 ? 'bg-zinc-200' : 'bg-zinc-400'}`}
             >
               Item {n}
             </div>
@@ -22,7 +20,7 @@ export default function ScrollPreview() {
         </div>
       </BaseScroll>
     </div>
-  )
+  );
 }
 
 // Base Scrollable Page (without Scroll Container)

@@ -5,6 +5,7 @@ tags:
   - calculus
   - calc-2
 ---
+
 # 📘 Calculus 2 Hub
 
 ## 🧠 Core Idea
@@ -16,11 +17,13 @@ Everything reduces to:
 - summation (finite → infinite)
 - approximation (exact → limit)
 - transformation (complex → simpler forms)
+
 ## 🧠 Purpose
 
 Calculus 2 is the study of **accumulation and infinite processes**.
 
 It explains how we:
+
 - add infinitely many small contributions (integrals)
 - analyze infinite sums (series)
 - approximate functions using polynomials
@@ -76,16 +79,16 @@ It explains how we:
 > Extending sums to infinity
 
 [[sequence-and-series|Sequences & Series Notation]]
-##  Sequences ($Σ$)
+
+## Sequences ($Σ$)
 
 - [[limits-of-sequences]]
 - [[convergence]] vs [[atom/math/calc/core/divergence|divergence]]
 
-##  Series ($aₙ$)
+## Series ($aₙ$)
 
 - [[infinite-sum]]
 - behavior of partial sums
-
 
 ---
 
@@ -97,18 +100,19 @@ Every infinite series does exactly one of two things:
 - **Diverges** → does not
 
 So every “convergence test” is really:
-> a **convergence/divergence test**> 
 
---- 
+> a **convergence/divergence test**>
+
+---
+
 ### 🔹 Benchmark Series (memorize these)
 
-- Used by other tests: 
-	- Comparison Test → *"Does this behave like a p-series?"*
-	- Comparison Test → *"Does this behave like a p-series?"*
-	- Comparison Test → *"Does this behave like a p-series?"*
-	
+- Used by other tests:
+  - Comparison Test → _"Does this behave like a p-series?"_
+  - Comparison Test → _"Does this behave like a p-series?"_
+  - Comparison Test → _"Does this behave like a p-series?"_
 - # [[geometric|Geometric Series]]
-  
+
 > [!info]- $\sum ar^n$
 >
 > - converges if $|r| < 1$
@@ -122,17 +126,20 @@ So every “convergence test” is really:
 > - diverges if $p \le 1$
 
 ---
+
 ### 🔹 Tests 🧪
 
 ##### Quick Elimination
 
 - # [[divergence|Divergence Test]]
+
 ##### General-Purpose (can prove both)
 
-- # [[comparison|Comparison Test]] 
+- # [[comparison|Comparison Test]]
 - # [[integral|Integral Test]]
 - # [[root|Root Test]]
 - # [[ratio|Ratio Test]]
+
 ##### Special Case
 
 - # [[alternating-series|Alternating Series Test]]
@@ -141,41 +148,48 @@ So every “convergence test” is really:
 > ![[convergence-divergence-flow-chart.png]]
 
 ---
-### 🔹 Special Types of Series 
+
+### 🔹 Special Types of Series
+
 #### ⚡️ Power Series
 
 > [!info]- ![[power-series]]
-> - radius of convergence  
-> - interval of convergence  
+>
+> - radius of convergence
+> - interval of convergence
 > - local function representation
 
-   It behaves like a **machine that depends on $x$**, and its behavior changes based on where you are relative to $c$.
+It behaves like a **machine that depends on $x$**, and its behavior changes based on where you are relative to $c$.
+
 #### 🧠 Taylor & Maclaurin Series
 
-* [[taylor|Taylor Series]] → power series representing a function
-  
+- [[taylor|Taylor Series]] → power series representing a function
+
 > [!info]- ![[taylor-series]]
 >
 > - $f^{(n)}(c)$ = $n$th derivative of $f$ evaluated at $c$
 > - $n!$ = factorial (scaling factor)
-> - $(x - c)^n$ = how far you are from the center 
+> - $(x - c)^n$ = how far you are from the center
 
-* [[maclaurin|Maclaurin Series]] → Taylor series centered at $x = 0$
-  
+- [[maclaurin|Maclaurin Series]] → Taylor series centered at $x = 0$
+
 > [!info]- ![[taylor-series]]
 >
 > A Maclaurin series is just a Taylor series centered at $c = 0$:
 
-#### 🔐 Key Idea  
+#### 🔐 Key Idea
 
 Both are:
 
 > infinite polynomials that approximate a function using its derivatives
 
 They work because:
+
 - the function is being “matched” at a point
 - slope, curvature, and higher-order behavior are encoded via derivatives
+
 ---
+
 ## 🧠 One-line intuition
 
 > Sequences and series turn calculus from computing quantities into understanding infinite processes and building functions from them.
@@ -273,11 +287,12 @@ Calculus 2 is the bridge between:
 - [[polar-coordinates|polar coordinates]]
 
 # Related
+
 - [[antiderivative]]
-	- [[antiderivative-cheatsheet]]
+  - [[antiderivative-cheatsheet]]
 - [[atom/math/calc/core/integral|integral]]
-	- [[atom/math/calc/core/integral/integration-by-parts|integration-by-parts]]
-	- [[integration-cheatsheet]]
+  - [[atom/math/calc/core/integral/integration-by-parts|integration-by-parts]]
+  - [[integration-cheatsheet]]
 - [[sequence-and-series|Sequences & Series Notation]]
 - [[trigonometry|Trigonometry Hub]]
 - [[algebra|Algebra Hub]]

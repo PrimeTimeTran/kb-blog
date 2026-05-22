@@ -13,15 +13,7 @@ category: 'linear_algebra'
 subCategory: 'matrices'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'entry',
-    'square-matrix',
-    'identity-matrix',
-    'symmetric-matrix',
-    'diagonal-matrix',
-    'orthogonal-matrix',
-  ]
+leadsTo: ['entry', 'square-matrix', 'identity-matrix', 'symmetric-matrix', 'diagonal-matrix', 'orthogonal-matrix']
 related: ['transpose', 'inverse', 'determinant']
 seeAlso:
   [

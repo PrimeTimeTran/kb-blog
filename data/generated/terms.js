@@ -11731,4 +11731,4 @@ export const terms = {
     tags: ['react_native', 'state_management', 'global_state'],
     definition: '',
   },
-}
+};

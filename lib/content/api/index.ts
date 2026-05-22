@@ -3,8 +3,8 @@
    blog, kb, pages all live here via `type`
 ───────────────────────────────────────────── */
 
-export { getContent } from './get-content'
-export { listContent } from './list-content'
+export { getContent } from './get-content';
+export { listContent } from './list-content';
 
 /**
  * Content model:
@@ -56,8 +56,8 @@ export { listContent } from './list-content'
    ENTITY SYSTEM (SEPARATE DOMAIN)
 ───────────────────────────────────────────── */
 
-export { getAuthor } from './get-author'
-export { listAuthor } from './list-author'
+export { getAuthor } from './get-author';
+export { listAuthor } from './list-author';
 
 /**
  * Notes:

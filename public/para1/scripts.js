@@ -16,92 +16,92 @@
 
 // Here's the code. It's both a lot, and not much for the functionality we've achieved. Regardless. Review is throughly and give me a grade from A-F and why.
 
-let soloLayer = null
+let soloLayer = null;
 function getSolo() {
-  return soloLayer
+  return soloLayer;
 }
 function toast(msg) {
-  const el = document.createElement('div')
+  const el = document.createElement('div');
 
-  el.textContent = msg
+  el.textContent = msg;
 
-  el.style.position = 'fixed'
-  el.style.bottom = '20px'
-  el.style.left = '20px'
+  el.style.position = 'fixed';
+  el.style.bottom = '20px';
+  el.style.left = '20px';
 
-  el.style.padding = '10px 14px'
-  el.style.background = 'rgba(0,0,0,0.85)'
-  el.style.color = 'white'
-  el.style.borderRadius = '8px'
-  el.style.fontFamily = 'sans-serif'
-  el.style.zIndex = 999999
+  el.style.padding = '10px 14px';
+  el.style.background = 'rgba(0,0,0,0.85)';
+  el.style.color = 'white';
+  el.style.borderRadius = '8px';
+  el.style.fontFamily = 'sans-serif';
+  el.style.zIndex = 999999;
 
-  document.body.appendChild(el)
+  document.body.appendChild(el);
 
-  setTimeout(() => el.remove(), 1200)
+  setTimeout(() => el.remove(), 1200);
 }
 function getSceneStore() {
-  const raw = localStorage.getItem('sceneStore')
+  const raw = localStorage.getItem('sceneStore');
 
-  const parsed = raw ? JSON.parse(raw) : { scenes: [], activeScene: null, settings: {} }
+  const parsed = raw ? JSON.parse(raw) : { scenes: [], activeScene: null, settings: {} };
 
   // 🛡️ migration safety
   if (!parsed.settings) {
-    parsed.settings = {}
+    parsed.settings = {};
   }
 
   if (!parsed.scenes) {
-    parsed.scenes = []
+    parsed.scenes = [];
   }
 
-  return parsed
+  return parsed;
 }
 function updateStore(fn) {
-  const store = getSceneStore()
-  fn(store)
-  localStorage.setItem('sceneStore', JSON.stringify(store))
-  return store
+  const store = getSceneStore();
+  fn(store);
+  localStorage.setItem('sceneStore', JSON.stringify(store));
+  return store;
 }
 function setSceneStore(store) {
-  localStorage.setItem('sceneStore', JSON.stringify(store))
+  localStorage.setItem('sceneStore', JSON.stringify(store));
 }
 function clearAutoScene() {
-  const store = getSceneStore()
+  const store = getSceneStore();
 
-  store.activeScene = null
+  store.activeScene = null;
 
-  setSceneStore(store)
+  setSceneStore(store);
 
-  toast('Auto scene cleared 🧹')
+  toast('Auto scene cleared 🧹');
 }
 function createControlPanel(layers) {
   function createPanelContainer() {
-    panel.style.position = 'fixed'
-    panel.style.top = '16px'
-    panel.style.left = '16px'
-    panel.style.width = '320px'
-    panel.style.maxHeight = '80vh'
-    panel.style.overflow = 'auto'
-    panel.style.padding = '12px'
-    panel.style.background = 'rgba(0,0,0,0.85)'
-    panel.style.backdropFilter = 'blur(10px)'
-    panel.style.borderRadius = '12px'
-    panel.style.color = 'white'
-    panel.style.fontFamily = 'sans-serif'
-    panel.style.zIndex = '999999'
+    panel.style.position = 'fixed';
+    panel.style.top = '16px';
+    panel.style.left = '16px';
+    panel.style.width = '320px';
+    panel.style.maxHeight = '80vh';
+    panel.style.overflow = 'auto';
+    panel.style.padding = '12px';
+    panel.style.background = 'rgba(0,0,0,0.85)';
+    panel.style.backdropFilter = 'blur(10px)';
+    panel.style.borderRadius = '12px';
+    panel.style.color = 'white';
+    panel.style.fontFamily = 'sans-serif';
+    panel.style.zIndex = '999999';
 
-    document.body.appendChild(panel)
+    document.body.appendChild(panel);
 
-    const title = document.createElement('div')
-    title.textContent = 'Parallax Layers'
-    title.style.fontSize = '18px'
-    title.style.fontWeight = 'bold'
-    title.style.marginBottom = '16px'
-    panel.appendChild(title)
+    const title = document.createElement('div');
+    title.textContent = 'Parallax Layers';
+    title.style.fontSize = '18px';
+    title.style.fontWeight = 'bold';
+    title.style.marginBottom = '16px';
+    panel.appendChild(title);
   }
   function createMasterControls(layers, panel) {
     function saveScene(layers) {
-      const store = getSceneStore()
+      const store = getSceneStore();
 
       const data = layers.map((l, i) => ({
         src: l.src,
@@ -113,7 +113,7 @@ function createControlPanel(layers) {
         zIndex: i,
         enabled: l.enabled ?? true,
         name: l.name ?? l.src?.split('/').pop(),
-      }))
+      }));
 
       const scene = {
         id: crypto.randomUUID(),
@@ -123,27 +123,27 @@ function createControlPanel(layers) {
           hoverColor: '#00ff88',
           mode: 'shadow', // shadow | stroke | fill
         },
-      }
+      };
 
-      store.scenes.push(scene)
-      store.activeScene = scene.id
+      store.scenes.push(scene);
+      store.activeScene = scene.id;
 
-      setSceneStore(store)
+      setSceneStore(store);
 
-      toast('Scene saved 💾 (appended)')
+      toast('Scene saved 💾 (appended)');
     }
     function createCopyBtn(layers) {
-      const copyBtn = document.createElement('button')
+      const copyBtn = document.createElement('button');
 
-      copyBtn.textContent = 'Copy Scene JSON'
+      copyBtn.textContent = 'Copy Scene JSON';
 
-      copyBtn.style.position = 'fixed'
-      copyBtn.style.top = '16px'
-      copyBtn.style.right = '80px'
+      copyBtn.style.position = 'fixed';
+      copyBtn.style.top = '16px';
+      copyBtn.style.right = '80px';
 
-      copyBtn.style.zIndex = 999999
-      copyBtn.style.padding = '8px 10px'
-      copyBtn.style.cursor = 'pointer'
+      copyBtn.style.zIndex = 999999;
+      copyBtn.style.padding = '8px 10px';
+      copyBtn.style.cursor = 'pointer';
 
       copyBtn.addEventListener('click', async () => {
         const data = layers.map((l, i) => ({
@@ -153,186 +153,186 @@ function createControlPanel(layers) {
           scale: l.scale,
           opacity: l.opacity ?? 1,
           zIndex: i,
-        }))
+        }));
 
-        await navigator.clipboard.writeText(JSON.stringify(data, null, 2))
+        await navigator.clipboard.writeText(JSON.stringify(data, null, 2));
 
-        toast('Scene copied 📋')
-      })
+        toast('Scene copied 📋');
+      });
 
-      document.body.appendChild(copyBtn)
+      document.body.appendChild(copyBtn);
     }
     function createHoverControls(bar, layers) {
-      const store = getSceneStore()
+      const store = getSceneStore();
 
-      const wrap = document.createElement('div')
-      wrap.style.display = 'flex'
-      wrap.style.flexDirection = 'column'
-      wrap.style.gap = '6px'
+      const wrap = document.createElement('div');
+      wrap.style.display = 'flex';
+      wrap.style.flexDirection = 'column';
+      wrap.style.gap = '6px';
 
-      const title = document.createElement('div')
-      title.textContent = 'Hover'
-      title.style.fontSize = '12px'
-      title.style.opacity = '0.8'
+      const title = document.createElement('div');
+      title.textContent = 'Hover';
+      title.style.fontSize = '12px';
+      title.style.opacity = '0.8';
 
       // COLOR
-      const color = document.createElement('input')
-      color.type = 'color'
-      color.value = store.settings?.hover?.color ?? '#00ff88'
+      const color = document.createElement('input');
+      color.type = 'color';
+      color.value = store.settings?.hover?.color ?? '#00ff88';
 
       // MODE
-      const mode = document.createElement('select')
+      const mode = document.createElement('select');
 
       mode.innerHTML = `
     <option value="shadow">Shadow</option>
     <option value="stroke">Stroke</option>
     <option value="fill">Fill</option>
-  `
+  `;
 
-      mode.value = store.settings?.hover?.mode ?? 'shadow'
+      mode.value = store.settings?.hover?.mode ?? 'shadow';
 
       function commit() {
         updateStore((s) => {
           s.settings.hover = {
             color: color.value,
             mode: mode.value,
-          }
-        })
+          };
+        });
       }
 
       color.addEventListener('input', () => {
-        commit()
-        applyHoverPreview()
-      })
+        commit();
+        applyHoverPreview();
+      });
 
       mode.addEventListener('change', () => {
-        commit()
-        applyHoverPreview()
-      })
+        commit();
+        applyHoverPreview();
+      });
 
       function applyHoverPreview() {
         layers.forEach((l) => {
-          l.wrapper.dataset.hoverColor = color.value
-          l.wrapper.dataset.hoverMode = mode.value
-        })
+          l.wrapper.dataset.hoverColor = color.value;
+          l.wrapper.dataset.hoverMode = mode.value;
+        });
       }
 
-      applyHoverPreview()
+      applyHoverPreview();
 
-      wrap.appendChild(title)
-      wrap.appendChild(color)
-      wrap.appendChild(mode)
+      wrap.appendChild(title);
+      wrap.appendChild(color);
+      wrap.appendChild(mode);
 
-      bar.appendChild(wrap)
+      bar.appendChild(wrap);
     }
-    const bar = document.createElement('div')
+    const bar = document.createElement('div');
 
-    bar.style.position = 'sticky'
-    bar.style.top = '0'
-    bar.style.display = 'flex'
-    bar.style.gap = '8px'
-    bar.style.padding = '8px'
-    bar.style.background = 'rgba(0,0,0,0.9)'
-    bar.style.backdropFilter = 'blur(10px)'
-    bar.style.zIndex = '10000'
+    bar.style.position = 'sticky';
+    bar.style.top = '0';
+    bar.style.display = 'flex';
+    bar.style.gap = '8px';
+    bar.style.padding = '8px';
+    bar.style.background = 'rgba(0,0,0,0.9)';
+    bar.style.backdropFilter = 'blur(10px)';
+    bar.style.zIndex = '10000';
 
-    panel.prepend(bar)
+    panel.prepend(bar);
 
     // SAVE
-    const saveBtn = document.createElement('button')
-    saveBtn.textContent = 'Save'
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = 'Save';
 
-    saveBtn.onclick = () => saveScene(layers)
+    saveBtn.onclick = () => saveScene(layers);
 
-    bar.appendChild(saveBtn)
+    bar.appendChild(saveBtn);
 
     // CLEAR
-    const clearBtn = document.createElement('button')
-    clearBtn.textContent = 'Clear Auto'
+    const clearBtn = document.createElement('button');
+    clearBtn.textContent = 'Clear Auto';
 
-    clearBtn.onclick = () => clearAutoScene()
+    clearBtn.onclick = () => clearAutoScene();
 
-    bar.appendChild(clearBtn)
+    bar.appendChild(clearBtn);
 
     // RESET VIEW
-    const resetBtn = document.createElement('button')
-    resetBtn.textContent = 'Show All'
+    const resetBtn = document.createElement('button');
+    resetBtn.textContent = 'Show All';
 
     resetBtn.onclick = () => {
       layers.forEach((l) => {
-        l.opacity = 1
-        l.wrapper.style.opacity = '1'
-      })
-    }
+        l.opacity = 1;
+        l.wrapper.style.opacity = '1';
+      });
+    };
 
-    bar.appendChild(resetBtn)
+    bar.appendChild(resetBtn);
 
-    createCopyBtn(layers)
-    createHoverControls(bar, layers)
-    let globalDisabled = false
+    createCopyBtn(layers);
+    createHoverControls(bar, layers);
+    let globalDisabled = false;
 
     function setAllLayersEnabled(layers, enabled) {
-      globalDisabled = !enabled
+      globalDisabled = !enabled;
 
       layers.forEach((l) => {
-        l.enabled = enabled
-      })
+        l.enabled = enabled;
+      });
 
-      toast(enabled ? 'All Enabled' : 'All Disabled')
+      toast(enabled ? 'All Enabled' : 'All Disabled');
 
       // re-render everything
-      layers.forEach((l) => renderLayer(l, getSolo()))
+      layers.forEach((l) => renderLayer(l, getSolo()));
     }
     function createGlobalToggleBtn(layers, bar) {
-      const btn = document.createElement('button')
+      const btn = document.createElement('button');
 
       function sync() {
-        btn.textContent = globalDisabled ? 'Enable All' : 'Disable All'
-        btn.style.background = globalDisabled ? '#0f0' : '#222'
-        btn.style.color = globalDisabled ? '#000' : '#fff'
+        btn.textContent = globalDisabled ? 'Enable All' : 'Disable All';
+        btn.style.background = globalDisabled ? '#0f0' : '#222';
+        btn.style.color = globalDisabled ? '#000' : '#fff';
       }
 
-      btn.style.padding = '6px 10px'
-      btn.style.cursor = 'pointer'
+      btn.style.padding = '6px 10px';
+      btn.style.cursor = 'pointer';
 
       btn.addEventListener('click', () => {
-        const enable = globalDisabled === true
-        setAllLayersEnabled(layers, enable)
-        sync()
-      })
+        const enable = globalDisabled === true;
+        setAllLayersEnabled(layers, enable);
+        sync();
+      });
 
-      sync()
-      bar.appendChild(btn)
+      sync();
+      bar.appendChild(btn);
     }
-    createGlobalToggleBtn(layers, bar)
+    createGlobalToggleBtn(layers, bar);
   }
   function createLayerControlRows(layers) {
     function setHover(layer, isHover) {
       const hover = getSceneStore().settings?.hover ?? {
         color: '#00ff88',
         mode: 'shadow',
-      }
+      };
 
-      const base = layer.color ?? '#fff'
+      const base = layer.color ?? '#fff';
 
       if (!isHover) {
-        layer.wrapper.style.filter = `drop-shadow(0 0 10px ${base})`
-        layer.wrapper.style.outline = 'none'
-        return
+        layer.wrapper.style.filter = `drop-shadow(0 0 10px ${base})`;
+        layer.wrapper.style.outline = 'none';
+        return;
       }
 
       if (hover.mode === 'shadow') {
-        layer.wrapper.style.filter = `drop-shadow(0 0 14px ${hover.color})`
+        layer.wrapper.style.filter = `drop-shadow(0 0 14px ${hover.color})`;
       }
 
       if (hover.mode === 'stroke') {
-        layer.wrapper.style.outline = `2px solid ${hover.color}`
-        layer.wrapper.style.outlineOffset = '2px'
+        layer.wrapper.style.outline = `2px solid ${hover.color}`;
+        layer.wrapper.style.outlineOffset = '2px';
       }
 
       if (hover.mode === 'fill') {
-        layer.wrapper.style.filter = `brightness(1.2) saturate(1.4)`
-        layer.wrapper.style.opacity = '1'
+        layer.wrapper.style.filter = `brightness(1.2) saturate(1.4)`;
+        layer.wrapper.style.opacity = '1';
       }
     }
     layers.forEach((layer, index) => {
@@ -341,335 +341,335 @@ function createControlPanel(layers) {
       // ----------------------------
       function commit(reason = '') {
         updateStore((s) => {
-          const scene = s.scenes.find((sc) => sc.id === s.activeScene)
-          if (!scene) return
+          const scene = s.scenes.find((sc) => sc.id === s.activeScene);
+          if (!scene) return;
 
-          const item = scene.data.find((d) => d.src === layer.src)
-          if (!item) return
+          const item = scene.data.find((d) => d.src === layer.src);
+          if (!item) return;
 
-          item.name = layer.name
-        })
+          item.name = layer.name;
+        });
 
-        renderLayer(layer, soloLayer)
+        renderLayer(layer, soloLayer);
       }
 
       // ----------------------------
       // ROW
       // ----------------------------
-      const row = document.createElement('div')
+      const row = document.createElement('div');
 
-      const isEven = index % 2 === 0
-      row.style.background = isEven ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)'
+      const isEven = index % 2 === 0;
+      row.style.background = isEven ? 'rgba(255,255,255,0.03)' : 'rgba(255,255,255,0.06)';
 
-      createLayerControlRowContainer(row, layer)
+      createLayerControlRowContainer(row, layer);
 
       // ----------------------------
       // HOVER
       // ----------------------------
-      row.addEventListener('mouseenter', () => setHover(layer, true))
-      row.addEventListener('mouseleave', () => setHover(layer, false))
+      row.addEventListener('mouseenter', () => setHover(layer, true));
+      row.addEventListener('mouseleave', () => setHover(layer, false));
 
       // ----------------------------
       // NAME (PERSISTENT FIX)
       // ----------------------------
-      const nameEl = document.createElement('div')
-      nameEl.textContent = layer.name ?? layer.src?.split('/').pop() ?? 'unnamed'
+      const nameEl = document.createElement('div');
+      nameEl.textContent = layer.name ?? layer.src?.split('/').pop() ?? 'unnamed';
 
-      nameEl.style.fontSize = '13px'
-      nameEl.style.cursor = 'pointer'
-      nameEl.style.marginBottom = '8px'
+      nameEl.style.fontSize = '13px';
+      nameEl.style.cursor = 'pointer';
+      nameEl.style.marginBottom = '8px';
 
       nameEl.addEventListener('click', (e) => {
-        e.stopPropagation()
+        e.stopPropagation();
 
-        const input = document.createElement('input')
-        input.value = layer.name ?? nameEl.textContent
+        const input = document.createElement('input');
+        input.value = layer.name ?? nameEl.textContent;
 
-        input.style.width = '100%'
-        input.style.fontSize = '13px'
+        input.style.width = '100%';
+        input.style.fontSize = '13px';
 
-        nameEl.replaceWith(input)
-        input.focus()
+        nameEl.replaceWith(input);
+        input.focus();
 
         input.addEventListener('input', () => {
-          layer.name = input.value
-          commit('name-edit-live')
-        })
+          layer.name = input.value;
+          commit('name-edit-live');
+        });
 
         input.addEventListener('blur', () => {
-          const newName = input.value.trim() || 'unnamed'
-          console.log('newName', newName)
+          const newName = input.value.trim() || 'unnamed';
+          console.log('newName', newName);
 
-          layer.name = newName
-          nameEl.textContent = newName
+          layer.name = newName;
+          nameEl.textContent = newName;
 
           updateStore((s) => {
-            console.log('🟡 updateStore CALLED')
-            console.log('activeScene:', s.activeScene)
+            console.log('🟡 updateStore CALLED');
+            console.log('activeScene:', s.activeScene);
             console.log(
               'scene ids:',
-              s.scenes.map((sc) => sc.id)
-            )
+              s.scenes.map((sc) => sc.id),
+            );
 
-            const scene = s.scenes.find((sc) => sc.id === s.activeScene)
+            const scene = s.scenes.find((sc) => sc.id === s.activeScene);
 
-            console.log('matched scene:', scene)
+            console.log('matched scene:', scene);
 
             if (!scene) {
-              console.warn('❌ NO ACTIVE SCENE FOUND')
-              return
+              console.warn('❌ NO ACTIVE SCENE FOUND');
+              return;
             }
 
-            console.log('✅ scene found', scene.id)
+            console.log('✅ scene found', scene.id);
 
-            const idx = scene.data.findIndex((d) => d.src === layer.src)
-            console.log('layer index:', idx)
+            const idx = scene.data.findIndex((d) => d.src === layer.src);
+            console.log('layer index:', idx);
 
             if (!scene.data?.[idx]) {
-              console.warn('❌ NO SCENE DATA AT INDEX', idx)
-              console.log('scene.data:', scene.data)
-              return
+              console.warn('❌ NO SCENE DATA AT INDEX', idx);
+              console.log('scene.data:', scene.data);
+              return;
             }
 
-            console.log('✏️ writing name:', newName)
+            console.log('✏️ writing name:', newName);
 
-            scene.data[idx].name = newName
-          })
+            scene.data[idx].name = newName;
+          });
 
-          input.replaceWith(nameEl)
+          input.replaceWith(nameEl);
 
-          renderLayer(layer, soloLayer)
-        })
-      })
+          renderLayer(layer, soloLayer);
+        });
+      });
 
-      row.appendChild(nameEl)
+      row.appendChild(nameEl);
 
       // ----------------------------
       // COLOR
       // ----------------------------
-      const color = document.createElement('input')
-      color.type = 'color'
-      color.value = layer.color ?? '#ffffff'
-      color.style.width = '100%'
+      const color = document.createElement('input');
+      color.type = 'color';
+      color.value = layer.color ?? '#ffffff';
+      color.style.width = '100%';
 
       color.addEventListener('input', () => {
-        layer.color = color.value
-        commit('color')
-      })
+        layer.color = color.value;
+        commit('color');
+      });
 
-      row.appendChild(color)
+      row.appendChild(color);
 
       // ----------------------------
       // SPEED
       // ----------------------------
-      const speedLabel = document.createElement('div')
-      speedLabel.textContent = `speed: ${layer.speed.toFixed(2)}`
-      speedLabel.style.fontSize = '12px'
-      speedLabel.style.opacity = '0.7'
+      const speedLabel = document.createElement('div');
+      speedLabel.textContent = `speed: ${layer.speed.toFixed(2)}`;
+      speedLabel.style.fontSize = '12px';
+      speedLabel.style.opacity = '0.7';
 
-      const speedSlider = document.createElement('input')
-      speedSlider.type = 'range'
-      speedSlider.min = '0'
-      speedSlider.max = '10'
-      speedSlider.step = '0.01'
-      speedSlider.value = layer.speed
-      speedSlider.style.width = '100%'
+      const speedSlider = document.createElement('input');
+      speedSlider.type = 'range';
+      speedSlider.min = '0';
+      speedSlider.max = '10';
+      speedSlider.step = '0.01';
+      speedSlider.value = layer.speed;
+      speedSlider.style.width = '100%';
 
       speedSlider.addEventListener('input', () => {
-        layer.speed = Number(speedSlider.value)
-        speedLabel.textContent = `speed: ${layer.speed.toFixed(2)}`
-        commit('speed')
-      })
+        layer.speed = Number(speedSlider.value);
+        speedLabel.textContent = `speed: ${layer.speed.toFixed(2)}`;
+        commit('speed');
+      });
 
-      row.appendChild(speedLabel)
-      row.appendChild(speedSlider)
+      row.appendChild(speedLabel);
+      row.appendChild(speedSlider);
 
       // ----------------------------
       // SCALE
       // ----------------------------
-      const scaleLabel = document.createElement('div')
-      scaleLabel.textContent = `scale: ${layer.scale.toFixed(2)}`
-      scaleLabel.style.fontSize = '12px'
-      scaleLabel.style.opacity = '0.7'
+      const scaleLabel = document.createElement('div');
+      scaleLabel.textContent = `scale: ${layer.scale.toFixed(2)}`;
+      scaleLabel.style.fontSize = '12px';
+      scaleLabel.style.opacity = '0.7';
 
-      const scaleSlider = document.createElement('input')
-      scaleSlider.type = 'range'
-      scaleSlider.min = '0.1'
-      scaleSlider.max = '5'
-      scaleSlider.step = '0.01'
-      scaleSlider.value = layer.scale
-      scaleSlider.style.width = '100%'
+      const scaleSlider = document.createElement('input');
+      scaleSlider.type = 'range';
+      scaleSlider.min = '0.1';
+      scaleSlider.max = '5';
+      scaleSlider.step = '0.01';
+      scaleSlider.value = layer.scale;
+      scaleSlider.style.width = '100%';
 
       scaleSlider.addEventListener('input', () => {
-        layer.scale = Number(scaleSlider.value)
-        scaleLabel.textContent = `scale: ${layer.scale.toFixed(2)}`
-        commit('scale')
-      })
+        layer.scale = Number(scaleSlider.value);
+        scaleLabel.textContent = `scale: ${layer.scale.toFixed(2)}`;
+        commit('scale');
+      });
 
-      row.appendChild(scaleLabel)
-      row.appendChild(scaleSlider)
+      row.appendChild(scaleLabel);
+      row.appendChild(scaleSlider);
 
       // ----------------------------
       // OPACITY
       // ----------------------------
-      const opacitySlider = document.createElement('input')
-      opacitySlider.type = 'range'
-      opacitySlider.min = '0'
-      opacitySlider.max = '1'
-      opacitySlider.step = '0.01'
-      opacitySlider.value = layer.opacity ?? 1
-      opacitySlider.style.width = '100%'
+      const opacitySlider = document.createElement('input');
+      opacitySlider.type = 'range';
+      opacitySlider.min = '0';
+      opacitySlider.max = '1';
+      opacitySlider.step = '0.01';
+      opacitySlider.value = layer.opacity ?? 1;
+      opacitySlider.style.width = '100%';
 
       opacitySlider.addEventListener('input', () => {
-        layer.opacity = Number(opacitySlider.value)
-        commit('opacity')
-      })
+        layer.opacity = Number(opacitySlider.value);
+        commit('opacity');
+      });
 
-      row.appendChild(opacitySlider)
+      row.appendChild(opacitySlider);
 
       // ----------------------------
       // SOLO
       // ----------------------------
-      const soloBtn = document.createElement('button')
-      soloBtn.textContent = 'Solo'
-      soloBtn.style.marginTop = '10px'
-      soloBtn.style.padding = '6px 10px'
-      soloBtn.style.cursor = 'pointer'
+      const soloBtn = document.createElement('button');
+      soloBtn.textContent = 'Solo';
+      soloBtn.style.marginTop = '10px';
+      soloBtn.style.padding = '6px 10px';
+      soloBtn.style.cursor = 'pointer';
 
       soloBtn.addEventListener('click', () => {
-        soloLayer = soloLayer === layer ? null : layer
-        toast(soloLayer ? `Solo: ${layer.name}` : 'Solo OFF')
-        commit('solo')
-      })
+        soloLayer = soloLayer === layer ? null : layer;
+        toast(soloLayer ? `Solo: ${layer.name}` : 'Solo OFF');
+        commit('solo');
+      });
 
-      row.appendChild(soloBtn)
+      row.appendChild(soloBtn);
 
       // ----------------------------
       // ENABLE / DISABLE (FIXED)
       // ----------------------------
-      const toggleBtn = document.createElement('button')
+      const toggleBtn = document.createElement('button');
 
       function syncToggle() {
-        toggleBtn.textContent = layer.enabled ? 'Disable' : 'Enable'
-        toggleBtn.style.background = layer.enabled ? '#222' : '#0f0'
-        toggleBtn.style.color = layer.enabled ? '#fff' : '#000'
+        toggleBtn.textContent = layer.enabled ? 'Disable' : 'Enable';
+        toggleBtn.style.background = layer.enabled ? '#222' : '#0f0';
+        toggleBtn.style.color = layer.enabled ? '#fff' : '#000';
       }
 
-      toggleBtn.style.marginTop = '8px'
-      toggleBtn.style.padding = '6px 10px'
-      toggleBtn.style.cursor = 'pointer'
+      toggleBtn.style.marginTop = '8px';
+      toggleBtn.style.padding = '6px 10px';
+      toggleBtn.style.cursor = 'pointer';
 
       toggleBtn.addEventListener('click', (e) => {
-        e.stopPropagation()
+        e.stopPropagation();
 
-        layer.enabled = !layer.enabled
-        syncToggle()
+        layer.enabled = !layer.enabled;
+        syncToggle();
 
-        commit('toggle-enabled')
-      })
+        commit('toggle-enabled');
+      });
 
-      syncToggle()
-      row.appendChild(toggleBtn)
+      syncToggle();
+      row.appendChild(toggleBtn);
 
-      panel.appendChild(row)
-    })
+      panel.appendChild(row);
+    });
   }
-  const panel = document.createElement('div')
-  createPanelContainer(panel)
-  createMasterControls(layers, panel)
-  createLayerControlRows(layers)
+  const panel = document.createElement('div');
+  createPanelContainer(panel);
+  createMasterControls(layers, panel);
+  createLayerControlRows(layers);
 
   function createLayerControlRowContainer(row, layer) {
-    row.style.marginBottom = '14px'
-    row.style.padding = '10px'
-    row.style.borderRadius = '8px'
-    row.style.border = '1px solid rgba(255,255,255,0.08)'
-    row.style.transition = 'all 0.15s ease'
+    row.style.marginBottom = '14px';
+    row.style.padding = '10px';
+    row.style.borderRadius = '8px';
+    row.style.border = '1px solid rgba(255,255,255,0.08)';
+    row.style.transition = 'all 0.15s ease';
 
     if (!layer.enabled) {
-      row.style.opacity = '0.3'
-      row.style.textDecoration = 'line-through'
+      row.style.opacity = '0.3';
+      row.style.textDecoration = 'line-through';
     }
 
-    row.style.opacity = layer.enabled ? '1' : '0.3'
-    row.style.textDecoration = layer.enabled ? 'none' : 'line-through'
+    row.style.opacity = layer.enabled ? '1' : '0.3';
+    row.style.textDecoration = layer.enabled ? 'none' : 'line-through';
   }
 }
 function renderLayer(layer, soloLayer) {
   // -----------------------------
   // 1. base visibility rule
   // -----------------------------
-  const enabled = layer.enabled !== false
+  const enabled = layer.enabled !== false;
 
   // -----------------------------
   // 2. compute opacity
   // -----------------------------
-  let opacity = layer.opacity ?? 1
+  let opacity = layer.opacity ?? 1;
 
   if (!enabled) {
-    opacity = 0
+    opacity = 0;
   }
 
   // SOLO overrides everything except disabled
   if (enabled && soloLayer && soloLayer !== layer) {
-    opacity = 0.1
+    opacity = 0.1;
   }
 
   // -----------------------------
   // 3. compute transform
   // -----------------------------
-  layer.wrapper.style.transform = `translate3d(${layer.x}px, 0, 0) scale(${layer.scale ?? 1})`
+  layer.wrapper.style.transform = `translate3d(${layer.x}px, 0, 0) scale(${layer.scale ?? 1})`;
 
-  layer.wrapper.style.opacity = opacity
+  layer.wrapper.style.opacity = opacity;
 
   // -----------------------------
   // 4. visual style (single authority)
   // -----------------------------
-  const baseColor = layer.color ?? '#ffffff'
+  const baseColor = layer.color ?? '#ffffff';
 
-  layer.wrapper.style.filter = `drop-shadow(0 0 10px ${baseColor})`
+  layer.wrapper.style.filter = `drop-shadow(0 0 10px ${baseColor})`;
 
-  layer.wrapper.style.pointerEvents = enabled ? 'auto' : 'none'
+  layer.wrapper.style.pointerEvents = enabled ? 'auto' : 'none';
 }
 function createLayers(scene, items) {
-  const store = getSceneStore()
-  const activeScene = store.scenes.find((s) => s.id === store.activeScene)
+  const store = getSceneStore();
+  const activeScene = store.scenes.find((s) => s.id === store.activeScene);
 
-  const layerData = activeScene?.data ?? items
+  const layerData = activeScene?.data ?? items;
   const layers = layerData
     .filter((item) => item?.src || typeof item === 'string')
     .map((item, index) => {
-      const src = typeof item === 'string' ? item : item.src
+      const src = typeof item === 'string' ? item : item.src;
 
       if (!src) {
-        console.warn('Skipping invalid layer:', item)
-        return null
+        console.warn('Skipping invalid layer:', item);
+        return null;
       }
 
-      const saved = activeScene?.data?.find((d) => d.src === src)
+      const saved = activeScene?.data?.find((d) => d.src === src);
 
-      const wrapper = document.createElement('div')
+      const wrapper = document.createElement('div');
 
-      wrapper.style.position = 'absolute'
-      wrapper.style.left = '0'
-      wrapper.style.bottom = '0'
-      wrapper.style.display = 'flex'
-      wrapper.style.willChange = 'transform'
+      wrapper.style.position = 'absolute';
+      wrapper.style.left = '0';
+      wrapper.style.bottom = '0';
+      wrapper.style.display = 'flex';
+      wrapper.style.willChange = 'transform';
 
-      const img1 = document.createElement('img')
-      const img2 = document.createElement('img')
+      const img1 = document.createElement('img');
+      const img2 = document.createElement('img');
 
-      img1.src = src
-      img2.src = src
+      img1.src = src;
+      img2.src = src;
 
-      img1.style.width = '100vw'
-      img2.style.width = '100vw'
-      img1.style.flexShrink = '0'
-      img2.style.flexShrink = '0'
+      img1.style.width = '100vw';
+      img2.style.width = '100vw';
+      img1.style.flexShrink = '0';
+      img2.style.flexShrink = '0';
 
-      wrapper.appendChild(img1)
-      wrapper.appendChild(img2)
-      scene.appendChild(wrapper)
+      wrapper.appendChild(img1);
+      wrapper.appendChild(img2);
+      scene.appendChild(wrapper);
 
       return {
         wrapper,
@@ -684,21 +684,21 @@ function createLayers(scene, items) {
         zIndex: saved?.zIndex ?? item.zIndex ?? 0,
         enabled: saved?.enabled ?? item.enabled ?? true,
         _sceneIndex: index,
-      }
+      };
     })
-    .filter(Boolean)
+    .filter(Boolean);
 
   layers.forEach((l, i) => {
-    l.wrapper.style.zIndex = l.zIndex ?? i
-  })
+    l.wrapper.style.zIndex = l.zIndex ?? i;
+  });
 
-  return layers
+  return layers;
 }
 async function main() {
   function ensureActiveScene(store, layers) {
-    if (store.activeScene && store.scenes.length > 0) return store
+    if (store.activeScene && store.scenes.length > 0) return store;
 
-    console.log('🟡 ensuring activeScene exists')
+    console.log('🟡 ensuring activeScene exists');
 
     const sceneData = layers.map((l, i) => ({
       src: l.src,
@@ -710,78 +710,78 @@ async function main() {
       zIndex: i,
       enabled: l.enabled ?? true,
       name: l.name,
-    }))
+    }));
 
     const scene = {
       id: crypto.randomUUID(),
       createdAt: Date.now(),
       data: sceneData,
-    }
+    };
 
-    store.scenes = store.scenes || []
-    store.scenes.push(scene)
-    store.activeScene = scene.id
+    store.scenes = store.scenes || [];
+    store.scenes.push(scene);
+    store.activeScene = scene.id;
 
-    setSceneStore(store)
+    setSceneStore(store);
 
-    console.log('🟢 activeScene guaranteed:', scene.id)
+    console.log('🟢 activeScene guaranteed:', scene.id);
 
-    return store
+    return store;
   }
   function animate(layers) {
     function loop() {
-      const solo = getSolo()
+      const solo = getSolo();
 
       for (const layer of layers) {
-        if (layer.enabled === false) continue
+        if (layer.enabled === false) continue;
 
-        layer.x -= layer.speed
+        layer.x -= layer.speed;
 
-        const width = window.innerWidth
-        if (layer.x <= -width) layer.x += width
+        const width = window.innerWidth;
+        if (layer.x <= -width) layer.x += width;
 
-        renderLayer(layer, solo)
+        renderLayer(layer, solo);
       }
 
-      requestAnimationFrame(loop)
+      requestAnimationFrame(loop);
     }
 
-    loop()
+    loop();
   }
   function createLayersFromData(scene, data) {
     const sorted = [...data].sort((a, b) => {
-      console.log('createLayersFromData')
-      const numA = parseInt(a.src?.match(/\d+/)?.[0] || 0)
-      const numB = parseInt(b.src?.match(/\d+/)?.[0] || 0)
-      return numB - numA
-    })
+      console.log('createLayersFromData');
+      const numA = parseInt(a.src?.match(/\d+/)?.[0] || 0);
+      const numB = parseInt(b.src?.match(/\d+/)?.[0] || 0);
+      return numB - numA;
+    });
 
-    const layers = createLayers(scene, sorted)
+    const layers = createLayers(scene, sorted);
 
-    animate(layers)
-    createControlPanel(layers)
+    animate(layers);
+    createControlPanel(layers);
 
-    return layers
+    return layers;
   }
 
   function createLayersFromAssets(scene) {
-    console.log('createLayersFromAssets')
+    console.log('createLayersFromAssets');
     return fetch('./assets4.json')
       .then((res) => res.json())
       .then((assets) => {
         const sorted = [...assets].sort((a, b) => {
-          const numA = parseInt(a.match(/\d+/)?.[0] || 0)
-          const numB = parseInt(b.match(/\d+/)?.[0] || 0)
-          return numB - numA
-        })
+          const numA = parseInt(a.match(/\d+/)?.[0] || 0);
+          const numB = parseInt(b.match(/\d+/)?.[0] || 0);
+          return numB - numA;
+        });
 
-        const layers = createLayers(scene, sorted)
+        const layers = createLayers(scene, sorted);
 
         // 🔥 GUARANTEE A SCENE EXISTS
-        let store = getSceneStore()
+        let store = getSceneStore();
 
         if (!store.activeScene || store.scenes.length === 0) {
-          console.log('🟢 no active scene → creating initial scene')
+          console.log('🟢 no active scene → creating initial scene');
 
           const sceneData = layers.map((l, i) => ({
             src: l.src,
@@ -793,50 +793,50 @@ async function main() {
             zIndex: i,
             enabled: l.enabled ?? true,
             name: l.name,
-          }))
+          }));
 
           const scene = {
             id: crypto.randomUUID(),
             createdAt: Date.now(),
             data: sceneData,
-          }
+          };
 
-          store.scenes.push(scene)
-          store.activeScene = scene.id
+          store.scenes.push(scene);
+          store.activeScene = scene.id;
 
-          setSceneStore(store)
+          setSceneStore(store);
 
-          console.log('🟢 created activeScene:', scene.id)
+          console.log('🟢 created activeScene:', scene.id);
         }
-        animate(layers)
-        createControlPanel(layers)
+        animate(layers);
+        createControlPanel(layers);
 
-        return layers
-      })
+        return layers;
+      });
   }
-  const scene = document.createElement('div')
+  const scene = document.createElement('div');
 
-  scene.style.position = 'fixed'
-  scene.style.inset = '0'
-  scene.style.overflow = 'hidden'
-  scene.style.background = '#000'
+  scene.style.position = 'fixed';
+  scene.style.inset = '0';
+  scene.style.overflow = 'hidden';
+  scene.style.background = '#000';
 
-  document.body.appendChild(scene)
+  document.body.appendChild(scene);
 
-  const store = getSceneStore()
+  const store = getSceneStore();
 
   // IMPORTANT: load saved scene first
   if (store.activeScene) {
-    const active = store.scenes.find((s) => s.id === store.activeScene)
+    const active = store.scenes.find((s) => s.id === store.activeScene);
 
     if (active?.data?.length) {
-      console.log('loading saved scene')
-      createLayersFromData(scene, active.data)
-      return
+      console.log('loading saved scene');
+      createLayersFromData(scene, active.data);
+      return;
     }
   }
 
-  console.log('loading assets')
-  createLayersFromAssets(scene)
+  console.log('loading assets');
+  createLayersFromAssets(scene);
 }
-main()
+main();

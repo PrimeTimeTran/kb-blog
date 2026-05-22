@@ -14,8 +14,7 @@ subCategory: 'optimization'
 prerequisites: []
 buildsUpon: []
 leadsTo: ['l1-regularization', 'l2-regularization', 'dropout', 'early-stopping']
-related:
-  ['stochastic-gradient-descent', 'mini-batch-gradient-descent', 'adam-optimizer', 'momentum']
+related: ['stochastic-gradient-descent', 'mini-batch-gradient-descent', 'adam-optimizer', 'momentum']
 seeAlso:
   [
     'variance',

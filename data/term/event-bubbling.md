@@ -13,17 +13,7 @@ category: 'web_development'
 subCategory: 'javascript'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'javascript',
-    'closures',
-    'scope',
-    'prototypes',
-    'promises',
-    'nodejs',
-    'v8-engine',
-    'runtime-environment',
-  ]
+leadsTo: ['javascript', 'closures', 'scope', 'prototypes', 'promises', 'nodejs', 'v8-engine', 'runtime-environment']
 related: ['dom', 'event-handling', 'event-delegation']
 seeAlso:
   [

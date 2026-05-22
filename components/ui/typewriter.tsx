@@ -1,15 +1,15 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { cn } from '@/lib/utils'
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface TypewriterProps {
-  strings: string[]
-  className?: string
-  cursorClassName?: string
-  typeSpeed?: number
-  deleteSpeed?: number
-  delayBetween?: number
+  strings: string[];
+  className?: string;
+  cursorClassName?: string;
+  typeSpeed?: number;
+  deleteSpeed?: number;
+  delayBetween?: number;
 }
 
 export function Typewriter({
@@ -20,46 +20,37 @@ export function Typewriter({
   deleteSpeed = 30,
   delayBetween = 2000,
 }: TypewriterProps) {
-  const [text, setText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
-  const [loopNum, setLoopNum] = useState(0)
-  const [typingSpeed, setTypingSpeed] = useState(typeSpeed)
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(typeSpeed);
 
   useEffect(() => {
-    const i = loopNum % strings.length
-    const fullText = strings[i]
+    const i = loopNum % strings.length;
+    const fullText = strings[i];
 
     const handleType = () => {
-      setText(
-        isDeleting
-          ? fullText.substring(0, text.length - 1)
-          : fullText.substring(0, text.length + 1),
-      )
+      setText(isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1));
 
-      setTypingSpeed(isDeleting ? deleteSpeed : typeSpeed)
+      setTypingSpeed(isDeleting ? deleteSpeed : typeSpeed);
 
       if (!isDeleting && text === fullText) {
-        setTimeout(() => setIsDeleting(true), delayBetween)
+        setTimeout(() => setIsDeleting(true), delayBetween);
       } else if (isDeleting && text === '') {
-        setIsDeleting(false)
-        setLoopNum(loopNum + 1)
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
       }
-    }
+    };
 
-    const timer = setTimeout(handleType, typingSpeed)
+    const timer = setTimeout(handleType, typingSpeed);
 
-    return () => clearTimeout(timer)
-  }, [text, isDeleting, loopNum, strings, typeSpeed, deleteSpeed, delayBetween])
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, strings, typeSpeed, deleteSpeed, delayBetween]);
 
   return (
     <span className={cn('inline-flex items-center', className)}>
       <span>{text}</span>
-      <span
-        className={cn(
-          'ml-1 h-4 w-[2px] animate-pulse bg-primary',
-          cursorClassName,
-        )}
-      />
+      <span className={cn('ml-1 h-4 w-[2px] animate-pulse bg-primary', cursorClassName)} />
     </span>
-  )
+  );
 }

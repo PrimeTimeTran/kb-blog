@@ -32,16 +32,7 @@ leadsTo:
     'public-company',
     'private-company',
   ]
-related:
-  [
-    'bonds',
-    'yield-curve',
-    'duration',
-    'credit-rating',
-    'coupon-rate',
-    'treasury-bonds',
-    'corporate-bonds',
-  ]
+related: ['bonds', 'yield-curve', 'duration', 'credit-rating', 'coupon-rate', 'treasury-bonds', 'corporate-bonds']
 seeAlso:
   [
     'correlation',

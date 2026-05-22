@@ -2,9 +2,7 @@ export function Page6_OverlapAndZIndexResolution() {
   return (
     <div className="relative h-screen w-screen bg-zinc-900 text-white overflow-hidden">
       {/* BASE */}
-      <div className="absolute inset-0 bg-blue-900 flex items-center justify-center z-0">
-        BASE LAYER
-      </div>
+      <div className="absolute inset-0 bg-blue-900 flex items-center justify-center z-0">BASE LAYER</div>
 
       {/* RED CONTEXT */}
       <div className="fixed inset-0 z-20 flex items-center justify-center pointer-events-none">
@@ -53,5 +51,5 @@ export function Page6_OverlapAndZIndexResolution() {
         </div>
       </div>
     </div>
-  )
+  );
 }

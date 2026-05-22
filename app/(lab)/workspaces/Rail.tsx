@@ -1,18 +1,11 @@
-import clsx from 'clsx'
-import { useState } from 'react'
-import { VscPreview } from 'react-icons/vsc'
-import { GrRadialSelected } from 'react-icons/gr'
+import clsx from 'clsx';
+import { useState } from 'react';
+import { VscPreview } from 'react-icons/vsc';
+import { GrRadialSelected } from 'react-icons/gr';
 
-import {
-  RailState,
-  RailItemProps,
-  RailTileSpec,
-  RailOrientation,
-  ThumbnailConfig,
-  ViewportRailProps,
-} from './types'
-import { workspaceRegistry } from './data'
-import { ThemeProvider } from './theme'
+import { RailState, RailItemProps, RailTileSpec, RailOrientation, ThumbnailConfig, ViewportRailProps } from './types';
+import { workspaceRegistry } from './data';
+import { ThemeProvider } from './theme';
 
 const CONTROL_LAYOUTS = {
   'tl-horizontal': 'flex flex-row justify-start items-start',
@@ -26,16 +19,16 @@ const CONTROL_LAYOUTS = {
 
   'br-horizontal': 'flex flex-row justify-end items-end',
   'br-vertical': 'flex flex-col justify-end items-end',
-} as const
+} as const;
 
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
   const {
     orientation,
     rail: { anchor },
-  } = viewport
+  } = viewport;
 
   function getControlStyle(anchor: RailState['anchor'], orientation: RailOrientation) {
-    return CONTROL_LAYOUTS[`${anchor}-${orientation}`]
+    return CONTROL_LAYOUTS[`${anchor}-${orientation}`];
   }
   return (
     <div className={clsx('h-full w-full flex gap-4 p-3', getControlStyle(anchor, orientation))}>
@@ -50,14 +43,14 @@ export function ViewportRail({ items, viewport }: ViewportRailProps): import('re
         />
       ))}
     </div>
-  )
+  );
 }
 export function RailItem({ item, active, viewport, onSelect, onPreview }: RailItemProps) {
   // Keep for onMouseLeave. Just in case it begins being janky try this.
   // let rafId: number | null = null
-  const [isHovering, setIsHovering] = useState(false)
+  const [isHovering, setIsHovering] = useState(false);
   // const isPreview = item.id === previewId
-  const Thumbnail = workspaceRegistry[item.id].component
+  const Thumbnail = workspaceRegistry[item.id].component;
 
   // const spec = isVertical ? RAIL_TILE_PRESETS.vertical : RAIL_TILE_PRESETS.horizontal
   // const thumbStyle = getThumbnailTransform(spec.thumbnailScale)
@@ -68,27 +61,27 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
       tabIndex={0}
       onClick={() => {
         // DONT try to use viewport here.
-        onSelect(item.id)
+        onSelect(item.id);
       }}
       onMouseEnter={() => {
         // Must destructive and pass it
-        setIsHovering(true)
-        onPreview(item.id)
+        setIsHovering(true);
+        onPreview(item.id);
       }}
       onMouseLeave={() => {
         // Here too
-        setIsHovering(false)
-        onPreview(null)
+        setIsHovering(false);
+        onPreview(null);
       }}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
-          onSelect(item.id)
+          onSelect(item.id);
         }
       }}
       className={clsx(
         'group relative overflow-hidden transition-all duration-300 ease-out rounded w-48 h-28',
         isHovering || active ? 'scale-[1.08] z-20 shadow-xl border' : 'scale-100',
-        active ? 'outline' : ''
+        active ? 'outline' : '',
       )}
     >
       <div className="absolute inset-0 z-0 bg-surface">
@@ -115,7 +108,7 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
       <div
         className={clsx(
           'absolute inset-0 z-10 transition-opacity duration-300',
-          isHovering || active ? 'opacity-0' : 'opacity-70 bg-black'
+          isHovering || active ? 'opacity-0' : 'opacity-70 bg-black',
         )}
       />
       {/* 3. FOREGROUND CONTENT (TEXT + ICONS) */}
@@ -138,7 +131,7 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
         </div>
       </div>
     </div>
-  )
+  );
 }
 export const RAIL_TILE_PRESETS = {
   vertical: {
@@ -161,7 +154,7 @@ export const RAIL_TILE_PRESETS = {
     thumbnailScale: 0.12,
     aspectRatio: 1,
   },
-} satisfies Record<string, RailTileSpec>
+} satisfies Record<string, RailTileSpec>;
 export const THUMBNAIL_PRESETS: Record<string, ThumbnailConfig> = {
   rail: {
     scale: 0.15,
@@ -175,13 +168,13 @@ export const THUMBNAIL_PRESETS: Record<string, ThumbnailConfig> = {
     scale: 0.18,
     aspectRatio: 9 / 16,
   },
-}
+};
 function getThumbnailTransform(scale: number) {
-  const inverse = 1 / scale
+  const inverse = 1 / scale;
 
   return {
     transform: `scale(${scale})`,
     width: `${inverse * 100}%`,
     height: `${inverse * 100}%`,
-  }
+  };
 }

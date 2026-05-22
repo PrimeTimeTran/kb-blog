@@ -13,13 +13,7 @@ category: 'flutter'
 subCategory: 'foundations'
 prerequisites: []
 buildsUpon: []
-leadsTo:
-  [
-    'composition-over-inheritance',
-    'declarative-ui',
-    'everything-is-a-widget',
-    'single-codebase-cross-platform',
-  ]
+leadsTo: ['composition-over-inheritance', 'declarative-ui', 'everything-is-a-widget', 'single-codebase-cross-platform']
 related: ['flutter', 'widget', 'element-tree', 'render-tree']
 seeAlso:
   [

@@ -1,4 +1,4 @@
-import { List, ContextLabel } from './ContextLabel'
+import { List, ContextLabel } from './ContextLabel';
 
 export function Page3_NoStackingIsolation() {
   const questions = [
@@ -6,7 +6,7 @@ export function Page3_NoStackingIsolation() {
     'Why does RED feel global again?',
     'What ancestor now owns fixed positioning?',
     'Why can RED compete directly with BLUE?',
-  ]
+  ];
 
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-zinc-900 text-white">
@@ -50,5 +50,5 @@ export function Page3_NoStackingIsolation() {
         </div>
       </section>
     </div>
-  )
+  );
 }

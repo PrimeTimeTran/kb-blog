@@ -1,13 +1,13 @@
-'use client'
-import React, { useEffect, useRef } from 'react'
+'use client';
+import React, { useEffect, useRef } from 'react';
 
-import AceEditor from 'react-ace'
-import 'ace-builds/src-noconflict/mode-python'
-import 'ace-builds/src-noconflict/theme-monokai'
-import 'ace-builds/src-noconflict/theme-github'
+import AceEditor from 'react-ace';
+import 'ace-builds/src-noconflict/mode-python';
+import 'ace-builds/src-noconflict/theme-monokai';
+import 'ace-builds/src-noconflict/theme-github';
 
 export function AceCodeBlock({ code, language }) {
-  const editorRef = useRef(null)
+  const editorRef = useRef(null);
 
   // Standardize naming (Markdown often says 'py', Ace needs 'python')
   const modeMap = {
@@ -17,9 +17,9 @@ export function AceCodeBlock({ code, language }) {
     javascript: 'javascript',
     jsx: 'jsx',
     tsx: 'tsx',
-  }
+  };
 
-  const resolvedMode = modeMap[language] || 'text'
+  const resolvedMode = modeMap[language] || 'text';
 
   return (
     <div className="my-4 rounded-lg border border-slate-800 overflow-hidden bg-[#272822]">
@@ -40,9 +40,9 @@ export function AceCodeBlock({ code, language }) {
         }}
         onLoad={(editorInstance) => {
           // Force a re-highlight once loaded
-          editorInstance.getSession().setMode(`ace/mode/${resolvedMode}`)
+          editorInstance.getSession().setMode(`ace/mode/${resolvedMode}`);
         }}
       />
     </div>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-import { Workspace } from './types'
+import { Workspace } from './types';
 
-import Product from '@/app/(preview)/design/product/page'
-import Material from '@/app/(preview)/design/system/page'
-import Tailwind from '@/app/(preview)/design/tailwind/page'
-import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities'
-import { ProductPageShell } from '@/app/(preview)/design/Shell'
-import { WorkspaceHero, LargeScrollableSection } from './components'
-import { themes } from './theme'
+import Product from '@/app/(preview)/design/product/page';
+import Material from '@/app/(preview)/design/system/page';
+import Tailwind from '@/app/(preview)/design/tailwind/page';
+import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities';
+import { ProductPageShell } from '@/app/(preview)/design/Shell';
+import { WorkspaceHero, LargeScrollableSection } from './components';
+import { themes } from './theme';
 // https://prismic.io/blog/css-background-effects
 
 // export function RawHtml({ html }: { html: string }) {
@@ -124,46 +124,38 @@ export const workspaces: Workspace[] = [
 
     component: ProductPageShell,
   },
-]
+];
 
-type WorkspaceId = string
-export const workspaceRegistry = Object.fromEntries(
-  workspaces.map((workspace) => [workspace.id, workspace])
-) as Record<WorkspaceId, Workspace>
+type WorkspaceId = string;
+export const workspaceRegistry = Object.fromEntries(workspaces.map((workspace) => [workspace.id, workspace])) as Record<
+  WorkspaceId,
+  Workspace
+>;
 
 export function MotionWorkspace() {
   return (
     <div>
-      <WorkspaceHero
-        title="Motion Lab"
-        description="Animation experiments, viewport motion, interaction studies."
-      />
+      <WorkspaceHero title="Motion Lab" description="Animation experiments, viewport motion, interaction studies." />
 
       <LargeScrollableSection />
     </div>
-  )
+  );
 }
 export function FlexWorkspace() {
   return (
     <div>
-      <WorkspaceHero
-        title="Flex Gallery"
-        description="Layout experiments and responsive composition patterns."
-      />
+      <WorkspaceHero title="Flex Gallery" description="Layout experiments and responsive composition patterns." />
 
       <LargeScrollableSection />
     </div>
-  )
+  );
 }
 export function AlphaWorkspace() {
   return (
     <div>
-      <WorkspaceHero
-        title="Project Alpha"
-        description="Case study workspace with nested navigation regions."
-      />
+      <WorkspaceHero title="Project Alpha" description="Case study workspace with nested navigation regions." />
 
       <LargeScrollableSection />
     </div>
-  )
+  );
 }

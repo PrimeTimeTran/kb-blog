@@ -1,16 +1,16 @@
-'use client'
-import { useRef, useState } from 'react'
+'use client';
+import { useRef, useState } from 'react';
 
-import siteMetadata from '../data/site-metadata'
+import siteMetadata from '../data/site-metadata';
 
 const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
-  const inputEl = useRef(null)
-  const [error, setError] = useState(false)
-  const [message, setMessage] = useState('')
-  const [subscribed, setSubscribed] = useState(false)
+  const inputEl = useRef(null);
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
 
   const subscribe = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
       body: JSON.stringify({
@@ -20,20 +20,20 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
         'Content-Type': 'application/json',
       },
       method: 'POST',
-    })
+    });
 
-    const { error } = await res.json()
+    const { error } = await res.json();
     if (error) {
-      setError(true)
-      setMessage('Your e-mail address is invalid or you are already subscribed!')
-      return
+      setError(true);
+      setMessage('Your e-mail address is invalid or you are already subscribed!');
+      return;
     }
 
-    inputEl.current.value = ''
-    setError(false)
-    setSubscribed(true)
-    setMessage('Successfully! 🎉 You are now subscribed.')
-  }
+    inputEl.current.value = '';
+    setError(false);
+    setSubscribed(true);
+    setMessage('Successfully! 🎉 You are now subscribed.');
+  };
 
   return (
     <div>
@@ -67,14 +67,12 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
           </button>
         </div>
       </form>
-      {error && (
-        <div className="w-72 pt-2 text-sm text-red-500 dark:text-red-400 sm:w-96">{message}</div>
-      )}
+      {error && <div className="w-72 pt-2 text-sm text-red-500 dark:text-red-400 sm:w-96">{message}</div>}
     </div>
-  )
-}
+  );
+};
 
-export default NewsletterForm
+export default NewsletterForm;
 
 export const BlogNewsletterForm = ({ title }) => (
   <div className="flex items-center justify-center">
@@ -82,4 +80,4 @@ export const BlogNewsletterForm = ({ title }) => (
       <NewsletterForm title={title} />
     </div>
   </div>
-)
+);

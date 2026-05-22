@@ -1,36 +1,36 @@
 // lib/remark-autolink-terms.js
-import { visit } from 'unist-util-visit'
+import { visit } from 'unist-util-visit';
 
 export function injectTermLinksAndPreviews(terms) {
-  const termEntries = Object.entries(terms).sort((a, b) => b[0].length - a[0].length)
+  const termEntries = Object.entries(terms).sort((a, b) => b[0].length - a[0].length);
 
   return (tree) => {
-    const seen = new Set()
+    const seen = new Set();
 
     visit(tree, 'text', (node, index, parent) => {
-      if (!parent || !node.value) return
+      if (!parent || !node.value) return;
 
       // 🚫 skip unsafe contexts
-      if (['link', 'inlineCode', 'code', 'heading'].includes(parent.type)) return
+      if (['link', 'inlineCode', 'code', 'heading'].includes(parent.type)) return;
 
-      const text = node.value
+      const text = node.value;
 
       for (const [term, data] of termEntries) {
-        if (seen.has(data.slug)) continue
+        if (seen.has(data.slug)) continue;
 
-        const regex = new RegExp(`\\b${escapeRegExp(term)}\\b`, 'i')
+        const regex = new RegExp(`\\b${escapeRegExp(term)}\\b`, 'i');
 
-        if (!regex.test(text)) continue
-        const match = text.match(regex)[0]
-        const parts = text.split(regex)
+        if (!regex.test(text)) continue;
+        const match = text.match(regex)[0];
+        const parts = text.split(regex);
 
-        if (parts.length < 2) continue
+        if (parts.length < 2) continue;
 
-        const newNodes = []
+        const newNodes = [];
 
         parts.forEach((part, i) => {
           if (part) {
-            newNodes.push({ type: 'text', value: part })
+            newNodes.push({ type: 'text', value: part });
           }
 
           if (i < parts.length - 1) {
@@ -43,19 +43,19 @@ export function injectTermLinksAndPreviews(terms) {
                 { type: 'mdxJsxAttribute', name: 'short', value: data.short || '' },
               ],
               children: [{ type: 'text', value: match }],
-            })
+            });
           }
-        })
+        });
 
-        parent.children.splice(index, 1, ...newNodes)
-        seen.add(data.slug)
+        parent.children.splice(index, 1, ...newNodes);
+        seen.add(data.slug);
 
-        return index
+        return index;
       }
-    })
-  }
+    });
+  };
 }
 
 function escapeRegExp(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }

@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import { Check, Copy } from 'lucide-react'
-import { createPortal } from 'react-dom'
+import { useState } from 'react';
+import { Check, Copy } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 function ToastViewport({ children }) {
-  if (typeof window === 'undefined') return null
+  if (typeof window === 'undefined') return null;
 
-  return createPortal(
-    <div className="fixed bottom-6 right-6 z-[9999]">{children}</div>,
-    document.body
-  )
+  return createPortal(<div className="fixed bottom-6 right-6 z-[9999]">{children}</div>, document.body);
 }
 
 const TOKENS = [
@@ -52,7 +49,7 @@ const TOKENS = [
   // Inverse
   ['bg-inverse-surface', 'text-inverse-on-surface'],
   ['bg-inverse-primary', 'text-on-primary'],
-]
+];
 
 function Toast({ copied }: { copied: string | null }) {
   return (
@@ -72,38 +69,26 @@ function Toast({ copied }: { copied: string | null }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-function TokenTile({
-  bg,
-  fg,
-  onCopy,
-}: {
-  bg: string
-  fg: string
-  onCopy: (value: string) => void
-}) {
-  const value = `${bg} ${fg}`
+function TokenTile({ bg, fg, onCopy }: { bg: string; fg: string; onCopy: (value: string) => void }) {
+  const value = `${bg} ${fg}`;
 
   return (
     <button
       onClick={() => {
-        navigator.clipboard.writeText(value)
-        onCopy(value)
+        navigator.clipboard.writeText(value);
+        onCopy(value);
       }}
       className={`group relative overflow-hidden rounded-2xl border border-outline/10 transition duration-150 hover:z-10 hover:scale-[1.02] hover:shadow-xl active:scale-[0.99] ${bg} ${fg}`}
     >
       <div className="flex h-full min-h-[112px] flex-col justify-between p-3 text-left">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <div className="text-[10px] font-bold uppercase tracking-[0.18em] opacity-70">
-              Token
-            </div>
+            <div className="text-[10px] font-bold uppercase tracking-[0.18em] opacity-70">Token</div>
 
-            <div className="mt-1 line-clamp-2 text-sm font-black leading-tight">
-              {bg.replace('bg-', '')}
-            </div>
+            <div className="mt-1 line-clamp-2 text-sm font-black leading-tight">{bg.replace('bg-', '')}</div>
           </div>
 
           <div className="rounded-lg bg-black/10 p-1.5 opacity-0 transition group-hover:opacity-100">
@@ -118,19 +103,19 @@ function TokenTile({
         </div>
       </div>
     </button>
-  )
+  );
 }
 
 export default function MaterialColorPalette() {
-  const [copied, setCopied] = useState<string | null>(null)
+  const [copied, setCopied] = useState<string | null>(null);
 
   const handleCopy = (value: string) => {
-    setCopied(value)
+    setCopied(value);
 
     setTimeout(() => {
-      setCopied(null)
-    }, 1800)
-  }
+      setCopied(null);
+    }, 1800);
+  };
 
   return (
     <div className="min-h-screen bg-background text-on-background">
@@ -139,9 +124,7 @@ export default function MaterialColorPalette() {
         <div className="mx-auto flex max-w-[1800px] items-center justify-between gap-6">
           <div>
             <h1 className="text-xl font-black tracking-tight">Omni Material Tokens</h1>
-            <p className="text-xs text-on-surface-variant">
-              Click any token tile to copy semantic pair.
-            </p>
+            <p className="text-xs text-on-surface-variant">Click any token tile to copy semantic pair.</p>
           </div>
 
           <div className="hidden items-center gap-2 rounded-2xl border border-outline/20 bg-surface-container px-3 py-2 text-xs text-on-surface-variant md:flex">
@@ -163,5 +146,5 @@ export default function MaterialColorPalette() {
         <Toast copied={copied} />
       </ToastViewport>
     </div>
-  )
+  );
 }

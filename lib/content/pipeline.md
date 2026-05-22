@@ -182,7 +182,7 @@ Examples:
 Produces:
 
 ```ts
-artifacts.analysis
+artifacts.analysis;
 ```
 
 Example:
@@ -318,35 +318,35 @@ Example:
 
 ```ts
 type PipelineContext = {
-  source: SourceArtifact
+  source: SourceArtifact;
 
-  ast?: MdastRoot
+  ast?: MdastRoot;
 
   analysis: {
-    toc?: TocItem[]
-    headings?: Heading[]
-  }
+    toc?: TocItem[];
+    headings?: Heading[];
+  };
 
-  diagnostics: Diagnostic[]
+  diagnostics: Diagnostic[];
 
   runtime: {
-    imports: string[]
-  }
+    imports: string[];
+  };
 
-  artifacts: Record<string, unknown>
-}
+  artifacts: Record<string, unknown>;
+};
 ```
 
 Then plugins become:
 
 ```ts
-type PipelinePlugin = (ctx: PipelineContext) => Promise<void>
+type PipelinePlugin = (ctx: PipelineContext) => Promise<void>;
 ```
 
 NOT:
 
 ```ts
-;(input) => output
+(input) => output;
 ```
 
 Why?

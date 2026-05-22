@@ -1,44 +1,39 @@
-import Link from 'next/link'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { sortTree } from '../../lib/sort-tree'
+import Link from 'next/link';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { sortTree } from '../../lib/sort-tree';
 
 export function SidebarNode({ node = [], openMap, setOpenMap }) {
-  if (!Array.isArray(node)) return null
+  if (!Array.isArray(node)) return null;
 
-  const sorted = sortTree(node)
+  const sorted = sortTree(node);
 
   return (
     <ul className="pl-1">
       {sorted.map((item) => (
-        <SidebarItem
-          key={item.slug || item.name}
-          item={item}
-          openMap={openMap}
-          setOpenMap={setOpenMap}
-        />
+        <SidebarItem key={item.slug || item.name} item={item} openMap={openMap} setOpenMap={setOpenMap} />
       ))}
     </ul>
-  )
+  );
 }
 
 export function SidebarItem({ item, openMap = {}, setOpenMap }) {
-  const router = useRouter()
+  const router = useRouter();
 
-  const hasChildren = Array.isArray(item.children) && item.children.length > 0
+  const hasChildren = Array.isArray(item.children) && item.children.length > 0;
 
-  const href = item.file ? `/kb/${item.file}` : null
+  const href = item.file ? `/kb/${item.file}` : null;
 
-  const id = item.file || item.name
-  const open = openMap[id] ?? false
+  const id = item.file || item.name;
+  const open = openMap[id] ?? false;
 
   const toggle = () => {
     setOpenMap((prev) => ({
       ...prev,
       [id]: !prev[id],
-    }))
-  }
-  const canToggle = hasChildren
+    }));
+  };
+  const canToggle = hasChildren;
 
   return (
     <li className="select-none">
@@ -52,8 +47,8 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
           {canToggle ? (
             <button
               onClick={(e) => {
-                e.stopPropagation()
-                toggle()
+                e.stopPropagation();
+                toggle();
               }}
               className="flex items-center gap-1 rounded px-1 hover:bg-zinc-200 dark:hover:bg-zinc-700"
             >
@@ -69,10 +64,9 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
         {href ? (
           <Link scroll={false} href={href} className="flex flex-1 items-center">
             <span
-              className={`w-full text-sm transition-colors ${router.asPath === href
-                ? 'font-semibold text-blue-600'
-                : 'text-zinc-700 dark:text-zinc-300'
-                }`}
+              className={`w-full text-sm transition-colors ${
+                router.asPath === href ? 'font-semibold text-blue-600' : 'text-zinc-700 dark:text-zinc-300'
+              }`}
             >
               {item.name}
             </span>
@@ -89,10 +83,10 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
         </div>
       )}
     </li>
-  )
+  );
 }
 
 export default function SidebarTree({ data }) {
-  const [openMap, setOpenMap] = useState({})
-  return <SidebarNode node={data} openMap={openMap} setOpenMap={setOpenMap} />
+  const [openMap, setOpenMap] = useState({});
+  return <SidebarNode node={data} openMap={openMap} setOpenMap={setOpenMap} />;
 }

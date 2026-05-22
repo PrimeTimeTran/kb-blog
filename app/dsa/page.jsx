@@ -1,9 +1,9 @@
-import { PageClient } from '@/app/dsa/PageClient'
+import { PageClient } from '@/app/dsa/PageClient';
 
 // import siteMetadata from '@/data/site-metadata.js'
 
 export default function Page() {
-  return <PageClient />
+  return <PageClient />;
 }
 
 export const metadata = {
@@ -22,4 +22,4 @@ export const metadata = {
     title: 'DSA',
     description: 'Curated DSA problems and patterns.',
   },
-}
+};

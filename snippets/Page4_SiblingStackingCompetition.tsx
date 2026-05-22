@@ -9,7 +9,7 @@ export function Page4_SiblingStackingCompetition() {
     'What happens if RED becomes z-9999?',
     'Which element actually owns the stacking context?',
     'Would adding transform to RED isolate its children?',
-  ]
+  ];
 
   function renderOverlays() {
     return (
@@ -18,9 +18,7 @@ export function Page4_SiblingStackingCompetition() {
         <div className="fixed inset-0 z-10 flex items-center justify-center pointer-events-none">
           <div className="relative top-24 right-24 w-full h-full p-24 bg-red-500/50 shadow-2xl pointer-events-auto">
             <div className="absolute top-2 left-2 text-xs opacity-80">RED OVERLAY (z-10)</div>
-            <div className="flex h-full items-center justify-center text-xl font-bold text-red-400">
-              RED
-            </div>
+            <div className="flex h-full items-center justify-center text-xl font-bold text-red-400">RED</div>
           </div>
         </div>
         {/* GREEN OVERLAY */}
@@ -32,7 +30,7 @@ export function Page4_SiblingStackingCompetition() {
           </div>
         </div>
       </>
-    )
+    );
   }
 
   return (
@@ -51,9 +49,9 @@ export function Page4_SiblingStackingCompetition() {
       </div>
       {renderOverlays()}
       <div className="fixed left-3 bottom-5 text-2xl">
-        "Red" didn't offset from bottom or left this time so I'm "completely covered" (Opacity is a
-        thing!) until I reach the end where reds right offset does what to me?
+        "Red" didn't offset from bottom or left this time so I'm "completely covered" (Opacity is a thing!) until I
+        reach the end where reds right offset does what to me?
       </div>
     </div>
-  )
+  );
 }

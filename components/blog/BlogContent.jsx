@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import { AppFooter } from '../../components/layout/AppFooter'
-import Comments from '../../components/comments'
-import { BlogHeader, BlogFooter } from './blocks'
+import { AppFooter } from '../../components/layout/AppFooter';
+import Comments from '../../components/comments';
+import { BlogHeader, BlogFooter } from './blocks';
 
 export default function BlogContent({ frontMatter, children }) {
-  const { title = '', date = '' } = frontMatter || {}
+  const { title = '', date = '' } = frontMatter || {};
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -18,5 +18,5 @@ export default function BlogContent({ frontMatter, children }) {
       <Comments />
       <AppFooter /> */}
     </div>
-  )
+  );
 }
