@@ -76,24 +76,20 @@ export function RailItem({
     >
       <div className="absolute inset-0 z-0 bg-surface">
         {Thumbnail ? (
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="origin-top-left pointer-events-none" style={thumbStyle}>
-              <ThemeProvider theme={item.theme}>
-                <div className="h-full w-full overflow-hidden">
-                  <div
-                    style={{
-                      transform: 'scale(0.15)',
-                      transformOrigin: 'top left',
-                      width: '666.666%',
-                      height: '666.666%',
-                    }}
-                  >
-                    <Thumbnail workspaceId={item.id} />
-                  </div>
-                </div>
-              </ThemeProvider>
+          <ThemeProvider theme={item.theme}>
+            <div className="h-full w-full overflow-hidden">
+              <div
+                style={{
+                  transform: 'scale(0.15)',
+                  transformOrigin: 'top left',
+                  width: '666.666%',
+                  height: '666.666%',
+                }}
+              >
+                <Thumbnail workspaceId={item.id} />
+              </div>
             </div>
-          </div>
+          </ThemeProvider>
         ) : (
           <div className="flex items-center justify-center">No preview</div>
         )}
