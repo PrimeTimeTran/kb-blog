@@ -1,3 +1,11 @@
+#
+
+## TOC
+
+- Introduction
+  - Goal
+  - Plan
+  - Architecture
 - Live Playground
   - React/MDX
 - NextJS
@@ -24,7 +32,6 @@
     - @layouts
     - @semantics
     - @components
-
 - Remark
   - Preprocessing of MD files
   - Fixing Wikilinks
@@ -37,10 +44,25 @@
         - Queries: index, show, meta
         - Filtering
     - Parsing
-    -
   - WRITE
     - Generates Graph/Metrics of content
-- MDX
-  - MDX
+- Workspaces
+- Observability
+  - Debugging/Tracing/Sorting/Grouping/Inspecting
+- Deploying
+  - pnpm
+  - Vercel
 
-ººº
+## Goal
+
+Fill the above architecture
+
+- Content
+  - I want to be able to add anything to this and it just gets 'filled'
+    - Tutorials, snippets, blog posts, etc.
+    - I want to not have to think about paths...
+      - They change.
+      - Sometimes they're too restrictive
+
+- Previews (code snippets)
+- Playgrounds (runnable mini apps/projects)

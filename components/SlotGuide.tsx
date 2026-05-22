@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { CounterControls } from '@/app/shell/CounterControls';
 
-export default function PageClient({ tree, isCatchAll = false }) {
+export default function PageClient({ tree, isCatchAll = false, FILE_NAME = '', color = '' }) {
   const pathname = usePathname();
   const [count, setCount] = useState(0);
 

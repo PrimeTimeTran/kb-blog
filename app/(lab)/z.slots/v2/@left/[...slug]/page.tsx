@@ -15,7 +15,7 @@ const dir = `
 `;
 export const FILE_PATH = 'app/(lab)/slots/v2/@left/[...slug]/page.tsx';
 
-const PageClient = dynamic(() => import('../../../PageClient'), {
+const PageClient = dynamic(() => import('@/components/SlotGuide'), {
   ssr: false,
   loading: () => <div className="flex-1 animate-pulse bg-gray-100 dark:bg-gray-800 rounded" />,
 });
