@@ -41,7 +41,7 @@ function ContentTabs({ children }) {
 }
 
 export default function AboutLayout({ children, frontMatter }) {
-  const { name = '' } = frontMatter || {}
+  const { name = 'Loi Tran' } = frontMatter || {}
 
   return (
     <div className="h-full w-full overflow-y-auto">
@@ -59,23 +59,125 @@ export default function AboutLayout({ children, frontMatter }) {
         </div>
 
         {/* ================= LEFT ================= */}
-        <div className="relative w-1/3 flex flex-col justify-center px-14 h-full min-h-0 border-r border-outline-variant pb-16">
-          <div className="space-y-6">
-            <div className="text-xs uppercase tracking-[0.3em] text-on-surface-variant">About</div>
+        <div className="relative w-1/3 h-full min-h-0 overflow-hidden border-r border-(--border)">
+          {/* ambient background */}
+          <div className="absolute inset-0 bg-surface" />
 
-            <div className="text-4xl font-light tracking-tight leading-tight text-on-surface">
-              {name}
+          {/* soft radial glow */}
+          <div
+            className="absolute -top-32 -left-24 h-96 w-96 rounded-full blur-3xl opacity-30"
+            style={{
+              background: 'var(--gradient-primary)',
+            }}
+          />
+
+          {/* subtle grid texture */}
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `
+        linear-gradient(to right, var(--on-surface) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--on-surface) 1px, transparent 1px)
+      `,
+              backgroundSize: '32px 32px',
+            }}
+          />
+
+          {/* content */}
+          <div className="relative z-10 flex h-full flex-col justify-between px-14 py-16">
+            {/* top section */}
+            <div className="space-y-8">
+              {/* eyebrow */}
+              <div className="flex items-center gap-3">
+                <div className="h-px w-10 bg-primary" />
+
+                <div className="text-[10px] uppercase tracking-[0.35em] text-(--muted-foreground)">
+                  About
+                </div>
+              </div>
+
+              {/* heading */}
+              <div className="space-y-4">
+                <h1
+                  className="max-w-sm text-5xl leading-none"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    color: 'var(--on-surface)',
+                    letterSpacing: 'var(--tracking-tight)',
+                    fontWeight: 'var(--font-weight-bold)',
+                  }}
+                >
+                  {name}
+                </h1>
+
+                <div
+                  className="h-px w-24"
+                  style={{
+                    background: 'linear-gradient(to right, var(--primary), transparent)',
+                  }}
+                />
+              </div>
+
+              {/* description */}
+              <p
+                className="max-w-sm text-sm leading-7"
+                style={{
+                  color: 'var(--muted)',
+                  fontFamily: 'var(--font-sans)',
+                }}
+              >
+                Building interfaces that feel quiet, intentional, and human. Systems with rhythm,
+                atmosphere, and emotional texture.
+              </p>
+
+              {/* mini metadata */}
+              <div className="grid grid-cols-2 gap-6 pt-6">
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">
+                    Focus
+                  </div>
+
+                  <div className="mt-2 text-sm text-on-surface">Design Systems</div>
+                </div>
+
+                <div>
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-(--muted-foreground)">
+                    Medium
+                  </div>
+
+                  <div className="mt-2 text-sm text-on-surface">Interactive UI</div>
+                </div>
+              </div>
             </div>
 
-            <div className="h-px w-24 bg-linear-to-r from-outline-variant to-transparent" />
+            {/* bottom */}
+            <div className="flex items-end justify-between">
+              <div className="space-y-2">
+                <div className="text-[10px] uppercase tracking-[0.3em] text-(--muted-foreground)">
+                  Location
+                </div>
 
-            <div className="text-sm leading-relaxed max-w-sm text-on-surface-variant">
-              Building interfaces that feel quiet, intentional, and human.
+                <div className="text-sm text-on-surface">Miami / Digital Space</div>
+              </div>
+
+              {/* decorative badge */}
+              <div
+                className="flex h-14 w-14 items-center justify-center rounded-full border backdrop-blur-md"
+                style={{
+                  borderColor: 'var(--border)',
+                  background: 'var(--glass)',
+                  boxShadow: 'var(--shadow-md)',
+                }}
+              >
+                <div
+                  className="h-2 w-2 rounded-full"
+                  style={{
+                    background: 'var(--primary)',
+                    boxShadow: 'var(--glow-primary)',
+                  }}
+                />
+              </div>
             </div>
-          </div>
-
-          <div className="absolute bottom-10 text-[10px] tracking-widest text-on-surface-variant opacity-70 pb-16">
-            MIAMI / DIGITAL SPACE
           </div>
         </div>
 

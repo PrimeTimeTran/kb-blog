@@ -76,17 +76,8 @@ export const workspaces: Workspace[] = [
   //   component: TailwindUtilities,
   // },
   {
-    id: 'theme',
-    title: 'Theme Shell',
-    persist: true,
-
-    theme: themes.themeEditorial,
-
-    component: ProductPageShell,
-  },
-  {
-    id: 'motion-lab',
-    title: 'Motion Lab',
+    id: 'light',
+    title: 'Light Sass',
     persist: true,
 
     theme: themes.themeLightSaaS,
@@ -96,19 +87,8 @@ export const workspaces: Workspace[] = [
   },
 
   {
-    id: 'flex-gallery',
-    title: 'Flex Gallery',
-    persist: true,
-
-    theme: themes.themeNeonDark,
-
-    // component: FlexWorkspace,
-    component: ProductPageShell,
-  },
-
-  {
-    id: 'project-alpha',
-    title: 'Project Alpha',
+    id: 'Ocean',
+    title: 'Ocean',
     persist: true,
 
     theme: themes.themeOcean,
@@ -116,7 +96,36 @@ export const workspaces: Workspace[] = [
     // component: AlphaWorkspace,
     component: ProductPageShell,
   },
+  {
+    id: 'neon-dark',
+    title: 'Neon dark',
+    persist: true,
+
+    theme: themes.themeNeonDark,
+
+    // component: FlexWorkspace,
+    component: ProductPageShell,
+  },
+  {
+    id: 'zen',
+    title: 'Zen',
+    persist: true,
+
+    theme: themes.themeZen,
+
+    component: ProductPageShell,
+  },
+  {
+    id: 'editorial',
+    title: 'Editorial',
+    persist: true,
+
+    theme: themes.themeEditorial,
+
+    component: ProductPageShell,
+  },
 ]
+
 type WorkspaceId = string
 export const workspaceRegistry = Object.fromEntries(
   workspaces.map((workspace) => [workspace.id, workspace])

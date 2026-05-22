@@ -3,13 +3,15 @@ name: Loi Tran
 avatar: /static/images/avatar.png
 occupation: Solution Architect
 email: primetimetran@gmail.com
-linkedin: https://www.linkedin.com/in/primetimetran
 github: https://github.com/primetimetran
+linkedin: https://www.linkedin.com/in/primetimetran
 ---
 
 # Loi Tran
 
-I’m a developer building full-stack systems across web, mobile, and cloud—and I write about the ideas behind them.
+I'm a Christian who believes in the power of God & the Holy spirit.
+
+Professionally, I build full-stack systems across web, mobile, and cloud—and I write about the ideas behind them.
 
 I started coding when Rails and Backbone were popular, building small projects while learning how systems fit together. Over time, that curiosity expanded beyond code into how software, businesses, and markets operate under constraints and feedback loops.
 
@@ -26,3 +28,7 @@ One of the most meaningful parts of my career was teaching mobile development at
 ---
 
 Outside of work, I enjoy exercise, cooking, and travel.
+
+---
+
+God bless you until I see you!
