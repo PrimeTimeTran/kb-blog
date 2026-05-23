@@ -31,19 +31,29 @@ export function createRuntime(vmFactory = createVM) {
   return { init, run };
 }
 
-export function createIframeRuntime(renderId, iframeRef) {
-  const runtime = createRuntime();
-
-  return (vfs, entry) => {
+export function createIframeRuntime(renderId, iframeRef: React.RefObject<HTMLIFrameElement>) {
+  const runtime = (compiled: string) => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
     renderId.current += 1;
-
-    runtime.init(vfs);
-
-    const App = runtime.run(entry);
-
-    iframeRef.current!.srcdoc = injectReact(App, renderId.current);
+    iframeRef.current!.srcdoc = injectReact(compiled, renderId.current);
   };
+
+  return runtime;
 }
+// export function createIframeRuntime(renderId, iframeRef) {
+//   const runtime = createRuntime();
+
+//   return (vfs, entry) => {
+//     renderId.current += 1;
+
+//     runtime.init(vfs);
+
+//     const App = runtime.run(entry);
+
+//     iframeRef.current!.srcdoc = injectReact(App, renderId.current);
+//   };
+// }
 
 // function require(file: string) {
 //   if (cache[file]) return cache[file];

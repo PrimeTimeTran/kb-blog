@@ -16,8 +16,6 @@ export function injectReact(compiled: string, version: number) {
   <div id="root"></div>
 
   <script>
-    console.log('[WINDOW KEYS]', Object.keys(window));
-    console.log('[APP]', App);
     console.log('[IFRAME RUNTIME START]', ${version})
     const root = ReactDOM.createRoot(document.getElementById('root'))
     try {
@@ -32,129 +30,174 @@ export function injectReact(compiled: string, version: number) {
         '<pre style="color:red;padding:16px;">' + (err.stack || err) + '</pre>'
     }
   </script>
-  <script type="module">
-    console.log('testing direct import')
-    const mod = await import('http://localhost:3000/utils.js')
-    await console.log('SUCCESS:', mod)
-    mod.utils('From client')
-  </script>
+  // <script type="module">
+  //   console.log('testing direct import')
+  //   const mod = await import('http://localhost:3000/utils.js')
+  //   await console.log('SUCCESS:', mod)
+  //   mod.utils('From client')
+  // </script>
   </body>
 </html>
 `;
 }
 
-export const initialCode = `function Counter({ label }) {
-  const [count, setCount] = React.useState(0);
-  const [step, setStep] = React.useState(1);
-  const [locked, setLocked] = React.useState(false);
+// export function injectReact(compiled: string, version: number) {
+//   return `
+// <!DOCTYPE html>
+// <html>
+// <head>
+//   <script>
+//     console.log('[IFRAME BOOT] version:', ${version})
+//   </script>
 
-  return (
-    <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-zinc-900/60 backdrop-blur-md p-6 shadow-lg shadow-black/40">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-mono text-white/60">{label}</h2>
-        <button
-          onClick={() => setLocked((v) => !v)}
-          className={\`text-xs px-2 py-1 rounded-md border transition \${
-            locked
-              ? 'border-red-500/40 text-red-300 bg-red-500/10'
-              : 'border-white/10 text-white/50 hover:text-white'
-          }\`}
-        >
-          {locked ? 'Locked' : 'Unlocked'}
-        </button>
-      </div>
+//   <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+//   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+//   <script src="https://cdn.tailwindcss.com"></script>
+// </head>
 
-      <div className="text-5xl font-bold text-center text-green-400 mb-4 tracking-tight">
-        {count}
-      </div>
+// <body>
+//   <div id="root"></div>
 
-      <div className="flex gap-2 justify-center mb-4">
-        <button
-          disabled={locked}
-          onClick={() => setCount((c) => c + step)}
-          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 transition text-sm disabled:opacity-40"
-        >
-          +{step}
-        </button>
+//   <script>
+//     console.log('[WINDOW KEYS]', Object.keys(window));
+//     console.log('[APP]', App);
+//     console.log('[IFRAME RUNTIME START]', ${version})
+//     const root = ReactDOM.createRoot(document.getElementById('root'))
+//     try {
+//       ${compiled}
+//       console.log('[IFRAME COMPILED EXECUTED]', ${version})
 
-        <button
-          disabled={locked}
-          onClick={() => setCount((c) => c - step)}
-          className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 transition text-sm disabled:opacity-40"
-        >
-          -{step}
-        </button>
+//       root.render(React.createElement(App))
+//     } catch (err) {
+//       console.error('[IFRAME ERROR]', err)
 
-        <button
-          disabled={locked}
-          onClick={() => setCount(0)}
-          className="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 transition text-sm disabled:opacity-40"
-        >
-          reset
-        </button>
-      </div>
+//       document.body.innerHTML =
+//         '<pre style="color:red;padding:16px;">' + (err.stack || err) + '</pre>'
+//     }
+//   </script>
+//   <script type="module">
+//     console.log('testing direct import')
+//     const mod = await import('http://localhost:3000/utils.js')
+//     await console.log('SUCCESS:', mod)
+//     mod.utils('From client')
+//   </script>
+//   </body>
+// </html>
+// `;
+// }
 
-      <div className="flex items-center justify-between text-xs text-white/50">
-        <span>step</span>
-        <input
-          disabled={locked}
-          type="range"
-          min="1"
-          max="10"
-          value={step}
-          onChange={(e) => setStep(Number(e.target.value))}
-          className="w-32 accent-green-400"
-        />
-      </div>
-    </div>
-  );
-}
+// export const initialCode = `function Counter({ label }) {
+//   const [count, setCount] = React.useState(0);
+//   const [step, setStep] = React.useState(1);
+//   const [locked, setLocked] = React.useState(false);
 
-function App() {
-  const [themePulse, setThemePulse] = React.useState(0);
-  const [globalOffset, setGlobalOffset] = React.useState(0);
-  const [showGrid, setShowGrid] = React.useState(true);
+//   return (
+//     <div className="w-full max-w-sm rounded-2xl border border-white/10 bg-zinc-900/60 backdrop-blur-md p-6 shadow-lg shadow-black/40">
+//       <div className="flex items-center justify-between mb-4">
+//         <h2 className="text-sm font-mono text-white/60">{label}</h2>
+//         <button
+//           onClick={() => setLocked((v) => !v)}
+//           className={\`text-xs px-2 py-1 rounded-md border transition \${
+//             locked
+//               ? 'border-red-500/40 text-red-300 bg-red-500/10'
+//               : 'border-white/10 text-white/50 hover:text-white'
+//           }\`}
+//         >
+//           {locked ? 'Locked' : 'Unlocked'}
+//         </button>
+//       </div>
 
-  console.log('App render');
+//       <div className="text-5xl font-bold text-center text-green-400 mb-4 tracking-tight">
+//         {count}
+//       </div>
 
-  return (
-    <div
-      className={\`h-screen w-screen flex flex-col items-center justify-center gap-6 transition-all \${
-        showGrid
-          ? 'bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.15),transparent_40%),radial-gradient(circle_at_bottom,rgba(59,130,246,0.15),transparent_40%)]'
-          : 'bg-zinc-950'
-      } text-white overflow-hidden\`}
-    >
-      {/* top controls */}
-      <div className="flex items-center gap-3 text-xs text-white/60">
-        <button
-          onClick={() => setShowGrid((v) => !v)}
-          className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
-        >
-          toggle bg
-        </button>
+//       <div className="flex gap-2 justify-center mb-4">
+//         <button
+//           disabled={locked}
+//           onClick={() => setCount((c) => c + step)}
+//           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 transition text-sm disabled:opacity-40"
+//         >
+//           +{step}
+//         </button>
 
-        <button
-          onClick={() => setThemePulse((v) => v + 1)}
-          className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
-        >
-          pulse {themePulse}
-        </button>
+//         <button
+//           disabled={locked}
+//           onClick={() => setCount((c) => c - step)}
+//           className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/15 transition text-sm disabled:opacity-40"
+//         >
+//           -{step}
+//         </button>
 
-        <button
-          onClick={() => setGlobalOffset((v) => v + 1)}
-          className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
-        >
-          shift {globalOffset}
-        </button>
-      </div>
+//         <button
+//           disabled={locked}
+//           onClick={() => setCount(0)}
+//           className="px-3 py-1.5 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-300 transition text-sm disabled:opacity-40"
+//         >
+//           reset
+//         </button>
+//       </div>
 
-      {/* counters */}
-      <div className="flex gap-6 flex-wrap justify-center">
-        <Counter label="alpha" />
-        <Counter label="beta" />
-        <Counter label="gamma" />
-      </div>
-    </div>
-  );
-}`;
+//       <div className="flex items-center justify-between text-xs text-white/50">
+//         <span>step</span>
+//         <input
+//           disabled={locked}
+//           type="range"
+//           min="1"
+//           max="10"
+//           value={step}
+//           onChange={(e) => setStep(Number(e.target.value))}
+//           className="w-32 accent-green-400"
+//         />
+//       </div>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   const [themePulse, setThemePulse] = React.useState(0);
+//   const [globalOffset, setGlobalOffset] = React.useState(0);
+//   const [showGrid, setShowGrid] = React.useState(true);
+
+//   console.log('App render');
+
+//   return (
+//     <div
+//       className={\`h-screen w-screen flex flex-col items-center justify-center gap-6 transition-all \${
+//         showGrid
+//           ? 'bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.15),transparent_40%),radial-gradient(circle_at_bottom,rgba(59,130,246,0.15),transparent_40%)]'
+//           : 'bg-zinc-950'
+//       } text-white overflow-hidden\`}
+//     >
+//       {/* top controls */}
+//       <div className="flex items-center gap-3 text-xs text-white/60">
+//         <button
+//           onClick={() => setShowGrid((v) => !v)}
+//           className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
+//         >
+//           toggle bg
+//         </button>
+
+//         <button
+//           onClick={() => setThemePulse((v) => v + 1)}
+//           className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
+//         >
+//           pulse {themePulse}
+//         </button>
+
+//         <button
+//           onClick={() => setGlobalOffset((v) => v + 1)}
+//           className="px-3 py-1 rounded-md border border-white/10 hover:bg-white/10"
+//         >
+//           shift {globalOffset}
+//         </button>
+//       </div>
+
+//       {/* counters */}
+//       <div className="flex gap-6 flex-wrap justify-center">
+//         <Counter label="alpha" />
+//         <Counter label="beta" />
+//         <Counter label="gamma" />
+//       </div>
+//     </div>
+//   );
+// }`;
