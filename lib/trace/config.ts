@@ -1,18 +1,4 @@
-import type { LogLevel, LogShape, LoggerConfig } from './types';
-
-let CONFIG = {
-  // LOG_LEVEL: (process.env.LOG_LEVEL || 'debug') as LogLevel,
-  LOG_LEVEL: 'debug' as LogLevel,
-  // DEBUG: process.env.DEBUG || 'content:get',
-  DEBUG: 'content:embeds',
-  LOG_SHAPE: 'x' as LogShape,
-  TRACE_SOURCE: true,
-  TRACE_RAW: true,
-};
-
-export function setLoggerConfig(overrides: Partial<LoggerConfig>) {
-  CONFIG = { ...CONFIG, ...overrides };
-}
+import { LogLevel, LogShape, LoggerConfig } from './types';
 
 export const levelRank: Record<LogLevel, number> = {
   debug: 0,
@@ -20,5 +6,25 @@ export const levelRank: Record<LogLevel, number> = {
   warn: 2,
   error: 3,
 };
+
+let CONFIG: LoggerConfig = {
+  LOG_LEVEL: (process.env.LOG_LEVEL as LogLevel) || 'warn',
+  LOG_SHAPE: (process.env.LOG_SHAPE as LogShape) || 'summary',
+  DEBUG: process.env.DEBUG || 'content:list',
+  TRACE_RAW: false,
+  TRACE_SOURCE: true,
+  TRACE_ENABLED: process.env.TRACE_ENABLED !== 'false',
+};
+
+export function setLoggerConfig(overrides: Partial<LoggerConfig>) {
+  CONFIG = {
+    ...CONFIG,
+    ...overrides,
+  };
+}
+
+export function getLoggerConfig() {
+  return CONFIG;
+}
 
 export { CONFIG };

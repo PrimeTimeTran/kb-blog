@@ -1,17 +1,12 @@
 import { randomUUID } from 'crypto';
-import { CONFIG } from './config';
-import { shouldLog, resolveShape, banner, isTraceView, getColor, getCallerLocation } from './utils';
-import { normalizeTraceData } from './shapes';
-import type { LogLevel, TraceEmitOptions } from './types';
 
-/* ─────────────────────────────
-   GLOBAL SILENCE GATE
-───────────────────────────── */
+import { CONFIG } from './config';
+import { normalizeTraceData } from './shapes';
+import { shouldLog, resolveShape, banner, isTraceView, getColor } from './utils';
+import type { LogLevel, TraceApi, TraceEmitOptions } from './types';
 
 const IS_BUILD = process.env.NEXT_PHASE === 'phase-production-build' || process.env.NODE_ENV === 'production';
-
-const TRACE_ENABLED = process.env.TRACE === 'true' && !IS_BUILD;
-// const TRACE_ENABLED = true;
+const TRACE_ENABLED = CONFIG.TRACE_ENABLED && !IS_BUILD;
 
 function out(...args: any[]) {
   if (!TRACE_ENABLED) return;
@@ -22,12 +17,7 @@ function err(...args: any[]) {
   if (!TRACE_ENABLED) return;
   console.error(...args);
 }
-
-/* ─────────────────────────────
-   TRACE
-───────────────────────────── */
-
-export function createTrace(namespace: string) {
+export function createTrace(namespace: string): TraceApi {
   const id = randomUUID().slice(0, 6);
   const color = getColor(id);
 
@@ -36,38 +26,63 @@ export function createTrace(namespace: string) {
     meta: {} as Record<string, any>,
   };
 
-  out(banner(color, `\n━━━ TRACE START ${namespace}:${id} ━━━`));
+  function can(level: LogLevel = 'debug') {
+    return TRACE_ENABLED && shouldLog(namespace, level);
+  }
+
+  function write(level: LogLevel, ...args: any[]) {
+    if (!can(level)) return;
+    out(...args);
+  }
+
+  function writeErr(level: LogLevel, ...args: any[]) {
+    if (!can(level)) return;
+    err(...args);
+  }
+
+  if (can('debug')) {
+    write('debug', banner(color, `\n━━━ TRACE START ${namespace}:${id} ━━━`));
+  }
+
   function setContext(partial: Record<string, any>) {
-    context.meta = { ...context.meta, ...partial };
+    context.meta = {
+      ...context.meta,
+      ...partial,
+    };
+
     return api;
   }
 
   function emit(level: LogLevel, event: string, data?: unknown, opts: TraceEmitOptions = {}) {
-    if (!TRACE_ENABLED) return;
-    if (!shouldLog(namespace, level)) return;
+    if (!can(level)) return;
 
-    const shape = resolveShape(opts);
+    resolveShape(opts);
 
     const shaped = typeof data === 'object' ? normalizeTraceData(data, opts.depth ?? 2) : data;
 
-    out(`${getColor(id)}[${namespace}:${level}]`, event);
+    write(level, `${getColor(id)}[${namespace}:${level}]`, event);
 
     if (isTraceView(shaped)) {
-      out('  levels:');
-      shaped.levels.forEach((l) => out('   ', l));
+      write(level, '  levels:');
 
-      out('  preview:', shaped.preview);
+      shaped.levels.forEach((l) => {
+        write(level, '   ', l);
+      });
+
+      write(level, '  preview:', shaped.preview);
 
       if (CONFIG.TRACE_RAW) {
-        out('  raw:');
-        console.dir(shaped.raw, { depth: null });
+        write(level, '  raw:');
+        console.dir(shaped.raw, {
+          depth: null,
+        });
       }
-    } else {
-      out('  value:', shaped);
+    } else if (shaped !== undefined) {
+      write(level, '  value:', shaped);
     }
   }
 
-  const api = {
+  const api: TraceApi = {
     id,
 
     setContext,
@@ -77,32 +92,53 @@ export function createTrace(namespace: string) {
       return api;
     },
 
-    event(event: string, data?: unknown, opts?: TraceEmitOptions) {
+    mark(event: string, data?: unknown, opts?: TraceEmitOptions) {
       emit('info', event, data, opts);
       return api;
     },
 
+    debug(event: string, data?: unknown, opts?: TraceEmitOptions) {
+      return api.log('debug', event, data, opts);
+    },
+
+    info(event: string, data?: unknown, opts?: TraceEmitOptions) {
+      return api.log('info', event, data, opts);
+    },
+
+    warn(event: string, data?: unknown, opts?: TraceEmitOptions) {
+      return api.log('warn', event, data, opts);
+    },
+
+    error(event: string, data?: unknown, opts?: TraceEmitOptions) {
+      return api.log('error', event, data, opts);
+    },
+
     pick<T>(list: T[], index: number, label = 'PICK') {
       const item = list?.[index];
-      out(banner(getColor(id), `[${namespace}:${id}] ${label}[${index}]`), item);
+
+      write('debug', banner(getColor(id), `[${namespace}:${id}] ${label}[${index}]`), item);
+
       return item;
     },
 
     inspect(obj: any, path: (string | number)[]) {
       const value = path.reduce((acc, key) => acc?.[key], obj);
-      out(banner(getColor(id), `[${namespace}:${id}] INSPECT ${path.join('.')}`), value);
+
+      write('debug', banner(getColor(id), `[${namespace}:${id}] INSPECT ${path.join('.')}`), value);
+
       return value;
     },
 
     async span<T>(label: string, fn: (span: any) => Promise<T> | T): Promise<T> {
       const startedAt = Date.now();
 
-      out(banner(getColor(id), `[${namespace}:${id}] ▶ ${label}`));
+      write('debug', banner(getColor(id), `[${namespace}:${id}] ▶ ${label}`));
 
       try {
         const result = await fn(api);
 
-        out(
+        write(
+          'debug',
           '\x1b[90m',
           {
             span: label,
@@ -113,22 +149,31 @@ export function createTrace(namespace: string) {
 
         return result;
       } catch (error) {
-        out(banner(getColor(id), `[${namespace}:${id}] ✖ ${label}`));
-        err(error);
+        writeErr('error', banner(getColor(id), `[${namespace}:${id}] ✖ ${label}`));
+
+        writeErr('error', error);
+
         throw error;
       }
     },
 
     end() {
-      if (!TRACE_ENABLED) return;
+      if (!can('debug')) return;
 
-      out(banner(color, `━━━ TRACE END ${namespace}:${id} ━━━`));
+      write('debug', banner(color, `━━━ TRACE END ${namespace}:${id} ━━━`));
 
       if (Object.keys(context.meta).length > 0) {
-        out('\x1b[90m', context.meta, '\x1b[0m');
+        write('debug', '\x1b[90m', context.meta, '\x1b[0m');
       }
 
-      out('\x1b[90m', { duration: Date.now() - context.startedAt }, '\x1b[0m\n');
+      write(
+        'debug',
+        '\x1b[90m',
+        {
+          duration: Date.now() - context.startedAt,
+        },
+        '\x1b[0m\n',
+      );
     },
   };
 

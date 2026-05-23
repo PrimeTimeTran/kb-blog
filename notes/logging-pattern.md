@@ -85,7 +85,7 @@ console.log('parsed keys', Object.keys(data));
 Good:
 
 ```js
-trace.event('PARSED', { keys: Object.keys(data) });
+trace.mark('PARSED', { keys: Object.keys(data) });
 ```
 
 Why:

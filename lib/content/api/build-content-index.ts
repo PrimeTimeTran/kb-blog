@@ -19,11 +19,11 @@ export async function buildContentIndex(options: ContentIndexOptions) {
   let { rootDir, filter } = options;
   rootDir = path.join(rootDir, 'kb');
 
-  trace.event('START', { rootDir });
+  trace.mark('START', { rootDir });
 
   const files = await getAllFilesRecursively(rootDir);
 
-  trace.event('FILES_FOUND', {
+  trace.mark('FILES_FOUND', {
     count: files.length,
   });
 
@@ -55,7 +55,7 @@ export async function buildContentIndex(options: ContentIndexOptions) {
 
       if (!isPub) {
         skippedPublished++;
-        trace.event('SKIP_UNPUBLISHED', {
+        trace.mark('SKIP_UNPUBLISHED', {
           file,
           slug: file,
         });
@@ -73,14 +73,14 @@ export async function buildContentIndex(options: ContentIndexOptions) {
         slug,
       };
 
-      trace.event('INDEXED', {
+      trace.mark('INDEXED', {
         slug,
         file,
       });
     } catch (e) {
       failed++;
 
-      trace.event('INDEX_ERROR', {
+      trace.mark('INDEX_ERROR', {
         file,
         error: e instanceof Error ? e.message : String(e),
       });
@@ -90,7 +90,7 @@ export async function buildContentIndex(options: ContentIndexOptions) {
     }
   }
 
-  trace.event('DONE', {
+  trace.mark('DONE', {
     total: files.length,
     indexed: Object.keys(registry).length,
     skippedExt,

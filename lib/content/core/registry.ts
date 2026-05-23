@@ -43,7 +43,6 @@ function mapClientToListConfig(config?: ContentClientConfig): ContentListConfig 
 
 export const registry: ContentRegistry = {
   get(type) {
-    console.log('registry');
     if (!['blog', 'kb', 'terms', 'authors'].includes(type)) return null;
     return createCollection(type, filesystemSource);
   },

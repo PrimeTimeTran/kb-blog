@@ -10,13 +10,32 @@ export function getCallerLocation(depth = 3) {
   return line || null;
 }
 
-export function shouldLog(namespace: string, level: LogLevel): boolean {
-  const enabled = getEnabled();
+export function matchesDebugNamespace(namespace: string) {
+  const patterns = CONFIG.DEBUG.split(',').map((x) => x.trim());
 
-  if (!enabled.has(namespace) && !enabled.has('*')) return false;
-  if (levelRank[level] < levelRank[CONFIG.LOG_LEVEL]) return false;
+  return patterns.some((pattern) => {
+    if (pattern === '*') {
+      return true;
+    }
 
-  return true;
+    if (pattern.endsWith('*')) {
+      return namespace.startsWith(pattern.slice(0, -1));
+    }
+
+    return namespace === pattern;
+  });
+}
+
+export function shouldLog(namespace: string, level: LogLevel) {
+  if (!CONFIG.TRACE_ENABLED) {
+    return false;
+  }
+
+  if (levelRank[level] < levelRank[CONFIG.LOG_LEVEL]) {
+    return false;
+  }
+
+  return matchesDebugNamespace(namespace);
 }
 
 export function resolveShape(opts?: TraceEmitOptions): LogShape {

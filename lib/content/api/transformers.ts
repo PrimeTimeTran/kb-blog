@@ -1,131 +1,107 @@
-import { createTrace } from '@/lib/trace';
+export interface UniversalPathIndex {
+  [key: string]: unknown;
+}
 
-export function resolveUniversalPath(currentFileSlug, targetLinkPath, index) {
+export interface FrontMatter {
+  title?: string;
+  [key: string]: unknown;
+}
+
+export interface FileData {
+  slug?: string;
+  title?: string;
+  frontMatter?: FrontMatter;
+  mdxSource?: string;
+  [key: string]: unknown;
+}
+
+export interface UniversalEmbedIndex {
+  [key: string]: FileData;
+}
+
+/**
+ * Resolves a target link path to a matching key in the index registry.
+ *
+ * @param currentFileSlug - The slug of the file currently being processed.
+ * @param targetLinkPath - The raw target path or link string to resolve.
+ * @param index - The registry object containing valid universal paths.
+ * @returns The matching registry key string, or null if no match is found.
+ */
+export function resolveUniversalPath(
+  currentFileSlug: string | null | undefined,
+  targetLinkPath: string | null | undefined,
+  index: UniversalPathIndex | null | undefined,
+): string | null {
   if (!targetLinkPath || !index) return null;
 
-  let cleanTarget = targetLinkPath
+  // 1. Clean up target link (remove hashes, aliases, extensions, and force lowercase)
+  const cleanTarget = targetLinkPath
     .split('#')[0]
     .split('|')[0]
     .trim()
-    .replace(/\.md(x)?$/, '')
+    .replace(/\.mdx?$/, '')
     .toLowerCase();
-  const cleanTargetLeaf = cleanTarget.split('/').pop().replace(/^0\./, '');
 
-  if (index[cleanTarget]) return cleanTarget;
+  const cleanTargetLeaf = cleanTarget.split('/').pop()?.replace(/^0\./, '') ?? '';
 
+  // 2. Fast-path exact match check
+  if (index[cleanTarget] !== undefined) return cleanTarget;
+
+  // 3. Fallback to leaf-name matching
   const keys = Object.keys(index);
-  for (let i = 0; i < keys.length; i++) {
-    const registryKey = keys[i];
-    const registryFilePart = registryKey.split('/').pop().toLowerCase();
-    const cleanRegistryLeaf = registryFilePart.replace(/^0\./, '').replace(/\.md(x)?$/, '');
+  for (const registryKey of keys) {
+    const registryFilePart = registryKey.split('/').pop()?.toLowerCase() ?? '';
+    // Note: Adjusted to cleanly strip extensions before matching the leaf name
+    const cleanRegistryLeaf = registryFilePart.replace(/\.mdx?$/, '').replace(/^0\./, '');
 
     if (cleanRegistryLeaf === cleanTargetLeaf) {
       return registryKey;
     }
   }
+
   return null;
 }
-// export function preprocessEmbeds(mdxSource, index, currentSlug, depth = 1, visited = new Set()) {
-//   if (!mdxSource) return '';
 
-//   const lines = mdxSource.split('\n');
-//   const processedLines = lines.map((line) => {
-//     // Matches Obsidian transclusion grammar: ![[filename.md]] or ![[path/filename]]
-//     const embedRegex = /!\[\[([^\]]+)\]\]/;
-//     const match = line.match(embedRegex);
-
-//     if (!match) return line;
-
-//     const rawTarget = match[1];
-//     // Strip trailing .md or .mdx extensions to get a clean target name
-//     const cleanTarget = rawTarget.replace(/\.mdx?$/, '');
-
-//     // Resolve registry data keys accurately by checking keys, filenames, or slugs
-//     const resolvedKey = Object.keys(index).find((key) => {
-//       const cleanKey = key.replace(/\.mdx?$/, '');
-//       return (
-//         cleanKey === cleanTarget ||
-//         cleanKey.endsWith('/' + cleanTarget) ||
-//         cleanKey.endsWith('/0.' + cleanTarget) ||
-//         index[key].slug === cleanTarget ||
-//         index[key].slug === rawTarget
-//       );
-//     });
-
-//     const fileData = index[resolvedKey];
-
-//     // If the referenced file asset cannot be found, fallback to original unparsed text
-//     if (!fileData) return line;
-
-//     const displayTitle =
-//       fileData.frontMatter?.title || fileData.title || cleanTarget.split('/').pop().replace(/^0\./, '');
-//     const targetSlug = fileData.slug || resolvedKey;
-//     const cleanHref = `/kb/${targetSlug}`;
-
-//     // Capture contextual layout symbols up front (e.g. "> ", "  *", ">>> ")
-//     const prefixMatch = line.match(/^([\s>]*)/);
-//     const linePrefix = prefixMatch ? prefixMatch[1] : '';
-
-//     let generatedHtml = '';
-
-//     // --- SAFETY CHECK 1: CIRCULAR PROTECTION ---
-//     if (visited.has(targetSlug)) {
-//       generatedHtml = `
-// <div className="border border-error/30 bg-error-container text-on-error-container my-4 rounded-md p-3 text-sm">
-//   ⚠️ <strong>Recursive loop blocked:</strong> Infinite loop reference to <a href="${cleanHref}" className="underline font-mono">${displayTitle}</a> stopped.
-// </div>
-// `;
-//     }
-//     // --- SAFETY CHECK 2: MAX NESTING DEPTH ---
-//     else if (depth > 2) {
-//       generatedHtml = `
-// <div className="border border-outline bg-surface-variant text-on-surface-variant my-4 rounded-md p-3 text-xs italic">
-//   🔗 Link reference to nested document: <a href="${cleanHref}" className="underline font-medium not-italic">${displayTitle}</a> (Nesting limit reached)
-// </div>
-// `;
-//     }
-//     // --- SAFE UNPACKING RUN ---
-//     else {
-//       // Create a fresh tracking history instance to avoid sibling side-effects
-//       const nextVisited = new Set(visited);
-//       nextVisited.add(currentSlug);
-
-//       // Process embedded sub-contents recursively
-//       const processedSubContent = preprocessEmbeds(fileData.mdxSource, index, targetSlug, depth + 1, nextVisited);
-
-//       generatedHtml = `
-// <details className="obsidian-embed-container border border-outline bg-surface text-on-surface rounded-lg my-6 overflow-hidden shadow-sm" open>
-//   <summary className="embed-header flex items-center justify-between px-4 py-2.5 bg-surface-variant/50 border-b border-outline cursor-pointer list-none hover:bg-surface-variant transition-colors select-none">
-//     <div className="flex items-center gap-2 font-medium text-sm">
-//       <span className="embed-icon opacity-70">📂</span>
-//       <span className="embed-title font-semibold">${displayTitle}</span>
-//     </div>
-//     <a href="${cleanHref}" className="embed-link text-xs text-primary hover:underline flex items-center gap-1" title="Open source note">
-//       Open Note ↗
-//     </a>
-//   </summary>
-//   <div className="embed-body prose p-4 max-h-[400px] overflow-auto text-sm text-on-surface">
-//     ${processedSubContent}
-//   </div>
-// </details>
-// `;
-//     }
-
-//     // Replace the *entire* text line with our newly formatted multiline string blocks
-//     // and append our captured blockquote prefixes to each generated item line
-//     const prefixedHtml = generatedHtml
-//       .trim()
-//       .split('\n')
-//       .map((htmlLine) => `${linePrefix}${htmlLine}`)
-//       .join('\n');
-
-//     return prefixedHtml;
-//   });
-
-//   return processedLines.join('\n');
-// }
-
-export function preprocessEmbeds(mdxSource, index, currentSlug, depth = 1, visited = new Set()) {
+/**
+ * Recursively resolves Obsidian-style wiki embeds (`![[slug]]`) within MDX content
+ * by replacing embed references with the embedded document's processed content.
+ *
+ * Features:
+ * - Supports nested embeds with configurable recursion depth protection.
+ * - Prevents circular embed loops using a visited set.
+ * - Uses a shared embed index for slug/content lookup.
+ * - Preserves unresolved embeds if no matching entry exists.
+ *
+ * Example:
+ * ```md
+ * Hello
+ *
+ * ![[shared/button]]
+ * ```
+ *
+ * becomes:
+ *
+ * ```md
+ * Hello
+ *
+ * <contents of shared/button>
+ * ```
+ *
+ * @param mdxSource - Raw MDX source content to preprocess.
+ * @param index - Lookup table containing embeddable content entries keyed by slug.
+ * @param currentSlug - Slug of the currently processing document.
+ * @param depth - Current recursive embed depth. Used internally for safety limits.
+ * @param visited - Tracks previously visited embeds to avoid infinite recursion.
+ *
+ * @returns MDX content with wiki embeds recursively expanded.
+ */
+export function preprocessEmbeds(
+  mdxSource: string | null | undefined,
+  index: UniversalEmbedIndex,
+  currentSlug: string,
+  depth: number = 1,
+  visited: Set<string> = new Set(),
+): string {
   if (!mdxSource) return '';
 
   const lines = mdxSource.split('\n');
@@ -140,20 +116,26 @@ export function preprocessEmbeds(mdxSource, index, currentSlug, depth = 1, visit
 
     const resolvedKey = Object.keys(index).find((key) => {
       const cleanKey = key.replace(/\.mdx?$/, '');
+      const item = index[key];
+
       return (
         cleanKey === cleanTarget ||
         cleanKey.endsWith('/' + cleanTarget) ||
         cleanKey.endsWith('/0.' + cleanTarget) ||
-        index[key].slug === cleanTarget ||
-        index[key].slug === rawTarget
+        item?.slug === cleanTarget ||
+        item?.slug === rawTarget
       );
     });
+
+    if (!resolvedKey) return line;
 
     const fileData = index[resolvedKey];
     if (!fileData) return line;
 
-    const displayTitle =
-      fileData.frontMatter?.title || fileData.title || cleanTarget.split('/').pop().replace(/^0\./, '');
+    // Extract display title cleanly with safe string manipulation guards
+    const defaultTitle = cleanTarget.split('/').pop()?.replace(/^0\./, '') ?? '';
+    const displayTitle = fileData.frontMatter?.title || fileData.title || defaultTitle;
+
     const targetSlug = fileData.slug || resolvedKey;
     const cleanHref = `/kb/${targetSlug}`;
 
@@ -180,7 +162,6 @@ export function preprocessEmbeds(mdxSource, index, currentSlug, depth = 1, visit
 
       const processedSubContent = preprocessEmbeds(fileData.mdxSource, index, targetSlug, depth + 1, nextVisited);
 
-      // Using standard HTML "class" to comply cleanly with compiler targets and testing suites
       generatedHtml = `
 <details class="obsidian-embed-container border border-outline bg-surface text-on-surface rounded-lg my-6 overflow-hidden shadow-sm" open>
   <summary class="embed-header flex items-center justify-between px-4 py-2.5 bg-surface-variant/50 border-b border-outline cursor-pointer list-none hover:bg-surface-variant transition-colors select-none">

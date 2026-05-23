@@ -68,7 +68,7 @@ export function buildRuntimePipeline(ctx: PipelineContext) {
       const parsed = matter(raw.raw);
       ctx.frontMatter = parsed.data;
 
-      trace.event('frontmatter parsed', {
+      trace.mark('frontmatter parsed', {
         hasFrontMatter: !!ctx.frontMatter,
       });
 
@@ -79,7 +79,7 @@ export function buildRuntimePipeline(ctx: PipelineContext) {
         slug: ctx.request.slug,
       });
 
-      trace.event('mdx context built', {
+      trace.mark('mdx context built', {
         slug: ctx.request.slug,
       });
 

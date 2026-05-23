@@ -18,119 +18,146 @@ export async function getContent(
     slug: string;
   } & Record<string, unknown>,
 ) {
-  console.log('━━━━━━━━━━━━━━━━━━━━━━');
-  console.log('GET CONTENT START');
-  console.log(query);
+  const trace = createTrace('content:get');
 
   try {
-    const trace = createTrace('content:get');
-
     const { collection, config } = options;
     const { type, slug } = query;
 
-    console.log('STEP 1');
+    trace.setContext({
+      type,
+      slug,
+      collection: collection.id,
+    });
+
+    trace.mark('REQUEST_RECEIVED');
 
     if (!type || !slug) {
-      trace.event('INVALID_INPUT', { type, slug });
+      trace.warn('INVALID_INPUT', { type, slug });
       trace.end();
       return null;
     }
 
-    console.log('STEP 2');
-    trace.event('valid', { type, slug });
+    trace.debug('INPUT_VALID');
 
-    const raw = await collection.read(slug);
+    const raw = await trace.span('READ_CONTENT', async () => {
+      return collection.read(slug);
+    });
 
-    console.log('STEP 3', !!raw);
+    trace.debug('CONTENT_READ', {
+      found: !!raw,
+    });
 
     if (!raw) {
-      trace.event('NOT_FOUND', { slug });
+      trace.mark('NOT_FOUND', { slug });
       trace.end();
       return null;
     }
-
-    console.log('STEP 4');
 
     const rootDir = collection.id?.replace(/^fs:/, '') ?? process.cwd();
 
-    console.log('STEP 5');
-
-    const typeIndex = process.env.NODE_ENV === 'test' ? {} : await buildContentIndex({ rootDir });
-
-    console.log('STEP 6');
-
-    const analysis = analyzeContent(raw.raw);
-
-    console.log('STEP 7');
-
-    const ctx = createPipelineContext({
-      request: { type, slug },
-      raw,
-      index: typeIndex,
-      source: raw.source,
-      analysis,
+    trace.debug('ROOT_DIR_RESOLVED', {
+      rootDir,
     });
 
-    console.log('STEP 8');
+    const typeIndex = await trace.span('BUILD_CONTENT_INDEX', async () => {
+      if (process.env.NODE_ENV === 'test') {
+        return {};
+      }
 
-    const parsedCtx = await buildParsePipeline(ctx).run(raw);
+      return buildContentIndex({ rootDir });
+    });
 
-    console.log('STEP 9');
+    trace.debug('CONTENT_INDEX_READY', {
+      size: Object.keys(typeIndex).length,
+    });
 
-    console.log(parsedCtx.analysis);
+    const analysis = await trace.span('ANALYZE_CONTENT', async () => {
+      return analyzeContent(raw.raw);
+    });
+
+    trace.debug('CONTENT_ANALYZED', {
+      published: analysis?.published,
+    });
+
+    const ctx = await trace.span('CREATE_PIPELINE_CONTEXT', async () => {
+      return createPipelineContext({
+        request: { type, slug },
+        raw,
+        index: typeIndex,
+        source: raw.source,
+        analysis,
+      });
+    });
+
+    trace.debug('PIPELINE_CONTEXT_CREATED');
+
+    const parsedCtx = await trace.span('PARSE_PIPELINE', async () => {
+      return buildParsePipeline(ctx).run(raw);
+    });
+
+    trace.debug('PARSE_PIPELINE_COMPLETE', {
+      published: parsedCtx?.analysis?.published,
+    });
 
     // if (!parsedCtx.analysis.published) {
-    // console.log('NOT PUBLISHED');
-    //   return null
+    //   trace.mark('NOT_PUBLISHED');
+    //   trace.end();
+    //   return null;
     // }
 
-    console.log('STEP 10');
-
-    await buildCompilePipeline(ctx).run();
-
-    console.log('STEP 11');
-
-    const entity = toContentEntity(ctx);
-
-    console.log('STEP 12');
-
-    if (config?.includeDrafts) {
-      trace.event('DRAFT_SKIPPED', { slug });
-      trace.end();
-      return null;
-    }
-
-    const item = toContentItem(entity);
-
-    console.log('STEP 13');
-
-    if (config?.filter && !config.filter(item)) {
-      trace.event('FILTERED_OUT', { slug });
-      trace.end();
-      return null;
-    }
-
-    console.log('STEP 14 SUCCESS');
-    trace.event('RESULT', {
-      type,
-      slug,
+    await trace.span('COMPILE_PIPELINE', async () => {
+      return buildCompilePipeline(ctx).run();
     });
 
-    trace.end();
-    return {
+    trace.debug('COMPILE_PIPELINE_COMPLETE');
+
+    const entity = await trace.span('BUILD_CONTENT_ENTITY', async () => {
+      return toContentEntity(ctx);
+    });
+
+    trace.debug('CONTENT_ENTITY_CREATED');
+
+    if (config?.includeDrafts) {
+      trace.mark('DRAFT_SKIPPED', { slug });
+      trace.end();
+      return null;
+    }
+
+    const item = await trace.span('BUILD_CONTENT_ITEM', async () => {
+      return toContentItem(entity);
+    });
+
+    trace.debug('CONTENT_ITEM_CREATED');
+
+    if (config?.filter && !config.filter(item)) {
+      trace.mark('FILTERED_OUT', { slug });
+      trace.end();
+      return null;
+    }
+
+    const result = {
       ...item,
       mdxSource: raw.raw,
       toc: extractTOC(raw.raw),
       Content: ctx.compile?.Content,
     };
+
+    trace.mark('RESULT', {
+      type,
+      slug,
+    });
+
+    return result;
   } catch (err) {
-    console.error('GET CONTENT CRASH');
-    console.error(err);
+    trace.error('GET_CONTENT_CRASH', err);
 
     if (err instanceof Error) {
-      console.error(err.stack);
+      trace.error('STACK', err.stack);
     }
 
     throw err;
+  } finally {
+    trace.end();
   }
 }

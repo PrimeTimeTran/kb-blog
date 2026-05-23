@@ -119,7 +119,6 @@ export async function compileWikiMDX(
    */
   let normalized = preprocessEmbeds(source, index);
   normalized = preprocessObsidianLinks(normalized, index, slug);
-  console.log({ normalized });
 
   // Pass tracking parameters down into the sub-component generator closure
   const instanceComponents = createDynamicComponents(context, currentDepth, currentVisited);
@@ -135,7 +134,7 @@ export async function compileWikiMDX(
       remarkMath,
       extractFrontMatter,
       renderCallOuts,
-      renderEmbeds,
+      // renderEmbeds,
       [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [
@@ -160,13 +159,7 @@ export function useMDXComponents(incomingComponents: MDXComponents): MDXComponen
 }
 
 export function createDynamicComponents(context: any, depth = 0, visited = new Set<string>()): MDXComponents {
-  console.log('createDynamicComponents');
   return {
     ...cleanedComponents,
-
-    Embed: (props: any) => {
-      console.log({ props });
-      return <Embed {...props} index={context.index} currentSlug={context.slug} depth={depth} visited={visited} />;
-    },
   };
 }

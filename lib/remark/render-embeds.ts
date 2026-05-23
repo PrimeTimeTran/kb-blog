@@ -4,8 +4,6 @@ export function renderEmbeds(options = {}) {
   return function transformer(tree, file) {
     const registry = file.data.registry;
 
-    console.log('renderEmbeds');
-
     visit(tree, 'paragraph', (node, index, parent) => {
       if (!parent || typeof index !== 'number') return;
 

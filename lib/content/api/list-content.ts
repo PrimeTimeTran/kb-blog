@@ -1,4 +1,5 @@
 import { slug as toSlug } from 'github-slugger';
+import { createTrace } from '@/lib/trace';
 
 import { isPublished } from '../core/is-published';
 
@@ -18,112 +19,152 @@ export async function listContent(
     action?: string;
   } & Record<string, unknown>,
 ) {
-  const { collection, config } = options;
+  const trace = createTrace('content:list');
+  try {
+    const { collection, config } = options;
 
-  const entries = await collection.list();
-  const results: ContentItem[] = [];
-
-  // -----------------------
-  // BUILD PIPELINE RESULTS
-  // -----------------------
-  for (const slug of entries) {
-    const raw = await collection.read(slug);
-    if (!raw) continue;
-
-    const ctx = createPipelineContext({
-      request: {
-        type: query.type,
-        slug,
-      },
-      source: raw.source,
-      raw,
+    trace.setContext({
+      type: query.type,
+      action: query.action,
+      collection: collection.id,
     });
 
-    // ─────────────────────────────
-    // 1. PARSE
-    // ─────────────────────────────
-    const result = await buildParsePipeline(ctx).run(raw);
-    const entity = Object.freeze(toContentEntity(result));
+    trace.mark('REQUEST_RECEIVED');
 
-    // ─────────────────────────────
-    // 4. PUBLISH FILTER
-    // ─────────────────────────────
-    // TESTED:
-    // test/lib/content-pipeline.test.ts
-    // npx vitest. Run these before changing
-    const published = isPublished(entity);
-    if (!published) continue;
-    // purpose of checking the same field twice is that config.includeDrafts is a SYSTEM config whereas the first is USER
-    // if (config?.includeDrafts) continue
+    const entries = await collection.list();
 
-    // ─────────────────────────────
-    // 5. UI PROJECTION
-    // ─────────────────────────────
-    const item = toContentItem(entity);
+    trace.mark('COLLECTION_LISTED', {
+      totalEntries: entries.length,
+    });
 
-    if (item.title && !item.title.trim()) continue;
-    if (item.summary && !item.summary.trim()) continue;
-    // if (config?.filter && !config.filter(item)) continue
+    const results: ContentItem[] = [];
 
-    results.push(item);
-  }
+    for (const slug of entries) {
+      trace.mark('ENTRY_START', { slug });
 
-  // =========================================================
-  // 1. TAG INDEX ROUTE → /tags
-  // =========================================================
-  if (query.action === 'countBy') {
-    const by = query.by as string;
+      const raw = await collection.read(slug);
 
-    const counts: Record<string, number> = {};
-
-    for (const item of results) {
-      const values = item.frontMatter?.[by];
-
-      if (!Array.isArray(values)) continue;
-
-      for (const v of values) {
-        const key = toSlug(String(v));
-        counts[key] = (counts[key] || 0) + 1;
+      if (!raw) {
+        trace.mark('ENTRY_SKIPPED_NO_RAW', { slug });
+        continue;
       }
+
+      const ctx = createPipelineContext({
+        namespace: 'content:list',
+        request: {
+          type: query.type,
+          slug,
+        },
+        source: raw.source,
+        raw,
+      });
+
+      trace.mark('PIPELINE_CREATED', { slug });
+
+      const result = await buildParsePipeline(ctx).run(raw);
+
+      trace.mark('PIPELINE_PARSED', {
+        slug,
+      });
+
+      const entity = Object.freeze(toContentEntity(result));
+      const published = isPublished(entity);
+
+      if (!published) {
+        trace.mark('ENTRY_SKIPPED_UNPUBLISHED', {
+          slug,
+        });
+
+        continue;
+      }
+      const item = toContentItem(entity);
+
+      if (item.title && !item.title.trim()) {
+        trace.mark('ENTRY_SKIPPED_EMPTY_TITLE', {
+          slug,
+        });
+
+        continue;
+      }
+
+      if (item.summary && !item.summary.trim()) {
+        trace.mark('ENTRY_SKIPPED_EMPTY_SUMMARY', {
+          slug,
+        });
+
+        continue;
+      }
+
+      results.push(item);
+
+      trace.mark('ENTRY_ACCEPTED', {
+        slug,
+      });
     }
 
-    return counts;
-  }
+    if (query.action === 'countBy') {
+      const by = query.by as string;
 
-  // =========================================================
-  // 2. FILTERED ROUTE → /tags/react-native
-  // =========================================================
-  if (query.action === 'filterBy') {
-    return filterFor(query, results);
-  }
+      trace.mark('ACTION_COUNT_BY', { by });
 
-  // =========================================================
-  // 3. DEFAULT → full list (optional fallback)
-  // =========================================================
-  if (config?.sort) {
-    results.sort(config.sort);
-  }
+      const counts: Record<string, number> = {};
 
-  return results;
-}
+      for (const item of results) {
+        const values = item.frontMatter?.[by];
 
-function countTags(query: { type: string; action: string } & Record<string, unknown>, results: ContentItem[]) {
-  const by = query.by as string;
+        if (!Array.isArray(values)) continue;
 
-  const counts: Record<string, number> = {};
+        for (const value of values) {
+          const key = toSlug(String(value));
+          counts[key] = (counts[key] || 0) + 1;
+        }
+      }
 
-  for (const item of results) {
-    const values = item.frontMatter?.[by];
+      trace.mark('ACTION_COUNT_BY_COMPLETE', {
+        keys: Object.keys(counts).length,
+      });
 
-    if (!Array.isArray(values)) continue;
+      trace.end();
 
-    for (const v of values) {
-      const key = toSlug(v);
-      counts[key] = (counts[key] || 0) + 1;
+      return counts;
     }
-  }
 
-  return counts;
+    if (query.action === 'filterBy') {
+      trace.mark('ACTION_FILTER_BY');
+
+      const filtered = filterFor(query, results);
+
+      trace.mark('ACTION_FILTER_BY_COMPLETE', {
+        results: Array.isArray(filtered) ? filtered.length : undefined,
+      });
+
+      trace.end();
+
+      return filtered;
+    }
+
+    // ─────────────────────────────
+    // SORT
+    // ─────────────────────────────
+
+    if (config?.sort) {
+      trace.mark('SORTING_RESULTS');
+
+      results.sort(config.sort);
+    }
+
+    trace.mark('REQUEST_COMPLETE', {
+      results: results.length,
+    });
+
+    trace.end();
+
+    return results;
+  } catch (error) {
+    trace.error('Content List', error);
+
+    throw error;
+  }
 }
 
 function filterFor(query: { type: string; action: string } & Record<string, unknown>, results: ContentItem[]) {
