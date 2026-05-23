@@ -1,5 +1,3 @@
-
-
 export const frameworkConfigs = {
   react: {
     importMap: {
@@ -26,7 +24,41 @@ export const frameworkConfigs = {
   },
 } as const;
 
-export function injectReact(compiled: string, importMapScript: string) {
+export function injectReact(App: any, version: number) {
+  return `
+    <html>
+      <body>
+        <div id="root"></div>
+
+        <script>
+          console.log('[IFRAME BOOT] loaded version:', ${version});
+          window.__IFRAME_ALIVE__ = true;
+        </script>
+
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+
+        <script>
+          console.log('[IFRAME AFTER REACT LOAD]');
+
+          try {
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+
+            console.log('[IFRAME BEFORE RENDER]', typeof App);
+
+            ${App ? '' : '// App missing'}
+
+            root.render(React.createElement(App));
+          } catch (e) {
+            console.error('[IFRAME ERROR]', e);
+          }
+        </script>
+      </body>
+    </html>
+  `;
+}
+
+export function injectReact2(compiled: string, importMapScript: string) {
   return `
 <!DOCTYPE html>
 <html>

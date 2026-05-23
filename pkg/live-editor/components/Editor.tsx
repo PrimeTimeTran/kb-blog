@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 
 const AceEditor = dynamic(() => import('react-ace'), { ssr: false });
 
-export function Editor({ mode, value, onChange, expanded = false, highlightActiveLine = false, setEditorReady }) {
+export function Editor({ mode, value, onChange, expanded = false, highlightActiveLine = false }) {
   const [html, setHtml] = useState(``);
 
   const editorRef = useRef(null);
@@ -123,13 +123,13 @@ export function Editor({ mode, value, onChange, expanded = false, highlightActiv
       fontSize={14}
       ref={editorRef}
       name="ace-editor"
-      onChange={onChange}
+      onChange={(code) => {
+        console.log({ code });
+        onChange(code);
+      }}
       theme={editorTheme}
       height={'100%'}
       highlightActiveLine={highlightActiveLine}
-      onLoad={(editor) => {
-        setEditorReady(true);
-      }}
       setOptions={{
         tabSize: 2,
         wrap: false,

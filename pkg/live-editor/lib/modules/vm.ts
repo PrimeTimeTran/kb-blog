@@ -20,6 +20,7 @@ export function createVM(files: Record<string, string>) {
     const code = transform(raw);
 
     const module = { exports: {} as any };
+
     const exports = module.exports;
 
     const fn = new Function('module', 'exports', code);

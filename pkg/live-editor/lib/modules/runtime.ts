@@ -1,13 +1,16 @@
+import { injectReact } from '../frameworks';
 import { createVM } from './vm';
 
-export function createRuntime() {
-  let vm: ReturnType<typeof createVM> | null = null;
+export function createRuntime(vmFactory = createVM) {
+  let vm: ReturnType<typeof vmFactory> | null = null;
 
   function init(files: Record<string, string>) {
-    vm = createVM(files);
+    vm = vmFactory(files);
   }
 
   function run(entry: string) {
+    console.log('[RUNTIME ENTRY]', entry);
+
     if (!vm) {
       throw new Error('[RUNTIME] not initialized');
     }
@@ -25,26 +28,37 @@ export function createRuntime() {
     return App;
   }
 
-  return {
-    init,
-    run,
+  return { init, run };
+}
+
+export function createIframeRuntime(renderId, iframeRef) {
+  const runtime = createRuntime();
+
+  return (vfs, entry) => {
+    renderId.current += 1;
+
+    runtime.init(vfs);
+
+    const App = runtime.run(entry);
+
+    iframeRef.current!.srcdoc = injectReact(App, renderId.current);
   };
 }
 
-function require(file: string) {
-  if (cache[file]) return cache[file];
+// function require(file: string) {
+//   if (cache[file]) return cache[file];
 
-  const node = graph[file];
-  if (!node) throw new Error(`missing: ${file}`);
+//   const node = graph[file];
+//   if (!node) throw new Error(`missing: ${file}`);
 
-  const module = { exports: {} };
-  cache[file] = module.exports;
+//   const module = { exports: {} };
+//   cache[file] = module.exports;
 
-  const fn = new Function('require', 'exports', 'module', node.code);
+//   const fn = new Function('require', 'exports', 'module', node.code);
 
-  const localRequire = (dep: string) => require(resolve(file, dep));
+//   const localRequire = (dep: string) => require(resolve(file, dep));
 
-  fn(localRequire, module.exports, module);
+//   fn(localRequire, module.exports, module);
 
-  return module.exports;
-}
+//   return module.exports;
+// }

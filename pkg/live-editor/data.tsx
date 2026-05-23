@@ -16,6 +16,8 @@ export function injectReact(compiled: string, version: number) {
   <div id="root"></div>
 
   <script>
+    console.log('[WINDOW KEYS]', Object.keys(window));
+    console.log('[APP]', App);
     console.log('[IFRAME RUNTIME START]', ${version})
     const root = ReactDOM.createRoot(document.getElementById('root'))
     try {
