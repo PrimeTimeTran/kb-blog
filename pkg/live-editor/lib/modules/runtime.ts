@@ -1,4 +1,3 @@
-// import { injectReact } from '../frameworks';
 import { createVM } from './vm';
 
 import { injectReact } from '../../initialize';

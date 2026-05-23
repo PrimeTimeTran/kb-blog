@@ -1,54 +1,63 @@
 export function injectReact(compiledCode, version) {
   return `<!DOCTYPE html>
-<html>
-<head>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-  <script src="https://localhost:3000/react.js"></script>
-  <script src="https://localhost:3000/reactdom.js"></script>
-  <script>
-    console.log('[IFRAME BOOT] version:', '${version}');
-  </script>
-  <!-- Force browser to load CDNs sequentially in their own blocks -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    #root {
-      background-color: var(--color-surface);
-    }
-  </style>
-</head>
-<body>
-  <div id="root" class='bg-surface'></div>
+  <html>
+  <head>
     <script>
-    setTimeout(() => {
-      try {
-        console.log('[IFRAME RUNTIME START]', '${version}');
+      console.log('[IFRAME BOOT] version:', '${version}');
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://localhost:3000/react.js"></script>
+    <script src="https://localhost:3000/reactdom.js"></script>
+    <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: #0f0d13;
+    }
 
-        if (typeof ReactDOM === 'undefined') {
-          throw new ReferenceError('ReactDOM is not defined at runtime initialization.');
+    #root {
+      height: 100%;
+      background: #0f0d13;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+      <script>
+      setTimeout(() => {
+        try {
+          console.log('[IFRAME RUNTIME START]', '${version}');
+
+          if (typeof ReactDOM === 'undefined') {
+            throw new ReferenceError('ReactDOM is not defined at runtime initialization.');
+          }
+
+          // 1. Evaluate your compiled code so App is globally available
+          ${compiledCode}
+          console.log('[IFRAME COMPILED EXECUTED]', '${version}');
+
+          // 2. Render the app
+          const root = ReactDOM.createRoot(document.getElementById('root'));
+          root.render(React.createElement(App));
+
+        } catch (err) {
+          console.error('[IFRAME ERROR]', err);
+          document.body.innerHTML =
+            '<pre style="color:red;padding:16px;">' + (err.stack || err) + '</pre>';
         }
-
-        // 1. Evaluate your compiled code so App is globally available
-        ${compiledCode}
-        console.log('[IFRAME COMPILED EXECUTED]', '${version}');
-
-        // 2. Render the app
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(React.createElement(App));
-
-      } catch (err) {
-        console.error('[IFRAME ERROR]', err);
-        document.body.innerHTML =
-          '<pre style="color:red;padding:16px;">' + (err.stack || err) + '</pre>';
-      }
-    }, 0);
-  </script>
-</body>
-</html>`;
+      }, 0);
+    </script>
+  </body>
+  </html>
+  `;
 }
 
-export const initialCode = `function Counter({ label }) {
+export const initialCode = `
+function Counter({ label }) {
   const [count, setCount] = React.useState(0);
   const [step, setStep] = React.useState(1);
   const [locked, setLocked] = React.useState(false);
@@ -157,9 +166,109 @@ function App() {
       {/* counters */}
       <div className="flex gap-6 flex-wrap justify-center">
         <Counter label="alpha" />
-        <Counter label="beta" />
-        <Counter label="gamma" />
       </div>
     </div>
   );
+}
+`;
+
+export const initialCode2 = `
+const COMMANDS = [
+  {
+    title: 'Generate component',
+    description: 'Create a new React component',
+    category: 'Code',
+  },
+  {
+    title: 'Refactor hooks',
+    description: 'Improve hook organization',
+    category: 'Code',
+  },
+  {
+    title: 'Deploy project',
+    description: 'Ship latest changes',
+    category: 'DevOps',
+  },
+  {
+    title: 'Create animation',
+    description: 'Add motion transitions',
+    category: 'Design',
+  },
+  {
+    title: 'Generate docs',
+    description: 'Build markdown documentation',
+    category: 'Docs',
+  },
+]
+
+export default function CommandSearch() {
+  const [query, setQuery] = useState('')
+  const [selected, setSelected] = useState(0)
+
+  const fuse = useMemo(() => {
+    return new Fuse(COMMANDS, {
+      keys: ['title', 'description', 'category'],
+      threshold: 0.4,
+    })
+  }, [])
+
+  const results = useMemo(() => {
+    if (!query) return COMMANDS
+
+    return fuse.search(query).map(r => r.item)
+  }, [query, fuse])
+
+  return (
+    <div className="h-screen overflow-hidden bg-[#0f0d13] text-white p-4">
+      <div className="mx-auto max-w-xl">
+        <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+          <input
+            autoFocus
+            value={query}
+            onChange={e => {
+              setQuery(e.target.value)
+              setSelected(0)
+            }}
+            placeholder="Search commands..."
+            className="w-full border-b border-white/10 bg-transparent px-4 py-4 outline-none"
+          />
+
+          <div className="max-h-[400px] overflow-y-auto p-2">
+            {results.map((item, i) => (
+              <button
+                key={item.title}
+                onMouseEnter={() => setSelected(i)}
+                className={
+                  'w-full rounded-xl p-4 text-left transition ' +
+                  (selected === i
+                    ? 'bg-white/10'
+                    : 'hover:bg-white/5')
+                }
+              >
+                <div className="flex items-center justify-between">
+                  <div className="font-medium">
+                    {item.title}
+                  </div>
+
+                  <div className="text-xs text-white/40">
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="mt-1 text-sm text-white/60">
+                  {item.description}
+                </div>
+              </button>
+            ))}
+
+            {!results.length && (
+              <div className="p-6 text-center text-white/40">
+                No matches found
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }`;

@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import * as Babel from '@babel/standalone';
 
 import { Editor } from '../components/Editor';
-import { useBaseEditor } from '../useBaseEditor';
+import { useBaseEditor } from '../hooks/useBaseEditor';
 import { createIframeRuntime } from '../lib/modules/runtime';
 
 import { initialCode } from '../initialize';
@@ -13,7 +13,7 @@ export const reactCompiler = (code: string) => {
   return (
     Babel.transform(code, {
       presets: ['react'],
-      sourceType: 'module', // 🔥 IMPORTANT
+      sourceType: 'module',
     }).code || ''
   );
 };
@@ -32,12 +32,11 @@ export function EditorPage2() {
       console.log('[PARENT] iframe loaded');
     };
   }, []);
+
   const { code, setCode, setEditorReady } = useBaseEditor({
     initialCode: initialCode,
     runtime,
   });
-
-  console.log('Hi');
 
   return (
     <div className="flex h-screen w-screen overflow-hidden ">
@@ -46,7 +45,11 @@ export function EditorPage2() {
       </div>
 
       <div className="w-1/2 bg-surface">
-        <iframe ref={iframeRef} className="w-full h-full border-0 " sandbox="allow-scripts allow-same-origin" />
+        <iframe
+          ref={iframeRef}
+          className="w-full h-full border-0 bg-surface"
+          sandbox="allow-scripts allow-same-origin"
+        />
       </div>
     </div>
   );

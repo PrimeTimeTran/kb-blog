@@ -1,12 +1,9 @@
 'use client';
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { initialCode } from '../initialize';
 import { Editor } from '../components/Editor';
-import { createIframeRuntime, useBaseEditor } from '../useBaseEditor';
+import { createIframeRuntime, useBaseEditor } from '../hooks/useBaseEditor';
 
-import { nextVfs } from '../generated/next-vfs';
 import { buildTree } from '../lib/core/editor';
-import { useBootOrchestrator } from '../hooks/useBootOrchestrator';
 
 export function EditorPage({ boot, snapshot }) {
   const renderId = useRef(0);
