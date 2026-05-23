@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createRuntime } from '../../lib/modules/runtime';
+import { createRuntime } from '../../lib/runtime';
 
 describe('runtime snapshot safety', () => {
   it('does not allow empty vm execution', () => {

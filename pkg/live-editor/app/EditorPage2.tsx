@@ -5,9 +5,9 @@ import * as Babel from '@babel/standalone';
 
 import { Editor } from '../components/Editor';
 import { useBaseEditor } from '../hooks/useBaseEditor';
-import { createIframeRuntime } from '../lib/modules/runtime';
+import { createIframeRuntime } from '../lib/runtime';
 
-import { initialCode } from '../initialize';
+import { initialCode } from '../HolySpirit';
 
 export const reactCompiler = (code: string) => {
   return (
@@ -22,6 +22,11 @@ export const reactCompiler = (code: string) => {
 export function EditorPage2() {
   const renderId = useRef(0);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  // will probably need to send more than 2 values to the Iframe long term.
+  // Good usecase for a object that we memoize?
+  // const iframeOptions = useRef({ spam: 'foo', ham: 'bar' });
+  // iframeOptions,
   const runtime = useMemo(() => createIframeRuntime(renderId, iframeRef), []);
 
   useEffect(() => {

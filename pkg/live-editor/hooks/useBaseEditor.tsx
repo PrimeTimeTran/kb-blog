@@ -4,8 +4,8 @@ import prettier from 'prettier/standalone';
 import babel from 'prettier/plugins/babel';
 import estree from 'prettier/plugins/estree';
 
-import { injectReact } from '../initialize';
-import { createRuntime } from '../lib/modules/runtime';
+import { injectReact } from '../HolySpirit';
+import { createRuntime } from '../lib/runtime';
 
 export function useBaseEditor({
   initialCode,
@@ -14,6 +14,7 @@ export function useBaseEditor({
   formatter = formatCode,
   autoFormatDelay = 800,
   runtimeDelay = 250,
+  iframeOptions,
 }: {
   runtime: Runtime;
   compiler?: Compiler;
@@ -21,6 +22,7 @@ export function useBaseEditor({
   formatter?: Formatter;
   runtimeDelay?: number;
   autoFormatDelay?: number;
+  iframeOptions?: object;
 }) {
   const [code, setCode] = useState(initialCode);
   const [editorReady, setEditorReady] = useState(false);

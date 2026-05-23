@@ -39,18 +39,18 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
     <li className="select-none">
       <div
         onClick={canToggle ? toggle : undefined}
-        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-(--primary-hover)/40 "
       >
         {/* LEFT: structure control (expand/collapse) */}
         {/* expand/collapse */}
-        <div className="flex items-center gap-1 text-zinc-500">
+        <div className="flex items-center gap-1">
           {canToggle ? (
             <button
               onClick={(e) => {
                 e.stopPropagation();
                 toggle();
               }}
-              className="flex items-center gap-1 rounded px-1 hover:bg-zinc-200 dark:hover:bg-zinc-700"
+              className="flex items-center gap-1 rounded px-1"
             >
               <span className="text-base leading-none">{open ? '▾' : '▸'}</span>
               <span className="text-xs">📁</span>
@@ -63,11 +63,7 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
         {/* RIGHT: navigation (file target) */}
         {href ? (
           <Link scroll={false} href={href} className="flex flex-1 items-center">
-            <span
-              className={`w-full text-sm transition-colors ${
-                router.asPath === href ? 'font-semibold text-blue-600' : 'text-zinc-700 dark:text-zinc-300'
-              }`}
-            >
+            <span className={`w-full text-sm transition-colors ${router.asPath === href ? 'font-semibold ' : ''}`}>
               {item.name}
             </span>
           </Link>

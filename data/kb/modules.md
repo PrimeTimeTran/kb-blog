@@ -1,4 +1,6 @@
-#
+# Overview
+
+Things I've had to deal with to build this site.
 
 ## TOC
 
@@ -52,6 +54,8 @@
 - Deploying
   - pnpm
   - Vercel
+  - ESBuild
+  - Iframes
 
 ## Goal
 

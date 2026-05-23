@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { createIframeRuntime } from '../lib/modules/runtime';
+import { createIframeRuntime } from '../lib/runtime';
 
 vi.mock('../../lib/modules/injectReact', () => {
   return {

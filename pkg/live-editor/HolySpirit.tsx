@@ -5,10 +5,10 @@ export function injectReact(compiledCode, version) {
     <script>
       console.log('[IFRAME BOOT] version:', '${version}');
     </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://localhost:3000/react.js"></script>
     <script src="https://localhost:3000/reactdom.js"></script>

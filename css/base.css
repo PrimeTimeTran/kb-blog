@@ -141,6 +141,9 @@
     margin: 0;
     font-family: var(--font-sans);
   }
+  span {
+    color: var(--color-on-surface);
+  }
   p,
   em,
   strong,
@@ -171,7 +174,6 @@
     --tw-border-color: theme('colors.outline.variant');
     border-color: var(--tw-border-color);
   }
-
   :where(.dark) *,
   :where(.dark) ::after,
   :where(.dark) ::before {

@@ -11,7 +11,7 @@ export * from './core/editor';
 export * from './core/normalize-snapshot';
 export * from './modules/compiler';
 export * from './modules/resolver';
-export * from './modules/runtime';
+export * from './runtime';
 export * from './modules/store';
 export * from './modules/types';
 export * from './modules/vm';

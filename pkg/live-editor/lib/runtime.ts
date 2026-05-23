@@ -1,6 +1,6 @@
-import { createVM } from './vm';
+import { createVM } from './modules/vm';
 
-import { injectReact } from '../../initialize';
+import { injectReact } from '../HolySpirit';
 
 export function createRuntime(vmFactory = createVM) {
   let vm: ReturnType<typeof vmFactory> | null = null;
@@ -42,6 +42,18 @@ export function createIframeRuntime(renderId, iframeRef: React.RefObject<HTMLIFr
 
   return runtime;
 }
+
+export function createIframeRuntime2(renderId, iframeRef: React.RefObject<HTMLIFrameElement>, options) {
+  const runtime = (compiled: string, opts: object) => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+    renderId.current += 1;
+    iframeRef.current!.srcdoc = injectReact(compiled, renderId.current);
+  };
+
+  return runtime;
+}
+
 // export function createIframeRuntime(renderId, iframeRef) {
 //   const runtime = createRuntime();
 
