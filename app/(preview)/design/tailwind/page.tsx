@@ -9,6 +9,13 @@ import { Page3 } from './animated-hover-icons';
 // https://godly.website/website/v-a-c-sreda-242
 
 export default Page;
+const inputBase =
+  'w-full rounded-lg border bg-[var(--surface)] px-4 py-2 outline-none transition ' +
+  'border-[var(--border)] text-[var(--text)] ' +
+  'placeholder:text-[var(--muted)] ' +
+  'focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20';
+
+const buttonBase = 'rounded-lg px-4 py-2 font-medium transition active:scale-[0.98]';
 
 export function Page() {
   // Causes infinite css compilation in root pages
@@ -48,10 +55,11 @@ export function Page() {
   //   return () => window.removeEventListener('mousemove', onMove)
   // }, [])
   return (
-    <div className="base-sc h-full w-full overflow-y-scroll space-y-16 p-8">
+    <div className="h-full w-full overflow-y-scroll max-w-5xl mx-auto space-y-8">
       {/* {renderTextAnimations()} */}
       {/* {renderAnimations()} */}
       {/* PAGE HEADER */}
+
       {renderHeader()}
 
       {/* TYPOGRAPHY */}
@@ -59,6 +67,10 @@ export function Page() {
 
       {/* COLORS */}
       {renderColors()}
+
+      {renderEffects2()}
+
+      {renderInteractionStates()}
 
       {/* SURFACES */}
       {renderSurfaces()}
@@ -80,7 +92,6 @@ export function Page() {
     </div>
   );
 }
-
 function renderTextAnimations() {
   return (
     <section className="space-y-6">
@@ -91,7 +102,6 @@ function renderTextAnimations() {
     </section>
   );
 }
-
 // https://tailwindcss.com/docs/animation
 function renderAnimations() {
   return (
@@ -146,7 +156,6 @@ function renderAnimations() {
     </section>
   );
 }
-
 function renderEffects() {
   return (
     <section className="space-y-6">
@@ -166,24 +175,17 @@ function renderEffects() {
     </section>
   );
 }
-
 function renderInputs() {
   return (
     <section className="space-y-6">
       <SectionTitle title="Inputs / Forms" />
 
       <div className="max-w-xl space-y-4">
-        <input
-          className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900"
-          placeholder="Text input"
-        />
+        <input className={inputBase} placeholder="Text input" />
 
-        <textarea
-          className="min-h-[120px] w-full rounded-lg border border-zinc-300 bg-white px-4 py-2 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-zinc-700 dark:bg-zinc-900"
-          placeholder="Textarea"
-        />
+        <textarea className={`${inputBase} min-h-[120px]`} placeholder="Textarea" />
 
-        <select className="w-full rounded-lg border border-zinc-300 bg-white px-4 py-2 dark:border-zinc-700 dark:bg-zinc-900">
+        <select className={inputBase}>
           <option>Option One</option>
           <option>Option Two</option>
         </select>
@@ -191,38 +193,58 @@ function renderInputs() {
     </section>
   );
 }
-
 function renderButtons() {
   return (
     <section className="space-y-6">
       <SectionTitle title="Buttons / Interactive States" />
 
       <div className="flex flex-wrap gap-4">
-        <button className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 active:scale-95 transition">
+        {/* Primary */}
+        <button
+          className={
+            buttonBase +
+            ' bg-[var(--primary)] text-white ' +
+            'hover:bg-[var(--primary-hover)] ' +
+            'active:bg-[var(--primary-active)]'
+          }
+        >
           Primary
         </button>
 
-        <button className="rounded-lg border border-zinc-300 px-4 py-2 hover:bg-zinc-100 dark:border-zinc-700 dark:hover:bg-zinc-800 transition">
+        {/* Secondary */}
+        <button
+          className={
+            buttonBase +
+            ' bg-[var(--surface-container)] text-[var(--text)] ' +
+            'hover:bg-[var(--surface-container-hover)]'
+          }
+        >
           Secondary
         </button>
 
-        <button className="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600 transition">Destructive</button>
+        {/* Destructive (semantic red stays ok) */}
+        <button className={buttonBase + ' bg-red-500 text-white ' + 'hover:bg-red-600'}>Destructive</button>
 
-        <button className="rounded-lg bg-zinc-200 px-4 py-2 opacity-50 cursor-not-allowed dark:bg-zinc-800">
+        {/* Disabled */}
+        <button
+          disabled
+          className={
+            buttonBase + ' bg-[var(--surface-container)] text-[var(--muted)] ' + 'opacity-60 cursor-not-allowed'
+          }
+        >
           Disabled
         </button>
       </div>
     </section>
   );
 }
-
 function renderFlexAndGrid() {
   return (
     <section className="space-y-6">
       <SectionTitle title="Flexbox / Grid" />
 
       <div className="space-y-6">
-        <div className="flex items-center justify-between rounded-xl bg-zinc-100 p-4 dark:bg-zinc-900">
+        <div className="flex items-center justify-between rounded-xl p-4 bg-[var(--surface-container)] text-[var(--text)]">
           <Box label="left" />
           <Box label="center" />
           <Box label="right" />
@@ -238,13 +260,12 @@ function renderFlexAndGrid() {
     </section>
   );
 }
-
 function renderSpacing() {
   return (
     <section className="space-y-6">
       <SectionTitle title="Spacing / Padding / Gap" />
 
-      <div className="space-y-4">
+      <div className="space-y-4 text-[var(--text)]">
         <div className="flex gap-2">
           <Box label="gap-2" />
           <Box label="gap-2" />
@@ -264,65 +285,95 @@ function renderSpacing() {
         </div>
 
         <div className="flex flex-wrap gap-4">
-          <div className="rounded bg-blue-500 p-1 text-white">p-1</div>
-          <div className="rounded bg-blue-500 p-2 text-white">p-2</div>
-          <div className="rounded bg-blue-500 p-4 text-white">p-4</div>
-          <div className="rounded bg-blue-500 p-8 text-white">p-8</div>
+          <div className="rounded bg-[var(--primary)] p-1 text-white">p-1</div>
+          <div className="rounded bg-[var(--primary)] p-2 text-white">p-2</div>
+          <div className="rounded bg-[var(--primary)] p-4 text-white">p-4</div>
+          <div className="rounded bg-[var(--primary)] p-8 text-white">p-8</div>
         </div>
       </div>
     </section>
   );
 }
-
 function renderSurfaces() {
   return (
     <section className="space-y-6">
       <SectionTitle title="Backgrounds / Surfaces / Borders" />
 
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-xl bg-zinc-100 p-6 dark:bg-zinc-900">bg-zinc-100</div>
+        {/* SURFACE */}
+        <div
+          className="
+            rounded-xl p-6
+            bg-[var(--surface)]
+            text-[var(--on-surface)]
+            border border-[var(--outline-variant)]
+          "
+        >
+          surface
+        </div>
 
-        <div className="rounded-xl border border-zinc-300 p-6 dark:border-zinc-700">Border</div>
+        {/* BORDER EMPHASIS */}
+        <div
+          className="
+            rounded-xl p-6
+            bg-[var(--surface)]
+            text-[var(--on-surface)]
+            border border-[var(--outline)]
+          "
+        >
+          border
+        </div>
 
-        <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-zinc-900">Shadow</div>
+        {/* SHADOW / ELEVATION */}
+        <div
+          className="
+            rounded-xl p-6
+            bg-[var(--surface)]
+            text-[var(--on-surface)]
+            border border-[var(--outline-variant)]
+            shadow-md
+          "
+        >
+          shadow
+        </div>
       </div>
     </section>
   );
 }
-
 function renderColors() {
+  const colors = {
+    red: 'bg-red-500',
+    orange: 'bg-orange-500',
+    amber: 'bg-amber-500',
+    yellow: 'bg-yellow-500',
+    lime: 'bg-lime-500',
+    green: 'bg-green-500',
+    emerald: 'bg-emerald-500',
+    teal: 'bg-teal-500',
+    cyan: 'bg-cyan-500',
+    sky: 'bg-sky-500',
+    blue: 'bg-blue-500',
+    indigo: 'bg-indigo-500',
+    violet: 'bg-violet-500',
+    purple: 'bg-purple-500',
+    pink: 'bg-pink-500',
+    rose: 'bg-rose-500',
+  };
+
   return (
     <section className="space-y-6">
       <SectionTitle title="Colors" />
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-        {[
-          'red',
-          'orange',
-          'amber',
-          'yellow',
-          'lime',
-          'green',
-          'emerald',
-          'teal',
-          'cyan',
-          'sky',
-          'blue',
-          'indigo',
-          'violet',
-          'purple',
-          'pink',
-          'rose',
-        ].map((c) => (
-          <div key={c} className={`rounded-xl border border-zinc-200 p-4 dark:border-zinc-800 bg-${c}-500 text-white`}>
-            {c}
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 text-white">
+        {Object.entries(colors).map(([name, cls]) => (
+          <div key={name} className={`rounded-xl p-4 ${cls}`}>
+            {name}
           </div>
         ))}
       </div>
     </section>
   );
 }
-
 function renderTypography() {
   return (
     <section className="space-y-6">
@@ -364,7 +415,143 @@ function renderTypography() {
     </section>
   );
 }
+function renderInteractionStates() {
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Interaction States" />
 
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* PRIMARY */}
+        <button
+          className="
+            rounded-xl px-4 py-3 text-white font-medium
+            bg-[var(--primary)]
+            hover:bg-[var(--primary-hover)]
+            active:bg-[var(--primary-active)]
+            transition-colors
+          "
+        >
+          Primary Button
+        </button>
+
+        {/* PRIMARY CONTAINER */}
+        <button
+          className="
+            rounded-xl px-4 py-3 font-medium
+            bg-[var(--primary-container)]
+            hover:bg-[var(--primary-container-hover)]
+            active:scale-[0.98]
+            transition-all
+          "
+        >
+          Primary Container
+        </button>
+
+        {/* SECONDARY CONTAINER */}
+        <button
+          className="
+            rounded-xl px-4 py-3 font-medium
+            bg-[var(--secondary-container)]
+            hover:bg-[var(--secondary-container-hover)]
+            active:scale-[0.98]
+            transition-all
+          "
+        >
+          Secondary Container
+        </button>
+
+        {/* SURFACE */}
+        <button
+          className="
+            rounded-xl px-4 py-3 font-medium
+            bg-[var(--surface)]
+            hover:bg-[var(--surface-container-hover)]
+            active:scale-[0.98]
+            transition-all
+          "
+        >
+          Surface
+        </button>
+      </div>
+    </section>
+  );
+}
+function renderEffects2() {
+  return (
+    <section className="space-y-6">
+      <SectionTitle title="Effects" />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          className="
+            h-32 rounded-xl flex items-center justify-center
+            font-semibold text-white
+            bg-[image:var(--gradient-primary)]
+          "
+        >
+          Gradient Primary
+        </div>
+
+        {/* GLASS (FIXED FOR DARK MODE) */}
+        <div
+          className="
+            h-32 rounded-xl flex items-center justify-center font-semibold
+            bg-[var(--glass)]
+            backdrop-blur-md
+            border border-[var(--outline-variant)]
+            text-[var(--on-surface)]
+          "
+        >
+          Glass Effect
+        </div>
+
+        {/* GLOW PRIMARY (FIXED SURFACE + CONTRAST) */}
+        <div
+          className="
+            h-32 rounded-xl flex items-center justify-center font-semibold
+            bg-[var(--surface)]
+            text-[var(--on-surface)]
+            shadow-[var(--glow-primary)]
+            border border-[var(--outline-variant)]
+          "
+        >
+          Primary Glow
+        </div>
+
+        {/* GLOW SECONDARY */}
+        <div
+          className="
+            h-32 rounded-xl flex items-center justify-center font-semibold
+            bg-[var(--surface)]
+            text-[var(--on-surface)]
+            shadow-[var(--glow-secondary)]
+            border border-[var(--outline-variant)]
+          "
+        >
+          Secondary Glow
+        </div>
+
+        {/* SCRIM DEMO (FIXED TEXT + VISIBILITY) */}
+        <div className="relative h-32 rounded-xl overflow-hidden bg-[var(--surface)]">
+          <div className="absolute inset-0 flex items-center justify-center font-medium text-[var(--on-surface)]">
+            Content Behind Scrim
+          </div>
+
+          <div
+            className="
+              absolute inset-0
+              bg-[var(--scrim)]
+              flex items-center justify-center font-semibold
+              text-white
+            "
+          >
+            Scrim Overlay
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 function renderHeader() {
   return (
     <header className="space-y-4 border-b border-zinc-200 pb-8 dark:border-zinc-800">

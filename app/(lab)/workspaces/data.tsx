@@ -14,21 +14,21 @@ import { themes } from './theme';
 // }
 
 export const workspaces: Workspace[] = [
-  // {
-  //   id: 'Tailwind',
-  //   title: 'Tailwind',
-  //   persist: true,
+  {
+    id: 'Tailwind',
+    title: 'Tailwind',
+    persist: true,
 
-  //   theme: {
-  //     ['--background' as any]: '#09090b',
-  //     ['--surface' as any]: '#18181b',
-  //     ['--surface-container' as any]: '#27272a',
-  //     ['--primary' as any]: '#8b5cf6',
-  //     ['--on-background' as any]: '#fafafa',
-  //   },
+    // theme: {
+    //   ['--background' as any]: '#09090b',
+    //   ['--surface' as any]: '#18181b',
+    //   ['--surface-container' as any]: '#27272a',
+    //   ['--primary' as any]: '#8b5cf6',
+    //   ['--on-background' as any]: '#fafafa',
+    // },
 
-  //   component: Tailwind,
-  // },
+    component: Tailwind,
+  },
   // {
   //   id: 'Design System',
   //   title: 'Design System',
@@ -75,16 +75,6 @@ export const workspaces: Workspace[] = [
 
   //   component: TailwindUtilities,
   // },
-  {
-    id: 'light',
-    title: 'Light Sass',
-    persist: true,
-
-    theme: themes.themeLightSaaS,
-
-    // component: MotionWorkspace,
-    component: ProductPageShell,
-  },
 
   {
     id: 'Ocean',
@@ -122,6 +112,16 @@ export const workspaces: Workspace[] = [
 
     theme: themes.themeEditorial,
 
+    component: ProductPageShell,
+  },
+  {
+    id: 'light',
+    title: 'Light Sass',
+    persist: true,
+
+    theme: themes.themeLightSaaS,
+
+    // component: MotionWorkspace,
     component: ProductPageShell,
   },
 ];

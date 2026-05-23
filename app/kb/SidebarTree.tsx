@@ -56,25 +56,25 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
               <span className="text-xs">📁</span>
             </button>
           ) : (
-            <span className="pl-2 text-xs text-zinc-400">📄</span>
+            <span className="pl-2 text-xs text-on-surface">📄</span>
           )}
         </div>
 
         {/* RIGHT: navigation (file target) */}
         {href ? (
           <Link scroll={false} href={href} className="flex flex-1 items-center">
-            <span className={`w-full text-sm transition-colors ${router.asPath === href ? 'font-semibold ' : ''}`}>
+            <span className={`w-full text-sm transition-colors text ${router.asPath === href ? 'font-semibold ' : ''}`}>
               {item.name}
             </span>
           </Link>
         ) : (
-          <span className="flex-1 text-sm text-zinc-700 dark:text-zinc-300">{item.name}</span>
+          <span className="flex-1 text-sm text-on-surface-variant ">{item.name}</span>
         )}
       </div>
 
       {/* children */}
       {hasChildren && open && (
-        <div className="ml-3 border-l border-zinc-200 pl-2">
+        <div className="ml-3 border-l border-zinc-200 pl-2 ">
           <SidebarNode node={item.children} openMap={openMap} setOpenMap={setOpenMap} />
         </div>
       )}
