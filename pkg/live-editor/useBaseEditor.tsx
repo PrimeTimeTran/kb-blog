@@ -4,7 +4,7 @@ import babel from 'prettier/plugins/babel';
 import estree from 'prettier/plugins/estree';
 
 import * as Babel from '@babel/standalone';
-import { injectReact } from './data';
+import { injectReact } from './initialize';
 
 export const reactCompiler = (code: string) => {
   return (

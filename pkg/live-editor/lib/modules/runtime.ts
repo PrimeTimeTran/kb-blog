@@ -1,5 +1,7 @@
-import { injectReact } from '../frameworks';
+// import { injectReact } from '../frameworks';
 import { createVM } from './vm';
+
+import { injectReact } from '../../initialize';
 
 export function createRuntime(vmFactory = createVM) {
   let vm: ReturnType<typeof vmFactory> | null = null;

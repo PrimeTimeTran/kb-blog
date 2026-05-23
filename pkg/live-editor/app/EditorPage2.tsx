@@ -1,11 +1,13 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import * as Babel from '@babel/standalone';
 
 import { Editor } from '../components/Editor';
-import { createIframeRuntime } from '../lib/modules/runtime';
 import { useBaseEditor } from '../useBaseEditor';
+import { createIframeRuntime } from '../lib/modules/runtime';
+
+import { initialCode } from '../initialize';
 
 export const reactCompiler = (code: string) => {
   return (
@@ -30,9 +32,11 @@ export function EditorPage2() {
     };
   }, []);
   const { code, setCode, compiled, editorReady, setEditorReady } = useBaseEditor({
-    initialCode: `console.log('shshshs')`,
+    initialCode: initialCode,
     runtime,
   });
+
+  console.log('Hi');
 
   return (
     <div className="flex h-screen w-screen overflow-hidden bg-black">

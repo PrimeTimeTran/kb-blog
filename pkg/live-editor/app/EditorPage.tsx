@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { initialCode } from '../data';
+import { initialCode } from '../initialize';
 import { Editor } from '../components/Editor';
 import { createIframeRuntime, useBaseEditor } from '../useBaseEditor';
 
