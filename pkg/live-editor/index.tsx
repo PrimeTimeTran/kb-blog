@@ -4,10 +4,7 @@ import { BootSelectPage } from './app/BootSelectPage';
 // import { EditorPage } from './app/EditorPage';
 import { EditorPage2 } from './app/EditorPage2';
 
-// export default BootSelectPage;
-// export default Orchestrator;
-
-function GetPage(key) {
+function getPage(key) {
   switch (key) {
     case 'bootselect':
       return BootSelectPage;
@@ -20,6 +17,6 @@ function GetPage(key) {
       return BootSelectPage;
   }
 }
-const DefaultExport = GetPage('editor');
+const DefaultExport = getPage('editor');
 
 export default DefaultExport;

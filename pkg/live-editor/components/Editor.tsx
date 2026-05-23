@@ -46,7 +46,7 @@ export function Editor({
     onChange(editor.getValue());
   }
 
-  const editorTheme = resolvedTheme === 'light' ? 'xcode' : 'monokai';
+  const editorTheme = resolvedTheme === 'light' ? 'monokai' : 'monokai';
 
   // HOTKEYS
   useEffect(() => {
@@ -87,6 +87,7 @@ export function Editor({
       await import('ace-builds/src-noconflict/mode-jsx');
       await import('ace-builds/src-noconflict/mode-typescript');
       await import('ace-builds/src-noconflict/mode-tsx');
+      await import('ace-builds/src-noconflict/theme-monokai');
 
       setIsEditorReady(true);
     };
@@ -131,7 +132,6 @@ export function Editor({
       ref={editorRef}
       name="ace-editor"
       onChange={(code) => {
-        console.log({ code });
         onChange(code);
       }}
       onLoad={() => {
@@ -140,6 +140,7 @@ export function Editor({
       theme={editorTheme}
       height={'100%'}
       highlightActiveLine={highlightActiveLine}
+      className="bg-surface text-on-surface"
       setOptions={{
         tabSize: 2,
         wrap: false,

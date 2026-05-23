@@ -20,9 +20,10 @@ export const reactCompiler = (code: string) => {
 
 /* -------------------- PAGE -------------------- */
 export function EditorPage2() {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
   const renderId = useRef(0);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const runtime = useMemo(() => createIframeRuntime(renderId, iframeRef), []);
+
   useEffect(() => {
     if (!iframeRef.current) {
       return;
@@ -31,7 +32,7 @@ export function EditorPage2() {
       console.log('[PARENT] iframe loaded');
     };
   }, []);
-  const { code, setCode, compiled, editorReady, setEditorReady } = useBaseEditor({
+  const { code, setCode, setEditorReady } = useBaseEditor({
     initialCode: initialCode,
     runtime,
   });
@@ -39,13 +40,13 @@ export function EditorPage2() {
   console.log('Hi');
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-black">
-      <div className="w-1/2 border-r border-white/10">
+    <div className="flex h-screen w-screen overflow-hidden ">
+      <div className="w-1/2 border-r border-white/10 bg-surface">
         <Editor mode={'jsx'} value={code} onChange={setCode} setEditorReady={setEditorReady} />
       </div>
 
-      <div className="w-1/2 bg-on-surface">
-        <iframe ref={iframeRef} className="w-full h-full border-0" sandbox="allow-scripts allow-same-origin" />
+      <div className="w-1/2 bg-surface">
+        <iframe ref={iframeRef} className="w-full h-full border-0 " sandbox="allow-scripts allow-same-origin" />
       </div>
     </div>
   );
