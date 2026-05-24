@@ -8,24 +8,49 @@ import { logEvent } from './analytics/GoogleAnalytics';
 const ThemeSwitch = () => {
   const [mounted, setMounted] = useState(false);
   const [isSpinning, setIsSpinning] = useState(false);
+
   const { theme, setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return <div className="h-9 w-9" />;
+  // single source of truth (important)
+  const activeTheme = resolvedTheme ?? theme;
+  const isDark = activeTheme === 'dark';
 
-  const isDark = theme === 'dark' || resolvedTheme === 'dark';
+  // apply theme via attribute (NOT inline CSS vars)
+  useEffect(() => {
+    const root = document.documentElement;
+
+    root.dataset.theme = activeTheme;
+
+    // optional fallback vars (only if you still use them elsewhere)
+    if (activeTheme === 'dark') {
+      root.style.setProperty('--bg', '#0b0b0f');
+      root.style.setProperty('--fg', '#ffffff');
+    } else {
+      root.style.setProperty('--bg', '#ffffff');
+      root.style.setProperty('--fg', '#0b0b0f');
+    }
+  }, [activeTheme]);
 
   const onToggleTheme = () => {
+    if (!mounted) return;
+
     setIsSpinning(true);
-    const newTheme = isDark ? 'light' : 'dark';
 
-    // Duration matches the animation timing
-    setTimeout(() => setIsSpinning(false), 500);
+    const nextTheme = isDark ? 'light' : 'dark';
 
-    logEvent('Changes theme', 'Behavior', 'Style', newTheme);
-    setTheme(newTheme);
+    // stop spin after animation
+    window.setTimeout(() => setIsSpinning(false), 500);
+
+    logEvent('Changes theme', 'Behavior', 'Style', nextTheme);
+
+    setTheme(nextTheme);
   };
+
+  if (!mounted) {
+    return <div className="h-9 w-9" />;
+  }
 
   return (
     <button

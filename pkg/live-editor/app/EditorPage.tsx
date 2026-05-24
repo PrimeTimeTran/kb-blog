@@ -1,7 +1,8 @@
 'use client';
 import { useState, useEffect, useMemo, useRef } from 'react';
 import { Editor } from '../components/Editor';
-import { createIframeRuntime, useBaseEditor } from '../hooks/useBaseEditor';
+import { useBaseEditor } from '../hooks/useBaseEditor';
+import { createIframeRuntime } from '../lib/runtime';
 
 import { buildTree } from '../lib/core/editor';
 

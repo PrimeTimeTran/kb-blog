@@ -26,7 +26,7 @@ export function Editor({
   setEditorReady,
   autoHeight = false, // 1. Add this switch prop
   highlightActiveLine = false,
-  showPrintMargin
+  showPrintMargin,
 }) {
   const editorRef = useRef(null);
   const { resolvedTheme } = useTheme();
@@ -74,7 +74,19 @@ export function Editor({
       container.removeEventListener('keydown', handleKeyDown);
     });
   };
-
+  return (
+    <AceEditor
+      mode={mode}
+      theme={editorTheme}
+      value={value ?? ''}
+      onChange={onChange}
+      width="100%"
+      height={autoHeight ? 'auto' : '100%'}
+      setOptions={{
+        useWorker: false,
+      }}
+    />
+  );
   return (
     <AceEditor
       ref={editorRef}

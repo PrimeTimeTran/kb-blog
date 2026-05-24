@@ -1,6 +1,6 @@
 import { createVM } from './modules/vm';
 
-import { injectReact } from '../HolySpirit';
+// import { injectReactShell } from '../HolySpirit';
 
 export function createRuntime(vmFactory = createVM) {
   let vm: ReturnType<typeof vmFactory> | null = null;
@@ -32,12 +32,19 @@ export function createRuntime(vmFactory = createVM) {
   return { init, run };
 }
 
-export function createIframeRuntime(renderId, iframeRef: React.RefObject<HTMLIFrameElement>) {
+export function createIframeRuntime(
+  renderId: React.MutableRefObject<number>,
+  iframeRef: React.RefObject<HTMLIFrameElement>,
+) {
   const runtime = (compiled: string) => {
     const iframe = iframeRef.current;
     if (!iframe) return;
-    renderId.current += 1;
-    iframeRef.current!.srcdoc = injectReact(compiled, renderId.current);
+
+    iframe.contentWindow?.postMessage({
+      type: 'code:update',
+      code: compiled,
+      version: ++renderId.current,
+    });
   };
 
   return runtime;
@@ -48,7 +55,7 @@ export function createIframeRuntime2(renderId, iframeRef: React.RefObject<HTMLIF
     const iframe = iframeRef.current;
     if (!iframe) return;
     renderId.current += 1;
-    iframeRef.current!.srcdoc = injectReact(compiled, renderId.current);
+    // iframeRef.current!.srcdoc = injectReactShell(compiled, renderId.current);
   };
 
   return runtime;
