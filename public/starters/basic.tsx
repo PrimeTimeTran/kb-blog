@@ -1,5 +1,3 @@
-// const { Layers, Sparkles, ArrowRight } = Icon;
-
 function Counter({ label }) {
   const [count, setCount] = React.useState(0);
   const [step, setStep] = React.useState(1);
@@ -62,7 +60,6 @@ function Counter({ label }) {
     </div>
   );
 }
-
 function App() {
   const [themePulse, setThemePulse] = React.useState(0);
   const [globalOffset, setGlobalOffset] = React.useState(0);
@@ -104,7 +101,6 @@ function App() {
           "
         >
           Toggle BG
-          {/* <Sparkles size={16} /> */}
         </button>
 
         {/* PULSE */}
@@ -121,7 +117,6 @@ function App() {
             "
         >
           Pulse
-          {/* <Layers size={16} /> */}
         </button>
 
         {/* SHIFT */}
@@ -138,7 +133,6 @@ function App() {
             "
         >
           Shift
-          {/* <ArrowRight size={16} /> */}
         </button>
       </div>
 

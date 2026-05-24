@@ -27,13 +27,15 @@ export function EditorPage2() {
     setCode(starterCode);
     hydratedRef.current = true;
   }, [starterCode]);
-  
+
   const runtime = useMemo(() => {
     return createIframeRuntime(renderId, iframeRef);
   }, []);
 
   useEffect(() => {
     if (!iframeRef.current || !shell) return;
+    // Use the following to clear the cache/stale code when u see changes aren't reflected immediatel.
+    // iframeRef.current.srcdoc = '';
     iframeRef.current.srcdoc = shell;
   }, [shell]);
 
