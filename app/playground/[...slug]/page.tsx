@@ -1,35 +1,25 @@
-'use client';
+import LiveReactSandbox from '@/pkg/live-editor';
 
-import dynamic from 'next/dynamic';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
+import { getExhibitSlotsFS } from '@/lib/vfs-server';
 
-const dir = `
-.
-├── @left
-│   ├── default.tsx
-├── @right
-│   ├── default.tsx
-├── [slug]
-│   └── page.tsx
-└── layout.tsx
-`;
+export default async function Page({
+  params,
+  searchParams,
+}: {
+  params: Promise<{ slug: string[] }>;
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+  // 1. Await the slug and searchParams
+  const { slug } = await params;
+  const sp = await searchParams;
 
-const PageClient = dynamic(() => import('../PageClient'), {
-  ssr: false,
-  loading: () => <div className="flex-1 animate-pulse bg-gray-100 dark:bg-gray-800 rounded" />,
-});
+  // 2. Extract 'entry' or default to 'page.tsx'
+  const entry = typeof sp.entry === 'string' ? sp.entry : 'page.tsx';
 
-export default function Page() {
-  const pathname = usePathname();
-  const segment = useSelectedLayoutSegment('left');
-  return (
-    <div className="flex flex-col p-2">
-      <h1 className="text-2xl font-bold text-on-surface">{FILE_PATH}</h1>
-      {pathname}
-      <PageClient isCatchAll tree={dir} />
-      {segment}
-    </div>
-  );
+  console.log('Slug:', slug);
+  console.log('Entry point:', entry);
+
+  const initialFiles = getExhibitSlotsFS(slug);
+
+  return <LiveReactSandbox slug={slug} initialFiles={initialFiles} entryPoint={entry} />;
 }
-
-export const FILE_PATH = 'app/playground/[...slug]/page.tsx';

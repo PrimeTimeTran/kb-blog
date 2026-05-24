@@ -1,34 +1,42 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Editor } from '../components/Editor';
-// Leave until you figure out how to properly inject the code from the VFS
-// import { createIframeRuntime } from '../lib/runtime';
+import { Sidebar } from '../components/Sidebar'; // Renamed cleanly
 
-import { useEditorLayout } from '../hooks/ui/useSplitPane';
-import { useStarterCode } from '../hooks/useStarterCode';
+import { useEditorLayout } from '../hooks/ui/useEditorLayout';
+import { useVFS } from '../hooks/useVFS';
 import { useIframeController } from '../hooks/useIframeController';
+import { useStarterCode } from '../hooks/useStarterCode';
 
-export function EditorPage2() {
-  const { shell, starterCode } = useStarterCode();
+interface EditorPage2Props {
+  initialFiles: any;
+}
+
+export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props) {
+  const { shell } = useStarterCode(slug, entryPoint);
+  const vfs = useVFS({
+    entryPoint,
+    slug: slug.join('/'),
+    initialFiles,
+  });
+
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [code, setCode] = useState<string>('');
   const [consoleError, setConsoleError] = useState<string | null>(null);
-
   const layout = useEditorLayout();
 
-  useEffect(() => {
-    if (starterCode && !code) setCode(starterCode);
-  }, [starterCode, code]);
-
+  // 2. Synchronize iframe srcdoc template on initialization
   useEffect(() => {
     if (!iframeRef.current || !shell) return;
     iframeRef.current.srcdoc = shell;
   }, [shell]);
 
+  // 3. Keep the compiler fed with the full file system array and tracking context
   useIframeController(iframeRef, {
-    code,
+    vfs,
+    files: vfs.files, // When this changes, the hook broadcasts to the iframe
+    code: vfs.activeFile?.content ?? '',
     onSuccess: () => setConsoleError(null),
     onError: (payload) => {
       let msg = `❌ Runtime Compilation Error\n\n`;
@@ -39,19 +47,35 @@ export function EditorPage2() {
     },
   });
 
-  if (!shell || !starterCode) return <div className="p-4 text-white">Loading editor...</div>;
+  if (!shell) return <div className="p-4 text-white">Loading runtime container...</div>;
 
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
+      {/* SIDEBAR: Ready to receive feature tabs (File tree, Search, Settings) */}
+      <Sidebar vfs={vfs} files={vfs.files} activePath={vfs.activePath} onSelectFile={vfs.setActivePath} />
+
+      {/* EDITOR PANEL */}
       <aside className="h-full border-r border-white/10 bg-surface" {...layout.editorProps}>
-        <Editor mode="jsx" value={code} onChange={setCode} />
+        {vfs.activeFile ? (
+          <Editor
+            mode={vfs.activeFile.language}
+            value={vfs.activeFile.content}
+            onChange={vfs.updateActiveFileContent}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-zinc-500 font-mono text-xs">
+            Select a file to begin editing
+          </div>
+        )}
       </aside>
 
+      {/* SPLIT HANDLE BAR */}
       <div
         {...layout.mainDragProps}
         className="w-1 cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors"
       />
 
+      {/* PREVIEW RENDERING HUB */}
       <aside className="flex-1 h-full relative bg-surface">
         <iframe
           ref={iframeRef}
@@ -59,6 +83,7 @@ export function EditorPage2() {
           sandbox="allow-scripts allow-same-origin"
         />
 
+        {/* BOTTOM DRAWER CONSOLE ERROR LOGS */}
         {consoleError && (
           <div
             {...layout.consoleProps}

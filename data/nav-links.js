@@ -12,6 +12,11 @@ const headerNavLinks = [
     title: 'K-Base',
     icon: GiGiftOfKnowledge,
   },
+  {
+    href: '/playground',
+    title: 'Playground',
+    icon: GiGiftOfKnowledge,
+  },
   { href: '/', title: 'Blog', icon: RiBloggerLine },
   { href: '/tags', title: 'Tags', icon: TiTags },
   { href: '/dsa', title: 'DSA', icon: SiThealgorithms },

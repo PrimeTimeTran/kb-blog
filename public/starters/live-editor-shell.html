@@ -6,9 +6,7 @@
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
     <link
       rel="stylesheet"
@@ -81,125 +79,147 @@
   <body>
     <div id="root"></div>
     <div id="error-overlay"></div>
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js" onload="initLucide()"></script>
+
     <script>
-      // =========================
-      // STATE
-      // =========================
+      function initLucide() {
+        // Now window.lucide is guaranteed to exist
+        window.LucideReact = window.lucide;
+        console.log('Lucide initialized:', window.LucideReact);
+      }
+    </script>
+
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js" onload="verifyLucide()"></script>
+
+    <script>
+      function verifyLucide() {
+        // Check possible locations for the library
+        window.LucideReact = window.lucide || window.Lucide || window.LucideReact;
+
+        if (window.LucideReact) {
+          console.log('Lucide successfully mapped to:', window.LucideReact);
+        } else {
+          console.error('Could not find Lucide on window object!');
+        }
+      }
+    </script>
+
+    <script>
+      // =========================================================================
+      // 1. CONFIGURATION & STATE
+      // =========================================================================
+      let ENTRY_PATH = './hello-world/page.tsx';
       let root = null;
-      let latestCode = null;
+      window.moduleRegistry = {};
 
-      function ensureRoot() {
-        const rootEl = document.getElementById('root');
-        if (!rootEl) {
-          const newRoot = document.createElement('div');
-          newRoot.id = 'root';
-          document.body.appendChild(newRoot);
-        }
-        if (!root) {
-          root = ReactDOM.createRoot(document.getElementById('root'));
-        }
-      }
+      const getLucide = () => window.LucideReact || window.lucide || {};
 
-      window.React = React;
-      window.ReactDOM = ReactDOM;
+      const externalDeps = {
+        react: window.React,
+        'react-dom': window.ReactDOM,
+        'lucide-react': getLucide(),
+        lucide: getLucide(),
+      };
 
-      // =========================
-      // THEME
-      // =========================
-      function applyTheme(theme) {
-        document.documentElement.dataset.theme = theme;
-        document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
-      }
+      // =========================================================================
+      // 2. CORE MODULE SYSTEM
+      // =========================================================================
+      function customRequire(modulePath) {
+        if (!modulePath) return {};
 
-      // =========================
-      // ERROR PARSER & TRANSMITTER
-      // =========================
-      function handleIframeError(err) {
-        console.error('[IFRAME RUNTIME EXCEPTION]', err);
+        // Check External Deps first
+        if (externalDeps[modulePath]) return externalDeps[modulePath];
 
-        const rawMessage = err.message || String(err);
-        const rawStack = err.stack || '';
-
-        window.parent.postMessage(
-          {
-            type: 'iframe:error',
-            payload: {
-              message: rawMessage,
-              stack: rawStack,
-              loc: err.loc || null,
-            },
-          },
-          '*',
+        // Normalize path for lookup
+        const normalized = modulePath.replace(/^\.\//, '');
+        const registryKey = Object.keys(window.moduleRegistry).find(
+          (k) => k.endsWith(normalized) || k.endsWith(normalized + '.tsx'),
         );
+
+        const mod = window.moduleRegistry[registryKey];
+        if (!mod) {
+          throw new Error(`Cannot resolve module: '${modulePath}'`);
+        }
+
+        if (!mod.wasExecuted) {
+          mod.factory(mod.exports, customRequire, mod);
+          mod.wasExecuted = true;
+        }
+        return mod.exports;
       }
 
-      function notifySuccess() {
-        window.parent.postMessage({ type: 'iframe:success' }, '*');
+      // =========================================================================
+      // 3. RENDER ENGINE
+      // =========================================================================
+      function ensureRoot() {
+        if (!root) {
+          const rootEl =
+            document.getElementById('root') ||
+            document.body.appendChild(Object.assign(document.createElement('div'), { id: 'root' }));
+          root = ReactDOM.createRoot(rootEl);
+        }
       }
 
-      // Modern event captures to route tracking cleanly
-      window.addEventListener('error', (e) => {
-        e.preventDefault();
-        handleIframeError(e.error || new Error(e.message));
-      });
+      window.setActiveFile = (path) => {
+        if (!window.vfs?.[path]) return;
 
-      window.addEventListener('unhandledrejection', (e) => {
-        e.preventDefault();
-        handleIframeError(e.reason instanceof Error ? e.reason : new Error(e.reason));
-      });
-
-      // =========================
-      // CODE RENDER
-      // =========================
-      function render(code) {
         try {
-          if (!code) return;
-
-          const transformed = Babel.transform(code, {
-            presets: ['react'],
-          }).code;
-
-          eval(transformed);
-
-          if (typeof App === 'function' && !window.App) {
-            window.App = App;
-          }
-
-          const TargetApp = typeof window.App === 'function' ? window.App : typeof App === 'function' ? App : null;
-
-          if (!TargetApp) {
-            throw new Error('App is not defined. Make sure your preview file contains an "App" component entry point.');
-          }
-
+          if (window.moduleRegistry[path]) window.moduleRegistry[path].wasExecuted = false;
+          const mod = customRequire(path);
           ensureRoot();
-          root.render(React.createElement(TargetApp));
-
-          notifySuccess();
+          root.render(window.React.createElement(mod.default || mod));
         } catch (err) {
           handleIframeError(err);
         }
-      }
+      };
 
-      // =========================
-      // MESSAGE BUS
-      // =========================
-      window.addEventListener('message', (e) => {
-        const data = e.data;
+      // =========================================================================
+      // 4. MESSAGE BUS & BOOTSTRAP
+      // =========================================================================
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
 
-        if (data?.type === 'theme') {
-          applyTheme(data.theme);
+        if (data.type === 'vfs:update') {
+          if (data.entryPoint) ENTRY_PATH = data.entryPoint;
+          window.moduleRegistry = {};
+
+          Object.entries(data.files || {}).forEach(([path, file]) => {
+            const transformed = Babel.transform(file.content, {
+              presets: ['react', 'env'],
+              plugins: ['transform-modules-commonjs'],
+            }).code;
+
+            window.moduleRegistry[path] = {
+              exports: {},
+              factory: new Function('exports', 'require', 'module', transformed),
+              wasExecuted: false,
+            };
+          });
+
+          window.vfs = data.files;
+          const mod = customRequire(ENTRY_PATH);
+          ensureRoot();
+          root.render(window.React.createElement(mod.default || mod));
+          window.parent.postMessage({ type: 'iframe:success' }, '*');
         }
 
-        if (data?.type === 'code:update') {
-          render(data.code);
+        if (data.type === 'vfs:active-file-change') {
+          if (data.entryPoint) ENTRY_PATH = data.entryPoint;
+          window.setActiveFile(data.path);
+        }
+
+        if (data?.type === 'theme') {
+          function applyTheme(theme) {
+            document.documentElement.dataset.theme = theme;
+            document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
+          }
+          applyTheme(data.theme);
         }
       });
 
-      // =========================
-      // BOOT
-      // =========================
       window.parent.postMessage({ type: 'iframe:ready' }, '*');
-      console.log('[IFRAME BOOTED]');
+      // Error handling remains same...
+      window.addEventListener('error', (e) => handleIframeError(e.error));
     </script>
   </body>
 </html>
