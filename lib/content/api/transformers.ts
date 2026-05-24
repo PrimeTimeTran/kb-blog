@@ -146,13 +146,13 @@ export function preprocessEmbeds(
 
     if (visited.has(targetSlug)) {
       generatedHtml = `
-<div class="border border-error/30 bg-error-container text-on-error-container my-4 rounded-md p-3 text-sm">
+<div class="border border-error/30 bg-error-container text-on-error-container my-4 p-3 text-sm">
   ⚠️ <strong>Recursive loop blocked:</strong> Infinite loop reference to <a href="${cleanHref}" class="underline font-mono">${displayTitle}</a> stopped.
 </div>
 `;
     } else if (depth > 2) {
       generatedHtml = `
-<div class="border border-outline bg-surface-variant text-on-surface-variant my-4 rounded-md p-3 text-xs italic">
+<div class="border border-outline bg-surface-variant text-on-surface-variant my-4 p-3 text-xs italic">
   🔗 Link reference to nested document: <a href="${cleanHref}" class="underline font-medium not-italic">${displayTitle}</a> (Nesting limit reached)
 </div>
 `;
@@ -163,7 +163,7 @@ export function preprocessEmbeds(
       const processedSubContent = preprocessEmbeds(fileData.mdxSource, index, targetSlug, depth + 1, nextVisited);
 
       generatedHtml = `
-<details class="obsidian-embed-container border border-outline bg-surface text-on-surface rounded-lg my-6 overflow-hidden shadow-sm" open>
+<details class="obsidian-embed-container border border-outline bg-surface text-on-surface my-6 overflow-hidden shadow-sm" open>
   <summary class="embed-header flex items-center justify-between px-4 py-2.5 bg-surface-variant/50 border-b border-outline cursor-pointer list-none hover:bg-surface-variant transition-colors select-none">
     <div class="flex items-center gap-2 font-medium text-sm">
       <span class="embed-icon opacity-70">📂</span>

@@ -61,9 +61,9 @@ export function Callout({ type = 'note', title, collapsible, collapsed: initialC
   }
 
   return (
-    <div className={`w-full my-2 rounded-lg border-l-4 ${theme.border} ${theme.bg}`}>
+    <div className={`w-full my-2 border-l-4 ${theme.border} ${theme.bg}`}>
       <div
-        className="flex cursor-pointer items-center justify-between gap-2 rounded-md px-2 py-2 hover:bg-black/5 dark:hover:bg-white/5 select-none"
+        className="flex cursor-pointer items-center justify-between gap-2 px-2 py-1 hover:bg-black/5 dark:hover:bg-white/5 select-none"
         onClick={() => collapsible && setOpen((v) => !v)}
       >
         <div className="flex items-center gap-2 text-sm font-medium">
@@ -76,13 +76,11 @@ export function Callout({ type = 'note', title, collapsible, collapsed: initialC
         )}
       </div>
 
-      {/* Content Body Container */}
       <div
         onClick={handleContentClick}
         className={`
-          border-t border-slate-200 dark:border-slate-800 text-sm leading-relaxed
-          overflow-hidden transition-all duration-300 ease-in-out
-          ${open ? 'max-h-[1200px] opacity-100 p-3' : 'max-h-0 opacity-0 p-0 pointer-events-none'}
+          border-t text-sm leading-relaxed overflow-hidden transition-all duration-300 ease-in-out
+          ${open ? 'max-h-[1200px] opacity-100 p-1' : 'max-h-0 opacity-0 p-0 pointer-events-none'}
         `}
       >
         {children}
