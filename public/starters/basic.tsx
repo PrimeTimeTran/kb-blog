@@ -5,6 +5,34 @@ function App() {
 
   const active = themePulse + globalOffset;
 
+  // =========================
+  // DRAG STATE (NEW)
+  // =========================
+  const [drag, setDrag] = React.useState({ x: 0, y: 0 });
+  const dragging = React.useRef(false);
+  const start = React.useRef({ x: 0, y: 0 });
+
+  function onPointerDown(e) {
+    dragging.current = true;
+    start.current = {
+      x: e.clientX - drag.x,
+      y: e.clientY - drag.y,
+    };
+  }
+
+  function onPointerMove(e) {
+    if (!dragging.current) return;
+
+    setDrag({
+      x: e.clientX - start.current.x,
+      y: e.clientY - start.current.y,
+    });
+  }
+
+  function onPointerUp() {
+    dragging.current = false;
+  }
+
   return (
     <div
       className="
@@ -13,6 +41,9 @@ function App() {
       text-[rgb(var(--fg))]
       bg-[rgb(var(--bg))]
     "
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={onPointerUp}
     >
       {/* ambient background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -26,7 +57,6 @@ function App() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.18),transparent_45%)]" />
         </div>
 
-        {/* slow moving noise glow */}
         <div
           className="absolute inset-0 opacity-30 animate-pulse"
           style={{
@@ -87,17 +117,25 @@ function App() {
         }}
       >
         <div
+          onPointerDown={onPointerDown}
           className="
             relative flex items-center justify-center
             backdrop-blur-xl border border-white/10
             bg-white/5 shadow-2xl shadow-black/40
             transition-all duration-500
+            cursor-grab active:cursor-grabbing
+            select-none
           "
           style={{
             width: `${260 + themePulse * 10}px`,
             height: `${260 + globalOffset * 12}px`,
             borderRadius: `${20 + Math.sin(active * 0.3) * 18}px`,
+
+            // =========================
+            // ONLY CHANGE IS HERE
+            // =========================
             transform: `
+              translate(${drag.x}px, ${drag.y}px)
               rotate(${Math.sin(active * 0.2) * 2}deg)
               scale(${1 + themePulse * 0.03})
             `,
