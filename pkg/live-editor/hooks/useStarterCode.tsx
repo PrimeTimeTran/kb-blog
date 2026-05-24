@@ -9,7 +9,7 @@ export function useStarterCode() {
       .then((r) => r.text())
       .then(setShell);
 
-    fetch('/starters/basic.tsx')
+    fetch('/starters/1.tsx')
       .then((r) => r.text())
       .then(setStarterCode);
   }, []);

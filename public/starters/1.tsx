@@ -199,12 +199,7 @@ function App() {
 
   return (
     <div
-      className="
-        relative h-screen w-screen overflow-hidden
-        flex flex-col items-center justify-center
-        text-[rgb(var(--fg))]
-        bg-[rgb(var(--bg))]
-      "
+      className="relative h-screen w-screen overflow-hidden flex flex-col items-center justify-center text-[rgb(var(--fg))] bg-[rgb(var(--bg))]"
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
       onPointerLeave={onPointerUp}
@@ -230,23 +225,22 @@ function App() {
         />
       </div>
 
-      {/* HEADER */}
-      <div className="relative z-10 text-center mb-10 px-6">
-        <div className="text-sm tracking-widest text-white/40 uppercase">interactive motion sandbox</div>
+      <header className="relative z-10 text-center mb-10 px-6">
+        <div className="text-sm tracking-widest text-[rgb(var(--fg)/0.5)] uppercase">interactive motion sandbox</div>
 
         <div className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
           Play with <span className="text-green-300">state</span>, watch it become{' '}
           <span className="text-blue-300">motion</span>
         </div>
-      </div>
+      </header>
 
-      <div className="relative z-10 flex flex-wrap items-center justify-center gap-3 mb-10 px-4">
+      <section className="relative z-10 flex flex-wrap items-center justify-center gap-3 mb-10 px-4">
         <ControlButton onClick={toggleBacklight} icon={showGrid ? 'lightbulb' : 'lightbulb_circle'}>
-          Backlights
+          Back lights
         </ControlButton>
 
         <ControlButton onClick={grow} icon="zoom_in" variant="green">
-          Grow
+          Scale
         </ControlButton>
 
         <ControlButton onClick={rotate} icon="rotate_right" variant="blue">
@@ -260,21 +254,13 @@ function App() {
         <ControlButton onClick={resetAll} icon="restart_alt" variant="red">
           Reset
         </ControlButton>
-      </div>
+      </section>
 
-      {/* STAGE */}
-      <div className="relative z-10 flex items-center justify-center">
+      <main className="relative z-10 flex items-center justify-center">
         <div
           ref={boxRef}
           onPointerDown={onPointerDown}
-          className="
-            relative flex items-center justify-center
-            backdrop-blur-xl border border-white/10
-            bg-white/5 shadow-2xl shadow-black/40
-            cursor-grab active:cursor-grabbing
-            select-none
-            transition-all duration-500 ease-out
-          "
+          className="relative flex items-center justify-center backdrop-blur-xl border border-white/10 bg-white/5 shadow-2xl shadow-black/40 cursor-grab active:cursor-grabbing select-none transition-all duration-500 ease-out"
           style={{
             width: `${boxWidth}px`,
             height: `260px`,
@@ -292,19 +278,19 @@ function App() {
             }}
           />
 
-          {/* content */}
-          <div className="relative text-center px-6 pointer-events-none">
-            <div className="text-xs text-white/40 uppercase tracking-widest mb-2">living state object</div>
+          <section className="relative text-center px-6 pointer-events-none">
+            <div className="text-xs text-[rgb(var(--fg)/0.5)] uppercase tracking-widest mb-2">living state object</div>
 
             <div className="text-5xl font-bold text-on-background leading-none">
               {shapeMode === 0 ? 'stable' : shapeMode === 1 ? 'morphing' : 'unstable'}
             </div>
-            <div className="text-sm text-white/50 mt-3">
+
+            <div className="text-sm text-[rgb(var(--fg)/0.5)] mt-3">
               scale: {scale} · rotate: {rotationStep} · morphs: {morphs}
             </div>
-          </div>
+          </section>
         </div>
-      </div>
+      </main>
     </div>
   );
 }
