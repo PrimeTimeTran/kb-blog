@@ -16,9 +16,6 @@ export default async function Page({
   // 2. Extract 'entry' or default to 'page.tsx'
   const entry = typeof sp.entry === 'string' ? sp.entry : 'page.tsx';
 
-  console.log('Slug:', slug);
-  console.log('Entry point:', entry);
-
   const initialFiles = getExhibitSlotsFS(slug);
 
   return <LiveReactSandbox slug={slug} initialFiles={initialFiles} entryPoint={entry} />;

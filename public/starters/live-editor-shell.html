@@ -79,29 +79,14 @@
   <body>
     <div id="root"></div>
     <div id="error-overlay"></div>
-    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js" onload="initLucide()"></script>
-
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script>
-      function initLucide() {
-        // Now window.lucide is guaranteed to exist
+      // Wait for the window to be ready
+      window.addEventListener('load', () => {
+        // The UMD build for 'lucide' exposes all icons as properties on window.lucide
         window.LucideReact = window.lucide;
-        console.log('Lucide initialized:', window.LucideReact);
-      }
-    </script>
-
-    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide-react.js" onload="verifyLucide()"></script>
-
-    <script>
-      function verifyLucide() {
-        // Check possible locations for the library
-        window.LucideReact = window.lucide || window.Lucide || window.LucideReact;
-
-        if (window.LucideReact) {
-          console.log('Lucide successfully mapped to:', window.LucideReact);
-        } else {
-          console.error('Could not find Lucide on window object!');
-        }
-      }
+        console.log('Lucide Loaded:', !!window.LucideReact);
+      });
     </script>
 
     <script>
@@ -126,6 +111,10 @@
       // =========================================================================
       function customRequire(modulePath) {
         if (!modulePath) return {};
+
+        if (modulePath === 'lucide-react') {
+          return window.lucide;
+        }
 
         // Check External Deps first
         if (externalDeps[modulePath]) return externalDeps[modulePath];

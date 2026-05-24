@@ -4,7 +4,8 @@ import path from 'path';
 
 import { VirtualFS } from '../pkg/live-editor/hooks/useVFS';
 
-export function getExhibitSlotsFS(slug?: string[]): VirtualFS {
+export function getExhibitSlotsFS(slug = ['hello-world']): VirtualFS {
+  console.log(slug);
   const vfs: VirtualFS = {};
 
   // 1. Resolve target path: Join 'exhibit' + slug array, or default to 'hello-world'

@@ -80,7 +80,7 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
         <iframe
           ref={iframeRef}
           className={`w-full h-full border-0 transition-opacity ${layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''}`}
-          sandbox="allow-scripts allow-same-origin"
+          sandbox="allow-scripts allow-same-origin allow-forms"
         />
 
         {/* BOTTOM DRAWER CONSOLE ERROR LOGS */}

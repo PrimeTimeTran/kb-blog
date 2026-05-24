@@ -5,6 +5,7 @@ import { GoProjectSymlink } from 'react-icons/go';
 import { GiGiftOfKnowledge } from 'react-icons/gi';
 import { SiLibreofficewriter } from 'react-icons/si';
 import { VscPreview } from 'react-icons/vsc';
+import { VscEditorLayout } from 'react-icons/vsc';
 
 const headerNavLinks = [
   {
@@ -15,7 +16,7 @@ const headerNavLinks = [
   {
     href: '/playground',
     title: 'Playground',
-    icon: GiGiftOfKnowledge,
+    icon: VscEditorLayout,
   },
   { href: '/', title: 'Blog', icon: RiBloggerLine },
   { href: '/tags', title: 'Tags', icon: TiTags },
