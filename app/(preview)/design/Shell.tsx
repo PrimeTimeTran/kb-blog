@@ -1,4 +1,4 @@
-import React from 'react';
+'use client';
 import clsx from 'clsx';
 import {
   Users,
@@ -18,8 +18,6 @@ import {
   Box,
   Grid3X3,
 } from 'lucide-react';
-
-// import { themes } from '@/app/(lab)/workspaces/theme'
 
 // -----------------------------------------------------
 // Section types
@@ -112,11 +110,7 @@ export function ProductPageShell() {
       {sections.map((section, index) => (
         <div
           key={section.id}
-          className={clsx(
-            'w-full px-6 py-20',
-            // alternating backgrounds
-            index % 2 === 0 ? 'bg-surface' : 'bg-surface-container',
-          )}
+          className={clsx('w-full px-6 py-20', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container')}
         >
           <div className="mx-auto w-full max-w-6xl">
             <SectionRenderer section={section} />

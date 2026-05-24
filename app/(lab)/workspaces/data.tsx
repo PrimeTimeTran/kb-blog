@@ -6,92 +6,21 @@ import Tailwind from '@/app/(preview)/design/tailwind/page';
 import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities';
 import { ProductPageShell } from '@/app/(preview)/design/Shell';
 import { WorkspaceHero, LargeScrollableSection } from './components';
-import { themes } from './theme';
-// https://prismic.io/blog/css-background-effects
 
-// export function RawHtml({ html }: { html: string }) {
-//   return <div dangerouslySetInnerHTML={{ __html: html }} />
-// }
-
-export const workspaces: Workspace[] = [
+export const workspaces3: Workspace[] = [
   {
-    id: 'Tailwind',
-    title: 'Tailwind',
-    persist: true,
-
-    // theme: {
-    //   ['--background' as any]: '#09090b',
-    //   ['--surface' as any]: '#18181b',
-    //   ['--surface-container' as any]: '#27272a',
-    //   ['--primary' as any]: '#8b5cf6',
-    //   ['--on-background' as any]: '#fafafa',
-    // },
-
-    component: Tailwind,
-  },
-  // {
-  //   id: 'Design System',
-  //   title: 'Design System',
-  //   persist: true,
-
-  //   theme: {
-  //     ['--background' as any]: '#09090b',
-  //     ['--surface' as any]: '#18181b',
-  //     ['--surface-container' as any]: '#27272a',
-  //     ['--primary' as any]: '#8b5cf6',
-  //     ['--on-background' as any]: '#fafafa',
-  //   },
-  //   component: Material,
-  // },
-  // {
-  //   id: 'Space1',
-  //   title: 'Material',
-  //   persist: true,
-
-  //   theme: {
-  //     ['--background' as any]: '#09090b',
-  //     ['--surface' as any]: '#18181b',
-  //     ['--surface-container' as any]: '#27272a',
-  //     ['--primary' as any]: '#8b5cf6',
-  //     ['--on-background' as any]: '#fafafa',
-  //   },
-
-  //   component: Product,
-  // },
-
-  // {
-  //   id: 'theme',
-  //   title: 'Theme Preview',
-  //   persist: true,
-
-  //   theme: {
-  //     '--background': '#0a0a0f',
-  //     '--surface': '#14141c',
-  //     '--surface-container': '#1d1d29',
-  //     '--primary': '#a78bfa',
-  //     '--on-background': '#f5f5f7',
-  //     '--on-surface': '#e4e4e7',
-  //   },
-
-  //   component: TailwindUtilities,
-  // },
-
-  {
-    id: 'Ocean',
+    id: 'ocean',
     title: 'Ocean',
     persist: true,
-
-    theme: themes.themeOcean,
-
-    // component: AlphaWorkspace,
+    theme: 'ocean',
     component: ProductPageShell,
   },
   {
-    id: 'neon-dark',
+    id: 'neon',
     title: 'Neon dark',
     persist: true,
 
-    theme: themes.themeNeonDark,
+    theme: 'neon',
 
     // component: FlexWorkspace,
     component: ProductPageShell,
@@ -101,7 +30,7 @@ export const workspaces: Workspace[] = [
     title: 'Zen',
     persist: true,
 
-    theme: themes.themeZen,
+    theme: 'zen',
 
     component: ProductPageShell,
   },
@@ -110,27 +39,54 @@ export const workspaces: Workspace[] = [
     title: 'Editorial',
     persist: true,
 
-    theme: themes.themeEditorial,
+    theme: 'editorial',
 
     component: ProductPageShell,
   },
   {
     id: 'light',
-    title: 'Light Sass',
+    title: 'Sass',
     persist: true,
 
-    theme: themes.themeLightSaaS,
+    theme: 'sass',
 
     // component: MotionWorkspace,
     component: ProductPageShell,
   },
 ];
+export const workspaces: Workspace[] = [
+  {
+    id: 'design-system',
+    title: 'Design System',
+    persist: true,
+    component: Material,
+  },
+  {
+    id: 'tailwind',
+    title: 'Tailwind',
+    persist: true,
+    component: Tailwind,
+  },
+
+  {
+    id: 'material',
+    title: 'Material',
+    persist: true,
+    component: Product,
+  },
+  {
+    id: 'text-utilities',
+    title: 'Text Utilities',
+    persist: true,
+    component: TailwindUtilities,
+  },
+];
 
 type WorkspaceId = string;
-export const workspaceRegistry = Object.fromEntries(workspaces.map((workspace) => [workspace.id, workspace])) as Record<
-  WorkspaceId,
-  Workspace
->;
+
+export const workspaceRegistry = Object.fromEntries(
+  workspaces.map((workspace) => [workspace.id, workspace]),
+) as unknown as Record<WorkspaceId, Workspace>;
 
 export function MotionWorkspace() {
   return (

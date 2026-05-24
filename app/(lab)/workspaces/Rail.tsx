@@ -5,7 +5,7 @@ import { GrRadialSelected } from 'react-icons/gr';
 
 import { RailState, RailItemProps, RailTileSpec, RailOrientation, ThumbnailConfig, ViewportRailProps } from './types';
 import { workspaceRegistry } from './data';
-import { ThemeProvider } from './theme';
+import { WorkspaceThemeProvider } from './theme';
 
 const CONTROL_LAYOUTS = {
   'tl-horizontal': 'flex flex-row justify-start items-start',
@@ -86,7 +86,7 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
     >
       <div className="absolute inset-0 z-0 bg-surface">
         {Thumbnail ? (
-          <ThemeProvider theme={item.theme}>
+          <WorkspaceThemeProvider theme={item.theme}>
             <div className="h-full w-full overflow-hidden">
               <div
                 style={{
@@ -99,7 +99,7 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
                 <Thumbnail workspaceId={item.id} />
               </div>
             </div>
-          </ThemeProvider>
+          </WorkspaceThemeProvider>
         ) : (
           <div className="flex items-center justify-center">No preview</div>
         )}

@@ -28,6 +28,7 @@
 
   --primary: #6750a4;
   --on-primary: #ffffff;
+  --color-on-primary: #ffffff;
   --primary-container: #eaddff;
   --on-primary-container: #21005d;
   --on-gradient-primary: #ffffff;
@@ -163,6 +164,9 @@
 
   --primary: #d0bcff;
   --on-primary: #21005d;
+  --color-on-primary: #21005d;
+  --color-on-primary: #21005d;
+
   --primary-container: #4f378b;
   --on-primary-container: #eaddff;
 
@@ -233,9 +237,9 @@
 }
 
 /* “I am defining a design token directly.” */
+
 @theme {
   --color-brand: #6750a4;
-
   --color-background: var(--background);
   --color-on-background: var(--on-background);
 
@@ -288,6 +292,8 @@
 
   --color-outline: var(--outline);
   --color-outline-variant: var(--outline-variant);
+
+  --color-on-primary: #ffffff;
 }
 
 /* “I am mapping theme tokens to other CSS variables.” */

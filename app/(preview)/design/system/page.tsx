@@ -4,7 +4,7 @@ export default function MaterialThemePreviewPage() {
       <div className="mx-auto flex max-w-7xl flex-col gap-16 p-8">
         {/* HEADER */}
         <header className="space-y-4">
-          <div className="inline-flex items-center rounded-full bg-primary-container px-3 py-1 text-sm font-medium text-on-primary">
+          <div className="inline-flex items-center rounded-full bg-primary text-on-primary px-3 py-1 text-sm font-medium ">
             Material 3 Theme Preview
           </div>
 
@@ -23,7 +23,7 @@ export default function MaterialThemePreviewPage() {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             <ColorCard title="Primary" className="bg-primary text-on-primary" />
 
-            <ColorCard title="Primary Container" className="bg-primary-container text-on-primary" />
+            <ColorCard title="Primary Container" className="bg-primary-container text-on-primary-container" />
 
             <ColorCard title="Secondary" className="bg-secondary text-on-secondary" />
 
@@ -245,7 +245,7 @@ function ColorCard({ title, className }: { title: string; className?: string }) 
       <div className="space-y-2">
         <h3 className="text-lg font-semibold">{title}</h3>
 
-        <p className="text-sm opacity-80">Material semantic color role</p>
+        <p className="text-sm opacity-90">Material semantic color role</p>
       </div>
     </div>
   );

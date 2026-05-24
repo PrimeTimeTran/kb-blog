@@ -6,6 +6,7 @@ import { WorkspaceShell } from './components';
 import { useLongPress, useViewport } from '@/hooks/useViewport';
 import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types';
 import { PanelTop, PanelBottom, PanelLeft, PanelRight } from 'lucide-react';
+import { WorkspaceThemeProvider } from './theme';
 
 const Z = {
   base: 0,
@@ -101,14 +102,12 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
           const Component = workspace.component;
 
           return (
-            <div
-              key={workspace.id}
-              style={workspace.theme}
-              className="relative h-full w-full shrink-0 overflow-hidden bg-background"
-            >
-              <WorkspaceShell>
-                <Component workspaceId={workspace.id} />
-              </WorkspaceShell>
+            <div key={workspace.id} className="relative h-full w-full shrink-0 overflow-hidden bg-background">
+              <WorkspaceThemeProvider theme={workspace.theme}>
+                <WorkspaceShell workspace={workspace} viewport={viewport}>
+                  <Component workspaceId={workspace.id} />
+                </WorkspaceShell>
+              </WorkspaceThemeProvider>
             </div>
           );
         })}
@@ -116,6 +115,7 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
     </div>
   );
 }
+
 function ViewportController({ viewport }: ViewportControllerProps) {
   const { interactRail, handleLongPress } = viewport;
 

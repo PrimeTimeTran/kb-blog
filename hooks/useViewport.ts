@@ -1,4 +1,4 @@
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 import {
   WorkspaceId,
@@ -6,7 +6,6 @@ import {
   ViewportAPI,
   RailState,
   RailPosition,
-  RailOrientation,
 } from '@/app/(lab)/workspaces/types';
 
 export function useLongPress(onLongPress: () => void, delay = 500) {
@@ -58,15 +57,17 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const [rail, setRail] = useState<RailState>({
     open: true,
     anchor: 'br',
-    position: 'right',
+    position: 'bottom',
   });
   // =======================================================
   // Derived
   // =======================================================
-  const orientation: RailOrientation =
-    rail.position === 'left' || rail.position === 'right' ? 'vertical' : 'horizontal';
-  const isVertical = orientation === 'vertical';
-  const isHorizontal = orientation === 'horizontal';
+  const orientation = useMemo(() => {
+    return rail.position === 'left' || rail.position === 'right' ? 'vertical' : 'horizontal';
+  }, [rail.position]);
+
+  const isHorizontal = orientation == 'horizontal';
+  const isVertical = orientation == 'vertical';
 
   // =======================================================
   // Navigation
@@ -86,28 +87,33 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const interactRail = useCallback((anchor: RailState['anchor']) => {
     setRail((current) => {
       animateRef.current = false;
+
       const isSameAnchor = current.anchor === anchor;
 
-      // 🔴 CASE 1: CLOSED → ALWAYS OPEN AT BASE (NO PIVOT)
+      // 🔴 CLOSED → OPEN AT BASE
       if (!current.open) {
         return {
+          ...current,
+          open: true,
           anchor,
           position: ANCHOR_BASE[anchor],
-          open: true,
         };
       }
 
-      // 🔵 CASE 2: OPEN + SAME ANCHOR → PIVOT
+      // 🔵 SAME ANCHOR → PIVOT (cycle)
       if (isSameAnchor) {
+        const next = nextPivotPosition(current);
+
         return {
           ...current,
-          position: nextPivotPosition(current),
+          position: next,
           open: true,
         };
       }
 
-      // 🟢 CASE 3: OPEN + DIFFERENT ANCHOR → REBASE
+      // 🟢 DIFFERENT ANCHOR → REBASE (RESET PIVOT CHAIN)
       return {
+        ...current,
         anchor,
         position: ANCHOR_BASE[anchor],
         open: true,
@@ -162,6 +168,7 @@ const LOCAL_CYCLES = {
   bl: ['left', 'top', 'right', 'bottom'],
   br: ['bottom', 'left', 'top', 'right'],
 } as const;
+
 function nextPivotPosition(state: RailState): RailPosition {
   const cycle = LOCAL_CYCLES[state.anchor];
   const currentIndex = cycle.indexOf(state.position);

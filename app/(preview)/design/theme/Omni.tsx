@@ -13,82 +13,80 @@ export function OmniShowcase() {
 
   return (
     <div className="h-full min-h-0 flex flex-col">
-      <BaseScroll>
-        <div className="min-h-screen bg-surface">
-          <header className="p-6 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl sticky top-0 z-40 space-y-6">
-            <div className="max-w-7xl mx-auto flex justify-between items-center">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
-                  <HiCube size={24} />
-                </div>
-                <div>
-                  <div className="flex items-center gap-2">
-                    <h1 className="text-xl font-black tracking-tight leading-none">OMNI UI</h1>
-                    <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[10px] font-black uppercase">
-                      {resolvedTheme}
-                    </span>
-                  </div>
-                  <p className="text-[9px] font-bold opacity-40 uppercase tracking-widest mt-1">Material HCT Logic</p>
-                </div>
+      <div className="min-h-screen bg-surface">
+        <header className="p-6 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl sticky top-0 z-40 space-y-6">
+          <div className="max-w-7xl mx-auto flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
+                <HiCube size={24} />
               </div>
-
-              <div className="flex items-center gap-4">
-                {/* Theme Toggle */}
-                <button
-                  onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                  className="p-2.5 rounded-xl bg-surface-container-highest text-primary hover:scale-105 active:scale-95 transition-all border border-outline-variant/50"
-                >
-                  {resolvedTheme === 'dark' ? <HiSun size={18} /> : <HiMoon size={18} />}
-                </button>
+              <div>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-xl font-black tracking-tight leading-none">OMNI UI</h1>
+                  <span className="px-2 py-0.5 rounded-md bg-primary/10 text-primary text-[10px] font-black uppercase">
+                    {resolvedTheme}
+                  </span>
+                </div>
+                <p className="text-[9px] font-bold opacity-40 uppercase tracking-widest mt-1">Material HCT Logic</p>
               </div>
             </div>
 
-            {/* Tab Navigation Row */}
-            <nav className="max-w-7xl mx-auto flex items-center gap-1 overflow-x-auto no-scrollbar">
-              {TABS.map((tab) => {
-                const isActive = currentTab === tab.id;
-                return (
-                  <button
-                    key={tab.id}
-                    onClick={() => setCurrentTab(tab.id)}
-                    className={`
+            <div className="flex items-center gap-4">
+              {/* Theme Toggle */}
+              <button
+                onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+                className="p-2.5 rounded-xl bg-surface-container-highest text-primary hover:scale-105 active:scale-95 transition-all border border-outline-variant/50"
+              >
+                {resolvedTheme === 'dark' ? <HiSun size={18} /> : <HiMoon size={18} />}
+              </button>
+            </div>
+          </div>
+
+          {/* Tab Navigation Row */}
+          <nav className="max-w-7xl mx-auto flex items-center gap-1 overflow-x-auto no-scrollbar">
+            {TABS.map((tab) => {
+              const isActive = currentTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setCurrentTab(tab.id)}
+                  className={`
                   relative px-4 py-2 rounded-full text-sm font-bold transition-all
                   ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low'}
                 `}
-                  >
-                    <span className="relative z-10 flex items-center gap-2">
-                      <span className="text-xs">{tab.icon}</span>
-                      {tab.label}
-                    </span>
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    <span className="text-xs">{tab.icon}</span>
+                    {tab.label}
+                  </span>
 
-                    {/* Active Indicator Pill */}
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-primary-container rounded-full z-0"
-                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                      />
-                    )}
-                  </button>
-                );
-              })}
-            </nav>
-          </header>
+                  {/* Active Indicator Pill */}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTab"
+                      className="absolute inset-0 bg-primary-container rounded-full z-0"
+                      transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </nav>
+        </header>
 
-          {/* Main Content Area */}
-          <main className="max-w-7xl mx-auto p-6 lg:p-12">
-            <motion.div
-              key={currentTab}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-            >
-              {renderTabs(currentTab)}
-            </motion.div>
-          </main>
-        </div>
-      </BaseScroll>
+        {/* Main Content Area */}
+        <main className="max-w-7xl mx-auto p-6 lg:p-12">
+          <motion.div
+            key={currentTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderTabs(currentTab)}
+          </motion.div>
+        </main>
+      </div>
     </div>
   );
 

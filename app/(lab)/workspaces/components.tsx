@@ -1,9 +1,32 @@
-// REQUIRED
-// Wrapping for components in order to not break scroll
-export function WorkspaceShell({ children }) {
+import { useEffect, useLayoutEffect, useRef } from 'react';
+
+export function WorkspaceShell({ viewport, workspace, children }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(() => {
+  //   setScrollRoot(window.__workspaceScrollRef?.current ?? window);
+  // }, []);
+  // 👇 expose globally (simple version)
+  useEffect(() => {
+    window.__workspaceScrollRef = scrollRef;
+  }, []);
+  useLayoutEffect(() => {
+    if (viewport.activeId !== workspace.id) return;
+
+    const hash = window.location.hash.slice(1);
+    if (!hash) return;
+
+    const el = scrollRef.current?.querySelector(`#${hash}`);
+    if (!el) return;
+
+    requestAnimationFrame(() => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, [viewport.activeId, workspace.id]);
+
   return (
-    <div className="h-full w-full min-h-0 overflow-hidden">
-      <div className="h-full w-full min-h-0 overflow-y-auto">{children}</div>
+    <div ref={scrollRef} className="h-full w-full overflow-y-auto bg-background">
+      {children}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { RefObject } from 'react';
 import { useViewport } from '@/hooks/useViewport';
+import { themes } from './theme';
 
 export type WorkspaceId = string;
 export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview';
@@ -7,12 +8,12 @@ export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview';
 export type RailOrientation = 'horizontal' | 'vertical';
 export type RailPosition = 'left' | 'right' | 'top' | 'bottom';
 export type RailAnchor = 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+
 export type Workspace = {
   id: string;
   title: string;
   persist?: boolean;
-  theme?: React.CSSProperties;
-  // component: ReturnType<typeof Viewport>
+  theme?: keyof typeof themes;
   component: React.ComponentType<WorkspaceComponentProps>;
 };
 export type WorkspaceComponentProps = {
