@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import { vfsAPI, VirtualFS } from '../hooks/useVFS';
 
 interface TreeNode {
   name: string;
@@ -10,6 +11,7 @@ interface TreeNode {
 }
 
 interface SidebarProps {
+  vfs: vfsAPI;
   files: Record<string, any>;
   activePath: string;
 }

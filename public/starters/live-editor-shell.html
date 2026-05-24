@@ -5,8 +5,11 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
     <link
       rel="stylesheet"
@@ -78,21 +81,190 @@
 
   <body>
     <div id="root"></div>
-    <div id="error-overlay"></div>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <div
+      id="error-overlay"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
+    ></div>
     <script>
-      // Wait for the window to be ready
-      window.addEventListener('load', () => {
-        // The UMD build for 'lucide' exposes all icons as properties on window.lucide
-        window.LucideReact = window.lucide;
-        console.log('Lucide Loaded:', !!window.LucideReact);
-      });
+      const reportError = (err) => {
+        console.error('Module System Error:', err);
+        // Send to parent so you can see it in the UI console
+        window.parent.postMessage({ type: 'iframe:error', payload: { message: err.message, stack: err.stack } }, '*');
+      };
+      function resolveModulePath(from, request) {
+        // external deps stay untouched
+        if (!request.startsWith('.')) return request;
+
+        const stack = from.split('/');
+        stack.pop(); // remove file name
+
+        const parts = request.split('/');
+
+        for (const part of parts) {
+          if (part === '.' || part === '') continue;
+          if (part === '..') stack.pop();
+          else stack.push(part);
+        }
+
+        let resolved = stack.join('/');
+
+        // extension resolution
+        const candidates = [
+          resolved,
+          resolved + '.tsx',
+          resolved + '.ts',
+          resolved + '.js',
+          resolved + '/index.tsx',
+          resolved + '/index.ts',
+          resolved + '/index.js',
+        ];
+
+        return candidates;
+      }
+      // =========================================================================
+      // 1. DYNAMIC DEPENDENCY RESOLVER
+      // =========================================================================
+      const getExternalDep = (name) => {
+        const deps = {
+          react: window.React,
+          'react-dom': window.ReactDOM,
+          'lucide-react': window.lucide,
+          lucide: window.lucide,
+        };
+        return deps[name];
+      };
+
+      window.clearErrorOverlay = () => {
+        const overlay = document.getElementById('error-overlay');
+        if (overlay) {
+          overlay.innerHTML = ''; // Remove the text
+          overlay.style.display = 'none'; // Hide the box
+          overlay.style.pointerEvents = 'none'; // Ensure you can click the app again
+        }
+      };
+
+      window.AppCore = {
+        root: null, // Encapsulate root here
+        onError: (error, babelError) => {
+          const overlay = document.getElementById('error-overlay');
+          Object.assign(overlay.style, {
+            position: 'fixed',
+            top: '0',
+            left: '0',
+            width: '100vw',
+            height: '100vh',
+            zIndex: '999999',
+            pointerEvents: 'all',
+            backgroundColor: 'rgba(0, 0, 0, 0.85)',
+            display: 'flex',
+          });
+
+          // 3. Assign it once
+          overlay.innerHTML = error;
+        },
+        ensureRoot: () => {
+          if (!window.AppCore.root) {
+            const rootEl =
+              document.getElementById('root') ||
+              document.body.appendChild(Object.assign(document.createElement('div'), { id: 'root' }));
+            window.AppCore.root = ReactDOM.createRoot(rootEl);
+          }
+          return window.AppCore.root;
+        },
+
+        render: (path) => {
+          try {
+            const mod = customRequire(path);
+            const root = window.AppCore.ensureRoot();
+            root.render(window.React.createElement(mod.default || mod));
+            window.clearErrorOverlay();
+            return true;
+          } catch (err) {
+            // DO NOT root.render(...) here.
+            // Just notify the parent. The parent's console drawer will handle the error.
+            window.parent.postMessage(
+              {
+                type: 'iframe:error',
+                payload: { message: err.message, stack: err.stack, loc: err.loc },
+              },
+              '*',
+            );
+            return false;
+          }
+        },
+
+        syncRegistry: (files) => {
+          window.moduleRegistry = {};
+          Object.entries(files || {}).forEach(([path, file]) => {
+            try {
+              const transformed = Babel.transform(file.content, {
+                presets: ['react', 'env'],
+                plugins: ['transform-modules-commonjs'],
+              }).code;
+
+              window.moduleRegistry[path] = {
+                exports: {},
+                factory: new Function('exports', 'require', 'module', transformed),
+                wasExecuted: false,
+              };
+            } catch (babelError) {
+              console.error(`Babel Error in ${path}:`, babelError);
+
+              const rootEl = document.getElementById('root');
+              if (rootEl) {
+                const error = `<pre style="color: #ff5555; padding: 20px; font-family: monospace;" className='fixed top-0 left-0 w-full h-full bg-surface'>Syntax Error in ${path}:${babelError.loc ? `\nLine ${babelError.loc.line}` : ''}\n${babelError.message}</pre>`;
+                window.AppCore.onError(error, babelError);
+              }
+              window.parent.postMessage(
+                {
+                  type: 'iframe:error',
+                  payload: { message: babelError.message, loc: babelError.loc, babelMessage: babelError.message },
+                },
+                '*',
+              );
+
+              throw babelError;
+            }
+          });
+        },
+      };
+
+      // =========================================================================
+      // 3. UPDATED CUSTOM REQUIRE
+      // =========================================================================
+      function customRequire(modulePath) {
+        if (!modulePath) return {};
+
+        // 1. External Deps
+        const external = getExternalDep(modulePath);
+        if (external) return external;
+
+        // 2. Normalize and Search
+        // Remove ./ prefix if it exists, and ensure no leading slash
+        const normalized = modulePath.replace(/^\.\//, '').replace(/^\//, '');
+
+        const registryKey = Object.keys(window.moduleRegistry).find((k) => {
+          const cleanKey = k.replace(/^\.\//, '').replace(/^\//, '');
+          return cleanKey === normalized || cleanKey === normalized + '.tsx' || cleanKey === normalized + '.ts';
+        });
+
+        const mod = window.moduleRegistry[registryKey];
+
+        if (!mod) {
+          throw new Error(
+            `Cannot resolve module: '${modulePath}'. Available: ${Object.keys(window.moduleRegistry).join(', ')}`,
+          );
+        }
+
+        if (!mod.wasExecuted) {
+          mod.factory(mod.exports, customRequire, mod);
+          mod.wasExecuted = true;
+        }
+        return mod.exports;
+      }
     </script>
 
     <script>
-      // =========================================================================
-      // 1. CONFIGURATION & STATE
-      // =========================================================================
       let ENTRY_PATH = './hello-world/page.tsx';
       let root = null;
       window.moduleRegistry = {};
@@ -105,41 +277,6 @@
         'lucide-react': getLucide(),
         lucide: getLucide(),
       };
-
-      // =========================================================================
-      // 2. CORE MODULE SYSTEM
-      // =========================================================================
-      function customRequire(modulePath) {
-        if (!modulePath) return {};
-
-        if (modulePath === 'lucide-react') {
-          return window.lucide;
-        }
-
-        // Check External Deps first
-        if (externalDeps[modulePath]) return externalDeps[modulePath];
-
-        // Normalize path for lookup
-        const normalized = modulePath.replace(/^\.\//, '');
-        const registryKey = Object.keys(window.moduleRegistry).find(
-          (k) => k.endsWith(normalized) || k.endsWith(normalized + '.tsx'),
-        );
-
-        const mod = window.moduleRegistry[registryKey];
-        if (!mod) {
-          throw new Error(`Cannot resolve module: '${modulePath}'`);
-        }
-
-        if (!mod.wasExecuted) {
-          mod.factory(mod.exports, customRequire, mod);
-          mod.wasExecuted = true;
-        }
-        return mod.exports;
-      }
-
-      // =========================================================================
-      // 3. RENDER ENGINE
-      // =========================================================================
       function ensureRoot() {
         if (!root) {
           const rootEl =
@@ -150,15 +287,17 @@
       }
 
       window.setActiveFile = (path) => {
-        if (!window.vfs?.[path]) return;
+        if (!window.AppCore.render(path)) {
+          return;
+        }
 
         try {
           if (window.moduleRegistry[path]) window.moduleRegistry[path].wasExecuted = false;
           const mod = customRequire(path);
-          ensureRoot();
+          window.AppCore.ensureRoot();
           root.render(window.React.createElement(mod.default || mod));
         } catch (err) {
-          handleIframeError(err);
+          reportError(err);
         }
       };
 
@@ -167,48 +306,41 @@
       // =========================================================================
       window.addEventListener('message', ({ data }) => {
         if (!data?.type) return;
+        switch (data.type) {
+          case 'vfs:update':
+            if (data.entryPoint) ENTRY_PATH = data.entryPoint;
 
-        if (data.type === 'vfs:update') {
-          if (data.entryPoint) ENTRY_PATH = data.entryPoint;
-          window.moduleRegistry = {};
+            // Use the helper
+            window.AppCore.syncRegistry(data.files);
+            window.vfs = data.files;
 
-          Object.entries(data.files || {}).forEach(([path, file]) => {
-            const transformed = Babel.transform(file.content, {
-              presets: ['react', 'env'],
-              plugins: ['transform-modules-commonjs'],
-            }).code;
+            // Use the helper
+            if (AppCore.render(ENTRY_PATH)) {
+              window.parent.postMessage({ type: 'iframe:success' }, '*');
+            }
+            break;
 
-            window.moduleRegistry[path] = {
-              exports: {},
-              factory: new Function('exports', 'require', 'module', transformed),
-              wasExecuted: false,
-            };
-          });
+          case 'vfs:active-file-change':
+            if (data.entryPoint) ENTRY_PATH = data.entryPoint;
+            window.AppCore.render(data.path);
+            break;
 
-          window.vfs = data.files;
-          const mod = customRequire(ENTRY_PATH);
-          ensureRoot();
-          root.render(window.React.createElement(mod.default || mod));
-          window.parent.postMessage({ type: 'iframe:success' }, '*');
-        }
-
-        if (data.type === 'vfs:active-file-change') {
-          if (data.entryPoint) ENTRY_PATH = data.entryPoint;
-          window.setActiveFile(data.path);
-        }
-
-        if (data?.type === 'theme') {
-          function applyTheme(theme) {
-            document.documentElement.dataset.theme = theme;
-            document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
-          }
-          applyTheme(data.theme);
+          case 'theme':
+            document.documentElement.dataset.theme = data.theme;
+            document.body.style.background = data.theme === 'dark' ? '#0b0b0f' : '#ffffff';
+            break;
         }
       });
+      window.addEventListener('error', (e) => reportError(e));
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        window.LucideReact = window.lucide;
+        console.log('Environment Ready');
 
-      window.parent.postMessage({ type: 'iframe:ready' }, '*');
-      // Error handling remains same...
-      window.addEventListener('error', (e) => handleIframeError(e.error));
+        // Notify parent we are ready to receive messages
+        window.parent.postMessage({ type: 'iframe:ready' }, '*');
+      });
     </script>
   </body>
 </html>

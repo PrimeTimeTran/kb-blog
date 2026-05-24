@@ -3,6 +3,17 @@ import { useState, useEffect, useMemo } from 'react';
 
 export type VirtualFS = Record<string, { content: string; language: string }>;
 
+export type vfsAPI = {
+  files: VirtualFS;
+  activePath: string;
+  activeFile: {
+    content: string;
+    language: string;
+  };
+  handleFileSelect: (path: string) => void;
+  updateActiveFileContent: (newContent: string) => void;
+  setActivePath: (path: string) => void;
+};
 export function useVFS({
   entryPoint,
   slug,
@@ -11,7 +22,7 @@ export function useVFS({
   entryPoint: string;
   slug: string;
   initialFiles: VirtualFS;
-}) {
+}): vfsAPI {
   const [files, setFiles] = useState<VirtualFS>(initialFiles);
 
   // 1. Normalize the entry path format to match the keys in 'initialFiles'
@@ -52,8 +63,7 @@ export function useVFS({
       console.warn(`[VFS] Active file not found: ${activePath}. Available:`, Object.keys(files));
     }
   }, [activeFile, activePath, files]);
-
-  return {
+  const vfsApi = {
     files,
     activePath,
     activeFile,
@@ -61,4 +71,5 @@ export function useVFS({
     updateActiveFileContent,
     setActivePath: (path: string) => setActivePath(getCanonicalPath(path)),
   };
+  return vfsApi;
 }

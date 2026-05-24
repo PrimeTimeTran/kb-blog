@@ -1,3 +1,122 @@
+export default function App() {
+  const {
+    boxRef,
+    onPointerDown,
+    onPointerMove,
+    onPointerUp,
+    active,
+    scale,
+    rotationStep,
+    showGrid,
+    shapeMode,
+    shape,
+    boxWidth,
+    grow,
+    rotate,
+    cycleShape,
+    toggleBacklight,
+    resetAll,
+    morphs,
+  } = useMotionBox();
+
+  return (
+    <div
+      className="relative h-screen w-screen overflow-hidden flex flex-col items-center justify-center text-[rgb(var(--fg))] bg-[rgb(var(--bg))]"
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerLeave={onPointerUp}
+    >
+      {/* background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div
+          className={`
+            absolute inset-0 transition-opacity duration-700
+            ${showGrid ? 'opacity-100' : 'opacity-0'}
+          `}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.18),transparent_45%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.18),transparent_45%)]" />
+        </div>
+
+        <div
+          className="absolute inset-0 opacity-30 animate-pulse"
+          style={{
+            filter: 'blur(60px)',
+            transform: `scale(${1 + active * 0.02})`,
+          }}
+        />
+      </div>
+
+      <header className="relative z-10 text-center mb-10 px-6">
+        <div className="text-sm tracking-widest text-[rgb(var(--fg)/0.5)] uppercase">interactive motion sandbox</div>
+
+        <div className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
+          Play with <span className="text-green-300">state</span>, watch it become{' '}
+          <span className="text-blue-300">motion</span>
+        </div>
+      </header>
+
+      <section className="relative z-10 flex flex-wrap items-center justify-center gap-3 mb-10 px-4">
+        <ControlButton onClick={toggleBacklight} icon={showGrid ? 'lightbulb' : 'lightbulb_circle'}>
+          Back lights
+        </ControlButton>
+
+        <ControlButton onClick={grow} icon="zoom_in" variant="green">
+          Scale
+        </ControlButton>
+
+        <ControlButton onClick={rotate} icon="rotate_right" variant="blue">
+          Rotate
+        </ControlButton>
+
+        <ControlButton onClick={cycleShape} icon="category" variant="purple">
+          Morph
+        </ControlButton>
+
+        <ControlButton onClick={resetAll} icon="restart_alt" variant="red">
+          Reset
+        </ControlButton>
+      </section>
+
+      <main className="relative z-10 flex items-center justify-center">
+        <div
+          ref={boxRef}
+          onPointerDown={onPointerDown}
+          className="relative flex items-center justify-center backdrop-blur-xl border border-white/10 bg-white/5 shadow-2xl shadow-black/40 cursor-grab active:cursor-grabbing select-none transition-all duration-500 ease-out"
+          style={{
+            width: `${boxWidth}px`,
+            height: `260px`,
+            borderRadius: `${shape.r + Math.sin(active * 0.3) * 10}px`,
+            transform: `none`,
+          }}
+        >
+          {/* glow */}
+          <div
+            className="absolute inset-0 rounded-2xl opacity-60"
+            style={{
+              background: `radial-gradient(circle at 30% 30%, rgba(34,197,94,0.2), transparent 60%),
+                           radial-gradient(circle at 70% 70%, rgba(59,130,246,0.2), transparent 60%)`,
+              filter: 'blur(20px)',
+            }}
+          />
+
+          <section className="relative text-center px-6 pointer-events-none">
+            <div className="text-xs text-[rgb(var(--fg)/0.5)] uppercase tracking-widest mb-2">living state object</div>
+
+            <div className="text-5xl font-bold text-on-background leading-none">
+              {shapeMode === 0 ? 'stable' : shapeMode === 1 ? 'morphing' : 'unstable'}
+            </div>
+
+            <div className="text-sm text-[rgb(var(--fg)/0.5)] mt-3">
+              scale: {scale} · rotate: {rotationStep} · morphs: {morphs}
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}
+
 function Icon({ name, className = '' }) {
   return (
     <span className={`material-symbols-outlined ${className}`} style={{ userSelect: 'none' }}>
@@ -174,123 +293,4 @@ function useMotionBox() {
     resetAll,
     morphs,
   };
-}
-
-export default function App() {
-  const {
-    boxRef,
-    onPointerDown,
-    onPointerMove,
-    onPointerUp,
-    active,
-    scale,
-    rotationStep,
-    showGrid,
-    shapeMode,
-    shape,
-    boxWidth,
-    grow,
-    rotate,
-    cycleShape,
-    toggleBacklight,
-    resetAll,
-    morphs,
-  } = useMotionBox();
-
-  return (
-    <div
-      className="relative h-screen w-screen overflow-hidden flex flex-col items-center justify-center text-[rgb(var(--fg))] bg-[rgb(var(--bg))]"
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerLeave={onPointerUp}
-    >
-      {/* background */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className={`
-            absolute inset-0 transition-opacity duration-700
-            ${showGrid ? 'opacity-100' : 'opacity-0'}
-          `}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.18),transparent_45%)]" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.18),transparent_45%)]" />
-        </div>
-
-        <div
-          className="absolute inset-0 opacity-30 animate-pulse"
-          style={{
-            filter: 'blur(60px)',
-            transform: `scale(${1 + active * 0.02})`,
-          }}
-        />
-      </div>
-
-      <header className="relative z-10 text-center mb-10 px-6">
-        <div className="text-sm tracking-widest text-[rgb(var(--fg)/0.5)] uppercase">interactive motion sandbox</div>
-
-        <div className="text-4xl md:text-5xl font-bold mt-3 leading-tight">
-          Play with <span className="text-green-300">state</span>, watch it become{' '}
-          <span className="text-blue-300">motion</span>
-        </div>
-      </header>
-
-      <section className="relative z-10 flex flex-wrap items-center justify-center gap-3 mb-10 px-4">
-        <ControlButton onClick={toggleBacklight} icon={showGrid ? 'lightbulb' : 'lightbulb_circle'}>
-          Back lights
-        </ControlButton>
-
-        <ControlButton onClick={grow} icon="zoom_in" variant="green">
-          Scale
-        </ControlButton>
-
-        <ControlButton onClick={rotate} icon="rotate_right" variant="blue">
-          Rotate
-        </ControlButton>
-
-        <ControlButton onClick={cycleShape} icon="category" variant="purple">
-          Morph
-        </ControlButton>
-
-        <ControlButton onClick={resetAll} icon="restart_alt" variant="red">
-          Reset
-        </ControlButton>
-      </section>
-
-      <main className="relative z-10 flex items-center justify-center">
-        <div
-          ref={boxRef}
-          onPointerDown={onPointerDown}
-          className="relative flex items-center justify-center backdrop-blur-xl border border-white/10 bg-white/5 shadow-2xl shadow-black/40 cursor-grab active:cursor-grabbing select-none transition-all duration-500 ease-out"
-          style={{
-            width: `${boxWidth}px`,
-            height: `260px`,
-            borderRadius: `${shape.r + Math.sin(active * 0.3) * 10}px`,
-            transform: `none`,
-          }}
-        >
-          {/* glow */}
-          <div
-            className="absolute inset-0 rounded-2xl opacity-60"
-            style={{
-              background: `radial-gradient(circle at 30% 30%, rgba(34,197,94,0.2), transparent 60%),
-                           radial-gradient(circle at 70% 70%, rgba(59,130,246,0.2), transparent 60%)`,
-              filter: 'blur(20px)',
-            }}
-          />
-
-          <section className="relative text-center px-6 pointer-events-none">
-            <div className="text-xs text-[rgb(var(--fg)/0.5)] uppercase tracking-widest mb-2">living state object</div>
-
-            <div className="text-5xl font-bold text-on-background leading-none">
-              {shapeMode === 0 ? 'stable' : shapeMode === 1 ? 'morphing' : 'unstable'}
-            </div>
-
-            <div className="text-sm text-[rgb(var(--fg)/0.5)] mt-3">
-              scale: {scale} · rotate: {rotationStep} · morphs: {morphs}
-            </div>
-          </section>
-        </div>
-      </main>
-    </div>
-  );
 }

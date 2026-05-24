@@ -1,22 +1,25 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import { JSX, useEffect, useRef, useState } from 'react';
 
 import { Editor } from '../components/Editor';
-import { Sidebar } from '../components/Sidebar'; // Renamed cleanly
+import { Sidebar } from '../components/Sidebar';
 
 import { useEditorLayout } from '../hooks/ui/useEditorLayout';
-import { useVFS } from '../hooks/useVFS';
+import { useVFS, vfsAPI } from '../hooks/useVFS';
 import { useIframeController } from '../hooks/useIframeController';
 import { useStarterCode } from '../hooks/useStarterCode';
 
-interface EditorPage2Props {
+interface EditorProps {
+  slug: string;
   initialFiles: any;
+  entryPoint: string;
 }
 
-export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props) {
+export function EditorPage2({ slug, entryPoint, initialFiles }: EditorProps): JSX.Element {
   const { shell } = useStarterCode(slug, entryPoint);
-  const vfs = useVFS({
+  const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const vfs: vfsAPI = useVFS({
     entryPoint,
     slug: slug.join('/'),
     initialFiles,
@@ -26,24 +29,29 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
   const [consoleError, setConsoleError] = useState<string | null>(null);
   const layout = useEditorLayout();
 
-  // 2. Synchronize iframe srcdoc template on initialization
   useEffect(() => {
     if (!iframeRef.current || !shell) return;
     iframeRef.current.srcdoc = shell;
   }, [shell]);
 
-  // 3. Keep the compiler fed with the full file system array and tracking context
   useIframeController(iframeRef, {
     vfs,
-    files: vfs.files, // When this changes, the hook broadcasts to the iframe
+    files: vfs.files,
     code: vfs.activeFile?.content ?? '',
-    onSuccess: () => setConsoleError(null),
+    onSuccess: () => {
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+      setConsoleError(null);
+    },
     onError: (payload) => {
-      let msg = `❌ Runtime Compilation Error\n\n`;
-      if (payload.loc) msg += `Line ${payload.loc.line}, Col ${payload.loc.column}\n`;
-      msg += `${payload.message}\n\n`;
-      if (payload.stack) msg += `Stack Trace:\n${payload.stack.split('\n').slice(0, 6).join('\n')}`;
-      setConsoleError(msg);
+      if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
+
+      errorTimeoutRef.current = setTimeout(() => {
+        let msg = `❌ Runtime Compilation Error\n\n`;
+        if (payload.loc) msg += `Line ${payload.loc.line}, Col ${payload.loc.column}\n`;
+        msg += `${payload.message}\n\n`;
+        console.log('Parent');
+        setConsoleError(msg + '\n' + payload.stack);
+      }, 700);
     },
   });
 
@@ -51,10 +59,8 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
 
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
-      {/* SIDEBAR: Ready to receive feature tabs (File tree, Search, Settings) */}
-      <Sidebar vfs={vfs} files={vfs.files} activePath={vfs.activePath} onSelectFile={vfs.setActivePath} />
+      <Sidebar vfs={vfs} files={vfs.files} activePath={vfs.activePath} />
 
-      {/* EDITOR PANEL */}
       <aside className="h-full border-r border-white/10 bg-surface" {...layout.editorProps}>
         {vfs.activeFile ? (
           <Editor
@@ -69,13 +75,11 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
         )}
       </aside>
 
-      {/* SPLIT HANDLE BAR */}
       <div
         {...layout.mainDragProps}
         className="w-1 cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors"
       />
 
-      {/* PREVIEW RENDERING HUB */}
       <aside className="flex-1 h-full relative bg-surface">
         <iframe
           ref={iframeRef}
@@ -83,7 +87,6 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
           sandbox="allow-scripts allow-same-origin allow-forms"
         />
 
-        {/* BOTTOM DRAWER CONSOLE ERROR LOGS */}
         {consoleError && (
           <div
             {...layout.consoleProps}
@@ -91,9 +94,9 @@ export function EditorPage2({ slug, entryPoint, initialFiles }: EditorPage2Props
           >
             <div
               {...layout.consoleDragProps}
-              className="h-2 w-full cursor-row-resize bg-red-500/10 hover:bg-red-500/30 border-b border-red-500/20 transition-colors shrink-0"
+              className="h-2 w-full cursor-row-resize bg-surface border-b border-red-500/20 transition-colors shrink-0"
             />
-            <pre className="flex-1 w-full text-red-400 p-5 font-mono text-xs whitespace-pre-wrap overflow-y-auto">
+            <pre className="flex-1 w-full text-red-400 p-5 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
               {consoleError}
             </pre>
           </div>
