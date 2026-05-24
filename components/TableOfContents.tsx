@@ -1,3 +1,8 @@
+'use client';
+import React, { useEffect } from 'react';
+import { getHeadingColor } from '@/lib/theme/theme.cjs';
+import { useScroll } from '@/providers/ScrollProvider';
+import { TOCItemData, useTableOfContents } from '@/hooks/useTOC';
 /**
  * ============================
  *  TOC / DATA CONTRACT LESSON
@@ -84,28 +89,60 @@
  * ============================
  */
 
-'use client';
-import { useEffect } from 'react';
-import { getHeadingColor } from '@/lib/theme/theme.cjs';
-import { useScroll } from '@/providers/ScrollProvider';
+export default function TableOfContents({ toc }: { toc: TOCItemData[] }) {
+  const { activeId, setToc } = useScroll();
 
-// Prior, Active, Upcoming items indicated by scroll spy.
-function TOCItem({ item, activeId, index, items, scrollRootRef }) {
-  const isActive = activeId === item.url;
+  const { itemRefs, getItemState } = useTableOfContents(toc, activeId);
 
-  const activeIndex = items?.findIndex((i) => i.url === activeId) ?? -1;
-  const isPassed = activeIndex !== -1 && index < activeIndex;
+  useEffect(() => {
+    setToc(toc);
+  }, [toc, setToc]);
 
+  if (!toc?.length) {
+    return <div>Empty TOC</div>;
+  }
+
+  return (
+    <aside className="border-l border-white/10 max-h-screen overflow-y-auto text-xs">
+      {toc.map((item, index) => {
+        const { isActive, isPassed } = getItemState(index, item);
+
+        return (
+          <TOCItem
+            key={item.url}
+            item={item}
+            index={index}
+            isActive={isActive}
+            isPassed={isPassed}
+            ref={(el) => {
+              if (el) itemRefs.current.set(item.url, el);
+            }}
+          />
+        );
+      })}
+    </aside>
+  );
+}
+
+type TOCItemProps = {
+  item: TOCItemData;
+  index: number;
+  isActive: boolean;
+  isPassed: boolean;
+};
+
+export const TOCItem = React.forwardRef<HTMLDivElement, TOCItemProps>(({ item, isActive, isPassed }, ref) => {
   const level = item.depth ?? 1;
   const indent = (level - 1) * 16;
   const colorClass = getHeadingColor(level);
 
   return (
     <div
+      ref={ref}
       className={`
-      transition-all hover:bg-surface-variant w-full text-left flex items-center
-      ${isActive ? 'border-l-2' : ''} 
-    `}
+          py-0.5 px-2 text-xs transition-all hover:bg-surface-variant w-full text-left flex items-center
+          ${isActive ? 'border-l-2' : ''}
+        `}
       style={{
         paddingLeft: `${indent}px`,
         borderColor: isActive ? 'var(--primary)' : 'var(--outline-variant)',
@@ -116,33 +153,15 @@ function TOCItem({ item, activeId, index, items, scrollRootRef }) {
       <a
         href={item.url}
         className={`
-        /* ✓ RESETS: Reset font sizing, spacing, and casing back to navigation defaults */
-        block w-full truncate px-2 py-1.5 text-sm normal-case font-normal no-underline tracking-normal m-0
-        ${colorClass}
-        ${isActive ? 'font-bold text-on-primary-container' : 'text-on-surface-variant'}
-      `}
+            block w-full truncate px-2 py-1.5 text-sm normal-case font-normal no-underline tracking-normal m-0
+            ${colorClass}
+            ${isActive ? 'font-bold text-on-primary-container' : 'text-on-surface-variant'}
+          `}
       >
         {item.value}
       </a>
     </div>
   );
-}
-export default function TableOfContents({ toc }) {
-  const { activeId, setToc } = useScroll();
+});
 
-  useEffect(() => {
-    setToc(toc);
-  }, [toc, setToc]);
-
-  if (toc.length === 0) {
-    return <div>Empty TOC</div>;
-  }
-
-  return (
-    <aside className="border-0 border-l-0">
-      {toc.map((item, index) => (
-        <TOCItem key={item.url} item={item} activeId={activeId} index={index} items={toc} />
-      ))}
-    </aside>
-  );
-}
+TOCItem.displayName = 'TOCItem';

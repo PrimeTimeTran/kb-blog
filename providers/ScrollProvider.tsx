@@ -1,13 +1,24 @@
 'use client';
 
-import { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useRef, useState } from 'react';
 
 import { useScrollState } from '../hooks/useScrollState';
+import { TOCItemData } from '@/hooks/useTOC';
 
-const ScrollContext = createContext(null);
+type ScrollContextValue = {
+  activeId: string | null;
+  shrunk: boolean;
+  toc: TOCItemData[];
+  setToc: (toc: TOCItemData[]) => void;
+  scrollProgress: number;
+  scrollY: number;
+  setScrollEl: (el: HTMLElement | null) => void;
+};
+
+export const ScrollContext = createContext<ScrollContextValue | null>(null);
 
 export function ScrollProvider({ children }) {
-  const [toc, setToc] = useState([]);
+  const [toc, setToc] = useState<TOCItemData[]>([]);
 
   // DOM element lives here
   const scrollElRef = useRef(null);
@@ -28,22 +39,16 @@ export function ScrollProvider({ children }) {
    * Derived scroll state (single source of truth)
    */
   const { shrunk, activeId, scrollProgress, scrollY } = useScrollState(scrollEl, toc);
-
-  return (
-    <ScrollContext.Provider
-      value={{
-        activeId,
-        shrunk,
-        toc,
-        setToc,
-        scrollProgress,
-        scrollY,
-        setScrollEl,
-      }}
-    >
-      {children}
-    </ScrollContext.Provider>
-  );
+  const value: ScrollContextValue = {
+    activeId,
+    shrunk,
+    toc,
+    setToc,
+    scrollProgress,
+    scrollY,
+    setScrollEl,
+  };
+  return <ScrollContext.Provider value={value}>{children}</ScrollContext.Provider>;
 }
 
 export function useScroll() {
