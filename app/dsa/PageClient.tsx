@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { BaseScroll } from '@/components/BaseScroll';
 import { CenterRegion } from '@/components/layout/CenterRegion';
 
-import { Solution } from '@/components/Solution.jsx';
+import { Solution } from '@/components/Solution';
 
 import { useProblemEngine } from '@/hooks/useProblemEngine';
 import { Tooltip } from '@/components/ToolTip';

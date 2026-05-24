@@ -1,155 +1,119 @@
-import { useMemo, useRef, useEffect, useState } from 'react';
-import { useTheme } from '@teispace/next-themes';
-import dynamic from 'next/dynamic';
+'use client';
 
-const AceEditor = dynamic(() => import('react-ace'), { ssr: false });
+import dynamic from 'next/dynamic';
+import { useTheme } from '@teispace/next-themes';
+import { useMemo, useRef, useEffect } from 'react';
+import { initAceExtensions } from '@/lib/syntax-registry';
+
+const AceEditor = dynamic(
+  async () => {
+    const aceModule = await import('react-ace');
+    await initAceExtensions();
+    return aceModule.default;
+  },
+  {
+    ssr: false,
+    // This handles the loading view perfectly while the chunk down-streams on the client
+    loading: () => <div className="p-4 text-xs font-mono text-zinc-500">Loading code editor...</div>,
+  },
+);
 
 export function Editor({
   mode,
   value,
   onChange,
-  setEditorReady = false,
-  expanded = false,
+  expanded = false, // 1. Catch the expanded flag from your Solution wrapper
+  setEditorReady,
+  autoHeight = false, // 1. Add this switch prop
   highlightActiveLine = false,
+  showPrintMargin
 }) {
-  const [html, setHtml] = useState(``);
-
   const editorRef = useRef(null);
-  const [editorReady, setIsEditorReady] = useState(false);
   const { resolvedTheme } = useTheme();
 
-  // expose ace instance safely
-  const getEditor = () => editorRef.current?.editor;
-
-  // CMD + X (cut line / selection)
-  function cut() {
-    const editor = getEditor();
-    if (!editor) return;
-
-    const range = editor.getSelectionRange();
-
-    if (range.isEmpty()) {
-      const row = range.start.row;
-      editor.session.removeFullLines(row, row);
-    } else {
-      editor.session.remove(range);
-    }
-
-    onChange(editor.getValue());
-  }
-  // CMD + / (toggle comment)
-  function toggleComment() {
-    const editor = getEditor();
-    if (!editor) return;
-
-    editor.toggleCommentLines();
-    onChange(editor.getValue());
-  }
-
-  const editorTheme = resolvedTheme === 'light' ? 'monokai' : 'monokai';
-
-  // HOTKEYS
+  // Keep a mutable reference to onChange to prevent state closures in hotkey loops
+  const onChangeRef = useRef(onChange);
   useEffect(() => {
-    const editor = getEditor();
-    if (!editor) return;
+    onChangeRef.current = onChange;
+  }, [onChange]);
 
-    const handler = (e) => {
-      const isMac = navigator.platform.includes('Mac');
+  // 2. Alert Ace to redraw its internal canvas layers when toggling expand states
+  useEffect(() => {
+    if (editorRef.current?.editor) {
+      editorRef.current.editor.resize();
+    }
+  }, [expanded]);
+
+  const editorTheme = useMemo(() => {
+    return resolvedTheme === 'dark' ? 'tomorrow_night' : 'chrome';
+  }, [resolvedTheme]);
+
+  const handleEditorLoad = (editorInstance) => {
+    if (setEditorReady) setEditorReady(true);
+
+    const handleKeyDown = (e) => {
+      const isMac = navigator.userAgent.includes('Mac');
       const cmd = isMac ? e.metaKey : e.ctrlKey;
-
       if (!cmd) return;
 
       const key = e.key.toLowerCase();
-
       if (key === 'x') {
         e.preventDefault();
-        cut();
+        cut(editorInstance, onChangeRef.current);
       }
-
       if (key === '/') {
         e.preventDefault();
-        toggleComment();
+        toggleComment(editorInstance, onChangeRef.current);
       }
     };
 
-    editor.container.addEventListener('keydown', handler);
+    const container = editorInstance.container;
+    container.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      editor.container.removeEventListener('keydown', handler);
-    };
-  }, []);
-
-  useEffect(() => {
-    const loadAceModules = async () => {
-      await import('ace-builds/src-noconflict/ace');
-      await import('ace-builds/src-noconflict/theme-xcode');
-      await import('ace-builds/src-noconflict/mode-javascript');
-      await import('ace-builds/src-noconflict/mode-jsx');
-      await import('ace-builds/src-noconflict/mode-typescript');
-      await import('ace-builds/src-noconflict/mode-tsx');
-      await import('ace-builds/src-noconflict/theme-monokai');
-
-      setIsEditorReady(true);
-    };
-
-    loadAceModules();
-  }, []);
-  useEffect(() => {
-    if (!editorRef.current) return;
-
-    setEditorReady(true);
-  }, []);
-
-  const srcDoc = useMemo(() => html, [html]);
-  if (!editorReady) {
-    return <h1>loading</h1>;
-  }
-
-  if (mode == 'html') {
-    <div className="grid grid-cols-2 h-screen">
-      <AceEditor
-        mode="html"
-        theme="monokai"
-        value={html}
-        onChange={setHtml}
-        width="100%"
-        height="100%"
-        setOptions={{
-          useWorker: false,
-        }}
-      />
-
-      <iframe srcDoc={srcDoc} className="w-full h-full bg-white" sandbox="allow-scripts" />
-    </div>;
-  }
+    editorInstance.on('destroy', () => {
+      container.removeEventListener('keydown', handleKeyDown);
+    });
+  };
 
   return (
     <AceEditor
-      mode={mode || 'jsx'}
-      width="100%"
-      value={value}
-      fontSize={14}
       ref={editorRef}
       name="ace-editor"
-      onChange={(code) => {
-        onChange(code);
-      }}
-      onLoad={() => {
-        setEditorReady(true);
-      }}
+      mode={mode}
       theme={editorTheme}
-      height={'100%'}
+      value={value}
+      onChange={onChange}
+      width="100%"
+      height={autoHeight ? 'auto' : '100%'}
       highlightActiveLine={highlightActiveLine}
-      className="bg-surface text-on-surface"
       setOptions={{
-        tabSize: 2,
-        wrap: false,
-        useSoftTabs: true,
         useWorker: false,
-        showLineNumbers: true,
-        enableLiveAutocompletion: true,
-        enableBasicAutocompletion: true,
+        maxLines: autoHeight ? (expanded ? Infinity : 10) : undefined,
+        minLines: autoHeight ? 10 : undefined,
+        autoScrollEditorIntoView: autoHeight,
       }}
+      onLoad={handleEditorLoad}
     />
   );
+}
+function cut(editor, onChange) {
+  if (!editor) return;
+
+  const range = editor.getSelectionRange();
+
+  if (range.isEmpty()) {
+    const row = range.start.row;
+    editor.session.removeFullLines(row, row);
+  } else {
+    editor.session.remove(range);
+  }
+
+  onChange(editor.getValue());
+}
+// CMD + / (toggle comment)
+function toggleComment(editor, onChange) {
+  if (!editor) return;
+
+  editor.toggleCommentLines();
+  onChange(editor.getValue());
 }

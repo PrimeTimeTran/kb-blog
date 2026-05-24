@@ -44,9 +44,15 @@ export function EditorPage2() {
   });
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden ">
-      <div className="w-1/2 border-r border-white/10 bg-surface">
-        <Editor mode={'jsx'} value={code} onChange={setCode} setEditorReady={setEditorReady} />
+    <div className="flex h-screen w-screen overflow-hidden">
+      <div className="w-1/2 border-r border-white/10 bg-surface h-full">
+        <Editor
+          mode="jsx"
+          value={code}
+          onChange={setCode}
+          setEditorReady={setEditorReady}
+          // autoHeight={false} <- Default behavior fills up layout frames
+        />
       </div>
 
       <div className="w-1/2 bg-surface">

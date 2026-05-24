@@ -134,7 +134,7 @@ export async function compileWikiMDX(
       remarkMath,
       extractFrontMatter,
       renderCallOuts,
-      // renderEmbeds,
+      renderEmbeds,
       [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [

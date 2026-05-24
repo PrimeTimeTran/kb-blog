@@ -184,8 +184,8 @@ class Solution:
       {
         title: 'x',
         body: '',
-        bigOTime: '',
-        bigOSpace: '',
+        bigOTime: 'O(log(min(m, n)))',
+        bigOSpace: 'O(1)',
         code: `class Solution:
     def shorter_first(self, n1, n2):
         m, n = len(n1), len(n2)

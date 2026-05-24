@@ -1,25 +1,10 @@
 'use client';
-import { useEffect, useState } from 'react';
-import { useTheme } from '@teispace/next-themes';
+import { useState } from 'react';
 
 import { BaseEditor } from '@/components/BaseEditor';
 
 export function Solution({ solution }) {
   const [expanded, setExpanded] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  const { resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // 🚨 IMPORTANT: block render until client is ready
-  if (!mounted) {
-    return <div className="h-[300px] bg-surface-container animate-pulse rounded" />;
-  }
-
-  const editorTheme = resolvedTheme === 'light' ? 'chrome' : 'monokai';
 
   const copyToClipboard = async (code) => {
     await navigator.clipboard.writeText(code ?? '');
@@ -36,20 +21,16 @@ export function Solution({ solution }) {
   const val = typeof solution.code === 'string' ? normalizeCode(solution) : '';
 
   return (
-    <div className="overflow-hidden w-full relative bg-surface-container-high border border-outline-variant/30">
-      {/* ================= HEADER ================= */}
-      <div className="overflow-hidden w-full relative bg-surface-container-high border border-outline-variant/30 rounded-xl">
-        <h3 className="text-sm font-semibold text-on-surface-variant px-2">{solution.title}</h3>
+    <div className="w-full relative bg-surface-container-high border border-outline-variant/30 overflow-visible flex flex-col gap-2 p-3">
+      <div>
+        <h3 className="text-sm font-semibold text-on-surface-variant">{solution.title}</h3>
+        {solution.body && <p className="text-xs text-on-surface-variant/80 mt-1">{solution.body}</p>}
       </div>
-      <p className="text-xs text-on-surface-variant px-2">{solution.body}</p>
-
-      {/* ================= CODE WRAPPER ================= */}
-      <div className="relative group">
-        {/* FLOATING CONTROLS */}
-        <div className="absolute top-2 right-2 z-20 flex gap-2 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out">
+      <div className="relative group border border-outline-variant/20 overflow-visible bg-surface/50">
+        <div className="absolute top-2 right-2 z-30 flex gap-2 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out">
           <button
-            onClick={() => copyToClipboard(normalizeCode(solution))}
-            className="icon-button bg-surface-container/80 backdrop-blur-md"
+            onClick={() => copyToClipboard(val)}
+            className="icon-button bg-surface-container/90 p-1.5 shadow-sm hover:bg-surface-container backdrop-blur-md text-xs"
             title="Copy code"
           >
             📋
@@ -57,32 +38,38 @@ export function Solution({ solution }) {
 
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="icon-button bg-surface-container/80 backdrop-blur-md"
+            className="icon-button bg-surface-container/90 p-1.5 shadow-sm hover:bg-surface-container backdrop-blur-md text-xs"
             title="Toggle height"
           >
             {expanded ? '▢' : '▣'}
           </button>
         </div>
 
-        <div className="w-full">
+        <div className="w-full relative overflow-visible">
           <BaseEditor
             mode="python"
-            fontSize={14}
-            theme={editorTheme}
+            value={val}
             expanded={expanded}
+            autoHeight={true}
             showPrintMargin={false}
             highlightActiveLine={true}
-            height={expanded ? '600px' : '300px'}
-            value={val}
           />
         </div>
       </div>
 
       {/* ================= FOOTER META ================= */}
       {(solution.bigOTime || solution.bigOSpace) && (
-        <div className="flex gap-4 px-3 py-2 text-xs bg-surface-container border-t border-outline-variant/20">
-          {solution.bigOTime && <span>Time: {solution.bigOTime}</span>}
-          {solution.bigOSpace && <span>Space: {solution.bigOSpace}</span>}
+        <div className="flex gap-4 pt-2 text-xs text-on-surface-variant/70 border-t border-outline-variant/20 mt-1">
+          {solution.bigOTime && (
+            <span>
+              Time: <b className="font-mono text-on-surface">{solution.bigOTime}</b>
+            </span>
+          )}
+          {solution.bigOSpace && (
+            <span>
+              Space: <b className="font-mono text-on-surface">{solution.bigOSpace}</b>
+            </span>
+          )}
         </div>
       )}
     </div>

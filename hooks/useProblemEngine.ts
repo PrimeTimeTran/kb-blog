@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 
 import allProblemsRaw from '@/lib/dsa/problems/problems-all.json';
-import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists.js';
-import solutions from '@/lib/dsa/problems/solutions.js';
+import { listPareto, listBlind75, neetCode150, neetCode250 } from '@/lib/dsa/problems/lists';
+import solutions from '@/lib/dsa/problems/solutions';
 
 export type Difficulty = 'e' | 'm' | 'h';
 export type PremiumFilter = 'all' | 'free' | 'premium';

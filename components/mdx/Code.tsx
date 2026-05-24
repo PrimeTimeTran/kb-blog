@@ -1,7 +1,10 @@
 'use client';
-import { useState, useEffect } from 'react';
 import Prism from 'prismjs';
+
+import { useState } from 'react';
 import { LANG_MAP } from '@/data/constants';
+
+import '@/lib/syntax-registry';
 
 const safeJsonParse = (str: string, fallback: any) => {
   try {
@@ -24,44 +27,39 @@ export function Pre(props: any) {
     code,
     children,
     codemeta,
-    lang: directLang,
-    showLineNumbers: directShow,
     fileName,
-    highlight: directHighlight,
+    lang: directLang,
     isTabGroup = false,
+    showLineNumbers: directShow,
+    highlight: directHighlight,
   } = props;
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-    Prism.highlightAll();
-  }, [children, code]);
-
-  // Extract metadata cleanly regardless of entry method
+  // -------------------------
+  // metadata extraction
+  // -------------------------
   const mdxMeta = codemeta || children?.props?.codemeta ? safeJsonParse(codemeta || children?.props?.codemeta, {}) : {};
 
   const lang = directLang || mdxMeta.lang || props.lang;
   const showLineNumbers = directShow ?? mdxMeta.showLineNumbers ?? props.showLineNumbers;
+
   const title = fileName || mdxMeta.fileName || props.title;
   const highlight = directHighlight || mdxMeta.highlight || [];
 
-  const rawCode = (code ?? extractText(children)).trim();
+  const rawCode = (code ?? extractText(children) ?? '').trim();
   const resolvedLang = LANG_MAP[lang] || lang || 'text';
 
-  // Server-side hydration baseline layout
-  if (!mounted) {
-    return (
-      <div className="mdx-code-wrapper not-prose">
-        {title && <div className="mdx-code-header py-2 text-xs">{title}</div>}
-        <pre className="m-0! p-4 overflow-x-auto text-sm whitespace-pre">
-          <code>{rawCode}</code>
-        </pre>
-      </div>
-    );
+  // -------------------------
+  // Highlight tokenization synchronously during render
+  // -------------------------
+  // Avoid calling Prism.highlightAll() asynchronously which scans the whole DOM.
+  // Instead, tokenized HTML is derived directly from state/props.
+  const grammar = Prism.languages[resolvedLang];
+
+  if (!grammar && resolvedLang !== 'text') {
+    console.warn(`Prism grammar missing for language: ${resolvedLang}. Ensure it is imported.`);
   }
 
-  const grammar = Prism.languages[resolvedLang];
-  const html = grammar ? Prism.highlight(rawCode, grammar, resolvedLang) : rawCode;
+  const html = grammar ? Prism.highlight(rawCode, grammar, resolvedLang) : escapeHtml(rawCode);
   const lines = html.split(/\r?\n/);
 
   const highlightSet = new Set(highlight);
@@ -70,7 +68,7 @@ export function Pre(props: any) {
   return (
     <div className="mdx-code-wrapper not-prose shadow-lg w-full max-w-full">
       {title && <div className="mdx-code-header py-2 text-xs truncate">{title}</div>}
-      <pre className={'m-0! px-0 overflow-x-auto py-2 text-sm leading-relaxed' + isTabGroup ? 'px-2' : ''}>
+      <pre className={`m-0! overflow-x-auto py-2 text-sm leading-relaxed ${isTabGroup ? 'px-2' : ''}`}>
         <code className="block min-w-full w-max">
           {lines.map((line, index) => {
             const lineNumber = index + 1;
@@ -79,7 +77,6 @@ export function Pre(props: any) {
             return (
               <div key={index} className="mdx-code-line flex" data-highlighted={isHighlighted ? 'true' : 'false'}>
                 {showLineNumbers && (
-                  /* Added absolute minimum constraint prevention */
                   <span className="mr-4 w-6 min-w-[24px] shrink-0 text-right text-zinc-500/80 select-none font-mono">
                     {lineNumber}
                   </span>
@@ -92,6 +89,16 @@ export function Pre(props: any) {
       </pre>
     </div>
   );
+}
+
+// Simple fallback helper to keep text safe if Prism language isn't loaded
+function escapeHtml(str: string) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
 
 export function TabGroup({ tabs }) {

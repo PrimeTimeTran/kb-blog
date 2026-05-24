@@ -1,9 +1,5 @@
 'use client';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-// import Prism from 'prismjs';
-import Prism from '@/lib/prism';
-
-import '@/data/code-formatting';
 
 type GraffitiAnchor = {
   id: string;
@@ -61,13 +57,6 @@ export default function MDXWrapper({ children }: { children: React.ReactNode }) 
 
   const [anchors, setAnchors] = useState<GraffitiAnchor[]>([]);
   const [scrollY, setScrollY] = useState(0);
-
-  /**
-   * Prism highlighting
-   */
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [children]);
 
   /**
    * Build graffiti anchors from rendered MDX headings

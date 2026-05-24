@@ -1,9 +1,8 @@
 'use client';
-import Prism from 'prismjs';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+
+import React, {   useLayoutEffect, useRef, useState } from 'react';
 import { motion, useTime, useTransform } from 'framer-motion';
 
-import '@/data/code-formatting';
 import { useScroll } from '@/providers/ScrollProvider';
 import { graffitiWords } from '@/data/graffiti';
 
@@ -56,10 +55,6 @@ export default function GraffitiWrapper({ children }: { children: React.ReactNod
   const [anchors, setAnchors] = useState<GraffitiAnchor[]>([]);
   const { scrollY } = useScroll();
   const time = useTime();
-
-  useEffect(() => {
-    Prism.highlightAll();
-  }, [children]);
 
   useLayoutEffect(() => {
     if (!contentRef.current) return;
