@@ -187,7 +187,7 @@ function App() {
             bg-white/5 shadow-2xl shadow-black/40
             cursor-grab active:cursor-grabbing
             select-none
-            transition-all duration-300
+            transition-[colors,border-radius,width,height] duration-300
           "
           style={{
             width: `${260 + themePulse * 10}px`,
