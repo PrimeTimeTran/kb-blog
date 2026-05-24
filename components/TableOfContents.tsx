@@ -103,7 +103,7 @@ export default function TableOfContents({ toc }: { toc: TOCItemData[] }) {
   }
 
   return (
-    <aside className="border-l border-white/10 max-h-screen overflow-y-auto text-xs">
+    <aside className="max-h-screen overflow-y-auto text-xs">
       {toc.map((item, index) => {
         const { isActive, isPassed } = getItemState(index, item);
 
@@ -140,13 +140,13 @@ export const TOCItem = React.forwardRef<HTMLDivElement, TOCItemProps>(({ item, i
     <div
       ref={ref}
       className={`
-          py-0.5 px-2 text-xs transition-all hover:bg-surface-variant w-full text-left flex items-center
+          py-0.5 px-2 text-xs transition-all w-full text-left flex items-center hover:bg-primary/5
           ${isActive ? 'border-l-2' : ''}
         `}
       style={{
         paddingLeft: `${indent}px`,
         borderColor: isActive ? 'var(--primary)' : 'var(--outline-variant)',
-        backgroundColor: isActive ? 'var(--primary-container)' : 'transparent',
+        backgroundColor: isActive ? 'var(--primary-container)' : undefined,
         opacity: isPassed ? 0.45 : 1,
       }}
     >

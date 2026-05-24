@@ -39,7 +39,7 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
     <li className="select-none">
       <div
         onClick={canToggle ? toggle : undefined}
-        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-(--primary-hover)/40 "
+        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-primary/5"
       >
         {/* LEFT: structure control (expand/collapse) */}
         {/* expand/collapse */}

@@ -16,13 +16,7 @@ export default function PageClient({ posts }) {
     // - [ ] Add left sidebar nav for series suggestions
     <BaseScroll>
       <GraffitiWrapper>
-        <ListLayout
-          pagination={1}
-          posts={posts}
-          title="Latest"
-          initialDisplayPosts={[]}
-          subtitle={siteMetadata.description}
-        />
+        <ListLayout pagination={1} posts={posts} title="Latest" subtitle={siteMetadata.description} />
       </GraffitiWrapper>
       {/* {posts.length > MAX_DISPLAY && (
         <div className="flex justify-end mt-6 text-base font-medium">
