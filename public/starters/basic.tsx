@@ -1,43 +1,25 @@
-function App() {
-  const [themePulse, setThemePulse] = React.useState(0);
-  const [globalOffset, setGlobalOffset] = React.useState(0);
-  const [showGrid, setShowGrid] = React.useState(true);
+function useMotionBox({ themePulse, rotationStep, shape }) {
+  const boxRef = React.useRef(null);
 
-  const active = themePulse + globalOffset;
-
-  // =========================
-  // DRAG STATE (IMPERATIVE)
-  // =========================
   const dragging = React.useRef(false);
   const start = React.useRef({ x: 0, y: 0 });
   const pos = React.useRef({ x: 0, y: 0 });
-  const boxRef = React.useRef(null);
 
-  // =========================
-  // NEW: SHAPE STATE
-  // =========================
-  const [shapeMode, setShapeMode] = React.useState(0);
-  const shapes = [
-    { r: 22, skew: 0, rot: 0 },
-    { r: 40, skew: 0, rot: 2 },
-    { r: 12, skew: 6, rot: -2 },
-    { r: 999, skew: 0, rot: 0 }, // circle mode
-  ];
+  // keep derived state local (no external globals)
+  const active = themePulse + rotationStep;
 
-  const shape = shapes[shapeMode % shapes.length];
-
-  function applyTransform() {
+  const apply = React.useCallback(() => {
     if (!boxRef.current) return;
 
-    const rotate = Math.sin((themePulse + globalOffset) * 0.2) * 2 + shape.rot;
     const scale = 1 + themePulse * 0.03;
+    const rotate = rotationStep + shape.rot;
 
     boxRef.current.style.transform = `
       translate(${pos.current.x}px, ${pos.current.y}px)
       rotate(${rotate}deg)
       scale(${scale})
     `;
-  }
+  }, [themePulse, rotationStep, shape]);
 
   function onPointerDown(e) {
     dragging.current = true;
@@ -54,37 +36,61 @@ function App() {
     pos.current.x = e.clientX - start.current.x;
     pos.current.y = e.clientY - start.current.y;
 
-    applyTransform();
+    apply();
   }
 
   function onPointerUp() {
     dragging.current = false;
   }
 
-  // update when state changes
   React.useEffect(() => {
-    applyTransform();
-  }, [themePulse, globalOffset, shapeMode]);
+    apply();
+  }, [apply]);
 
-  // =========================
-  // RESET
-  // =========================
-  function resetAll() {
+  function reset() {
     pos.current = { x: 0, y: 0 };
-    setThemePulse(0);
-    setGlobalOffset(0);
-
-    if (boxRef.current) {
-      boxRef.current.style.transform = `
-        translate(0px, 0px)
-        rotate(0deg)
-        scale(1)
-      `;
-    }
+    apply();
   }
 
+  return {
+    boxRef,
+    onPointerDown,
+    onPointerMove,
+    onPointerUp,
+    reset,
+    active,
+  };
+}
+
+function App() {
+  const [themePulse, setThemePulse] = React.useState(0);
+  const [rotationStep, setRotationStep] = React.useState(0);
+  const [showGrid, setShowGrid] = React.useState(true);
+  const [shapeMode, setShapeMode] = React.useState(0);
+  const shapes = [
+    { r: 22, skew: 0, rot: 0 },
+    { r: 40, skew: 0, rot: 2 },
+    { r: 12, skew: 6, rot: -2 },
+    { r: 999, skew: 0, rot: 0 }, // circle mode
+  ];
   function cycleShape() {
     setShapeMode((v) => v + 1);
+  }
+
+  const shape = shapes[shapeMode % shapes.length];
+  const { boxRef, onPointerDown, onPointerMove, onPointerUp, reset, active } = useMotionBox({
+    themePulse,
+    rotationStep,
+    shape,
+  });
+
+  function resetAll() {
+    setThemePulse(0);
+    setRotationStep(0);
+    setShapeMode(0);
+
+    // reset drag position through hook
+    reset();
   }
 
   return (
@@ -143,14 +149,14 @@ function App() {
           onClick={() => setThemePulse((v) => v + 1)}
           className="px-4 py-2 rounded-xl bg-green-400/10 hover:bg-green-400/20 border border-green-400/20 text-green-300"
         >
-          Pulse reality
+          Grow
         </button>
 
         <button
-          onClick={() => setGlobalOffset((v) => v + 1)}
+          onClick={() => setRotationStep((v) => v + 15)}
           className="px-4 py-2 rounded-xl bg-blue-400/10 hover:bg-blue-400/20 border border-blue-400/20 text-blue-300"
         >
-          Shift space
+          Rotate
         </button>
 
         {/* NEW */}
@@ -185,12 +191,9 @@ function App() {
           "
           style={{
             width: `${260 + themePulse * 10}px`,
-            height: `${260 + globalOffset * 12}px`,
+            height: `260px`,
             borderRadius: `${shape.r + Math.sin(active * 0.3) * 10}px`,
-            transform: `
-              rotate(${Math.sin(active * 0.2) * 2 + shape.rot}deg)
-              scale(${1 + themePulse * 0.03})
-            `,
+            transform: `none`,
           }}
         >
           {/* glow */}
@@ -212,7 +215,7 @@ function App() {
             </div>
 
             <div className="text-sm text-white/50 mt-3">
-              shift: {globalOffset} · pulse: {themePulse}
+              rotate: {rotationStep} · pulse: {themePulse}
             </div>
           </div>
         </div>
