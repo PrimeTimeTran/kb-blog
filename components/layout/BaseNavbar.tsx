@@ -2,70 +2,7 @@
 
 import clsx from 'clsx';
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-export function DropdownPanel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  return (
-    <div
-      className="relative inline-block"
-      ref={dropdownRef}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
-    >
-      {/* Trigger Button */}
-      <button onClick={() => setIsOpen(!isOpen)} className="px-4 py-2 bg-blue-600 text-white rounded-md">
-        Options
-      </button>
-
-      {/* Animated Dropdown Panel */}
-      <AnimatePresence mode="wait">
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2, ease: 'easeInOut' }}
-            className="fixed top-16 left-0 w-screen overflow-hidden bg-white border border-gray-200 shadow-lg z-50"
-          >
-            <ul className="py-1 text-gray-700">
-              <li>
-                <a href="#profile" className="block px-4 py-2 hover:bg-gray-100">
-                  Profile
-                </a>
-              </li>
-
-              <li>
-                <a href="#settings" className="block px-4 py-2 hover:bg-gray-100">
-                  Settings
-                </a>
-              </li>
-
-              <li>
-                <a href="#logout" className="block px-4 py-2 hover:bg-gray-100 font-semibold text-red-600">
-                  Logout
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-}
+import { motion } from 'framer-motion';
 
 export default function BaseNavbar() {
   const navRef = useRef<HTMLDivElement>(null);

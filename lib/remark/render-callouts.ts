@@ -6,10 +6,10 @@ export function renderCallOuts() {
       if (!node.children || node.children.length === 0) return;
 
       // 1. Locate the absolute first text container node inside the blockquote
-      let firstParagraph = node.children[0];
+      const firstParagraph = node.children[0];
       if (firstParagraph.type !== 'paragraph' || !firstParagraph.children) return;
 
-      let firstTextNode = firstParagraph.children[0];
+      const firstTextNode = firstParagraph.children[0];
       if (!firstTextNode || firstTextNode.type !== 'text') return;
 
       // 2. Safe, precise regex matching for Obsidian's callout structure

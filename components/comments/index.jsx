@@ -1,3 +1,4 @@
+'use client';
 import siteMetadata from '@/data/site-metadata';
 import dynamic from 'next/dynamic';
 

@@ -24,8 +24,10 @@
     "plugins": [{ "name": "next" }],
 
     "paths": {
+      "@/*": ["./*"],
       "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
+      "@/components": ["./components"],
       "@/data/*": ["./data/*"],
       "@/hooks/*": ["./hooks/*"],
       "@/layouts/*": ["./layouts/*"],

@@ -1,15 +1,26 @@
 'use client';
 
-import { createContext, useCallback, useContext, useRef, useState } from 'react';
+import { createContext, useCallback, useContext, useRef, useState, Dispatch, SetStateAction } from 'react';
 
 import { useScrollState } from '../hooks/useScrollState';
-import { TOCItemData } from '@/hooks/useTOC';
+
+// RULE:
+// - use `import type` when the import is ONLY used as a TypeScript type (interfaces, type aliases, generics)
+// - use normal `import` when the value exists at runtime (functions, classes, constants)
+//
+// Even though TypeScript may allow `import { TypeName }` for type-only exports,
+// `import type` is the explicit and safest form because it guarantees:
+// - no runtime inclusion
+// - no accidental circular dependencies
+// - clearer intent for humans and bundlers
+
+import type { TOCItemData } from '@/hooks/useTOC';
 
 type ScrollContextValue = {
   activeId: string | null;
   shrunk: boolean;
   toc: TOCItemData[];
-  setToc: (toc: TOCItemData[]) => void;
+  setToc: Dispatch<SetStateAction<TOCItemData[]>>;
   scrollProgress: number;
   scrollY: number;
   setScrollEl: (el: HTMLElement | null) => void;

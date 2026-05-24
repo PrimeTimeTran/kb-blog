@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo, useRef, useEffect, useState } from 'react';
 import { useTheme } from '@teispace/next-themes';
 import dynamic from 'next/dynamic';

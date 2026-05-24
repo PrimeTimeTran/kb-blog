@@ -4,28 +4,74 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import next from '@next/eslint-plugin-next';
 import tseslint from 'typescript-eslint';
-import prettier from 'eslint-config-prettier';
 
 export default [
-  ...tseslint.configs.recommended,
+  // =========================================================
+  // 1. GLOBAL IGNORES (always first)
+  // =========================================================
+  {
+    ignores: [
+      '**/.next',
+      '**/node_modules',
+      '**/dist',
+      'node_modules/**',
+      '.next/**',
+      'out/**',
+      'dist/**',
+      'coverage/**',
+      '**/*.mdx.js',
+      'public/**',
+    ],
+  },
+
+  // =========================================================
+  // 2. BASE LANGUAGE LAYER (JS + TS + NEXT)
+  // =========================================================
   js.configs.recommended,
+  ...tseslint.configs.recommended,
   next.configs.recommended,
 
-  // -------------------------
-  // APP (browser / react / next)
-  // -------------------------
+  // IMPORTANT GLOBAL FIX (TS + Next already handle undefined checks)
   {
-    files: ['pages/**/*', 'components/**/*', 'app/**/*', 'lib/**/*', '**/*.{js,jsx,ts,tsx}'],
+    rules: {
+      'no-undef': 'off',
+    },
+  },
+  {
+    files: ['**/*.cjs', '**/*.js', 'scripts/**/*'],
+
+    rules: {
+      '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
+
+  // =========================================================
+  // 3. APP LAYER (React / Next UI CODE)
+  // =========================================================
+  {
+    files: [
+      'pages/**/*.{js,jsx,ts,tsx}',
+      'components/**/*.{js,jsx,ts,tsx}',
+      'app/**/*.{js,jsx,ts,tsx}',
+      'lib/**/*.{js,jsx,ts,tsx}',
+    ],
+
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
 
     languageOptions: {
-      parser: tseslint.parser,
       ecmaVersion: 'latest',
       sourceType: 'module',
+
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
       },
+
       globals: {
         ...globals.browser,
         process: 'readonly',
@@ -38,15 +84,22 @@ export default [
     },
 
     rules: {
-      ...prettier.rules,
-      ...react.configs.recommended.rules,
+      // hooks (keep)
       ...reactHooks.configs.recommended.rules,
+
+      // React 17+ JSX runtime fixes
       'react/react-in-jsx-scope': 'off',
+      'react/jsx-uses-react': 'off',
+
+      // general React noise reduction
       'react/no-unescaped-entities': 'off',
       'react/prop-types': 'warn',
+
+      // TS ergonomics
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-      // 'no-unused-vars': 'warn',
+
+      // unused vars (TS version only)
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'warn',
@@ -57,9 +110,9 @@ export default [
     },
   },
 
-  // -------------------------
-  // SERVER / SCRIPTS (node)
-  // -------------------------
+  // =========================================================
+  // 4. SERVER / NODE CONTEXT (scripts, APIs, server code)
+  // =========================================================
   {
     files: ['scripts/**/*', 'lib/content/server/**/*', 'pages/api/**/*'],
 
@@ -74,16 +127,19 @@ export default [
     },
   },
 
+  // =========================================================
+  // 5. SPECIAL CASE FILES (mixed-runtime / tooling / scratch)
+  // =========================================================
   {
     files: ['scratchpads/**/*', 'data/**/*', 'next.config.js', 'pages/_app.js'],
 
     languageOptions: {
       globals: {
-        URL: true,
-        fetch: true,
-        console: true,
-        document: true,
-        setTimeout: true,
+        URL: 'readonly',
+        fetch: 'readonly',
+        console: 'readonly',
+        document: 'readonly',
+        setTimeout: 'readonly',
         process: 'readonly',
       },
     },
@@ -91,12 +147,5 @@ export default [
     rules: {
       'no-undef': 'off',
     },
-  },
-
-  // -------------------------
-  // IGNORE GENERATED / BUILD / MDX OUTPUT
-  // -------------------------
-  {
-    ignores: ['node_modules/**', '.next/**', 'out/**', 'dist/**', 'coverage/**', '**/*.mdx.js'],
   },
 ];

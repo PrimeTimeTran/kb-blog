@@ -1,10 +1,12 @@
 import 'katex/dist/katex.min.css';
 import '../css/tailwind.css';
 
-import { AppShell } from '@/components/layout/AppShell';
+import { AppShell } from '@/components';
+
 import { siteMetaDataHeader } from '../data/site-metadata-header';
 import ShowcasePage from './(lab)/workspaces/page';
 import Layout2 from './z.layout';
+
 export const dynamic = 'force-dynamic';
 // NOTE:
 // Instead of messing with layout.tsx structure frequency,

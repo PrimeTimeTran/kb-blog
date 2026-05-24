@@ -1,4 +1,4 @@
-import { Image } from './mdx';
+import { Image } from './mdx/Image';
 import { SafeLink as Link } from './mdx/Link';
 
 const Card = ({ title, description, imgSrc, href, tech }) => (
