@@ -1,6 +1,6 @@
 'use client';
 
-import { JSX, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
 import { ExhibitManifest } from './types';
 
@@ -12,82 +12,23 @@ import { useIframeController } from './hooks/useIframeController';
 import { useVFS } from './hooks/useVFS';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JSX.Element {
-  // 1. Ensure manifest is stable (should be done in parent too)
-  const stableManifest = useMemo(() => manifest, [manifest.slug]);
-
-  // 2. Use an Effect to handle the initialization that shouldn't re-run
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-  // 3. VFS should not re-create if manifest is the same
-  const vfs = useVFS({ iframeRef, manifest: stableManifest });
 
-  // Keep track of initialization to prevent double-boot
-  // Keep ONLY this one to handle shell injection
+  const vfs = useVFS({ iframeRef, manifest });
+
   useEffect(() => {
     const iframe = iframeRef.current;
-    const shellFile = stableManifest.seeds.files.find((f) => f.path === stableManifest.seeds.entry);
+    const shellFile = manifest.seeds.files.find((f) => f.path === manifest.seeds.entry);
 
     if (iframe && shellFile?.content && !shellRef.current) {
       iframe.srcdoc = shellFile.content;
       shellRef.current = true;
     }
-  }, [stableManifest.seeds.entry]);
+  }, [vfs]);
 
   const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [consoleError, setConsoleError] = useState<string | null>(null);
-
-  const layout = useEditorLayout();
-
-  const stableVfs = useMemo(() => vfs, [vfs.files, vfs.activePath, vfs.seeds]);
-
-  // -------------------------------------------------------------------------
-  // SHELL (must load first)
-  // -------------------------------------------------------------------------
-  const [isIframeReady, setIsIframeReady] = useState(false);
-
-  // 1. Handle Messages (Errors and Readiness)
-  useEffect(() => {
-    const handler = (e) => {
-      if (e.data?.type === 'iframe:ready') {
-        setIsIframeReady(true);
-      }
-      if (e.data?.type === 'iframe:error') {
-        console.error('Iframe Error:', e.data.payload);
-      }
-    };
-    window.addEventListener('message', handler);
-    return () => window.removeEventListener('message', handler);
-  }, []);
-
-  // 1. Unified Controller: Manages ONLY the load and the handshake
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-
-    // Initial Injection
-    if (!iframe.srcdoc) {
-      const shellFile = stableManifest.seeds.files.find((f) => f.path === stableManifest.seeds.entry);
-      if (shellFile) {
-        iframe.srcdoc = shellFile.content;
-        // We do NOT set shellRef.current = true here
-        // because we want the 'iframe:ready' message to dictate readiness.
-      }
-    }
-
-    // Only broadcast when the iframe explicitly tells us it is ready
-    if (isIframeReady) {
-      console.log('🚀 Handshake complete: Syncing project state');
-      vfs.syncFullProject();
-    }
-  }, [isIframeReady, stableManifest, iframeRef]);
-
-  // -------------------------------------------------------------------------
-  // READY GATE (real one, not fake state)
-  // -------------------------------------------------------------------------
-
-  const setIframeRef = useCallback((node: HTMLIFrameElement | null) => {
-    iframeRef.current = node;
-  }, []);
 
   const handleSuccess = useCallback(() => {
     if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
@@ -110,11 +51,8 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JS
     }, 700);
   }, []);
 
-  // -------------------------------------------------------------------------
-  // IFRAME CONTROLLER (only runs when truly ready)
-  // -------------------------------------------------------------------------
   useIframeController(iframeRef, {
-    vfs: stableVfs,
+    vfs: vfs,
     files: vfs.files,
     activePath: vfs.activePath,
     code: vfs.activeFile?.content ?? '',
@@ -122,35 +60,8 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JS
     onError: handleError,
   });
 
-  // Save changes to files...?
-  // Or do it in the editor...?
-  // useEffect(() => {
-  //   const iframe = iframeRef.current;
-  //   if (!iframe || !isIframeLoaded) return;
-
-  //   // OPTION A: Add a debounce
-  //   const handler = setTimeout(() => {
-  //     iframe.contentWindow?.postMessage(
-  //       {
-  //         type: 'vfs:update',
-  //         files: vfs.files,
-  //         entryPoint: vfs.activePath,
-  //       },
-  //       '*',
-  //     );
-  //   }, 500); // Wait 500ms after last change before syncing
-
-  //   return () => clearTimeout(handler);
-  // }, [vfs.files, vfs.activePath, isIframeLoaded]);
-
+  const layout = useEditorLayout();
   const [copied, setCopied] = useState(false);
-
-  // -------------------------------------------------------------------------
-  // LOADING STATE
-  // -------------------------------------------------------------------------
-  if (!stableManifest.seeds.entry) {
-    return <div className="p-4 text-white">Loading runtime container...</div>;
-  }
 
   const handleCopy = async () => {
     try {
@@ -162,9 +73,6 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JS
     }
   };
 
-  // -------------------------------------------------------------------------
-  // RENDER
-  // -------------------------------------------------------------------------
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
       <Sidebar vfs={vfs} files={vfs.files} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />
@@ -197,7 +105,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JS
       {/* ------------------------------------------------------------------ */}
       <aside className="flex-1 h-full relative bg-surface">
         <iframe
-          ref={setIframeRef}
+          ref={iframeRef}
           className={`w-full h-full border-0 bg-surface transition-opacity ${
             layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
           }`}

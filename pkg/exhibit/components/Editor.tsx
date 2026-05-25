@@ -5,7 +5,6 @@ import { useTheme } from '@teispace/next-themes';
 import { useMemo, useRef, useEffect } from 'react';
 import { initAceExtensions } from '@/lib/syntax-registry';
 
-// Dynamic import with SSR fallback
 const AceEditor = dynamic(
   async () => {
     const aceModule = await import('react-ace');
@@ -17,18 +16,6 @@ const AceEditor = dynamic(
     loading: () => <div className="p-4 text-xs font-mono text-zinc-500">Loading code editor...</div>,
   },
 );
-
-interface EditorProps {
-  mode: string;
-  value: string;
-  onChange: (value: string) => void;
-  formatter?: (code: string) => Promise<string> | string; // 1. Added optional formatter callback
-  expanded?: boolean;
-  setEditorReady?: (ready: boolean) => void;
-  autoHeight?: boolean;
-  highlightActiveLine?: boolean;
-  showPrintMargin?: boolean;
-}
 
 export function Editor({
   mode,
@@ -44,13 +31,11 @@ export function Editor({
   const editorRef = useRef<any>(null);
   const { resolvedTheme } = useTheme();
 
-  // Create mutable references to dynamic states to prevent stale state trapping inside editor commands
   const stateRef = useRef({ onChange, value, formatter });
   useEffect(() => {
     stateRef.current = { onChange, value, formatter };
   }, [onChange, value, formatter]);
 
-  // Alert Ace to recalculate canvas scales when parent containers flex or scale open
   useEffect(() => {
     if (editorRef.current?.editor) {
       editorRef.current.editor.resize();
@@ -61,7 +46,6 @@ export function Editor({
     return resolvedTheme === 'dark' ? 'tomorrow_night' : 'chrome';
   }, [resolvedTheme]);
 
-  // Reusable format orchestration routine
   const handleFormat = async (editorInstance: any) => {
     const currentFormatter = stateRef.current.formatter;
     if (!currentFormatter) return;
@@ -71,7 +55,6 @@ export function Editor({
       const formatted = await currentFormatter(currentCode);
 
       if (formatted && formatted !== currentCode) {
-        // Using session.setValue preserves standard viewport states and avoids cursor resets where possible
         editorInstance.session.setValue(formatted);
         stateRef.current.onChange(formatted);
       }
@@ -180,7 +163,6 @@ export function Editor({
 
   return (
     <div className="w-full h-full relative group">
-      {/* Visual helper badge so users know they can trigger manual formatting easily */}
       {formatter && (
         <button
           type="button"
@@ -214,6 +196,18 @@ export function Editor({
       />
     </div>
   );
+}
+
+export interface EditorProps {
+  mode: string;
+  value: string;
+  onChange: (value: string) => void;
+  formatter?: (code: string) => Promise<string> | string;
+  expanded?: boolean;
+  setEditorReady?: (ready: boolean) => void;
+  autoHeight?: boolean;
+  highlightActiveLine?: boolean;
+  showPrintMargin?: boolean;
 }
 
 function cut(editor: any, onChange: (val: string) => void) {

@@ -1,132 +1,95 @@
 'use client';
 import { useTheme } from '@teispace/next-themes';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { createTrace } from '@/lib/trace';
+import { vfsAPI } from '@/pkg/exhibit/types';
+
+type IframeControllerProps = {
+  vfs: vfsAPI;
+  code: string;
+  onSuccess: () => void;
+  onError: () => void;
+  targetOrigin: string;
+};
 
 export function useIframeController(
   iframeRef: React.RefObject<HTMLIFrameElement | null>,
-  { vfs, code, onSuccess, onError, targetOrigin = '*' }: any,
+  { vfs, code, onSuccess, onError, targetOrigin = '*' }: IframeControllerProps,
 ) {
-  const trace = createTrace('exhibit:client:useIframeController');
+  const traceRef = useRef(createTrace('exhibit:client:useIframeController'));
+  const trace = traceRef.current;
+  const [status, setStatus] = useState<'idle' | 'ready' | 'booted'>('idle');
 
   const { resolvedTheme } = useTheme();
 
-  const isReadyRef = useRef(false);
-  const bootedRef = useRef(false);
-
   // -------------------------------------------------------------------------
-  // BOOT
+  // THEME UPDATE: Leave this separated to [PROVE] you handle life cycles correctly.
   // -------------------------------------------------------------------------
-  const boot = useCallback(() => {
+  useEffect(() => {
     const iframe = iframeRef.current;
+    if (!iframe?.contentWindow) return;
+    iframe.contentWindow.postMessage(
+      { type: 'theme:change', payload: { theme: resolvedTheme ?? 'light' } },
+      targetOrigin,
+    );
+  }, [status, resolvedTheme]);
 
-    trace.mark('BOOT_ATTEMPT', {
-      hasShell: !!vfs.seeds?.shell,
-      hasIframe: !!iframe,
+  // -------------------------------------------------------------------------
+  // IFRAME INITIALIZE
+  // -------------------------------------------------------------------------
+  useEffect(() => {
+    const handler = (e: MessageEvent) => {
+      if (e.data?.type !== 'iframe:ready') return;
+
+      console.log('[IFRAME] ready received');
+
+      setStatus('ready');
+    };
+
+    window.addEventListener('message', handler);
+    return () => window.removeEventListener('message', handler);
+  }, []);
+
+  // -------------------------------------------------------------------------
+  // BOOT: Runtime setup. Module registry etc.
+  // -------------------------------------------------------------------------
+  useEffect(() => {
+    if (status !== 'ready') return;
+    if (!iframeRef.current?.contentWindow) return;
+    console.log('[BOOT] executing');
+
+    iframeRef.current.contentWindow.postMessage({
+      type: 'runtime:boot',
+      payload: vfs.createSnapshot(),
     });
 
-    if (!iframe?.contentWindow) {
-      trace.mark('BOOT_ABORT_NO_IFRAME');
-      return;
-    }
-
-    if (!vfs.seeds?.shell) {
-      trace.mark('BOOT_ABORT_NO_SHELL');
-      return;
-    }
-
-    trace.mark('BOOT_SEND', {
-      shellLength: vfs.seeds.shell.length,
-    });
-
-    // iframe.contentWindow.postMessage(
-    //   {
-    //     type: 'runtime:boot',
-    //     shell: vfs.seeds.shell,
-    //     theme: resolvedTheme ?? 'light',
-    //   },
-    //   targetOrigin,
-    // );
-
-    bootedRef.current = true;
-
-    trace.mark('BOOT_SENT');
-  }, [iframeRef, vfs.seeds?.shell, resolvedTheme, targetOrigin]);
+    setStatus('booted');
+  }, [status, vfs.files, vfs.activePath]);
 
   // -------------------------------------------------------------------------
   // RUN
   // -------------------------------------------------------------------------
-  const run = useCallback(() => {
-    const iframe = iframeRef.current;
+  // No handler...  leave until confident not needed.
+  // useEffect(() => {
+  //   if (status !== 'booted') return;
+  //   if (!iframeRef.current?.contentWindow) return;
+  //   if (!vfs.activePath) return;
 
-    trace.mark('RUN_ATTEMPT', {
-      activePath: vfs.activePath,
-      hasIframe: !!iframe,
-      ready: isReadyRef.current,
-      booted: bootedRef.current,
-    });
-
-    if (!iframe?.contentWindow) {
-      trace.mark('RUN_ABORT_NO_IFRAME');
-      return;
-    }
-
-    if (!vfs.activePath) {
-      trace.mark('RUN_ABORT_NO_ACTIVE_PATH');
-      return;
-    }
-
-    if (!isReadyRef.current || !bootedRef.current) {
-      trace.mark('RUN_ABORT_NOT_READY');
-      return;
-    }
-
-    trace.mark('RUN_SEND', {
-      entry: vfs.activePath,
-    });
-
-    iframe.contentWindow.postMessage(
-      {
-        type: 'runtime:run',
-        entry: vfs.activePath,
-        code,
-      },
-      targetOrigin,
-    );
-  }, [code, iframeRef, vfs.activePath, targetOrigin]);
-
-  // keep stable refs
-  const bootRef = useRef(boot);
-  const runRef = useRef(run);
-
-  useEffect(() => {
-    bootRef.current = boot;
-    runRef.current = run;
-  }, [boot, run, code]);
-
+  //   iframeRef.current.contentWindow.postMessage({
+  //     type: 'runtime:run',
+  //     entry: vfs.activePath,
+  //   });
+  // }, [vfs.activePath, status]);
   // -------------------------------------------------------------------------
   // MESSAGE HANDLER
   // -------------------------------------------------------------------------
   useEffect(() => {
     trace.mark('LISTENER_MOUNT');
-
     const onMessage = (e: MessageEvent) => {
-      const iframe = iframeRef.current;
-      if (!iframe || e.source !== iframe.contentWindow) return;
-
       const { type, payload } = e.data || {};
-
       // iframe ready
       if (type === 'iframe:ready') {
         trace.mark('IFRAME_READY_RECEIVED');
-
-        isReadyRef.current = true;
-
-        // IMPORTANT: only boot once
-        if (!bootedRef.current) {
-          bootRef.current();
-        }
-
         trace.mark('READY_HANDLED');
       }
 
@@ -153,43 +116,10 @@ export function useIframeController(
   // INITIAL RUN
   // -------------------------------------------------------------------------
   useEffect(() => {
-    trace.mark('RUN_EFFECT_TICK', {
-      ready: isReadyRef.current,
-      booted: bootedRef.current,
+    if (!iframeRef.current) return;
+    trace.mark('FILE EDIT', {
       activePath: vfs.activePath,
     });
-
-    if (!isReadyRef.current) return;
-    if (!bootedRef.current) return;
-
-    runRef.current();
-  }, [vfs.activePath]);
-
-  // Inside useIframeController.ts
-  useEffect(() => {
-    // Add a guard: do not attempt to sync if the iframe hasn't finished the boot
-    if (!iframeRef.current || !iframeRef.current) return;
-
-    // Only perform partial syncs (vfs:sync) here
     vfs.syncFilePatch(vfs.activePath, code);
-  }, [code, vfs.activePath]); // Only reactive to content changes
-
-  // -------------------------------------------------------------------------
-  // THEME UPDATE
-  // -------------------------------------------------------------------------
-  // Change your ready check to a state that resets when srcdoc changes
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    console.log({ iframeContentWindow: iframe?.contentWindow });
-    if (!iframe?.contentWindow) return;
-
-    // If the iframe isn't "Ready" (listening for messages),
-    // do not send the theme update.
-    // if (!isIframeReady) return;
-
-    iframe.contentWindow.postMessage(
-      { type: 'theme:change', payload: { theme: resolvedTheme ?? 'light' } },
-      targetOrigin,
-    );
-  }, [resolvedTheme, targetOrigin, isReadyRef.current]); // Added isIframeReady dependency
+  }, [code, vfs.activePath]);
 }

@@ -61,7 +61,7 @@
       }
 
       body {
-        background-color: rgb(var(--bg)) !important;
+        background: var(--bg);
         color: rgb(var(--fg)) !important;
         transition:
           background 0.2s ease,
@@ -87,8 +87,8 @@
     </style>
   </head>
 
-  <body>
-    <div id="root" className="h-full w-full"></div>
+  <body className="bg-surface">
+    <div id="root" className="bg-surface h-full w-full"></div>
     <div
       id="error-overlay"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
@@ -134,7 +134,6 @@
           try {
             const mod = this.customRequire(path);
             const Component = mod.default || mod;
-
             if (typeof Component !== 'function' && typeof Component !== 'object') {
               throw new Error(`Expected a React component, but got: ${typeof Component}`);
             }
@@ -183,7 +182,8 @@
             // const factory = new Function('require', 'module', 'exports', 'path', 'process', transformed);
 
             // 4. Execute the code
-            const factory = new Function('exports', 'require', 'module', transformed);
+            // const factory = new Function('exports', 'require', 'module', transformed);
+            const factory = new Function('module', 'exports', 'require', transformed);
 
             // Store in registry
             this.moduleRegistry[path] = {
@@ -231,7 +231,8 @@
           if (!mod.wasExecuted) {
             // Inject the specific require-bound-to-this-file
             const boundRequire = (path) => this.customRequire(path, resolvedPath);
-            mod.factory(mod.exports, boundRequire, mod);
+            //mod.factory(mod.exports, boundRequire, mod);
+            mod.factory(mod, mod.exports, boundRequire);
             mod.wasExecuted = true;
           }
 
@@ -246,11 +247,18 @@
           }[name];
         },
         Handlers: {
-          // theme:change, ui:error, vfs:update, vfs: sync, file:select,
+          'runtime:boot': (ctx, payload) => {
+            // [SETUP FRAMEWORK/RUNTIME]
+            ctx.ENTRY_PATH = payload.entry;
+            ctx.vfs = payload.files;
+            ctx.type = 'vfs:update';
+            ctx.processMessage({ type: 'vfs:update', payload: { files: payload.files } });
+          },
           // --- UI & System Operations ---
+          // theme:change, ui:error, vfs:update, vfs: sync, file:select,
           'theme:change': (ctx, { theme }) => {
-            console.log({ theme });
             const newTheme = theme == 'dark';
+            console.info('🎨 Change', { theme });
             document.documentElement.dataset.theme = theme;
             document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
           },
@@ -259,18 +267,18 @@
             ctx.onError(message, { loc, stack });
           },
           'vfs:update': (ctx, payload) => {
-            // Use for [COMPLETE] reset of entire module registry
-            // Safety check: ensure payload exists
-            console.log('vfs:update!', ctx, payload);
+            // [SETUP VFS]
+            console.log('🗂️ vfs:update!');
             if (!payload?.files) {
               console.error("⚠️ vfs:update received but 'files' missing!");
               return;
             }
-            ctx.ENTRY_PATH = payload.entryPoint || './hello-world/page.tsx';
+            // ctx.ENTRY_PATH = payload.entryPoint || './hello-world/page.tsx';
             ctx.syncRegistry(payload.files);
             ctx.render(payload.entryPoint || ctx.ENTRY_PATH);
           },
           'vfs:sync': (ctx, payload) => {
+            console.log('🗂️ vfs:sync');
             // File update, name change, meta data (which directory, extension, etc)
             if (!payload?.path || payload.content === undefined) {
               console.warn('⚠️ vfs:sync received invalid data');
@@ -279,7 +287,8 @@
             ctx.registerModule(payload.path, payload.content);
             ctx.render(ctx.ENTRY_PATH);
           },
-          'file:select': (ctx, { path }) => {
+          'vfs:file:select': (ctx, { path }) => {
+            console.log('🗂️ vfs:file:select');
             // Logic: Change active state without re-rendering the whole app
             ctx.activeFile = path;
             console.log(`📂 Editor focused on: ${path}`);
@@ -288,25 +297,26 @@
           },
         },
         // --- 4. COMMUNICATION & HMR ---
-        processMessage(data) {
+        processMessage(msg) {
+          console.log('[IFRAME APP CORE MSG] ...msg');
           // 1. Ensure a basic structure exists
-          if (!data || !data.type) return;
+          if (!msg || !msg.type) return;
 
           if (!this.isReady) {
-            this.messageQueue.push(e.data);
+            this.messageQueue.push(e.msg);
             return;
           }
 
-          const handler = this.Handlers[data.type];
+          const handler = this.Handlers[msg.type];
 
           if (!handler) {
-            console.warn(`⚠️ Unhandled message type: ${data.type}`);
+            console.warn(`⚠️ Unhandled message type: ${msg.type}`);
             return;
           }
 
           // 2. Defensive Payload Extraction
           // Even if the IDE sends nothing, we pass an empty object {}
-          const payload = data.payload || {};
+          const payload = msg.payload || {};
 
           try {
             handler(this, payload);
@@ -367,15 +377,15 @@
         }
       });
       function boot() {
-        console.log('Booting AppCore...');
+        console.log('🏁 Booting AppCore');
         window.AppCore.setupHMR();
         window.AppCore.markReady();
         window.parent.postMessage({ type: 'iframe:ready' }, '*');
+        console.log({ go: window.AppCore.vfs });
       }
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', boot);
       } else {
-        // If the document is already loaded, just run it now
         boot();
       }
     </script>

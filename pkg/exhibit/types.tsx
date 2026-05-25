@@ -1,15 +1,20 @@
-export interface EditorProps {
-  manifest: object;
-}
-
 export type VirtualFile = {
   content: string;
   language: string;
 };
 
 export type VirtualFS = Record<string, VirtualFile>;
-
+export type EntrySource = 'runtime' | 'seed' | 'convention' | 'heuristic';
 export type ExhibitProjectType = 'vanilla' | 'next' | 'react' | 'nuxt' | 'vue';
+
+export type ResolvedEntry = {
+  path: string | null;
+  source: EntrySource;
+};
+
+export interface EditorProps {
+  manifest: object;
+}
 
 export type ExhibitManifest = {
   slug: string[];
@@ -46,17 +51,23 @@ export type ExhibitRuntime = {
   assets: ExhibitRuntimeAsset[];
 };
 
-export type vfsAPI = {
+export interface vfsAPI {
   files: VirtualFS;
-  activePath: string;
-  activeFile: {
-    content: string;
-    language: string;
+  activeFile: VirtualFile | null;
+  activePath: string | null;
+  entrySource: EntrySource;
+  createSnapshot: () => {
+    files: VirtualFS;
+    entry: string;
   };
   handleFileSelect: (path: string) => void;
-  updateActiveFileContent: (newContent: string) => void;
+  updateActiveFileContent: (content: string) => void;
   setActivePath: (path: string) => void;
-};
+  syncFullProject: (path: string) => void;
+  syncFilePatch: (path: string, content: string) => void;
+  getEntryPath: () => string | null;
+  getShellContent: () => string | null;
+}
 
 export type SeedFile = {
   path: string;
@@ -69,3 +80,23 @@ export type FrameworkSeeds = {
   files: SeedFile[];
   entry?: string | null;
 };
+
+export interface TreeNode {
+  name: string;
+  path: string;
+  isFolder: boolean;
+  children: Record<string, TreeNode>;
+}
+
+export interface SidebarProps {
+  vfs: vfsAPI;
+  files: Record<string, any>;
+  activePath: string;
+}
+
+export interface FileNodeProps {
+  node: TreeNode;
+  activePath: string;
+  onSelect: (path: string) => void;
+  depth: number;
+}
