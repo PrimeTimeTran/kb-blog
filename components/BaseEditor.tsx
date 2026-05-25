@@ -1,6 +1,6 @@
 'use client';
 
-import { Editor } from '@/pkg/live-editor/components/Editor';
+import { Editor } from '@/pkg/exhibit/components/Editor';
 
 const BaseEditor = Editor;
 

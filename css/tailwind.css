@@ -40,15 +40,15 @@
    Multiple files can safely extend the same layer.
 ───────────────────────────────────────────── */
 
-/* @import './utilities.css';
+@import './utilities.css';
 @import './components.css';
-@import './base.css'; */
+@import './base.css';
 
-/* @import './semantics.css';
+@import './semantics.css';
 @import './layout.css';
 @import './animations.css';
 
 @import './vendors.css';
 @import './prism.css';
 
-@import './app.css'; */
+@import './app.css';

@@ -18,7 +18,10 @@ function err(...args: any[]) {
   console.error(...args);
 }
 export function createTrace(namespace: string): TraceApi {
-  const id = randomUUID().slice(0, 6);
+  const id =
+    typeof crypto !== 'undefined' && 'randomUUID' in crypto
+      ? crypto.randomUUID().slice(0, 6)
+      : Math.random().toString(36).slice(2, 8);
   const color = getColor(id);
 
   const context = {

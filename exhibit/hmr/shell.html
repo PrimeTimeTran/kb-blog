@@ -1,0 +1,42 @@
+<script>
+  function setupHMR() {
+    function setupSockets() {
+      const socket = new WebSocket('ws://localhost:8080/browser');
+
+      socket.onopen = () => console.log('✅ Connected to HMR Bridge');
+
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        console.log('📥 Raw data received:', data);
+
+        // Verify if 'data' looks like { type: 'vfs:sync', payload: { ... } }
+        if (data.type === 'vfs:sync') {
+          console.log('✅ Payload detected, calling registerModule...');
+          window.AppCore.registerModule(data.payload.path, data.payload.content);
+          window.AppCore.render();
+        } else {
+          console.warn('⚠️ Unknown message type:', data.type);
+        }
+      };
+      socket.onerror = (err) => console.error('Bridge Connection Error:', err);
+    }
+    setupSockets();
+    function setIFrameEventListener() {
+      window.addEventListener('message', (e) => {
+        if (e.data.type === 'vfs:sync') {
+          const { path, content } = e.data.payload;
+
+          // Register the file
+          window.AppCore.registerModule(path, content);
+
+          // Trigger HMR: If we have an active app running,
+          // it should re-run to see the changes
+          console.log(`🚀 File ${path} updated, re-rendering...`);
+          window.AppCore.render();
+        }
+      });
+    }
+    setIFrameEventListener();
+  }
+  setupHMR();
+</script>

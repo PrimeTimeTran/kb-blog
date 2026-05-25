@@ -1,0 +1,23 @@
+{
+  "name": "exhibit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {},
+  "keywords": [],
+  "dependencies": {
+    "react": "^18.2.0",
+    "next": "^16.2.6",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.3.0",
+    "lucide-react": "^1.14.0",
+    "react-live": "^4.1.8",
+    "prismjs": "^1.30.0",
+    "esbuild": "^0.28.0",
+    "ace-builds": "^1.44.0",
+    "react-ace": "^14.0.1",
+    "@babel/standalone": "^7.29.4",
+  },
+  "author": "Loi Tran",
+  "license": "ISC"
+}

@@ -22,7 +22,7 @@ const headerNavLinks = [
   { href: '/tags', title: 'Tags', icon: TiTags },
   { href: '/dsa', title: 'DSA', icon: SiThealgorithms },
   // { href: '/snippets', title: 'Snippets' },
-  { href: '/projects', title: 'Projects', icon: GoProjectSymlink },
+  // { href: '/projects', title: 'Projects', icon: GoProjectSymlink },
   { href: '/showcases', title: 'Showcases', icon: VscPreview },
   { href: '/about', title: 'About', icon: SiLibreofficewriter },
 ];

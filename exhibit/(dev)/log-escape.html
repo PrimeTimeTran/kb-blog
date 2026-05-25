@@ -1,0 +1,9 @@
+<script>
+  const originalLog = console.log;
+  console.log = (...args) => {
+    // Send to the parent window
+    window.parent.postMessage({ type: 'log', payload: args }, '*');
+    // Keep it in the iframe too
+    originalLog.apply(console, args);
+  };
+</script>

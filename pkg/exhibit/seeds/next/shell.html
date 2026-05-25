@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      window.AppCore = window.AppCore || { messageQueue: [] };
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+        // If the method exists, route it; otherwise, queue it
+        if (typeof window.AppCore.processMessage === 'function') {
+          window.AppCore.processMessage(data);
+        } else {
+          window.AppCore.messageQueue.push(data);
+        }
+      });
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="/react.js"></script>
+    <script src="/reactdom.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      :root {
+        /* ✅ keep RGB channels only (correct format for Tailwind alpha) */
+        --bg: 255 255 255;
+        --fg: 15 15 15;
+        /* optional extra tokens for your UI system */
+        --muted: 120 120 120;
+        --accent: 34 197 94;
+      }
+
+      :root[data-theme='dark'] {
+        --bg: 9 9 11;
+        --fg: 255 255 255;
+        --muted: 161 161 170;
+        --accent: 59 130 246;
+      }
+
+      body {
+        background-color: rgb(var(--bg)) !important;
+        color: rgb(var(--fg)) !important;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      #root {
+        color-scheme: light dark;
+      }
+      #error-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(9, 9, 11, 0.95);
+        color: #ef4444;
+        padding: 24px;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow: auto;
+        z-index: 99999;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root" className="h-full w-full"></div>
+    <div
+      id="error-overlay"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
+    ></div>
+
+    <script>
+      window.AppCore = {
+        isReady: false,
+        // --- 1. CONFIGURATION & STATE ---
+        vfs: {},
+        root: null,
+        // Which file contains the root component?
+        // <App />?.
+        // That's the purpose of this
+        ENTRY_PATH: null,
+        messageQueue: [],
+        moduleRegistry: {},
+
+        // --- 2. LIFECYCLE & RENDERING ---
+        init() {
+          // 1. Listen for standard postMessages (from the IDE)
+          window.addEventListener('message', (event) => {
+            // Use the arrow function () => to bind 'this' automatically
+            this.processMessage(event.data);
+          });
+
+          // 3. Process queued messages
+          while (this.messageQueue.length > 0) {
+            this.processMessage(this.messageQueue.shift());
+          }
+        },
+        ensureRoot() {
+          if (!this.root) {
+            const rootEl =
+              document.getElementById('root') ||
+              document.body.appendChild(Object.assign(document.createElement('div'), { id: 'root' }));
+            this.root = ReactDOM.createRoot(rootEl);
+          }
+          return this.root;
+        },
+
+        render(path = this.ENTRY_PATH) {
+          try {
+            const mod = this.customRequire(path);
+            const Component = mod.default || mod;
+
+            if (typeof Component !== 'function' && typeof Component !== 'object') {
+              throw new Error(`Expected a React component, but got: ${typeof Component}`);
+            }
+
+            const root = this.ensureRoot();
+            root.render(window.React.createElement(Component));
+            this.clearErrorOverlay();
+            return true;
+          } catch (err) {
+            this.reportError(err);
+            return false;
+          }
+        },
+
+        clearErrorOverlay() {
+          const overlay = document.getElementById('error-overlay');
+          if (overlay) {
+            overlay.style.display = 'none';
+            overlay.innerHTML = '';
+          }
+        },
+
+        // --- 3. MODULE SYSTEM (VFS ENGINE) ---
+        syncRegistry(files) {
+          this.moduleRegistry = {};
+          Object.entries(files || {}).forEach(([path, file]) => {
+            this.registerModule(path, file.content);
+          });
+        },
+
+        registerModule(path, content) {
+          try {
+            // 1. Transpile to CommonJS
+            const transformed = Babel.transform(content, {
+              filename: path,
+              presets: [['typescript', { isTSX: true, allExtensions: true }], ['react', { runtime: 'classic' }], 'env'],
+              plugins: ['transform-modules-commonjs'],
+            }).code;
+
+            // 2. Define the sandbox environment
+            const module = { exports: {} };
+            const exports = module.exports;
+
+            // 3. Create the execution factory
+            // We pass 'path' and 'process' to avoid "not defined" errors
+            // const factory = new Function('require', 'module', 'exports', 'path', 'process', transformed);
+
+            // 4. Execute the code
+            const factory = new Function('exports', 'require', 'module', transformed);
+
+            // Store in registry
+            this.moduleRegistry[path] = {
+              exports: {},
+              factory: factory, // Storing the function here
+              wasExecuted: false,
+            };
+
+            console.log(`✅ Registered: ${path}`);
+          } catch (err) {
+            console.error(`❌ Execution error in ${path}:`, err);
+            this.reportError(err);
+            throw err;
+          }
+        },
+        customRequire(modulePath, callerPath = './') {
+          const dependencyMap = {
+            react: window.React,
+            'react-dom': window.ReactDOM,
+            'react/jsx-runtime': window.React,
+          };
+
+          if (dependencyMap[modulePath]) {
+            return dependencyMap[modulePath];
+          }
+
+          // 2. Resolve relative path to an absolute-style registry key
+          // This turns "./todo" into "todo" or "hello-world/todo" depending on your keys
+          const getResolvedPath = (target, base) => {
+            if (!target.startsWith('.')) return target;
+            const baseDir = base.substring(0, base.lastIndexOf('/'));
+            return `${baseDir}/${target.replace('./', '')}`.replace(/\/+/g, '/');
+          };
+
+          const resolvedPath = getResolvedPath(modulePath, callerPath);
+
+          // 3. Registry Lookup
+          const mod = this.moduleRegistry[resolvedPath] || this.moduleRegistry['./' + resolvedPath];
+
+          if (!mod) {
+            throw new Error(`Cannot resolve: '${modulePath}' called from ${callerPath}`);
+          }
+
+          // 4. Lazy Execution
+          if (!mod.wasExecuted) {
+            // Inject the specific require-bound-to-this-file
+            const boundRequire = (path) => this.customRequire(path, resolvedPath);
+            mod.factory(mod.exports, boundRequire, mod);
+            mod.wasExecuted = true;
+          }
+
+          return mod.exports;
+        },
+        getExternalDep(name) {
+          return {
+            react: window.React,
+            lodash: window.lodash,
+            'react-dom': window.ReactDOM,
+            'lucide-react': window.lucide,
+          }[name];
+        },
+        Handlers: {
+          // theme:change, ui:error, vfs:update, vfs: sync, file:select,
+          // --- UI & System Operations ---
+          'theme:change': (ctx, { theme }) => {
+            console.log({ theme });
+            const newTheme = theme == 'dark';
+            document.documentElement.dataset.theme = theme;
+            document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
+          },
+          'ui:error': (ctx, { message, stack, loc }) => {
+            console.error('❌ ui:error ');
+            ctx.onError(message, { loc, stack });
+          },
+          'vfs:update': (ctx, payload) => {
+            // Use for [COMPLETE] reset of entire module registry
+            // Safety check: ensure payload exists
+            console.log('vfs:update!', ctx, payload);
+            if (!payload?.files) {
+              console.error("⚠️ vfs:update received but 'files' missing!");
+              return;
+            }
+            ctx.ENTRY_PATH = payload.entryPoint || './hello-world/page.tsx';
+            ctx.syncRegistry(payload.files);
+            ctx.render(payload.entryPoint || ctx.ENTRY_PATH);
+          },
+          'vfs:sync': (ctx, payload) => {
+            // File update, name change, meta data (which directory, extension, etc)
+            if (!payload?.path || payload.content === undefined) {
+              console.warn('⚠️ vfs:sync received invalid data');
+              return;
+            }
+            ctx.registerModule(payload.path, payload.content);
+            ctx.render(ctx.ENTRY_PATH);
+          },
+          'file:select': (ctx, { path }) => {
+            // Logic: Change active state without re-rendering the whole app
+            ctx.activeFile = path;
+            console.log(`📂 Editor focused on: ${path}`);
+            // Potentially notify parent to update editor cursor position
+            window.parent.postMessage({ type: 'ui:editor-focus', path }, '*');
+          },
+        },
+        // --- 4. COMMUNICATION & HMR ---
+        processMessage(data) {
+          // 1. Ensure a basic structure exists
+          if (!data || !data.type) return;
+
+          if (!this.isReady) {
+            this.messageQueue.push(e.data);
+            return;
+          }
+
+          const handler = this.Handlers[data.type];
+
+          if (!handler) {
+            console.warn(`⚠️ Unhandled message type: ${data.type}`);
+            return;
+          }
+
+          // 2. Defensive Payload Extraction
+          // Even if the IDE sends nothing, we pass an empty object {}
+          const payload = data.payload || {};
+
+          try {
+            handler(this, payload);
+          } catch (err) {
+            // 3. Centralized Error Handling
+            this.reportError(err);
+          }
+        },
+
+        setupHMR() {
+          const socket = new WebSocket('ws://localhost:8080/browser');
+          console.log('✅ WS Connected');
+          socket.onmessage = async (event) => {
+            console.log('📝 WS Connected');
+            const data = JSON.parse(event.data instanceof Blob ? await event.data.text() : event.data);
+            this.processMessage(data);
+          };
+        },
+
+        reportError(err) {
+          console.error('⛔️ Error: Module System Error:', err);
+          window.parent.postMessage({ type: 'iframe:error', payload: { message: err.message } }, '*');
+        },
+        markReady() {
+          this.isReady = true;
+          // Process anything that arrived while we were booting
+          this.messageQueue.forEach((msg) => this.processMessage({ data: msg }));
+          this.messageQueue = [];
+        },
+        boot() {
+          this.setupHMR();
+          console.log('Environment Ready');
+          window.parent.postMessage({ type: 'iframe:ready' }, '*');
+        },
+      };
+    </script>
+    <script>
+      // 1. Setup the "One-Time" Listener
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+
+        // If Core isn't defined, queue it
+        if (!window.AppCore.processMessage) {
+          console.log('Iframe not ready, queuing:', data.type);
+          window.AppCore.messageQueue.push(data);
+          return;
+        }
+
+        // Otherwise, just route the message
+        window.AppCore.processMessage(data);
+      });
+
+      window.addEventListener('error', (e) => {
+        if (window.AppCore && window.AppCore.reportError) {
+          window.AppCore.reportError(e);
+        } else {
+          console.error('System Error before AppCore ready:', e);
+        }
+      });
+      function boot() {
+        console.log('Booting AppCore...');
+        window.AppCore.setupHMR();
+        window.AppCore.markReady();
+        window.parent.postMessage({ type: 'iframe:ready' }, '*');
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        // If the document is already loaded, just run it now
+        boot();
+      }
+    </script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-import LiveReactSandbox from '@/pkg/live-editor';
+import LiveReactSandbox from '@/pkg/exhibit';
 
 export default function Page() {
   return <LiveReactSandbox />;
