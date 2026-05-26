@@ -1,11 +1,11 @@
 // import generateRss from '@/lib/generate-rss'
-import { BlogContent } from '../../../components/blog';
-import TableOfContents from '../../../components/TableOfContents';
+import { BlogContent } from '@/components/blog';
+import TableOfContents from '@/components/TableOfContents';
 
 import { Layout3ColumnLeft, Layout3ColumnRight, Layout3ColumnCenter } from '@/components/layout/ThreeColumnLayout';
 
-import { content } from '../../../lib/content/api/client';
-import MDXWrapper from '../../../components/mdx/MDXWrapper';
+import { content } from '@/lib/content/api/client';
+import MDXWrapper from '@/components/mdx/MDXWrapper';
 
 export async function generateStaticParams(props) {
   const posts = await content.list({ type: 'blog' });
@@ -26,22 +26,20 @@ export default async function BlogPage({ params, posts }) {
 
   if (!Post) return null;
 
-  const { mdxSource, toc, frontMatter } = Post;
+  const { toc, frontMatter } = Post;
 
   return (
     <Layout3ColumnLeft
       leftCol={
-        false ? (
+        <div className=" w-128">
           <div className=" w-128">
-            <div className=" w-128">
-              {Array.from({ length: 50 }).map((_, i) => (
-                <div key={i} className="h-20 border">
-                  item {i}
-                </div>
-              ))}
-            </div>
+            {Array.from({ length: 50 }).map((_, i) => (
+              <div key={i} className="h-20 border">
+                item {i}
+              </div>
+            ))}
           </div>
-        ) : null
+        </div>
       }
     >
       <Layout3ColumnRight

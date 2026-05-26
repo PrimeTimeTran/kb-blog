@@ -28,7 +28,9 @@ interface RenderNavLinksProps {
 function checkKbRoute(link: string, pathName: string) {
   try {
     return link.href.substring(0, 3) === '/kb' && pathName?.substring(0, 3) === '/kb';
-  } catch (error) {}
+  } catch (error) {
+    console.error('Error', error);
+  }
 }
 function renderNavLinks({ pathName, variant, onNavigate }: RenderNavLinksProps) {
   return (headerNavLinks ?? []).map((link) => {
@@ -67,36 +69,6 @@ function renderNavLinks({ pathName, variant, onNavigate }: RenderNavLinksProps) 
         )}
 
         <span className="truncate">{link.title}</span>
-      </Link>
-    );
-  });
-}
-function renderNavLinks2({ pathName, variant, onNavigate }: RenderNavLinksProps) {
-  return (headerNavLinks ?? []).map((link) => {
-    const isKbRoute = checkKbRoute(link, pathName);
-    const isActive = pathName === link.href || isKbRoute;
-
-    const Icon = link.icon;
-    // How to style?
-    // - Inline Tailwind?
-    // - Global CSS?
-    // - Utilities?
-    // - CLSX?
-    // - React?
-    // - Styled components?
-
-    return (
-      <Link
-        key={link.title}
-        href={link.href}
-        onClick={onNavigate}
-        data-variant={variant}
-        data-active={isActive}
-        className="nav-link mx-4 p-2"
-      >
-        {Icon && <Icon className="nav-link-icon" />}
-
-        <span className="nav-link-label">{link.title}</span>
       </Link>
     );
   });

@@ -12,6 +12,7 @@ export default [
   {
     ignores: [
       '**/.next',
+      '**/.vercel',
       '**/node_modules',
       '**/dist',
       'node_modules/**',
@@ -42,17 +43,10 @@ export default [
 
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          vars: 'all',
-          args: 'after-used',
-          caughtErrors: 'all',
-          ignoreRestSiblings: false,
-          ignoreUsingDeclarations: false,
-          reportUsedIgnorePattern: false,
-        },
-      ],
+      'react/prop-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-expressions': 'off',
     },
   },
 
@@ -104,10 +98,10 @@ export default [
 
       // general React noise reduction
       'react/no-unescaped-entities': 'off',
-      'react/prop-types': 'warn',
+      'react/prop-types': 'off',
 
       // TS ergonomics
-      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
     },
   },

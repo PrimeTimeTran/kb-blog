@@ -1,0 +1,14 @@
+{
+  "name": "@primetimetran/blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "rm -rf .next node_modules/.cache",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@testing-library/react": "^16.3.2",
+    "vitest": "^4.1.6"
+  }
+}

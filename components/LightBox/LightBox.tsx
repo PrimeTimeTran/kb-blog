@@ -1,48 +1,32 @@
 'use client';
+import Image from 'next/image';
+import { useState, useRef, useEffect, useCallback } from 'react';
 
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-
-type LightBoxImage = {
-  original: string;
-  thumbnail?: string;
-  description?: string;
-};
-
-type LightBoxProps = {
-  images: LightBoxImage[];
-  len: number;
-};
-
-export default function LightBox({ images, len }: LightBoxProps) {
-  const mainRef = useRef<HTMLDivElement | null>(null);
-  const thumbRef = useRef<HTMLDivElement | null>(null);
-
+export function LightBox({ images, len }) {
+  const mainRef = useRef(null);
   const navLockRef = useRef(false);
+  const thumbRef = useRef(null);
   const lightboxRef = useRef(false);
-  const isProgrammaticScroll = useRef(false);
-
-  const [activeIndex, setActiveIndex] = useState<number>(0);
-  const [lightboxOpen, setLightboxOpen] = useState<boolean>(false);
-
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   useEffect(() => {
     lightboxRef.current = lightboxOpen;
   }, [lightboxOpen]);
 
-  const next = useCallback(() => {
+  const next = () => {
     setActiveIndex((i) => (i + 1) % len);
-  }, [len]);
-
-  const prev = useCallback(() => {
+  };
+  const prev = () => {
     setActiveIndex((i) => (i - 1 + len) % len);
-  }, [len]);
-
-  const openLightbox = useCallback((i: number) => {
+  };
+  const openLightbox = (i) => {
     setActiveIndex(i);
     setLightboxOpen(true);
-  }, []);
+  };
+  const isProgrammaticScroll = useRef(false);
 
   const step = useCallback(
-    (dir: number) => {
+    (dir) => {
       if (navLockRef.current) return;
 
       navLockRef.current = true;
@@ -59,7 +43,7 @@ export default function LightBox({ images, len }: LightBoxProps) {
   );
 
   useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
+    const onKeyDown = (e) => {
       if (e.key === 'ArrowRight') step(1);
       if (e.key === 'ArrowLeft') step(-1);
 
@@ -73,14 +57,11 @@ export default function LightBox({ images, len }: LightBoxProps) {
     };
 
     window.addEventListener('keydown', onKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [step]);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [len, step]);
 
   useEffect(() => {
-    const mainEl = mainRef.current?.children?.[activeIndex] as HTMLElement | undefined;
+    const mainEl = mainRef.current?.children?.[activeIndex];
 
     if (mainEl) {
       mainEl.scrollIntoView({
@@ -89,8 +70,7 @@ export default function LightBox({ images, len }: LightBoxProps) {
       });
     }
 
-    const thumb = thumbRef.current?.children?.[activeIndex] as HTMLElement | undefined;
-
+    const thumb = thumbRef.current?.children?.[activeIndex];
     thumb?.scrollIntoView({
       behavior: 'smooth',
       inline: 'center',
@@ -108,8 +88,7 @@ export default function LightBox({ images, len }: LightBoxProps) {
     const onScroll = () => {
       if (isProgrammaticScroll.current) return;
 
-      const children = Array.from(container.children) as HTMLElement[];
-
+      const children = Array.from(container.children);
       const center = container.scrollLeft + container.offsetWidth / 2;
 
       let closest = 0;
@@ -117,7 +96,6 @@ export default function LightBox({ images, len }: LightBoxProps) {
 
       children.forEach((child, i) => {
         const childCenter = child.offsetLeft + child.offsetWidth / 2;
-
         const dist = Math.abs(center - childCenter);
 
         if (dist < minDist) {
@@ -130,16 +108,12 @@ export default function LightBox({ images, len }: LightBoxProps) {
     };
 
     container.addEventListener('scroll', onScroll);
-
-    return () => {
-      container.removeEventListener('scroll', onScroll);
-    };
+    return () => container.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <div className="h-full w-full flex flex-col items-center justify-center">
-      {/* INDEX */}
-      <div className="text-xs text-gray-400">
+      <div className="text-xs text-gray-400 mb-2">
         {activeIndex + 1} / {len}
       </div>
 
@@ -148,8 +122,14 @@ export default function LightBox({ images, len }: LightBoxProps) {
         <div ref={mainRef} className="flex overflow-x-auto snap-x snap-mandatory">
           {images.map((img, i) => (
             <div key={i} className="min-w-full snap-center flex flex-col items-center">
-              <img src={img.original} className="max-h-[70vh] object-contain" onClick={() => setLightboxOpen(true)} />
-
+              <Image
+                alt={img.description}
+                src={img.original}
+                width={img.width}
+                height={img.height}
+                className="max-h-[70vh] object-contain"
+                onClick={() => setLightboxOpen(true)}
+              />
               <p className="text-sm text-gray-500 mt-3 text-center">{img.description}</p>
             </div>
           ))}
@@ -163,45 +143,43 @@ export default function LightBox({ images, len }: LightBoxProps) {
             <button
               key={i}
               onClick={() => openLightbox(i)}
-              className={`
-                transition-all
-                duration-200
-                border
-                rounded
-                overflow-hidden
-                ${
-                  activeIndex === i
-                    ? 'scale-110 opacity-100 ring-2 ring-black shadow-lg'
-                    : 'scale-95 opacity-40 hover:scale-105 hover:opacity-80'
-                }
-              `}
+              className={`transition-all duration-200 border rounded overflow-hidden
+                      ${
+                        activeIndex === i
+                          ? 'scale-110 opacity-100 ring-2 ring-black shadow-lg'
+                          : 'scale-95 opacity-40 hover:scale-105 hover:opacity-80'
+                      }
+                    `}
             >
-              <img src={img.thumbnail || img.original} className="h-14 w-20 object-cover" />
+              <Image
+                width={img.width}
+                height={img.height}
+                alt={img.thumbnail}
+                src={img.thumbnail || img.original}
+                className="h-14 w-20 object-cover"
+              />
             </button>
           ))}
         </div>
       </div>
-
       {/* LIGHTBOX */}
       {lightboxOpen && activeIndex !== null && (
         <div
-          className={`
-            transition-all
-            duration-300
-            fixed
-            inset-0
-            bg-black
-            z-50
-            flex
-            items-center
-            justify-center
-          `}
+          className={`transition-all duration-300 ${
+            lightboxOpen ? 'fixed inset-0 bg-black z-50 flex items-center justify-center' : ''
+          }`}
         >
           <button onClick={prev} className="absolute left-4 text-white text-3xl">
             ‹
           </button>
 
-          <img src={images[activeIndex].original} className="max-h-[90vh] max-w-[90vw] object-contain" />
+          <Image
+            alt={images[activeIndex].thumbnail}
+            src={images[activeIndex].original}
+            width={images[activeIndex].width}
+            height={images[activeIndex].height}
+            className="max-h-[90vh] max-w-[90vw] object-contain"
+          />
 
           <button onClick={next} className="absolute right-4 text-white text-3xl">
             ›

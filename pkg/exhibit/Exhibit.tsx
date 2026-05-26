@@ -3,9 +3,9 @@
 import { SearchParams } from 'next/dist/server/request/search-params';
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
+import { Editor, Sidebar } from '@/pkg/exhibit/components';
 import { ExhibitManifest } from '@/pkg/exhibit/types';
-import { Editor, Sidebar } from '@/pkg/exhibit';
-import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit';
+import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit/hooks';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
   const shellRef = useRef(false);

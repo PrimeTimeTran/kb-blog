@@ -9,7 +9,9 @@ draft: true
 title: Secret
 summary: Hidden
 date: 2026-01-01
----`,
+---
+Hello World
+`,
     });
 
     const result = await content.get({
@@ -26,7 +28,9 @@ date: 2026-01-01
 title: No Draft Field
 summary: OK
 date: 2026-01-01
----`,
+---
+Hello World
+`,
     });
 
     const result = await content.get({

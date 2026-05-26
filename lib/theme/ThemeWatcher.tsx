@@ -1,32 +1,29 @@
-// components/theme/ThemeWatcher.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from '@teispace/next-themes';
 import { useThemeStore } from '@/hooks/useThemeStore';
 import { applyMaterialTheme } from '@/lib/theme/palette';
 
+// May need clear theme cache sometimes
 // localStorage.clear()
 // sessionStorage.clear()
 // (function clearCache() {
 //   localStorage.clear()
 //   sessionStorage.clear()
 // })()
-// lib/theme/ThemeWatcher.tsx
+
+// # useEffect
+// - client-side only
+// - after mount
+// - after hydration
 export function ThemeWatcher() {
   const { resolvedTheme } = useTheme();
   const seed = useThemeStore((state) => state.seed);
-  const [mounted, setMounted] = useState(false);
-
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted || !resolvedTheme) return;
-
+    if (!resolvedTheme) return;
     applyMaterialTheme(seed, resolvedTheme === 'dark');
-  }, [mounted, seed, resolvedTheme]);
+  }, [seed, resolvedTheme]);
 
   return null;
 }

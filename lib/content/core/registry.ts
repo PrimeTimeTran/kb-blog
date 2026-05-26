@@ -81,7 +81,7 @@ export function createContentClient(registry: ContentRegistry, config?: ContentC
           collection,
           config: mapClientToListConfig(config),
         },
-        args, // 🔥 IMPORTANT: DO NOT STRIP THIS
+        args,
       );
     },
   };

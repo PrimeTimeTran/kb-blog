@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { vfsAPI, VirtualFS } from '../hooks/useVFS';
+import { vfsAPI } from '../hooks/useVFS';
 
 interface TreeNode {
   name: string;
@@ -40,7 +40,6 @@ function buildTree(paths: string[]): TreeNode {
           children: {},
         };
       }
-      current.children[part] = current.children[part];
       current = current.children[part];
     });
   });

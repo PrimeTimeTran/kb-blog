@@ -40,7 +40,6 @@ function buildTree(paths: string[]): TreeNode {
           children: {},
         };
       }
-      current.children[part] = current.children[part];
       current = current.children[part];
     });
   });

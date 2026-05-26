@@ -96,6 +96,8 @@ export async function getContent(
       return buildParsePipeline(ctx).run(raw);
     });
 
+    if (!parsedCtx.published) return null;
+
     trace.debug('PARSE_PIPELINE_COMPLETE', {
       published: parsedCtx?.analysis?.published,
     });

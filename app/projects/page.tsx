@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import { images } from '@/data/images';
-
-import LightBox from '@/components/client/Project';
+import { images, LightBox } from '@/components/LightBox';
 
 export default function Page() {
   const [tab, setTab] = useState('images');
