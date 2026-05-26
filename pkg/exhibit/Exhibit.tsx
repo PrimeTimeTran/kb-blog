@@ -1,6 +1,7 @@
 'use client';
 
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
+// import { useDebounce } from 'use-debounce'; // Recommended library
 
 import { ExhibitManifest } from './types';
 
@@ -72,6 +73,8 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     }
   };
 
+  const [previewType, setPreviewType] = useState('react');
+
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
       <Sidebar vfs={vfs} />
@@ -99,13 +102,24 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
       {/* RUNTIME */}
       {/* ------------------------------------------------------------------ */}
       <aside className="flex-1 h-full relative bg-surface">
-        <iframe
-          ref={iframeRef}
-          className={`w-full h-full border-0 bg-surface transition-opacity ${
-            layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
-          }`}
-          sandbox="allow-scripts allow-same-origin allow-forms"
-        />
+        {previewType == 'vanilla' && (
+          <Preview
+            vfs={vfs}
+            codeState={vfs?.activeFile?.content}
+            className={`w-full h-full border-0 bg-surface transition-opacity ${
+              layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+            }`}
+          />
+        )}
+        {previewType == 'react' && (
+          <iframe
+            ref={iframeRef}
+            className={`w-full h-full border-0 bg-surface transition-opacity ${
+              layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+            }`}
+            sandbox="allow-scripts allow-same-origin allow-forms"
+          />
+        )}
 
         {/* ERROR CONSOLE */}
         {consoleError && (
@@ -136,3 +150,53 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     </div>
   );
 }
+
+const Preview = ({ className, codeState, vfs }) => {
+  const [blobUrl, setBlobUrl] = useState('');
+
+  useEffect(() => {
+    if (!codeState) return;
+
+    let processedHtml = codeState;
+
+    // Helper: Normalize path and fetch from VFS
+    const getFileContent = (path) => {
+      const cleanPath = path.replace(/^\.\//, '');
+      const vfsKey = `./react/${cleanPath}`;
+
+      const content = vfs.files[vfsKey]?.content;
+      if (!content) {
+        console.warn(`[Preview] VFS lookup failed for: ${vfsKey}. Available keys:`, Object.keys(vfs.files));
+      }
+      return content;
+    };
+
+    processedHtml = processedHtml.replace(/<link[^>]*href=["'](.*?)["'][^>]*>/gi, (match, path) => {
+      const content = getFileContent(path);
+      return content ? `<style>${content}</style>` : match;
+    });
+    processedHtml = processedHtml.replace(
+      /<script[^>]*src=["'](.*?)["'][^>]*>([\s\S]*?<\/script>|)/gi,
+      (match, path) => {
+        const content = getFileContent(path);
+
+        if (content) {
+          console.log(`[Preview] Successfully injected: ${path}`);
+          return `<script>${content}</script>`;
+        }
+
+        console.warn(`[Preview] Could not find content for: ${path}`);
+        return match; // Keep the original if content is missing
+      },
+    );
+
+    // 3. Create the Blob
+    const blob = new Blob([processedHtml], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    setBlobUrl(url);
+
+    return () => URL.revokeObjectURL(url);
+  }, [codeState, vfs]);
+
+  return <iframe className={className} src={blobUrl} />;
+};
