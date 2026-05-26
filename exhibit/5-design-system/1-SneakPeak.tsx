@@ -1,8 +1,7 @@
-import { Palette, Layers, Box, Cpu, Zap, LayoutGrid } from 'lucide-react';
+import { Box, Cpu, Layers, LayoutGrid, Palette, Zap } from 'lucide-react';
 
 export function SneakPeak() {
-  const { pageHero, pageLogos, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
-    renderContent();
+  const { pageHero, pageLogos, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } = renderContent();
   return (
     <div className="min-h-full w-full bg-background text-on-background">
       {pageHero}

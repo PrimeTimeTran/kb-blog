@@ -1,4 +1,5 @@
 'use client';
+
 import { Box } from 'lucide-react';
 import { SectionTitle } from './tailwind/components';
 

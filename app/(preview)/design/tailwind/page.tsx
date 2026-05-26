@@ -1,8 +1,4 @@
-'use client';
-import { useEffect } from 'react';
-import { Box } from 'lucide-react';
-import { SectionTitle } from './components';
-import { Page3 } from './animated-hover-icons';
+import { Tailwind } from '@/exhibit/5-design-system/3-Tailwind';
 
 // Inspiration Sites.
 // https://list.swajp.me/
