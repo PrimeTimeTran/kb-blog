@@ -35,7 +35,7 @@ export function OmniShowcase() {
               {/* Theme Toggle */}
               <button
                 onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-                className="p-2.5 rounded-xl bg-surface-container-highest text-primary hover:scale-105 active:scale-95 transition-all border border-outline-variant/50"
+                className="p-2.5 rounded-xl bg-highest text-primary hover:scale-105 active:scale-95 transition-all border border-outline-variant/50"
               >
                 {resolvedTheme === 'dark' ? <HiSun size={18} /> : <HiMoon size={18} />}
               </button>
@@ -52,7 +52,7 @@ export function OmniShowcase() {
                   onClick={() => setCurrentTab(tab.id)}
                   className={`
                   relative px-4 py-2 rounded-full text-sm font-bold transition-all
-                  ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low'}
+                  ${isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface hover:bg-low'}
                 `}
                 >
                   <span className="relative z-10 flex items-center gap-2">
@@ -273,7 +273,7 @@ export function OmniShowcase() {
                     color="secondary"
                     className="bg-secondary-container/20 border-secondary/20"
                     header="SECONDARY UTILITY"
-                    footer="bg-secondary-container | text-on-secondary-container"
+                    footer="bg-secondary-container | tex-on-secondary"
                   >
                     <div className="p-6 text-sm">
                       <p className="font-bold mb-2 text-secondary">Proper Usage:</p>
@@ -333,7 +333,7 @@ export function OmniShowcase() {
                     variant="none"
                     elevation="default"
                     header="STANDARD CONTAINER"
-                    footer="bg-surface-container | border-outline-variant/30 | backdrop-blur-md"
+                    footer="bg-level | border-outline-variant/30 | backdrop-blur-md"
                   >
                     <div className="p-6 text-sm">
                       <p className="font-bold mb-2 text-primary">Proper Usage:</p>
@@ -422,7 +422,7 @@ export function OmniShowcase() {
                   <OmniPanel variant="trace" hoverEffect="none" elevation="default" header="Tag Explorer">
                     <div className="p-4 grid grid-cols-4 gap-2">
                       {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                        <div key={i} className="h-8 bg-surface-container rounded-lg border border-outline-variant/20" />
+                        <div key={i} className="h-8 bg-level rounded-lg border border-outline-variant/20" />
                       ))}
                     </div>
                   </OmniPanel>
@@ -488,7 +488,7 @@ export function OmniShowcase() {
                     lighter (adding a primary-colored overlay).
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-lowest p-8 rounded-[32px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-lowest p-8 rounded-[32px]">
                   {/* Comparison A: Low Elevation in Dark */}
                   <div className="space-y-2">
                     <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 1</p>
@@ -549,13 +549,13 @@ export function OmniShowcase() {
                 </div>
 
                 <OmniPanel elevation="low" header="Parent Container (L1)">
-                  <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-low/50">
+                  <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-low/50">
                     {/* SUCCESS: Level 0 Child */}
                     <div className="space-y-2">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-primary font-bold">
                         Standard: Level 0
                       </p>
-                      <OmniPanel elevation="none" className="bg-surface-container-lowest border-dashed">
+                      <OmniPanel elevation="none" className="bg-lowest border-dashed">
                         <div className="p-6 text-xs italic">
                           Child is flush. We use a dashed border or a slight color shift instead of a shadow to show
                           containment.
@@ -585,10 +585,10 @@ export function OmniShowcase() {
                   </p>
                 </div>
 
-                <div className="relative h-64 w-full rounded-[32px] overflow-hidden border border-outline-variant/20 bg-surface-container-lowest">
+                <div className="relative h-64 w-full rounded-[32px] overflow-hidden border border-outline-variant/20 bg-lowest">
                   {/* Floating Header Spec */}
                   <motion.div
-                    className="absolute top-0 left-0 right-0 z-20 px-6 py-4 bg-surface-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-xl"
+                    className="absolute top-0 left-0 right-0 z-20 px-6 py-4 bg-level/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-xl"
                     initial={{ y: -10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                   >
@@ -618,7 +618,7 @@ export function OmniShowcase() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
-                  <div className="p-4 rounded-xl bg-surface-container">
+                  <div className="p-4 rounded-xl bg-level">
                     <p className="font-bold mb-1">Z-Stack Architecture</p>
                     <ul className="list-mono space-y-1 opacity-70">
                       <li>z-0: Document Base</li>
@@ -627,7 +627,7 @@ export function OmniShowcase() {
                       <li>z-100: Critical Alerts (Toasts)</li>
                     </ul>
                   </div>
-                  <div className="p-4 rounded-xl bg-surface-container">
+                  <div className="p-4 rounded-xl bg-level">
                     <p className="font-bold mb-1">Scroll Trigger Logic</p>
                     <p className="opacity-70 leading-relaxed">
                       We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the header elevation
@@ -851,7 +851,7 @@ const BEHAVIOR = (
             color="secondary"
             className="bg-secondary-container/20 border-secondary/20"
             header="SECONDARY UTILITY"
-            footer="bg-secondary-container | text-on-secondary-container"
+            footer="bg-secondary-container | tex-on-secondary"
           >
             <div className="p-6 text-sm">
               <p className="font-bold mb-2 text-secondary">Proper Usage:</p>
@@ -909,7 +909,7 @@ const BEHAVIOR = (
             variant="none"
             elevation="default"
             header="STANDARD CONTAINER"
-            footer="bg-surface-container | border-outline-variant/30 | backdrop-blur-md"
+            footer="bg-level | border-outline-variant/30 | backdrop-blur-md"
           >
             <div className="p-6 text-sm">
               <p className="font-bold mb-2 text-primary">Proper Usage:</p>
@@ -996,7 +996,7 @@ const BEHAVIOR = (
           <OmniPanel variant="trace" hoverEffect="none" elevation="default" header="Tag Explorer">
             <div className="p-4 grid grid-cols-4 gap-2">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-                <div key={i} className="h-8 bg-surface-container rounded-lg border border-outline-variant/20" />
+                <div key={i} className="h-8 bg-level rounded-lg border border-outline-variant/20" />
               ))}
             </div>
           </OmniPanel>
@@ -1064,7 +1064,7 @@ function Elevation() {
                 (adding a primary-colored overlay).
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-lowest p-8 rounded-[32px]">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-lowest p-8 rounded-[32px]">
               {/* Comparison A: Low Elevation in Dark */}
               <div className="space-y-2">
                 <p className="text-[10px] font-bold uppercase tracking-widest opacity-50">Tonal Step: 1</p>
@@ -1123,13 +1123,13 @@ function Elevation() {
             </div>
 
             <OmniPanel elevation="low" header="Parent Container (L1)">
-              <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-surface-container-low/50">
+              <div className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-low/50">
                 {/* SUCCESS: Level 0 Child */}
                 <div className="space-y-2">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-primary font-bold">
                     Standard: Level 0
                   </p>
-                  <OmniPanel elevation="none" className="bg-surface-container-lowest border-dashed">
+                  <OmniPanel elevation="none" className="bg-lowest border-dashed">
                     <div className="p-6 text-xs italic">
                       Child is flush. We use a dashed border or a slight color shift instead of a shadow to show
                       containment.
@@ -1159,10 +1159,10 @@ function Elevation() {
               </p>
             </div>
 
-            <div className="relative h-64 w-full rounded-[32px] overflow-hidden border border-outline-variant/20 bg-surface-container-lowest">
+            <div className="relative h-64 w-full rounded-[32px] overflow-hidden border border-outline-variant/20 bg-lowest">
               {/* Floating Header Spec */}
               <motion.div
-                className="absolute top-0 left-0 right-0 z-20 px-6 py-4 bg-surface-container/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-xl"
+                className="absolute top-0 left-0 right-0 z-20 px-6 py-4 bg-level/80 backdrop-blur-xl border-b border-outline-variant/30 shadow-xl"
                 initial={{ y: -10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
               >
@@ -1190,7 +1190,7 @@ function Elevation() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-xs">
-              <div className="p-4 rounded-xl bg-surface-container">
+              <div className="p-4 rounded-xl bg-level">
                 <p className="font-bold mb-1">Z-Stack Architecture</p>
                 <ul className="list-mono space-y-1 opacity-70">
                   <li>z-0: Document Base</li>
@@ -1199,7 +1199,7 @@ function Elevation() {
                   <li>z-100: Critical Alerts (Toasts)</li>
                 </ul>
               </div>
-              <div className="p-4 rounded-xl bg-surface-container">
+              <div className="p-4 rounded-xl bg-level">
                 <p className="font-bold mb-1">Scroll Trigger Logic</p>
                 <p className="opacity-70 leading-relaxed">
                   We use a "useScroll" hook to monitor "scrollY". When "y greater than 0", the header elevation

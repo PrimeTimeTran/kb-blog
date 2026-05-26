@@ -94,7 +94,7 @@ export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN 
           </nav>
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="p-2.5 rounded-xl bg-surface-container-highest text-primary border border-outline-variant/50 hover:bg-primary/10 transition-colors"
+            className="p-2.5 rounded-xl bg-highest text-primary border border-outline-variant/50 hover:bg-primary/10 transition-colors"
           >
             {resolvedTheme === 'dark' ? <HiSun size={18} /> : <HiMoon size={18} />}
           </button>

@@ -130,7 +130,7 @@ export function OmniPanel({
       >
         {header && (
           <header
-            className={`px-5 py-3 border-b border-outline-variant/10 backdrop-blur-sm ${isSemantic ? semantic.header : 'bg-surface-container-high'} ${headerClassName}`}
+            className={`px-5 py-3 border-b border-outline-variant/10 backdrop-blur-sm ${isSemantic ? semantic.header : 'bg-high'} ${headerClassName}`}
           >
             <span className={`font-bold tracking-tight ${isSemantic ? semantic.brandText : 'text-on-surface'}`}>
               {header}
@@ -157,7 +157,7 @@ export function OmniPanel({
         </main>
 
         {footer && (
-          <footer className="px-5 py-3 border-t border-outline-variant/10 bg-surface-container-lowest/20 text-on-surface-variant text-[10px] uppercase tracking-widest font-bold opacity-70">
+          <footer className="px-5 py-3 border-t border-outline-variant/10 bg-lowest/20 text-on-surface-variant text-[10px] uppercase tracking-widest font-bold opacity-70">
             {footer}
           </footer>
         )}
@@ -207,9 +207,9 @@ const getShadowMap = (isDark) => {
 const getSurfaceMap = (isDark) => {
   // Define the base colors once to ensure 100% consistency
   const baseSurfaces = {
-    low: isDark ? 'bg-surface-container-low' : 'bg-surface-container-low',
-    default: isDark ? 'bg-surface-container' : 'bg-surface-container',
-    high: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
+    low: isDark ? 'bg-low' : 'bg-low',
+    default: isDark ? 'bg-level' : 'bg-level',
+    high: isDark ? 'bg-high' : 'bg-high',
   };
 
   return {
@@ -218,8 +218,8 @@ const getSurfaceMap = (isDark) => {
     trace: baseSurfaces,
     // 'pop' remains distinct if you want it to stand out immediately
     pop: {
-      low: isDark ? 'bg-surface-container-high' : 'bg-surface-container-high',
-      default: isDark ? 'bg-surface-container-highest' : 'bg-white',
+      low: isDark ? 'bg-high' : 'bg-high',
+      default: isDark ? 'bg-highest' : 'bg-white',
       high: isDark ? 'bg-surface-bright' : 'bg-white',
     },
     ghost: {
@@ -233,9 +233,9 @@ const getSurfaceMap = (isDark) => {
       high: isDark ? 'bg-white/20 backdrop-blur-xl' : 'bg-black/20 backdrop-blur-xl',
     },
     inset: {
-      low: isDark ? 'bg-black/20 shadow-inner' : 'bg-surface-container-highest/50 shadow-inner',
-      default: isDark ? 'bg-black/40 shadow-inner' : 'bg-surface-container-highest shadow-inner',
-      high: isDark ? 'bg-black/60 shadow-inner' : 'bg-surface-container-highest shadow-inner',
+      low: isDark ? 'bg-black/20 shadow-inner' : 'bg-highest/50 shadow-inner',
+      default: isDark ? 'bg-black/40 shadow-inner' : 'bg-highest shadow-inner',
+      high: isDark ? 'bg-black/60 shadow-inner' : 'bg-highest shadow-inner',
     },
   };
 };

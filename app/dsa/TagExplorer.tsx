@@ -27,7 +27,7 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
         </div>
       </div>
       <div className="flex items-center gap-1">
-        <section className="flex bg-surface-container-highest/60 rounded-lg p-0.5 border border-outline-variant">
+        <section className="flex bg-highest/60 rounded-lg p-0.5 border border-outline-variant">
           {[
             { id: 'alpha', icon: <VscSortPrecedence />, label: 'A-Z' },
             { id: 'count', icon: <VscSymbolNumeric />, label: 'Count' },

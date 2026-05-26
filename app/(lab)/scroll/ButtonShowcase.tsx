@@ -16,10 +16,7 @@ export function ButtonShowcase() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {tones.map((tone) => (
-          <section
-            key={tone}
-            className="p-6 rounded-xl border border-outline-variant bg-surface-container-low space-y-6"
-          >
+          <section key={tone} className="p-6 rounded-xl border border-outline-variant bg-low space-y-6">
             <h2 className="text-xs font-bold uppercase tracking-tighter text-on-surface-variant/40 border-b border-outline-variant pb-2">
               Tone: {tone}
             </h2>
@@ -81,7 +78,7 @@ export function ButtonShowcase() {
         <h2 className="text-xs font-bold uppercase text-center mb-6 opacity-30">Layout Stress Test</h2>
         <div className="flex items-center justify-center gap-2">
           <StyledButton tone="default" text="Previous" onClick={() => {}} />
-          <div className="flex bg-surface-container-highest p-1 rounded-lg gap-1 border border-outline-variant">
+          <div className="flex bg-highest p-1 rounded-lg gap-1 border border-outline-variant">
             <StyledButton tone="success" text="Easy" isActive onClick={() => {}} />
             <StyledButton tone="warning" text="Medium" onClick={() => {}} />
             <StyledButton tone="error" text="Hard" onClick={() => {}} />

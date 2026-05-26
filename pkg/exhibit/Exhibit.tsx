@@ -10,6 +10,7 @@ import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit/hook
 import { ExhibitLayout } from '@/layouts/ExhibitLayout';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
+  console.log({ manifest });
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -78,45 +79,47 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
       left={<Sidebar vfs={vfs} />}
       right={
         <aside className="h-full w-full relative bg-surface">
-          {previewType == 'vanilla' && (
-            <Preview
-              vfs={vfs}
-              codeState={vfs?.activeFile?.content}
-              className={`w-full h-full border-0 bg-surface transition-opacity ${
-                layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
-              }`}
-            />
-          )}
-          {previewType == 'react' && (
-            <iframe
-              ref={iframeRef}
-              className={`w-full h-full border-0 bg-surface transition-opacity ${
-                layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
-              }`}
-              sandbox="allow-scripts allow-same-origin allow-forms"
-            />
-          )}
+          <div className="absolute inset-0 overflow-y-auto">
+            {previewType == 'vanilla' && (
+              <Preview
+                vfs={vfs}
+                codeState={vfs?.activeFile?.content}
+                className={`w-full h-full border-0 bg-surface transition-opacity ${
+                  layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+                }`}
+              />
+            )}
+            {previewType == 'react' && (
+              <iframe
+                ref={iframeRef}
+                className={`w-full h-full border-0 bg-surface transition-opacity ${
+                  layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+                }`}
+                sandbox="allow-scripts allow-same-origin allow-forms"
+              />
+            )}
 
-          <div className={`grid-transition ${consoleError ? 'is-open opacity-100' : 'opacity-0'} w-full`}>
-            <div className="overflow-hidden group">
-              <div
-                {...layout.consoleProps}
-                className={`
+            <div className={`grid-transition ${consoleError ? 'is-open opacity-100' : 'opacity-0'} w-full`}>
+              <div className="overflow-hidden group">
+                <div
+                  {...layout.consoleProps}
+                  className={`
                     absolute bottom-0 left-0 right-0 w-full z-50 flex flex-col overflow-hidden transition-all duration-300 ease-in-out
                     bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30
                     ${consoleError ? 'max-h-[500px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}
                   `}
-              >
-                <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
+                >
+                  <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
 
-                <div className="relative flex-1 w-full">
-                  <button onClick={handleCopy} className="hover-button">
-                    {copied ? 'Copied' : 'Copy'}
-                  </button>
+                  <div className="relative flex-1 w-full">
+                    <button onClick={handleCopy} className="hover-button">
+                      {copied ? 'Copied' : 'Copy'}
+                    </button>
 
-                  <pre className="flex-1 h-full w-full text-red-400 px-2 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
-                    {consoleError}
-                  </pre>
+                    <pre className="flex-1 h-full w-full text-red-400 px-2 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
+                      {consoleError}
+                    </pre>
+                  </div>
                 </div>
               </div>
             </div>

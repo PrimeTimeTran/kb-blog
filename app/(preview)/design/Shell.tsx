@@ -104,10 +104,7 @@ export function ProductPageShell() {
   return (
     <div className="h-full w-full overflow-y-auto bg-background text-on-background">
       {sections.map((section, index) => (
-        <div
-          key={section.id}
-          className={clsx('w-full px-6 py-20', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container')}
-        >
+        <div key={section.id} className={clsx('w-full px-6 py-20', index % 2 === 0 ? 'bg-surface' : 'bg-level')}>
           <div className="mx-auto w-full max-w-6xl">
             <SectionRenderer section={section} />
           </div>
@@ -281,7 +278,7 @@ function UseCasesSection() {
           <div
             key={item.title}
             style={{
-              background: css('--surface-container'),
+              background: css('--level'),
               borderRadius: css('--radius-lg'),
               border: `1px solid ${css('--border')}`,
               padding: 28,
@@ -500,7 +497,7 @@ function PricingSection() {
           key={p.name}
           className={clsx(
             'relative overflow-hidden rounded-[2rem] border p-8 transition-all duration-300 hover:-translate-y-1',
-            p.highlight ? 'bg-surface border-transparent' : 'bg-surface-container border-border',
+            p.highlight ? 'bg-surface border-transparent' : 'bg-level border-border',
           )}
           style={
             p.highlight
@@ -648,7 +645,7 @@ function BenefitsSection() {
             key={b.title}
             className="p-8 transition hover:-translate-y-1"
             style={{
-              background: css('--surface-container'),
+              background: css('--level'),
               borderRadius: css('--radius-lg'),
               border: `1px solid ${css('--border')}`,
             }}

@@ -1,0 +1,10 @@
+/* Add this to your generator output */
+@layer base {
+  body {
+    @apply bg-surface text-on-surface;
+  }
+
+  .card {
+    @apply bg-surface-container rounded-xl p-4;
+  }
+}

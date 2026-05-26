@@ -32,6 +32,7 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
+        overflow-y: auto; /* This enables the internal scrollbar */
       }
 
       body {
@@ -397,10 +398,25 @@
           }
         },
         customRequire(modulePath, callerPath = './') {
+          const external = this.getExternalDep(modulePath);
+          const resolvedPath = this.resolvePath?.(modulePath, callerPath) ?? modulePath;
+          const fullPath = this.resolvePath(modulePath, callerPath);
+          if (external) {
+            return external;
+          }
+
+          console.log(`🔍 Requiring: ${resolvedPath}`);
           const mod = this.moduleRegistry[modulePath];
 
           if (!mod) {
             throw new Error(`Cannot resolve: ${modulePath}`);
+          }
+
+          // 4. Execution
+          if (!mod.wasExecuted && mod.factory) {
+            const boundRequire = (p) => this.customRequire(p, fullPath);
+            mod.factory(mod, mod.exports, boundRequire);
+            mod.wasExecuted = true;
           }
 
           if (mod.type === 'static') {
@@ -436,7 +452,7 @@
         Handlers: {
           'runtime:boot': (ctx, payload) => {
             // [SETUP FRAMEWORK/RUNTIME]
-            ctx.ENTRY_PATH = payload.entry;
+            ctx.ENTRY_PATH = payload.entry || './5-design-system/1-ProductLandingPage.tsx';
             ctx.vfs = payload.files;
             ctx.processMessage({ type: 'vfs:update', payload: { files: payload.files } });
           },

@@ -44,7 +44,7 @@ export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
         {activeTheme ? activeTheme.name : 'Custom Palette'}
       </div>
 
-      <div className="bg-surface-container-highest/60 backdrop-blur-2xl border border-outline/20 p-2 rounded-full shadow-2xl flex items-center gap-2">
+      <div className="bg-highest/60 backdrop-blur-2xl border border-outline/20 p-2 rounded-full shadow-2xl flex items-center gap-2">
         <div className="flex items-center gap-2 px-2">
           {THEME_VAULT.map((theme) => (
             <button
@@ -52,7 +52,7 @@ export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
               onClick={() => setSeed(theme.seed)}
               className={`group relative w-10 h-10 rounded-full transition-all duration-500 ease-out ${
                 seed === theme.seed
-                  ? 'ring-2 ring-primary ring-offset-4 ring-offset-background scale-110 shadow-lg'
+                  ? 'ring-2 ring-primary ring-offset-4 scale-110 shadow-lg'
                   : 'hover:scale-110 opacity-70 hover:opacity-100'
               }`}
               style={{ backgroundColor: theme.seed }}
@@ -92,14 +92,14 @@ export function FloatingPicker({ seed, setSeed }: FloatingPickerProps) {
 export const DataPreview = () => (
   <section className="space-y-4">
     <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Data & Feedback</h3>
-    <div className="bg-surface-container-low border border-outline/10 rounded-3xl p-6 space-y-6">
+    <div className="bg-low border border-outline/10 rounded-3xl p-6 space-y-6">
       {/* Progress Bars */}
       <div className="space-y-2">
         <div className="flex justify-between text-[10px] font-bold">
           <span>Storage Usage</span>
           <span className="text-primary">85%</span>
         </div>
-        <div className="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+        <div className="h-2 w-full bg-highest rounded-full overflow-hidden">
           <div className="h-full bg-primary transition-all duration-1000" style={{ width: '85%' }} />
         </div>
       </div>
@@ -122,13 +122,13 @@ export const DataPreview = () => (
 export const SelectionPreview = () => (
   <section className="space-y-4">
     <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Selection</h3>
-    <div className="bg-surface-container-low border border-outline/10 rounded-3xl p-4">
+    <div className="bg-low border border-outline/10 rounded-3xl p-4">
       <nav className="flex flex-col gap-1">
         {['Dashboard', 'Analytics', 'Settings'].map((item, i) => (
           <div
             key={item}
             className={`px-4 py-3 rounded-xl flex items-center justify-between cursor-pointer transition-colors ${
-              i === 0 ? 'bg-primary/10 text-primary' : 'hover:bg-surface-container-highest text-on-surface-variant'
+              i === 0 ? 'bg-primary/10 text-primary' : 'hover:bg-highest text-on-surface-variant'
             }`}
           >
             <span className="text-sm font-bold">{item}</span>
@@ -146,8 +146,8 @@ export const FormsAndTables = () => (
       {/* INPUT STATES COLUMN */}
       <div className="space-y-4">
         <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Input States</h3>
-        <div className="bg-surface-container-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
-          <div className="bg-surface-container-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
+        <div className="bg-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
+          <div className="bg-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
             {/* Standard states */}
             <InputGroup label="Default State" placeholder="Standard input..." />
 
@@ -166,10 +166,10 @@ export const FormsAndTables = () => (
       {/* DATA TABLE COLUMN */}
       <div className="space-y-4">
         <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">System Logs</h3>
-        <div className="bg-surface-container-low border border-outline/10 rounded-[2rem] overflow-hidden">
+        <div className="bg-low border border-outline/10 rounded-[2rem] overflow-hidden">
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="bg-surface-container-highest/50 border-b border-outline/10">
+              <tr className="bg-highest/50 border-b border-outline/10">
                 <th className="px-6 py-4 text-[10px] font-black uppercase opacity-60">Service</th>
                 <th className="px-6 py-4 text-[10px] font-black uppercase opacity-60">Status</th>
                 <th className="px-6 py-4 text-[10px] font-black uppercase opacity-60">Load</th>
@@ -213,14 +213,14 @@ export const InputGroup = ({ label, placeholder, error, isFocused, isDisabled, i
       placeholder={placeholder}
       className={`
     w-full px-4 py-3 rounded-xl text-sm font-medium transition-all outline-none border
-    bg-surface-container-highest/50
+    bg-highest/50
 
     /* 1. SHARED HOVER LOGIC (Real :hover AND Preview Prop) */
     ${
       !isDisabled && !isFocused && !error
         ? `
-      hover:border-primary/50 hover:bg-surface-container-highest hover:ring-4 hover:ring-primary/5
-      ${isHovered ? 'border-primary/50 bg-surface-container-highest ring-4 ring-primary/5' : 'border-outline/20'}
+      hover:border-primary/50 hover:bg-highest hover:ring-4 hover:ring-primary/5
+      ${isHovered ? 'border-primary/50 bg-highest ring-4 ring-primary/5' : 'border-outline/20'}
     `
         : ''
     }
@@ -229,10 +229,10 @@ export const InputGroup = ({ label, placeholder, error, isFocused, isDisabled, i
     ${error ? 'border-error ring-4 ring-error/10 text-error placeholder:text-error/40' : ''}
 
     /* 3. FOCUSED STATE (Highest Priority) */
-    ${isFocused ? 'border-primary ring-4 ring-primary/20 bg-surface-container-low' : ''}
+    ${isFocused ? 'border-primary ring-4 ring-primary/20 bg-low' : ''}
 
     /* 4. DISABLED STATE */
-    ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale bg-surface-container-highest border-outline/10' : ''}
+    ${isDisabled ? 'opacity-40 cursor-not-allowed grayscale bg-highest border-outline/10' : ''}
   `}
     />
     {error && <p className="text-[9px] font-bold text-error mt-1 uppercase tracking-tighter animate-fadeIn">{error}</p>}
@@ -252,11 +252,11 @@ const TableRow = ({ name, status, tone, load }: TableRowProps) => {
     success: 'text-success bg-success/10',
     warning: 'text-warning bg-warning/10',
     error: 'text-error bg-error/10',
-    default: 'text-on-surface-variant bg-surface-container-highest',
+    default: 'text-on-surface-variant bg-highest',
   };
 
   return (
-    <tr className="hover:bg-surface-container-highest/30 transition-colors group">
+    <tr className="hover:bg-highest/30 transition-colors group">
       <td className="px-6 py-4">
         <div className="text-sm font-black tracking-tight">{name}</div>
         <div className="text-[9px] font-bold opacity-40 uppercase">v2.4.0</div>
@@ -269,7 +269,7 @@ const TableRow = ({ name, status, tone, load }: TableRowProps) => {
         </span>
       </td>
       <td className="px-6 py-4">
-        <div className="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+        <div className="w-24 h-1.5 bg-highest rounded-full overflow-hidden">
           <div
             className={`h-full transition-all duration-1000 ${
               tone === 'error' ? 'bg-error' : tone === 'warning' ? 'bg-warning' : 'bg-primary'
@@ -299,7 +299,7 @@ export const SurfaceDeepDive = () => (
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
         {/* Level 1: Standard Surface */}
-        <div className="bg-surface-container-low p-8 rounded-[2rem] border border-outline/5 shadow-sm space-y-4">
+        <div className="bg-low p-8 rounded-[2rem] border border-outline/5 shadow-sm space-y-4">
           <div className="flex justify-between items-start">
             <span className="bg-primary/10 text-primary px-2 py-1 rounded text-[9px] font-black uppercase tracking-wider">
               Low Elevation
@@ -310,12 +310,12 @@ export const SurfaceDeepDive = () => (
             Use this for your main content areas. It has a slight tint of your primary seed.
           </p>
           <div className="pt-4 border-t border-outline/10 text-[10px] font-black text-on-surface-variant uppercase tracking-widest opacity-80">
-            var(--surface-container-low)
+            var(--low)
           </div>
         </div>
 
         {/* Level 2: Higher Surface */}
-        <div className="bg-surface-container-highest p-8 rounded-[2rem] border border-outline/10 shadow-md space-y-4 transform md:-translate-y-4">
+        <div className="bg-highest p-8 rounded-[2rem] border border-outline/10 shadow-md space-y-4 transform md:-translate-y-4">
           <div className="flex justify-between items-start">
             <span className="bg-tertiary/10 text-tertiary px-2 py-1 rounded text-[9px] font-black uppercase tracking-wider">
               High Elevation
@@ -326,7 +326,7 @@ export const SurfaceDeepDive = () => (
             Use this for "floating" elements like Popups, Modals, or Active Navigation items.
           </p>
           <div className="pt-4 border-t border-outline/10 text-[10px] font-bold text-shadow-on-surface-variant uppercase tracking-tighter">
-            var(--surface-container-highest)
+            var(--level-highest)
           </div>
         </div>
 
@@ -389,7 +389,7 @@ export const ColorTokenGuide = () => (
       {/* SURFACE & VARIANTS */}
       <TokenCard
         title="Surface Variant"
-        bg="bg-surface-container-highest"
+        bg="bg-highest"
         text="text-on-surface-variant"
         desc="Subtle boundaries (Dividers, card outlines)."
       />

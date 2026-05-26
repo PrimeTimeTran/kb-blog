@@ -1,13 +1,13 @@
 import { Palette, Layers, Box, Cpu, Zap, LayoutGrid } from 'lucide-react';
 
-export default function ProductLandingPage() {
-  const { pageHero, pageLogos, pageFeatures, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
+export function SneakPeak() {
+  const { pageHero, pageLogos, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
     renderContent();
   return (
     <div className="min-h-full w-full bg-background text-on-background">
       {pageHero}
       {pageLogos}
-      {pageFeatures}
+      {/* {pageFeatures} */}
       {pageShowcase}
       {pageTestimonials}
       {pagePricing}
@@ -146,67 +146,67 @@ function renderContent() {
     </section>
   );
 
-  const pageFeatures = (
-    <section className="mx-auto max-w-7xl px-6 py-28">
-      <div className="mb-20 max-w-3xl">
-        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Core Architecture</div>
-        <h2 className="mb-6 text-4xl font-black text-primary-light md:text-6xl">
-          Designed for scale. Built for clarity.
-        </h2>
-        <p className="text-lg leading-relaxed text-on-surface-variant">
-          A system rooted in Material Design principles, where intent meets execution. From tonal color mapping to
-          depth-based elevation, every abstraction serves the user's focus.
-        </p>
-      </div>
+  // const pageFeatures = (
+  //   <section className="mx-auto max-w-7xl px-6 py-28">
+  //     <div className="mb-20 max-w-3xl">
+  //       <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Core Architecture</div>
+  //       <h2 className="mb-6 text-4xl font-black text-primary-light md:text-6xl">
+  //         Designed for scale. Built for clarity.
+  //       </h2>
+  //       <p className="text-lg leading-relaxed text-on-surface-variant">
+  //         A system rooted in Material Design principles, where intent meets execution. From tonal color mapping to
+  //         depth-based elevation, every abstraction serves the user's focus.
+  //       </p>
+  //     </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {[
-          {
-            title: 'Tonal Palettes',
-            body: 'Automatic color mapping using HCT (Hue, Chroma, Tone) to ensure accessible contrast and brand harmony.',
-            icon: Palette,
-          },
-          {
-            title: 'Elevation Tiers',
-            body: 'A depth-first surface system that creates visual hierarchy through ambient shadow and tonal stacking.',
-            icon: Layers,
-          },
-          {
-            title: 'Component Density',
-            body: 'Adaptive spacing patterns that gracefully shrink or expand based on screen size and input modality.',
-            icon: Box,
-          },
-          {
-            title: 'Motion Logic',
-            body: 'Easing curves and shared element transitions that reinforce spatial relationships between views.',
-            icon: Zap,
-          },
-          {
-            title: 'Semantic Tokens',
-            body: 'Abstraction over implementation. Use intent-based tokens to maintain consistency across themes.',
-            icon: Cpu,
-          },
-          {
-            title: 'Adaptive Layouts',
-            body: 'Responsive gutters, margins, and column structures that translate natively to any viewport.',
-            icon: LayoutGrid,
-          },
-        ].map((feature) => (
-          <div
-            key={feature.title}
-            className="group rounded-[28px] border border-outline bg-level p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
-          >
-            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-on-primary transition group-hover:scale-110">
-              <feature.icon size={28} />
-            </div>
+  //     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+  //       {[
+  //         {
+  //           title: 'Tonal Palettes',
+  //           body: 'Automatic color mapping using HCT (Hue, Chroma, Tone) to ensure accessible contrast and brand harmony.',
+  //           icon: Palette,
+  //         },
+  //         {
+  //           title: 'Elevation Tiers',
+  //           body: 'A depth-first surface system that creates visual hierarchy through ambient shadow and tonal stacking.',
+  //           icon: Layers,
+  //         },
+  //         {
+  //           title: 'Component Density',
+  //           body: 'Adaptive spacing patterns that gracefully shrink or expand based on screen size and input modality.',
+  //           icon: Box,
+  //         },
+  //         {
+  //           title: 'Motion Logic',
+  //           body: 'Easing curves and shared element transitions that reinforce spatial relationships between views.',
+  //           icon: Zap,
+  //         },
+  //         {
+  //           title: 'Semantic Tokens',
+  //           body: 'Abstraction over implementation. Use intent-based tokens to maintain consistency across themes.',
+  //           icon: Cpu,
+  //         },
+  //         {
+  //           title: 'Adaptive Layouts',
+  //           body: 'Responsive gutters, margins, and column structures that translate natively to any viewport.',
+  //           icon: LayoutGrid,
+  //         },
+  //       ].map((feature) => (
+  //         <div
+  //           key={feature.title}
+  //           className="group rounded-[28px] border border-outline bg-level p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+  //         >
+  //           <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-on-primary transition group-hover:scale-110">
+  //             <feature.icon size={28} />
+  //           </div>
 
-            <h3 className="mb-3 text-2xl font-bold">{feature.title}</h3>
-            <p className="leading-relaxed text-on-surface-variant">{feature.body}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
+  //           <h3 className="mb-3 text-2xl font-bold">{feature.title}</h3>
+  //           <p className="leading-relaxed text-on-surface-variant">{feature.body}</p>
+  //         </div>
+  //       ))}
+  //     </div>
+  //   </section>
+  // );
   const pageShowcase = (
     <section className="border-y border-outline-variant bg-low">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 py-28 lg:grid-cols-2 lg:items-center">
@@ -427,7 +427,7 @@ function renderContent() {
   return {
     pageHero,
     pageLogos,
-    pageFeatures,
+    // pageFeatures,
     pageShowcase,
     pageTestimonials,
     pagePricing,

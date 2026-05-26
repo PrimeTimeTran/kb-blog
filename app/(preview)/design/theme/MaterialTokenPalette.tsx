@@ -14,8 +14,8 @@ const COLOR_GROUPS = [
     title: 'Secondary',
     description: 'Supporting accents and complementary emphasis.',
     tokens: [
-      ['bg-secondary', 'text-on-secondary'],
-      ['bg-secondary-container', 'text-on-secondary-container'],
+      ['bg-secondary', 'tex-on-secondary'],
+      ['bg-secondary-container', 'tex-on-secondary'],
       ['text-secondary', 'bg-surface'],
     ],
   },
@@ -43,18 +43,18 @@ const SURFACES = [
   'bg-surface',
   'bg-surface-dim',
   'bg-surface-bright',
-  'bg-surface-container-lowest',
-  'bg-surface-container-low',
-  'bg-surface-container',
-  'bg-surface-container-high',
-  'bg-surface-container-highest',
+  'bg-lowest',
+  'bg-low',
+  'bg-level',
+  'bg-high',
+  'bg-highest',
 ];
 
 function CopyButton({ value }: { value: string }) {
   return (
     <button
       onClick={() => navigator.clipboard.writeText(value)}
-      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-outline/20 bg-surface text-on-surface-variant transition hover:bg-surface-container-high hover:text-on-surface"
+      className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-outline/20 bg-surface text-on-surface-variant transition hover:bg-high hover:text-on-surface"
     >
       <Copy className="h-4 w-4" />
     </button>
@@ -81,7 +81,7 @@ function TokenCard({ bg, fg }: { bg: string; fg: string }) {
         </div>
       </div>
 
-      <div className="space-y-3 bg-surface-container p-4 text-sm">
+      <div className="space-y-3 bg-level p-4 text-sm">
         <div className="flex items-center justify-between gap-4 rounded-xl bg-surface px-3 py-2">
           <code>{bg}</code>
           <CopyButton value={bg} />
@@ -123,7 +123,7 @@ export default function MaterialTokenPalette() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-outline/20 bg-surface-container px-5 py-4 text-sm text-on-surface-variant">
+            <div className="rounded-2xl border border-outline/20 bg-level px-5 py-4 text-sm text-on-surface-variant">
               <div>
                 Use semantic pairs like <code>bg-surface + text-on-surface</code>
               </div>
@@ -146,10 +146,10 @@ export default function MaterialTokenPalette() {
           <div className="grid gap-4 lg:grid-cols-2 xl:grid-cols-4">
             {[
               ['bg-surface', 'text-on-surface'],
-              ['bg-surface-container', 'text-on-surface'],
+              ['bg-level', 'text-on-surface'],
               ['bg-primary', 'text-on-primary'],
               ['bg-primary-container', 'text-on-primary-container'],
-              ['bg-secondary', 'text-on-secondary'],
+              ['bg-secondary', 'tex-on-secondary'],
               ['bg-tertiary', 'text-on-tertiary'],
               ['bg-error', 'text-on-error'],
               ['bg-background', 'text-on-background'],
@@ -160,7 +160,7 @@ export default function MaterialTokenPalette() {
                   <div className="mt-2 text-sm opacity-90">Semantic foreground pairing.</div>
                 </div>
 
-                <div className="space-y-2 bg-surface-container p-3 text-xs">
+                <div className="space-y-2 bg-level p-3 text-xs">
                   {[bg, fg].map((token) => (
                     <div
                       key={token}
@@ -228,7 +228,7 @@ export default function MaterialTokenPalette() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between gap-3 bg-surface-container p-3 text-xs">
+                <div className="flex items-center justify-between gap-3 bg-level p-3 text-xs">
                   <code>{surface}</code>
                   <CopyButton value={surface} />
                 </div>
@@ -251,7 +251,7 @@ export default function MaterialTokenPalette() {
               'text-on-surface',
               'text-on-surface-variant',
               'text-on-primary',
-              'text-on-secondary',
+              'tex-on-secondary',
               'text-on-tertiary',
               'text-on-error',
               'text-primary',
@@ -259,7 +259,7 @@ export default function MaterialTokenPalette() {
               'text-tertiary',
               'text-error',
             ].map((token) => (
-              <div key={token} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+              <div key={token} className="rounded-2xl border border-outline/20 bg-level p-5">
                 <div className="flex items-start justify-between gap-4">
                   <div>
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">Token</div>

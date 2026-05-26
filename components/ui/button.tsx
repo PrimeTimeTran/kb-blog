@@ -11,7 +11,7 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary: 'bg-primary text-on-primary hover:bg-primary/80',
-  secondary: 'bg-secondary text-on-secondary hover:bg-secondary/80',
+  secondary: 'bg-secondary tex-on-secondary hover:bg-secondary/80',
   outline: 'border border-primary/40 text-primary hover:bg-primary/10',
   ghost: 'text-primary hover:bg-primary/10',
   destructive: 'bg-error text-on-error hover:bg-error/80',

@@ -27,7 +27,7 @@ export function StyledInput({ value, onChange, placeholder = 'Search...', classN
           rounded-md transition-all
           
           /* Theming: Background & Text */
-          bg-(--surface-container-highest)
+          bg-(--level-highest)
           text-(--on-surface) 
           placeholder:text-(--on-surface-variant)/50
           
@@ -42,7 +42,7 @@ export function StyledInput({ value, onChange, placeholder = 'Search...', classN
           focus:border-(--primary) 
           dark:focus:border-(--primary-container)
           focus:ring-0 focus:outline-none
-          focus:bg-(--surface-container-high)
+          focus:bg-(--level-high)
         "
       />
     </div>

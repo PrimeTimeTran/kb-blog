@@ -16,19 +16,19 @@ const TOKENS = [
   ['bg-surface-bright', 'text-on-surface'],
 
   // Surface Containers
-  ['bg-surface-container-lowest', 'text-on-surface'],
-  ['bg-surface-container-low', 'text-on-surface'],
-  ['bg-surface-container', 'text-on-surface'],
-  ['bg-surface-container-high', 'text-on-surface'],
-  ['bg-surface-container-highest', 'text-on-surface'],
+  ['bg-lowest', 'text-on-surface'],
+  ['bg-low', 'text-on-surface'],
+  ['bg-level', 'text-on-surface'],
+  ['bg-high', 'text-on-surface'],
+  ['bg-highest', 'text-on-surface'],
 
   // Primary
   ['bg-primary', 'text-on-primary'],
   ['bg-primary-container', 'text-on-primary-container'],
 
   // Secondary
-  ['bg-secondary', 'text-on-secondary'],
-  ['bg-secondary-container', 'text-on-secondary-container'],
+  ['bg-secondary', 'tex-on-secondary'],
+  ['bg-secondary-container', 'tex-on-secondary'],
 
   // Tertiary
   ['bg-tertiary', 'text-on-tertiary'],
@@ -39,12 +39,12 @@ const TOKENS = [
   ['bg-error-container', 'text-on-error-container'],
 
   // Fixed
-  ['bg-primary-fixed', 'text-on-primary-fixed'],
-  ['bg-primary-fixed-dim', 'text-on-primary-fixed'],
-  ['bg-secondary-fixed', 'text-on-secondary-fixed'],
-  ['bg-secondary-fixed-dim', 'text-on-secondary-fixed'],
-  ['bg-tertiary-fixed', 'text-on-tertiary-fixed'],
-  ['bg-tertiary-fixed-dim', 'text-on-tertiary-fixed'],
+  ['bg-primary', 'text-on-primary'],
+  ['bg-primary-dim', 'text-on-primary'],
+  ['bg-secondary', 'tex-on-secondary'],
+  ['bg-secondary-dim', 'tex-on-secondary'],
+  ['bg-tertiary', 'text-on-tertiary'],
+  ['bg-tertiary-dim', 'text-on-tertiary'],
 
   // Inverse
   ['bg-inverse-surface', 'text-inverse-on-surface'],
@@ -58,7 +58,7 @@ function Toast({ copied }: { copied: string | null }) {
         copied ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0'
       }`}
     >
-      <div className="flex items-center gap-3 rounded-2xl border border-outline/20 bg-surface-container-high px-4 py-3 shadow-2xl backdrop-blur-xl">
+      <div className="flex items-center gap-3 rounded-2xl border border-outline/20 bg-high px-4 py-3 shadow-2xl backdrop-blur-xl">
         <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-on-primary">
           <Check className="h-4 w-4" />
         </div>
@@ -127,7 +127,7 @@ export default function MaterialColorPalette() {
             <p className="text-xs text-on-surface-variant">Click any token tile to copy semantic pair.</p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-2xl border border-outline/20 bg-surface-container px-3 py-2 text-xs text-on-surface-variant md:flex">
+          <div className="hidden items-center gap-2 rounded-2xl border border-outline/20 bg-level px-3 py-2 text-xs text-on-surface-variant md:flex">
             <div className="h-2 w-2 rounded-full bg-primary" />
             Compact semantic token explorer
           </div>

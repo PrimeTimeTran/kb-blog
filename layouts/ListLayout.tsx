@@ -268,7 +268,7 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
   function getStateClass(field) {
     return sortField === field
       ? 'bg-primary text-on-primary border-primary'
-      : 'bg-surface-container text-on-surface border-outline-variant hover:bg-surface-container-high';
+      : 'bg-level text-on-surface border-outline-variant hover:bg-high';
   }
 
   return (
@@ -300,7 +300,7 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
               value={value}
               onChange={(e) => onChange(e.target.value)}
               placeholder=""
-              className="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/70 transition-colors duration-200 outline-none hover:border-outline hover:bg-surface-container focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/15 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full rounded-lg border border-outline-variant bg-surface px-3 py-2 text-sm text-on-surface placeholder:text-on-surface-variant/70 transition-colors duration-200 outline-none hover:border-outline hover:bg-level focus:border-primary focus:bg-surface focus:ring-4 focus:ring-primary/15 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
         </div>

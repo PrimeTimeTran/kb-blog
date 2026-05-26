@@ -21,7 +21,7 @@ export function Solution({ solution }) {
   const val = typeof solution.code === 'string' ? normalizeCode(solution) : '';
 
   return (
-    <div className="w-full relative bg-surface-container-high border border-outline-variant/30 overflow-visible flex flex-col gap-2 p-3">
+    <div className="w-full relative bg-high border border-outline-variant/30 overflow-visible flex flex-col gap-2 p-3">
       <div>
         <h3 className="text-sm font-semibold text-on-surface-variant">{solution.title}</h3>
         {solution.body && <p className="text-xs text-on-surface-variant/80 mt-1">{solution.body}</p>}
@@ -30,7 +30,7 @@ export function Solution({ solution }) {
         <div className="absolute top-2 right-2 z-30 flex gap-2 opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 ease-out">
           <button
             onClick={() => copyToClipboard(val)}
-            className="icon-button bg-surface-container/90 p-1.5 shadow-sm hover:bg-surface-container backdrop-blur-md text-xs"
+            className="icon-button bg-level/90 p-1.5 shadow-sm hover:bg-level backdrop-blur-md text-xs"
             title="Copy code"
           >
             📋
@@ -38,7 +38,7 @@ export function Solution({ solution }) {
 
           <button
             onClick={() => setExpanded((v) => !v)}
-            className="icon-button bg-surface-container/90 p-1.5 shadow-sm hover:bg-surface-container backdrop-blur-md text-xs"
+            className="icon-button bg-level/90 p-1.5 shadow-sm hover:bg-level backdrop-blur-md text-xs"
             title="Toggle height"
           >
             {expanded ? '▢' : '▣'}

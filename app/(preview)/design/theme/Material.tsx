@@ -27,7 +27,7 @@ export function Material() {
           <SelectionPreview />
           <section className="space-y-4">
             <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Buttons & States</h3>
-            <div className="flex flex-col gap-3 p-6 bg-surface-container-low rounded-3xl border border-outline/10">
+            <div className="flex flex-col gap-3 p-6 bg-low rounded-3xl border border-outline/10">
               <StyledButton text="Primary Action" tone="default" isActive className="w-full py-3" onClick={() => {}} />
               <div className="grid grid-cols-2 gap-2">
                 <StyledButton
@@ -58,7 +58,7 @@ export function Material() {
           {/* Skeleton / Loading Simulation */}
           <section className="space-y-4">
             <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">States: Loading</h3>
-            <div className="bg-surface-container-low rounded-3xl p-8 space-y-4 border border-outline/10">
+            <div className="bg-low rounded-3xl p-8 space-y-4 border border-outline/10">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full animate-shimmer" />
                 <div className="space-y-2 flex-1">
@@ -118,11 +118,10 @@ export function DesignToken() {
 
               <p className="text-base leading-7 text-on-surface-variant">
                 Instead of styling components with raw values like{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">#ffffff</code> or{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">text-gray-700</code>, Omni uses
-                semantic tokens such as{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">bg-surface</code> and{' '}
-                <code className="rounded bg-surface-container px-2 py-1 text-sm">text-on-surface</code>.
+                <code className="rounded bg-level px-2 py-1 text-sm">#ffffff</code> or{' '}
+                <code className="rounded bg-level px-2 py-1 text-sm">text-gray-700</code>, Omni uses semantic tokens
+                such as <code className="rounded bg-level px-2 py-1 text-sm">bg-surface</code> and{' '}
+                <code className="rounded bg-level px-2 py-1 text-sm">text-on-surface</code>.
               </p>
             </div>
           </div>
@@ -135,7 +134,7 @@ export function DesignToken() {
       <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 py-10 lg:flex-row">
         {/* SIDEBAR */}
         <aside className="lg:w-72 lg:flex-shrink-0">
-          <div className="sticky top-6 rounded-3xl border border-outline/20 bg-surface-container p-5 shadow-sm">
+          <div className="sticky top-6 rounded-3xl border border-outline/20 bg-level p-5 shadow-sm">
             <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">On this page</div>
 
             <nav className="space-y-2 text-sm">
@@ -195,7 +194,7 @@ export function DesignToken() {
                     body: 'Dark mode and branding become automatic.',
                   },
                 ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                  <div key={item.title} className="rounded-2xl border border-outline/20 bg-level p-5">
                     <div className="mb-2 text-lg font-bold">{item.title}</div>
                     <p className="text-sm leading-7 text-on-surface-variant">{item.body}</p>
                   </div>
@@ -214,7 +213,7 @@ export function DesignToken() {
 
               <div className="overflow-hidden rounded-2xl border border-outline/20">
                 <table className="w-full text-left text-sm">
-                  <thead className="bg-surface-container-high">
+                  <thead className="bg-high">
                     <tr>
                       <th className="px-5 py-4 font-bold">Layer</th>
                       <th className="px-5 py-4 font-bold">Purpose</th>
@@ -287,7 +286,7 @@ export function DesignToken() {
                   {
                     name: 'Secondary',
                     bg: 'bg-secondary',
-                    text: 'text-on-secondary',
+                    text: 'tex-on-secondary',
                     role: 'Supporting emphasis',
                   },
                   {
@@ -309,7 +308,7 @@ export function DesignToken() {
                       <div className="mt-2 text-sm opacity-90">{item.role}</div>
                     </div>
 
-                    <div className="space-y-3 bg-surface-container p-5 text-sm">
+                    <div className="space-y-3 bg-level p-5 text-sm">
                       <div>
                         <span className="font-semibold">Background:</span> <code>{item.bg}</code>
                       </div>
@@ -336,16 +335,16 @@ export function DesignToken() {
                 <code>text-on-surface</code> assume they are rendered on an actual semantic surface.
               </p>
 
-              <div className="space-y-4 rounded-3xl border border-outline/20 bg-surface-container-low p-6">
+              <div className="space-y-4 rounded-3xl border border-outline/20 bg-low p-6">
                 <div className="rounded-2xl border border-outline/10 bg-surface p-6 shadow-sm">
                   <div className="font-bold">surface</div>
                   <div className="mt-2 text-sm text-on-surface-variant">Primary application canvas.</div>
 
-                  <div className="mt-5 rounded-xl border border-outline/10 bg-surface-container p-5">
+                  <div className="mt-5 rounded-xl border border-outline/10 bg-level p-5">
                     <div className="font-bold">surface-container</div>
                     <div className="mt-2 text-sm text-on-surface-variant">Grouped regions and cards.</div>
 
-                    <div className="mt-5 rounded-xl border border-outline/10 bg-surface-container-high p-5">
+                    <div className="mt-5 rounded-xl border border-outline/10 bg-high p-5">
                       <div className="font-bold">surface-container-high</div>
                       <div className="mt-2 text-sm text-on-surface-variant">Elevated interactive regions.</div>
                     </div>
@@ -380,7 +379,7 @@ export function DesignToken() {
                   ['Body', 'text-base'],
                   ['Label', 'text-sm font-medium uppercase tracking-wide'],
                 ].map(([label, classes]) => (
-                  <div key={label} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                  <div key={label} className="rounded-2xl border border-outline/20 bg-level p-5">
                     <div className="mb-2 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {label}
                     </div>
@@ -401,10 +400,7 @@ export function DesignToken() {
 
               <div className="space-y-4">
                 {[2, 4, 6, 8, 12, 16].map((size) => (
-                  <div
-                    key={size}
-                    className="flex items-center gap-5 rounded-2xl border border-outline/20 bg-surface-container p-4"
-                  >
+                  <div key={size} className="flex items-center gap-5 rounded-2xl border border-outline/20 bg-level p-4">
                     <div className="w-20 text-sm font-semibold">{size}</div>
                     <div className="h-6 rounded bg-primary" style={{ width: `${size * 12}px` }} />
                     <code className="text-sm">space-{size}</code>
@@ -439,7 +435,7 @@ export function DesignToken() {
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className={`rounded-3xl border border-outline/20 bg-surface-container p-8 ${item.className}`}
+                    className={`rounded-3xl border border-outline/20 bg-level p-8 ${item.className}`}
                   >
                     <div className="text-xl font-bold">{item.title}</div>
                     <div className="mt-2 text-sm leading-7 text-on-surface-variant">
@@ -464,16 +460,16 @@ export function DesignToken() {
                   Default
                 </button>
 
-                <button className="rounded-2xl border border-outline bg-surface px-5 py-3 font-semibold text-on-surface transition hover:bg-surface-container-high">
+                <button className="rounded-2xl border border-outline bg-surface px-5 py-3 font-semibold text-on-surface transition hover:bg-high">
                   Hover
                 </button>
 
-                <button className="cursor-not-allowed rounded-2xl bg-surface-container px-5 py-3 font-semibold text-on-surface-variant opacity-50">
+                <button className="cursor-not-allowed rounded-2xl bg-level px-5 py-3 font-semibold text-on-surface-variant opacity-50">
                   Disabled
                 </button>
               </div>
 
-              <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+              <div className="rounded-2xl border border-outline/20 bg-level p-6">
                 <p className="leading-8 text-on-surface-variant">
                   State feedback should be subtle and consistent. Prefer opacity, tonal overlays, elevation changes, and
                   motion over abrupt color shifts.
@@ -497,7 +493,7 @@ export function DesignToken() {
                   'Respect motion reduction preferences.',
                   'Use consistent focus states across interactive elements.',
                 ].map((item) => (
-                  <div key={item} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                  <div key={item} className="rounded-2xl border border-outline/20 bg-level p-5">
                     <div className="flex items-start gap-3">
                       <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
                       <p className="leading-7 text-on-surface-variant">{item}</p>
@@ -516,7 +512,7 @@ export function DesignToken() {
                 <h2 className="text-3xl font-black tracking-tight">Example UI Composition</h2>
               </div>
 
-              <div className="rounded-3xl border border-outline/20 bg-surface-container-low p-6">
+              <div className="rounded-3xl border border-outline/20 bg-low p-6">
                 <div className="rounded-3xl border border-outline/10 bg-surface p-6 shadow-sm">
                   <div className="flex items-start justify-between gap-6">
                     <div>
@@ -531,7 +527,7 @@ export function DesignToken() {
 
                   <div className="mt-8 grid gap-5 md:grid-cols-3">
                     {[1, 2, 3].map((item) => (
-                      <div key={item} className="rounded-2xl border border-outline/10 bg-surface-container p-5">
+                      <div key={item} className="rounded-2xl border border-outline/10 bg-level p-5">
                         <div className="text-sm text-on-surface-variant">Revenue</div>
                         <div className="mt-2 text-3xl font-black">$24.5k</div>
                       </div>
@@ -551,7 +547,7 @@ export function DesignToken() {
               </div>
 
               <div className="grid gap-6 lg:grid-cols-2">
-                <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-4 text-lg font-bold text-primary">Do</div>
 
                   <ul className="space-y-3 text-sm leading-7 text-on-surface-variant">
@@ -562,7 +558,7 @@ export function DesignToken() {
                   </ul>
                 </div>
 
-                <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-4 text-lg font-bold text-error">Avoid</div>
 
                   <ul className="space-y-3 text-sm leading-7 text-on-surface-variant">

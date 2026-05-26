@@ -18,7 +18,7 @@ This is where the "Borders vs. Background" question gets answered. You have two 
 
 Most of your app lives here.
 
-- **Background:** `var(--surface-container-low)`
+- **Background:** `var(--low)`
 - **Border:** `var(--outline)` or `var(--outline-variant)`
 - **Text:** `var(--on-surface)`
 - _Vibe:_ Calm, clean, functional.
@@ -40,7 +40,7 @@ You mentioned search bars are containers with borders. Here is how you'd token t
 
 **State: Idle (Neutral)**
 
-- **Bg:** `var(--surface-container-highest)` (It looks like a shallow hole in the page).
+- **Bg:** `var(--level-highest)` (It looks like a shallow hole in the page).
 - **Border:** `var(--outline)` (A subtle grey line).
 - **Text:** `var(--on-surface-variant)` (Ghostly placeholder text).
 

@@ -1,6 +1,6 @@
 import { Palette, Layers, Box, Cpu, Zap, LayoutGrid } from 'lucide-react';
 
-export default function ProductLandingPage() {
+export function SneakPeak() {
   const { pageHero, pageLogos, pageFeatures, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
     renderContent();
   return (

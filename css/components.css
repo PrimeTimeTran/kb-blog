@@ -86,15 +86,14 @@
     @apply flex flex-row items-center gap-2 px-2 py-1 text-left truncate w-full
       
       transition-colors duration-150 outline-none
-      hover:bg-surface-container
+      hover:bg-level
       hover:text-on-surface
-      focus-visible:bg-surface-container-high
+      focus-visible:bg-high
       focus-visible:text-on-surface
       focus-visible:ring-2
       focus-visible:ring-primary
       focus-visible:ring-offset-1
-      focus-visible:ring-offset-background
-      active:bg-surface-container-highest;
+      active:bg-highest;
     &[data-active='true'] {
       @apply bg-primary-container
     text-on-primary-container
@@ -144,7 +143,7 @@
     @apply gap-2 rounded-full px-4 py-2;
     @apply text-sm font-medium tracking-tight;
 
-    @apply hover:bg-surface-container hover:text-primary;
+    @apply hover:bg-level hover:text-primary;
   }
 
   .nav-link[data-variant='desktop'] .nav-link-icon {
@@ -171,7 +170,7 @@
     @apply gap-3 rounded-2xl px-4 py-3;
     @apply text-sm font-medium tracking-tight;
 
-    @apply hover:bg-surface-container-high hover:text-primary;
+    @apply hover:bg-high hover:text-primary;
   }
 
   .nav-link[data-variant='mobile'] .nav-link-icon {
@@ -208,13 +207,13 @@
     @apply bg-transparent;
 
     /* hover state */
-    @apply hover:bg-surface-container;
+    @apply hover:bg-level;
     @apply hover:shadow-md;
     @apply hover:-translate-y-0.5;
     @apply hover:text-on-surface;
 
     /* active (press) */
-    @apply active:bg-surface-container-high;
+    @apply active:bg-high;
     @apply active:translate-y-0;
     @apply active:scale-95;
   }
@@ -297,11 +296,11 @@
 
   /* INACTIVE */
   .chip-inactive {
-    @apply bg-surface-container text-on-surface;
+    @apply bg-level text-on-surface;
   }
 
   .chip-inactive:hover {
-    @apply bg-surface-container-high;
+    @apply bg-high;
   }
 
   /* DISABLED */

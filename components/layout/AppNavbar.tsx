@@ -76,7 +76,7 @@ function renderNavLinks({ pathName, variant, onNavigate }: RenderNavLinksProps) 
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 right-0 h-16 z-20 flex items-center justify-between px-4 border-b border-on-surface-variant/10 bg-surface-lowest/80 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 h-16 z-20 flex items-center justify-between px-4 border-b border-on-surface-variant/10 bg-lowest/80 backdrop-blur-md shadow-sm">
       {/* Left: Brand/Logo */}
       <div className="flex items-center gap-2">
         <div className="w-8 h-8 bg-surface-variant rounded-lg flex items-center justify-center font-bold text-on-surface">
@@ -90,7 +90,7 @@ export function Navbar() {
         <button className="text-sm font-medium text-on-surface-variant hover:text-on-surface transition-colors px-3 py-2">
           Docs
         </button>
-        <button className="bg-surface-container hover:bg-surface-container-high px-4 py-2 rounded-lg text-sm font-semibold border border-on-surface-variant/20 text-on-surface transition-all">
+        <button className="bg-level hover:bg-high px-4 py-2 rounded-lg text-sm font-semibold border border-on-surface-variant/20 text-on-surface transition-all">
           Upgrade
         </button>
       </div>
@@ -108,7 +108,7 @@ export function AppNavbar() {
     // height: 4rem;
     // 4rem = 64px
     // h-16 = 64px
-    <nav className="fixed top-0 left-0 right-0 h-16 z-20 flex items-center justify-between px-4 border-b border-on-surface-variant/10 bg-surface-lowest/80 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 h-16 z-20 flex items-center justify-between px-4 border-b border-on-surface-variant/10 bg-lowest/80 backdrop-blur-md shadow-sm">
       {/* LEFT */}
       <Link href="/" className="flex items-center gap-3">
         <DynamicLogo className="h-9 w-9 rounded-xl shadow-sm" />

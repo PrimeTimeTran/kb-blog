@@ -48,7 +48,7 @@ export const RichTooltip = ({
 
     return (
       <div
-        className={`flex items-center gap-1 px-2 py-1 bg-(--surface-container-high) ${
+        className={`flex items-center gap-1 px-2 py-1 bg-(--level-high) ${
           isTop ? 'border-b rounded-t-lg' : 'border-t rounded-b-lg'
         } border-outline-variant/30 relative`}
       >
@@ -60,7 +60,7 @@ export const RichTooltip = ({
                 e.stopPropagation();
                 action.onClick();
               }}
-              className="p-1.5 rounded-md text-(--on-surface-variant) hover:text-(--primary) hover:bg-(--surface-container-highest) transition-all active:scale-95"
+              className="p-1.5 rounded-md text-(--on-surface-variant) hover:text-(--primary) hover:bg-(--level-highest) transition-all active:scale-95"
             >
               <span className="text-base leading-none flex items-center justify-center">{action.icon}</span>
             </button>

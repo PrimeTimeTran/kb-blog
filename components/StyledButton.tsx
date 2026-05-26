@@ -72,7 +72,7 @@ export function StyledButton({
         px-4 py-2 text-[10px] font-black uppercase tracking-widest
         rounded-xl border transition-all duration-300 
         hover:scale-105 active:scale-95
-        ${isActive ? 'shadow-lg shadow-black/5' : 'hover:bg-surface-container-low'}
+        ${isActive ? 'shadow-lg shadow-black/5' : 'hover:bg-low'}
         ${className}
       `}
       {...props}

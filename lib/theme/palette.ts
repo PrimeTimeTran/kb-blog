@@ -41,10 +41,10 @@ const makeTokens = (seed, color, isDark, n, nv, sat, hue, getSemantic) => {
     // THE SURFACE STACK (Neutral Tones)
     '--background': isDark ? n.darken(1).hex() : n.hex(),
     '--surface': isDark ? n.hex() : n.brighten(0.2).hex(),
-    '--surface-container-low': isDark ? n.brighten(0.3).hex() : '#ffffff',
-    '--surface-container': isDark ? n.brighten(0.6).hex() : n.darken(0.1).hex(),
-    '--surface-container-high': isDark ? n.brighten(0.9).hex() : n.darken(0.2).hex(),
-    '--surface-container-highest': isDark ? n.brighten(1.2).hex() : n.darken(0.4).hex(),
+    '--low': isDark ? n.brighten(0.3).hex() : '#ffffff',
+    '--level': isDark ? n.brighten(0.6).hex() : n.darken(0.1).hex(),
+    '--level-high': isDark ? n.brighten(0.9).hex() : n.darken(0.2).hex(),
+    '--level-highest': isDark ? n.brighten(1.2).hex() : n.darken(0.4).hex(),
 
     // INK & OUTLINES (Neutral Variant Tones)
     '--on-surface': isDark ? n.brighten(5).hex() : n.darken(5).hex(),
@@ -179,7 +179,7 @@ export const THEME_VAULT: Theme[] = [
   },
 ];
 
-const updateDynamicFavicon = (seed: string, isDark: boolean) => {
+export const updateDynamicFavicon = (seed: string, isDark: boolean) => {
   try {
     const color = chroma(seed);
     // Contrast color for the text (the "LT")

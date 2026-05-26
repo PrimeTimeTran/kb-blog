@@ -27,7 +27,11 @@ const LucideIcon = ({ name, size = 24, className }) => {
 const TODOS = [
   { id: 1, text: 'Build App', completed: true },
   { id: 2, text: 'Test app', completed: true },
-  { id: 3, text: 'Demo app', completed: false },
+  { id: 3, text: 'Demo app', completed: true },
+  { id: 4, text: 'Add Icon Import', completed: false },
+  // Single...?
+  // Multi lesson.... (stepped...? Each one gets their own)
+  { id: 4, text: 'Figure out entry resolution', completed: false },
 ];
 
 export default function TodoApp() {

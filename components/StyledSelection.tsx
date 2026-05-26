@@ -84,7 +84,7 @@ export function StyledSelection({ options, value, onChange, icon, forceDropdown 
               minWidth: Math.max(coords.width, 160),
               zIndex: 9999, // High enough to beat any panel
             }}
-            className="overflow-hidden rounded-xl border border-outline-variant bg-surface-container-highest shadow-2xl backdrop-blur-xl"
+            className="overflow-hidden rounded-xl border border-outline-variant bg-highest shadow-2xl backdrop-blur-xl"
           >
             <div className="flex flex-col p-1">
               {options.map((opt) => (
@@ -121,7 +121,7 @@ export function StyledSelection({ options, value, onChange, icon, forceDropdown 
           onClick={() => setIsOpen(!isOpen)}
           className={`
             flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all
-            bg-surface-container-high dark:bg-surface-container-highest
+            bg-high dark:bg-highest
             ${isOpen ? 'border-primary ring-1 ring-primary/20' : 'border-outline-variant hover:border-primary/50'}
           `}
         >

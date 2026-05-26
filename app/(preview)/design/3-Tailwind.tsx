@@ -1,14 +1,7 @@
 'use client';
-import { useEffect } from 'react';
 import { Box } from 'lucide-react';
-import { SectionTitle } from './components';
-import { Page3 } from './animated-hover-icons';
+import { SectionTitle } from './tailwind/components';
 
-// Inspiration Sites.
-// https://list.swajp.me/
-// https://godly.website/website/v-a-c-sreda-242
-
-export default Page;
 const inputBase =
   'w-full rounded-lg border bg-[var(--surface)] px-4 py-2 outline-none transition ' +
   'border-[var(--border)] text-[var(--text)] ' +
@@ -17,77 +10,19 @@ const inputBase =
 
 const buttonBase = 'rounded-lg px-4 py-2 font-medium transition active:scale-[0.98]';
 
-export function Page() {
-  // Causes infinite css compilation in root pages
-  // .aurora-text
-  // useEffect(() => {
-  //   const update = (e: MouseEvent) => {
-  //     document.documentElement.style.setProperty('--x', `${e.clientX}px`)
-  //     document.documentElement.style.setProperty('--y', `${e.clientY}px`)
-  //   }
-  //   window.addEventListener('mousemove', update)
-  //   return () => window.removeEventListener('mousemove', update)
-  // }, [])
-  // // .gradient-text
-  // useEffect(() => {
-  //   let targetAngle = 0
-  //   let currentAngle = 0
-
-  //   const onMove = (e: MouseEvent) => {
-  //     const x = e.clientX / window.innerWidth
-  //     const y = e.clientY / window.innerHeight
-
-  //     targetAngle = x * 360 + y * 180
-  //   }
-
-  //   const animate = () => {
-  //     // smoothing factor (0.05–0.15 feels good)
-  //     currentAngle += (targetAngle - currentAngle) * 0.08
-
-  //     document.documentElement.style.setProperty('--angle', `${currentAngle}deg`)
-
-  //     requestAnimationFrame(animate)
-  //   }
-
-  //   window.addEventListener('mousemove', onMove)
-  //   animate()
-
-  //   return () => window.removeEventListener('mousemove', onMove)
-  // }, [])
+export function Tailwind() {
   return (
     <div className="h-full w-full overflow-y-scroll max-w-5xl mx-auto space-y-8">
-      {/* {renderTextAnimations()} */}
-      {/* {renderAnimations()} */}
-      {/* PAGE HEADER */}
-
       {renderHeader()}
-
-      {/* TYPOGRAPHY */}
       {renderTypography()}
-
-      {/* COLORS */}
       {renderColors()}
-
       {renderEffects2()}
-
       {renderInteractionStates()}
-
-      {/* SURFACES */}
       {renderSurfaces()}
-
-      {/* SPACING */}
       {renderSpacing()}
-
-      {/* FLEX + GRID */}
       {renderFlexAndGrid()}
-
-      {/* BUTTONS */}
       {renderButtons()}
-
-      {/* INPUTS */}
       {renderInputs()}
-
-      {/* EFFECTS */}
       {renderEffects()}
     </div>
   );

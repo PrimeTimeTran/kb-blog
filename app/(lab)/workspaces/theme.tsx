@@ -35,7 +35,7 @@ export const themeSassLight = {
 
   '--background': '#ffffff',
   '--surface': '#f8fafc',
-  '--surface-container': '#eef2f7',
+  '--level': '#eef2f7',
   '--surface-2': '#f1f5f9',
 
   // ======================================================
@@ -134,7 +134,7 @@ export const themeSassDark: React.CSSProperties = {
 
   '--background': '#0b1220',
   '--surface': '#0f172a',
-  '--surface-container': '#111c33',
+  '--level': '#111c33',
   '--surface-2': '#16213a',
 
   // ======================================================
@@ -227,7 +227,7 @@ export const themeOceanLight = {
 
   '--background': '#f0f9ff',
   '--surface': '#e0f2fe',
-  '--surface-container': '#bae6fd',
+  '--level': '#bae6fd',
   '--surface-2': '#7dd3fc',
 
   // ======================================================
@@ -326,7 +326,7 @@ export const themeOceanDark: React.CSSProperties = {
 
   '--background': '#06121a',
   '--surface': '#0a1b26',
-  '--surface-container': '#0d2533',
+  '--level': '#0d2533',
   '--surface-2': '#103246',
 
   // ======================================================
@@ -419,7 +419,7 @@ export const themeNeonLight = {
 
   '--background': '#f4fbff',
   '--surface': '#ffffff',
-  '--surface-container': '#ecfeff',
+  '--level': '#ecfeff',
   '--surface-2': '#dbeafe',
 
   // ======================================================
@@ -518,7 +518,7 @@ export const themeNeonDark = {
 
   '--background': '#050b10',
   '--surface': '#0b1220',
-  '--surface-container': '#111c2e',
+  '--level': '#111c2e',
   '--surface-2': '#0f172a',
 
   // ======================================================
@@ -617,7 +617,7 @@ export const themeZenLight = {
 
   '--background': '#f7fee7',
   '--surface': '#ecfccb',
-  '--surface-container': '#d9f99d',
+  '--level': '#d9f99d',
   '--surface-2': '#bef264',
 
   // ======================================================
@@ -707,7 +707,7 @@ export const themeZenDark = {
 
   '--background': '#0b1208',
   '--surface': '#11190f',
-  '--surface-container': '#172114',
+  '--level': '#172114',
   '--surface-2': '#1f2d19',
 
   // ======================================================
@@ -807,7 +807,7 @@ export const themeEditorialLight: React.CSSProperties = {
 
   '--background': '#faf5ff',
   '--surface': '#ffffff',
-  '--surface-container': '#f3e8ff',
+  '--level': '#f3e8ff',
   '--surface-2': '#ede9fe',
 
   // ======================================================
@@ -895,7 +895,7 @@ export const themeEditorialDark: React.CSSProperties = {
 
   '--background': '#0b0b14',
   '--surface': '#111122',
-  '--surface-container': '#16162a',
+  '--level': '#16162a',
   '--surface-2': '#1d1d36',
 
   // ======================================================

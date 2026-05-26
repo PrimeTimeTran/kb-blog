@@ -64,7 +64,7 @@ export const FilterToolbar = ({ actions, filters, resetFilters }) => {
 
   function renderActionGroup() {
     return (
-      <section className="flex items-center gap-0.5 bg-surface-container-high/40 rounded-lg p-0.5 border border-outline-variant">
+      <section className="flex items-center gap-0.5 bg-high/40 rounded-lg p-0.5 border border-outline-variant">
         {[
           [actions.handleShuffle, <HiOutlineCubeTransparent />, 'Shuffle', 'Alt+O'],
           [actions.handleNext, <HiOutlineChevronRight />, 'Next', 'Alt+P'],

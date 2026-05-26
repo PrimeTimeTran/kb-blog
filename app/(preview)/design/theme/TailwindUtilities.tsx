@@ -41,7 +41,7 @@ function Hero() {
     <section className="border-b border-outline/20 bg-surface px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <div className="max-w-4xl space-y-6">
-          <div className="inline-flex items-center rounded-full border border-outline/20 bg-secondary-container px-3 py-1 text-xs font-bold tracking-wide text-on-secondary-container">
+          <div className="inline-flex items-center rounded-full border border-outline/20 bg-secondary-container px-3 py-1 text-xs font-bold tracking-wide tex-on-secondary">
             Omni Typography System
           </div>
 
@@ -99,7 +99,7 @@ function Body() {
                   body: 'Create predictable visual structure.',
                 },
               ].map((item) => (
-                <div key={item.title} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                <div key={item.title} className="rounded-2xl border border-outline/20 bg-level p-5">
                   <div className="mb-2 text-lg font-bold">{item.title}</div>
                   <p className="text-sm leading-7 text-on-surface-variant">{item.body}</p>
                 </div>
@@ -122,7 +122,7 @@ function Body() {
 
             <div className="space-y-4">
               {fontSizes.map((size) => (
-                <div key={size} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div key={size} className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">{size}</div>
 
                   <div className={`${size} font-semibold`}>The quick brown fox jumps over the lazy dog.</div>
@@ -142,7 +142,7 @@ function Body() {
 
             <div className="space-y-4">
               {fontWeights.map((weight) => (
-                <div key={weight} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div key={weight} className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">{weight}</div>
 
                   <div className={`${weight} text-2xl`}>Typography creates visual hierarchy.</div>
@@ -163,7 +163,7 @@ function Body() {
             <div className="space-y-5">
               {['leading-none', 'leading-tight', 'leading-normal', 'leading-relaxed', 'leading-loose'].map(
                 (leading) => (
-                  <div key={leading} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                  <div key={leading} className="rounded-2xl border border-outline/20 bg-level p-6">
                     <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                       {leading}
                     </div>
@@ -196,7 +196,7 @@ function Body() {
                 'tracking-wider',
                 'tracking-widest',
               ].map((tracking) => (
-                <div key={tracking} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                <div key={tracking} className="rounded-2xl border border-outline/20 bg-level p-5">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {tracking}
                   </div>
@@ -270,7 +270,7 @@ function Body() {
 
             <div className="space-y-5">
               {textAlignments.map((alignment) => (
-                <div key={alignment} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div key={alignment} className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {alignment}
                   </div>
@@ -300,7 +300,7 @@ function Body() {
                 ['capitalize', 'capitalize every important word'],
                 ['normal-case', 'NORMAL CASE RESET'],
               ].map(([transform, text]) => (
-                <div key={transform} className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+                <div key={transform} className="rounded-2xl border border-outline/20 bg-level p-6">
                   <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                     {transform}
                   </div>
@@ -321,7 +321,7 @@ function Body() {
             </div>
 
             <div className="space-y-5">
-              <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+              <div className="rounded-2xl border border-outline/20 bg-level p-6">
                 <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">truncate</div>
 
                 <div className="max-w-sm truncate text-lg font-medium">
@@ -329,7 +329,7 @@ function Body() {
                 </div>
               </div>
 
-              <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+              <div className="rounded-2xl border border-outline/20 bg-level p-6">
                 <div className="mb-3 text-xs font-bold uppercase tracking-wide text-on-surface-variant">
                   line-clamp-3
                 </div>
@@ -352,7 +352,7 @@ function Body() {
               <h2 className="text-3xl font-black tracking-tight">Responsive Typography</h2>
             </div>
 
-            <div className="rounded-3xl border border-outline/20 bg-surface-container p-8">
+            <div className="rounded-3xl border border-outline/20 bg-level p-8">
               <div className="mb-4 text-xs font-bold uppercase tracking-wide text-on-surface-variant">Example</div>
 
               <h3 className="text-3xl font-black sm:text-4xl md:text-5xl lg:text-6xl">Responsive Headline</h3>
@@ -386,7 +386,7 @@ function Body() {
                 'Ensure line lengths remain readable.',
                 'Prefer relaxed spacing for long-form content.',
               ].map((item) => (
-                <div key={item} className="rounded-2xl border border-outline/20 bg-surface-container p-5">
+                <div key={item} className="rounded-2xl border border-outline/20 bg-level p-5">
                   <div className="flex items-start gap-3">
                     <div className="mt-1 h-2.5 w-2.5 rounded-full bg-primary" />
 
@@ -407,7 +407,7 @@ function Body() {
             </div>
 
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+              <div className="rounded-2xl border border-outline/20 bg-level p-6">
                 <div className="mb-4 text-lg font-bold text-primary">Recommended</div>
 
                 <ul className="space-y-3 text-sm leading-7 text-on-surface-variant">
@@ -419,7 +419,7 @@ function Body() {
                 </ul>
               </div>
 
-              <div className="rounded-2xl border border-outline/20 bg-surface-container p-6">
+              <div className="rounded-2xl border border-outline/20 bg-level p-6">
                 <div className="mb-4 text-lg font-bold text-error">Avoid</div>
 
                 <ul className="space-y-3 text-sm leading-7 text-on-surface-variant">
@@ -440,7 +440,7 @@ function Body() {
   function renderSidebar() {
     return (
       <aside className="lg:w-72 lg:shrink-0">
-        <div className="sticky top-6 rounded-3xl border border-outline/20 bg-surface-container p-5 shadow-sm">
+        <div className="sticky top-6 rounded-3xl border border-outline/20 bg-level p-5 shadow-sm">
           <div className="mb-4 text-sm font-bold uppercase tracking-wide text-on-surface-variant">Typography Docs</div>
 
           <nav className="space-y-2 text-sm">

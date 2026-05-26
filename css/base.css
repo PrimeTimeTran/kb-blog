@@ -1,271 +1,194 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* SURFACE ELEVATION SCALE */
-  --color-surface-lowest: #f4f4f5;
-  --color-surface-container-low: #e4e4e7;
-  --color-surface-container: #d4d4d8;
-  --color-surface-container-high: #c4c4c8;
-  --color-surface-container-highest: #b4b4b8;
-
-  /* DARK MODE OVERRIDES */
-  --color-surface-lowest-dark: #18181b;
-  --color-surface-container-low-dark: #27272a;
-  --color-surface-container-dark: #3f3f46;
-  --color-surface-container-high-dark: #52525b;
-  --color-surface-container-highest-dark: #71717a;
-
-  /* SEMANTIC TEXT & BACKGROUND */
-  --color-background: #fffbfe;
-  --color-on-background: #1c1b1f;
+  --color-lowest: #f4f4f5;
+  --color-lowest-dark: #18181b;
+  --color-low: #e4e4e7;
+  --color-low-dark: #27272a;
+  --color-level: #d4d4d8;
+  --color-level-dark: #3f3f46;
+  --color-high: #c4c4c8;
+  --color-high-dark: #52525b;
+  --color-highest: #b4b4b8;
+  --color-highest-dark: #71717a;
   --color-surface: #ffffff;
-  --color-on-surface: #1c1b1f;
-  --color-surface-variant: #ece6f0;
-  --color-on-surface-variant: #49454f;
-
-  /* DARK MODE TEXT/BG */
-  --color-background-dark: #0f172a;
-  --color-on-background-dark: #f8fafc;
   --color-surface-dark: #1e293b;
+  --color-on-surface: #1c1b1f;
   --color-on-surface-dark: #f8fafc;
+  --color-surface-variant: #ece6f0;
   --color-surface-variant-dark: #334155;
+  --color-on-surface-variant: #49454f;
   --color-on-surface-variant-dark: #cbd5e1;
-
   --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-inactive: var(--primary-inactive);
   --color-on-primary: var(--on-primary);
   --color-primary-container: var(--primary-container);
   --color-on-primary-container: var(--on-primary-container);
-
   --color-secondary: var(--secondary);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-active: var(--secondary-active);
+  --color-secondary-inactive: var(--secondary-inactive);
   --color-on-secondary: var(--on-secondary);
   --color-secondary-container: var(--secondary-container);
   --color-on-secondary-container: var(--on-secondary-container);
-
   --color-tertiary: var(--tertiary);
+  --color-tertiary-hover: var(--tertiary-hover);
+  --color-tertiary-active: var(--tertiary-active);
+  --color-tertiary-inactive: var(--tertiary-inactive);
   --color-on-tertiary: var(--on-tertiary);
   --color-tertiary-container: var(--tertiary-container);
   --color-on-tertiary-container: var(--on-tertiary-container);
-
   --color-error: var(--error);
+  --color-error-hover: var(--error-hover);
+  --color-error-active: var(--error-active);
+  --color-error-inactive: var(--error-inactive);
   --color-on-error: var(--on-error);
   --color-error-container: var(--error-container);
   --color-on-error-container: var(--on-error-container);
-
   --color-success: var(--success);
+  --color-success-hover: var(--success-hover);
+  --color-success-active: var(--success-active);
+  --color-success-inactive: var(--success-inactive);
   --color-on-success: var(--on-success);
   --color-success-container: var(--success-container);
   --color-on-success-container: var(--on-success-container);
-
   --color-warning: var(--warning);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-active: var(--warning-active);
+  --color-warning-inactive: var(--warning-inactive);
   --color-on-warning: var(--on-warning);
   --color-warning-container: var(--warning-container);
   --color-on-warning-container: var(--on-warning-container);
-
   --color-info: var(--info);
+  --color-info-hover: var(--info-hover);
+  --color-info-active: var(--info-active);
+  --color-info-inactive: var(--info-inactive);
   --color-on-info: var(--on-info);
   --color-info-container: var(--info-container);
   --color-on-info-container: var(--on-info-container);
-
+  --color-outline: var(--outline);
+  --color-outline-hover: var(--outline-hover);
+  --color-outline-active: var(--outline-active);
+  --color-outline-inactive: var(--outline-inactive);
+  --color-outline-variant: var(--outline-variant);
   --color-outline: var(--outline);
   --color-outline-variant: var(--outline-variant);
-
-  /* When you define a variable like --color-brand inside @theme, you are telling Tailwind to generate a utility class bg-brand and text-brand automatically. This is excellent practice. */
-  --color-brand: #6750a4;
-}
-@theme inline {
-  --color-debug: red;
 }
 
 @layer base {
   :root {
-    --color-background: #fffbfe;
-    --color-on-background: #1c1b1f;
+    --color-lowest: #f4f4f5;
+    --color-low: #e4e4e7;
+    --color-level: #d4d4d8;
+    --color-high: #c4c4c8;
+    --color-highest: #b4b4b8;
     --color-surface: #ffffff;
     --color-on-surface: #1c1b1f;
     --color-surface-variant: #ece6f0;
     --color-on-surface-variant: #49454f;
-
-    --color-surface-lowest: #f4f4f5;
-    --color-surface-container-low: #e4e4e7;
-    --color-surface-container: #d4d4d8;
-    --color-surface-container-high: #c4c4c8;
-    --color-surface-container-highest: #b4b4b8;
+    --primary: #6750a4;
+    --primary-hover: var(--primary);
+    --primary-active: var(--primary);
+    --primary-inactive: var(--primary);
+    --on-primary: #ffffff;
+    --primary-container: #eaddff;
+    --on-primary-container: #21005d;
+    --secondary: #625b71;
+    --secondary-hover: var(--secondary);
+    --secondary-active: var(--secondary);
+    --secondary-inactive: var(--secondary);
+    --on-secondary: #ffffff;
+    --secondary-container: #e8def8;
+    --on-secondary-container: #1d192b;
+    --tertiary: #7d5260;
+    --tertiary-hover: var(--tertiary);
+    --tertiary-active: var(--tertiary);
+    --tertiary-inactive: var(--tertiary);
+    --on-tertiary: #ffffff;
+    --tertiary-container: #ffd8e4;
+    --on-tertiary-container: #31111d;
+    --error: #b3261e;
+    --error-hover: var(--error);
+    --error-active: var(--error);
+    --error-inactive: var(--error);
+    --on-error: #ffffff;
+    --error-container: #f9dedc;
+    --on-error-container: #410e0b;
+    --success: #386a20;
+    --success-hover: var(--success);
+    --success-active: var(--success);
+    --success-inactive: var(--success);
+    --on-success: #ffffff;
+    --success-container: #d7f5c5;
+    --on-success-container: #0f2e00;
+    --warning: #725c0c;
+    --warning-hover: var(--warning);
+    --warning-active: var(--warning);
+    --warning-inactive: var(--warning);
+    --on-warning: #ffffff;
+    --warning-container: #ffe9a3;
+    --on-warning-container: #261a00;
+    --info: #00639b;
+    --info-hover: var(--info);
+    --info-active: var(--info);
+    --info-inactive: var(--info);
+    --on-info: #ffffff;
+    --info-container: #d1e4ff;
+    --on-info-container: #001d36;
+    --outline: #79747e;
+    --outline-hover: var(--outline);
+    --outline-active: var(--outline);
+    --outline-inactive: var(--outline);
+    --outline-variant: #cac4d0;
+    --color-outline: var(--outline);
+    --color-outline-variant: var(--outline-variant);
   }
 
   .dark {
-    --color-background: var(--color-background-dark);
-    --color-on-background: var(--color-on-background-dark);
+    --color-lowest: var(--color-lowest-dark);
+    --color-low: var(--color-low-dark);
+    --color-level: var(--color-level-dark);
+    --color-high: var(--color-high-dark);
+    --color-highest: var(--color-highest-dark);
     --color-surface: var(--color-surface-dark);
     --color-on-surface: var(--color-on-surface-dark);
     --color-surface-variant: var(--color-surface-variant-dark);
     --color-on-surface-variant: var(--color-on-surface-variant-dark);
-
-    --color-surface-lowest: var(--color-surface-lowest-dark);
-    --color-surface-container-low: var(--color-surface-container-low-dark);
-    --color-surface-container: var(--color-surface-container-dark);
-    --color-surface-container-high: var(--color-surface-container-high-dark);
-    --color-surface-container-highest: var(--color-surface-container-highest-dark);
-  }
-
-  html {
-    background-color: var(--color-background);
-    .debug-colors {
-      outline: 2px solid red !important;
-    }
-  }
-
-  :root {
-    --primary: #6750a4;
-    --on-primary: #ffffff;
-    --color-on-primary: #ffffff;
-    --primary-container: #eaddff;
-    --on-primary-container: #21005d;
-    --on-gradient-primary: #ffffff;
-    --secondary: #625b71;
-    --on-secondary: #ffffff;
-    --secondary-container: #e8def8;
-    --on-secondary-container: #1d192b;
-
-    --tertiary: #7d5260;
-    --on-tertiary: #ffffff;
-    --tertiary-container: #ffd8e4;
-    --on-tertiary-container: #31111d;
-
-    /* ======================================================
-   4. STATUS COLORS
-   ====================================================== */
-
-    --error: #b3261e;
-    --on-error: #ffffff;
-    --error-container: #f9dedc;
-    --on-error-container: #410e0b;
-
-    --success: #386a20;
-    --on-success: #ffffff;
-    --success-container: #d7f5c5;
-    --on-success-container: #0f2e00;
-
-    --warning: #725c0c;
-    --on-warning: #ffffff;
-    --warning-container: #ffe9a3;
-    --on-warning-container: #261a00;
-
-    --info: #00639b;
-    --on-info: #ffffff;
-    --info-container: #d1e4ff;
-    --on-info-container: #001d36;
-
-    /* ======================================================
-   5. INTERACTION STATES
-   ====================================================== */
-
-    /* Primary interaction */
-    --primary-hover: #59438f;
-    --primary-active: #4c377c;
-
-    /* Container interactions */
-    --primary-container-hover: #decfff;
-    --secondary-container-hover: #ded4f0;
-    --surface-container-hover: #e6dfeb;
-
-    /* ======================================================
-   6. STRUCTURE (OUTLINES / OVERLAYS)
-   ====================================================== */
-
-    --outline: #79747e;
-    --outline-variant: #d6d0da;
-
-    --disabled-outline: rgba(121, 116, 126, 0.12);
-    --scrim: rgba(0, 0, 0, 0.32);
-
-    /* ======================================================
-  7. EFFECTS
-  ====================================================== */
-    --gradient-primary: linear-gradient(135deg, #6750a4, #625b71, #7d5260);
-
-    --glass: rgba(255, 255, 255, 0.7);
-
-    --glow-primary: 0 0 32px rgba(167, 139, 250, 0.35);
-    --glow-secondary: 0 0 24px rgba(34, 211, 238, 0.45);
-
-    /* ======================================================
-   8. SHAPE SYSTEM
-   ====================================================== */
-
-    --radius-sm: 10px;
-    --radius-md: 18px;
-    --radius-lg: 32px;
-
-    /* ======================================================
-   9. TYPOGRAPHY
-   ====================================================== */
-
-    --font-sans: Inter, ui-sans-serif, system-ui;
-    --font-display: Inter, ui-sans-serif, system-ui;
-    --font-mono: ui-monospace, SFMono-Regular, monospace;
-
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-
-    --tracking-tight: -0.03em;
-    --tracking-wide: 0.08em;
-
-    /* ======================================================
-   10. MOTION
-   ====================================================== */
-
-    --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-snappy: cubic-bezier(0.34, 1.56, 0.64, 1);
-
-    --duration-fast: 120ms;
-    --duration-normal: 240ms;
-    --duration-slow: 500ms;
-  }
-
-  .dark {
     --primary: #d0bcff;
     --on-primary: #21005d;
-    --color-on-primary: #21005d;
-    --color-on-primary: #21005d;
-
     --primary-container: #4f378b;
     --on-primary-container: #eaddff;
-
     --secondary: #ccc2dc;
     --on-secondary: #332d41;
     --secondary-container: #4a4458;
     --on-secondary-container: #e8def8;
-
     --tertiary: #efb8c8;
     --on-tertiary: #492532;
     --tertiary-container: #633b48;
     --on-tertiary-container: #ffd8e4;
-
-    /* ======================================================
-   4. STATUS COLORS (DARK)
-   ====================================================== */
-
-    --error: #f2b8b5;
-    --on-error: #601410;
+    --error: #601410;
+    --on-error: #e7d0cf;
     --error-container: #8c1d18;
     --on-error-container: #f9dedc;
-
     --success: #b7f397;
     --on-success: #0f2e00;
     --success-container: #275b1a;
     --on-success-container: #d7f5c5;
-
     --warning: #f1e1a6;
     --on-warning: #261a00;
     --warning-container: #5a4300;
     --on-warning-container: #ffe9a3;
-
     --info: #a8c7ff;
     --on-info: #001d36;
     --info-container: #004a77;
     --on-info-container: #d1e4ff;
+    --outline: #938f99;
+    --outline-variant: #49454f;
+  }
 
+  .dark {
     /* ======================================================
    5. INTERACTION STATES (DARK)
    ====================================================== */
@@ -275,7 +198,7 @@
 
     --primary-container-hover: #5a419c;
     --secondary-container-hover: #5a5268;
-    --surface-container-hover: #2b2830;
+    --level-hover: #2b2830;
 
     /* ======================================================
    6. STRUCTURE (DARK)
@@ -317,10 +240,6 @@
     --code-accent: #2563eb; /* Vibrant blue-600 */
     --code-accent-dim: rgba(37, 99, 235, 0.08); /* Soft blue line-highlight tint */
   }
-
-  /* ==========================================================================
-   2. DARK MODE OVERRIDES (Listens to both Tailwind classes & system media)
-   ========================================================================== */
 
   html.dark,
   .dark :root {
@@ -382,14 +301,6 @@
     @apply border border-red-500/50 bg-red-500/5;
   }
 
-  a {
-    color: var(--on-primary);
-
-    &:hover {
-      color: var(--primary);
-    }
-  }
-
   input:-webkit-autofill,
   input:-webkit-autofill:focus {
     transition:
@@ -399,5 +310,12 @@
 
   .border {
     color: var(--border);
+  }
+  body {
+    @apply bg-surface text-on-surface;
+  }
+
+  .card {
+    @apply bg-surface rounded-xl p-4;
   }
 }

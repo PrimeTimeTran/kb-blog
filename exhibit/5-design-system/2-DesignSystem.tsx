@@ -1,4 +1,4 @@
-export default function DesignSystemSurfaceLab() {
+export function DesignSystem() {
   return (
     <div className="min-h-0 bg-background text-on-background w-full overflow-y-scroll">
       <div className="mx-auto flex max-w-7xl flex-col gap-16 p-8">

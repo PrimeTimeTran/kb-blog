@@ -99,12 +99,12 @@ export function PageClient() {
     return (
       <div
         ref={sidebarRef}
-        className={`fixed right-0 top-0 z-50 h-full w-full md:w-1/3 lg:w-[600px] overflow-y-auto transition-transform duration-300 ease-emphasized bg-surface-container-low 
+        className={`fixed right-0 top-0 z-50 h-full w-full md:w-1/3 lg:w-[600px] overflow-y-auto transition-transform duration-300 ease-emphasized bg-low 
           ${isSidebarOpen ? 'translate-x-0' : 'translate-x-full'}
         `}
       >
         {/* HEADER */}
-        <div className="flex items-center justify-between px-2 bg-surface-container-high border-b border-outline-variant/40 shadow-sm">
+        <div className="flex items-center justify-between px-2 bg-high border-b border-outline-variant/40 shadow-sm">
           <h2 className="text-title-large font-semibold">Solutions</h2>
 
           <button
@@ -139,7 +139,7 @@ export function PageClient() {
             transition={{ duration: 0.2 }}
           >
             <div
-              className={`flex items-start gap-2 w-full px-2 py-1  transition-colors ${i % 2 === 0 ? 'bg-surface-container' : 'bg-surface-container-low'} hover:bg-surface-container-high`}
+              className={`flex items-start gap-2 w-full px-2 py-1  transition-colors ${i % 2 === 0 ? 'bg-level' : 'bg-low'} hover:bg-high`}
             >
               <a
                 href={problem.url}
@@ -175,7 +175,7 @@ export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
   const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]'];
 
   return (
-    <div className="flex flex-col bg-surface-container-low">
+    <div className="flex flex-col bg-low">
       {Array.from({ length: rows }).map((_, i) => (
         <div
           key={i}
