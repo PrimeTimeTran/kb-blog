@@ -1,4 +1,31 @@
 @layer components {
+  .file-item {
+    @apply flex flex-row items-center gap-2 px-2 py-1 text-left truncate w-full
+      
+      transition-colors duration-150 outline-none
+      text-on-surface-variant
+      hover:bg-surface-container
+      hover:text-on-surface
+      focus-visible:bg-surface-container-high
+      focus-visible:text-on-surface
+      focus-visible:ring-2
+      focus-visible:ring-primary
+      focus-visible:ring-offset-1
+      focus-visible:ring-offset-background
+      active:bg-surface-container-highest;
+    &[data-active='true'] {
+      @apply bg-primary-container
+    text-on-primary-container
+    font-medium
+    hover:bg-primary-container
+    hover:text-on-primary-container
+    focus-visible:bg-primary-container
+    focus-visible:text-on-primary-container
+    dark:bg-primary/20
+    dark:text-on-primary-container;
+    }
+  }
+
   .group:hover .controls {
     opacity: 1;
   }

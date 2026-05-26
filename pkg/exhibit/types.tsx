@@ -101,7 +101,7 @@ export interface SidebarProps {
 
 export interface FileNodeProps {
   node: TreeNode;
-  activePath: string;
+  activePath: string | null;
   onSelect: (path: string) => void;
   depth: number;
 }

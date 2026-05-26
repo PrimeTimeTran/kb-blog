@@ -1,3 +1,4 @@
+// new file, new folder, refresh explorer, collapase directories
 import js from '@eslint/js';
 import globals from 'globals';
 import react from 'eslint-plugin-react';

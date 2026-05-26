@@ -1,7 +1,21 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useMemo } from 'react';
 import { TreeNode, SidebarProps, FileNodeProps } from '@/pkg/exhibit';
+
+import { ChevronRight } from 'lucide-react';
+
+import { getIconForFile, getIconForFolder } from 'vscode-icons-js';
+
+function FileIcon({ name }: { name: string }) {
+  const iconName = getIconForFile(name);
+  return <Image src={`/vscode-icons/${iconName}`} width={16} height={16} alt={''} />;
+}
+function FolderIcon({ name }: { name: string }) {
+  const iconName = getIconForFolder(name);
+  return <Image src={`/vscode-icons/${iconName}`} width={16} height={16} alt={''} />;
+}
 
 export function Sidebar({ vfs }: SidebarProps) {
   const fileKeys = useMemo(() => Object.keys(vfs.files), [vfs.files]);
@@ -21,6 +35,7 @@ export function Sidebar({ vfs }: SidebarProps) {
     </div>
   );
 }
+
 function buildTree(paths: string[]): TreeNode {
   const root: TreeNode = { name: 'root', path: '', isFolder: true, children: {} };
 
@@ -71,21 +86,35 @@ function FileNode({ node, activePath, onSelect, depth }: FileNodeProps) {
           style={{ paddingLeft }}
           className="w-full text-left py-1 px-2 rounded hover:bg-white/5 flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 transition-colors group"
         >
-          <span className="text-[10px] text-on-surface group-hover:text-zinc-400 transition-transform duration-100 style={{ transform: isOpen ? 'rotate(90deg)' : 'none' }}">
-            {isOpen ? '▼' : '▶'}
+          <span
+            className="transition-transform duration-200"
+            style={{
+              transform: isOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+            }}
+          >
+            <ChevronRight height={16} width={16} />
           </span>
-          <span className="truncate text-on-surface">
-            {node.name.startsWith('@') ? `📂 ${node.name}` : `📁 ${node.name}`}
+          <span className="flex flex-row text-on-surface gap-2">
+            <FolderIcon name={node.name} />
+            {node.name}
           </span>
         </button>
 
-        {isOpen && (
+        <div
+          className={`
+            overflow-hidden
+            transition-all
+            duration-200
+            ease-out
+            ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}
+          `}
+        >
           <div className="mt-0.5">
             {sortedChildren.map((child) => (
               <FileNode key={child.name} node={child} activePath={activePath} onSelect={onSelect} depth={depth + 1} />
             ))}
           </div>
-        )}
+        </div>
       </div>
     );
   }
@@ -95,11 +124,11 @@ function FileNode({ node, activePath, onSelect, depth }: FileNodeProps) {
       type="button"
       onClick={() => onSelect(node.path)}
       style={{ paddingLeft: `${depth * 12 + 20}px` }}
-      className={`w-full text-left py-1 px-2 rounded truncate block transition-colors ${
-        isActive ? 'bg-blue-600 text-white font-medium shadow-sm' : 'text-zinc-400 hover:bg-white/5 hover:text-zinc-200'
-      }`}
+      data-active={isActive}
+      className="file-item"
     >
-      📄 {node.name}
+      <FileIcon name={node.name} />
+      {node.name}
     </button>
   );
 }
