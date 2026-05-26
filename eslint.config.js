@@ -38,10 +38,21 @@ export default [
     },
   },
   {
-    files: ['**/*.cjs', '**/*.js', 'scripts/**/*'],
+    files: ['**/*.cjs', '**/*.js', 'scripts/**/*', '**/*.ts', '**/*.tsx'],
 
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          vars: 'all',
+          args: 'after-used',
+          caughtErrors: 'all',
+          ignoreRestSiblings: false,
+          ignoreUsingDeclarations: false,
+          reportUsedIgnorePattern: false,
+        },
+      ],
     },
   },
 
@@ -98,15 +109,6 @@ export default [
       // TS ergonomics
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
-
-      // unused vars (TS version only)
-      'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-        },
-      ],
     },
   },
 

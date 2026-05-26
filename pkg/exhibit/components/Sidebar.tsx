@@ -3,8 +3,8 @@
 import { useState, useMemo } from 'react';
 import { TreeNode, SidebarProps, FileNodeProps } from '../types';
 
-export function Sidebar({ vfs, files, activePath }: SidebarProps) {
-  const fileKeys = useMemo(() => Object.keys(files), [files]);
+export function Sidebar({ vfs }: SidebarProps) {
+  const fileKeys = useMemo(() => Object.keys(vfs.files), [vfs.files]);
   const treeRoot = useMemo(() => buildTree(fileKeys), [fileKeys]);
 
   const displayNodes = Object.values(treeRoot.children);
@@ -15,7 +15,7 @@ export function Sidebar({ vfs, files, activePath }: SidebarProps) {
       </div>
       <div className="flex-1 overflow-y-auto p-2 space-y-0.5">
         {displayNodes.map((node) => (
-          <FileNode key={node.name} node={node} activePath={activePath} onSelect={vfs.handleFileSelect} depth={0} />
+          <FileNode key={node.name} node={node} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} depth={0} />
         ))}
       </div>
     </div>

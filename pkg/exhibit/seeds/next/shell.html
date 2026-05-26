@@ -129,23 +129,96 @@
           }
           return this.root;
         },
+        render(path) {
+          const mod = this.customRequire(path);
 
-        render(path = this.ENTRY_PATH) {
-          try {
-            const mod = this.customRequire(path);
-            const Component = mod.default || mod;
-            if (typeof Component !== 'function' && typeof Component !== 'object') {
-              throw new Error(`Expected a React component, but got: ${typeof Component}`);
-            }
-
-            const root = this.ensureRoot();
-            root.render(window.React.createElement(Component));
-            this.clearErrorOverlay();
-            return true;
-          } catch (err) {
-            this.reportError(err);
-            return false;
+          // -----------------------------
+          // 1. STATIC ASSETS
+          // -----------------------------
+          if (mod?.type === 'static' || typeof mod?.default === 'string') {
+            return this.renderStatic(path, mod);
           }
+
+          // -----------------------------
+          // 2. HTML MODULES
+          // -----------------------------
+          if (mod?.__type === 'html') {
+            return this.renderHTML(mod.__html);
+          }
+
+          // -----------------------------
+          // 3. CSS MODULES
+          // -----------------------------
+          if (mod?.__type === 'css') {
+            return this.loadCSS(path, mod);
+          }
+
+          // -----------------------------
+          // 4. JSON / DATA MODULES
+          // -----------------------------
+          if (mod && typeof mod === 'object' && !mod.default && !mod.render) {
+            console.log('📦 Data module (no render):', mod);
+            return mod;
+          }
+
+          // -----------------------------
+          // 5. REACT MODULES (ONLY VALID CASE)
+          // -----------------------------
+          const Component = mod.default ?? mod;
+
+          if (typeof Component !== 'function') {
+            throw new Error(`Unsupported entry type: ${typeof Component}. Path: ${path}`);
+          }
+
+          const root = this.ensureRoot();
+          root.render(window.React.createElement(Component));
+        },
+
+        renderStatic(path, mod) {
+          const ext = path.split('.').pop();
+
+          switch (ext) {
+            case 'html':
+              return this.renderHTML(mod.default);
+
+            case 'css':
+              return this.loadCSS(path, mod.default);
+
+            case 'md':
+              return this.renderMarkdown(mod.default);
+
+            case 'txt':
+              return this.renderText(mod.default);
+
+            default:
+              console.log('📄 Static asset ignored:', path);
+          }
+        },
+
+        renderHTML(html) {
+          const root = this.ensureRoot();
+          root.innerHTML = html;
+        },
+
+        renderText(text) {
+          const root = this.ensureRoot();
+          root.innerText = text;
+        },
+
+        renderMarkdown(md) {
+          const html = window.marked?.parse?.(md) ?? md;
+          return this.renderHTML(html);
+        },
+        mountHTML(html) {
+          let container = document.getElementById('html-root');
+
+          if (!container) {
+            container = document.createElement('div');
+            container.id = 'html-root';
+            document.body.appendChild(container);
+          }
+
+          container.innerHTML = html;
         },
 
         clearErrorOverlay() {
@@ -163,36 +236,142 @@
             this.registerModule(path, file.content);
           });
         },
+        loadFile(path, callerPath = './') {
+          const resolvedPath = this.resolvePath?.(path, callerPath) ?? path;
 
+          const file = this.vfs?.[resolvedPath];
+
+          if (!file) {
+            throw new Error(`Cannot resolve file: ${path} from ${callerPath}`);
+          }
+
+          const type = getFileType(resolvedPath);
+
+          switch (type) {
+            case 'module':
+              return this.loadModule(resolvedPath);
+
+            case 'html':
+              return this.loadHTML(resolvedPath, file.content);
+
+            case 'css':
+              return this.loadCSS(resolvedPath, file.content);
+
+            case 'markdown':
+              return this.loadMarkdown(file.content);
+
+            case 'json':
+              try {
+                return JSON.parse(file.content);
+              } catch (e) {
+                this.reportError(e);
+                return null;
+              }
+
+            case 'text':
+              return file.content;
+
+            default:
+              return file.content;
+          }
+        },
+        loadHTML(path, html) {
+          // OPTION A: just return for JSX-style usage
+          return {
+            __type: 'html',
+            __html: html,
+          };
+
+          // OPTION B (IDE mode): auto-mount
+          // this.mountHTML(html);
+          // return {};
+        },
+        loadCSS(path, css) {
+          if (typeof document === 'undefined') return;
+
+          let styleTag = document.querySelector(`style[data-vfs="${path}"]`);
+
+          if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.setAttribute('data-vfs', path);
+            document.head.appendChild(styleTag);
+          }
+
+          styleTag.textContent = css;
+
+          return { __type: 'css' };
+        },
+        loadMarkdown(md) {
+          // optional dependency-safe fallback
+          if (typeof window === 'undefined') return md;
+
+          if (window.marked) {
+            return {
+              __type: 'markdown',
+              __html: window.marked.parse(md),
+            };
+          }
+
+          return md;
+        },
+        resolvePath(target, base) {
+          if (!target.startsWith('.')) return target;
+
+          const baseDir = base.substring(0, base.lastIndexOf('/'));
+          return `${baseDir}/${target.replace('./', '')}`.replace(/\/+/g, '/');
+        },
         registerModule(path, content) {
           try {
-            // 1. Transpile to CommonJS
+            const ext = path.split('.').pop()?.toLowerCase();
+
+            // --------------------------------------------
+            // 1. STATIC ASSETS (NO EXECUTION)
+            // --------------------------------------------
+            const STATIC_EXT = new Set(['html', 'md', 'txt', 'css', 'json']);
+
+            if (STATIC_EXT.has(ext)) {
+              let exports;
+
+              switch (ext) {
+                case 'json':
+                  exports = JSON.parse(content);
+                  break;
+                default:
+                  exports = content; // html/md/txt/css => raw string
+              }
+
+              this.moduleRegistry[path] = {
+                exports: { default: exports },
+                factory: null,
+                wasExecuted: true,
+                type: 'static',
+              };
+
+              console.log(`📄 Registered static asset: ${path}`);
+              return;
+            }
+
+            // --------------------------------------------
+            // 2. EXECUTABLE MODULES (JS/TS/REACT)
+            // --------------------------------------------
             const transformed = Babel.transform(content, {
               filename: path,
               presets: [['typescript', { isTSX: true, allExtensions: true }], ['react', { runtime: 'classic' }], 'env'],
               plugins: ['transform-modules-commonjs'],
             }).code;
 
-            // 2. Define the sandbox environment
             const module = { exports: {} };
-            const exports = module.exports;
 
-            // 3. Create the execution factory
-            // We pass 'path' and 'process' to avoid "not defined" errors
-            // const factory = new Function('require', 'module', 'exports', 'path', 'process', transformed);
-
-            // 4. Execute the code
-            // const factory = new Function('exports', 'require', 'module', transformed);
             const factory = new Function('module', 'exports', 'require', transformed);
 
-            // Store in registry
             this.moduleRegistry[path] = {
               exports: {},
-              factory: factory, // Storing the function here
+              factory,
               wasExecuted: false,
+              type: 'module',
             };
 
-            console.log(`✅ Registered: ${path}`);
+            console.log(`⚙️ Registered module: ${path}`);
           } catch (err) {
             console.error(`❌ Execution error in ${path}:`, err);
             this.reportError(err);
@@ -200,39 +379,29 @@
           }
         },
         customRequire(modulePath, callerPath = './') {
-          const dependencyMap = {
-            react: window.React,
-            'react-dom': window.ReactDOM,
-            'react/jsx-runtime': window.React,
-          };
-
-          if (dependencyMap[modulePath]) {
-            return dependencyMap[modulePath];
-          }
-
-          // 2. Resolve relative path to an absolute-style registry key
-          // This turns "./todo" into "todo" or "hello-world/todo" depending on your keys
-          const getResolvedPath = (target, base) => {
-            if (!target.startsWith('.')) return target;
-            const baseDir = base.substring(0, base.lastIndexOf('/'));
-            return `${baseDir}/${target.replace('./', '')}`.replace(/\/+/g, '/');
-          };
-
-          const resolvedPath = getResolvedPath(modulePath, callerPath);
-
-          // 3. Registry Lookup
-          const mod = this.moduleRegistry[resolvedPath] || this.moduleRegistry['./' + resolvedPath];
+          const mod = this.moduleRegistry[modulePath];
 
           if (!mod) {
-            throw new Error(`Cannot resolve: '${modulePath}' called from ${callerPath}`);
+            throw new Error(`Cannot resolve: ${modulePath}`);
           }
 
-          // 4. Lazy Execution
-          if (!mod.wasExecuted) {
-            // Inject the specific require-bound-to-this-file
-            const boundRequire = (path) => this.customRequire(path, resolvedPath);
-            //mod.factory(mod.exports, boundRequire, mod);
-            mod.factory(mod, mod.exports, boundRequire);
+          if (mod.type === 'static') {
+            return {
+              type: 'static',
+              default: mod.exports.default,
+            };
+          }
+
+          if (!mod.wasExecuted && mod.factory) {
+            const boundRequire = (p) => this.customRequire(p, modulePath);
+
+            const result = mod.factory(mod, mod.exports, boundRequire);
+
+            // 🚨 HARD GUARD: prevent async leakage
+            if (result instanceof Promise) {
+              throw new Error(`Module ${modulePath} returned a Promise. Async modules are not supported in runtime.`);
+            }
+
             mod.wasExecuted = true;
           }
 
@@ -251,7 +420,6 @@
             // [SETUP FRAMEWORK/RUNTIME]
             ctx.ENTRY_PATH = payload.entry;
             ctx.vfs = payload.files;
-            ctx.type = 'vfs:update';
             ctx.processMessage({ type: 'vfs:update', payload: { files: payload.files } });
           },
           // --- UI & System Operations ---
@@ -275,7 +443,7 @@
             }
             // ctx.ENTRY_PATH = payload.entryPoint || './hello-world/page.tsx';
             ctx.syncRegistry(payload.files);
-            ctx.render(payload.entryPoint || ctx.ENTRY_PATH);
+            ctx.bootRender(payload.entryPoint || ctx.ENTRY_PATH);
           },
           'vfs:sync': (ctx, payload) => {
             console.log('🗂️ vfs:sync');
@@ -298,7 +466,7 @@
         },
         // --- 4. COMMUNICATION & HMR ---
         processMessage(msg) {
-          console.log('[IFRAME APP CORE MSG] ...msg');
+          // console.log('[IFRAME APP CORE MSG] ...msg');
           // 1. Ensure a basic structure exists
           if (!msg || !msg.type) return;
 
@@ -325,7 +493,6 @@
             this.reportError(err);
           }
         },
-
         setupHMR() {
           const socket = new WebSocket('ws://localhost:8080/browser');
           console.log('✅ WS Connected');
@@ -335,7 +502,6 @@
             this.processMessage(data);
           };
         },
-
         reportError(err) {
           console.error('⛔️ Error: Module System Error:', err);
           window.parent.postMessage({ type: 'iframe:error', payload: { message: err.message } }, '*');
@@ -346,9 +512,58 @@
           this.messageQueue.forEach((msg) => this.processMessage({ data: msg }));
           this.messageQueue = [];
         },
-        boot() {
-          this.setupHMR();
-          console.log('Environment Ready');
+        bootRender(path) {
+          const mod = this.customRequire(path);
+
+          // -----------------------------------
+          // 1. STATIC FILES
+          // -----------------------------------
+          if (mod?.type === 'static') {
+            const ext = path.split('.').pop()?.toLowerCase();
+
+            switch (ext) {
+              case 'html':
+                this.mountHTML(mod.default);
+                return;
+
+              case 'css':
+                this.loadCSS(path, mod.default);
+                return;
+
+              case 'md':
+                this.renderMarkdown(mod.default);
+                return;
+
+              case 'json':
+                console.log('JSON entry:', mod.default);
+                return;
+
+              case 'txt':
+                this.mountText(mod.default);
+                return;
+
+              default:
+                throw new Error(`Unsupported static entry: ${path}`);
+            }
+          }
+
+          // -----------------------------------
+          // 2. REACT MODULES
+          // -----------------------------------
+          const Component = mod?.default ?? mod;
+
+          if (typeof Component === 'function') {
+            const root = this.ensureRoot();
+            root.render(React.createElement(Component));
+            return;
+          }
+
+          throw new Error(`Unsupported entry type: ${typeof Component}`);
+        },
+        boot: () => {
+          console.log('✅ DOMContentLoaded');
+          window.AppCore.setupHMR();
+          window.AppCore.markReady();
           window.parent.postMessage({ type: 'iframe:ready' }, '*');
         },
       };
@@ -376,17 +591,10 @@
           console.error('System Error before AppCore ready:', e);
         }
       });
-      function boot() {
-        console.log('🏁 Booting AppCore');
-        window.AppCore.setupHMR();
-        window.AppCore.markReady();
-        window.parent.postMessage({ type: 'iframe:ready' }, '*');
-        console.log({ go: window.AppCore.vfs });
-      }
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', boot);
+        document.addEventListener('DOMContentLoaded', window.AppCore.boot);
       } else {
-        boot();
+        window.AppCore.boot();
       }
     </script>
   </body>

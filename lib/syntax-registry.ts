@@ -22,7 +22,20 @@ import 'prismjs/components/prism-ruby';
 export async function initAceExtensions() {
   if (typeof window === 'undefined') return;
 
+  // CORE
   await import('ace-builds/src-noconflict/ace');
+
+  // HTML
+  await import('ace-builds/src-noconflict/mode-html');
+
+  // CSS
+  await import('ace-builds/src-noconflict/mode-css');
+
+  // JSON
+  await import('ace-builds/src-noconflict/mode-json');
+
+  // Markdown
+  await import('ace-builds/src-noconflict/mode-markdown');
 
   // 1. Load BOTH your light and dark themes here
   await import('ace-builds/src-noconflict/theme-chrome'); // Light theme option

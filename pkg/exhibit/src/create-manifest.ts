@@ -5,6 +5,7 @@ import { resolveRuntime } from './resolve-runtime';
 import { loadFrameworkSeeds } from '@/pkg/exhibit/src/load-framework-seeds';
 
 export function createExhibitManifest(slug: string[] = ['hello-world']): ExhibitManifest {
+  let packageJson: any = null;
   const files: VirtualFS = {};
   const entries: string[] = [];
   const extensions = new Set<string>();
@@ -53,6 +54,13 @@ export function createExhibitManifest(slug: string[] = ['hello-world']): Exhibit
         }
 
         const content = fs.readFileSync(fullPath, 'utf-8');
+        if (entry.name === 'package.json') {
+          try {
+            packageJson = JSON.parse(content);
+          } catch (e) {
+            console.warn('Invalid package.json', e);
+          }
+        }
 
         const relativePath = './' + path.relative(exhibitRoot, fullPath).replace(/\\/g, '/');
 
@@ -101,16 +109,27 @@ export function createExhibitManifest(slug: string[] = ['hello-world']): Exhibit
 
   let projectType: ExhibitProjectType = 'vanilla';
 
-  // order matters intentionally
-  if (hasNextSignals) {
-    projectType = 'next';
-  } else if (hasReactSignals) {
-    projectType = 'react';
-  } else if (hasNuxtConfig) {
-    projectType = 'nuxt';
-  } else if (hasVueFiles) {
-    projectType = 'vue';
+  if (packageJson) {
+    const deps = {
+      ...packageJson.dependencies,
+      ...packageJson.devDependencies,
+    };
+
+    if (deps?.next) projectType = 'next';
+    else if (deps?.react || deps?.['react-dom']) projectType = 'react';
+    else if (deps?.vue) projectType = 'vue';
+    else if (deps?.nuxt) projectType = 'nuxt';
   }
+  // ----------------------------------------
+  // 2. HEURISTICS (FALLBACK ONLY)
+  // ----------------------------------------
+  if (projectType === 'vanilla') {
+    if (hasNextSignals) projectType = 'next';
+    else if (hasReactSignals) projectType = 'react';
+    else if (hasNuxtConfig) projectType = 'nuxt';
+    else if (hasVueFiles) projectType = 'vue';
+  }
+
   const runtime = resolveRuntime(projectType, entries);
 
   const seeds = loadFrameworkSeeds(projectType);

@@ -13,7 +13,16 @@ export type ResolvedEntry = {
 };
 
 export interface EditorProps {
-  manifest: object;
+  vfs: vfsAPI;
+  mode: string;
+  value: string;
+  onChange: (value: string) => void;
+  formatter?: (code: string) => Promise<string> | string;
+  expanded?: boolean;
+  setEditorReady?: (ready: boolean) => void;
+  autoHeight?: boolean;
+  highlightActiveLine?: boolean;
+  showPrintMargin?: boolean;
 }
 
 export type ExhibitManifest = {
@@ -90,8 +99,6 @@ export interface TreeNode {
 
 export interface SidebarProps {
   vfs: vfsAPI;
-  files: Record<string, any>;
-  activePath: string;
 }
 
 export interface FileNodeProps {

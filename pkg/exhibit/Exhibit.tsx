@@ -11,12 +11,11 @@ import { useIframeController } from './hooks/useIframeController';
 
 import { useVFS } from './hooks/useVFS';
 
-export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JSX.Element {
+export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params }): JSX.Element {
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   const vfs = useVFS({ iframeRef, manifest });
-
   useEffect(() => {
     const iframe = iframeRef.current;
     const shellFile = manifest.seeds.files.find((f) => f.path === manifest.seeds.entry);
@@ -75,18 +74,14 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest }): JS
 
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
-      <Sidebar vfs={vfs} files={vfs.files} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />
+      <Sidebar vfs={vfs} />
 
       {/* ------------------------------------------------------------------ */}
       {/* EDITOR */}
       {/* ------------------------------------------------------------------ */}
       <aside className="h-full border-r border-white/10 bg-surface" {...layout.editorProps}>
         {vfs.activeFile ? (
-          <Editor
-            mode={vfs.activeFile.language}
-            value={vfs.activeFile.content}
-            onChange={vfs.updateActiveFileContent}
-          />
+          <Editor vfs={vfs} value={vfs.activeFile.content} onChange={vfs.updateActiveFileContent} />
         ) : (
           <div className="flex items-center justify-center h-full text-zinc-500 font-mono text-xs">
             Select a file to begin editing
