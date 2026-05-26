@@ -1,7 +1,6 @@
 'use client';
 
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
-// import { useDebounce } from 'use-debounce'; // Recommended library
 
 import { ExhibitManifest } from './types';
 
@@ -73,7 +72,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     }
   };
 
-  const [previewType, setPreviewType] = useState('react');
+  const [previewType, setPreviewType] = useState(manifest.projectType == 'next' ? 'react' : 'vanilla');
 
   return (
     <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
@@ -200,3 +199,21 @@ const Preview = ({ className, codeState, vfs }) => {
 
   return <iframe className={className} src={blobUrl} />;
 };
+
+// react-markdown
+// remark-gfm
+// react-json-view
+// const Preview = ({ className, fileType, content, vfs }) => {
+//   switch (fileType) {
+//     case 'html':
+//       return <HtmlPreview html={content} vfs={vfs} className={className} />;
+//     case 'md':
+//       return <MarkdownPreview source={content} className={className} />;
+//     case 'json':
+//       return <JsonPreview data={content} className={className} />;
+//     case 'css':
+//       return <CssPreview css={content} className={className} />;
+//     default:
+//       return <div className={className}>Preview not available for {fileType}</div>;
+//   }
+// };
