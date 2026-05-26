@@ -23,7 +23,6 @@ export function Editor({
   const [editorInstance, setEditorInstance] = useState<AceEditorInstance | null>(null);
 
   const { resolvedTheme } = useTheme();
-  const debouncedOnChange = useRef(null);
   const mode = useMemo(() => getEditorMode(vfs.activePath ?? ''), [vfs.activePath]);
   const formatter = useMemo(() => getFormatter(vfs.activePath ?? ''), [vfs.activePath]);
 
@@ -35,12 +34,11 @@ export function Editor({
     stateRef.current = { onChange, value, formatter };
   }, [onChange, value, formatter]);
 
-  useEffect(() => {
-    const handler = (val) => {
+  // 1. Create the debounced function using useMemo
+  const debouncedOnChange = useMemo(() => {
+    return debounce((val) => {
       onChange(val);
-    };
-
-    debouncedOnChange.current = debounce(handler, 500);
+    }, 500);
   }, [onChange]);
 
   useEffect(() => {
@@ -95,7 +93,7 @@ export function Editor({
         theme={editorTheme}
         width="100%"
         height={autoHeight ? 'auto' : '100%'}
-        onChange={(val) => debouncedOnChange.current && debouncedOnChange.current(val)}
+        onChange={debouncedOnChange}
         showPrintMargin={showPrintMargin}
         highlightActiveLine={highlightActiveLine}
         setOptions={{
