@@ -1,7 +1,7 @@
-import AceEditor from 'react-ace'
+import AceEditor from 'react-ace';
 
-import { useTheme } from "@teispace/next-themes";
-import { useEffect, useMemo, useRef } from "react";
+import { useTheme } from '@teispace/next-themes';
+import { useEffect, useMemo, useRef } from 'react';
 
 export function Editor({
   mode,

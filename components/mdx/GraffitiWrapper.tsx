@@ -1,6 +1,6 @@
 'use client';
 
-import React, {   useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import { motion, useTime, useTransform } from 'framer-motion';
 
 import { useScroll } from '@/providers/ScrollProvider';

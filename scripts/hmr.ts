@@ -13,23 +13,25 @@ watcher.on('change', (path) => console.log('🔥 Change detected in:', path));
 ws.on('open', () => console.log('✅ Connected to Bridge Server'));
 ws.on('error', (err) => console.error('❌ Connection Error:', err));
 
-chokidar.watch(path.resolve('./exhibit/(dev)'), {
-  usePolling: true,
-  interval: 100
-}).on('all', (event, filePath) => {
-  // This will log EVERY event (add, change, unlink)
-  console.log(`📡 Event: ${event} on ${filePath}`);
+chokidar
+  .watch(path.resolve('./exhibit/(dev)'), {
+    usePolling: true,
+    interval: 100,
+  })
+  .on('all', (event, filePath) => {
+    // This will log EVERY event (add, change, unlink)
+    console.log(`📡 Event: ${event} on ${filePath}`);
 
-  if (event === 'change') {
-    const content = fs.readFileSync(filePath, 'utf-8');
-    const message = JSON.stringify({
-      type: 'vfs:sync',
-      payload: { path: path.basename(filePath), content: content }
-    });
+    if (event === 'change') {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const message = JSON.stringify({
+        type: 'vfs:sync',
+        payload: { path: path.basename(filePath), content: content },
+      });
 
-    if (ws.readyState === WebSocket.OPEN) {
-      ws.send(message);
-      console.log('🚀 Rocket launched');
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.send(message);
+        console.log('🚀 Rocket launched');
+      }
     }
-  }
-});
+  });

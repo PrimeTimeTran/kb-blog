@@ -1,6 +1,5 @@
 import * as Babel from '@babel/standalone';
 
-
 const transformCode = (code, filename = 'test.tsx') => {
   try {
     const result = Babel.transform(code, {

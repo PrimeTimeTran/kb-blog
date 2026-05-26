@@ -1,9 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 
 export function ThreeColLayout({ left, right, children }) {
-  const getWidthsFromWeights = (totalWidth, weights) => {
-    const totalWeight = weights.reduce((acc, w) => acc + w, 0);
-    return weights.map((w) => (w / totalWeight) * totalWidth);
+  const getWidthsFromWeights = (totalWidth: number, weights: any[]) => {
+    const totalWeight = weights.reduce((acc: any, w: any) => acc + w, 0);
+    return weights.map((w: number) => (w / totalWeight) * totalWidth);
   };
   const initialSizes = getWidthsFromWeights(typeof window !== 'undefined' ? window.innerWidth : 1200, [2, 8, 2]);
 

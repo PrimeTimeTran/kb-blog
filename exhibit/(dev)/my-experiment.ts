@@ -1,17 +1,15 @@
 function hiii() {
-  console.log('')
+  console.log('');
 }
 
-
 function hii3i() {
-  console.log('')
+  console.log('');
 }
 
 function hi2ii() {
-  console.log('')
+  console.log('');
 }
 
 function hii1i() {
-  console.log('')
+  console.log('');
 }
-

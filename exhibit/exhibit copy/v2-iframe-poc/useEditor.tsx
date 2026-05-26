@@ -4,4 +4,3 @@ import babel from 'prettier/plugins/babel';
 import estree from 'prettier/plugins/estree';
 
 import * as Babel from '@babel/standalone';
-

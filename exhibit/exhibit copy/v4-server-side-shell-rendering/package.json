@@ -16,7 +16,7 @@
     "esbuild": "^0.28.0",
     "ace-builds": "^1.44.0",
     "react-ace": "^14.0.1",
-    "@babel/standalone": "^7.29.4",
+    "@babel/standalone": "^7.29.4"
   },
   "author": "Loi Tran",
   "license": "ISC"
