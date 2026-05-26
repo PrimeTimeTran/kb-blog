@@ -1,17 +1,13 @@
 'use client';
 
+import { SearchParams } from 'next/dist/server/request/search-params';
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 
-import { ExhibitManifest } from './types';
+import { ExhibitManifest } from '@/pkg/exhibit/types';
+import { Editor, Sidebar } from '@/pkg/exhibit';
+import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit';
 
-import { Editor } from './components/Editor';
-import { Sidebar } from './components/Sidebar';
-import { useEditorLayout } from './hooks/ui/useEditorLayout';
-import { useIframeController } from './hooks/useIframeController';
-
-import { useVFS } from './hooks/useVFS';
-
-export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params }): JSX.Element {
+export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 

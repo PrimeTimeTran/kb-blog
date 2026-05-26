@@ -1,6 +1,7 @@
 'use client';
-import { useTheme } from '@teispace/next-themes';
 import { useEffect, useRef, useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
+
 import { createTrace } from '@/lib/trace';
 import { vfsAPI } from '@/pkg/exhibit/types';
 

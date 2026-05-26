@@ -14,23 +14,6 @@ import 'ace-builds/src-noconflict/mode-jsx';
 import 'ace-builds/src-noconflict/mode-typescript';
 import 'ace-builds/src-noconflict/theme-monokai';
 
-// Write src to string registry so that CJS (Live Editor dep)
-// can parse it client side.
-// How to "Run module code (import/export + JSX) inside a system that only executes plain strings via eval/new Function on the client"?
-// Basically “We intentionally downgrade real TSX modules into raw strings because we don’t have a bundler.”
-// - We are not running modules.
-// - We are executing compiled strings in a sandboxed JS function environment.
-// - Therefore all module syntax must be removed and replaced with scope injection.
-// $ node scripts/buildRegistry.js
-
-// export default Page1_SharedStackingContext
-// export default Page2_StackingContextIsolation
-// export default Page3_NoStackingIsolation
-// export default Page4_SiblingStackingCompetition
-// export default Page5_SubtreeStackingContext
-// export default Page6_OverlapAndZIndexResolution
-// export default Page6_ScrollContextAndFixedPositioning`
-
 export default function Exhibit() {
   const scope = {
     React,

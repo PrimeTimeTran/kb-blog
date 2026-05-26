@@ -1,4 +1,4 @@
-import { ExhibitProjectType, ExhibitRuntime } from '../types';
+import { ExhibitProjectType, ExhibitRuntime } from '@/pkg/exhibit';
 
 export function resolveRuntime(projectType: ExhibitProjectType, entries: string[]): ExhibitRuntime {
   switch (projectType) {

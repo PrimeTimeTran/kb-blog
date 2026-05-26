@@ -5,8 +5,8 @@ import dynamic from 'next/dynamic';
 import { useTheme } from '@teispace/next-themes';
 import { useMemo, useRef, useEffect, useState } from 'react';
 
+import { EditorProps } from '@/pkg/exhibit';
 import { initAceExtensions } from '@/lib/syntax-registry';
-import { EditorProps } from '@/pkg/exhibit/types';
 
 export function Editor({
   vfs,
@@ -109,7 +109,7 @@ export function Editor({
 // IMPROVEMENT: Leverage Ace's Native Command Manager over raw DOM handlers
 // =========================================================================
 export const useEditorHotkeys = (
-  editorInstance: AceEditorInstance,
+  editorInstance: AceEditorInstance | null,
   stateRef: React.MutableRefObject<any>,
   setEditorReady: undefined | ((ready: boolean) => void),
 ): void => {

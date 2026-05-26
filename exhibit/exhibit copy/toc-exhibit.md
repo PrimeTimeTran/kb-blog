@@ -1,22 +1,28 @@
-1. **React Live**
+1. **React Functional UI**
    - Raw eval/transpile loop
    - Single-file execution
    - Fastest feedback loop
    - Proved the editing/runtime concept
 
-2. **Iframe POC**
+2. **React Live**
+   - Raw eval/transpile loop
+   - Single-file execution
+   - Fastest feedback loop
+   - Proved the editing/runtime concept
+
+3. **Iframe POC**
    - Runtime isolation
    - Separate execution environment
    - Started solving refresh/reset/global collision problems
    - Introduced the “mini app runtime” direction instead of just “live JSX eval”
 
-3. **Client-side assembly with string literals**
+4. **Client-side assembly with string literals**
    - Fake filesystem/module graph via in-memory strings
    - Dynamic import-ish behavior
    - Started resembling a real bundler/runtime
    - Huge conceptual leap because components became composable instead of one giant blob
 
-4. **Client-side assembly with SSR shells (app shell + template starter code)**
+5. **Client-side assembly with SSR shells (app shell + template starter code)**
    - Most mature version so far
    - Shell/runtime separation
    - Incremental replacement of user code

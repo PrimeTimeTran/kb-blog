@@ -1,16 +1,15 @@
 import fs from 'fs';
 import path from 'path';
-import { VirtualFS, ExhibitProjectType, ExhibitManifest } from '../types';
-import { resolveRuntime } from './resolve-runtime';
-import { loadFrameworkSeeds } from '@/pkg/exhibit/src/load-framework-seeds';
+import { loadFrameworkSeeds } from '@/pkg/exhibit';
+import { resolveRuntime } from '@/pkg/exhibit';
+import { VirtualFS, ExhibitProjectType, ExhibitManifest } from '@/pkg/exhibit';
 
-export function createExhibitManifest(slug: string[] = ['hello-world']): ExhibitManifest {
+export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitManifest {
   let packageJson: any = null;
   const files: VirtualFS = {};
   const entries: string[] = [];
   const extensions = new Set<string>();
-
-  const folderPath = slug.length > 0 ? slug.join('/') : 'hello-world';
+  const folderPath = slug.length > 0 ? slug.join('/') : '1-vanilla';
 
   const exhibitRoot = path.join(process.cwd(), 'exhibit');
   const targetDir = path.join(exhibitRoot, folderPath);

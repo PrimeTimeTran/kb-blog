@@ -14,7 +14,6 @@ export type ResolvedEntry = {
 
 export interface EditorProps {
   vfs: vfsAPI;
-  mode: string;
   value: string;
   onChange: (value: string) => void;
   formatter?: (code: string) => Promise<string> | string;
@@ -38,7 +37,6 @@ export type ExhibitManifest = {
     assets: ExhibitRuntimeAsset[];
   };
   seeds: {
-    shell: any;
     framework: string;
     files: SeedFile[];
     entry?: string | null;
@@ -46,7 +44,7 @@ export type ExhibitManifest = {
   extensions: string[];
   hasApp: boolean;
   hasPage: boolean;
-  projectType: 'vanilla' | 'next' | 'react' | 'nuxt' | 'vue';
+  projectType: ExhibitProjectType;
 };
 
 export type ExhibitRuntimeAsset = {

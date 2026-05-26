@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import { TreeNode, SidebarProps, FileNodeProps } from '../types';
+import { TreeNode, SidebarProps, FileNodeProps } from '@/pkg/exhibit';
 
 export function Sidebar({ vfs }: SidebarProps) {
   const fileKeys = useMemo(() => Object.keys(vfs.files), [vfs.files]);

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { SeedFile, FrameworkSeeds } from '../types';
+import { SeedFile, FrameworkSeeds } from '@/pkg/exhibit';
 
 function classifyFile(file: string): SeedFile['type'] {
   if (file.endsWith('.html')) return 'html';
