@@ -10,12 +10,13 @@ type IframeControllerProps = {
   code: string;
   onSuccess: () => void;
   onError: () => void;
+  clearError: () => void;
   targetOrigin: string;
 };
 
 export function useIframeController(
   iframeRef: React.RefObject<HTMLIFrameElement | null>,
-  { vfs, code, onSuccess, onError, targetOrigin = '*' }: IframeControllerProps,
+  { vfs, code, onSuccess, onError, clearError, targetOrigin = '*' }: IframeControllerProps,
 ) {
   const traceRef = useRef(createTrace('exhibit:client:useIframeController'));
   const trace = traceRef.current;
@@ -103,6 +104,9 @@ export function useIframeController(
         trace.mark('IFRAME_ERROR', { payload });
         onError?.(payload);
       }
+      if (type === 'ui:errorless') {
+        clearError?.();
+      }
     };
 
     window.addEventListener('message', onMessage);
@@ -111,7 +115,7 @@ export function useIframeController(
       trace.mark('LISTENER_UNMOUNT');
       window.removeEventListener('message', onMessage);
     };
-  }, [onSuccess, onError]);
+  }, [onSuccess, onError, clearError]);
 
   // -------------------------------------------------------------------------
   // INITIAL RUN

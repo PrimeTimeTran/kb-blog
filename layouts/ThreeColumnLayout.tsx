@@ -6,7 +6,6 @@ export function ThreeColLayout({ left, right, children }) {
     return weights.map((w: number) => (w / totalWeight) * totalWidth);
   };
   const initialSizes = getWidthsFromWeights(typeof window !== 'undefined' ? window.innerWidth : 1200, [2, 8, 2]);
-
   const { sizes, getHandleProps, isDragging } = useMultiSplitter(initialSizes);
   const { isOpen, toggle } = useOverlay();
   const { height, resizeProps } = useResizablePanel(250);

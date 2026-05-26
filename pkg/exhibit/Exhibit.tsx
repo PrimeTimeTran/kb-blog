@@ -30,16 +30,16 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     setConsoleError(null);
   }, []);
 
+  const clearError = () => setConsoleError(null);
+
   const handleError = useCallback((payload: any) => {
     if (errorTimeoutRef.current) clearTimeout(errorTimeoutRef.current);
-
     errorTimeoutRef.current = setTimeout(() => {
       let msg = `❌ Runtime Error\n\n`;
 
       if (payload.loc) {
         msg += `Line ${payload.loc.line}, Col ${payload.loc.column}\n`;
       }
-
       msg += `${payload.message}\n\n`;
 
       setConsoleError(msg + (payload.stack ?? ''));
@@ -53,6 +53,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     code: vfs.activeFile?.content ?? '',
     onSuccess: handleSuccess,
     onError: handleError,
+    clearError: clearError,
   });
 
   const layout = useEditorLayout();
@@ -120,22 +121,19 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
         {consoleError && (
           <div
             {...layout.consoleProps}
-            className="absolute bottom-0 left-0 right-0 w-full bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30 z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-200"
+            className="absolute bottom-0 left-0 right-0 w-full bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30 z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-200 group"
           >
-            <div
-              {...layout.consoleDragProps}
-              className="h-2 w-full cursor-row-resize bg-surface border-b border-red-500/20 transition-colors shrink-0"
-            />
+            <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
 
             <div className="relative flex-1 w-full">
               <button
                 onClick={handleCopy}
-                className="absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 text-white rounded"
+                className="absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 text-white rounded opacity-0 group-hover:opacity-100"
               >
                 {copied ? 'Copied' : 'Copy'}
               </button>
 
-              <pre className="flex-1 w-full text-red-400 p-5 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
+              <pre className="flex-1 h-full w-full text-red-400 px-2 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
                 {consoleError}
               </pre>
             </div>

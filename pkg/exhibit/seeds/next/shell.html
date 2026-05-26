@@ -74,7 +74,7 @@
       #error-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(9, 9, 11, 0.95);
+        background-color: rgba(9, 9, 11, 0.95);
         color: #ef4444;
         padding: 24px;
         font-family: monospace;
@@ -84,6 +84,10 @@
         z-index: 99999;
         display: none;
       }
+      #error-overlay-text {
+        white-space: pre-wrap; /* Preserves newlines and wraps text */
+        word-wrap: break-word; /* Prevents long lines from breaking your layout */
+      }
     </style>
   </head>
 
@@ -92,7 +96,9 @@
     <div
       id="error-overlay"
       style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
-    ></div>
+    >
+      <div id="error-overlay-text"></div>
+    </div>
 
     <script>
       window.AppCore = {
@@ -128,6 +134,10 @@
             this.root = ReactDOM.createRoot(rootEl);
           }
           return this.root;
+        },
+        notifyErrorless() {
+          window.AppCore.clearErrorOverlay();
+          window.parent.postMessage({ type: 'ui:errorless' }, '*');
         },
         render(path) {
           const mod = this.customRequire(path);
@@ -169,11 +179,10 @@
           if (typeof Component !== 'function') {
             throw new Error(`Unsupported entry type: ${typeof Component}. Path: ${path}`);
           }
-
+          window.AppCore.notifyErrorless();
           const root = this.ensureRoot();
           root.render(window.React.createElement(Component));
         },
-
         renderStatic(path, mod) {
           const ext = path.split('.').pop();
 
@@ -220,12 +229,21 @@
 
           container.innerHTML = html;
         },
-
+        addErrorOverlay(payload) {
+          const overlay = document.getElementById('error-overlay');
+          let msg = `❌ Runtime Error\n\n`;
+          if (payload.loc) {
+            msg += `Line ${payload.loc.line}, Col ${payload.loc.column}\n`;
+          }
+          msg += `${payload.message}\n\n`;
+          const textBody = document.getElementById('error-overlay-text');
+          textBody.textContent = msg;
+          overlay.style.display = 'block';
+        },
         clearErrorOverlay() {
           const overlay = document.getElementById('error-overlay');
           if (overlay) {
             overlay.style.display = 'none';
-            overlay.innerHTML = '';
           }
         },
 
@@ -503,7 +521,9 @@
           };
         },
         reportError(err) {
+          console.log({ err });
           console.error('⛔️ Error: Module System Error:', err);
+          window.AppCore.addErrorOverlay(err);
           window.parent.postMessage({ type: 'iframe:error', payload: { message: err.message } }, '*');
         },
         markReady() {
@@ -512,7 +532,7 @@
           this.messageQueue.forEach((msg) => this.processMessage({ data: msg }));
           this.messageQueue = [];
         },
-        bootRender(path) {
+        bootRender(path = '') {
           const mod = this.customRequire(path);
 
           // -----------------------------------

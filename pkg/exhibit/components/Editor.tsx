@@ -1,5 +1,6 @@
 'use client';
 import type { Ace } from 'ace-builds';
+import { debounce } from 'lodash';
 
 import dynamic from 'next/dynamic';
 import { useTheme } from '@teispace/next-themes';
@@ -22,7 +23,7 @@ export function Editor({
   const [editorInstance, setEditorInstance] = useState<AceEditorInstance | null>(null);
 
   const { resolvedTheme } = useTheme();
-
+  const debouncedOnChange = useRef(null);
   const mode = useMemo(() => getEditorMode(vfs.activePath ?? ''), [vfs.activePath]);
   const formatter = useMemo(() => getFormatter(vfs.activePath ?? ''), [vfs.activePath]);
 
@@ -35,6 +36,14 @@ export function Editor({
   }, [onChange, value, formatter]);
 
   useEffect(() => {
+    const handler = (val) => {
+      onChange(val);
+    };
+
+    debouncedOnChange.current = debounce(handler, 500);
+  }, [onChange]);
+
+  useEffect(() => {
     if (editorRef.current?.editor) {
       editorRef.current.editor.resize();
     }
@@ -44,19 +53,19 @@ export function Editor({
     return resolvedTheme === 'dark' ? 'tomorrow_night' : 'chrome';
   }, [resolvedTheme]);
 
-  const handleFormat = async (editorInstance: typeof editorRef) => {
+  const handleFormat = async (e) => {
     if (!editorRef.current?.editor) return;
     const editor = editorInstance.current;
     const formatter = stateRef.current.formatter;
     if (!formatter) return;
 
     try {
-      const currentCode = editor?.editor.getValue();
+      const currentCode = editorRef?.current?.editor.getValue();
       const formatted = await formatter(currentCode);
-
       if (formatted && formatted !== currentCode) {
         editor?.editor.session.setValue(formatted);
         stateRef.current.onChange(formatted);
+        console.log('formatting done');
       }
     } catch (err) {
       console.error('[ACE FORMAT ERROR]', err);
@@ -70,15 +79,13 @@ export function Editor({
 
   return (
     <div className="w-full h-full relative group">
-      {formatter && (
-        <button
-          type="button"
-          onClick={handleFormat}
-          className="absolute top-2 right-4 z-20 px-2 py-1 text-[10px] tracking-wider font-mono bg-zinc-800/80 backdrop-blur text-zinc-400 rounded border border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-zinc-700 hover:text-zinc-200"
-        >
-          Format (⌘S)
-        </button>
-      )}
+      <button
+        type="button"
+        onClick={handleFormat}
+        className="absolute top-2 right-4 z-20 px-2 py-1 text-[10px] tracking-wider font-mono bg-zinc-800/80 backdrop-blur text-zinc-400 rounded border border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-zinc-700 hover:text-zinc-200"
+      >
+        Format (⌘S)
+      </button>
 
       <AceEditor
         value={value ?? ''}
@@ -88,7 +95,7 @@ export function Editor({
         theme={editorTheme}
         width="100%"
         height={autoHeight ? 'auto' : '100%'}
-        onChange={onChange}
+        onChange={(val) => debouncedOnChange.current && debouncedOnChange.current(val)}
         showPrintMargin={showPrintMargin}
         highlightActiveLine={highlightActiveLine}
         setOptions={{
@@ -117,26 +124,24 @@ export const useEditorHotkeys = (
   // Ace uses command objects: { name, bindKey, exec }
 
   useEffect(() => {
-    if (!editorInstance) return;
     if (setEditorReady) setEditorReady(true);
     const handleFormat = async () => {
-      console.log('Formatting...');
       const formatter = stateRef.current.formatter;
       if (!formatter) return;
 
       try {
         const currentCode = editorInstance.getValue();
         const formatted = await formatter(currentCode);
-
-        if (formatted && formatted !== currentCode) {
+        if (formatted) {
           editorInstance.session.setValue(formatted);
           stateRef.current.onChange(formatted);
         }
+        console.log('formatting done');
       } catch (err) {
         console.error('[ACE FORMAT ERROR]', err);
       }
     };
-
+    if (!editorInstance) return;
     const editor = editorInstance;
 
     editor.commands.addCommand({
