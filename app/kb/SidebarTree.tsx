@@ -39,7 +39,7 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
     <li className="select-none">
       <div
         onClick={canToggle ? toggle : undefined}
-        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-primary/5"
+        className="group flex w-full cursor-pointer items-center gap-2 rounded px-2 py-1 hover:bg-primary/5 "
       >
         {/* LEFT: structure control (expand/collapse) */}
         {/* expand/collapse */}
@@ -50,7 +50,7 @@ export function SidebarItem({ item, openMap = {}, setOpenMap }) {
                 e.stopPropagation();
                 toggle();
               }}
-              className="flex items-center gap-1 rounded px-1"
+              className="flex items-center gap-1 rounded px-1 "
             >
               <span className="text-base leading-none">{open ? '▾' : '▸'}</span>
               <span className="text-xs">📁</span>

@@ -7,6 +7,8 @@ import { Editor, Sidebar } from '@/pkg/exhibit/components';
 import { ExhibitManifest } from '@/pkg/exhibit/types';
 import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit/hooks';
 
+import { ExhibitLayout } from '@/layouts/ExhibitLayout';
+
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
@@ -72,13 +74,57 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
   const [previewType, setPreviewType] = useState(manifest.projectType == 'next' ? 'react' : 'vanilla');
 
   return (
-    <div ref={layout.containerRef} className="flex h-screen w-screen overflow-hidden select-none">
-      <Sidebar vfs={vfs} />
+    <ExhibitLayout
+      left={<Sidebar vfs={vfs} />}
+      right={
+        <aside className="h-full w-full relative bg-surface">
+          {previewType == 'vanilla' && (
+            <Preview
+              vfs={vfs}
+              codeState={vfs?.activeFile?.content}
+              className={`w-full h-full border-0 bg-surface transition-opacity ${
+                layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+              }`}
+            />
+          )}
+          {previewType == 'react' && (
+            <iframe
+              ref={iframeRef}
+              className={`w-full h-full border-0 bg-surface transition-opacity ${
+                layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
+              }`}
+              sandbox="allow-scripts allow-same-origin allow-forms"
+            />
+          )}
 
-      {/* ------------------------------------------------------------------ */}
-      {/* EDITOR */}
-      {/* ------------------------------------------------------------------ */}
-      <aside className="h-full border-r border-white/10 bg-surface" {...layout.editorProps}>
+          <div className={`grid-transition ${consoleError ? 'is-open opacity-100' : 'opacity-0'} w-full`}>
+            <div className="overflow-hidden group">
+              <div
+                {...layout.consoleProps}
+                className={`
+                    absolute bottom-0 left-0 right-0 w-full z-50 flex flex-col overflow-hidden transition-all duration-300 ease-in-out
+                    bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30
+                    ${consoleError ? 'max-h-[500px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}
+                  `}
+              >
+                <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
+
+                <div className="relative flex-1 w-full">
+                  <button onClick={handleCopy} className="hover-button">
+                    {copied ? 'Copied' : 'Copy'}
+                  </button>
+
+                  <pre className="flex-1 h-full w-full text-red-400 px-2 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
+                    {consoleError}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      }
+    >
+      <main className="h-full w-full relative overflow-hidden border-white/10 bg-surface">
         {vfs.activeFile ? (
           <Editor vfs={vfs} value={vfs.activeFile.content} onChange={vfs.updateActiveFileContent} />
         ) : (
@@ -86,61 +132,8 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
             Select a file to begin editing
           </div>
         )}
-      </aside>
-
-      {/* DRAG HANDLE */}
-      <div
-        {...layout.mainDragProps}
-        className="w-1 cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors"
-      />
-
-      {/* ------------------------------------------------------------------ */}
-      {/* RUNTIME */}
-      {/* ------------------------------------------------------------------ */}
-      <aside className="flex-1 h-full relative bg-surface">
-        {previewType == 'vanilla' && (
-          <Preview
-            vfs={vfs}
-            codeState={vfs?.activeFile?.content}
-            className={`w-full h-full border-0 bg-surface transition-opacity ${
-              layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
-            }`}
-          />
-        )}
-        {previewType == 'react' && (
-          <iframe
-            ref={iframeRef}
-            className={`w-full h-full border-0 bg-surface transition-opacity ${
-              layout.isAnyDragging ? 'pointer-events-none opacity-80' : ''
-            }`}
-            sandbox="allow-scripts allow-same-origin allow-forms"
-          />
-        )}
-
-        {/* ERROR CONSOLE */}
-        {consoleError && (
-          <div
-            {...layout.consoleProps}
-            className="absolute bottom-0 left-0 right-0 w-full bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30 z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom duration-200 group"
-          >
-            <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
-
-            <div className="relative flex-1 w-full">
-              <button
-                onClick={handleCopy}
-                className="absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 text-white rounded opacity-0 group-hover:opacity-100"
-              >
-                {copied ? 'Copied' : 'Copy'}
-              </button>
-
-              <pre className="flex-1 h-full w-full text-red-400 px-2 font-mono text-xs whitespace-pre-wrap overflow-y-auto bg-surface">
-                {consoleError}
-              </pre>
-            </div>
-          </div>
-        )}
-      </aside>
-    </div>
+      </main>
+    </ExhibitLayout>
   );
 }
 

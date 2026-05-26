@@ -5,7 +5,6 @@
   strategy: 'base';
   strategy: 'class';
 }
-/* Tailwind 3 Relic */
 
 /* ─────────────────────────────────────────────
    GLOBAL CASCADE LAYER ORDER
@@ -21,12 +20,6 @@
 ───────────────────────────────────────────── */
 
 @layer base, components, utilities, semantics, layout, vendors;
-
-/* ─────────────────────────────────────────────
-   THEME TOKENS
-───────────────────────────────────────────── */
-
-@import './theme.css';
 
 /* ─────────────────────────────────────────────
    TAILWIND / APP LAYERS

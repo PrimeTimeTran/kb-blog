@@ -1,13 +1,314 @@
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* SURFACE ELEVATION SCALE */
+  --color-surface-lowest: #f4f4f5;
+  --color-surface-container-low: #e4e4e7;
+  --color-surface-container: #d4d4d8;
+  --color-surface-container-high: #c4c4c8;
+  --color-surface-container-highest: #b4b4b8;
+
+  /* DARK MODE OVERRIDES */
+  --color-surface-lowest-dark: #18181b;
+  --color-surface-container-low-dark: #27272a;
+  --color-surface-container-dark: #3f3f46;
+  --color-surface-container-high-dark: #52525b;
+  --color-surface-container-highest-dark: #71717a;
+
+  /* SEMANTIC TEXT & BACKGROUND */
+  --color-background: #fffbfe;
+  --color-on-background: #1c1b1f;
+  --color-surface: #ffffff;
+  --color-on-surface: #1c1b1f;
+  --color-surface-variant: #ece6f0;
+  --color-on-surface-variant: #49454f;
+
+  /* DARK MODE TEXT/BG */
+  --color-background-dark: #0f172a;
+  --color-on-background-dark: #f8fafc;
+  --color-surface-dark: #1e293b;
+  --color-on-surface-dark: #f8fafc;
+  --color-surface-variant-dark: #334155;
+  --color-on-surface-variant-dark: #cbd5e1;
+
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  --color-success: var(--success);
+  --color-on-success: var(--on-success);
+  --color-success-container: var(--success-container);
+  --color-on-success-container: var(--on-success-container);
+
+  --color-warning: var(--warning);
+  --color-on-warning: var(--on-warning);
+  --color-warning-container: var(--warning-container);
+  --color-on-warning-container: var(--on-warning-container);
+
+  --color-info: var(--info);
+  --color-on-info: var(--on-info);
+  --color-info-container: var(--info-container);
+  --color-on-info-container: var(--on-info-container);
+
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* When you define a variable like --color-brand inside @theme, you are telling Tailwind to generate a utility class bg-brand and text-brand automatically. This is excellent practice. */
+  --color-brand: #6750a4;
+}
+@theme inline {
+  --color-debug: red;
+}
+
 @layer base {
+  :root {
+    --color-background: #fffbfe;
+    --color-on-background: #1c1b1f;
+    --color-surface: #ffffff;
+    --color-on-surface: #1c1b1f;
+    --color-surface-variant: #ece6f0;
+    --color-on-surface-variant: #49454f;
+
+    --color-surface-lowest: #f4f4f5;
+    --color-surface-container-low: #e4e4e7;
+    --color-surface-container: #d4d4d8;
+    --color-surface-container-high: #c4c4c8;
+    --color-surface-container-highest: #b4b4b8;
+  }
+
+  .dark {
+    --color-background: var(--color-background-dark);
+    --color-on-background: var(--color-on-background-dark);
+    --color-surface: var(--color-surface-dark);
+    --color-on-surface: var(--color-on-surface-dark);
+    --color-surface-variant: var(--color-surface-variant-dark);
+    --color-on-surface-variant: var(--color-on-surface-variant-dark);
+
+    --color-surface-lowest: var(--color-surface-lowest-dark);
+    --color-surface-container-low: var(--color-surface-container-low-dark);
+    --color-surface-container: var(--color-surface-container-dark);
+    --color-surface-container-high: var(--color-surface-container-high-dark);
+    --color-surface-container-highest: var(--color-surface-container-highest-dark);
+  }
+
+  html {
+    background-color: var(--color-background);
+    .debug-colors {
+      outline: 2px solid red !important;
+    }
+  }
+
+  :root {
+    --primary: #6750a4;
+    --on-primary: #ffffff;
+    --color-on-primary: #ffffff;
+    --primary-container: #eaddff;
+    --on-primary-container: #21005d;
+    --on-gradient-primary: #ffffff;
+    --secondary: #625b71;
+    --on-secondary: #ffffff;
+    --secondary-container: #e8def8;
+    --on-secondary-container: #1d192b;
+
+    --tertiary: #7d5260;
+    --on-tertiary: #ffffff;
+    --tertiary-container: #ffd8e4;
+    --on-tertiary-container: #31111d;
+
+    /* ======================================================
+   4. STATUS COLORS
+   ====================================================== */
+
+    --error: #b3261e;
+    --on-error: #ffffff;
+    --error-container: #f9dedc;
+    --on-error-container: #410e0b;
+
+    --success: #386a20;
+    --on-success: #ffffff;
+    --success-container: #d7f5c5;
+    --on-success-container: #0f2e00;
+
+    --warning: #725c0c;
+    --on-warning: #ffffff;
+    --warning-container: #ffe9a3;
+    --on-warning-container: #261a00;
+
+    --info: #00639b;
+    --on-info: #ffffff;
+    --info-container: #d1e4ff;
+    --on-info-container: #001d36;
+
+    /* ======================================================
+   5. INTERACTION STATES
+   ====================================================== */
+
+    /* Primary interaction */
+    --primary-hover: #59438f;
+    --primary-active: #4c377c;
+
+    /* Container interactions */
+    --primary-container-hover: #decfff;
+    --secondary-container-hover: #ded4f0;
+    --surface-container-hover: #e6dfeb;
+
+    /* ======================================================
+   6. STRUCTURE (OUTLINES / OVERLAYS)
+   ====================================================== */
+
+    --outline: #79747e;
+    --outline-variant: #d6d0da;
+
+    --disabled-outline: rgba(121, 116, 126, 0.12);
+    --scrim: rgba(0, 0, 0, 0.32);
+
+    /* ======================================================
+  7. EFFECTS
+  ====================================================== */
+    --gradient-primary: linear-gradient(135deg, #6750a4, #625b71, #7d5260);
+
+    --glass: rgba(255, 255, 255, 0.7);
+
+    --glow-primary: 0 0 32px rgba(167, 139, 250, 0.35);
+    --glow-secondary: 0 0 24px rgba(34, 211, 238, 0.45);
+
+    /* ======================================================
+   8. SHAPE SYSTEM
+   ====================================================== */
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 32px;
+
+    /* ======================================================
+   9. TYPOGRAPHY
+   ====================================================== */
+
+    --font-sans: Inter, ui-sans-serif, system-ui;
+    --font-display: Inter, ui-sans-serif, system-ui;
+    --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    --tracking-tight: -0.03em;
+    --tracking-wide: 0.08em;
+
+    /* ======================================================
+   10. MOTION
+   ====================================================== */
+
+    --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-snappy: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --duration-fast: 120ms;
+    --duration-normal: 240ms;
+    --duration-slow: 500ms;
+  }
+
+  .dark {
+    --primary: #d0bcff;
+    --on-primary: #21005d;
+    --color-on-primary: #21005d;
+    --color-on-primary: #21005d;
+
+    --primary-container: #4f378b;
+    --on-primary-container: #eaddff;
+
+    --secondary: #ccc2dc;
+    --on-secondary: #332d41;
+    --secondary-container: #4a4458;
+    --on-secondary-container: #e8def8;
+
+    --tertiary: #efb8c8;
+    --on-tertiary: #492532;
+    --tertiary-container: #633b48;
+    --on-tertiary-container: #ffd8e4;
+
+    /* ======================================================
+   4. STATUS COLORS (DARK)
+   ====================================================== */
+
+    --error: #f2b8b5;
+    --on-error: #601410;
+    --error-container: #8c1d18;
+    --on-error-container: #f9dedc;
+
+    --success: #b7f397;
+    --on-success: #0f2e00;
+    --success-container: #275b1a;
+    --on-success-container: #d7f5c5;
+
+    --warning: #f1e1a6;
+    --on-warning: #261a00;
+    --warning-container: #5a4300;
+    --on-warning-container: #ffe9a3;
+
+    --info: #a8c7ff;
+    --on-info: #001d36;
+    --info-container: #004a77;
+    --on-info-container: #d1e4ff;
+
+    /* ======================================================
+   5. INTERACTION STATES (DARK)
+   ====================================================== */
+
+    --primary-hover: #dccbff;
+    --primary-active: #b79cff;
+
+    --primary-container-hover: #5a419c;
+    --secondary-container-hover: #5a5268;
+    --surface-container-hover: #2b2830;
+
+    /* ======================================================
+   6. STRUCTURE (DARK)
+   ====================================================== */
+
+    --outline: #938f99;
+    --outline-variant: #49454f;
+
+    --disabled-outline: rgba(147, 143, 153, 0.18);
+    --scrim: rgba(0, 0, 0, 0.6);
+
+    /* ======================================================
+   7. EFFECTS (DARK)
+   ====================================================== */
+    --gradient-primary: linear-gradient(135deg, #d0bcff, #a78bfa, #8b5cf6);
+
+    --glass: rgba(33, 31, 38, 0.65);
+
+    --glow-primary: 0 0 32px rgba(208, 188, 255, 0.35);
+    --glow-secondary: 0 0 24px rgba(168, 199, 255, 0.35);
+  }
   /* ==========================================================================
    1. BASE COLORS (Light Mode is the standard fallback)
    ========================================================================== */
   :root {
-    /* --- Global Layout Foundations --- */
+    --nav-text: var(--on-surface-variant);
+    --nav-text-hover: var(--on-surface);
+    --nav-bg-hover: color-mix(in oklab, var(--surface-variant) 12%, transparent);
+    --nav-text-active: var(--primary);
+    --nav-bg-active: color-mix(in oklab, var(--primary) 12%, transparent);
+
     --code-radius: 8px;
     --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-
-    /* --- Light Mode System (Zinc/Blue) --- */
     --code-bg: #ffffff; /* White code canvas */
     --code-header-bg: #f4f4f5; /* zinc-100 tab bar background */
     --code-border: #e4e4e7; /* zinc-200 clean framing borders */
@@ -21,142 +322,38 @@
    2. DARK MODE OVERRIDES (Listens to both Tailwind classes & system media)
    ========================================================================== */
 
-  /* Strategy A: If your app puts class="dark" on the html element (Tailwind standard) */
   html.dark,
   .dark :root {
+    --nav-text: var(--on-surface-variant);
+    --nav-text-hover: var(--on-surface);
+    --nav-bg-hover: color-mix(in oklab, var(--surface) 10%, transparent);
+    --nav-text-active: var(--primary);
+    --nav-bg-active: color-mix(in oklab, var(--primary) 15%, transparent);
+    --nav-bg-hover: color-mix(in oklab, var(--surface) 12%, transparent);
+
     --code-bg: #09090b; /* zinc-950 deep canvas */
     --code-header-bg: #18181b; /* zinc-900 tab bar background */
     --code-border: #27272a; /* zinc-800 subtle dark framing borders */
     --code-text: #e4e4e7; /* zinc-200 clear layout text */
     --code-muted: #71717a; /* zinc-500 inactive text labels */
     --code-accent: #3b82f6; /* Luminous blue-500 */
-    --code-accent-dim: rgba(59, 130, 246, 0.1); /* Dark blue line-highlight tint */
+    /* Dark blue line-highlight tint */
+    --code-accent-dim: rgba(59, 130, 246, 0.1);
   }
 
-  /* Strategy B: System preference fallback (if no class is explicitly set) */
-  @media (prefers-color-scheme: dark) {
-    /* Only apply if the user hasn't explicitly forced a light theme class */
-    html:not(.light) :root {
-      --code-bg: #09090b;
-      --code-header-bg: #18181b;
-      --code-border: #27272a;
-      --code-text: #e4e4e7;
-      --code-muted: #71717a;
-      --code-accent: #3b82f6;
-      --code-accent-dim: rgba(59, 130, 246, 0.1);
-    }
-  }
-  /* --- Block Scaffolding --- */
-  .mdx-code-wrapper {
-    background-color: var(--code-bg);
-    border: 1px solid var(--code-border);
-    border-radius: var(--code-radius);
-    overflow: hidden;
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  .mdx-code-header {
-    background-color: var(--code-header-bg);
-    border-bottom: 1px solid var(--code-border);
-    color: var(--code-muted);
-    font-family: var(--code-font);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease,
-      color 0.15s ease;
-  }
-
-  /* --- Tab Group Integrations --- */
-  .mdx-tab-nav {
-    background-color: var(--code-header-bg);
-    border-top-left-radius: var(--code-radius);
-    border-top-right-radius: var(--code-radius);
-    border-top: 1px solid var(--code-border);
-    border-left: 1px solid var(--code-border);
-    border-right: 1px solid var(--code-border);
-    border-bottom: 1px solid var(--code-border);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  /* Strip top rounding & border off Pre when it sits under tabs */
-  .mdx-tab-group .mdx-code-wrapper {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top: none;
-  }
-
-  .mdx-tab-btn {
-    font-family: var(--code-font);
-    color: var(--code-muted);
-    transition: all 0.15s ease;
-    margin-bottom: -1px; /* Pulls active tab border over the header bottom line */
-  }
-
-  .mdx-tab-btn:hover {
-    color: var(--code-text);
-  }
-
-  .mdx-tab-btn[data-active='true'] {
-    background-color: var(--code-bg);
-    color: var(--code-accent);
-    border-top: 1px solid var(--code-border);
-    border-left: 1px solid var(--code-border);
-    border-right: 1px solid var(--code-border);
-    border-bottom: 1px solid var(--code-bg); /* Matches canvas background to visually cut the bottom rule */
-  }
-
-  /* --- Line Highlighting & Numbers --- */
-  .mdx-code-line {
-    border-left: 2px solid transparent;
-    font-family: var(--code-font);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  .mdx-code-line[data-highlighted='true'] {
-    background-color: var(--code-accent-dim);
-    border-left-color: var(--code-accent);
-  }
-
-  .mdx-code-wrapper pre,
-  .mdx-code-wrapper code {
-    font-family: var(--code-font) !important;
-    color: var(--code-text);
-    transition: color 0.15s ease;
-  }
-
-  html,
   body {
-    height: 100%;
-  }
-  body {
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    margin: 0;
     font-family: var(--font-sans);
-    background: var(--bg-background);
-  }
-  span {
-    color: var(--color-on-surface);
   }
   p,
   em,
   strong,
   del {
     /* Rule #1: In v4, consume theme variables directly using var(--color-*) */
-    color: var(--color-on-surface-variant);
     line-height: 1.75;
     margin-bottom: 1rem;
   }
 
   li {
-    color: var(--color-on-surface-variant);
     list-style-type: disc;
   }
   h1,
@@ -181,12 +378,10 @@
     --tw-border-color: theme('colors.outline.variant');
   }
 
-  :root {
-    --navbar-height: 64px;
-  }
   .debug {
     @apply border border-red-500/50 bg-red-500/5;
   }
+
   a {
     color: var(--on-primary);
 

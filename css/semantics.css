@@ -1,12 +1,5 @@
 /* css/semantics.css */
 @layer semantics {
-  body {
-    color: var(--on-background);
-  }
-  article {
-    padding: 20px 20px;
-    color: var(--on-surface);
-  }
   aside,
   nav,
   section {

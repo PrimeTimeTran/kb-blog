@@ -1,0 +1,48 @@
+/* 1. VARIANT CONFIGURATION (The Logic) */
+/* This tells Tailwind: "When you see 'dark:', turn it into a .dark class check" */
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  /* 
+     1. LIGHT MODE (Default)
+     Define all your semantic variables here.
+     This is the "Base State" of your application.
+  */
+  :root {
+    /* Surfaces */
+    --surface-container-lowest: #f4f4f5;
+    --surface-container-low: #e4e4e7;
+    --surface-container: #d4d4d8;
+
+    /* Text & Actions */
+    --text-primary: #18181b;
+    --primary-action: #2563eb;
+  }
+
+  /* 
+     2. DARK MODE (Forced via Class)
+     By using 'html.dark', we ensure that Tailwind's 'dark:' modifier 
+     only triggers when we explicitly add the 'dark' class.
+     NO @media queries allowed here.
+  */
+  html.dark {
+    --surface-container-lowest: #18181b;
+    --surface-container-low: #27272a;
+    --surface-container: #3f3f46;
+
+    --text-primary: #f4f4f5;
+    --primary-action: #60a5fa;
+  }
+}
+
+/* 
+   3. BEHAVIORAL OVERRIDES (app.css)
+   Keep these separate from your color/variable definitions.
+*/
+html {
+  scroll-padding-top: var(--nav-height);
+  /* Use the variables defined above */
+  background-color: var(--surface-container-lowest);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease;
+}

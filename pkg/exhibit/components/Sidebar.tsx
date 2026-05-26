@@ -23,7 +23,7 @@ export function Sidebar({ vfs }: SidebarProps) {
 
   const displayNodes = Object.values(treeRoot.children);
   return (
-    <div className="w-64 h-full bg-surface border-r border-white/10 text-zinc-300 font-mono text-xs flex flex-col select-none shrink-0">
+    <div className="w-full h-full bg-surface border-r border-white/10 text-zinc-300 font-mono text-xs flex flex-col select-none shrink-0">
       <div className="p-4 border-b border-white/5 flex items-center justify-between">
         <span className="text-on-surface font-bold uppercase tracking-wider text-[10px]">📁 File Explorer</span>
       </div>

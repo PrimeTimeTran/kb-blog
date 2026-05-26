@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* 1. Define the actual values here so they are always available */
+  --color-brand: #6750a4;
+
+  /* 2. Map semantic names to these values */
+  --color-background: #ffffff;
+  --color-on-background: #1c1b1f;
+}
+
+/* 3. Override for Dark Mode */
+.dark {
+  --color-background: #1c1b1f;
+  --color-on-background: #e6e1e5;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-on-background);
+  }
+}

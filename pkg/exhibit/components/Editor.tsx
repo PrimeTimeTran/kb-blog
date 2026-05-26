@@ -80,7 +80,7 @@ export function Editor({
       <button
         type="button"
         onClick={handleFormat}
-        className="absolute top-2 right-4 z-20 px-2 py-1 text-[10px] tracking-wider font-mono bg-zinc-800/80 backdrop-blur text-zinc-400 rounded border border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-zinc-700 hover:text-zinc-200"
+        className="absolute top-2 right-4 z-20 px-2 py-1 text-[10px] tracking-wider font-mono backdrop-blur border border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/30 hover:bg-black/50 text-white rounded"
       >
         Format (⌘S)
       </button>

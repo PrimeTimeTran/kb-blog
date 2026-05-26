@@ -1,9 +1,91 @@
 @layer components {
+  .mdx-code-wrapper {
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--code-radius);
+    overflow: hidden;
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .mdx-code-header {
+    background-color: var(--code-header-bg);
+    border-bottom: 1px solid var(--code-border);
+    color: var(--code-muted);
+    font-family: var(--code-font);
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  /* --- Tab Group Integrations --- */
+  .mdx-tab-nav {
+    background-color: var(--code-header-bg);
+    border-top-left-radius: var(--code-radius);
+    border-top-right-radius: var(--code-radius);
+    border-top: 1px solid var(--code-border);
+    border-left: 1px solid var(--code-border);
+    border-right: 1px solid var(--code-border);
+    border-bottom: 1px solid var(--code-border);
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  /* Strip top rounding & border off Pre when it sits under tabs */
+  .mdx-tab-group .mdx-code-wrapper {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: none;
+  }
+
+  .mdx-tab-btn {
+    font-family: var(--code-font);
+    color: var(--code-muted);
+    transition: all 0.15s ease;
+    margin-bottom: -1px; /* Pulls active tab border over the header bottom line */
+  }
+
+  .mdx-tab-btn:hover {
+    color: var(--code-text);
+  }
+
+  .mdx-tab-btn[data-active='true'] {
+    background-color: var(--code-bg);
+    color: var(--code-accent);
+    border-top: 1px solid var(--code-border);
+    border-left: 1px solid var(--code-border);
+    border-right: 1px solid var(--code-border);
+    border-bottom: 1px solid var(--code-bg); /* Matches canvas background to visually cut the bottom rule */
+  }
+
+  /* --- Line Highlighting & Numbers --- */
+  .mdx-code-line {
+    border-left: 2px solid transparent;
+    font-family: var(--code-font);
+    transition:
+      background-color 0.15s ease,
+      border-color 0.15s ease;
+  }
+
+  .mdx-code-line[data-highlighted='true'] {
+    background-color: var(--code-accent-dim);
+    border-left-color: var(--code-accent);
+  }
+
+  .mdx-code-wrapper pre,
+  .mdx-code-wrapper code {
+    font-family: var(--code-font) !important;
+    color: var(--code-text);
+    transition: color 0.15s ease;
+  }
+
   .file-item {
     @apply flex flex-row items-center gap-2 px-2 py-1 text-left truncate w-full
       
       transition-colors duration-150 outline-none
-      text-on-surface-variant
       hover:bg-surface-container
       hover:text-on-surface
       focus-visible:bg-surface-container-high
@@ -34,7 +116,6 @@
    * ------------------------- */
   .nav-link {
     @apply relative flex items-center;
-    @apply text-on-surface-variant;
     @apply transition-colors duration-200;
   }
 
@@ -117,7 +198,6 @@
     @apply inline-flex h-9 w-9 items-center justify-center;
 
     @apply rounded-full;
-    @apply text-on-surface-variant;
 
     @apply backdrop-blur-md;
     @apply shadow-sm;
@@ -231,13 +311,19 @@
 
   /* LABEL (secondary text inside chip) */
   .chip-label {
-    @apply font-medium text-on-surface-variant;
+    @apply font-medium;
   }
 
   /* BADGE (count / meta) */
   .chip-badge {
     @apply text-xs font-medium leading-none px-1.5 py-0.5 rounded-md
-         border border-outline-variant
-         text-on-surface-variant;
+         border border-outline-variant;
+  }
+
+  .hover-button {
+    @apply absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 text-white rounded opacity-0 group-hover:opacity-100;
+  }
+  .handlebar {
+    @apply w-[0.5] cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors;
   }
 }
