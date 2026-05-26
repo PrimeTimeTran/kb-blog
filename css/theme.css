@@ -15,12 +15,12 @@
   /* ======================================================
    2. SURFACE CONTAINERS (ELEVATION SCALE)
    ====================================================== */
-
-  --surface-container-lowest: #ffffff;
-  --surface-container-low: #f7f2fa;
-  --surface-container: #f1ebf5;
-  --surface-container-high: #e9e2ef;
-  --surface-container-highest: #e2dbea;
+  /* Nested Containers - getting progressively "darker" (more contrast) */
+  --surface-container-lowest: #f8f1fa;
+  --surface-container-low: #f1eaf5;
+  --surface-container: #ebe4ef;
+  --surface-container-high: #e5deea;
+  --surface-container-highest: #dfd9e4;
 
   /* ======================================================
    3. BRAND COLORS (PRIMARY SYSTEM)
