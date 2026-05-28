@@ -1,24 +1,24 @@
 'use client';
-import { useState } from 'react';
-import { CgDanger } from 'react-icons/cg';
-import { AiOutlineBug } from 'react-icons/ai';
-import { MdOutlineTipsAndUpdates } from 'react-icons/md';
-
-import { callOutTheme } from '@/lib';
 
 // 💡 Reference: Icons
 // https://react-icons.github.io/react-icons/icons/ai/
 import {
-  FiCode,
-  FiInfo,
-  FiXCircle,
+  FiAlertTriangle,
   FiBookOpen,
+  FiCheckCircle,
+  FiCode,
   FiFileText,
   FiHelpCircle,
-  FiCheckCircle,
-  FiAlertTriangle,
+  FiInfo,
   FiMessageSquare,
+  FiXCircle,
 } from 'react-icons/fi';
+
+import { AiOutlineBug } from 'react-icons/ai';
+import { CgDanger } from 'react-icons/cg';
+import { MdOutlineTipsAndUpdates } from 'react-icons/md';
+import { callOutTheme } from '@/lib/theme/theme';
+import { useState } from 'react';
 
 const calloutIcons = {
   info: FiInfo,

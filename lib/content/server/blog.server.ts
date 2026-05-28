@@ -1,12 +1,11 @@
 import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
+import { getRootPath } from '@/lib/paths';
 import { isPublished } from '@/lib/content';
+import matter from 'gray-matter';
 import { walk } from '@/lib/fs';
 
 export async function getAllFrontMatter(type) {
-  const base = path.join(process.cwd(), 'data', type);
+  const base = getRootPath('data', type);
 
   const files = walk(base, { includeExtensions: ['.md', '.mdx'] });
 

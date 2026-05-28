@@ -1,8 +1,7 @@
+import { KB_DIR } from '@/lib/content/constants';
 import fs from 'fs';
 import path from 'path';
-
-import { KB_DIR } from '@/lib/content';
-import { walk } from '@/lib';
+import { walk } from '@/lib/fs';
 
 const IGNORE_DIRS = [path.resolve(KB_DIR, 'project', 'node_modules')];
 
@@ -112,7 +111,6 @@ function resolveLink(linkPath: string, lookup: ReturnType<typeof buildIndex>) {
 
 export function auditWikiLinks() {
   console.log('\n[wiki-audit] scanning vault...');
-  console.log(KB_DIR);
 
   const files = walk(KB_DIR, { ignoreDirs: IGNORE_DIRS });
 

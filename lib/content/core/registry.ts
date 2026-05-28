@@ -1,12 +1,12 @@
+import { ContentClientConfig, ContentCollection, ContentListConfig, ContentRegistry, ContentSource } from './types';
+import { getContent, listContent } from '../api';
+
+import { ROOT } from '@/lib/paths';
+import { createFilesystemSource } from '../server/source/filesystem';
 import path from 'path';
 
-import { ContentSource, ContentRegistry, ContentCollection, ContentClientConfig, ContentListConfig } from './types';
-
-import { getContent, listContent } from '../api';
-import { createFilesystemSource } from '../server/source/filesystem';
-
 const filesystemSource = createFilesystemSource({
-  rootDir: path.join(process.cwd(), 'data'),
+  rootDir: path.join(ROOT, 'data'),
 });
 
 /**

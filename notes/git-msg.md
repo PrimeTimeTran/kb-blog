@@ -27,7 +27,7 @@
 | [x] | Squash /lib with barrel files & .js to .ts    |
 | [x] | Refactored walk implementations               |
 | [x] | Consolidated Treeview for /kb and /playground |
-| [x] | Update mini-react, n-queens,                                               |
+| [x] | Update mini-react, n-queens,                  |
 | [x] |                                               |
 | [x] |                                               |
 | [x] |                                               |

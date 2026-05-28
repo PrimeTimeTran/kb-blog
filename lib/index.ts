@@ -1,3 +1,6 @@
+export * from './paths';
+export * from './trace';
+export * from './theme';
 export * from './build-scope';
 export * from './generate-rss';
 export * from './scroll';
@@ -8,6 +11,5 @@ export * from './showcase/components';
 export * from './utils/formate-date';
 export * from './utils/html-escraper';
 export * from './utils/kebab-case';
-export * from './trace';
-export * from './theme';
+
 export * from './types';

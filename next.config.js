@@ -171,10 +171,6 @@ import createMDX from '@next/mdx';
  */
 
 const nextConfig = {
-  experimental: {
-    turbo: undefined,
-    esmExternals: true,
-  },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,

@@ -6,6 +6,8 @@
 export { getContent } from './get-content';
 export { listContent } from './list-content';
 
+export { getAuthor } from './get-author';
+export { listAuthor } from './list-author';
 /**
  * Content model:
  * - type: 'blog' | 'kb' | 'page' | etc
@@ -56,9 +58,6 @@ export { listContent } from './list-content';
    ENTITY SYSTEM (SEPARATE DOMAIN)
 ───────────────────────────────────────────── */
 
-export { getAuthor } from './get-author';
-export { listAuthor } from './list-author';
-
 /**
  * Notes:
  * - Authors are NOT MDX content
@@ -92,13 +91,3 @@ RULES:
 - GRAPH = derived, not stored truth
 - BUILD = offline/async recomputation
 */
-
-// export * from './build-back-links';
-// export * from './build-content-index';
-// export * from './build-terms-registry';
-// export * from './client';
-// export * from './get-author';
-// export * from './get-content';
-// export * from './list-author';
-// export * from './list-content';
-// export * from './transformers';

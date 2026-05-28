@@ -17,49 +17,6 @@ export interface UniversalEmbedIndex {
 }
 
 /**
- * Resolves a target link path to a matching key in the index registry.
- *
- * @param currentFileSlug - The slug of the file currently being processed.
- * @param targetLinkPath - The raw target path or link string to resolve.
- * @param index - The registry object containing valid universal paths.
- * @returns The matching registry key string, or null if no match is found.
- */
-export function resolveUniversalPath(
-  currentFileSlug: string | null | undefined,
-  targetLinkPath: string | null | undefined,
-  index: UniversalPathIndex | null | undefined,
-): string | null {
-  if (!targetLinkPath || !index) return null;
-
-  // 1. Clean up target link (remove hashes, aliases, extensions, and force lowercase)
-  const cleanTarget = targetLinkPath
-    .split('#')[0]
-    .split('|')[0]
-    .trim()
-    .replace(/\.mdx?$/, '')
-    .toLowerCase();
-
-  const cleanTargetLeaf = cleanTarget.split('/').pop()?.replace(/^0\./, '') ?? '';
-
-  // 2. Fast-path exact match check
-  if (index[cleanTarget] !== undefined) return cleanTarget;
-
-  // 3. Fallback to leaf-name matching
-  const keys = Object.keys(index);
-  for (const registryKey of keys) {
-    const registryFilePart = registryKey.split('/').pop()?.toLowerCase() ?? '';
-    // Note: Adjusted to cleanly strip extensions before matching the leaf name
-    const cleanRegistryLeaf = registryFilePart.replace(/\.mdx?$/, '').replace(/^0\./, '');
-
-    if (cleanRegistryLeaf === cleanTargetLeaf) {
-      return registryKey;
-    }
-  }
-
-  return null;
-}
-
-/**
  * Recursively resolves Obsidian-style wiki embeds (`![[slug]]`) within MDX content
  * by replacing embed references with the embedded document's processed content.
  *

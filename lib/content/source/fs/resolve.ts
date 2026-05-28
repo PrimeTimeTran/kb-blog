@@ -1,11 +1,11 @@
+import type { ContentRequest, ResolvedContentSource } from '../../core/types';
+
+import { ROOT } from '@/lib/paths';
 import fs from 'fs';
 import path from 'path';
 
-import type { ContentRequest, ResolvedContentSource } from '../../core/types';
-
 export async function resolve({ type, slug }: ContentRequest): Promise<ResolvedContentSource | null> {
-  const root = process.cwd();
-  const base = path.join(root, 'data', type);
+  const base = path.join(ROOT, 'data', type);
 
   const normalizedSlug = slug.replace(/\/+$/, '');
 

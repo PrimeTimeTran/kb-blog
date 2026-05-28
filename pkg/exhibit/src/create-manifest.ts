@@ -1,9 +1,10 @@
-import fs from 'fs';
-import path from 'path';
+import { ExhibitManifest, ExhibitProjectType, VirtualFS } from '@/pkg/exhibit';
 
+import { ROOT } from '@/lib/paths';
+import fs from 'fs';
 import { loadFrameworkSeeds } from '@/pkg/exhibit';
+import path from 'path';
 import { resolveRuntime } from '@/pkg/exhibit';
-import { VirtualFS, ExhibitProjectType, ExhibitManifest } from '@/pkg/exhibit';
 
 export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitManifest {
   let packageJson: any = null;
@@ -12,7 +13,7 @@ export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitMani
   const extensions = new Set<string>();
   const folderPath = slug.length > 0 ? slug.join('/') : '1-vanilla';
 
-  const exhibitRoot = path.join(process.cwd(), 'exhibit');
+  const exhibitRoot = path.join(ROOT, 'exhibit');
   const targetDir = path.join(exhibitRoot, folderPath);
 
   try {

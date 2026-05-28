@@ -1,46 +1,39 @@
-import type { ComponentType } from 'react';
-import type { MDXComponents } from 'mdx/types';
-import { evaluate } from '@mdx-js/mdx';
 import * as runtime from 'react/jsx-runtime';
 
-import remarkGfm from 'remark-gfm';
-import remarkMath from 'remark-math';
+import { H1, H2, H3, H4, H5, H6 } from './components/HeadingComponents';
+import { Pre, TabGroup } from './components/mdx/Code';
 
-import rehypeSlug from 'rehype-slug';
-import rehypeKatex from 'rehype-katex';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-
+import { BlogNewsletterForm } from './components/NewsletterForm';
+import { Callout } from './components/mdx/Callout';
+import type { ComponentType } from 'react';
+import { Image } from './components/mdx/Image';
+import { SafeLink as Link } from './components/mdx/Link';
+import type { MDXComponents } from 'mdx/types';
+import { OrderBook } from './components/mdx/OrderBook';
+import { ProjectionChart } from './components/mdx/ProjectionChart';
+import { Snippet } from './components/mdx/Snippet';
+import { TOCInline } from './components/mdx/TOCInline';
+import { Term } from './components/mdx/Term';
+import { TermPeekDefinition } from './components/mdx/TermPeekDefinition';
+import { evaluate } from '@mdx-js/mdx';
 // import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
 import { extractCodeMeta } from './lib/remark/extract-code-meta';
 import { extractFrontMatter } from './lib/remark/extract-front-matter';
-import { renderCodeBlocks } from './lib/remark/render-codeblocks';
-
-import { renderEmbeds } from './lib/remark/render-embeds';
-import { renderCallOuts } from './lib/remark/render-callouts';
-import { renderTabGroups } from './lib/remark/render-tab-groups';
-
 import { injectEmbedFlags } from './lib/remark/inject-embed-flags';
 import { injectTermLinksAndPreviews } from './lib/remark/inject-term-links-and-preview';
-
-import { terms } from './data/generated/terms';
-
 import { preprocessEmbeds } from './lib/content/api/transformers';
 import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-links';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeKatex from 'rehype-katex';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import { renderCallOuts } from './lib/remark/render-callouts';
+import { renderCodeBlocks } from './lib/remark/render-codeblocks';
+import { renderEmbeds } from './lib/remark/render-embeds';
+import { renderTabGroups } from './lib/remark/render-tab-groups';
 
-import { Term } from './components/mdx/Term';
-import { Image } from './components/mdx/Image';
-import { Embed } from './components/mdx/Embed';
-import { Callout } from './components/mdx/Callout';
-import { Snippet } from './components/mdx/Snippet';
-import { Pre, TabGroup } from './components/mdx/Code';
-import { TOCInline } from './components/mdx/TOCInline';
-import { OrderBook } from './components/mdx/OrderBook';
-import { SafeLink as Link } from './components/mdx/Link';
-import { TermPeekDefinition } from './components/mdx/TermPeekDefinition';
-import { ProjectionChart } from './components/mdx/ProjectionChart';
-
-import { BlogNewsletterForm } from './components/NewsletterForm';
-import { H1, H2, H3, H4, H5, H6 } from './components/HeadingComponents';
+// import { terms } from './data/generated/terms';
 
 const BlockQuote = (props) => (
   <blockquote
@@ -71,7 +64,6 @@ const rawComponents = {
   h6: H6,
   Term,
   Image,
-  Embed,
   blockquote: BlockQuote,
   // a: A,
   a: Link,
@@ -135,7 +127,7 @@ export async function compileWikiMDX(
       extractFrontMatter,
       renderCallOuts,
       renderEmbeds,
-      [injectTermLinksAndPreviews, { terms }],
+      // [injectTermLinksAndPreviews, { terms }],
     ],
     rehypePlugins: [
       rehypeSlug,

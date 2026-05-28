@@ -1,11 +1,8 @@
-import { slug } from 'github-slugger';
-
-import ListLayout from '../../../layouts/ListLayout';
-import siteMetadata from '../../../data/site-metadata';
-import { content } from '@/lib/content/api/client';
-
-import { BasePage } from '@/components/BasePage';
 import { ABBREVIATIONS } from '@/data/abbreviations';
+import { BasePage } from '@/components/BasePage';
+import ListLayout from '../../../layouts/ListLayout';
+import { content } from '@/lib/content/api/client';
+import { slug } from 'github-slugger';
 
 export async function generateStaticParams() {
   const tags = await content.list({ type: 'blog', by: 'tags', action: 'countBy' });

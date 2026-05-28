@@ -1,14 +1,13 @@
 import AboutLayout from '@/layouts/About';
-
 import { content } from '@/lib/content/api/client';
 
 export default async function Page() {
-  const about = await content.get({ type: 'authors', slug: 'default' });
-  if (!about) return null;
+  const About = await content.get({ type: 'authors', slug: 'default' });
+  if (!About) return null;
 
   return (
     <AboutLayout>
-      <about.Content />
+      <About.Content />
     </AboutLayout>
   );
 }

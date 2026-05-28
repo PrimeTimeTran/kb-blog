@@ -1,9 +1,7 @@
-// import generateRss from '@/lib/generate-rss'
+import { Layout3ColumnCenter, Layout3ColumnLeft, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout';
+
 import { BlogContent } from '@/components/blog';
 import TableOfContents from '@/components/TableOfContents';
-
-import { Layout3ColumnLeft, Layout3ColumnRight, Layout3ColumnCenter } from '@/components/layout/ThreeColumnLayout';
-
 import { content } from '@/lib/content/api/client';
 
 export async function generateStaticParams(props) {

@@ -20,7 +20,7 @@
     "start": "next start",
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json && find exhibit -name 'package.json' -exec mv {} {}.bak \\;",
-    "build": "next build",
+    "build": "next build --webpack",
     "build-with-icon-bundle": "node scripts/bundle-icons.ts && next build",
     "build-vercel": "vercel build",
     "postbuild": "find exhibit -name 'package.json.bak' -exec mv {} $(echo {} | sed 's/.bak//') \\;"
@@ -104,7 +104,6 @@
     "next-contentlayer2": "^0.5.8",
     "next-remote-watch": "^2.0.0",
     "postcss": "^8.5.15",
-    "preact": "^10.6.2",
     "prettier": "^3.8.3",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "react-ace": "^14.0.1",
@@ -139,13 +138,6 @@
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.7",
     "vscode-icons-js": "^11.6.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "esbuild": "0.28.0",
-      "react": "18.3.1",
-      "react-dom": "18.3.1"
-    }
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [

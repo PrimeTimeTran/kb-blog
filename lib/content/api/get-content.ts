@@ -1,12 +1,12 @@
 import type { ContentCollection, ContentGetConfig } from '../core/types';
-
-import { createTrace } from '@/lib/trace';
-
-import { createPipelineContext } from '../pipeline/runtime/create-pipeline-context';
-import { buildParsePipeline, buildCompilePipeline } from '../pipeline/runtime/build-runtime-pipeline';
-import { buildContentIndex } from './build-content-index';
 import { analyzeContent, toContentEntity, toContentItem } from '../core/content';
-import { extractTOC } from '../core/extract-toc';
+import { buildCompilePipeline, buildParsePipeline } from '../pipeline/runtime/build-runtime-pipeline';
+
+import { buildContentIndex } from '@/lib/content/api/build-content-index';
+import { createPipelineContext } from '../pipeline/runtime/create-pipeline-context';
+import { createTrace } from '@/lib/trace';
+import { extractTOC } from '@/lib/content/core/extract-toc';
+import { getRootPath } from '@/lib/paths';
 
 export async function getContent(
   options: {
@@ -53,8 +53,8 @@ export async function getContent(
       trace.end();
       return null;
     }
-
-    const rootDir = collection.id?.replace(/^fs:/, '') ?? process.cwd();
+    const collectionId = collection.id?.replace(/^fs:/, '');
+    const rootDir = collectionId ? getRootPath(collectionId) : getRootPath();
 
     trace.debug('ROOT_DIR_RESOLVED', {
       rootDir,
