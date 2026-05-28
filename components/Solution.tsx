@@ -53,6 +53,7 @@ export function Solution({ solution }) {
             autoHeight={true}
             showPrintMargin={false}
             highlightActiveLine={true}
+            onChange={() => {}}
           />
         </div>
       </div>

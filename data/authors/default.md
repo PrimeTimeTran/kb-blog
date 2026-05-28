@@ -1,4 +1,5 @@
 ---
+draft: false
 name: Loi Tran
 avatar: /static/images/avatar.png
 occupation: Solution Architect

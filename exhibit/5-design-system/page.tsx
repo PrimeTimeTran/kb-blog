@@ -1,5 +1,9 @@
 // import { Palette, Layers, Box, Cpu, Zap, LayoutGrid } from 'lucide-react';
 
+export default function App() {
+  return <SneakPeak />;
+}
+
 export function SneakPeak() {
   const { pageHero, pageLogos, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } = renderContent();
   return (
@@ -433,8 +437,4 @@ function renderContent() {
     pageCTA,
     pageFooter,
   };
-}
-
-export default function App() {
-  return <SneakPeak />;
 }

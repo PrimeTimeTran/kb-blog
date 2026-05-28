@@ -1,7 +1,7 @@
 'use client';
 import Prism from 'prismjs';
-
 import { useState } from 'react';
+
 import { LANG_MAP } from '@/data/constants';
 
 import '@/lib/syntax-registry';

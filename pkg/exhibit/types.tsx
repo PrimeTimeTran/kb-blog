@@ -1,9 +1,5 @@
-export type VirtualFile = {
-  content: string;
-  language: string;
-};
+import { TreeNode, VirtualFS, VirtualFile } from '@/lib/types';
 
-export type VirtualFS = Record<string, VirtualFile>;
 export type EntrySource = 'runtime' | 'seed' | 'convention' | 'heuristic';
 export type ExhibitProjectType = 'vanilla' | 'next' | 'react' | 'nuxt' | 'vue';
 
@@ -13,8 +9,10 @@ export type ResolvedEntry = {
 };
 
 export interface EditorProps {
-  vfs: vfsAPI;
+  vfs?: vfsAPI;
   value: string;
+  mode?: string;
+  key?: string;
   onChange: (value: string) => void;
   formatter?: (code: string) => Promise<string> | string;
   expanded?: boolean;
@@ -88,20 +86,10 @@ export type FrameworkSeeds = {
   entry?: string | null;
 };
 
-export interface TreeNode {
-  name: string;
-  path: string;
-  isFolder: boolean;
-  children: Record<string, TreeNode>;
-}
-
-export interface SidebarProps {
-  vfs: vfsAPI;
-}
-
-export interface FileNodeProps {
+export interface TreeItemProps {
   node: TreeNode;
   activePath: string | null;
-  onSelect: (path: string) => void;
+  onSelect: (id: string) => void;
   depth: number;
+  children: TreeNode[]; // ALWAYS array (never optional)
 }

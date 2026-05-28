@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exhibit 1 - Broken Sticky</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        z-index: 10;
+      }
+
+      .container {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .left {
+        position: sticky;
+        top: 20px; /* ❌ too small, ignores navbar */
+        background: #eee;
+        padding: 10px;
+      }
+
+      .right {
+        height: 2000px;
+        background: #fafafa;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">Navbar (fixed)</div>
+
+    <div class="container">
+      <div class="left">
+        LEFT (sticky but flawed)<br /><br />
+        Scroll and notice it underlaps navbar area.
+      </div>
+
+      <div class="right">
+        RIGHT (scrolls)<br /><br />
+        Lots of content...<br /><br />
+        Keep scrolling...<br /><br />
+        (simulate long page)
+      </div>
+    </div>
+  </body>
+</html>

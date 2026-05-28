@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini React Exhibit</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./mini-react.js"></script>
+  </head>
+
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero-top">
+          <div>
+            <h1 class="hero-title">Mini React Exhibit</h1>
+
+            <p class="hero-desc">A small interactive counter rendered using the custom MiniReact runtime.</p>
+            <p class="hero-desc">
+              The script with the following line mounts the the react component tree to a root node in the dom
+            </p>
+            <pre class="code">window.MiniReact.mount(window.Counter, document.getElementById('mini-app'));</pre>
+          </div>
+
+          <div class="hero-meta">
+            <span class="tag proposition">MiniReact</span>
+            <span class="tag fixed">Stateful</span>
+            <span class="tag warning">Experimental</span>
+          </div>
+        </div>
+      </section>
+      <section class="demo">
+        <div class="demo-surface role">
+          <div class="demo-header">
+            <h2>Counter Demo</h2>
+          </div>
+          <div class="demo-body">
+            <div id="mini-app"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      window.MiniReact.mount(window.Counter, document.getElementById('mini-app'));
+    </script>
+  </body>
+</html>

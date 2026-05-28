@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-
 import matter from 'gray-matter';
-import getAllFilesRecursively from '../server/files';
-import { isPublished } from '../core/is-published';
+
 import { createTrace } from '@/lib/trace';
+import { isPublished, getAllFilesRecursively } from '@/lib/content';
+
+// import getAllFilesRecursively from '@/lib/content/server/files';
 
 type ContentIndexOptions = {
   rootDir: string;

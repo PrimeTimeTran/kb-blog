@@ -1,9 +1,6 @@
-export interface UniversalPathIndex {
-  [key: string]: unknown;
-}
+import { FrontMatter } from '../core/types';
 
-export interface FrontMatter {
-  title?: string;
+export interface UniversalPathIndex {
   [key: string]: unknown;
 }
 

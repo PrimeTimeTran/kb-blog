@@ -2,7 +2,7 @@ import fs from 'fs';
 
 const base = `
   body {
-    @apply bg-surface text-on-surface;
+    @apply bg-background text-on-surface;
   }
 
   .card {
@@ -12,6 +12,7 @@ const base = `
 
 // 1. Define your Surface Palette here
 const surfacePalette = {
+  background: { light: '#FFFFFF', dark: '#000000' },
   lowest: { light: '#f4f4f5', dark: '#18181b' },
   low: { light: '#e4e4e7', dark: '#27272a' },
   level: { light: '#d4d4d8', dark: '#3f3f46' }, // The "Mid" layer
@@ -107,7 +108,7 @@ function generateCSS() {
     rootBlock += `  ${varName}: var(--${key});\n`;
   });
 
-  const output = `@variant dark (&:where(.dark, .dark *)); \n\n${themeBlock}}\n\n@layer base {\n${rootBlock}}\n\n${darkBlock}}\n\n${base}\n}`;
+  const output = `@custom-variant dark (&:where(.dark, .dark *));\n\n${themeBlock}}\n\n@layer base {\n${rootBlock}}\n\n${darkBlock}}\n\n${base}\n}`;
 
   fs.writeFileSync('new.base.css', output);
   console.log('Successfully generated new.base.css using the unified intentPalette!');

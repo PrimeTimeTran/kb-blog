@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from '@teispace/next-themes';
 import { useThemeStore } from '@/hooks/useThemeStore';
 import { applyMaterialTheme, updateDynamicFavicon } from '@/lib/theme/palette';

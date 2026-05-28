@@ -27,7 +27,7 @@ export function StyledInput({ value, onChange, placeholder = 'Search...', classN
           rounded-md transition-all
           
           /* Theming: Background & Text */
-          bg-(--level-highest)
+          bg-background
           text-(--on-surface) 
           placeholder:text-(--on-surface-variant)/50
           

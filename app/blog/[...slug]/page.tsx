@@ -5,7 +5,6 @@ import TableOfContents from '@/components/TableOfContents';
 import { Layout3ColumnLeft, Layout3ColumnRight, Layout3ColumnCenter } from '@/components/layout/ThreeColumnLayout';
 
 import { content } from '@/lib/content/api/client';
-import MDXWrapper from '@/components/mdx/MDXWrapper';
 
 export async function generateStaticParams(props) {
   const posts = await content.list({ type: 'blog' });
@@ -42,14 +41,10 @@ export default async function BlogPage({ params, posts }) {
         </div>
       }
     >
-      <Layout3ColumnRight
-        rightCol={<TableOfContents toc={toc} className="h-full overflow-y-auto theme-border-l p-3" />}
-      >
+      <Layout3ColumnRight rightCol={<TableOfContents toc={toc} />}>
         <Layout3ColumnCenter>
           <BlogContent toc={toc} frontMatter={frontMatter}>
-            <MDXWrapper>
-              <Post.Content />
-            </MDXWrapper>
+            <Post.Content />
           </BlogContent>
         </Layout3ColumnCenter>
       </Layout3ColumnRight>

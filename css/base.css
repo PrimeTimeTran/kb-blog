@@ -1,6 +1,8 @@
-@variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
+  --color-background: #ffffff;
+  --color-background-dark: #000000;
   --color-lowest: #f4f4f5;
   --color-lowest-dark: #18181b;
   --color-low: #e4e4e7;
@@ -79,6 +81,7 @@
 
 @layer base {
   :root {
+    --color-background: #ffffff;
     --color-lowest: #f4f4f5;
     --color-low: #e4e4e7;
     --color-level: #d4d4d8;
@@ -147,6 +150,7 @@
   }
 
   .dark {
+    --color-background: var(--color-background-dark);
     --color-lowest: var(--color-lowest-dark);
     --color-low: var(--color-low-dark);
     --color-level: var(--color-level-dark);
@@ -190,8 +194,8 @@
 
   .dark {
     /* ======================================================
-   5. INTERACTION STATES (DARK)
-   ====================================================== */
+    5. INTERACTION STATES (DARK)
+    ====================================================== */
 
     --primary-hover: #dccbff;
     --primary-active: #b79cff;
@@ -201,8 +205,8 @@
     --level-hover: #2b2830;
 
     /* ======================================================
-   6. STRUCTURE (DARK)
-   ====================================================== */
+    6. STRUCTURE (DARK)
+    ====================================================== */
 
     --outline: #938f99;
     --outline-variant: #49454f;
@@ -221,15 +225,9 @@
     --glow-secondary: 0 0 24px rgba(168, 199, 255, 0.35);
   }
   /* ==========================================================================
-   1. BASE COLORS (Light Mode is the standard fallback)
+    1. BASE COLORS (Light Mode is the standard fallback)
    ========================================================================== */
   :root {
-    --nav-text: var(--on-surface-variant);
-    --nav-text-hover: var(--on-surface);
-    --nav-bg-hover: color-mix(in oklab, var(--surface-variant) 12%, transparent);
-    --nav-text-active: var(--primary);
-    --nav-bg-active: color-mix(in oklab, var(--primary) 12%, transparent);
-
     --code-radius: 8px;
     --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     --code-bg: #ffffff; /* White code canvas */
@@ -243,13 +241,6 @@
 
   html.dark,
   .dark :root {
-    --nav-text: var(--on-surface-variant);
-    --nav-text-hover: var(--on-surface);
-    --nav-bg-hover: color-mix(in oklab, var(--surface) 10%, transparent);
-    --nav-text-active: var(--primary);
-    --nav-bg-active: color-mix(in oklab, var(--primary) 15%, transparent);
-    --nav-bg-hover: color-mix(in oklab, var(--surface) 12%, transparent);
-
     --code-bg: #09090b; /* zinc-950 deep canvas */
     --code-header-bg: #18181b; /* zinc-900 tab bar background */
     --code-border: #27272a; /* zinc-800 subtle dark framing borders */

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { RichTooltip } from '@/components/ToolTipRich';
 import { VscSearch, VscSymbolNumeric, VscSortPrecedence } from 'react-icons/vsc';
@@ -55,11 +55,7 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
               <button
                 type="button"
                 onClick={() => actions.setSelectedTags([])}
-                className="
-                    text-[9px] font-black tracking-tighter px-3 py-1 rounded-md border border-dashed transition-all 
-                    bg-(--error-container)/20 text-error border-(--error)/40 hover:bg-(--error-container)/40
-                    animate-in fade-in zoom-in-95 duration-200
-                  "
+                className="text-[9px] font-black tracking-tighter px-3 py-1 rounded-md border border-dashed transition-all bg-(--error-container)/20 text-error border-(--error)/40 hover:bg-(--error-container)/40 animate-in fade-in zoom-in-95 duration-200"
               >
                 ENABLE ALL
               </button>
@@ -104,11 +100,7 @@ export function TagExplorer({ disabledToolbar = false, actions, filters, ordered
                 <button
                   type="button"
                   onClick={() => actions.setSelectedTags([])}
-                  className="
-                    text-[9px] font-black tracking-tighter px-3 py-1.5 rounded-md border border-dashed transition-all 
-                    bg-(--error-container)/20 text-error border-(--error)/40 hover:bg-(--error-container)/40
-                    animate-in fade-in zoom-in-95 slide-in-from-right-2 duration-200
-                  "
+                  className="text-[9px] font-black tracking-tighter px-3 py-1.5 rounded-md border border-dashed transition-all bg-(--error-container)/20 text-error border-(--error)/40 hover:bg-(--error-container)/40 animate-in fade-in zoom-in-95 slide-in-from-right-2 duration-200"
                 >
                   ENABLE ALL
                 </button>

@@ -1,16 +1,14 @@
 'use client';
 
-import { SearchParams } from 'next/dist/server/request/search-params';
+import { Editor, Previewer, SidebarTree, buildTreeFromVFS } from '@/pkg/exhibit/components';
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
-
-import { Editor, Sidebar } from '@/pkg/exhibit/components';
-import { ExhibitManifest } from '@/pkg/exhibit/types';
-import { useVFS, useEditorLayout, useIframeController } from '@/pkg/exhibit/hooks';
+import { useEditorLayout, useIframeController, useVFS } from '@/pkg/exhibit/hooks';
 
 import { ExhibitLayout } from '@/layouts/ExhibitLayout';
+import { ExhibitManifest } from '@/pkg/exhibit/types';
+import { SearchParams } from 'next/dist/server/request/search-params';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
-  console.log({ manifest });
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -23,7 +21,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
       iframe.srcdoc = shellFile.content;
       shellRef.current = true;
     }
-  }, [vfs]);
+  }, [manifest.seeds.entry, manifest.seeds.files, vfs.files]);
 
   const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [consoleError, setConsoleError] = useState<string | null>(null);
@@ -76,12 +74,13 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
 
   return (
     <ExhibitLayout
-      left={<Sidebar vfs={vfs} />}
+      left={<SidebarTree data={buildTreeFromVFS(vfs)} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />}
       right={
         <aside className="h-full w-full relative bg-surface">
           <div className="absolute inset-0 overflow-y-auto">
             {previewType == 'vanilla' && (
-              <Preview
+              <Previewer
+                manifest={manifest}
                 vfs={vfs}
                 codeState={vfs?.activeFile?.content}
                 className={`w-full h-full border-0 bg-surface transition-opacity ${
@@ -106,7 +105,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
                   className={`
                     absolute bottom-0 left-0 right-0 w-full z-50 flex flex-col overflow-hidden transition-all duration-300 ease-in-out
                     bg-zinc-950/95 backdrop-blur-lg border-t border-red-500/30
-                    ${consoleError ? 'max-h-[500px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}
+                    ${consoleError ? 'max-h-125 opacity-100 translate-y-0' : 'max-h-0 opacity-0 translate-y-4'}
                   `}
                 >
                   <div {...layout.consoleDragProps} className="h-2 w-full cursor-row-resize bg-surface shrink-0" />
@@ -139,71 +138,3 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     </ExhibitLayout>
   );
 }
-
-const Preview = ({ className, codeState, vfs }) => {
-  const [blobUrl, setBlobUrl] = useState('');
-
-  useEffect(() => {
-    if (!codeState) return;
-
-    let processedHtml = codeState;
-
-    // Helper: Normalize path and fetch from VFS
-    const getFileContent = (path) => {
-      const cleanPath = path.replace(/^\.\//, '');
-      const vfsKey = `./react/${cleanPath}`;
-
-      const content = vfs.files[vfsKey]?.content;
-      if (!content) {
-        console.warn(`[Preview] VFS lookup failed for: ${vfsKey}. Available keys:`, Object.keys(vfs.files));
-      }
-      return content;
-    };
-
-    processedHtml = processedHtml.replace(/<link[^>]*href=["'](.*?)["'][^>]*>/gi, (match, path) => {
-      const content = getFileContent(path);
-      return content ? `<style>${content}</style>` : match;
-    });
-    processedHtml = processedHtml.replace(
-      /<script[^>]*src=["'](.*?)["'][^>]*>([\s\S]*?<\/script>|)/gi,
-      (match, path) => {
-        const content = getFileContent(path);
-
-        if (content) {
-          console.log(`[Preview] Successfully injected: ${path}`);
-          return `<script>${content}</script>`;
-        }
-
-        console.warn(`[Preview] Could not find content for: ${path}`);
-        return match; // Keep the original if content is missing
-      },
-    );
-
-    // 3. Create the Blob
-    const blob = new Blob([processedHtml], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    setBlobUrl(url);
-
-    return () => URL.revokeObjectURL(url);
-  }, [codeState, vfs]);
-
-  return <iframe className={className} src={blobUrl} />;
-};
-
-// react-markdown
-// remark-gfm
-// react-json-view
-// const Preview = ({ className, fileType, content, vfs }) => {
-//   switch (fileType) {
-//     case 'html':
-//       return <HtmlPreview html={content} vfs={vfs} className={className} />;
-//     case 'md':
-//       return <MarkdownPreview source={content} className={className} />;
-//     case 'json':
-//       return <JsonPreview data={content} className={className} />;
-//     case 'css':
-//       return <CssPreview css={content} className={className} />;
-//     default:
-//       return <div className={className}>Preview not available for {fileType}</div>;
-//   }
-// };

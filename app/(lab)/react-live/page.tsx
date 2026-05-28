@@ -5,10 +5,9 @@
 import React, { useState, useEffect } from 'react';
 import { LiveProvider, LiveError, LivePreview } from 'react-live';
 
-import { buildRegistry } from '@/lib/buildScope';
+import { buildRegistry } from '@/lib/build-scope';
 import { BaseEditor } from '@/components/BaseEditor';
 import { useLiveEditor } from '@/hooks/useLiveEditor';
-import { ResizableColumn } from '@/components/layout/ResizableColumn';
 import { registry } from '../../../registry.generated';
 
 // Write src to string registry so that CJS (Live Editor dep)

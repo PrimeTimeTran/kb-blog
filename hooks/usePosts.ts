@@ -1,19 +1,6 @@
 import { useMemo, useState } from 'react';
-import { TOPICS } from '../data/constants';
-import type { Topic } from '../data/constants';
-
-type SortOrder = 'asc' | 'desc';
-type SortField = 'date' | 'title';
-
-type UsePostsOptions<T> = {
-  fetchedPosts: T[];
-  initialSortField?: SortField;
-  initialSortOrder?: SortOrder;
-};
-
-function normalizeTag(tag: string) {
-  return String(tag).trim().replace(/\s+/g, '-').toLowerCase();
-}
+import { TOPICS } from '@/data';
+import type { Topic } from '@/data';
 
 export function usePosts<T extends Record<string, any>>({
   fetchedPosts,
@@ -200,4 +187,14 @@ export function usePosts<T extends Record<string, any>>({
     sortOrder,
     setSortOrder,
   };
+}
+type SortOrder = 'asc' | 'desc';
+type SortField = 'date' | 'title';
+type UsePostsOptions<T> = {
+  fetchedPosts: T[];
+  initialSortField?: SortField;
+  initialSortOrder?: SortOrder;
+};
+function normalizeTag(tag: string) {
+  return String(tag).trim().replace(/\s+/g, '-').toLowerCase();
 }

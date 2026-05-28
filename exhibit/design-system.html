@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exhibit System — Semantic Role Layout</title>
+
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="hero-top">
+          <h1 class="hero-title">Exhibit System — Signal Hierarchy Model</h1>
+
+          <div class="hero-meta">
+            <span class="tag concept">v1.3 layout theory</span>
+            <span>•</span>
+            <span class="tag concept">structural vs semantic vs emphasis separation</span>
+            <span>•</span>
+            <span class="tag concept">rendering pipeline model</span>
+          </div>
+        </div>
+
+        <p class="note hero-desc">
+          This system is not about “styling content” — it is about separating *what a thing is structurally*, *what it
+          means*, and *how it should be read*. Most UI inconsistency comes from collapsing these layers into a single
+          visual signal.
+        </p>
+
+        <div class="hero-legend">
+          <span class="tag concept">Semantic Layer</span>
+          <span class="tag proposition">Proposition (Structure)</span>
+          <span class="tag info">Explanation Layer</span>
+          <span class="tag warning">Warning Signal</span>
+          <span class="tag wrong">Invalid / Broken</span>
+          <span class="tag fixed">Resolved State</span>
+        </div>
+      </section>
+
+      <section class="demo role role-neutral">
+        <header class="demo-header"><h2>Core Model — Signal Hierarchy</h2></header>
+        <div class="demo-body">
+          <div class="box">
+            UI explanations are not styled documents — they are a layered rendering system:
+            <br /><br />
+
+            <ul>
+              <li><b>Structural signal</b> → layout ownership (grid, scroll, containment)</li>
+              <li><b>Semantic signal</b> → meaning classification (info, warning, fixed, wrong)</li>
+              <li><b>Emphasis signal</b> → typography inside sentences (bold / italic / strike)</li>
+              <li><b>Decorative signal</b> → icons, gradients, visual aids (never meaning-bearing)</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            The key failure mode in most systems is <b>signal stacking</b>: <br /><br />
+            A “warning” becomes red + bold + icon + border + background — which destroys hierarchy because multiple
+            layers are encoding the same meaning.
+          </div>
+        </div>
+      </section>
+
+      <section class="demo role role-neutral">
+        <header class="demo-header">
+          <h2>Setup Surface — Typography as Structural Tool</h2>
+        </header>
+
+        <div class="demo-body">
+          <div class="box">
+            <h3>Core Principle</h3>
+
+            <p>
+              Typography is often misused as emphasis. In this system, it is treated as a
+              <i>structural readability layer</i>, not a semantic signal. It exists to guide scanning, not to inject
+              meaning.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>Correct Separation Rule</h3>
+
+            <ul>
+              <li><b>Bold</b> → only used inside semantic statements (definition / constraint)</li>
+              <li><i>Italic</i> → only used inside interpretive layers (mental model)</li>
+              <li><s>Strikethrough</s> → only used to show invalidated assumptions</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Implementation</h3>
+
+            <div class="code">
+              /* structural typography rules */ b { font-weight: 600; } /* constraint marker */ i { font-style: italic;
+              } /* interpretive layer */ s { opacity: 0.6; } /* invalidation marker */
+            </div>
+          </div>
+
+          <div class="box">
+            <h3>Interpretation</h3>
+
+            <p class="note">
+              In neutral contexts, typography should not introduce new meaning — only organize existing meaning.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo role role-neutral">
+        <header class="demo-header">
+          <h2>Setup Surface — Iconography as Non-Semantic Decoration</h2>
+        </header>
+
+        <div class="demo-body">
+          <div class="box">
+            <h3>Core Principle</h3>
+
+            <p>
+              Icons are frequently mistaken for meaning carriers. In this system, icons are strictly
+              <i>navigation and scan accelerators</i>, never semantic indicators.
+            </p>
+          </div>
+
+          <div class="box">
+            <h3>Allowed Usage</h3>
+
+            <ul>
+              <li>visual grouping (e.g. section identity at a glance)</li>
+              <li>scan enhancement (faster recognition of structure)</li>
+              <li>decorative reinforcement of already-defined roles</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Forbidden Usage</h3>
+
+            <ul>
+              <li>using icons to define “importance” instead of roles</li>
+              <li>using icons to replace semantic labels (info/warn/fixed)</li>
+              <li>stacking icons with color to double-encode meaning</li>
+            </ul>
+          </div>
+
+          <div class="box">
+            <h3>Implementation</h3>
+
+            <div class="code">
+              /* icon system (neutral only) */ .icon { display: inline-flex; opacity: 0.7; /* never primary signal */
+              margin-right: 6px; } /* rule: icons never define role */
+            </div>
+          </div>
+
+          <div class="box">
+            <h3>Interpretation</h3>
+
+            <p class="note">Icons should reduce cognitive load, not create additional interpretation layers.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="demo role role-proposition">
+          <div class="demo-header">Proposition — Structural Layer</div>
+          <div class="demo-body">
+            <div class="box">Layout behavior is determined by containment rules, not visual styling.</div>
+          </div>
+        </div>
+
+        <div class="demo role role-info">
+          <div class="demo-header">Semantic Layer — Meaning Only</div>
+          <div class="demo-body">
+            <div class="box">
+              Color should classify intent, not amplify importance.
+              <br /><br />
+              Example: “info” does not mean less important — it means <i>not structural</i>.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid">
+        <div class="demo role role-wrong">
+          <div class="demo-header">Wrong — Signal Collapse</div>
+          <div class="demo-body">
+            <div class="box">
+              Mixing structural + semantic + emphasis signals into one visual treatment causes ambiguity:
+              <br /><br />
+              Everything looks important → nothing is prioritized.
+            </div>
+          </div>
+        </div>
+
+        <div class="demo role role-fixed">
+          <div class="demo-header">Fixed — Separated Signal Layers</div>
+          <div class="demo-body">
+            <div class="box">
+              Each layer encodes one responsibility:
+              <br /><br />
+              structure = layout<br />
+              meaning = color<br />
+              emphasis = typography
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo role role-concept">
+        <header class="demo-header"><h2>Sticky Header — Live Behavior Surface</h2></header>
+
+        <div class="demo-body">
+          <div class="surface">
+            <div class="surface-scroll">
+              <div class="group">
+                <div class="surface-header">Section A — Initialization</div>
+
+                <div class="box">Content block 1</div>
+                <div class="box">Content block 2</div>
+                <div class="box">Content block 3</div>
+              </div>
+
+              <div class="group">
+                <div class="surface-header">Section B — Scroll transitions...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+                <div class="box">Section B...</div>
+              </div>
+              <div class="group">
+                <div class="surface-header">Section C — Stability check...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+                <div class="box">Section C...</div>
+              </div>
+              <div class="group">
+                <div class="surface-header">Section D — Scroll ending...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+                <div class="box">Section D...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

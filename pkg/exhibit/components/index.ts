@@ -1,2 +1,4 @@
 export * from './Editor';
-export * from './Sidebar';
+export * from './Previewer';
+export * from './SidebarTree';
+export * from './TreeItem';

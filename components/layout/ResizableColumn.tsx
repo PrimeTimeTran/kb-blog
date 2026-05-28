@@ -1,6 +1,4 @@
 'use client';
-
-import React from 'react';
 import { ReactNode } from 'react';
 import { useResize } from '@/hooks/useResize';
 import { useLayout } from '@/providers/LayoutProvider';
@@ -9,15 +7,7 @@ function Resizer({ onMouseDown }) {
   return (
     <div
       onMouseDown={onMouseDown}
-      className="
-        w-2
-        h-full
-        cursor-col-resize
-        relative
-        opacity-0
-        transition-opacity
-        group-hover:opacity-100
-      "
+      className="w-2 h-full cursor-col-resize relative opacity-0 transition-opacity group-hover:opacity-100"
     >
       {/* 
         NOTE:
@@ -25,17 +15,7 @@ function Resizer({ onMouseDown }) {
         "The class `group-hover:bg-[var(--outline-variant)]` can be written as `group-hover:bg-(--outline-variant)`(suggestCanonicalClasses)"
         This breaks the hover.
        */}
-      <div
-        className="
-        w-px
-        absolute
-        inset-y-0
-        left-1/2
-        bg-transparent
-        group-hover:bg-[var(--outline-variant)]
-        group-active:bg-[var(--outline-variant-active)]
-        "
-      />
+      <div className="w-px absolute inset-y-0 left-1/2 bg-transparent group-hover:bg-(--outline-variant) group-active:bg-(--outline-variant-active)" />
     </div>
   );
 }

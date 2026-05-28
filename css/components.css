@@ -1,4 +1,7 @@
 @layer components {
+  body {
+    @apply bg-background text-on-surface;
+  }
   .mdx-code-wrapper {
     background-color: var(--code-bg);
     border: 1px solid var(--code-border);
@@ -82,29 +85,43 @@
     transition: color 0.15s ease;
   }
 
-  .file-item {
-    @apply flex flex-row items-center gap-2 px-2 py-1 text-left truncate w-full
-      
-      transition-colors duration-150 outline-none
-      hover:bg-level
-      hover:text-on-surface
-      focus-visible:bg-high
-      focus-visible:text-on-surface
-      focus-visible:ring-2
-      focus-visible:ring-primary
-      focus-visible:ring-offset-1
-      active:bg-highest;
-    &[data-active='true'] {
-      @apply bg-primary-container
+  .tree-item {
+    @apply flex items-center gap-2
+    w-full min-w-0
+
+    px-2 py-1
+
+    text-left text-on-surface
+    transition-colors duration-150
+
+    outline-none
+
+    hover:bg-level
+    focus-visible:ring-2
+    focus-visible:ring-primary
+    focus-visible:ring-offset-1
+    focus-visible:bg-high
+
+    active:bg-highest;
+  }
+
+  /* Text child should truncate, not necessarily the container */
+  .tree-item-label {
+    @apply truncate min-w-0 flex-1;
+  }
+
+  .tree-item[data-active='true'] {
+    @apply bg-primary-container
     text-on-primary-container
-    font-medium
-    hover:bg-primary-container
-    hover:text-on-primary-container
+    font-medium;
+
+    /* Optional: active item shouldn't visually react to hover */
+    @apply hover:bg-primary-container
     focus-visible:bg-primary-container
-    focus-visible:text-on-primary-container
-    dark:bg-primary/20
+    active:bg-primary-container;
+
+    @apply dark:bg-primary/20
     dark:text-on-primary-container;
-    }
   }
 
   .group:hover .controls {
@@ -287,7 +304,7 @@
 
   /* ACTIVE */
   .chip-active {
-    @apply bg-primary-container text-on-primary;
+    @apply bg-primary-container text-primary;
   }
 
   .chip-active:hover {
@@ -296,7 +313,7 @@
 
   /* INACTIVE */
   .chip-inactive {
-    @apply bg-level text-on-surface;
+    @apply bg-level text-surface;
   }
 
   .chip-inactive:hover {
@@ -320,7 +337,7 @@
   }
 
   .hover-button {
-    @apply absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 text-white rounded opacity-0 group-hover:opacity-100;
+    @apply absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 rounded opacity-0 group-hover:opacity-100;
   }
   .handlebar {
     @apply w-[0.5] cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors;

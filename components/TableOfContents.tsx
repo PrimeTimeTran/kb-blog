@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect } from 'react';
-import { getHeadingColor } from '@/lib/theme/theme.cjs';
+import { getHeadingColor } from '@/lib/theme/theme';
 import { useScroll } from '@/providers/ScrollProvider';
 import { TOCItemData, useTableOfContents } from '@/hooks/useTOC';
 /**

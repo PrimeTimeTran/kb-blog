@@ -44,7 +44,7 @@ const makeTokens = (seed, color, isDark, n, nv, sat, hue, getSemantic) => {
     '--low': isDark ? n.brighten(0.3).hex() : '#ffffff',
     '--level': isDark ? n.brighten(0.6).hex() : n.darken(0.1).hex(),
     '--level-high': isDark ? n.brighten(0.9).hex() : n.darken(0.2).hex(),
-    '--level-highest': isDark ? n.brighten(1.2).hex() : n.darken(0.4).hex(),
+    '--highest': isDark ? n.brighten(1.2).hex() : n.darken(0.4).hex(),
 
     // INK & OUTLINES (Neutral Variant Tones)
     '--on-surface': isDark ? n.brighten(5).hex() : n.darken(5).hex(),
@@ -89,7 +89,7 @@ export function generateThemeTokens(seedColor) {
   const color = chroma(seedColor);
   const hue = color.get('hsl.h');
   const sat = color.get('hsl.s');
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   return {
     // Primary remains the seed
     '--primary': color.hex(),

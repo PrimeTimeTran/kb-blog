@@ -22,7 +22,7 @@
 .animate-shimmer {
   position: relative;
   overflow: hidden;
-  background-color: color-mix(in srgb, var(--level-highest), black 5%);
+  background-color: color-mix(in srgb, var(--highest), black 5%);
 
   &::after {
     content: '';
@@ -34,7 +34,7 @@
 }
 
 :where(.dark) .animate-shimmer {
-  background-color: color-mix(in srgb, var(--level-highest), white 2%);
+  background-color: color-mix(in srgb, var(--highest), white 2%);
 }
 
 :root:not(.dark) .animate-shimmer::after {

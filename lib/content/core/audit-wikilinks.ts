@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-const KB_ROOT = path.resolve(process.cwd(), '../../../');
+import { KB_DIR } from '@/lib/content';
+import { walk } from '@/lib';
 
-const IGNORE_DIRS = [path.resolve(KB_ROOT, 'project', 'node_modules')];
+const IGNORE_DIRS = [path.resolve(KB_DIR, 'project', 'node_modules')];
 
 type Entry = {
   path: string;
@@ -17,32 +18,6 @@ function normalizeKey(input = '') {
     .replace(/\\/g, '/')
     .trim()
     .toLowerCase();
-}
-
-function walk(dir: string): string[] {
-  let results: string[] = [];
-
-  // skip ignored dirs
-  if (IGNORE_DIRS.some((ignored) => dir.startsWith(ignored))) {
-    return results;
-  }
-
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, entry.name);
-
-    if (entry.isDirectory()) {
-      results = results.concat(walk(full));
-      continue;
-    }
-
-    if (!entry.name.match(/\.mdx?$/)) {
-      continue;
-    }
-
-    results.push(full);
-  }
-
-  return results;
 }
 
 function extractWikiLinks(content: string) {
@@ -72,7 +47,7 @@ function buildIndex(files: string[]) {
   const basenameMap = new Map<string, Entry[]>();
 
   for (const file of files) {
-    const relative = path.relative(KB_ROOT, file);
+    const relative = path.relative(KB_DIR, file);
 
     const normalized = normalizeKey(relative);
 
@@ -135,18 +110,11 @@ function resolveLink(linkPath: string, lookup: ReturnType<typeof buildIndex>) {
   };
 }
 
-const missingBuckets = {
-  headingOnly: [],
-  probableTypos: [],
-  probablePrivate: [],
-  unresolved: [],
-};
-
-function main() {
+export function auditWikiLinks() {
   console.log('\n[wiki-audit] scanning vault...');
-  console.log(KB_ROOT);
+  console.log(KB_DIR);
 
-  const files = walk(KB_ROOT);
+  const files = walk(KB_DIR, { ignoreDirs: IGNORE_DIRS });
 
   console.log(`[wiki-audit] found ${files.length} markdown files\n`);
 
@@ -157,7 +125,7 @@ function main() {
   const missing: any[] = [];
 
   for (const file of files) {
-    const relativeFile = normalizeKey(path.relative(KB_ROOT, file));
+    const relativeFile = normalizeKey(path.relative(KB_DIR, file));
 
     const content = fs.readFileSync(file, 'utf8');
 
@@ -238,5 +206,3 @@ function main() {
     ),
   );
 }
-
-main();

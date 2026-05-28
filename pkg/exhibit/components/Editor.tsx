@@ -12,6 +12,7 @@ import { initAceExtensions } from '@/lib/syntax-registry';
 export function Editor({
   vfs,
   value,
+  mode,
   onChange,
   expanded = false,
   setEditorReady,
@@ -22,9 +23,15 @@ export function Editor({
   const editorRef = useRef<AceEditorInstance | null>(null);
   const [editorInstance, setEditorInstance] = useState<AceEditorInstance | null>(null);
 
-  const { resolvedTheme } = useTheme();
-  const mode = useMemo(() => getEditorMode(vfs.activePath ?? ''), [vfs.activePath]);
-  const formatter = useMemo(() => getFormatter(vfs.activePath ?? ''), [vfs.activePath]);
+  const activePath = vfs?.activePath;
+
+  const editorMode = useMemo(() => {
+    return activePath ? getEditorMode(activePath) : mode;
+  }, [activePath, mode]);
+
+  const formatter = useMemo(() => {
+    return activePath ? getFormatter(activePath) : null;
+  }, [activePath]);
 
   const stateRef = useRef({ onChange, value, formatter });
 
@@ -47,6 +54,7 @@ export function Editor({
     }
   }, [expanded]);
 
+  const { resolvedTheme } = useTheme();
   const editorTheme = useMemo(() => {
     return resolvedTheme === 'dark' ? 'tomorrow_night' : 'chrome';
   }, [resolvedTheme]);
@@ -70,7 +78,8 @@ export function Editor({
     }
   };
 
-  const isReady = Boolean(vfs.activeFile && vfs.activePath);
+  const isReady = Boolean(vfs?.activeFile || mode);
+
   if (!isReady) {
     return <div className="p-2 text-xs text-zinc-500">Loading editor...</div>;
   }
@@ -87,24 +96,24 @@ export function Editor({
 
       <AceEditor
         value={value ?? ''}
-        key={vfs.activePath}
+        key={vfs?.activePath}
         ref={editorRef}
-        mode={mode}
+        mode={editorMode}
         theme={editorTheme}
         width="100%"
         height={autoHeight ? 'auto' : '100%'}
         onChange={debouncedOnChange}
         showPrintMargin={showPrintMargin}
         highlightActiveLine={highlightActiveLine}
+        onLoad={setEditorInstance}
+        // Run clean format passes immediately when the user finishes and clicks away
+        onBlur={handleFormat}
         setOptions={{
           useWorker: false,
           maxLines: autoHeight ? (expanded ? Infinity : 10) : undefined,
           minLines: autoHeight ? 10 : undefined,
           autoScrollEditorIntoView: autoHeight,
         }}
-        onLoad={setEditorInstance}
-        // Run clean format passes immediately when the user finishes and clicks away
-        onBlur={handleFormat}
       />
     </div>
   );

@@ -1,6 +1,12 @@
-// app/kb/layout.tsx
-import KBLayout from '@/layouts/KBLayout';
-import { getKbTree } from '@/lib/content/domain/kb/kb.server';
+export default async function Layout({ left, children, right }) {
+  return (
+    <div className="w-full">
+      {left}
+      {children}
+      {right}
+    </div>
+  );
+}
 
 export const metadata = {
   title: 'Knowledge Base',
@@ -19,12 +25,3 @@ export const metadata = {
     description: 'Structured learning and reference material.',
   },
 };
-export default async function Layout({ children, left }) {
-  const tree = await getKbTree();
-  return (
-    <div>
-      {left}
-      <KBLayout tree={tree}>{children}</KBLayout>
-    </div>
-  );
-}

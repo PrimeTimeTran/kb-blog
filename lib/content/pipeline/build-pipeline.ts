@@ -1,4 +1,4 @@
-import { buildTermsGraph, buildTermsRegistry } from '../api/build-terms-registry.js';
+import { buildTermsGraph, buildTermsRegistry } from '@/lib/content';
 
 export async function buildPipeline(source) {
   const registry = buildTermsRegistry();

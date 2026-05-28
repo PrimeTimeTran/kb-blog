@@ -48,7 +48,7 @@ export const RichTooltip = ({
 
     return (
       <div
-        className={`flex items-center gap-1 px-2 py-1 bg-(--level-high) ${
+        className={`flex items-center gap-1 px-2 py-1 bg-level  ${
           isTop ? 'border-b rounded-t-lg' : 'border-t rounded-b-lg'
         } border-outline-variant/30 relative`}
       >
@@ -60,7 +60,7 @@ export const RichTooltip = ({
                 e.stopPropagation();
                 action.onClick();
               }}
-              className="p-1.5 rounded-md text-(--on-surface-variant) hover:text-(--primary) hover:bg-(--level-highest) transition-all active:scale-95"
+              className="p-1.5 rounded-md text-(--on-surface-variant) hover:text-(--primary) hover:bg-(--highest) transition-all active:scale-95"
             >
               <span className="text-base leading-none flex items-center justify-center">{action.icon}</span>
             </button>
@@ -70,9 +70,8 @@ export const RichTooltip = ({
               className={`
                 invisible opacity-0 scale-90 group-hover/mini:visible group-hover/mini:opacity-100 group-hover/mini:scale-100
                 absolute left-1/2 -translate-x-1/2 px-2 py-1
-                /* Force a dark/high-contrast background */
-                bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 
-                text-[9px] font-bold rounded shadow-xl pointer-events-none transition-all duration-100 z-[100]
+                bg-high text-on-surface
+                text-[9px] font-bold rounded shadow-xl pointer-events-none transition-all duration-100
                 ${isTop ? 'bottom-full mb-2' : 'top-full mt-2'}
               `}
             >
@@ -94,7 +93,7 @@ export const RichTooltip = ({
   return (
     <div
       ref={triggerRef}
-      className="inline-block relative group"
+      className="inline-block relative group "
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -119,9 +118,9 @@ export const RichTooltip = ({
               }`}
             />
 
-            <div className="flex flex-col bg-(--background) border border-outline-variant shadow-elevation-2 rounded-lg text-left">
+            <div className="flex flex-col bg-background border border-outline-variant shadow-elevation-2 rounded-lg text-left">
               {actionsPosition === 'top' && renderActions()}
-              <div className="px-3 py-2 flex flex-col gap-0.5">
+              <div className="px-3 py-2 flex flex-col gap-0.5 bg-highest">
                 <h4 className="text-label-medium text-(--primary) font-bold leading-tight">{title}</h4>
                 <p className="text-[11px] text-(--on-surface-variant) leading-snug">{description}</p>
               </div>

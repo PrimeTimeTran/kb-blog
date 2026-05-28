@@ -12,16 +12,19 @@
 // In this "wrapping" layout, we start our three column layout with the left column
 // and then leave the the remaining space for each page to handle.
 
-// layouts/ThreeColumnLayout.tsx
 'use client';
-import SidebarTree from '../app/kb/SidebarTree';
 import { ResizableColumn } from '@/components/layout/ResizableColumn';
+import { SidebarTree, useTreeNavigation } from '@/pkg/exhibit/components/SidebarTree';
+import { usePathname } from 'next/navigation';
 
 export default function KBLayout({ tree, children }) {
+  const { onSelect } = useTreeNavigation();
+  const pathName = usePathname();
+
   return (
     <div className="flex h-screen overflow-hidden w-full">
       <ResizableColumn side="left">
-        <SidebarTree data={tree} />
+        <SidebarTree data={tree} onSelect={onSelect} activePath={pathName} />
       </ResizableColumn>
       <div className="flex-1 min-w-0 h-full flex">{children}</div>
     </div>

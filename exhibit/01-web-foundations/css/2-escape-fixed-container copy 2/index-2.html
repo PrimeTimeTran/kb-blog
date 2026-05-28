@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover Trap Exhibit</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        height: 300vh;
+        padding-top: 100px;
+        background: #0b0b0f;
+        color: white;
+        margin-left: 25%;
+        margin-right: 25%;
+      }
+
+      .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+
+      .nav {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+        background: rgba(20, 20, 30, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-items {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .nav-item {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .dropdown {
+        background: rgba(40, 40, 60, 0.95);
+        overflow: hidden;
+      }
+
+      .panel {
+        padding: 24px;
+        display: flex;
+        gap: 24px;
+      }
+
+      .card {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 16px;
+        border-radius: 8px;
+      }
+
+      .bottom-trap {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 0, 0, 0.08);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+      }
+
+      .pulse {
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      .content {
+        padding-top: 120px;
+        padding-left: 24px;
+      }
+
+      .hint {
+        opacity: 0.6;
+      }
+
+      pre {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 8px;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-container">
+      <div class="nav">
+        <div>LOGO</div>
+
+        <div class="nav-items">
+          <div class="nav-item">Runtime</div>
+          <div class="nav-item">Systems</div>
+          <div class="nav-item">Docs</div>
+        </div>
+
+        <div>Theme</div>
+      </div>
+
+      <div class="dropdown">
+        <div class="panel">
+          <div class="card">Panel A</div>
+          <div class="card">Panel B</div>
+          <div class="card">Panel C</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bottom-trap pulse">Move cursor here to exit navigation</div>
+
+    <div class="content">
+      <h1>The Real Problem Is Not Flex</h1>
+
+      <h2>It is boundary ambiguity between 3 systems:</h2>
+
+      <ul>
+        <li>Layout system (flex / width / height)</li>
+        <li>Interaction system (hover / mouseenter / leave)</li>
+        <li>Position system (fixed overlays)</li>
+      </ul>
+
+      <h2>Minimal reproduction of the failure</h2>
+
+      <pre>
+fixed container
+  + flex layout
+  + hover-driven state
+  + dropdown expansion
+  + second fixed layer (bottom trap)
+      </pre>
+
+      <h2>What this causes (emergent behavior)</h2>
+
+      <ul>
+        <li>Mouse never fully exits interaction space</li>
+        <li>Hover state feels “sticky” or re-triggered</li>
+        <li>Dropdown feels like it affects page layout</li>
+        <li>Escape requires artificial spacing hacks</li>
+      </ul>
+
+      <h2>Key insight</h2>
+
+      <blockquote>A layout stops being “visual structure” when it becomes part of the interaction boundary.</blockquote>
+
+      <h2>Why “just flex” does not fix it</h2>
+
+      <ul>
+        <li>Flex only distributes space</li>
+        <li>It does not define interaction boundaries</li>
+        <li>It becomes part of the problem when used inside fixed hover systems</li>
+      </ul>
+
+      <h2>Correct mental model</h2>
+
+      <pre>
+    SCREEN = static page
+
+    NAV = interaction layer
+
+    DROPDOWN = temporary overlay system
+
+    TRAPS (bottom / invisible divs) = accidental state controllers
+      </pre>
+    </div>
+  </body>
+</html>

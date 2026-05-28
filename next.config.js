@@ -1,4 +1,5 @@
 import createMDX from '@next/mdx';
+
 // import path from 'path'
 // import { fileURLToPath } from 'url'
 // const __filename = fileURLToPath(import.meta.url)
@@ -170,6 +171,10 @@ import createMDX from '@next/mdx';
  */
 
 const nextConfig = {
+  experimental: {
+    turbo: undefined,
+    esmExternals: true,
+  },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,
@@ -177,9 +182,6 @@ const nextConfig = {
   // output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
-  },
-  experimental: {
-    esmExternals: true,
   },
 };
 

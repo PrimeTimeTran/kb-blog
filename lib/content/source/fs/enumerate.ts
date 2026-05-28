@@ -1,7 +1,4 @@
-import path from 'path';
-
-import { getAllFiles } from '../../server/files.js';
-import { KB_DIR, BLOG_DIR } from '../../core/constants';
+import { KB_DIR, BLOG_DIR, getAllFiles } from '@/lib/content';
 
 export async function enumerateFilesystemContent() {
   return [

@@ -5,15 +5,19 @@
     "baseUrl": ".",
     "plugins": [{ "name": "next" }],
     "allowJs": true,
+    "jsx": "react-jsx",
     "paths": {
+      "@/*": ["./*"],
       "@/app/*": ["./app/*"],
       "@/components/*": ["./components/*"],
       "@/data/*": ["./data/*"],
+      "@/exhibit/*": ["./exhibit/*"],
       "@/hooks/*": ["./hooks/*"],
       "@/layouts/*": ["./layouts/*"],
       "@/lib/*": ["./lib/*"],
       "@/mdx/*": ["./components/mdx/*"],
-      "@/providers/*": ["./providers/*"]
+      "@/providers/*": ["./providers/*"],
+      "@/pkg/*": ["./pkg/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "lib/sort-tree.js"],

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { GrSystem } from 'react-icons/gr';
 import { SiFramework } from 'react-icons/si';
 import { CiMoneyBill } from 'react-icons/ci';

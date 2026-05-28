@@ -1,30 +1,16 @@
-// app/kb/[...slug]/page.tsx
 import { notFound } from 'next/navigation';
+import { PageClient } from '../PageClient';
 import { content } from '@/lib/content/api/client';
-import { ResizableColumn } from '@/components/layout/ResizableColumn';
 import TableOfContents from '@/components/TableOfContents';
-import { BaseScroll } from '@/components/BaseScroll';
+import { getKbTree } from '@/lib/content/domain/kb/kb.server';
 
 export default async function Page({ params }) {
   let { slug } = await params;
   slug = await (Array.isArray(slug) ? slug.join('/') : slug);
 
+  const tree = await getKbTree();
+
   const KBItem = await content.get({ type: 'kb', slug });
-
   if (!KBItem) notFound();
-  return (
-    <div className="flex h-full min-h-0 min-w-0 w-full overflow-hidden">
-      {/* CENTER */}
-      <BaseScroll>
-        <div className="prose dark:prose-invert px-3 no-scrollbar suppressHydrationWarning">
-          <KBItem.Content />
-        </div>
-      </BaseScroll>
-
-      {/* RIGHT */}
-      <ResizableColumn side="right">
-        <TableOfContents toc={KBItem.toc} />
-      </ResizableColumn>
-    </div>
-  );
+  return <PageClient tree={tree} slug={slug} content={<KBItem.Content />} toc={<TableOfContents toc={KBItem.toc} />} />;
 }

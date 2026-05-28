@@ -1,7 +1,7 @@
-import { SneakPeak } from './1-SneakPeak';
-import { DesignSystem } from './2-DesignSystem';
-import { Tailwind } from './3-Tailwind';
+import { SneakPeak } from '@/exhibit/5-design-system/1-Product';
+// import { DesignSystem } from '@/exhibit/5-design-system/2-DesignSystem';
+// import { Tailwind } from '@/exhibit/5-design-system/3-Tailwind';
 
-function App() {
+export default function App() {
   return <SneakPeak />;
 }

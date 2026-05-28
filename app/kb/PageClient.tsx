@@ -1,15 +1,17 @@
 'use client';
-import { ResizableColumn } from '@/components/layout/ResizableColumn';
-import SidebarTree from './SidebarTree';
+import { ExhibitLayout } from '@/layouts';
+import { SidebarTree, useTreeNavigation } from '@/pkg/exhibit/components/SidebarTree';
+import { BaseScroll } from '@/components/BaseScroll';
 
-export default function PageClient({ tree, children }) {
+export function PageClient({ tree, content, toc }) {
+  const { onSelect } = useTreeNavigation();
   return (
-    <div className="w-full h-full flex flex-row gap-6 overflow-hidden">
-      <ResizableColumn side="left">
-        <SidebarTree data={tree} />
-      </ResizableColumn>
-
-      <main className="flex-1 min-w-0 h-full overflow-hidden">{children}</main>
-    </div>
+    <ExhibitLayout left={<SidebarTree data={tree} activePath={null} onSelect={onSelect} />} right={toc}>
+      <div className="flex h-full w-full min-h-0 min-w-0">
+        <BaseScroll>
+          <div className="prose dark:prose-invert px-3 no-scrollbar suppressHydrationWarning">{content}</div>
+        </BaseScroll>
+      </div>
+    </ExhibitLayout>
   );
 }

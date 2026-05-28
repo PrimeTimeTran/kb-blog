@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exhibit 2 - Locked Left Panel</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        z-index: 10;
+      }
+
+      .container {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        padding: 20px;
+        align-items: start;
+      }
+
+      /* ✅ LOCKED LEFT */
+      .left {
+        position: sticky;
+        top: 60px; /* accounts for navbar */
+        height: calc(100vh - 60px);
+        overflow: hidden;
+        background: #eee;
+        padding: 10px;
+      }
+
+      /* RIGHT SCROLLS */
+      .right {
+        min-height: 2000px;
+        background: #fafafa;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">Navbar (fixed)</div>
+
+    <div class="container">
+      <div class="left">
+        LEFT (LOCKED)<br /><br />
+        This panel stays visible.<br />
+        Never scrolls out of view.<br /><br />
+        Think: VSCode sidebar / inspector panel.
+      </div>
+
+      <div class="right">
+        RIGHT (scrolls normally)<br /><br />
+        Content starts here...<br /><br />
+        Keep scrolling...<br /><br />
+        More content...<br /><br />
+        Even more...<br /><br />
+        End simulation.
+      </div>
+    </div>
+  </body>
+</html>

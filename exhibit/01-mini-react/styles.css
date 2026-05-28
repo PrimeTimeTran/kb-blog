@@ -1,0 +1,419 @@
+/* =========================================================
+  RESET
+========================================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+blockquote {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  line-height: 1.5;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* =========================================================
+  DESIGN TOKENS
+========================================================== */
+
+:root {
+  --space-1: 8px;
+  --space-2: 12px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+
+  --bg: #f6f7fb;
+
+  --panel: #ffffff;
+  --panel-soft: rgba(255, 255, 255, 0.7);
+
+  --text: #0f172a;
+  --muted: rgba(15, 23, 42, 0.65);
+
+  --border: rgba(15, 23, 42, 0.12);
+
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  --concept: #2563eb;
+  --fixed: #22c55e;
+  --wrong: #ef4444;
+
+  --code-bg: #f1f5f9;
+  --code-text: #0f172a;
+  --code-border: rgba(15, 23, 42, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+
+    --panel: #141821;
+    --panel-soft: rgba(255, 255, 255, 0.04);
+
+    --text: #e5e7eb;
+    --muted: rgba(229, 231, 235, 0.65);
+
+    --border: rgba(255, 255, 255, 0.08);
+
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+    --code-bg: #0b0f17;
+    --code-text: #e5e7eb;
+    --code-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* =========================================================
+  PAGE
+========================================================== */
+
+.page {
+  width: 100%;
+
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  padding: clamp(12px, 3vw, 48px);
+
+  display: flex;
+  flex-direction: column;
+  gap: clamp(16px, 3vw, 32px);
+}
+
+/* =========================================================
+  HERO
+========================================================= */
+
+.hero {
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel-soft);
+
+  padding: clamp(16px, 4vw, 32px);
+}
+
+.hero-top {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  flex-wrap: wrap;
+}
+
+.hero-title {
+  font-size: clamp(24px, 5vw, 36px);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.03em;
+
+  font-weight: 700;
+}
+
+.hero-desc {
+  margin-top: 12px;
+
+  max-width: 65ch;
+
+  color: var(--muted);
+
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+/* =========================================================
+  TAGS
+========================================================= */
+
+.hero-meta {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+}
+
+.tag {
+  white-space: nowrap;
+}
+
+.tag {
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+  color: var(--muted);
+}
+
+.tag.proposition {
+  color: var(--concept);
+}
+
+.tag.fixed {
+  color: var(--fixed);
+}
+
+.tag.warning {
+  color: var(--wrong);
+}
+
+.hero-desc {
+  margin-top: 14px;
+
+  max-width: 75ch;
+
+  color: var(--muted);
+}
+
+/* =========================================================
+  CARD
+========================================================== */
+
+/* =========================================================
+  DEMO CARD
+========================================================= */
+
+.demo {
+  width: 100%;
+}
+
+.demo-surface {
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel-soft);
+}
+
+.demo-header {
+  padding: clamp(14px, 2vw, 18px);
+
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-header h2 {
+  font-size: clamp(16px, 2vw, 20px);
+
+  line-height: 1.2;
+}
+
+.role {
+  position: relative;
+}
+
+.role::before {
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 4px;
+
+  background: var(--concept);
+}
+
+.demo-body {
+  padding: clamp(14px, 3vw, 28px);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+/* =========================================================
+  CODE BLOCK
+========================================================= */
+
+.code {
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  background: var(--code-bg);
+
+  border: 1px solid var(--code-border);
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+  MOBILE TWEAKS
+========================================================= */
+
+/* =========================================================
+  MINI REACT CARD
+========================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  padding: 28px;
+
+  border-radius: 18px;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.counter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  flex-wrap: wrap;
+}
+
+.counter-value {
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: 1px solid var(--border);
+
+  background: var(--panel-soft);
+
+  color: var(--text);
+
+  padding: 12px 18px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 120ms ease,
+    background 120ms ease,
+    border-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+
+  background: color-mix(in srgb, var(--concept) 10%, var(--panel));
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  border-color: color-mix(in srgb, var(--concept) 40%, var(--border));
+}
+
+.btn-danger {
+  border-color: color-mix(in srgb, var(--wrong) 40%, var(--border));
+}
+
+.btn-success {
+  border-color: color-mix(in srgb, var(--fixed) 40%, var(--border));
+}
+
+@media (max-width: 700px) {
+  .page {
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .counter-value {
+    font-size: 56px;
+  }
+
+  .counter-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .hero-meta {
+    width: 100%;
+  }
+
+  .demo-body {
+    padding: 14px;
+  }
+
+  .code {
+    font-size: 12px;
+  }
+}

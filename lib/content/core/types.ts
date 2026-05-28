@@ -1,3 +1,7 @@
+import { ContentSource } from '../source/contracts';
+
+export type { ContentSource };
+
 export type Slug = string;
 export type ISODateString = string | null;
 export type ContentType = 'blog' | 'kb' | 'authors' | 'terms' | (string & {});
@@ -132,16 +136,6 @@ export interface TreeNode {
   children: TreeNode[];
   isFolder: boolean;
   isFile: boolean;
-}
-
-export interface ContentSource {
-  id: string;
-
-  list(type: string): Promise<string[]>;
-
-  resolve(input: ContentRequest): Promise<ResolvedContentSource | null>;
-
-  read(source: ResolvedContentSource): Promise<RawContent>;
 }
 
 export interface ContentCollection {

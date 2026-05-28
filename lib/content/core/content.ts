@@ -1,5 +1,5 @@
-import { extractTOC } from '../core/extract-toc';
-import { extractHeadings } from '@/lib/remark/extract-headings';
+import { extractTOC } from '@/lib/content';
+import { extractHeadings } from '@/lib/remark';
 
 import { ContentEntity, ContentItem, PipelineContext } from './types';
 

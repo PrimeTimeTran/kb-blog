@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Height Ownership Exhibit</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: #0f1115;
+        color: white;
+        line-height: 1.5;
+        padding: 16px;
+      }
+      .box {
+        height: 128px;
+        width: 128px;
+      }
+      .red {
+        padding: 8px;
+        background-color: red;
+      }
+      .white {
+        padding: 8px;
+        color: black;
+        background-color: white;
+      }
+      .blue {
+        padding: 8px;
+        background-color: blue;
+      }
+      .flex {
+        height: 100%;
+        background-color: pink;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Background</h1>
+    <p>
+      Take away if you don't see a container flex the way you expect, it's likely to be because the parent of this
+      container has not yet defined an absolute height
+    </p>
+    <div class="flex">
+      <div class="box red">1</div>
+      <div class="box white">2</div>
+      <div class="box blue">3</div>
+    </div>
+  </body>
+</html>

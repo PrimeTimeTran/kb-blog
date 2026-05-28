@@ -326,7 +326,7 @@ export const SurfaceDeepDive = () => (
             Use this for "floating" elements like Popups, Modals, or Active Navigation items.
           </p>
           <div className="pt-4 border-t border-outline/10 text-[10px] font-bold text-shadow-on-surface-variant uppercase tracking-tighter">
-            var(--level-highest)
+            var(--highest)
           </div>
         </div>
 

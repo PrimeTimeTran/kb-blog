@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 
-import { useScroll } from '@/providers/ScrollProvider';
+import { useScroll } from '@/providers';
 
 export function BaseScroll({ children, className }: { children: React.ReactNode; className?: string }) {
   const { setScrollEl } = useScroll();

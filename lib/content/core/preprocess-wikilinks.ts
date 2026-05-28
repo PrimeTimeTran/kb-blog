@@ -1,5 +1,3 @@
-import { slug } from 'github-slugger';
-
 // BUG: Wikilinks parsing fails
 // - [ ] Internal links
 // - [ ] Absolute link/path(from root)

@@ -8,9 +8,9 @@ export const levelRank: Record<LogLevel, number> = {
 };
 
 let CONFIG: LoggerConfig = {
-  LOG_LEVEL: (process.env.LOG_LEVEL as LogLevel) || 'debug',
+  LOG_LEVEL: (process.env.LOG_LEVEL as LogLevel) || 'info',
   LOG_SHAPE: (process.env.LOG_SHAPE as LogShape) || 'summary',
-  DEBUG: process.env.DEBUG || 'content:get',
+  DEBUG: process.env.DEBUG || 'content:list',
   TRACE_RAW: false,
   TRACE_SOURCE: true,
   TRACE_ENABLED: process.env.TRACE_ENABLED !== 'false',

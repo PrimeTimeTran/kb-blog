@@ -1,6 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
+// ! DO NOT REMOVE
+// Trying to collapse into Github's toSlug.
+// There's a conflict between MDX, Front Matter, Next, Github Slug parsing
 export function toSlug(filePath, baseDir) {
   return filePath
     .replace(baseDir, '')
@@ -9,7 +12,7 @@ export function toSlug(filePath, baseDir) {
     .replace(/^\/+/, '');
 }
 
-export function getAllFiles(dir) {
+function getAllFiles(dir) {
   const results = [];
 
   const list = fs.readdirSync(dir);
@@ -30,7 +33,7 @@ export function getAllFiles(dir) {
   return results;
 }
 
-export default async function getAllFilesRecursively(dir) {
+async function getAllFilesRecursively(dir) {
   let results = [];
 
   const list = fs.readdirSync(dir);
@@ -51,3 +54,5 @@ export default async function getAllFilesRecursively(dir) {
 
   return results;
 }
+
+export { getAllFiles, getAllFilesRecursively };

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Height Ownership Exhibit</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: #0f1115;
+        color: white;
+        line-height: 1.5;
+      }
+
+      .page {
+        padding: 48px;
+        max-width: 1400px;
+        margin: auto;
+      }
+
+      h1,
+      h2,
+      h3 {
+        margin-top: 0;
+      }
+
+      .section {
+        margin-bottom: 120px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .demo {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 18px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .demo-header {
+        padding: 16px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .demo-body {
+        padding: 20px;
+      }
+
+      .code {
+        background: #0b0d11;
+        border-radius: 12px;
+        padding: 16px;
+        overflow: auto;
+        font-size: 13px;
+      }
+
+      .note {
+        opacity: 0.72;
+      }
+
+      /*
+        ============================================================
+        THE IMPORTANT PART
+        ============================================================
+
+        This parent DOES NOT define height.
+
+        So children using:
+          height: 100%
+          flex: 1
+          align-items: stretch
+
+        have NO REAL HEIGHT CONTEXT.
+
+        This is the thing that becomes confusing in nav systems.
+
+        We think:
+          "make child flex"
+
+        But flex children can only stretch INSIDE a defined height context.
+
+        Otherwise:
+          height becomes "content-sized"
+
+        Which changes layout behavior entirely.
+      */
+
+      .broken-parent {
+        display: flex;
+        gap: 16px;
+
+        /*
+          IMPORTANT:
+          No height defined here.
+        */
+
+        background: rgba(255, 255, 255, 0.03);
+        padding: 16px;
+      }
+
+      .broken-sidebar {
+        width: 180px;
+        background: rgba(255, 0, 100, 0.2);
+        padding: 16px;
+      }
+
+      .broken-content {
+        flex: 1;
+
+        /*
+          This FEELS like it should fill height.
+          But height:100% has nothing to reference.
+
+          So it collapses to content height.
+        */
+
+        height: 100%;
+
+        background: rgba(0, 120, 255, 0.2);
+        padding: 16px;
+      }
+
+      /*
+        ============================================================
+        FIXED VERSION
+        ============================================================
+
+        The parent NOW defines a height context.
+
+        Children finally know:
+          "100% of WHAT?"
+      */
+
+      .fixed-parent {
+        display: flex;
+        gap: 16px;
+
+        height: 400px;
+
+        background: rgba(255, 255, 255, 0.03);
+        padding: 16px;
+      }
+
+      .fixed-sidebar {
+        width: 180px;
+        background: rgba(255, 0, 100, 0.2);
+        padding: 16px;
+      }
+
+      .fixed-content {
+        flex: 1;
+        height: 100%;
+
+        background: rgba(0, 120, 255, 0.2);
+        padding: 16px;
+
+        overflow: auto;
+      }
+
+      /*
+        ============================================================
+        THE NAVBAR VERSION OF THE SAME BUG
+        ============================================================
+
+        This is the REAL thing that happened.
+
+        We needed:
+          - right column
+          - full-height presenter
+          - scrolling
+          - aligned panels
+
+        So we added height constraints higher up.
+
+        But once the parent owned height,
+        the dropdown became a giant interaction surface.
+
+        NOT because of flex itself.
+
+        Because:
+          layout ownership changed.
+      */
+
+      .nav-shell {
+        position: relative;
+        margin-top: 40px;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .dropdown {
+        /*
+          THIS was the turning point.
+
+          We introduced:
+            height ownership
+
+          because the right column needed
+          a real vertical layout system.
+        */
+
+        height: 80vh;
+
+        display: flex;
+
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .left-column {
+        width: 320px;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 24px;
+      }
+
+      .right-column {
+        flex: 1;
+
+        /*
+          NOW this finally behaves correctly.
+
+          Because parent defines height.
+        */
+
+        display: flex;
+        flex-direction: column;
+
+        padding: 24px;
+        gap: 16px;
+      }
+
+      .presenter {
+        flex: 1;
+
+        /*
+          This was probably the thing
+          that "started working"
+
+          and accidentally changed
+          the interaction model.
+        */
+
+        background: rgba(0, 120, 255, 0.15);
+        border-radius: 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 0;
+      }
+
+      .callout {
+        margin-top: 24px;
+        padding: 20px;
+        border-radius: 16px;
+        background: rgba(255, 180, 0, 0.08);
+        border: 1px solid rgba(255, 180, 0, 0.2);
+      }
+
+      blockquote {
+        margin: 0;
+        padding-left: 16px;
+        border-left: 3px solid rgba(255, 255, 255, 0.2);
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <section class="section">
+        <h1>Flex Children Do Not "Fill Space"</h1>
+
+        <blockquote>A flex child can only stretch inside a parent that owns height.</blockquote>
+
+        <div class="callout">This is the hidden thing that caused your navbar system to change behavior.</div>
+      </section>
+
+      <section class="section grid">
+        <div class="demo">
+          <h2 class="demo-header">❌ Broken Mental Model</h2>
+
+          <div class="demo-body">
+            <pre class="code">.parent { display: flex; } .child { flex: 1; height: 100%; }</pre>
+
+            <p class="note">The child looks like it should fill height.</p>
+
+            <p class="note">But 100% of WHAT?</p>
+
+            <div class="broken-parent">
+              <div class="broken-sidebar">Sidebar</div>
+
+              <div class="broken-content">
+                This does NOT truly fill height.<br /><br />
+                Parent never defined one.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo">
+          <h2 class="demo-header">✅ Correct Height Ownership</h2>
+
+          <div class="demo-body">
+            <pre class="code">.parent { display: flex; height: 400px; } .child { flex: 1; height: 100%; }</pre>
+
+            <p class="note">Parent now owns vertical space.</p>
+
+            <p class="note">Child finally knows what "100%" means.</p>
+
+            <div class="fixed-parent">
+              <div class="fixed-sidebar">Sidebar</div>
+
+              <div class="fixed-content">This NOW fills height correctly.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>The Navbar Version Of This Problem</h2>
+
+        <div class="code">
+          Before: dropdown sized naturally by content After: dropdown owns height (80vh) Reason: right column presenter
+          needed real vertical layout Result: interaction surface became huge
+        </div>
+
+        <div class="nav-shell">
+          <div class="nav">Navbar</div>
+
+          <div class="dropdown">
+            <div class="left-column">Navigation Links</div>
+
+            <div class="right-column">
+              <div>Header / Metadata</div>
+
+              <div class="presenter">Presenter / Frame / Preview Area</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <h3>The Important Turning Point</h3>
+
+          <p>The dropdown became tall because the right column finally needed a REAL height system.</p>
+
+          <p>Once that happened:</p>
+
+          <ul>
+            <li>The dropdown stopped being "content-sized"</li>
+            <li>The container became a major interaction region</li>
+            <li>Hover ownership suddenly mattered</li>
+            <li>Leaving the navbar no longer felt natural</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

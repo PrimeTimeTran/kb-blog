@@ -2,9 +2,8 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
+import { TERMS_DIR } from '@/lib/content';
 import { buildBacklinks } from './build-back-links';
-
-import { TERMS_DIR } from '../core/constants';
 
 function slugify(file) {
   return file.replace(/\.mdx?$/, '');

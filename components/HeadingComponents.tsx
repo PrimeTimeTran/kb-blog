@@ -1,4 +1,4 @@
-import { HEADING_THEME } from '../lib/theme/theme.cjs';
+import { HEADING_THEME } from '../lib/theme/theme';
 
 const createHeading = (Tag, style) => {
   const HeadingComponent = ({ id, className = 'scroll-mt-24', ...props }) => (

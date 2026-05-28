@@ -1,0 +1,6 @@
+{
+  "name": "@primetimetran/blog",
+  "scripts": {
+    "build": "node scripts/bundle-icons.js && next build"
+  }
+}

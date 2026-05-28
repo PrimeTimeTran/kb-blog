@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Flex Height Ownership Exhibit</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        line-height: 1.5;
+        background: var(--bg);
+        color: var(--text);
+      }
+      /* =========================================================
+          DESIGN TOKENS
+        ========================================================== */
+      :root {
+        --space-1: 8px;
+        --space-2: 12px;
+        --space-3: 16px;
+        --space-4: 24px;
+        --space-5: 32px;
+        --space-6: 48px;
+        --space-7: 64px;
+        --space-8: 96px;
+
+        --bg: #f6f7fb;
+        --panel: #ffffff;
+        --panel-soft: rgba(255, 255, 255, 0.7);
+
+        --text: #0f172a;
+        --muted: rgba(15, 23, 42, 0.65);
+
+        --border: rgba(15, 23, 42, 0.12);
+
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+        /* role palette */
+        --neutral: #acbace;
+        --wrong: #ef4444;
+        --fixed: #22c55e;
+        --concept: #2563eb;
+        --warn: #f59e0b;
+        --info: #a855f7;
+
+        /* CODE = neutral default (dark always) */
+        --code-bg: #f1f5f9;
+        --code-text: #0f172a;
+        --code-border: rgba(15, 23, 42, 0.12);
+        --code-accent: rgba(37, 99, 235, 0.25);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0f1115;
+          --panel: #141821;
+          --panel-soft: rgba(255, 255, 255, 0.04);
+
+          --text: #e5e7eb;
+          --muted: rgba(229, 231, 235, 0.65);
+
+          --border: rgba(255, 255, 255, 0.08);
+
+          --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+
+          --code-bg: #0b0f17; /* true editor dark */
+          --code-text: #e5e7eb;
+          --code-border: rgba(255, 255, 255, 0.1);
+          --code-accent: rgba(96, 165, 250, 0.22);
+        }
+      }
+      /* =========================================================
+          PAGE
+        ========================================================== */
+      .page {
+        padding: var(--space-6);
+        max-width: 1400px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-5);
+      }
+
+      .hero {
+        padding: 28px;
+        border-radius: 18px;
+        background: var(--panel-soft);
+        border: 1px solid var(--border);
+      }
+
+      .hero-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+      }
+
+      .hero-title {
+        font-size: 28px;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 8px;
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .hero-desc {
+        margin-top: 12px;
+        font-size: 14px;
+        max-width: 80ch;
+      }
+
+      .hero-legend {
+        margin-top: 18px;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      /* tags */
+      .tag {
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--panel);
+        color: var(--muted);
+      }
+
+      .tag.proposition {
+        border-color: var(--concept);
+      }
+      .tag.wrong {
+        border-color: var(--wrong);
+      }
+      .tag.fixed {
+        border-color: var(--fixed);
+      }
+      .tag.warning {
+        border-color: var(--warn);
+      }
+      .tag.info {
+        border-color: var(--info);
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-5);
+      }
+
+      /* =========================================================
+            CARD ROOT (single source of truth for shape)
+          ========================================================== */
+
+      .demo {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      /* surface becomes the ONLY painted card */
+      .demo-surface {
+        position: relative;
+        border-radius: 0; /* important: avoid double rounding artifacts */
+        border: 1px solid var(--border);
+        background: var(--panel-soft);
+      }
+
+      /* role accent bar */
+      .demo-surface.role::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+
+        pointer-events: none;
+      }
+
+      /* =========================================================
+    HEADER (must NOT compete with card radius)
+  ========================================================== */
+
+      .demo-header {
+        padding: 14px 18px;
+        border-bottom: 1px solid var(--border);
+        font-weight: 600;
+        font-size: 13px;
+
+        /* KEY FIX: ensure it behaves like a surface layer, not a card */
+        background: color-mix(in srgb, var(--panel) 60%, transparent);
+      }
+
+      /* =========================================================
+          BODY
+        ========================================================== */
+
+      .demo-body {
+        padding: var(--space-4);
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+      }
+
+      /* =========================================================
+        ROLE SYSTEM (ONLY ONE SIGNAL PATH)
+      ========================================================== */
+
+      /* =========================
+   LEFT ROLE INDICATOR
+   (single source, clipped correctly)
+========================= */
+      .role {
+        position: relative;
+      }
+
+      /* attach indicator to the surface, not floating geometry */
+      .role::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+      }
+
+      /* colors */
+      .role-proposition::before {
+        background: var(--concept);
+      }
+      .role-wrong::before {
+        background: var(--wrong);
+      }
+      .role-fixed::before {
+        background: var(--fixed);
+      }
+      .role-warning::before {
+        background: var(--warn);
+      }
+      .role-info::before {
+        background: var(--info);
+      }
+      .role-neutral::before {
+        background: var(--neutral);
+      }
+
+      /* =========================
+   HEADER TINTING ONLY
+========================= */
+      .role-wrong .demo-header {
+        background: color-mix(in srgb, var(--wrong) 10%, transparent);
+      }
+      .role-fixed .demo-header {
+        background: color-mix(in srgb, var(--fixed) 10%, transparent);
+      }
+      .role-proposition .demo-header {
+        background: color-mix(in srgb, var(--concept) 10%, transparent);
+      }
+      .role-warning .demo-header {
+        background: color-mix(in srgb, var(--warn) 10%, transparent);
+      }
+      .role-info .demo-header {
+        background: color-mix(in srgb, var(--info) 10%, transparent);
+      }
+      .role-neutral .demo-header {
+        background: color-mix(in srgb, var(--neutral) 10%, transparent);
+      }
+
+      /* =========================================================
+          CODE BLOCK
+        ========================================================== */
+      .code {
+        background: var(--code-bg);
+        color: var(--code-text);
+
+        border: 1px solid var(--code-border);
+        border-left: 3px solid var(--code-accent);
+
+        padding: 14px;
+        border-radius: 12px;
+
+        font-size: 13px;
+        line-height: 1.5;
+
+        overflow: auto;
+
+        /* subtle elevation instead of darkness */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      }
+
+      .note {
+        color: var(--muted);
+      }
+
+      /* =========================================================
+          SIMPLE DEMO CONTENT
+        ========================================================== */
+
+      .box {
+        padding: 16px;
+        border-radius: 12px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+      }
+
+      .surface {
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        overflow: hidden;
+        background: var(--panel-soft);
+      }
+      .surface-scroll {
+        max-height: 420px;
+        overflow-y: auto;
+        background: var(--panel);
+      }
+      .surface-header {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+
+        background: var(--panel);
+        border-bottom: 1px solid var(--border);
+
+        padding: 12px 16px;
+        font-weight: 600;
+      }
+    </style>
+    <style>
+      /* =========================================================
+        DEMO LAYOUTS (NO COLOR HERE)
+      ========================================================= */
+
+      .broken-parent,
+      .fixed-parent {
+        display: flex;
+        gap: 16px;
+        padding: 16px;
+        background: var(--panel);
+      }
+
+      .fixed-parent {
+        height: 400px;
+      }
+
+      .broken-sidebar,
+      .fixed-sidebar {
+        width: 180px;
+        background: color-mix(in srgb, var(--wrong) 20%, transparent);
+        padding: 16px;
+      }
+
+      .broken-content,
+      .fixed-content {
+        flex: 1;
+        background: color-mix(in srgb, var(--concept) 15%, transparent);
+        padding: 16px;
+      }
+
+      /* =========================================================
+   NAV DEMO
+========================================================= */
+
+      .nav-shell {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+      }
+
+      .nav {
+        height: 72px;
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        background: var(--panel-soft);
+      }
+
+      .dropdown {
+        height: 80vh;
+        display: flex;
+      }
+
+      .left-column {
+        width: 320px;
+        border-right: 1px solid var(--border);
+        padding: 24px;
+      }
+
+      .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+      }
+
+      .presenter {
+        flex: 1;
+        border-radius: 14px;
+        background: color-mix(in srgb, var(--concept) 15%, transparent);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- HERO (unchanged conceptually, optional later unify too) -->
+      <section class="section hero">
+        <div class="hero-title">Flex Children Do Not "Fill Space"</div>
+
+        <blockquote>A flex child can only stretch inside a parent that owns height.</blockquote>
+
+        <div class="callout">This is the hidden thing that caused your navbar system to change behavior.</div>
+      </section>
+
+      <section class="section grid">
+        <div class="demo role role-wrong">
+          <div class="demo-header">❌ Broken Mental Model</div>
+
+          <div class="demo-body">
+            <pre class="code">.parent { display: flex; } .child { flex: 1; height: 100%; }</pre>
+
+            <div class="box">
+              <div class="broken-parent">
+                <div class="broken-sidebar box">Sidebar</div>
+                <div class="broken-content box">No height context</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✅ FIXED CARD -->
+        <div class="demo role role-fixed">
+          <div class="demo-surface">
+            <div class="demo-header">✅ Correct Height Ownership</div>
+
+            <div class="demo-body">
+              <pre class="code">.parent { height: 400px; }</pre>
+
+              <div class="box">
+                <div class="fixed-parent">
+                  <div class="fixed-sidebar box">Sidebar</div>
+                  <div class="fixed-content box">Now works</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NAV DEMO -->
+      <section class="section">
+        <div class="demo role role-neutral">
+          <div class="demo-surface">
+            <div class="demo-header">Navbar Version</div>
+
+            <div class="demo-body">
+              <div class="nav-shell">
+                <div class="nav">Navbar</div>
+
+                <div class="dropdown">
+                  <div class="left-column">Links</div>
+
+                  <div class="right-column">
+                    <div>Header</div>
+                    <div class="presenter box">Presenter</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

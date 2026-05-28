@@ -4,7 +4,7 @@ import { CgDanger } from 'react-icons/cg';
 import { AiOutlineBug } from 'react-icons/ai';
 import { MdOutlineTipsAndUpdates } from 'react-icons/md';
 
-import { callOutTheme } from '../../lib/theme/theme.cjs';
+import { callOutTheme } from '@/lib';
 
 // 💡 Reference: Icons
 // https://react-icons.github.io/react-icons/icons/ai/

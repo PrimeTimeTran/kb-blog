@@ -1,7 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { getContent } from './get-content.js';
-import { buildTermsRegistry } from './build-terms-registry.js';
+
+import { getContent, buildTermsRegistry } from '@/lib/content';
 
 function canonicalSlug(s) {
   return s

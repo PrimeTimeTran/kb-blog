@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exhibit 3 - Right Locked</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        z-index: 10;
+      }
+
+      .container {
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+        padding: 20px;
+        align-items: start;
+      }
+
+      .left {
+        min-height: 2000px;
+        background: #fafafa;
+        padding: 10px;
+      }
+
+      /* ✅ RIGHT IS LOCKED */
+      .right {
+        position: sticky;
+        top: 60px;
+        height: calc(100vh - 60px);
+        overflow: hidden;
+        background: #eee;
+        padding: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="navbar">Navbar (fixed)</div>
+
+    <div class="container">
+      <div class="left">
+        LEFT (scrolling)<br /><br />
+        Long content area...<br /><br />
+        Scroll continues...<br /><br />
+        etc...
+      </div>
+
+      <div class="right">
+        RIGHT (LOCKED)<br /><br />
+        This stays pinned.<br />
+        Good for inspectors, filters, tool panels.
+      </div>
+    </div>
+  </body>
+</html>

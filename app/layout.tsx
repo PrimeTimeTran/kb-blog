@@ -4,8 +4,8 @@ import '../css/tailwind.css';
 import { AppShell } from '@/components';
 
 import { siteMetaDataHeader } from '../data/site-metadata-header';
-import ShowcasePage from './(lab)/workspaces/page';
 import Layout2 from './z.layout';
+import ShowcasePage from './(lab)/workspaces/page';
 
 export const dynamic = 'force-dynamic';
 // NOTE:

@@ -1,3 +1,0 @@
-useEffect(() => {
-  setMounted(true);
-}, []);

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hover Trap Exhibit</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        height: 200vh;
+        background: #0b0b0f;
+        color: white;
+      }
+
+      /* ===== FIXED NAV SYSTEM ===== */
+      .nav-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+      }
+
+      .nav {
+        height: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+        background: rgba(20, 20, 30, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-items {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        gap: 40px;
+      }
+
+      .nav-item {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+
+      .nav-item:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* ===== DROPDOWN SYSTEM ===== */
+      .dropdown {
+        background: rgba(40, 40, 60, 0.95);
+        overflow: hidden;
+        transition: all 200ms ease;
+      }
+
+      .panel {
+        padding: 24px;
+        display: flex;
+        gap: 24px;
+      }
+
+      .card {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 16px;
+        border-radius: 8px;
+      }
+
+      /* ===== THE "BOTTOM TRAP" ===== */
+      .bottom-trap {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 96px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 0, 0, 0.08);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+        cursor: default;
+      }
+
+      .pulse {
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+
+      /* ===== CONTENT ===== */
+      .content {
+        padding-top: 120px;
+        padding-left: 24px;
+      }
+
+      .hint {
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="nav-container">
+      <div class="nav">
+        <div>LOGO</div>
+
+        <div class="nav-items">
+          <div class="nav-item">Runtime</div>
+          <div class="nav-item">Systems</div>
+          <div class="nav-item">Docs</div>
+        </div>
+
+        <div>Theme</div>
+      </div>
+
+      <div class="dropdown">
+        <div class="panel">
+          <div class="card">Panel A</div>
+          <div class="card">Panel B</div>
+          <div class="card">Panel C</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== BOTTOM TRAP (THE BUG) ===== -->
+    <div class="bottom-trap pulse">Move cursor here to exit navigation</div>
+
+    <div class="content">
+      <h1>Scroll the page</h1>
+      <p class="hint">Try moving your mouse from the dropdown downward — notice how it never truly "escapes".</p>
+      <p class="hint">This is not a UI bug. It is a boundary design problem.</p>
+      <div class="margin-auto">
+        <h1>When Layout Becomes Interaction: Why My Navbar Started Resizing Everything</h1>
+        <h1>The Hover Trap: How Fixed Layouts Accidentally Become Modal Systems</h1>
+        <h2>Meaning:</h2>
+        <ul>
+          <li>
+            <h3>1. A fixed container</h3>
+            <pre>fixed inset-x-0 top-0</pre>
+            <blockquote>➡ removes layout from document flow</blockquote>
+          </li>
+          <li>
+            <h3>2. Flex children that expand infinitely</h3>
+            <pre>flex flex-1 justify-center</pre>
+            <blockquote>➡ causes width redistribution across all nav items</blockquote>
+          </li>
+          <li>
+            <h3>3. Panels that participate in flex layout</h3>
+            <pre>flex w-full</pre>
+            <blockquote>➡ now the dropdown is part of the same “horizontal geometry system”</blockquote>
+          </li>
+          <li>
+            <h3>4. A second fixed layer at bottom</h3>
+            <pre>fixed inset-x-0 bottom-0</pre>
+            <blockquote>➡ creates a second interaction boundary</blockquote>
+          </li>
+        </ul>
+
+        <h2>Meaning:</h2>
+        <ul>
+          <li>- mouse never truly exits interaction system</li>
+          <li>- hover states re-trigger unexpectedly</li>
+          <li>- layout feels like it's resizing</li>
+          <li>- dropdown feels “sticky”</li>
+          <li>- escape requires artificial gaps</li>
+        </ul>
+      </div>
+
+      <div>
+        When multiple fixed layers define interaction zones, layout stops being visual structure and becomes a state
+        machine.
+      </div>
+    </div>
+  </body>
+</html>

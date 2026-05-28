@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useRef, useState, Dispatch, SetStateAction } from 'react';
 
-import { useScrollState } from '../hooks/useScrollState';
+import { useScrollState } from '@/hooks';
 
 // RULE:
 // - use `import type` when the import is ONLY used as a TypeScript type (interfaces, type aliases, generics)
@@ -30,20 +30,12 @@ export const ScrollContext = createContext<ScrollContextValue | null>(null);
 
 export function ScrollProvider({ children }) {
   const [toc, setToc] = useState<TOCItemData[]>([]);
+  const scrollElRef = useRef<HTMLElement | null>(null);
+  const [scrollEl, setScrollElState] = useState<HTMLElement | null>(null);
 
-  // DOM element lives here
-  const scrollElRef = useRef(null);
-
-  // React state version (IMPORTANT: triggers hook updates)
-  const [scrollEl, setScrollElState] = useState(null);
-
-  /**
-   * Callback ref from ScrollContainer
-   * This is the ONLY way the DOM node enters React state safely
-   */
-  const setScrollEl = useCallback((node) => {
-    scrollElRef.current = node;
-    setScrollElState(node);
+  const setScrollEl = useCallback((el: HTMLElement | null) => {
+    scrollElRef.current = el;
+    setScrollElState(el);
   }, []);
 
   /**

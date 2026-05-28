@@ -8,7 +8,7 @@ import { LiveProvider, LiveError, LivePreview } from 'react-live';
 import { Editor } from './Editor';
 import { useLiveEditor } from './useLiveEditor';
 import { registry } from 'registry.generated';
-import { buildRegistry } from '@/lib/buildScope';
+import { buildRegistry } from '@/lib/build-scope';
 
 import 'ace-builds/src-noconflict/mode-jsx';
 import 'ace-builds/src-noconflict/mode-typescript';

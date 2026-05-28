@@ -1,4 +1,4 @@
-import type { Slug, ISODateString, FrontMatterBase, NormalizedPost, TreeNode } from './types';
+import type { Slug, ISODateString, TreeNode } from './types';
 
 export function normalizeDate(input: unknown): ISODateString {
   if (!input) return null;

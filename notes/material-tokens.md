@@ -40,7 +40,7 @@ You mentioned search bars are containers with borders. Here is how you'd token t
 
 **State: Idle (Neutral)**
 
-- **Bg:** `var(--level-highest)` (It looks like a shallow hole in the page).
+- **Bg:** `var(--highest)` (It looks like a shallow hole in the page).
 - **Border:** `var(--outline)` (A subtle grey line).
 - **Text:** `var(--on-surface-variant)` (Ghostly placeholder text).
 

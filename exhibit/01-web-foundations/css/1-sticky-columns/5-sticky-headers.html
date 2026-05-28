@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Exhibit — Sticky Scroll Architecture</title>
+
+    <!-- =========================================================
+         1. BASE UI LAYER (SAFE TO REMOVE — VISUAL ONLY)
+    ========================================================== -->
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        background: #f3f4f6;
+      }
+
+      .navbar {
+        background: #111827;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        font-size: 13px;
+      }
+
+      .left {
+        background: #0f172a;
+        color: #e5e7eb;
+        padding: 16px;
+      }
+
+      .section {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+
+      .text {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #111827;
+      }
+    </style>
+
+    <!-- =========================================================
+         2. CORE BEHAVIOR LAYER (REQUIRED — BREAKS IF REMOVED)
+    ========================================================== -->
+    <style>
+      body {
+        height: 100vh;
+        overflow: hidden; /* REQUIRED: prevents double scroll context */
+      }
+
+      .app {
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 60px 1fr; /* navbar + content split */
+      }
+
+      .navbar {
+        height: 60px;
+        flex-shrink: 0;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        min-height: 0; /* REQUIRED for sticky in grid children */
+      }
+
+      .right {
+        overflow-y: auto; /* REQUIRED: defines sticky scroll context */
+        min-height: 0;
+
+        /* IMPORTANT FIX YOU DISCOVERED */
+        padding: 0; /* sticky origin stays correct */
+        background: #f9fafb;
+      }
+
+      .right-inner {
+        padding: 24px; /* SAFE: does NOT affect sticky root */
+      }
+
+      .group {
+        margin-bottom: 28px;
+      }
+
+      .group-header {
+        position: sticky;
+        top: 0; /* anchors to scroll container top */
+
+        z-index: 10;
+
+        /* visual styling only */
+        margin: 0 -24px 12px -24px;
+        padding: 10px 16px;
+
+        background: #f9fafb;
+        border-bottom: 1px solid #e5e7eb;
+
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #2563eb;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="navbar">Navbar</div>
+
+      <div class="content">
+        <div class="left">
+          LEFT PANEL<br />
+          (non-scrolling)
+        </div>
+
+        <div class="right">
+          <div class="right-inner">
+            <div class="group">
+              <div class="group-header">Section 1 — Initialization</div>
+
+              <section class="section">
+                <div class="text">Sticky headers must align to the scroll container, not padded inner wrappers.</div>
+              </section>
+
+              <section class="section">
+                <div class="text">
+                  Padding inside the scroll container shifts sticky origin — causing visual offset bugs.
+                </div>
+              </section>
+            </div>
+
+            <div class="group">
+              <div class="group-header">Section 2 — Scroll Activation</div>
+
+              <section class="section">
+                <div class="text">Only the right column participates in scrolling.</div>
+              </section>
+            </div>
+
+            <div class="group">
+              <div class="group-header">Section 3 — Layout Stability</div>
+
+              <section class="section">
+                <div class="text">min-height: 0 is required for grid children to allow overflow + sticky.</div>
+              </section>
+            </div>
+
+            <!-- FORCE SCROLL DEPTH -->
+            <div style="height: 1200px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

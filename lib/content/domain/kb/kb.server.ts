@@ -1,15 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
-import { KB_DIR } from '../../core/constants';
-import { normalizeTree } from '../../core/normalize';
-import getAllFilesRecursively from '../../server/files';
+import { KB_DIR, getAllFilesRecursively } from '@/lib/content';
 
 export async function getKbTree() {
   const files = await getAllFilesRecursively(KB_DIR);
 
-  const tree = {};
+  const root: Record<string, any> = {};
 
   for (const filePath of files) {
     const relative = filePath
@@ -20,7 +14,7 @@ export async function getKbTree() {
 
     const parts = relative.split('/');
 
-    let current = tree;
+    let current = root;
     let pathSoFar = '';
 
     for (let i = 0; i < parts.length; i++) {
@@ -32,51 +26,39 @@ export async function getKbTree() {
       if (!current[part]) {
         current[part] = {
           name: part,
+          kind: isFile ? 'file' : 'folder',
           children: {},
-          file: null,
-          slug: pathSoFar,
+          path: `/${pathSoFar}`,
         };
       }
 
+      // IMPORTANT: override folder if deeper structure appears
+      if (!isFile) {
+        current[part].kind = 'folder';
+      }
+
       if (isFile) {
-        current[part].file = pathSoFar;
+        current[part].kind = 'file';
       }
 
       current = current[part].children;
     }
   }
 
-  return normalizeTree(tree);
+  return toTree(root);
 }
 
-export async function buildKbRegistry() {
-  const files = await getAllFilesRecursively(KB_DIR);
-
-  const registry = {};
-  for (const file of files) {
-    try {
-      const source = fs.readFileSync(file, 'utf8');
-      const parsed = matter(source);
-
-      const slug = file
-        .replace(KB_DIR, '')
-        .replace(/\.mdx?$/, '')
-        .replace(/^\/+/, '');
-
-      const key = path.basename(slug);
-
-      // const Content = await compileToComponent(parsed.content)
-
-      registry[key] = {
-        // Content,
-        mdxSource: parsed.content,
-        frontMatter: parsed.data,
-      };
-    } catch (e) {
-      console.error('❌ MDX FAILED:', file);
-      console.error(e);
-    }
-  }
-
-  return registry;
+function toTree(map: Record<string, any>): TreeNode[] {
+  return Object.values(map)
+    .map((node: any) => ({
+      id: node.path,
+      name: node.name,
+      path: node.path,
+      kind: node.kind,
+      children: node.kind === 'file' ? [] : toTree(node.children ?? {}),
+    }))
+    .sort((a, b) => {
+      if (a.kind !== b.kind) return a.kind === 'folder' ? -1 : 1;
+      return a.name.localeCompare(b.name);
+    });
 }

@@ -1,148 +1,59 @@
-// new file, new folder, refresh explorer, collapase directories
-import js from '@eslint/js';
 import globals from 'globals';
+import js from '@eslint/js';
+import next from '@next/eslint-plugin-next';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
-import next from '@next/eslint-plugin-next';
 import tseslint from 'typescript-eslint';
 
 export default [
-  // =========================================================
-  // 1. GLOBAL IGNORES (always first)
-  // =========================================================
   {
-    ignores: [
-      '**/.next',
-      '**/.vercel',
-      '**/node_modules',
-      '**/dist',
-      'node_modules/**',
-      '.next/**',
-      'out/**',
-      'dist/**',
-      'coverage/**',
-      '**/*.mdx.js',
-      'public/**',
-    ],
+    ignores: ['.next/', '.vercel/', 'node_modules/', 'dist/', 'out/', 'coverage/', 'public/', 'omit/', 'exhibit/'],
   },
 
-  // =========================================================
-  // 2. BASE LANGUAGE LAYER (JS + TS + NEXT)
-  // =========================================================
-  js.configs.recommended,
-  ...tseslint.configs.recommended,
-  next.configs.recommended,
-
-  // IMPORTANT GLOBAL FIX (TS + Next already handle undefined checks)
+  // 1. Global Setup (Applies to all files)
   {
-    rules: {
-      'no-undef': 'off',
+    files: ['**/*.{js,jsx,ts,tsx}'],
+    languageOptions: {
+      parser: tseslint.parser, // CRITICAL: Explicitly set the TS parser
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: { jsx: true },
+      },
+      globals: { ...globals.browser, ...globals.node },
     },
-  },
-  {
-    files: ['**/*.cjs', '**/*.js', 'scripts/**/*', '**/*.ts', '**/*.tsx'],
-
+    plugins: {
+      '@typescript-eslint': tseslint.plugin,
+      react,
+      'react-hooks': reactHooks,
+      '@next/next': next,
+    },
     rules: {
-      '@typescript-eslint/no-require-imports': 'off',
-      'react/prop-types': 'off',
+      ...js.configs.recommended.rules,
+      ...tseslint.configs.recommended.rules,
+      ...reactHooks.configs.recommended.rules,
+      ...next.configs.recommended.rules,
+
+      // Personal preferences
+      // 'no-undef': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-expressions': 'off',
+
+      'react/react-in-jsx-scope': 'off',
     },
-  },
-
-  // =========================================================
-  // 3. APP LAYER (React / Next UI CODE)
-  // =========================================================
-  {
-    files: [
-      'pages/**/*.{js,jsx,ts,tsx}',
-      'components/**/*.{js,jsx,ts,tsx}',
-      'app/**/*.{js,jsx,ts,tsx}',
-      'lib/**/*.{js,jsx,ts,tsx}',
-    ],
-
     settings: {
       react: {
         version: 'detect',
       },
     },
-
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module',
-
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-
-      globals: {
-        ...globals.browser,
-        process: 'readonly',
-      },
-    },
-
-    plugins: {
-      react,
-      'react-hooks': reactHooks,
-    },
-
-    rules: {
-      // hooks (keep)
-      ...reactHooks.configs.recommended.rules,
-
-      // React 17+ JSX runtime fixes
-      'react/react-in-jsx-scope': 'off',
-      'react/jsx-uses-react': 'off',
-
-      // general React noise reduction
-      'react/no-unescaped-entities': 'off',
-      'react/prop-types': 'off',
-
-      // TS ergonomics
-      '@typescript-eslint/no-explicit-any': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-    },
   },
 
-  // =========================================================
-  // 4. SERVER / NODE CONTEXT (scripts, APIs, server code)
-  // =========================================================
+  // 2. Specific Overrides (Only where necessary)
   {
-    files: ['scripts/**/*', 'lib/content/server/**/*', 'pages/api/**/*'],
-
-    languageOptions: {
-      globals: {
-        ...globals.node,
-      },
-    },
-
+    files: ['scripts/**/*', 'pages/api/**/*'],
     rules: {
-      'no-undef': 'off',
-    },
-  },
-
-  // =========================================================
-  // 5. SPECIAL CASE FILES (mixed-runtime / tooling / scratch)
-  // =========================================================
-  {
-    files: ['scratchpads/**/*', 'data/**/*', 'next.config.js', 'pages/_app.js'],
-
-    languageOptions: {
-      globals: {
-        URL: 'readonly',
-        fetch: 'readonly',
-        console: 'readonly',
-        document: 'readonly',
-        setTimeout: 'readonly',
-        process: 'readonly',
-      },
-    },
-
-    rules: {
-      'no-undef': 'off',
+      // Add server-specific rules here
     },
   },
 ];

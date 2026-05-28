@@ -1,18 +1,30 @@
 'use client';
 
-import { createContext, useContext, useState } from 'react';
+import { createContext, Dispatch, SetStateAction, useContext, useState } from 'react';
 import { DEFAULT_LEFT, DEFAULT_RIGHT } from '../data/core-constants';
-import { Graffiti } from '@/components/Graffiti';
-import { AppNavbar } from '@/components/layout/AppNavbar';
 
 const LayoutContext = createContext(null);
+
+type Layout = {
+  layout: {
+    left: number;
+    right: number;
+  };
+  setLayout: Dispatch<
+    SetStateAction<{
+      left: number;
+      right: number;
+    }>
+  >;
+};
 
 export function LayoutProvider({ children }) {
   const [layout, setLayout] = useState({
     left: DEFAULT_LEFT,
     right: DEFAULT_RIGHT,
   });
-  return <LayoutContext.Provider value={{ layout, setLayout }}>{children}</LayoutContext.Provider>;
+  const value: Layout = { layout, setLayout };
+  return <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>;
 }
 
 export function useLayout() {

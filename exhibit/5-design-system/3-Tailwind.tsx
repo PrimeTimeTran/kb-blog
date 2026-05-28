@@ -1,7 +1,7 @@
 'use client';
 
 import { Box } from 'lucide-react';
-import { SectionTitle } from './tailwind/components';
+import { SectionTitle } from './components';
 
 const inputBase =
   'w-full rounded-lg border bg-[var(--surface)] px-4 py-2 outline-none transition ' +

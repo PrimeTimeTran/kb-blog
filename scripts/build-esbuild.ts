@@ -1,7 +1,8 @@
 import path from 'path';
-import fs from 'fs';
 import esbuild from 'esbuild';
 import { fileURLToPath } from 'url';
+
+import { walk } from '@/lib/fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -19,29 +20,7 @@ const entryRoot = path.join(projectRoot, 'pkg/live-editor/lib/frameworks/base/ne
 
 const out = path.join(projectRoot, 'dist');
 
-function walk(dir: string): string[] {
-  if (!fs.existsSync(dir)) {
-    throw new Error(`Directory does not exist: ${dir}`);
-  }
-
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-  let files: string[] = [];
-
-  for (const e of entries) {
-    const full = path.join(dir, e.name);
-
-    if (e.isDirectory()) {
-      files = files.concat(walk(full));
-    } else if (/\.(ts|tsx|js|jsx)$/.test(full)) {
-      files.push(full);
-    }
-  }
-
-  return files;
-}
-
-const entryPoints = walk(entryRoot);
+const entryPoints = walk(entryRoot, { includeExtensions: ['.ts', '.tsx', '.js', 'jsx'] });
 
 function build(format: 'esm' | 'cjs') {
   return esbuild.build({

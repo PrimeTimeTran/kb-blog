@@ -9,21 +9,6 @@ import { useMemo, useState } from 'react';
 // ↓
 // React render
 
-function hasRender(c) {
-  return /render\(\s*</.test(c);
-}
-function stripExistingRender(c) {
-  return c.replace(/render\(\s*<.*?>\s*\)\s*/g, '');
-}
-function stripExports(c) {
-  return c.replace(/export\s+default\s+/g, '').replace(/export\s+/g, '');
-}
-function stripNodeStuff(c) {
-  return c
-    .replace(/\brequire\s*\([^)]*\)/g, '')
-    .replace(/\bmodule\.exports\b/g, '')
-    .replace(/\bexports\b/g, '');
-}
 export function transformCode(c) {
   const noRender = stripExistingRender(c);
   const noExports = stripExports(noRender);
@@ -63,7 +48,6 @@ export function transformCode(c) {
 
   return cleaned;
 }
-
 export function useLiveEditor(initialCode) {
   const [editorCode, setEditorCode] = useState(initialCode);
   const code = useMemo(() => {
@@ -74,4 +58,20 @@ export function useLiveEditor(initialCode) {
     setEditorCode(c);
   };
   return { code, onUpdateCode };
+}
+
+function hasRender(c) {
+  return /render\(\s*</.test(c);
+}
+function stripExistingRender(c) {
+  return c.replace(/render\(\s*<.*?>\s*\)\s*/g, '');
+}
+function stripExports(c) {
+  return c.replace(/export\s+default\s+/g, '').replace(/export\s+/g, '');
+}
+function stripNodeStuff(c) {
+  return c
+    .replace(/\brequire\s*\([^)]*\)/g, '')
+    .replace(/\bmodule\.exports\b/g, '')
+    .replace(/\bexports\b/g, '');
 }
