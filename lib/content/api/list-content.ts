@@ -1,6 +1,6 @@
-import type { ContentCollection, ContentItem, ContentListConfig } from '@/lib/content/types';
+import type { BaseContentItem, ContentCollection, ContentListConfig } from '@/lib/content/types';
 import { buildParsePipeline, createPipelineContext } from '@/lib/content/pipeline/runtime';
-import { isPublished, toContentEntity, toContentItem } from '@/lib/content';
+import { isPublished, toContentEntity, toContentItem } from '@/lib/content/core';
 
 import { createTrace } from '@/lib/trace';
 import { slug as toSlug } from 'github-slugger';
@@ -33,7 +33,7 @@ export async function listContent(
       totalEntries: entries.length,
     });
 
-    const results: ContentItem[] = [];
+    const results: BaseContentItem[] = [];
 
     for (const slug of entries) {
       trace.mark('ENTRY_START', { slug });
@@ -163,8 +163,8 @@ export async function listContent(
   }
 }
 
-function filterFor(query: { type: string; action: string } & Record<string, unknown>, results: ContentItem[]) {
-  const items: ContentItem[] = [];
+function filterFor(query: { type: string; action: string } & Record<string, unknown>, results: BaseContentItem[]) {
+  const items: BaseContentItem[] = [];
 
   const by = query.by as string;
   const match = query.match as string;

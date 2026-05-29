@@ -1,9 +1,9 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-
 import { createTrace } from '@/lib/trace';
-import { isPublished, getAllFilesRecursively } from '@/lib/content';
+import fs from 'fs';
+import { getAllFilesRecursively } from '@/lib/content/server/files';
+import { isPublished } from '@/lib/content/core';
+import matter from 'gray-matter';
+import path from 'path';
 
 // import getAllFilesRecursively from '@/lib/content/server/files';
 

@@ -1,7 +1,7 @@
 import { BaseContentItem, ContentEntity, PipelineContext } from '../types';
 
 import { extractHeadings } from '@/lib/remark';
-import { extractTOC } from '@/lib/content';
+import { extractTOC } from '@/lib/content/core';
 
 export function analyzeContent(source) {
   return {

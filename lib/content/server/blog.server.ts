@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { getRootPath } from '@/lib/paths';
-import { isPublished } from '@/lib/content';
+import { isPublished } from '@/lib/content/core';
 import matter from 'gray-matter';
 import { walk } from '@/lib/fs';
 

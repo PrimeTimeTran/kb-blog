@@ -1,4 +1,6 @@
-import { KB_DIR, BLOG_DIR, getAllFiles } from '@/lib/content';
+import { BLOG_DIR, KB_DIR } from '@/lib/content/core';
+
+import { getAllFiles } from '@/lib/content/server/files';
 
 export async function enumerateFilesystemContent() {
   return [

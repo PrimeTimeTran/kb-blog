@@ -1,7 +1,7 @@
+import { buildTermsRegistry } from '@/lib/content/api/build-terms-registry';
 import fs from 'fs';
+import { getContent } from '@/lib/content/api';
 import matter from 'gray-matter';
-
-import { getContent, buildTermsRegistry } from '@/lib/content';
 
 function canonicalSlug(s) {
   return s

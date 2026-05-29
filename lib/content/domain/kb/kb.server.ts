@@ -1,4 +1,5 @@
-import { KB_DIR, getAllFilesRecursively } from '@/lib/content';
+import { KB_DIR } from '@/lib/content/core';
+import { getAllFilesRecursively } from '@/lib/content/server/files';
 
 export async function getKbTree() {
   const files = await getAllFilesRecursively(KB_DIR);

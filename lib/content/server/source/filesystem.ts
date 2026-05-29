@@ -1,8 +1,7 @@
+import { ContentSource } from '@/lib/content/core/types';
 import fs from 'fs/promises';
 import path from 'path';
 import { toSlug } from '../files';
-
-import { ContentSource } from '@/lib/content';
 
 export async function fileExists(filePath: string): Promise<boolean> {
   try {

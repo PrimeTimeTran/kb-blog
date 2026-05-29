@@ -9,7 +9,6 @@ export * from './scroll';
 export * from './sort-tree';
 export * from './syntax-registry';
 export * from './remark';
-export * from './showcase/components';
 export * from './utils/formate-date';
 export * from './utils/html-escraper';
 export * from './utils/kebab-case';

@@ -19,7 +19,8 @@
     "start": "next start",
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json",
-    "build": "next build --webpack"
+    "build": "next build",
+    "build-vercel": "vercel build"
   },
   "dependencies": {
     "chroma-js": "^3.2.0",
