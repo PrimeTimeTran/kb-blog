@@ -1,7 +1,9 @@
 'use client';
 
-import { createContext, Dispatch, SetStateAction, useContext, useState } from 'react';
 import { DEFAULT_LEFT, DEFAULT_RIGHT } from '../data/core-constants';
+import { Dispatch, SetStateAction, createContext, useContext, useState } from 'react';
+
+import React from 'react';
 
 const LayoutContext = createContext(null);
 
@@ -17,8 +19,7 @@ type Layout = {
     }>
   >;
 };
-
-export function LayoutProvider({ children }) {
+export function LayoutProvider({ children }: { children: React.ReactNode }) {
   const [layout, setLayout] = useState({
     left: DEFAULT_LEFT,
     right: DEFAULT_RIGHT,

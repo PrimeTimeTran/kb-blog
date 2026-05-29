@@ -308,4 +308,4 @@ function main() {
   console.log('Successfully generated new.base.css using the unified intentPalette!');
 }
 
-main();
+// main();

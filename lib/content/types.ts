@@ -1,11 +1,22 @@
-import { ContentSource } from '../source/contracts';
+import { ContentSource } from './source/contracts';
+import type { MDXContent } from 'mdx/types';
 
 export type { ContentSource };
 
 export type Slug = string;
 export type ISODateString = string | null;
 export type ContentType = 'blog' | 'kb' | 'authors' | 'terms' | (string & {});
+export type FrontMatterParsed = Pick<FrontMatter, 'tags' | 'images' | 'date' | 'title' | 'summary' | 'isDev'>;
 
+export interface FrontMatter {
+  title?: string;
+  summary?: string;
+  tags?: string[];
+  date?: ISODateString;
+  images?: string[];
+  draft?: boolean;
+  isDev?: boolean;
+}
 export interface ContentEntity {
   raw: RawContent;
   frontMatter: FrontMatter;
@@ -16,26 +27,28 @@ export interface ContentEntity {
 
   stats?: RawContent['stats'];
 }
-
-/**
- * UI / blog-ready projection (safe to render)
- */
-export interface ContentItem {
-  slug: Slug;
+export interface BaseContentItem {
   filePath: string;
-
+  isDev: boolean;
   title: string;
+  slug: Slug;
   summary: string;
   tags: string[];
-
   date: ISODateString;
-  isDev: boolean;
-  frontMatter: Pick<FrontMatter, 'tags' | 'images' | 'date' | 'title' | 'summary' | 'isDev'>;
+  frontMatter: FrontMatterParsed;
 }
 
-/**
- * Raw markdown + metadata as parsed from filesystem
- */
+export interface ContentItemResult extends BaseContentItem {
+  mdxSource: string;
+
+  toc: {
+    depth: 1 | 2 | 3 | 4 | 5 | 6;
+    value: string;
+    url: string;
+  }[];
+
+  Content: MDXContent;
+}
 export interface RawContent {
   source: ResolvedContentSource;
   raw: string;
@@ -46,32 +59,10 @@ export interface RawContent {
   };
 }
 
-/**
- * Canonical frontmatter AFTER parsing, BEFORE business rules
- */
-export interface FrontMatter {
-  title?: string;
-  summary?: string;
-  tags?: string[];
-  date?: ISODateString;
-  images?: string[];
-
-  /**
-   * If true → explicitly excluded from production unless includeDrafts
-   */
-  draft?: boolean;
-
-  /**
-   * Dev-only content toggle
-   */
-  isDev?: boolean;
-}
-
 export interface ContentRequest {
   type: ContentType;
   slug: Slug;
 }
-
 export interface ResolvedContentSource {
   id: string;
 
@@ -83,21 +74,17 @@ export interface ResolvedContentSource {
 
   source: 'filesystem' | (string & {});
 }
-
 export interface AnalysisArtifacts {
   toc: unknown[];
   backlinks: unknown[];
 }
-
 export interface TransformArtifacts {
   ast: unknown | null;
 }
-
 export interface CompileArtifacts {
   code?: string;
-  Content?: unknown;
+  Content?: MDXContent;
 }
-
 export interface Diagnostic {
   level: 'info' | 'warn' | 'error';
   message: string;
@@ -123,13 +110,12 @@ export interface PipelineContext {
 
   compile: {
     code?: string;
-    Content?: unknown;
+    Content: MDXContent;
   };
 
   diagnostics: unknown[];
   artifacts: Record<string, unknown>;
 }
-
 export interface TreeNode {
   name: string;
   file: string | null;
@@ -137,7 +123,6 @@ export interface TreeNode {
   isFolder: boolean;
   isFile: boolean;
 }
-
 export interface ContentCollection {
   id: string;
 
@@ -145,7 +130,6 @@ export interface ContentCollection {
 
   read(slug: string): Promise<RawContent | null>;
 }
-
 export type ContentClientConfig = {
   root: string;
   filters?: {
@@ -153,29 +137,24 @@ export type ContentClientConfig = {
     get?: (item: ContentEntity) => boolean;
   };
 };
-
 export type ContentRegistryItem = Record<string, ContentSource>;
-
 export interface ContentRegistryEntry {
   type: string;
   source: ContentSource;
 }
-
 export interface ContentRegistry {
   get(type: string): ContentCollection | null;
 }
-
 export type ContentGetConfig = {
   includeDrafts?: boolean;
-  filter?: (item: ContentItem) => boolean;
+  filter?: (item: BaseContentItem) => boolean;
 };
-
 export type ContentListConfig = {
   includeDrafts?: boolean;
 
   requireTitle?: boolean;
   requireSummary?: boolean;
 
-  filter?: (item: ContentItem) => boolean;
-  sort?: (a: ContentItem, b: ContentItem) => number;
+  filter?: (item: BaseContentItem) => boolean;
+  sort?: (a: BaseContentItem, b: BaseContentItem) => number;
 };

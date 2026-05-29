@@ -1,11 +1,9 @@
-import { slug as toSlug } from 'github-slugger';
-import { createTrace } from '@/lib/trace';
-
-import { isPublished, toContentItem, toContentEntity } from '@/lib/content';
-
+import type { ContentCollection, ContentItem, ContentListConfig } from '@/lib/content/types';
 import { buildParsePipeline, createPipelineContext } from '@/lib/content/pipeline/runtime';
+import { isPublished, toContentEntity, toContentItem } from '@/lib/content';
 
-import type { ContentItem, ContentCollection, ContentListConfig } from '@/lib/content/core/types';
+import { createTrace } from '@/lib/trace';
+import { slug as toSlug } from 'github-slugger';
 
 export async function listContent(
   options: {

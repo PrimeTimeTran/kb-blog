@@ -1,4 +1,4 @@
-import { ContentClientConfig, ContentCollection, ContentListConfig, ContentRegistry, ContentSource } from './types';
+import { ContentClientConfig, ContentCollection, ContentListConfig, ContentRegistry, ContentSource } from '../types';
 import { getContent, listContent } from '../api';
 
 import { ROOT } from '@/lib/paths';

@@ -1,4 +1,4 @@
-import { FrontMatter } from '../core/types';
+import { FrontMatter } from '../types';
 
 export interface UniversalPathIndex {
   [key: string]: unknown;

@@ -1,7 +1,8 @@
 'use client';
 
-import { createContext, useCallback, useContext, useRef, useState, Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, createContext, useCallback, useContext, useRef, useState } from 'react';
 
+import type { TOCItemData } from '@/hooks/useTOC';
 import { useScrollState } from '@/hooks';
 
 // RULE:
@@ -13,8 +14,6 @@ import { useScrollState } from '@/hooks';
 // - no runtime inclusion
 // - no accidental circular dependencies
 // - clearer intent for humans and bundlers
-
-import type { TOCItemData } from '@/hooks/useTOC';
 
 type ScrollContextValue = {
   activeId: string | null;
@@ -28,7 +27,7 @@ type ScrollContextValue = {
 
 export const ScrollContext = createContext<ScrollContextValue | null>(null);
 
-export function ScrollProvider({ children }) {
+export function ScrollProvider({ children }: { children: React.ReactNode }) {
   const [toc, setToc] = useState<TOCItemData[]>([]);
   const scrollElRef = useRef<HTMLElement | null>(null);
   const [scrollEl, setScrollElState] = useState<HTMLElement | null>(null);

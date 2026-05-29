@@ -1,10 +1,10 @@
-import matter from 'gray-matter';
+import type { PipelineContext, RawContent } from '../../types';
 
-import { bundle } from '../compile/bundle';
 import { buildMDXContext } from '../compile/build-mdx-context';
-import type { PipelineContext, RawContent } from '../../core/types';
+import { bundle } from '../compile/bundle';
 import { createTrace } from '@/lib/trace';
 import { isPublished } from '../../core/is-published';
+import matter from 'gray-matter';
 
 export function buildParsePipeline(ctx: PipelineContext) {
   return {

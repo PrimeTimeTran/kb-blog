@@ -1,3 +1,4 @@
+export * from './types';
 export * from './api/build-back-links';
 export * from './api/build-content-index';
 export * from './api/build-terms-registry';
@@ -17,7 +18,7 @@ export * from './core/normalize';
 export * from './core/preprocess-obsidian-links';
 export * from './core/preprocess-wikilinks';
 // export * from './core/registry';
-export * from './core/types';
+export * from './types';
 export * from './core/url';
 export * from './server/blog.server';
 export * from './server/files';

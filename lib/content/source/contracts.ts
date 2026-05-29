@@ -1,4 +1,4 @@
-import { ContentRequest, ResolvedContentSource, RawContent } from '../core/types';
+import { ContentRequest, RawContent, ResolvedContentSource } from '../types';
 
 export interface ContentSource {
   id: string;

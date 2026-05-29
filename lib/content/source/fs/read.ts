@@ -1,5 +1,6 @@
+import type { RawContent, ResolvedContentSource } from '../../types';
+
 import fs from 'fs/promises';
-import type { ResolvedContentSource, RawContent } from '../../core/types';
 
 export async function read(source: ResolvedContentSource): Promise<RawContent> {
   const raw = await fs.readFile(source.filePath, 'utf8');

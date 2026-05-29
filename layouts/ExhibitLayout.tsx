@@ -23,9 +23,7 @@ export function ExhibitLayout({ left, right, children, childrenWrapperClassName 
           style={{ width: sizes[1] }}
           className={`relative flex-1 min-w-0 min-h-0 ${childrenWrapperClassName ?? ''}`}
         >
-          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">
-            {(children && false) || <SurfacePreviewMain />}
-          </div>
+          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">{children || <SurfacePreviewMain />}</div>
         </div>
 
         <ResizeHandle {...getHandleProps(1)} />

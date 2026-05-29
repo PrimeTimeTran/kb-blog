@@ -1,4 +1,4 @@
-import type { RawContent, ContentRequest, PipelineContext, ResolvedContentSource } from '../../core/types';
+import type { ContentRequest, PipelineContext, RawContent, ResolvedContentSource } from '../../types';
 
 export function createPipelineContext(input: {
   request: ContentRequest;

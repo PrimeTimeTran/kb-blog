@@ -1,7 +1,7 @@
-import { extractTOC } from '@/lib/content';
-import { extractHeadings } from '@/lib/remark';
+import { BaseContentItem, ContentEntity, PipelineContext } from '../types';
 
-import { ContentEntity, ContentItem, PipelineContext } from './types';
+import { extractHeadings } from '@/lib/remark';
+import { extractTOC } from '@/lib/content';
 
 export function analyzeContent(source) {
   return {
@@ -10,7 +10,7 @@ export function analyzeContent(source) {
   };
 }
 
-export function toContentItem(entity: ContentEntity): ContentItem {
+export function toContentItem(entity: ContentEntity): BaseContentItem {
   const fm = entity.frontMatter;
 
   return {

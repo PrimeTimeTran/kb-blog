@@ -1,4 +1,4 @@
-import type { ContentRequest, ResolvedContentSource } from '../../core/types';
+import type { ContentRequest, ResolvedContentSource } from '../../types';
 
 import { ROOT } from '@/lib/paths';
 import fs from 'fs';

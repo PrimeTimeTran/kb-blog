@@ -16,12 +16,12 @@ import { TOCInline } from './components/mdx/TOCInline';
 import { Term } from './components/mdx/Term';
 import { TermPeekDefinition } from './components/mdx/TermPeekDefinition';
 import { evaluate } from '@mdx-js/mdx';
-// import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
 import { extractCodeMeta } from './lib/remark/extract-code-meta';
 import { extractFrontMatter } from './lib/remark/extract-front-matter';
-import { injectEmbedFlags } from './lib/remark/inject-embed-flags';
-import { injectTermLinksAndPreviews } from './lib/remark/inject-term-links-and-preview';
+// import { injectEmbedFlags } from './lib/remark/inject-embed-flags';
+// import { injectTermLinksAndPreviews } from './lib/remark/inject-term-links-and-preview';
 import { preprocessEmbeds } from './lib/content/api/transformers';
+// import { sanitizeHeadings, extractTOC } from '../../../remark/extract-toc'
 import { preprocessObsidianLinks } from '@/lib/content/core/preprocess-obsidian-links';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatex from 'rehype-katex';
@@ -65,7 +65,6 @@ const rawComponents = {
   Term,
   Image,
   blockquote: BlockQuote,
-  // a: A,
   a: Link,
   callout: Callout,
   Snippet,

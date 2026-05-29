@@ -1,9 +1,10 @@
 'use client';
 
+import { useMemo, useState } from 'react';
+import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
+
 import { CounterControls } from '@/app/shell/CounterControls';
 import { useShellCounter } from '@/app/shell/useShellCounter';
-import { usePathname, useSelectedLayoutSegment } from 'next/navigation';
-import { useState, useMemo } from 'react';
 
 export function SelfContainedTest() {
   const [count, setCount] = useState(0);
@@ -54,8 +55,9 @@ export default function Page() {
         <h1 className="text-xl font-bold text-sky-500">We can maintainstate across page renders</h1>
         <CounterControls {...counter} />
       </div>
-      {pathname}
+      1{pathname}
       <SelfContainedTest />
+      11
       {segment}
     </div>
   );

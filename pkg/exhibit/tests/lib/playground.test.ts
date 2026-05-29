@@ -1,28 +1,27 @@
-import { vi, describe, it, expect } from 'vitest';
-import Page from '@/app/playground/[...slug]/page';
+import { describe, expect, it, vi } from 'vitest';
 
-const testFSProvider = {
-  existsSync: (path: string) => true,
-  readdirSync: (path: string) => ['page.tsx'],
-  readFileSync: (path: string, encoding: string) => 'export function App() { return <div /> }',
-};
+import Page from '@/app/playground/[...slug]/page';
+import { getVFSFromExhibit } from '@/lib/vfs-loader';
 
 vi.mock('@/lib/vfs-loader', () => ({
   getVFSFromExhibit: vi.fn(),
 }));
 
 describe('Exhibit type NextJS start file resolution', () => {
-  it('errors if entrypoint page.tsx missing', async () => {
-    // Setup: Mock an empty VFS (no files)
-    vi.mocked(vfsLoader.getVFSFromExhibit).mockReturnValue({});
+  it('falls back to vanilla exhibit when entrypoint missing', async () => {
+    vi.mocked(getVFSFromExhibit).mockReturnValue({});
 
-    await expect(async () =>
-      Page({
-        params: Promise.resolve({ slug: ['hello-world-missing-entrypoint'] }),
-        searchParams: Promise.resolve({ entry: 'client.tsx' }),
+    const result = await Page({
+      params: Promise.resolve({
+        slug: ['hello-world-missing-entrypoint'],
       }),
-    ).rejects.toThrow('File not found');
+      searchParams: Promise.resolve({
+        entry: 'client.tsx',
+      }),
+    });
+
+    expect(result.props.manifest.hasApp).toBe(false);
+    expect(result.props.manifest.hasPage).toBe(false);
+    expect(result.props.manifest.projectType).toBe('vanilla');
   });
 });
-
-describe('Exhibit type Vanilla HTML', () => {});
