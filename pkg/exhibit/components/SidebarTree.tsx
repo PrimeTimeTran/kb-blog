@@ -27,7 +27,7 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
   const scrollRef = usePersistedScroll('kb-sidebar-scroll');
 
   return (
-    <div ref={scrollRef} className="h-full overflow-y-auto sidebar-tree bg-surface border-0">
+    <div ref={scrollRef} className="h-full overflow-y-auto sidebar-tree bg-lowest border-0">
       {visibleTree.map((node) => (
         <TreeItem
           key={node.id}

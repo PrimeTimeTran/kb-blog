@@ -1,31 +1,32 @@
 export function NestedElevationPreview() {
   return (
-    // Layer 1: Background (The page itself)
-    <div className="bg-background">
-      {/* Layer 2: Lowest (The Page Surface) */}
-      <article className="bg-lowest p-8 rounded-3xl border border-surface-variant shadow-lg">
+    <div className="bg-background min-h-screen">
+      {/* Layer 1: Page container */}
+      <article className="bg-lowest p-8 rounded-3xl shadow-lg border border-surface-variant">
         <h1 className="text-3xl font-bold text-on-surface mb-6">Article Heading</h1>
 
-        {/* Layer 3: Surface Low (The Main Content Area) */}
+        {/* Layer 2: Main content surface */}
         <section className="bg-low p-6 rounded-2xl border border-surface-variant">
-          <p className="text-on-surface-variant mb-6">
-            This is the main article content. It sits on top of the 'lowest' layer, creating a distinct reading area.
+          <p className="text-on-surface mb-6">
+            This is the main article content. It sits on a slightly elevated surface to separate it from the page
+            container.
           </p>
 
-          {/* Layer 4: Surface Container (The Interaction Area) */}
-          <div className="bg-level p-6 rounded-xl border border-on-surface-variant/10">
+          {/* Layer 3: Interaction group */}
+          <div className="bg-level p-6 rounded-xl border border-surface-variant/50">
             <h3 className="font-bold text-on-surface mb-4">Interactive Sidebar</h3>
 
-            {/* Layer 5: Surface High (The Input/Clickable Zone) */}
-            <div className="bg-high p-4 rounded-lg border border-on-surface-variant/20 hover:border-surface-variant transition-colors cursor-pointer">
-              <p className="text-sm font-medium text-on-surface">Hoverable Item / Input Field</p>
+            {/* Layer 4: Interactive item */}
+            <div className="bg-high p-4 rounded-lg border border-surface-variant/30 hover:border-surface-variant transition-colors cursor-pointer">
+              <p className="text-sm text-on-surface">Hoverable Item / Input Field</p>
             </div>
           </div>
         </section>
 
-        {/* Footer: Layer 6: Highest (Pinned or emphasized element) */}
-        <footer className="mt-8 bg-highest p-4 rounded-xl flex justify-between items-center">
+        {/* Layer 5: Emphasis / pinned surface */}
+        <footer className="mt-8 bg-highest p-4 rounded-xl flex justify-between items-center border border-surface-variant">
           <span className="text-xs font-bold uppercase text-on-surface">Pinned Action</span>
+
           <button className="px-4 py-2 bg-surface text-on-surface rounded-lg text-sm shadow">Save</button>
         </footer>
       </article>
@@ -95,9 +96,9 @@ export function SurfacePreviewMain() {
   return (
     <div className="w-full h-auto p-8 space-y-8 ">
       {/* 1. HERO: The "Base" elevation */}
+      <NestedElevationPreview />
       <ElevationStack />
       <SurfaceComparison />
-      <NestedElevationPreview />
       <ElevationExplorer />
 
       {/* 2. GRID: Consistent shadow-sm for sub-cards */}

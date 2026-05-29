@@ -1,19 +1,17 @@
 'use client';
-import { useEffect, useState, useRef, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
-// import siteMetadata from '../data/site-metadata.js'
+import { AnimatePresence, motion } from 'framer-motion';
+import { Suspense, useEffect, useRef, useState } from 'react';
 
 import { BaseScroll } from '@/components/BaseScroll';
 import { CenterRegion } from '@/components/layout/CenterRegion';
-
-import { Solution } from '@/components/Solution';
-
-import { useProblemEngine } from '@/hooks/useProblemEngine';
-import { Tooltip } from '@/components/ToolTip';
-
-import { TagExplorer } from './TagExplorer';
 import { FilterToolbar } from './FilterToolbar';
+import { Solution } from '@/components/Solution';
+import { TagExplorer } from './TagExplorer';
+import { Tooltip } from '@/components/ToolTip';
+import { useProblemEngine } from '@/hooks/useProblemEngine';
+
+// import siteMetadata from '../data/site-metadata.js'
 
 export function PageClient() {
   const {
@@ -62,9 +60,9 @@ export function PageClient() {
   };
 
   return (
-    <div className="h-full min-h-0 flex flex-col not-prose">
+    <div className="h-full w-full min-h-0 flex flex-col justify-center items-center not-prose">
       <BaseScroll>
-        <div className="space-y-2 px-2 mt-2 w-full mb-2">
+        <div className="space-y-2 px-2 mt-2 w-full mb-2 max-w-5xl">
           <TagExplorer actions={actions} filters={filters} orderedTags={orderedTags} tagCounts={tagCounts} />
           <FilterToolbar
             actions={actions}
@@ -125,55 +123,55 @@ export function PageClient() {
       </div>
     );
   }
-
   function renderProblemList() {
     return (
-      <AnimatePresence>
-        {(displayedProblems ?? []).map((problem, i) => (
-          <motion.div
-            layout
-            key={problem.lc.id}
-            initial={{ opacity: 0, y: 6 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2 }}
-          >
-            <div
-              className={`flex items-start gap-2 w-full px-2 py-1  transition-colors ${i % 2 === 0 ? 'bg-level' : 'bg-low'} hover:bg-high`}
+      <div className="p-16 rounded-3xl bg-lowest">
+        <AnimatePresence>
+          {(displayedProblems ?? []).map((problem, i) => (
+            <motion.div
+              layout
+              key={problem.lc.id}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2 }}
             >
-              <a
-                href={problem.url}
-                target="_blank"
-                className="gap-2 text-lg text-on-surface dark:text-on-surface group"
-                rel="noreferrer"
-                onClick={() => actions.markAttempted(problem.lc.id)}
+              <div
+                className={`flex items-start gap-2 w-full px-2 py-1   transition-colors ${i % 2 === 0 ? 'bg-level' : 'bg-low'} hover:bg-high`}
               >
-                <div className="flex items-start gap-2 w-full group-hover:text-primary">
-                  <span className="w-12 text-right">{i + 1}. </span>
-                  <span
-                    className={` ${
-                      randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
-                        ? 'line-through text-primary dark:text-primary decoration-on-primary dark:decoration-on-primary'
-                        : ''
-                    }`}
-                  >
-                    {problem.title}
-                  </span>
-                  <span className={'text-sm ' + getDifficulty(problem.difficulty)}>[{problem.difficulty}]</span>
-                  {hasSolution(problem) && <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>}
-                </div>
-              </a>
-            </div>
-          </motion.div>
-        ))}
-      </AnimatePresence>
+                <a
+                  href={problem.url}
+                  target="_blank"
+                  className="gap-2 text-lg text-on-surface dark:text-on-surface group"
+                  rel="noreferrer"
+                  onClick={() => actions.markAttempted(problem.lc.id)}
+                >
+                  <div className="flex items-start gap-2 w-full group-hover:text-primary">
+                    <span className="w-12 text-right">{i + 1}. </span>
+                    <span
+                      className={` ${
+                        randomlySelected.map(String).includes(String(problem.lc.id)) // Force string comparison
+                          ? 'line-through text-primary dark:text-primary decoration-on-primary dark:decoration-on-primary'
+                          : ''
+                      }`}
+                    >
+                      {problem.title}
+                    </span>
+                    <span className={'text-sm ' + getDifficulty(problem.difficulty)}>[{problem.difficulty}]</span>
+                    {hasSolution(problem) && <button onClick={(e) => showProblemSolutions(e, problem)}>📝</button>}
+                  </div>
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
     );
   }
 }
 
 export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
   const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]'];
-
   return (
     <div className="flex flex-col bg-low">
       {Array.from({ length: rows }).map((_, i) => (

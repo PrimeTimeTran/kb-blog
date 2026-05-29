@@ -10,8 +10,7 @@ interface StyledInputProps {
 export function StyledInput({ value, onChange, placeholder = 'Search...', className = '' }: StyledInputProps) {
   return (
     <div className={`relative group flex items-center ${className}`}>
-      {/* Search Icon: Animates color on focus */}
-      <div className="absolute left-3 text-(--primary)/40 group-focus-within:text-(--primary) transition-colors pointer-events-none">
+      <div className="absolute left-3 text-primary/40 group-focus-within:text-primary transition-colors pointer-events-none">
         <HiOutlineSearch className="text-sm" />
       </div>
 

@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState, useMemo, useId, useEffect } from 'react';
+import React, { useEffect, useId, useMemo, useState } from 'react';
+
 import { motion } from 'framer-motion';
 import { useTheme } from '@teispace/next-themes';
 
@@ -81,7 +82,7 @@ export function OmniPanel({
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group relative rounded-[28px] ${className}`}
+      className={`group brelative rounded-[28px] ${className}`}
       animate={isHoverable && isHovered ? motionVariants[hoverEffect] : motionVariants.initial}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
