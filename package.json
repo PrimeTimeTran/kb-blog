@@ -18,11 +18,8 @@
     "test": "vitest run",
     "start": "next start",
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
-    "prebuild": "cp tsconfig.build.json tsconfig.json && find exhibit -name 'package.json' -exec mv {} {}.bak \\;",
-    "build": "next build --webpack",
-    "build-with-icon-bundle": "node scripts/bundle-icons.ts && next build",
-    "build-vercel": "vercel build",
-    "postbuild": "find exhibit -name 'package.json.bak' -exec mv {} $(echo {} | sed 's/.bak//') \\;"
+    "prebuild": "cp tsconfig.build.json tsconfig.json",
+    "build": "next build --webpack"
   },
   "dependencies": {
     "chroma-js": "^3.2.0",
