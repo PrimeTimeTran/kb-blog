@@ -1,0 +1,20 @@
+.ace_editor {
+  background: var(--color-surface) !important;
+}
+.ace_gutter {
+  background: hsl(var(--low)) !important;
+  color: hsl(var(--on-surface-muted)) !important;
+  border-right: 1px solid hsl(var(--outline) / 0.4) !important;
+}
+
+.ace_cursor {
+  color: hsl(var(--primary)) !important;
+}
+
+.ace_marker-layer .ace_selection {
+  background: hsl(var(--primary) / 0.15) !important;
+}
+
+.ace_active-line {
+  background: hsl(var(--level) / 0.5) !important;
+}

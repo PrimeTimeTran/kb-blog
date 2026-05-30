@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Cpu, Layers, LayoutGrid, Palette, Zap } from 'lucide-react';
 
 import { motion } from 'framer-motion';

@@ -1,7 +1,10 @@
-import { motionVariants } from './data';
+import { motions } from './data';
 
-export type MotionKey = keyof typeof motionVariants;
+export type MotionKey = keyof typeof motions;
+
 export type FrameType =
+  | 'absolute'
+  | 'relative'
   | 'browserFrame'
   | 'ideFrame'
   | 'sidebar'
@@ -13,15 +16,24 @@ export type FrameType =
   | 'laptopFrame'
   | 'browserWindow';
 
-export type Scene = Frame[];
+export type SceneType = 'float' | 'motion' | 'composition' | 'scroll' | 'enter';
+export type Scene = {
+  type: SceneType;
+  frames: Frame[];
+};
 export type SceneRegistry = Record<SceneType, Scene>;
-export type SceneType = 'float' | 'motion' | 'composition' | 'scroll';
+
 export type Frame = {
   id: string;
   type: FrameType;
   className: string;
   motion?: string;
   group?: string;
+  children?: Frame[];
+  x: number;
+  y: number;
+  width?: number;
+  height?: number;
 };
 export type PresentationScene = {
   id: string;

@@ -1,6 +1,7 @@
 'use client';
-import { useState } from 'react';
+
 import { PageSEO } from '../components/SEO';
+import { useState } from 'react';
 
 function ContentTabs({ children }) {
   const [tab, setTab] = useState('intro');
@@ -48,14 +49,14 @@ export default function AboutLayout({ children, frontMatter }) {
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
 
       {/* IMPORTANT: isolate creates proper stacking context */}
-      <div className="relative isolate h-screen w-full flex overflow-hidden  pt-8">
+      <div className="relative isolate h-screen w-full flex overflow-hidden">
         {/* ================= BACKGROUND LAYERS ================= */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           {/* Blob 1 (top-left / primary) */}
-          <div className="animate-blob-1 absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl bg-radial from-primary/30 via-primary/10 to-transparent dark:from-primary/25 dark:via-primary/5" />
+          <div className="animate-blob-1 absolute -top-40 left-1/4 w-150 h-150 rounded-full blur-3xl bg-radial from-primary/30 via-primary/10 to-transparent dark:from-primary/25 dark:via-primary/5" />
 
           {/* Blob 2 (bottom-right / secondary) */}
-          <div className="animate-blob-2 absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl bg-radial from-secondary/30 via-secondary/10 to-transparent dark:from-secondary/25 dark:via-secondary/5" />
+          <div className="animate-blob-2 absolute bottom-0 right-0 w-125 h-125 rounded-full blur-3xl bg-radial from-secondary/30 via-secondary/10 to-transparent dark:from-secondary/25 dark:via-secondary/5" />
         </div>
 
         {/* ================= LEFT ================= */}

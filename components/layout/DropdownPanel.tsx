@@ -1,87 +1,78 @@
 'use client';
 
-import type { LucideIcon } from 'lucide-react';
+import * as Brief from '@/components/Brief';
+
+import { SafeLink as Link } from '@/mdx/Link';
+import React from 'react';
 
 // https://prismic.io/blog/css-background-effects
 // - Awesome navbar
 // - Nav links may have a dropdown panel
 // - Hover drops down the panel unless there is already a panel expanded in which card the animation goes from left to right or vice versa
 
-import * as Brief from '@/components/Brief';
-import { SafeLink as Link } from '@/mdx/Link';
-
 export function DropdownPanel({ item, scheduleClose }) {
+  function NavIcon({ icon: Icon }: { icon: React.ComponentType<{ className?: string }> }) {
+    return (
+      <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-level shadow-sm">
+        <Icon className="h-5 w-5 shrink-0" />
+      </div>
+    );
+  }
+  const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (e, href: string) => {
+    if (href == '#') {
+      e.preventDefault();
+      return;
+    }
+
+    scheduleClose();
+  };
   function renderLeft() {
     return (
-      <div className="flex flex-col w-[380px]  border-r border-lowest shrink-0 ">
-        {/* HEADER */}
-        <div className="px-6 py-6 bg-linear-to-b from-level/40 to-transparent border-b border-lowest">
-          <div className="flex items-center gap-4">
+      <div className="flex flex-col w-95 bg-surface shrink-0">
+        <div className="px-8 py-8 bg-linear-to-b from-level/60 to-transparent border-b border-outline/40">
+          <div className="flex items-center gap-5">
             {item.icon && (
-              <div className="flex h-11 w-11 bg-level rounded-2xl border border-lowest shadow-[0_0_0_1px_rgba(255,255,255,0.03)] relative items-center justify-center">
-                {/* subtle glow core */}
-                <div className="bg-primary/10 rounded-2xl opacity-0 transition-opacity absolute inset-0 blur-xl duration-300 group-hover:opacity-100" />
-
-                <item.icon className="h-5 w-5 text-on-surface relative" />
+              <div className="flex h-14 w-14 bg-level shadow-sm rounded-3xl items-center justify-center relative">
+                <div className="bg-primary/20 rounded-3xl absolute inset-0 blur-2xl" />
+                <NavIcon icon={item.icon} />
               </div>
             )}
-
             <div className="min-w-0">
-              <div className="text-sm font-medium text-on-surface tracking-tight">{item.label}</div>
-
-              <div className="mt-0.5 text-xs text-on-surface-muted">{item.description}</div>
+              <h2 className="text-lg font-semibold text-on-surface tracking-tight">{item.label}</h2>
+              <p className="mt-1 text-sm text-on-surface-muted">{item.description}</p>
             </div>
           </div>
         </div>
 
-        {/* LINKS */}
-        <div className="flex flex-col flex-1 p-3 gap-2">
-          {item.links.map(
-            ({
-              href,
-              title,
-              description,
-              icon: Icon,
-            }: {
-              href: string;
-              title: string;
-              description: string;
-              icon: LucideIcon;
-            }) => {
-              if (!Icon) return null;
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  onClick={scheduleClose}
-                  className="p-3 bg-level/40 rounded-2xl border border-transparent transition-all group relative duration-200 ease-out hover:bg-level hover:border-lowest hover:-translate-y-px hover:shadow-[0_12px_30px_rgba(0,0,0,0.35)]"
-                >
-                  {/* left accent line */}
-                  <div className="w-[2px] bg-primary/0 rounded-full transition-all absolute left-0 top-3 bottom-3 group-hover:bg-primary/60 duration-200" />
+        {/* LINKS: Increased gap and clearer focus states */}
+        <div className="flex flex-col flex-1 min-h-0 p-4 gap-3 overflow-y-auto">
+          {item.links.map(({ href, title, description, icon: Icon }) => (
+            <Link
+              key={title}
+              href={href}
+              onClick={(e) => handleClick(e, href)}
+              className={`group relative flex items-start gap-4 p-4 rounded-2xl transition-colors duration-200
+                ${href == '#' ? 'opacity-40 pointer-events-none' : 'hover:bg-level'}
+              `}
+            >
+              {/* Active Indicator */}
+              <div className="absolute left-0 top-4 bottom-4 w-1 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-r-full" />
 
-                  <div className="flex pl-1 items-start gap-3">
-                    {/* ICON */}
-                    <div className="flex h-10 w-10 bg-low rounded-xl border border-lowest transition-all items-center justify-center duration-200 group-hover:bg-level group-hover:border-primary/20">
-                      <Icon className="h-4 w-4 text-on-surface-muted transition-colors duration-200 group-hover:text-on-surface" />
-                    </div>
+              <div className="flex h-11 w-11 bg-low rounded-xl items-center justify-center">
+                <Icon className="h-5 w-5 text-on-surface-muted" />
+              </div>
 
-                    {/* TEXT */}
-                    <div className="flex-1 min-w-0">
-                      <div className="text-sm font-medium text-on-surface transition-transform duration-200 group-hover:translate-x-0.5">
-                        {title}
-                      </div>
-
-                      <div className="mt-1 text-xs leading-relaxed text-on-surface-muted">{description}</div>
-                    </div>
-                  </div>
-                </Link>
-              );
-            },
-          )}
+              <div className="flex-1 min-w-0 pt-0.5">
+                <div className="text-sm font-semibold text-on-surface">{title}</div>
+                <p className="mt-0.5 text-xs leading-relaxed text-on-surface-muted">{description}</p>
+              </div>
+            </Link>
+          ))}
         </div>
 
-        {/* FOOTER */}
-        <div className="px-5 py-4 text-[11px] tracking-wide text-on-surface-muted bg-linear-to-t from-level/30 to-transparent border-t border-lowest">
+        {/* FOOTER: Anchored and refined */}
+        <div className="px-6 py-4 flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase text-on-surface-muted/60 bg-linear-to-t from-level/50 to-transparent border-t border-lowest">
+          <div className="h-1.5 w-1.5 rounded-full bg-primary/50 animate-pulse" />
           Experimental runtime systems
         </div>
       </div>
@@ -90,8 +81,8 @@ export function DropdownPanel({ item, scheduleClose }) {
   function renderRight() {
     function rightContent() {
       return (
-        <div className="flex h-full p-6 relative items-center justify-center">
-          <div className="overflow-hidden h-[520px] w-full bg-level rounded-[28px] border border-lowest shadow-2xl">
+        <div className="flex h-full p-6 relative">
+          <div className="overflow-hidden h-130 w-full bg-level rounded-[28px] border border-lowest shadow-2xl">
             {/* TOP BAR */}
             <div className="flex h-12 px-4 bg-low/70 border-b border-lowest items-center gap-2">
               <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
@@ -121,7 +112,7 @@ export function DropdownPanel({ item, scheduleClose }) {
   return (
     <div
       key={item.label}
-      className="overflow-hidden w-full bg-lowest border border-lowest shadow-2xl shrink-0 transition-all duration-300 will-change-transform"
+      className="overflow-hidden w-full shadow-2xl shrink-0 transition-all duration-300 will-change-transform min-h-0"
     >
       <div className="flex">
         {renderLeft()}

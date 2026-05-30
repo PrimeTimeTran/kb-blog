@@ -1,50 +1,26 @@
 'use client';
 
+import { DynamicLogo } from '@/components/brand/DynamicLogo';
+import { SafeLink as Link } from '@/mdx/Link';
+import { MegaNavbar } from './MegaNavbar';
+import ThemeSwitch from '../ThemeSwitch';
+import headerNavLinks from '@/data/nav-links';
+import siteMetadata from '@/data/site-metadata';
+import { useMobileNav } from '@/providers/MobileNavProvider';
 // https://prismic.io/blog/css-background-effects
 // - Awesome navbar
 // - Nav links may have a dropdown panel
 // - Hover drops down the panel unless there is already a panel expanded in which card the animation goes from left to right or vice versa
 import { usePathname } from 'next/navigation';
-import { DynamicLogo } from '@/components/brand/DynamicLogo';
-import headerNavLinks from '@/data/nav-links';
-import siteMetadata from '@/data/site-metadata';
-import { SafeLink as Link } from '@/mdx/Link';
-import { useMobileNav } from '@/providers/MobileNavProvider';
 import { useScroll } from '@/providers/ScrollProvider';
-import ThemeSwitch from '../ThemeSwitch';
-import { MegaNavbar } from './MegaNavbar';
 
-const ENABLE_MEGA_MENU = false;
-
-export function Navbar() {
-  return (
-    <nav className="z-20 flex h-16 px-4 bg-lowest/80 border-b border-on-surface-variant/10 shadow-sm fixed top-0 left-0 right-0 items-center justify-between backdrop-blur-md">
-      {/* Left: Brand/Logo */}
-      <div className="flex items-center gap-2">
-        <div className="flex w-8 h-8 font-bold text-on-surface bg-surface-variant rounded-lg items-center justify-center">
-          Δ
-        </div>
-        <span className="font-bold text-on-surface tracking-tight">ProjectWorkspace</span>
-      </div>
-
-      {/* Right: Actions */}
-      <div className="flex items-center gap-2">
-        <button className="px-3 py-2 text-sm font-medium text-on-surface-variant transition-colors hover:text-on-surface">
-          Docs
-        </button>
-        <button className="px-4 py-2 text-sm font-semibold text-on-surface bg-level rounded-lg border border-on-surface-variant/20 transition-all hover:bg-high">
-          Upgrade
-        </button>
-      </div>
-    </nav>
-  );
-}
+const ENABLE_MEGA_MENU = true;
 
 export function AppNavbar() {
   const pathName = usePathname();
   const { scrollProgress } = useScroll();
   const { setOpen } = useMobileNav();
-  if (ENABLE_MEGA_MENU) return <MegaNavbar />;
+  if (ENABLE_MEGA_MENU) return <MegaNavbar pathName={pathName} />;
   return (
     // height: 4rem;
     // 4rem = 64px
@@ -57,7 +33,6 @@ export function AppNavbar() {
         <div className="hidden font-semibold aurora-text sm:block md:text-2xl">{siteMetadata.headerTitle}</div>
       </Link>
 
-      {/* CENTER — desktop ONLY */}
       <div className="hidden items-center md:flex">
         {renderNavLinks({
           pathName,
@@ -73,8 +48,7 @@ export function AppNavbar() {
         <ThemeSwitch />
       </div>
 
-      {/* progress */}
-      <div className="h-[2px] pointer-events-none absolute inset-x-0 bottom-0">
+        <div className="h-0.5 pointer-events-none absolute inset-x-0 bottom-0">
         <div
           style={{
             transform: `scaleX(${scrollProgress})`,

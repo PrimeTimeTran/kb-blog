@@ -1,14 +1,14 @@
 'use client';
-import Head from 'next/head';
-import { ThemeProvider } from '@teispace/next-themes';
-import { usePathname } from 'next/navigation';
-import { ThemeWatcher } from '@/lib/theme/ThemeWatcher';
-
-import { ScrollProvider } from '@/providers/ScrollProvider';
-import { LayoutProvider } from '@/providers/LayoutProvider';
-import { MobileNavProvider } from '@/providers/MobileNavProvider';
 
 import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar';
+
+import Head from 'next/head';
+import { LayoutProvider } from '@/providers/LayoutProvider';
+import { MobileNavProvider } from '@/providers/MobileNavProvider';
+import { ScrollProvider } from '@/providers/ScrollProvider';
+import { ThemeProvider } from '@teispace/next-themes';
+import { ThemeWatcher } from '@/lib/theme/ThemeWatcher';
+import { usePathname } from 'next/navigation';
 
 const screens = {
   kb: {
@@ -28,10 +28,10 @@ export function AppShell({ children }) {
   return (
     <div className="flex h-full flex-col">
       <Head>
-        <link sizes="76x76" rel="apple-touch-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
-        <link rel="icon" sizes="32x32" type="image/png" href={`${basePath}/static/favicons/loi-tran.png`} />
-        <link rel="icon" sizes="16x16" type="image/png" href={`${basePath}/static/favicons/loi-tran.png`} />
-        <link rel="mask-icon" href={`${basePath}/static/favicons/loi-tran.png`} />
+        <link sizes="76x76" rel="apple-touch-icon" href={`${basePath}/static/favicons/favicon.svg`} />
+        <link rel="icon" sizes="32x32" type="image/png" href={`${basePath}/static/favicons/favicon.svg`} />
+        <link rel="icon" sizes="16x16" type="image/png" href={`${basePath}/static/favicons/favicon.svg`} />
+        <link rel="mask-icon" href={`${basePath}/static/favicons/favicon.svg`} />
         <meta name="msapplication-TileColor" />
         <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       </Head>

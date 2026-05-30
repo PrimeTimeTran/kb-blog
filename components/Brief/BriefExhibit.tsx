@@ -1,77 +1,54 @@
-import { motion } from 'framer-motion';
-import { useMemo, useState } from 'react';
+import { AnimatedFrame, CameraController, WorldLayer, useCamera } from './';
+import { useEffect, useMemo, useState } from 'react';
 
-import * as types from './types';
+import { AnimatePresence } from 'framer-motion';
 import { groupFrames } from './src';
 import { sceneRegistry } from './scenes';
-import { AnimatedFrame, CameraController } from './components';
-
-export { sceneRegistry };
 
 export function BriefExhibit() {
-  // const scenes = useMemo(() => sceneRegistry.motion., []);
-  const scenes = useMemo(() => sceneRegistry.composition.nested, []);
-  const [index, setIndex] = useState(0);
-  const [camera, setCamera] = useState({
-    x: 350,
-    y: 220,
-    zoom: 0.5,
-  });
-
+  const { scene } = useTickScenes(sceneRegistry.motion.enter);
+  const { camera, setCamera } = useCamera();
   return (
-    <div className="relative w-full h-full overflow-hidden bg-black flex items-center justify-center">
+    <div className="relative w-full h-full overflow-hidden bg-red-100">
       <CameraController camera={camera} setCamera={setCamera}>
-        <motion.div
-          key={index}
-          className="absolute left-1/2 top-1/2"
-          style={{
-            transformOrigin: 'center',
-          }}
-          animate={{
-            x: camera.x,
-            y: camera.y,
-            scale: camera.zoom,
-          }}
-          transition={{ type: 'spring', stiffness: 120, damping: 20 }}
-        >
-          <SceneComposer sceneFrames={scenes[index]} />
-        </motion.div>
+        <WorldLayer camera={camera}>
+          <SceneComposer camera={camera} sceneFrames={scene} />
+        </WorldLayer>
       </CameraController>
     </div>
   );
 }
 
-export function SceneComposer({ sceneFrames }: { sceneFrames: types.FrameUI[] }) {
+export function SceneComposer({ sceneFrames }) {
   const groups = useMemo(() => groupFrames(sceneFrames), [sceneFrames]);
+
   return (
-    <div
-      id="scene-root"
-      className="absolute left-1/2 top-1/2 w-[1200px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-green-500/10 border border-green-400"
-    >
-      {/* CENTER MARK (debug origin) */}
-      <div className="absolute right-0 bottom-0 -translate-x-1/2 -translate-y-1/2" />
-
-      {/* ROOT */}
+    <div className="relative w-full h-full bg-orange-400">
       {(groups.root ?? []).map((frame) => (
-        <AnimatedFrame key={frame.id} frame={frame} />
+        <AnimatePresence mode="wait">
+          <AnimatedFrame key={frame.id} frame={frame} />
+        </AnimatePresence>
       ))}
-
-      {/* GROUPS */}
-      {Object.entries(groups)
-        .filter(([k]) => k !== 'root')
-        .map(([groupId, groupframes]) => (
-          <div key={groupId} className="absolute inset-0">
-            {groupframes.map((frame) => (
-              <AnimatedFrame
-                key={frame.id}
-                frame={frame}
-                // type={frame.type}
-                // motionType={frame.motion}
-                // className={frame.className}
-              />
-            ))}
-          </div>
-        ))}
     </div>
   );
+}
+
+export function useTickScenes(sceneSet) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % sceneSet.length);
+    }, 3000);
+
+    return () => clearInterval(id);
+  }, [sceneSet.length]);
+
+  function tick() {
+    setIndex((i) => (i + 1) % sceneSet.length);
+  }
+
+  const scene = sceneSet[index];
+
+  return { scene, index, tick };
 }

@@ -2,10 +2,10 @@ import 'katex/dist/katex.min.css';
 import '../css/tailwind.css';
 
 import { AppShell } from '@/components';
-
-import { siteMetaDataHeader } from '../data/site-metadata-header';
 import Layout2 from './z.layout';
+import { Metadata } from 'next/types';
 import ShowcasePage from './(lab)/workspaces/page';
+import { siteMetaDataBase } from '../data/site-metadata-header';
 
 export const dynamic = 'force-dynamic';
 // NOTE:
@@ -100,15 +100,14 @@ export function RootLayout({ children }) {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
+  ...siteMetaDataBase,
   metadataBase: new URL('https://kb-blog-primetimetran.vercel.app'),
 
   title: {
     default: 'Loi Tran',
     template: '%s | Loi Tran',
   },
-
-  description: siteMetaDataHeader.description,
 
   keywords: ['software engineering', 'web development', 'programming', 'blog'],
 
@@ -132,5 +131,3 @@ export const metadata = {
     follow: true,
   },
 };
-
-export const metadata2 = siteMetaDataHeader;

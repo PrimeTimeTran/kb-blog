@@ -274,7 +274,4 @@
   .debug {
     @apply border border-red-500/50 bg-red-500/5;
   }
-  .border {
-    @apply border border-zinc-400;
-  }
 }

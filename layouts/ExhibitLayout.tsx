@@ -10,11 +10,10 @@ export function ExhibitLayout({ left, right, children, childrenWrapperClassName 
   return (
     <div className="absolute inset-x-0 top-16 bottom-0 overflow-hidden">
       <div className={`flex h-full min-h-0 overflow-hidden ${isDragging ? 'select-none' : ''}`}>
-        <div
-          style={{ width: sizes[0] }}
-          className="relative min-h-0 border-r border-white/5 bg-[#111827] text-[#e5e7eb]"
-        >
-          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">{left || <SurfacePreviewLeft />}</div>
+        <div style={{ width: sizes[0] }} className="relative min-h-0">
+          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
+            {left || <SurfacePreviewLeft />}
+          </div>
         </div>
 
         <ResizeHandle {...getHandleProps(0)} />
@@ -23,13 +22,17 @@ export function ExhibitLayout({ left, right, children, childrenWrapperClassName 
           style={{ width: sizes[1] }}
           className={`relative flex-1 min-w-0 min-h-0 ${childrenWrapperClassName ?? ''}`}
         >
-          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">{children || <SurfacePreviewMain />}</div>
+          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
+            {children || <SurfacePreviewMain />}
+          </div>
         </div>
 
         <ResizeHandle {...getHandleProps(1)} />
 
         <div style={{ width: sizes[2] }} className="relative min-h-0 border-l border-white/5">
-          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden">{right || <SurfacePreviewRight />}</div>
+          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
+            {right || <SurfacePreviewRight />}
+          </div>
         </div>
       </div>
       <BottomPanel />

@@ -1,5 +1,6 @@
-import Link, { LinkProps } from 'next/link';
 import { ComponentPropsWithoutRef, ReactNode } from 'react';
+import Link, { LinkProps } from 'next/link';
+
 import { twMerge } from 'tailwind-merge';
 
 export type SafeLinkProps = Partial<LinkProps> &
@@ -10,8 +11,8 @@ export type SafeLinkProps = Partial<LinkProps> &
 export function SafeLink({ href, children, className, ...props }: SafeLinkProps) {
   const baseLinkStyles = twMerge(
     'text-primary hover:text-primary-hover font-medium transition-colors duration-200',
-    'underline decoration-primary/30 hover:decoration-primary underline-offset-4',
-    'rounded px-1 -mx-1 hover:bg-primary/5', // Subtle, clean background hover pill
+    'decoration-primary/30 hover:decoration-primary underline-offset-4',
+    'rounded px-1 -mx-1 hover:bg-primary/5',
     className,
   );
 
@@ -25,6 +26,7 @@ export function SafeLink({ href, children, className, ...props }: SafeLinkProps)
       </span>
     );
   }
+  // if (href == '#') return;
 
   return (
     <Link className={baseLinkStyles} href={href} {...props}>

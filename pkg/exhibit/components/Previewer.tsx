@@ -35,7 +35,7 @@ export const Previewer = ({ className, vfs, manifest }: PreviewType) => {
     const files = vfs.files || {};
     const root = manifest.root;
 
-    const resolve = (path) => {
+    const resolve = (path: string) => {
       const clean = normalizePath(path);
       const key = `./${root}/${clean}`;
       return files[key]?.content;
@@ -76,6 +76,8 @@ export const Previewer = ({ className, vfs, manifest }: PreviewType) => {
       URL.revokeObjectURL(url);
     };
   }, [vfs.files, manifest.root]);
+
+  if (!blobUrl) return null;
 
   return <iframe className={className} src={blobUrl} />;
 };

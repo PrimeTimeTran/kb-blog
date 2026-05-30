@@ -1,8 +1,8 @@
+import { Metadata } from 'next/types';
 import siteMetadata from './site-metadata';
 
-export const siteMetaDataHeader = {
+export const siteMetaDataBase: Metadata = {
   authors: [{ name: 'Loi Tran' }],
-  language: 'en-us',
   creator: 'Loi Tran',
   metadataBase: new URL(siteMetadata.siteUrl),
   title: {
@@ -35,7 +35,6 @@ export const siteMetaDataHeader = {
     },
   },
   icons: {
-    icon: [{ url: '/public/static/images/favicon.png', type: 'image/png' }],
-    apple: [{ url: '/icons/apple-touch-icon.png' }],
+    icon: [{ url: '/public/static/favicons/favicon.svg', type: 'image/svg' }],
   },
 };

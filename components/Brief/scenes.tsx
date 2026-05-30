@@ -1,5 +1,8 @@
 import * as types from './types';
 
+import { CENTERED_FRAME, WORLD_CENTER } from './constants';
+import { WORLD_H, WORLD_W } from './constants';
+
 export const scene = [
   {
     id: 'laptop',
@@ -21,7 +24,7 @@ export const scene = [
     className: 'absolute left-[80px] top-[140px]',
   },
 ];
-export const compositionScene = [
+let compositionScene = [
   {
     id: 'laptop',
     type: 'laptopFrame',
@@ -45,9 +48,135 @@ export const compositionScene = [
     motion: 'enter.fromBottom',
   },
 ];
+compositionScene = [
+  {
+    id: 'laptop',
+    type: 'laptopFrame',
+    x: 200,
+    y: 120,
+    width: 900,
+    height: 600,
+    layout: 'viewport',
+    children: [
+      {
+        id: 'browser-1',
+        type: 'browserWindow',
+        x: 120,
+        y: 80,
+        width: 520,
+        height: 300,
+        motion: 'enter.fromLeft',
+      },
+      {
+        id: 'browser-2',
+        type: 'browserWindow',
+        x: 460,
+        y: 180,
+        width: 520,
+        height: 300,
+        motion: 'enter.fromBottom',
+      },
+    ],
+  },
+];
+
+export const tmotion = {
+  enter: {
+    fromLeft: {
+      initial: { x: -WORLD_W, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
+    fromRight: {
+      initial: { x: WORLD_W, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
+    fromTop: {
+      initial: { y: -WORLD_H, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+    },
+    fromBottom: {
+      initial: { y: WORLD_H, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+    },
+  },
+
+  exit: {
+    toLeft: { exit: { x: -WORLD_W, opacity: 0 } },
+    toRight: { exit: { x: WORLD_W, opacity: 0 } },
+    toTop: { exit: { y: -WORLD_H, opacity: 0 } },
+    toBottom: { exit: { y: WORLD_H, opacity: 0 } },
+  },
+};
+export { compositionScene };
+export const sizing = {
+  enter: [
+    [
+      {
+        id: 'fromTop',
+        type: 'absolute',
+        className: 'left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[750px]',
+        motion: 'fromBottom',
+      },
+    ],
+    [
+      {
+        id: 'fromBottom',
+        type: 'relative',
+        className: 'left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[750px]',
+        motion: 'fromBottom',
+      },
+    ],
+  ],
+};
+export const motionEnter = {
+  enter: [
+    [
+      {
+        id: 'fromBottom',
+        type: 'browserFrame',
+        ...CENTERED_FRAME,
+        motion: 'fromBottom',
+        exitMotion: 'toTop',
+      },
+    ],
+
+    [
+      {
+        id: 'fromLeft',
+        type: 'ideFrame',
+        ...CENTERED_FRAME,
+        motion: 'fromLeft',
+        exitMotion: 'toRight',
+      },
+    ],
+
+    [
+      {
+        id: 'fromTop',
+        type: 'browserFrame',
+        ...CENTERED_FRAME,
+        motion: 'fromTop',
+        exitMotion: 'toBottom',
+      },
+    ],
+
+    [
+      {
+        id: 'fromRight',
+        type: 'ideFrame',
+        ...CENTERED_FRAME,
+        motion: 'fromRight',
+        exitMotion: 'toLeft',
+      },
+    ],
+  ],
+};
 export const sceneRegistry: types.SceneRegistry = {
   composition: {
     nested: [compositionScene],
+  },
+  motion: {
+    enter: motionEnter.enter,
   },
   float: {
     a: [
@@ -89,45 +218,6 @@ export const sceneRegistry: types.SceneRegistry = {
           id: 'ide-terminal',
           type: 'terminal',
           className: 'right-[6%] bottom-[10%] w-[300px] h-[220px]',
-        },
-      ],
-    ],
-  },
-  motion: {
-    enter: [
-      [
-        {
-          id: 'fromBottom',
-          type: 'browserFrame',
-          className: 'left-[10%] top-[10%] w-[780px] h-[460px]',
-          motion: 'fromBottom',
-        },
-      ],
-
-      [
-        {
-          id: 'fromLeft',
-          type: 'ideFrame',
-          className: 'left-[10%] top-[10%] w-[780px] h-[460px]',
-          motion: 'fromLeft',
-        },
-      ],
-
-      [
-        {
-          id: 'fromTop',
-          type: 'browserFrame',
-          className: 'left-[10%] top-[10%] w-[780px] h-[460px]',
-          motion: 'fromTop',
-        },
-      ],
-
-      [
-        {
-          id: 'fromRight',
-          type: 'ideFrame',
-          className: 'left-[10%] top-[10%] w-[780px] h-[460px]',
-          motion: 'fromRight',
         },
       ],
     ],
