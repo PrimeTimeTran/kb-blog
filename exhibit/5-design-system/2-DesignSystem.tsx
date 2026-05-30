@@ -15,7 +15,7 @@ const inputBase =
 
 const buttonBase = 'rounded-lg px-4 py-2 font-medium transition active:scale-[0.98]';
 
-export function Tailwind() {
+export function DesignSystem() {
   return (
     <div className="h-full w-full max-w-5xl mx-auto space-y-8">
       {renderHeader()}
