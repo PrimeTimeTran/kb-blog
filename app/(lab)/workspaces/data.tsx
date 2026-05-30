@@ -1,11 +1,11 @@
-import { Workspace } from './types';
+import { LargeScrollableSection, WorkspaceHero } from './components';
 
-import Product from '@/app/(preview)/design/product/page';
 import Material from '@/app/(preview)/design/system/page';
+import Product from '@/app/(preview)/design/product/page';
+import { ProductPageShell } from '@/app/(preview)/design/Shell';
 import Tailwind from '@/app/(preview)/design/tailwind/page';
 import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities';
-import { ProductPageShell } from '@/app/(preview)/design/Shell';
-import { WorkspaceHero, LargeScrollableSection } from './components';
+import { Workspace } from './types';
 
 export const workspaces3: Workspace[] = [
   {
@@ -56,23 +56,22 @@ export const workspaces3: Workspace[] = [
 ];
 export const workspaces: Workspace[] = [
   {
+    id: 'application',
+    title: 'Application',
+    persist: true,
+    component: Product,
+  },
+  {
     id: 'design-system',
     title: 'Design System',
     persist: true,
-    component: Material,
-  },
-  {
-    id: 'tailwind',
-    title: 'Tailwind',
-    persist: true,
     component: Tailwind,
   },
-
   {
     id: 'material',
     title: 'Material',
     persist: true,
-    component: Product,
+    component: Material,
   },
   {
     id: 'text-utilities',

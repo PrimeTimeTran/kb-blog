@@ -482,7 +482,7 @@ function renderEffects2() {
             Content Behind Scrim
           </div>
 
-          <div className="absolute inset-0 bg-[var(--scrim)] backdrop-blur-[1px] flex items-center justify-center text-white font-semibold">
+          <div className="absolute inset-0 bg-(--scrim) backdrop-blur-[1px] flex items-center justify-center text-white font-semibold">
             Scrim Overlay
           </div>
         </div>
@@ -493,15 +493,14 @@ function renderEffects2() {
 
 function renderHeader() {
   return (
-    <header className="space-y-4 border-b border-zinc-200 pb-8 dark:border-zinc-800">
+    <header className="space-y-4 border-b border-zinc-200 pb-8 dark:border-zinc-800 py-16">
       <div className="space-y-2">
-        <p className="text-sm uppercase tracking-widest">Tailwind Visual Playground</p>
+        <p className="text-sm uppercase tracking-widest">Preview</p>
 
-        <h1 className="text-5xl font-black tracking-tight">Tailwind Utility Reference</h1>
+        <h1 className="text-5xl font-black tracking-tight">Design System Architecture</h1>
 
         <p className="max-w-3xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          A living page for inspecting raw Tailwind utility behavior independent of your design system abstractions and
-          semantic tokens.
+          A living page for inspecting raw Design System behavior of my design system abstractions and semantic tokens.
         </p>
       </div>
     </header>

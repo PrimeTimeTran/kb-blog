@@ -1,12 +1,11 @@
-import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
-
 import {
+  RailPosition,
+  RailState,
+  ViewportAPI,
   WorkspaceId,
   WorkspaceNavigationMode,
-  ViewportAPI,
-  RailState,
-  RailPosition,
 } from '@/app/(lab)/workspaces/types';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 
 export function useLongPress(onLongPress: () => void, delay = 500) {
   const timer = useRef<NodeJS.Timeout | null>(null);
@@ -56,8 +55,8 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
 
   const [rail, setRail] = useState<RailState>({
     open: true,
-    anchor: 'tr',
-    position: 'right',
+    anchor: 'br',
+    position: 'bottom',
   });
   // =======================================================
   // Derived

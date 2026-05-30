@@ -1,12 +1,14 @@
 'use client';
-import clsx from 'clsx';
-import { workspaces } from './data';
+
+import { PanelBottom, PanelLeft, PanelRight, PanelTop } from 'lucide-react';
+import { RailState, ViewportControllerProps, ViewportProps, WorkspaceProps } from './types';
+import { useLongPress, useViewport } from '@/hooks/useViewport';
+
 import { ViewportRail } from './Rail';
 import { WorkspaceShell } from './components';
-import { useLongPress, useViewport } from '@/hooks/useViewport';
-import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types';
-import { PanelTop, PanelBottom, PanelLeft, PanelRight } from 'lucide-react';
 import { WorkspaceThemeProvider } from './theme';
+import clsx from 'clsx';
+import { workspaces } from './data';
 
 const Z = {
   base: 0,
@@ -135,7 +137,7 @@ function ViewportController({ viewport }: ViewportControllerProps) {
   const iconClass = 'size-4 transition-transform duration-300 group-hover:scale-110 group-active:scale-95';
 
   const buttonClass = clsx(
-    'group flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--primary)] bg-surface/80 text-on-surface backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 hover:bg-surface active:scale-95 text-primary',
+    'group flex items-center justify-center h-10 w-10 rounded-full border border-(--primary)/20 bg-surface/80 text-on-surface backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 hover:bg-surface hover:border-(--primary)/40 active:scale-95 text-primary',
   );
 
   return (
