@@ -1,12 +1,15 @@
 'use client';
-import clsx from 'clsx';
-import { workspaces } from './data';
+
+import { PanelBottom, PanelLeft, PanelRight, PanelTop } from 'lucide-react';
+import { RailState, ViewportControllerProps, ViewportProps, WorkspaceProps } from './types';
+import { useLongPress, useViewport } from '@/hooks/useViewport';
+
 import { ViewportRail } from './Rail';
 import { WorkspaceShell } from './components';
-import { useLongPress, useViewport } from '@/hooks/useViewport';
-import { WorkspaceProps, ViewportProps, ViewportControllerProps, RailState } from './types';
-import { PanelTop, PanelBottom, PanelLeft, PanelRight } from 'lucide-react';
 import { WorkspaceThemeProvider } from './theme';
+import clsx from 'clsx';
+import { useState } from 'react';
+import { workspaces } from './data';
 
 const Z = {
   base: 0,
@@ -116,45 +119,54 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
   );
 }
 
-function ViewportController({ viewport }: ViewportControllerProps) {
-  const { interactRail, handleLongPress } = viewport;
+const RAILS = [
+  { anchor: 'tl', Icon: PanelTop, pos: 'top-4 left-4' },
+  { anchor: 'tr', Icon: PanelRight, pos: 'top-4 right-4' },
+  { anchor: 'bl', Icon: PanelLeft, pos: 'bottom-4 left-4' },
+  { anchor: 'br', Icon: PanelBottom, pos: 'bottom-4 right-4' },
+] as const;
 
+function ViewportController({ viewport }: ViewportControllerProps) {
+  const { interactRail, handleLongPress, rail } = viewport;
+  const [isHovered, setIsHovered] = useState(false);
   const tl = useLongPress(() => handleLongPress('tl'));
   const tr = useLongPress(() => handleLongPress('tr'));
   const bl = useLongPress(() => handleLongPress('bl'));
   const br = useLongPress(() => handleLongPress('br'));
-
-  const bind = (anchor: RailState['anchor'], lp) => ({
-    ...lp.handlers,
-    onClick: () => {
-      if (lp.consume()) return;
-      interactRail(anchor);
-    },
-  });
-
-  const iconClass = 'size-4 transition-transform duration-300 group-hover:scale-110 group-active:scale-95';
-
-  const buttonClass = clsx(
-    'group flex items-center justify-center h-10 w-10 rounded-full border border-[color:var(--primary)] bg-surface/80 text-on-surface backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 hover:bg-surface active:scale-95 text-primary',
-  );
+  const lpMap = { tl, tr, bl, br } as const;
 
   return (
-    <div className="absolute inset-0 z-50 pointer-events-none">
-      <button className={clsx(buttonClass, 'absolute top-4 left-4 pointer-events-auto')} {...bind('tl', tl)}>
-        <PanelTop className={iconClass} />
-      </button>
+    <div className="group absolute inset-0 z-50 pointer-events-none">
+      {RAILS.map(({ anchor, Icon, pos }) => {
+        const isActive = rail.anchor === anchor;
 
-      <button className={clsx(buttonClass, 'absolute top-4 right-4 pointer-events-auto')} {...bind('tr', tr)}>
-        <PanelRight className={iconClass} />
-      </button>
-
-      <button className={clsx(buttonClass, 'absolute bottom-4 left-4 pointer-events-auto')} {...bind('bl', bl)}>
-        <PanelLeft className={iconClass} />
-      </button>
-
-      <button className={clsx(buttonClass, 'absolute bottom-4 right-4 pointer-events-auto')} {...bind('br', br)}>
-        <PanelBottom className={iconClass} />
-      </button>
+        return (
+          <button
+            key={anchor}
+            className={clsx(
+              'absolute flex items-center justify-center h-10 w-10 rounded-full border',
+              'border-(--primary)/20 bg-surface/80 text-on-surface backdrop-blur-md shadow-lg',
+              'transition-all duration-300 hover:scale-105 hover:bg-surface pointer-events-auto',
+              'hover:border-(--primary)/40 active:scale-95 text-primary',
+              pos,
+              isActive && 'animate-pulse-subtle',
+              /* LOGIC:
+                 1. If active, always opacity-100.
+                 2. If NOT active, hidden (opacity-0).
+                 3. If the PARENT is hovered (group-hover:opacity-100), show all.
+              */
+              isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+            )}
+            onClick={() => {
+              if (lpMap[anchor].consume()) return;
+              interactRail(anchor);
+            }}
+            {...lpMap[anchor].handlers}
+          >
+            <Icon className="size-4" />
+          </button>
+        );
+      })}
     </div>
   );
 }

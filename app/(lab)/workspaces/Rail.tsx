@@ -80,8 +80,8 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
       }}
       className={clsx(
         'group relative overflow-hidden transition-all duration-300 ease-out rounded w-48 h-28',
-        isHovering || active ? 'scale-[1.08] z-20 shadow-xl border' : 'scale-100',
-        active ? 'outline' : '',
+        isHovering || active ? 'scale-[1.08] z-20 shadow-xl' : 'scale-100',
+        active ? 'border' : '',
       )}
     >
       <div className="absolute inset-0 z-0 bg-surface">

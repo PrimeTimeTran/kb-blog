@@ -1,17 +1,44 @@
 import { Box, Cpu, Layers, LayoutGrid, Palette, Zap } from 'lucide-react';
 
-export default function App() {
-  return <SneakPeak />;
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } },
+};
+
+function AnimatedCard({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      className="relative w-full max-w-2xl group grid"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.div
+        layout
+        className="relative rounded-4xl border border-white/10 bg-level/70 p-6 shadow-2xl backdrop-blur-2xl"
+      >
+        {children}
+      </motion.div>
+      <div className="absolute -bottom-12 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-primary opacity-20 blur-[100px]" />
+    </motion.div>
+  );
 }
 
-export function SneakPeak() {
+export default function App() {
   const { pageHero, pageLogos, pageFeatures, pageShowcase, pageTestimonials, pagePricing, pageCTA, pageFooter } =
     renderContent();
   return (
     <div className="min-h-full w-full bg-background text-on-background">
       {pageHero}
       {pageLogos}
-      {/* {pageFeatures} */}
+      {pageFeatures}
       {pageShowcase}
       {pageTestimonials}
       {pagePricing}
@@ -22,111 +49,91 @@ export function SneakPeak() {
 }
 
 function renderContent() {
-  const pageHero = (
-    <section className="relative overflow-hidden border-b border-outline-variant">
-      {/* ambient background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-primary)_0%,transparent_35%),radial-gradient(circle_at_bottom_right,var(--color-tertiary)_0%,transparent_35%)] opacity-20" />
-
-      <div className="relative mx-auto flex max-w-7xl flex-col gap-12 px-6 py-28 lg:flex-row lg:items-center lg:justify-between">
-        {/* LEFT */}
-        <div className="max-w-2xl space-y-8">
-          <div className="inline-flex items-center gap-2 rounded-full bg-primary-container px-4 py-2 text-sm font-medium text-on-primary-container">
-            <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-            Browser-Native IDE Engine
+  const heroRight = (
+    <div className="relative w-full max-w-2xl group min-h-125 -top-20">
+      <AnimatedCard>
+        {/* Top Bar - Static/Instant */}
+        <div className="mb-8 flex items-center justify-between">
+          <div className="flex gap-2 opacity-50">
+            <div className="h-3 w-3 rounded-full bg-error" />
+            <div className="h-3 w-3 rounded-full bg-tertiary" />
+            <div className="h-3 w-3 rounded-full bg-primary" />
           </div>
-
-          <div className="space-y-5">
-            <h1 className="max-w-2xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
-              Code, compile, and prototype—directly in your browser.
-            </h1>
-
-            <p className="max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
-              An immersive, high-performance developer environment built with Material 3. Experience fluid editing,
-              real-time sandboxed execution, and semantic design tools in a zero-setup workflow.
-            </p>
+          <div className="rounded-full bg-high/50 px-4 py-1 text-xs font-medium text-on-surface-variant">
+            sandbox.dev
           </div>
+        </div>
 
-          <div className="flex flex-wrap gap-4">
-            <button className="rounded-full bg-primary px-8 py-4 text-sm font-bold text-on-primary shadow-lg transition hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98]">
-              Launch IDE
-            </button>
+        {/* Content Wrapper: NO initial/animate here. Just the children. */}
+        <div className="space-y-4">
+          {/* Main Header */}
+          <motion.div
+            variants={itemVariants}
+            className="rounded-3xl bg-primary-container p-8 text-on-primary-container shadow-inner"
+          >
+            <div className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">Compiler Output</div>
+            <div className="text-3xl font-extrabold tracking-tight">Runtime Environment Ready</div>
+          </motion.div>
 
-            <button className="rounded-full border border-outline bg-surface px-8 py-4 text-sm font-bold text-on-surface transition hover:bg-high">
-              View Documentation
-            </button>
-          </div>
-
-          {/* metrics */}
-          <div className="flex flex-wrap gap-8 pt-6">
+          {/* Feature Grid */}
+          <motion.div variants={itemVariants} className="grid gap-4 md:grid-cols-2">
             {[
-              ['Live', 'Sandboxed Runtime'],
-              ['Instant', 'Code Hot-Reloading'],
-              ['M3', 'Semantic IDE Layout'],
-            ].map(([value, label]) => (
-              <div key={label}>
-                <div className="text-3xl font-black">{value}</div>
-                <div className="text-sm text-on-surface-variant">{label}</div>
+              {
+                bg: 'bg-secondary-container',
+                text: 'text-on-secondary-container',
+                label: 'Editor',
+                val: 'Ace-powered highlighting',
+              },
+              {
+                bg: 'bg-tertiary-container',
+                text: 'text-on-tertiary-container',
+                label: 'Integration',
+                val: 'Seamless iframe execution',
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`rounded-3xl ${item.bg} ${item.text} p-6 transition-transform hover:-translate-y-1 duration-300`}
+              >
+                <div className="mb-2 text-[10px] font-bold uppercase tracking-widest opacity-60">{item.label}</div>
+                <div className="font-bold leading-tight">{item.val}</div>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
 
-        {/* RIGHT VISUAL */}
-        <div className="relative w-full max-w-2xl">
-          <div className="relative rounded-[32px] border border-outline bg-level/70 p-6 shadow-2xl backdrop-blur-xl">
-            {/* top bar */}
-            <div className="mb-6 flex items-center justify-between">
-              <div className="flex gap-2">
-                <div className="h-3 w-3 rounded-full bg-error" />
-                <div className="h-3 w-3 rounded-full bg-tertiary" />
-                <div className="h-3 w-3 rounded-full bg-primary" />
+          {/* Build Status */}
+          <motion.div variants={itemVariants} className="rounded-3xl bg-high p-6 border border-white/5">
+            <div className="mb-4 flex items-center justify-between">
+              <div>
+                <div className="font-bold">Build Status</div>
+                <div className="text-xs text-on-surface-variant">Hot Module Replacement</div>
               </div>
-
-              <div className="rounded-full bg-high px-4 py-1 text-xs text-on-surface-variant">sandbox.dev</div>
-            </div>
-
-            {/* fake ui */}
-            <div className="space-y-4">
-              <div className="rounded-3xl bg-primary-container p-8 text-on-primary-container">
-                <div className="mb-3 text-sm uppercase tracking-widest opacity-70">Compiler Output</div>
-
-                <div className="text-3xl font-black">Runtime Environment Ready</div>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-3xl bg-secondary-container p-6 text-on-secondary">
-                  <div className="mb-2 text-sm opacity-70">Editor</div>
-
-                  <div className="text-xl font-bold">Ace-powered syntax highlighting</div>
-                </div>
-
-                <div className="rounded-3xl bg-tertiary-container p-6 text-on-tertiary-container">
-                  <div className="mb-2 text-sm opacity-70">Integration</div>
-
-                  <div className="text-xl font-bold">Seamless iframe execution</div>
-                </div>
-              </div>
-
-              <div className="rounded-3xl bg-high p-6">
-                <div className="mb-4 flex items-center justify-between">
-                  <div>
-                    <div className="font-bold">Build Status</div>
-                    <div className="text-sm text-on-surface-variant">Hot Module Replacement</div>
-                  </div>
-
-                  <div className="rounded-full bg-primary px-4 py-2 text-xs font-bold text-on-primary">RUNNING</div>
-                </div>
-
-                <div className="h-3 overflow-hidden rounded-full bg-highest">
-                  <div className="h-full w-full rounded-full bg-primary" />
-                </div>
+              <div className="relative flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[10px] font-black text-on-primary">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white"></span>
+                </span>
+                RUNNING
               </div>
             </div>
-          </div>
-
-          {/* glow */}
-          <div className="absolute -bottom-12 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-primary opacity-30 blur-3xl" />
+            <div className="h-2 overflow-hidden rounded-full bg-highest">
+              <div className="h-full w-3/4 animate-pulse rounded-full bg-primary" />
+            </div>
+          </motion.div>
         </div>
+      </AnimatedCard>
+
+      {/* Glow Effect */}
+      <div className="absolute -bottom-12 left-1/2 h-48 w-48 -translate-x-1/2 rounded-full bg-primary opacity-20 blur-[100px]" />
+    </div>
+  );
+
+  const pageHero = (
+    <section className="relative overflow-hidden border-b border-outline-variant">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,var(--color-primary)_0%,transparent_35%),radial-gradient(circle_at_bottom_right,var(--color-tertiary)_0%,transparent_35%)] opacity-20" />
+      <div className="relative mx-auto flex max-w-7xl flex-col gap-12 p-6 lg:flex-row lg:items-center lg:justify-between">
+        {heroLeft()}
+        {heroRight}
       </div>
     </section>
   );
@@ -152,66 +159,65 @@ function renderContent() {
   );
 
   const pageFeatures = (
-    <div>Page Feature</div>
-    //   <section className="mx-auto max-w-7xl px-6 py-28">
-    //     <div className="mb-20 max-w-3xl">
-    //       <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Core Architecture</div>
-    //       <h2 className="mb-6 text-4xl font-black text-primary-light md:text-6xl">
-    //         Designed for scale. Built for clarity.
-    //       </h2>
-    //       <p className="text-lg leading-relaxed text-on-surface-variant">
-    //         A system rooted in Material Design principles, where intent meets execution. From tonal color mapping to
-    //         depth-based elevation, every abstraction serves the user's focus.
-    //       </p>
-    //     </div>
+    <section className="mx-auto max-w-7xl px-6 py-28">
+      <div className="mb-20 max-w-3xl">
+        <div className="mb-4 text-sm font-bold uppercase tracking-[0.3em] text-primary">Core Architecture</div>
+        <h2 className="mb-6 text-4xl font-black text-primary-light md:text-6xl">
+          Designed for scale. Built for clarity.
+        </h2>
+        <p className="text-lg leading-relaxed text-on-surface-variant">
+          A system rooted in Material Design principles, where intent meets execution. From tonal color mapping to
+          depth-based elevation, every abstraction serves the user's focus.
+        </p>
+      </div>
 
-    //     <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-    //       {[
-    //         {
-    //           title: 'Tonal Palettes',
-    //           body: 'Automatic color mapping using HCT (Hue, Chroma, Tone) to ensure accessible contrast and brand harmony.',
-    //           icon: Palette,
-    //         },
-    //         {
-    //           title: 'Elevation Tiers',
-    //           body: 'A depth-first surface system that creates visual hierarchy through ambient shadow and tonal stacking.',
-    //           icon: Layers,
-    //         },
-    //         {
-    //           title: 'Component Density',
-    //           body: 'Adaptive spacing patterns that gracefully shrink or expand based on screen size and input modality.',
-    //           icon: Box,
-    //         },
-    //         {
-    //           title: 'Motion Logic',
-    //           body: 'Easing curves and shared element transitions that reinforce spatial relationships between views.',
-    //           icon: Zap,
-    //         },
-    //         {
-    //           title: 'Semantic Tokens',
-    //           body: 'Abstraction over implementation. Use intent-based tokens to maintain consistency across themes.',
-    //           icon: Cpu,
-    //         },
-    //         {
-    //           title: 'Adaptive Layouts',
-    //           body: 'Responsive gutters, margins, and column structures that translate natively to any viewport.',
-    //           icon: LayoutGrid,
-    //         },
-    //       ].map((feature) => (
-    //         <div
-    //           key={feature.title}
-    //           className="group rounded-[28px] border border-outline bg-level p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
-    //         >
-    //           <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-on-primary transition group-hover:scale-110">
-    //             <feature.icon size={28} />
-    //           </div>
+      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {[
+          {
+            title: 'Tonal Palettes',
+            body: 'Automatic color mapping using HCT (Hue, Chroma, Tone) to ensure accessible contrast and brand harmony.',
+            icon: Palette,
+          },
+          {
+            title: 'Elevation Tiers',
+            body: 'A depth-first surface system that creates visual hierarchy through ambient shadow and tonal stacking.',
+            icon: Layers,
+          },
+          {
+            title: 'Component Density',
+            body: 'Adaptive spacing patterns that gracefully shrink or expand based on screen size and input modality.',
+            icon: Box,
+          },
+          {
+            title: 'Motion Logic',
+            body: 'Easing curves and shared element transitions that reinforce spatial relationships between views.',
+            icon: Zap,
+          },
+          {
+            title: 'Semantic Tokens',
+            body: 'Abstraction over implementation. Use intent-based tokens to maintain consistency across themes.',
+            icon: Cpu,
+          },
+          {
+            title: 'Adaptive Layouts',
+            body: 'Responsive gutters, margins, and column structures that translate natively to any viewport.',
+            icon: LayoutGrid,
+          },
+        ].map((feature) => (
+          <div
+            key={feature.title}
+            className="group rounded-[28px] border border-outline bg-level p-8 transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
+          >
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-on-primary transition group-hover:scale-110">
+              <feature.icon size={28} />
+            </div>
 
-    //           <h3 className="mb-3 text-2xl font-bold">{feature.title}</h3>
-    //           <p className="leading-relaxed text-on-surface-variant">{feature.body}</p>
-    //         </div>
-    //       ))}
-    //     </div>
-    //   </section>
+            <h3 className="mb-3 text-2xl font-bold">{feature.title}</h3>
+            <p className="leading-relaxed text-on-surface-variant">{feature.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
   );
   const pageShowcase = (
     <section className="border-y border-outline-variant bg-low">
@@ -440,4 +446,47 @@ function renderContent() {
     pageCTA,
     pageFooter,
   };
+
+  function heroLeft() {
+    return (
+      <div className="max-w-2xl space-y-8 pt-8">
+        <div className="inline-flex items-center gap-2 rounded-full bg-primary-container px-4 py-2 text-sm font-medium text-on-primary-container">
+          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+          Browser-Native IDE Engine
+        </div>
+        <div className="space-y-5">
+          <h1 className="max-w-2xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+            Code, compile, and prototype—directly in your browser.
+          </h1>
+
+          <p className="max-w-xl text-lg leading-relaxed text-on-surface-variant md:text-xl">
+            An immersive, high-performance developer environment built with Material 3. Experience fluid editing,
+            real-time sandboxed execution, and semantic design tools in a zero-setup workflow.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <button className="rounded-full bg-primary px-8 py-4 text-sm font-bold text-on-primary shadow-lg transition hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98]">
+            Launch IDE
+          </button>
+
+          <button className="rounded-full border border-outline bg-surface px-8 py-4 text-sm font-bold text-on-surface transition hover:bg-high">
+            View Documentation
+          </button>
+        </div>
+        <div className="flex flex-wrap gap-8 pt-6">
+          {[
+            ['Live', 'Sandboxed Runtime'],
+            ['Instant', 'Code Hot-Reloading'],
+            ['M3', 'Semantic IDE Layout'],
+          ].map(([value, label]) => (
+            <div key={label}>
+              <div className="text-3xl font-black">{value}</div>
+              <div className="text-sm text-on-surface-variant">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }

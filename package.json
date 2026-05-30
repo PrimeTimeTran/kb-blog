@@ -20,7 +20,8 @@
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json",
     "build": "next build",
-    "build-vercel": "vercel build"
+    "build-vercel": "vercel build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "chroma-js": "^3.2.0",
@@ -136,7 +137,8 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.7",
-    "vscode-icons-js": "^11.6.1"
+    "vscode-icons-js": "^11.6.1",
+    "husky": "^8.0.0"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [

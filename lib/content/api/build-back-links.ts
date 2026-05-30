@@ -1,4 +1,4 @@
-import { buildTermsRegistry } from '@/lib/content/api/build-terms-registry';
+import { buildTermsRegistry } from '@/lib/content';
 import fs from 'fs';
 import { getContent } from '@/lib/content/api';
 import matter from 'gray-matter';

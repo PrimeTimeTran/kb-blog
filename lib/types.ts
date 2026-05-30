@@ -2,18 +2,14 @@ export type VFSFile = {
   content: string;
   language?: string;
 };
-
 export type VFS = {
   files: Record<string, VFSFile>;
 };
-
 export type VirtualFile = {
   content: string;
   language: string;
 };
-
 export type VirtualFS = Record<string, VirtualFile>;
-
 export type TreeNode = {
   id: string;
   name: string;
@@ -21,7 +17,6 @@ export type TreeNode = {
   kind: 'file' | 'folder';
   children: TreeNode[];
 };
-
 export type TreeViewOptions = {
   hideFiles?: boolean;
   hideFolders?: boolean;

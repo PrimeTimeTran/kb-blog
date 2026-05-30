@@ -1,13 +1,13 @@
 'use client';
-import React, { useState, useEffect, useRef } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 
-import { SectionTitle } from './components';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
+import { THEME_VAULT, applyMaterialTheme } from '@/lib/theme/palette';
+
 import { BaseScroll } from '@/components/BaseScroll';
-import { useThemeStore } from '@/hooks/useThemeStore';
+import { SectionTitle } from './components';
 import { useTheme } from '@teispace/next-themes';
-import type { Theme } from '@/lib/theme/palette';
-import { applyMaterialTheme, THEME_VAULT } from '@/lib/theme/palette';
+import { useThemeStore } from '@/hooks/useThemeStore';
 
 export function Page1() {
   const [active, setActive] = useState<number | null>(null);

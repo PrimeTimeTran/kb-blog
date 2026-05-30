@@ -42,11 +42,11 @@ function Hero() {
       <div className="mx-auto max-w-6xl">
         <div className="max-w-4xl space-y-6">
           <div className="inline-flex items-center rounded-full border border-outline/20 bg-secondary-container px-3 py-1 text-xs font-bold tracking-wide tex-on-secondary">
-            Omni Typography System
+            Typography System
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-5xl font-black tracking-tight">Tailwind Text Utilities</h1>
+            <h1 className="text-5xl font-black tracking-tight">Design System Text Utilities</h1>
 
             <p className="text-lg leading-8 text-on-surface-variant">
               Typography utilities define readability, hierarchy, rhythm, and communication across the Omni design
