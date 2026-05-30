@@ -452,7 +452,7 @@
         Handlers: {
           'runtime:boot': (ctx, payload) => {
             // [SETUP FRAMEWORK/RUNTIME]
-            ctx.ENTRY_PATH = payload.entry || './5-design-system/1-ProductLandingPage.tsx';
+            ctx.ENTRY_PATH = payload.entry || './5-design-system/1-Application.tsx';
             ctx.vfs = payload.files;
             ctx.processMessage({ type: 'vfs:update', payload: { files: payload.files } });
           },

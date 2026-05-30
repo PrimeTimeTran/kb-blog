@@ -1,4 +1,4 @@
-import { Tailwind } from '@/exhibit/5-design-system/3-Tailwind';
+import { Tailwind } from '@/exhibit/5-design-system/2-DesignSystem';
 
 // Inspiration Sites.
 // https://list.swajp.me/

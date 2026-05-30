@@ -1,3 +1,3 @@
-import { SneakPeak } from '@/exhibit/5-design-system/1-Exhibit';
+import App from '@/exhibit/5-design-system/1-Application';
 
-export default SneakPeak;
+export default App;
