@@ -1,35 +1,45 @@
 import * as types from '../types';
 
-import { ENABLE_CAMERA_TICK, WORLD, cameraConfig } from '../constants';
+import { ENABLE_CAMERA_TICK, WORLD, WORLD_CENTER, cameraConfig } from '../constants';
 import { FrameRenderer, tmotion } from '../';
 import { useEffect, useRef, useState } from 'react';
 
 import { dumpScene } from '../src';
 import { motion } from 'framer-motion';
 
-export function AnimatedFrame({ frame }: { frame: types.Frame }) {
-  const isContainer = !!frame.children?.length;
+function resolveFrame1(frame) {
+  return {
+    ...frame,
+    x: (frame.x ?? WORLD_CENTER.x) + (frame.offset?.x ?? 0),
+    y: (frame.y ?? WORLD_CENTER.y) + (frame.offset?.y ?? 0),
+  };
+}
 
+function resolveFrame(frame, parent = { x: 0, y: 0 }) {
+  return {
+    ...frame,
+    x: parent.x + (frame.x ?? 0) + (frame.offset?.x ?? 0),
+    y: parent.y + (frame.y ?? 0) + (frame.offset?.y ?? 0),
+  };
+}
+export function AnimatedFrame({ camera, frame, parent = { x: 0, y: 0 } }) {
   const enter = frame.motion && tmotion.enter[frame.motion];
   const exit = frame.exitMotion && tmotion.exit?.[frame.exitMotion];
 
   const variants = {
-    ...(enter ?? {
-      initial: { opacity: 0 },
-      animate: { opacity: 1 },
-    }),
-
-    ...(exit ?? {
-      exit: { opacity: 0 },
-    }),
+    initial: enter?.initial ?? { opacity: 0 },
+    animate: enter?.animate ?? { opacity: 1 },
+    exit: exit?.exit ?? { opacity: 0 },
   };
+
+  const resolved = resolveFrame(frame, parent);
 
   return (
     <motion.div
-      className="absolute border border-red-500 bg-red-500/10 overflow-hidden"
+      className="absolute border  bg-green-400/10 overflow-hidden"
       style={{
-        left: frame.x ?? 0,
-        top: frame.y ?? 0,
+        left: resolved.x,
+        top: resolved.y,
         width: frame.width,
         height: frame.height,
       }}
@@ -39,17 +49,19 @@ export function AnimatedFrame({ frame }: { frame: types.Frame }) {
       variants={variants}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="w-full h-full relative">
-        <FrameRenderer frame={frame} />
+      <FrameRenderer frame={frame} />
 
-        {isContainer && (
-          <div className="absolute inset-0">
-            {frame.children.map((child) => (
-              <AnimatedFrame key={child.id} frame={child} />
-            ))}
-          </div>
-        )}
-      </div>
+      {frame.children?.map((child) => (
+        <AnimatedFrame
+          key={child.id}
+          frame={child}
+          camera={camera}
+          parent={{
+            x: resolved.x,
+            y: resolved.y,
+          }}
+        />
+      ))}
     </motion.div>
   );
 }
@@ -94,29 +106,24 @@ export function useCamera(
     updateCamera,
   };
 }
-
 export function WorldLayer({ camera, children }) {
   return (
-    <div className="absolute inset-0 overflow-hidden flex items-center justify-center">
+    <div className="absolute inset-0 overflow-hidden">
       <motion.div
-        className="relative"
-        initial={false}
+        className="absolute left-1/2 top-1/2"
+        style={{ transformOrigin: '0 0' }}
         animate={{
           x: camera.x,
           y: camera.y,
           scale: camera.zoom,
         }}
-        transition={{
-          type: 'spring',
-          stiffness: 120,
-          damping: 20,
-        }}
       >
         <div
-          className="relative bg-green-300"
+          className="relative"
           style={{
             width: WORLD.width,
             height: WORLD.height,
+            transform: `translate(-50%, -50%)`,
           }}
         >
           {children}

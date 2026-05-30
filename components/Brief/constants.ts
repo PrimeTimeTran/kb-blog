@@ -13,6 +13,13 @@ export const WORLD = {
   height: WORLD_H,
 };
 
+export const worldToScreen = (v, camera) => ({
+  x: (v.x + camera.x) * camera.zoom,
+  y: (v.y + camera.y) * camera.zoom,
+  width: v.width * camera.zoom,
+  height: v.height * camera.zoom,
+});
+
 const FRAME_W = 1200;
 const FRAME_H = 750;
 

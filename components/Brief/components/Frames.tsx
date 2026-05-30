@@ -20,18 +20,15 @@ export function SquareBoxAbsolute() {
     </div>
   );
 }
+
 export function SquareBoxRelative() {
   return (
-    <div className=" text-white bg-red-500 p-6 border border-green-700">
+    <div className=" text-white bg-red-500 h-full w-full p-6 border border-green-700">
       <div className="font-bold">Relative box</div>
       <div className="text-sm opacity-80">size depends on content + parent constraints</div>
     </div>
   );
 }
-
-type FrameRenderProps = {
-  type: types.FrameType;
-};
 
 export function FrameRenderer({ frame }: { frame: types.Frame }) {
   switch (frame.type) {
@@ -39,13 +36,10 @@ export function FrameRenderer({ frame }: { frame: types.Frame }) {
       return <SquareBoxAbsolute />;
     case 'relative':
       return <SquareBoxRelative />;
-
+    case 'laptopFrame':
+      return <LaptopFrameBlock frame={frame} />; // NO children here
     case 'browserFrame':
       return <BrowserFrameBlock />;
-
-    case 'laptopFrame':
-      return <LaptopFrameBlock />;
-
     case 'browserWindow':
       return <LaptopBrowserBlock />;
 
@@ -241,7 +235,7 @@ export function SidebarBlock() {
             whileHover={{
               x: 4,
             }}
-            className={clsx('rounded-xl bg-white/[0.04] border border-white/5', i === 1 ? 'h-10' : 'h-8')}
+            className={clsx('rounded-xl bg-white/4 border border-white/5', i === 1 ? 'h-10' : 'h-8')}
           />
         ))}
       </div>
@@ -347,17 +341,12 @@ export function FrameWrapper({ children }: ReactNodeProp) {
 export function LaptopFrameBlock1() {
   return (
     <div className="w-full h-full rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl">
-      {/* top bar */}
       <div className="h-10 border-b border-white/10 flex items-center gap-2 px-4">
         <div className="w-2.5 h-2.5 rounded-full bg-red-400/50" />
         <div className="w-2.5 h-2.5 rounded-full bg-yellow-400/50" />
         <div className="w-2.5 h-2.5 rounded-full bg-green-400/50" />
       </div>
-
-      {/* screen area */}
-      <div className="relative w-full h-[calc(100%-40px)] overflow-hidden">
-        {/* children will visually sit “inside” this */}
-      </div>
+      <div className="relative w-full h-[calc(100%-40px)] overflow-hidden"></div>
     </div>
   );
 }
@@ -366,13 +355,21 @@ export function LaptopFrameBlock2() {
     <div className="absolute inset-0 rounded-[28px] border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl pointer-events-none" />
   );
 }
-export function LaptopFrameBlock({ children }: { children?: ReactNodeProp }) {
+export function LaptopFrameBlock({ frame, children }) {
+  const width = frame.width;
+  const height = frame.height;
+
   return (
-    <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative w-full h-full rounded-[28px] p-16 border border-white/10 shadow-2xl overflow-hidden">
-        <div className="absolute left-[5%] top-[7%] right-[5%] bottom-[8%] rounded-xl bg-neutral-900 overflow-hidden">
-          {children}
-        </div>
+    <div className="relative w-full h-full flex items-center justify-center p-8">
+      <div
+        className="relative rounded-[36px] bg-surface-laptop-shell shadow-2xl p-6"
+        style={{
+          width,
+          height,
+        }}
+      >
+        <div className="absolute inset-6 rounded-[28px] bg-surface-laptop-bezel" />
+        <div className="absolute inset-4 rounded-[20px] overflow-hidden bg-surface-laptop-screen">{children}</div>
       </div>
     </div>
   );

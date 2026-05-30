@@ -1,6 +1,6 @@
 import * as types from './types';
 
-import { CENTERED_FRAME, WORLD_CENTER } from './constants';
+import { CENTERED_FRAME, WORLD, WORLD_CENTER } from './constants';
 import { WORLD_H, WORLD_W } from './constants';
 
 export const scene = [
@@ -24,111 +24,87 @@ export const scene = [
     className: 'absolute left-[80px] top-[140px]',
   },
 ];
-let compositionScene = [
+export const compositionScene = [
   {
     id: 'laptop',
     type: 'laptopFrame',
-    className: 'left-[5%] top-[5%] w-[90%] h-[85%]',
-    group: 'root',
-  },
 
-  {
-    id: 'browser-1',
-    type: 'browserWindow',
-    className: 'left-[12%] top-[18%] w-[520px] h-[300px]',
-    group: 'laptop',
-    motion: 'enter.fromLeft',
-  },
+    ...CENTERED_FRAME,
 
-  {
-    id: 'browser-2',
-    type: 'browserWindow',
-    className: 'left-[30%] top-[35%] w-[520px] h-[300px]',
-    group: 'laptop',
-    motion: 'enter.fromBottom',
-  },
-];
-compositionScene = [
-  {
-    id: 'laptop',
-    type: 'laptopFrame',
-    x: 200,
-    y: 120,
-    width: 900,
-    height: 600,
-    layout: 'viewport',
+    width: 1200,
+    height: 720,
+
     children: [
       {
         id: 'browser-1',
         type: 'browserWindow',
-        x: 120,
-        y: 80,
+
+        ...CENTERED_FRAME,
+
+        offset: { x: -600, y: -120 },
+
         width: 520,
         height: 300,
-        motion: 'enter.fromLeft',
+
+        motion: 'fromBottom',
+        exitMotion: 'toTop',
       },
       {
         id: 'browser-2',
         type: 'browserWindow',
-        x: 460,
-        y: 180,
+
+        ...CENTERED_FRAME,
+
+        offset: { x: 220, y: 40 },
+
         width: 520,
         height: 300,
-        motion: 'enter.fromBottom',
+
+        motion: 'fromLeft',
+        exitMotion: 'toRight',
       },
     ],
   },
 ];
 
-export const tmotion = {
-  enter: {
-    fromLeft: {
-      initial: { x: -WORLD_W, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromRight: {
-      initial: { x: WORLD_W, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromTop: {
-      initial: { y: -WORLD_H, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-    fromBottom: {
-      initial: { y: WORLD_H, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-  },
+export const transformsScene = [
+  {
+    id: 'laptop',
+    type: 'laptopFrame',
 
-  exit: {
-    toLeft: { exit: { x: -WORLD_W, opacity: 0 } },
-    toRight: { exit: { x: WORLD_W, opacity: 0 } },
-    toTop: { exit: { y: -WORLD_H, opacity: 0 } },
-    toBottom: { exit: { y: WORLD_H, opacity: 0 } },
+    x: 0,
+    y: 0,
+
+    width: WORLD.width * 0.6,
+    height: WORLD.height * 0.6,
+
+    children: [
+      {
+        id: 'browser-1',
+        type: 'browserWindow',
+
+        x: -300,
+        y: -120,
+
+        width: WORLD.width * 0.25,
+        height: WORLD.height * 0.25,
+      },
+
+      {
+        id: 'browser-2',
+        type: 'browserWindow',
+
+        x: 200,
+        y: 40,
+
+        width: WORLD.width * 0.25,
+        height: WORLD.height * 0.25,
+      },
+    ],
   },
-};
-export { compositionScene };
-export const sizing = {
-  enter: [
-    [
-      {
-        id: 'fromTop',
-        type: 'absolute',
-        className: 'left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[750px]',
-        motion: 'fromBottom',
-      },
-    ],
-    [
-      {
-        id: 'fromBottom',
-        type: 'relative',
-        className: 'left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[750px]',
-        motion: 'fromBottom',
-      },
-    ],
-  ],
-};
-export const motionEnter = {
+];
+
+export const motionScene = {
   enter: [
     [
       {
@@ -171,12 +147,66 @@ export const motionEnter = {
     ],
   ],
 };
+
+export const tmotion = {
+  enter: {
+    fromLeft: {
+      initial: { x: -WORLD_W, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
+    fromRight: {
+      initial: { x: WORLD_W, opacity: 0 },
+      animate: { x: 0, opacity: 1 },
+    },
+    fromTop: {
+      initial: { y: -WORLD_H, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+    },
+    fromBottom: {
+      initial: { y: WORLD_H, opacity: 0 },
+      animate: { y: 0, opacity: 1 },
+    },
+  },
+
+  exit: {
+    toLeft: { exit: { x: -WORLD_W, opacity: 0 } },
+    toRight: { exit: { x: WORLD_W, opacity: 0 } },
+    toTop: { exit: { y: -WORLD_H, opacity: 0 } },
+    toBottom: { exit: { y: WORLD_H, opacity: 0 } },
+  },
+};
+
+export const sizing = {
+  preview: [
+    [
+      {
+        id: 'fromTop',
+        type: 'absolute',
+        ...CENTERED_FRAME,
+        motion: 'fromBottom',
+      },
+    ],
+    [
+      {
+        id: 'fromBottom',
+        type: 'relative',
+        ...CENTERED_FRAME,
+        motion: 'fromBottom',
+      },
+    ],
+  ],
+};
+
 export const sceneRegistry: types.SceneRegistry = {
+  sizing,
+  transforms: {
+    shapes: [transformsScene],
+  },
   composition: {
     nested: [compositionScene],
   },
   motion: {
-    enter: motionEnter.enter,
+    enter: motionScene.enter,
   },
   float: {
     a: [
