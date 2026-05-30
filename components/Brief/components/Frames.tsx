@@ -8,6 +8,31 @@ type ViewportProps = {
   className?: string;
   children: React.ReactNode;
 };
+export function FloatScene({ nodes }: { nodes: any[] }) {
+  return (
+    <div className="relative w-full h-full">
+      {nodes.map((frame) => (
+        <FloatFrame key={frame.id} frame={frame} />
+      ))}
+    </div>
+  );
+}
+
+export function FloatSceneComposer({ scene }) {
+  return (
+    <div className="relative w-full h-full">
+      <FloatScene nodes={scene} />
+    </div>
+  );
+}
+
+export function FloatFrame({ frame }: { frame: any }) {
+  return (
+    <div className={`absolute ${frame.className ?? ''}`}>
+      <FrameRenderer frame={frame} />
+    </div>
+  );
+}
 
 export function Viewport({ className = '', children }: ViewportProps) {
   return <div className={`relative overflow-hidden ${className}`}>{children}</div>;
@@ -21,6 +46,26 @@ export function SquareBoxAbsolute() {
   );
 }
 
+export function SquareBoxRelativeDynamic({ style }: { style?: React.CSSProperties }) {
+  return (
+    <div
+      className="text-white bg-red-500 border border-green-700 p-6"
+      style={{
+        width: '100%',
+        height: '100%',
+
+        // 🔥 critical: allow morphing
+        transition: 'all 600ms cubic-bezier(0.22,1,0.36,1)',
+
+        ...style,
+      }}
+    >
+      <div className="font-bold">Relative box</div>
+      <div className="text-sm opacity-80">shape is timeline-driven</div>
+    </div>
+  );
+}
+
 export function SquareBoxRelative() {
   return (
     <div className=" text-white bg-red-500 h-full w-full p-6 border border-green-700">
@@ -30,44 +75,6 @@ export function SquareBoxRelative() {
   );
 }
 
-export function FrameRenderer({ frame }: { frame: types.Frame }) {
-  switch (frame.type) {
-    case 'absolute':
-      return <SquareBoxAbsolute />;
-    case 'relative':
-      return <SquareBoxRelative />;
-    case 'laptopFrame':
-      return <LaptopFrameBlock frame={frame} />; // NO children here
-    case 'browserFrame':
-      return <BrowserFrameBlock />;
-    case 'browserWindow':
-      return <LaptopBrowserBlock />;
-
-    case 'ideFrame':
-      return <IDEFrameBlock />;
-
-    case 'sidebar':
-      return <SidebarBlock />;
-
-    case 'editor':
-      return <EditorBlock />;
-
-    case 'terminal':
-      return <TerminalBlock />;
-
-    case 'chart':
-      return <ChartBlock />;
-
-    case 'stats':
-      return <StatsBlock />;
-
-    case 'card':
-      return <CardBlock />;
-
-    default:
-      return <div className="text-red-500 text-xs">Unknown block: {String(frame.type)}</div>;
-  }
-}
 export function LaptopFrame({ children }: ReactNodeProp) {
   return (
     <Viewport className="w-225 h-140 rounded-[28px] border border-white/10  shadow-2xl">
@@ -387,4 +394,69 @@ export function LaptopBrowserBlock({ children }: { children?: ReactNodeProp }) {
       </div>
     </div>
   );
+}
+
+export function ShapeRenderer({ frame, style }: { frame: types.Frame; style?: any }) {
+  const points = style?.points;
+
+  if (!points) return null;
+
+  const pointsString = points.map(([x, y]) => `${x * 100},${y * 100}`).join(' ');
+
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+      style={{
+        display: 'block',
+      }}
+    >
+      <polygon points={pointsString} fill="currentColor" />
+    </svg>
+  );
+}
+
+export function FrameRenderer({ frame, style }: { frame: types.Frame }) {
+  switch (frame.type) {
+    case 'shape':
+      return <ShapeRenderer frame={frame} style={style} />;
+    case 'container':
+      return <SquareBoxRelativeDynamic />;
+    case 'absolute':
+      return <SquareBoxAbsolute />;
+    case 'relative':
+      return <SquareBoxRelative />;
+    case 'laptopFrame':
+      return <LaptopFrameBlock frame={frame} />; // NO children here
+    case 'browserFrame':
+      return <BrowserFrameBlock />;
+    case 'browserWindow':
+      return <LaptopBrowserBlock />;
+
+    case 'ideFrame':
+      return <IDEFrameBlock />;
+
+    case 'sidebar':
+      return <SidebarBlock />;
+
+    case 'editor':
+      return <EditorBlock />;
+
+    case 'terminal':
+      return <TerminalBlock />;
+
+    case 'chart':
+      return <ChartBlock />;
+
+    case 'stats':
+      return <StatsBlock />;
+
+    case 'card':
+      return <CardBlock />;
+
+    default:
+      return <div className="text-red-500 text-xs">Unknown block: {String(frame.type)}</div>;
+  }
 }

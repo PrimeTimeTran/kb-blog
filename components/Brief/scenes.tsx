@@ -148,34 +148,6 @@ export const motionScene = {
   ],
 };
 
-export const tmotion = {
-  enter: {
-    fromLeft: {
-      initial: { x: -WORLD_W, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromRight: {
-      initial: { x: WORLD_W, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromTop: {
-      initial: { y: -WORLD_H, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-    fromBottom: {
-      initial: { y: WORLD_H, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-  },
-
-  exit: {
-    toLeft: { exit: { x: -WORLD_W, opacity: 0 } },
-    toRight: { exit: { x: WORLD_W, opacity: 0 } },
-    toTop: { exit: { y: -WORLD_H, opacity: 0 } },
-    toBottom: { exit: { y: WORLD_H, opacity: 0 } },
-  },
-};
-
 export const sizing = {
   preview: [
     [

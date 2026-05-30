@@ -1,16 +1,15 @@
-import { AnimatedFrame, CameraController, WorldLayer, useCamera } from './';
+import { CameraController, WorldLayer, useCamera } from './';
 import { useEffect, useMemo, useState } from 'react';
 
 import { AnimatePresence } from 'framer-motion';
+import { AnimatedFrame } from './components/AnimatedFrame';
 import { groupFrames } from './src';
 import { sceneRegistry } from './scenes';
 
 export function BriefExhibit() {
-  // const { scene } = useTickScenes(sceneRegistry.transforms.shapes);
-  const { scene } = useTickScenes(sceneRegistry.sizing.preview);
-  // const { scene } = useTickScenes(sceneRegistry.motion.enter);
+  const { scene } = useTickScenes(sceneRegistry.motion.enter);
 
-  const time = useSceneClock(4000); // full cycle
+  const time = useSceneClock(4000);
   const { camera, setCamera } = useCamera();
   return (
     <div className="relative w-full h-full overflow-hidden bg-red-100">
