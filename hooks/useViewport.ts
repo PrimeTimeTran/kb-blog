@@ -54,7 +54,7 @@ export function useViewport(initialId: WorkspaceId): ViewportAPI {
   const [navigationMode, setNavigationMode] = useState<WorkspaceNavigationMode>('idle');
 
   const [rail, setRail] = useState<RailState>({
-    open: true,
+    open: false,
     anchor: 'br',
     position: 'bottom',
   });
