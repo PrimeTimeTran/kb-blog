@@ -1,4 +1,4 @@
-import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/lib/showcase/components';
+import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/lib';
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';
