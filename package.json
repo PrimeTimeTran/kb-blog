@@ -14,12 +14,13 @@
     "lint:fix": "eslint . --fix",
     "lint:strict": "eslint . --max-warnings=0",
     "clean": "rm -rf .next node_modules/.cache",
-    "rebuild": "pnpm clean && pnpm build",
+    "rebuild": "npm run clean && npm run build",
     "test": "vitest run",
     "start": "next start",
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json",
-    "build": "next build",
+    "build": "next build && node scripts/check-zombies.cjs",
+    "build-vercel-prod-standalone": "vercel build --prod --standalone",
     "build-vercel": "vercel build",
     "prepare": "husky install"
   },
@@ -140,7 +141,8 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.7",
-    "vscode-icons-js": "^11.6.1"
+    "vscode-icons-js": "^11.6.1",
+    "why-is-node-running": "^3.2.2"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [
