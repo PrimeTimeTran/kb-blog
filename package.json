@@ -20,6 +20,7 @@
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json",
     "build": "next build && node scripts/check-zombies.cjs",
+    "build-vercel-prod-standalone": "vercel build --prod --standalone",
     "build-vercel": "vercel build",
     "prepare": "husky install"
   },

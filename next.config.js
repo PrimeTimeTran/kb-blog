@@ -1,10 +1,10 @@
 import createMDX from '@next/mdx';
+import { fileURLToPath } from 'url';
+import path from 'path';
 import why from 'why-is-node-running';
-// import { fileURLToPath } from 'url'
-// import path from 'path'
 
-// const __filename = fileURLToPath(import.meta.url)
-// const __dirname = path.dirname(__filename)
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // ----------------------------------------------
 // RUNTIME GRAPH: Source vs Dist Resolution Rules
@@ -181,10 +181,30 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const nextConfig = {
-  // experimental: {
-  //   // Sets the root to the parent directory to capture shared packages
-  //   outputFileTracingRoot: path.join(__dirname, '../../'),
+  // The following line
+  // outputFileTracingRoot: path.join(__dirname, '../../'),
+  // Causes this error
+  // Error: ENOENT: no such file or directory, lstat '/Users/future/KB/project/app/blog/app/blog/.next/routes-manifest.json'
+
+  // If I remove it
+  // I get this error
+  // To fix this, set turbopack.root in your Next.js config, or ensure the Next.js package is resolvable from this directory.
+  // From this command.
+  // vercel build --prod --standalone
+
+  // This one produces the same failure
+  // output: 'standalone',
+
+  // // Use the top-level turbopack key
+  // turbopack: {
+  //   // This tells Turbopack specifically where the project boundary is.
+  //   // Ensure this path resolves to the folder containing your root package.json
+  //   root: path.resolve(__dirname, '../../'),
   // },
+
+  // // Keep this to ensure your standalone build includes necessary files
+  // outputFileTracingRoot: path.resolve(__dirname, '../../'),
+
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,
