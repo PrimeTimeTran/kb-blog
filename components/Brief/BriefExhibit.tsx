@@ -11,7 +11,7 @@ export function BriefExhibit() {
   const time = useSceneClock(4000);
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-red-100">
+    <div className="relative w-full h-full overflow-hidden ">
       <CameraController camera={camera} setCamera={setCamera}>
         <WorldLayer camera={camera}>
           <SceneComposer camera={camera} scene={scene} time={time} />

@@ -2,6 +2,177 @@ import * as types from './types';
 
 import { VIEWPORT_FRAME } from './constants/world';
 
+export const sceneFrameFocused: types.SceneDefinition = [
+  [
+    {
+      id: 'ideFrame',
+      type: 'ideFrame',
+      ...VIEWPORT_FRAME,
+
+      // motion: {
+      //   enter: 'fromLeft',
+      //   exit: 'toRight',
+      // },
+    },
+  ],
+];
+export const sceneFrames: types.SceneDefinition = [
+  [
+    {
+      id: 'ideFrame',
+      type: 'ideFrame',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'card',
+      type: 'card',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'stats',
+      type: 'stats',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'chart',
+      type: 'chart',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'terminal',
+      type: 'terminal',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'editor',
+      type: 'editor',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'sidebar',
+      type: 'sidebar',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+
+  [
+    {
+      id: 'shape',
+      type: 'shape',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'absolute',
+      type: 'absolute',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'relative',
+      type: 'relative',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'browserWindow',
+      type: 'browserWindow',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'laptopFrame',
+      type: 'laptopFrame',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'browserFrame',
+      type: 'browserFrame',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+  [
+    {
+      id: 'containerFrame',
+      type: 'containerFrame',
+      ...VIEWPORT_FRAME,
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
+    },
+  ],
+];
 export const sceneFrameSized: types.SceneDefinition = [
   [
     {

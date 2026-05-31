@@ -7,6 +7,7 @@ import {
 } from './helpers';
 
 import { FrameRenderer } from './Frames';
+import { VIEWPORT_FRAME } from '../constants/world';
 
 export function AnimatedFrame({ frame, time, phase }: any) {
   if (!frame) return null;
@@ -14,12 +15,7 @@ export function AnimatedFrame({ frame, time, phase }: any) {
   const motionExit = phase === 'exit' ? resolveExitMotionStyle(frame, time) : {};
   const timelineStyle = resolveTimelineStyle(frame, time, phase) ?? {};
   const resolved = resolveLayout(frame, {
-    viewport: {
-      x: 0,
-      y: 0,
-      width: frame.width ?? 1200,
-      height: frame.height ?? 720,
-    },
+    viewport: VIEWPORT_FRAME,
   });
 
   const layout = resolved.layoutResolved ?? {};
@@ -70,8 +66,8 @@ export function AnimatedFrame({ frame, time, phase }: any) {
     <div style={containerStyle}>
       <div
         style={{
-          position: 'absolute',
           inset: 0,
+          position: 'absolute',
           overflow: 'hidden',
         }}
       >

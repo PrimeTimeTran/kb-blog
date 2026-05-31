@@ -4,6 +4,7 @@ import { AnimatedFrame } from './AnimatedFrame-1';
 // import { AnimatedFrame } from './AnimatedFrame';
 import { FrameRenderer } from './Frames';
 import { MOTIONS } from '../motions';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 type SceneFrameProps = {
@@ -30,7 +31,7 @@ export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }: Sce
 
   return (
     <motion.div
-      className="absolute border bg-green-400/10 overflow-hidden"
+      className="absolute border overflow-hidden"
       style={{
         left: resolved.resolved.x - camera.x,
         top: resolved.resolved.y - camera.y,
@@ -48,8 +49,9 @@ export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }: Sce
       <div className="absolute inset-0 z-0">
         <FrameRenderer frame={frame} />
       </div>
-
+      {/* Renders Nested Scenes */}
       <div
+        // className="bg-red-400"
         style={{
           position: 'relative',
           zIndex: 1,

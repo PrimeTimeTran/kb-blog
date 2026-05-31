@@ -9,6 +9,7 @@ import { ExhibitManifest } from '@/pkg/exhibit/types';
 import { SearchParams } from 'next/dist/server/request/search-params';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
+  console.log({ manifest });
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
@@ -138,3 +139,5 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     </ExhibitLayout>
   );
 }
+
+
