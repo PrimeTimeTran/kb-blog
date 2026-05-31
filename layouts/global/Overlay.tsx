@@ -2,13 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { CommandPalette } from './CmdPalette';
 import { HelpPanel } from './HelpPanel';
-
-type Overlay = 'command' | 'help' | null;
-
-type OverlayState = {
-  active: 'command' | 'help' | null;
-  sidebarOpen: boolean;
-};
+import { Overlay } from './types';
 
 export function useOverlayManager() {
   const [active, setActive] = useState<Overlay>(null);
@@ -17,34 +11,56 @@ export function useOverlayManager() {
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       const mod = e.metaKey || e.ctrlKey;
+      const key = e.key.toLowerCase();
 
-      // COMMAND PALETTE
-      if (mod && e.key.toLowerCase() === 'k') {
+      // -----------------------------------
+      // ESC → close ONLY overlays first
+      // -----------------------------------
+      if (e.key === 'Escape') {
+        e.preventDefault();
+
+        setActive((current) => {
+          if (current !== null) return null;
+          return null;
+        });
+
+        return;
+      }
+
+      // -----------------------------------
+      // CMD + K → toggle command palette
+      // -----------------------------------
+      if (mod && key === 'k') {
         e.preventDefault();
         setActive((v) => (v === 'command' ? null : 'command'));
+        return;
       }
 
-      // HELP PANEL
-      if (e.key === '/' && mod) {
+      // -----------------------------------
+      // CMD + / → toggle help
+      // -----------------------------------
+      if (mod && key === '/') {
         e.preventDefault();
         setActive((v) => (v === 'help' ? null : 'help'));
+        return;
       }
 
-      // DEV TRIGGER
-      if (e.altKey && e.shiftKey && e.key.toLowerCase() === 'k') {
+      // -----------------------------------
+      // ALT + SHIFT + K → dev shortcut
+      // -----------------------------------
+      if (e.altKey && e.shiftKey && key === 'k') {
         e.preventDefault();
         setActive('command');
+        return;
       }
 
-      // ESC closes top layer
-      if (e.key === 'Escape') {
-        setActive(null);
-      }
-
-      // 🧠 CMD + B → toggle left sidebar
-      if (mod && e.key.toLowerCase() === 'b') {
+      // -----------------------------------
+      // CMD + B → sidebar toggle
+      // -----------------------------------
+      if (mod && key === 'b') {
         e.preventDefault();
         setSidebarOpen((v) => !v);
+        return;
       }
     };
 
@@ -53,27 +69,38 @@ export function useOverlayManager() {
   }, []);
 
   useEffect(() => {
-    const openHelp = () => {
-      console.log('hi');
-      setActive('help');
+    const openHelp = () => setActive('help');
+    const openCommand = () => setActive('command');
+    const closeAll = () => setActive(null);
+    const toggleSidebar = () => {
+      setSidebarOpen((v) => !v);
     };
 
     window.addEventListener('overlay:help', openHelp);
+    window.addEventListener('overlay:command', openCommand);
+    window.addEventListener('overlay:close', closeAll);
+    window.addEventListener('view:primary-sidebar', toggleSidebar);
 
     return () => {
       window.removeEventListener('overlay:help', openHelp);
+      window.removeEventListener('overlay:command', openCommand);
+      window.removeEventListener('overlay:close', closeAll);
+      window.removeEventListener('view:primary-sidebar', toggleSidebar);
     };
-  }, []);
-  return { sidebarOpen, active, setActive };
-}
+  }, [sidebarOpen]);
 
+  return {
+    sidebarOpen,
+    active,
+    setActive,
+  };
+}
 export function OverlayHost() {
   const { active, setActive } = useOverlayManager();
 
   return (
     <>
       {active === 'command' && <CommandPalette open onClose={() => setActive(null)} />}
-
       {active === 'help' && <HelpPanel open onClose={() => setActive(null)} />}
     </>
   );

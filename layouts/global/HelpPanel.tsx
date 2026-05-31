@@ -1,61 +1,9 @@
 'use client';
 
+import { COMMANDS, TABS } from './Commands';
 import { useEffect, useState } from 'react';
 
 import { createPortal } from 'react-dom';
-
-type Tab = 'shortcuts' | 'commands' | 'navigation' | 'about';
-
-type HelpCommand = {
-  label: string;
-  hint?: string;
-  run?: () => void;
-};
-
-type HelpTab = {
-  id: Tab;
-  label: string;
-  icon: string;
-  commands: HelpCommand[];
-};
-
-const TABS: HelpTab[] = [
-  {
-    id: 'shortcuts',
-    label: 'Shortcuts',
-    icon: '⌨️',
-
-    commands: [
-      {
-        label: 'Open Command Palette',
-        hint: '⌘K',
-      },
-
-      {
-        label: 'Open Help Panel',
-        hint: '⌘/',
-      },
-    ],
-  },
-
-  {
-    id: 'commands',
-    label: 'Commands',
-    icon: '⚡',
-
-    commands: [
-      {
-        label: 'Configure Hotkeys',
-        hint: 'Settings',
-      },
-
-      {
-        label: 'Search Files',
-        hint: 'Future',
-      },
-    ],
-  },
-];
 
 export function HelpPanel({ open, onClose }: { open: boolean; onClose: () => void }) {
   if (!open) return null;
@@ -70,95 +18,74 @@ function HelpUI({ onClose }: { onClose: () => void }) {
   const [focusArea, setFocusArea] = useState<'left' | 'right'>('left');
 
   const activeTab = TABS[leftIndex];
-  const commands = activeTab.commands;
+  const commands = COMMANDS.filter(activeTab.filter);
 
   useEffect(() => {
+    const getCommands = () => COMMANDS.filter(TABS[leftIndex]?.filter ?? (() => false));
+
     const onKeyDown = (e: KeyboardEvent) => {
-      //
-      // LEFT PANE
-      //
-      if (focusArea === 'left') {
+      const isLeft = focusArea === 'left';
+      if (e.key === 'Escape') {
+        onClose();
+        return;
+      }
+      if (isLeft) {
         if (e.key === 'ArrowDown') {
           e.preventDefault();
-
-          setLeftIndex((v) => {
-            if (v >= TABS.length - 1) return 0;
-            return v + 1;
-          });
+          setLeftIndex((v) => (v + 1) % TABS.length);
+          return;
         }
 
         if (e.key === 'ArrowUp') {
           e.preventDefault();
-
-          setLeftIndex((v) => {
-            if (v <= 0) return TABS.length - 1;
-            return v - 1;
-          });
+          setLeftIndex((v) => (v - 1 + TABS.length) % TABS.length);
+          return;
         }
 
         if (e.key === 'ArrowRight') {
           e.preventDefault();
-
           setFocusArea('right');
           setRightIndex(0);
+          return;
         }
+
+        return;
+      }
+      const commands = getCommands();
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setRightIndex((v) => (v + 1) % commands.length);
+        return;
       }
 
-      //
-      // RIGHT PANE
-      //
-      else {
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-
-          setRightIndex((v) => {
-            if (v >= commands.length - 1) return 0;
-            return v + 1;
-          });
-        }
-
-        if (e.key === 'ArrowUp') {
-          e.preventDefault();
-
-          setRightIndex((v) => {
-            if (v <= 0) return commands.length - 1;
-            return v - 1;
-          });
-        }
-
-        if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-
-          setFocusArea('left');
-        }
-
-        if (e.key === 'Enter') {
-          e.preventDefault();
-
-          commands[rightIndex]?.run?.();
-        }
+      if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setRightIndex((v) => (v - 1 + commands.length) % commands.length);
+        return;
       }
 
-      if (e.key === 'Escape') {
-        onClose();
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        setFocusArea('left');
+        return;
+      }
+
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        commands[rightIndex]?.run?.();
+        return;
       }
     };
 
     window.addEventListener('keydown', onKeyDown, true);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown, true);
-    };
-  }, [focusArea, leftIndex, rightIndex, commands, onClose]);
+    return () => window.removeEventListener('keydown', onKeyDown, true);
+  }, [focusArea, leftIndex, rightIndex, onClose]);
 
   return (
     <div className="fixed inset-0 z-9999">
-      {/* backdrop */}
       <div className="absolute inset-0 bg-black/40" onClick={onClose} />
-
-      {/* panel */}
       <div className="absolute left-1/2 top-20 flex w-225 -translate-x-1/2 overflow-hidden rounded-2xl border border-white/10 bg-[#0b0f19] shadow-2xl">
-        {/* LEFT SIDEBAR */}
         <div className="w-64 border-r border-white/10 p-2">
           <div className="mb-2 px-2 text-[10px] uppercase tracking-wide text-white/30">Help</div>
 
@@ -183,8 +110,6 @@ function HelpUI({ onClose }: { onClose: () => void }) {
             );
           })}
         </div>
-
-        {/* RIGHT CONTENT */}
         <div className="flex-1 p-2">
           <div className="mb-2 px-2 text-[10px] uppercase tracking-wide text-white/30">{activeTab.label}</div>
 
@@ -210,6 +135,16 @@ function HelpUI({ onClose }: { onClose: () => void }) {
     </div>
   );
 }
+
+function Row({ k, v }: { k: string; v: string }) {
+  return (
+    <div className="flex items-center justify-between rounded-md px-2 py-1 hover:bg-white/5">
+      <span className="text-white/70">{k}</span>
+      <span className="text-white/40">{v}</span>
+    </div>
+  );
+}
+
 function ShortcutsView() {
   return (
     <div className="space-y-2">
@@ -249,15 +184,6 @@ function AboutView() {
       <p className="text-white/50">
         MiniReact Exhibit system with custom runtime, file tree, and slot-based layout engine.
       </p>
-    </div>
-  );
-}
-
-function Row({ k, v }: { k: string; v: string }) {
-  return (
-    <div className="flex items-center justify-between rounded-md px-2 py-1 hover:bg-white/5">
-      <span className="text-white/70">{k}</span>
-      <span className="text-white/40">{v}</span>
     </div>
   );
 }
