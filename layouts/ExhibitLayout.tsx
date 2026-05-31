@@ -7,7 +7,8 @@ import { usePathname } from 'next/navigation';
 
 export function ExhibitLayout({ left, right, children, childrenWrapperClassName }: ColProps) {
   const pathName = usePathname();
-  const { sizes, getHandleProps, isDragging } = useMultiSplitter();
+  const isPreview = !pathName.startsWith('/playground');
+  const { sizes, getHandleProps, isDragging } = useMultiSplitter(isPreview);
   const { sidebarOpen } = useOverlayManager();
   const className = `absolute inset-x-0 bottom-0 overflow-hidden ${pathName.startsWith('/playground') ? 'top-16' : 'top-0'}`;
   return (
@@ -20,7 +21,7 @@ export function ExhibitLayout({ left, right, children, childrenWrapperClassName 
             opacity: sidebarOpen ? 1 : 0,
           }}
         >
-          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
+          <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface whitespace-nowrap">
             {left || <SurfacePreviewLeft />}
           </div>
         </div>
