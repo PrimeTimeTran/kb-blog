@@ -1,16 +1,23 @@
+import { OverlayHost, useOverlayManager } from './global/Overlay';
 import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/lib';
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';
-import { OverlayHost } from './global/Overlay';
 
 export function ExhibitLayout({ left, right, children, childrenWrapperClassName }: ColProps) {
   const { sizes, getHandleProps, isDragging } = useMultiSplitter();
+  const { sidebarOpen } = useOverlayManager();
 
   return (
     <div className="absolute inset-x-0 top-16 bottom-0 overflow-hidden">
       <div className={`flex h-full min-h-0 overflow-hidden ${isDragging ? 'select-none' : ''}`}>
-        <div style={{ width: sizes[0] }} className="relative min-h-0">
+        <div
+          className="relative min-h-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden"
+          style={{
+            width: sidebarOpen ? sizes[0] : 0,
+            opacity: sidebarOpen ? 1 : 0,
+          }}
+        >
           <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
             {left || <SurfacePreviewLeft />}
           </div>

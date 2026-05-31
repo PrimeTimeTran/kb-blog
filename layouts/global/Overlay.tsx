@@ -5,8 +5,14 @@ import { HelpPanel } from './HelpPanel';
 
 type Overlay = 'command' | 'help' | null;
 
+type OverlayState = {
+  active: 'command' | 'help' | null;
+  sidebarOpen: boolean;
+};
+
 export function useOverlayManager() {
   const [active, setActive] = useState<Overlay>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
@@ -34,6 +40,12 @@ export function useOverlayManager() {
       if (e.key === 'Escape') {
         setActive(null);
       }
+
+      // 🧠 CMD + B → toggle left sidebar
+      if (mod && e.key.toLowerCase() === 'b') {
+        e.preventDefault();
+        setSidebarOpen((v) => !v);
+      }
     };
 
     window.addEventListener('keydown', onKeyDown, true);
@@ -52,7 +64,7 @@ export function useOverlayManager() {
       window.removeEventListener('overlay:help', openHelp);
     };
   }, []);
-  return { active, setActive };
+  return { sidebarOpen, active, setActive };
 }
 
 export function OverlayHost() {
