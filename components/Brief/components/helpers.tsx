@@ -1,17 +1,5 @@
 import { motions } from '../motions';
 
-export const LAPTOP_FRAME = {
-  width: 1200,
-  height: 720,
-
-  viewport: {
-    x: 120,
-    y: 80,
-    width: 960,
-    height: 560,
-  },
-};
-
 export function interpolateStyles(a = {}, b = {}, t = 1) {
   const out: any = {};
   const keys = new Set([...Object.keys(a), ...Object.keys(b)]);

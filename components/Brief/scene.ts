@@ -1,8 +1,17 @@
 import * as types from './types';
 
-import { sceneComposition, sceneFrameSized, sceneFrameTransformations, sceneViewPortBounded } from './scene-registry';
+import {
+  sceneComposition,
+  sceneFrameFocused,
+  sceneFrameSized,
+  sceneFrameTransformations,
+  sceneFrames,
+  sceneViewPortBounded,
+} from './scene-registry';
 
 export const scenes: types.SceneRegistry = {
+  focus: sceneFrameFocused,
+  frames: sceneFrames,
   // 1. We can render frames
   sizing: sceneFrameSized,
   // 2. We can animate frames shape

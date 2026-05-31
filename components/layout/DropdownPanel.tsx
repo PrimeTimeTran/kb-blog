@@ -93,7 +93,7 @@ export function DropdownPanel({ item, scheduleClose }) {
                   {item.featured?.title ?? item.label}
                 </div>
               </div>
-              <div className="aspect-16/9 w-full relative overflow-hidden">
+              <div className="aspect-16/9 w-full relative overflow-hidden bg-background">
                 <Brief.BriefExhibit />
               </div>
             </div>

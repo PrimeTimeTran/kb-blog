@@ -8,10 +8,11 @@ import { getConfig } from './config';
 export function BriefExhibit() {
   const { camera, setCamera } = useCamera();
   const { scene } = useTickScenes(getConfig().activeScene);
-  const time = useSceneClock(4000);
+  // const time = useSceneClock(4000);
+  const time = 0;
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-red-100">
+    <div className="relative w-full h-full overflow-hidden ">
       <CameraController camera={camera} setCamera={setCamera}>
         <WorldLayer camera={camera}>
           <SceneComposer camera={camera} scene={scene} time={time} />

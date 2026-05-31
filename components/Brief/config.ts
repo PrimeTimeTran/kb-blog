@@ -6,13 +6,15 @@ export function getConfig() {
   return {
     isSceneTickOn: true,
     isCameraTickOn: false,
-    sceneTickDuration: 3000,
+    isCameraBypassed: true,
+    sceneTickDuration: 10000,
     cameraTickDuration: 3000,
     camera,
     world: WORLD,
+    activeScene: scenes.focus,
     // activeScene: scenes.sizing,
     // activeScene: scenes.transform,
-    activeScene: scenes.motion,
+    // activeScene: scenes.motion,
     // activeScene: scenes.composition,
   };
 }

@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect, PointerEvent, useSyncExternalStore } from 'react';
+import { PointerEvent, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 
-export function useMultiSplitter() {
+export function useMultiSplitter(isPreview) {
   const width = useSyncExternalStore<number>(
     (callback: () => void) => {
       window.addEventListener('resize', callback);
@@ -12,8 +12,9 @@ export function useMultiSplitter() {
     (): number => window.innerWidth,
     (): number => 1200,
   );
+  const config = isPreview ? [2, 7, 3] : [3, 6, 3];
 
-  const [initialSizes, minSize]: [number[], number] = getWidthsFromWeights(width, [3, 6, 3]);
+  const [initialSizes, minSize]: [number[], number] = getWidthsFromWeights(width, config);
   const [sizes, setSizes] = useState<number[]>(initialSizes);
   const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
 

@@ -4,6 +4,7 @@ import { JSX, useRef } from 'react';
 
 import { VIEWPORT } from '../constants/world';
 import { dumpScene } from '../src';
+import { getConfig } from '../config';
 import { motion } from 'framer-motion';
 
 type WorldLayerType = {
@@ -12,6 +13,29 @@ type WorldLayerType = {
 };
 
 export function WorldLayer({ camera, children }: WorldLayerType) {
+  if (getConfig().isCameraBypassed) {
+    return (
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          className="absolute left-1/2 top-1/2"
+          style={{
+            transform: `translate(0px, 0px) scale(1)`,
+            transformOrigin: '0 0',
+          }}
+        >
+          <div
+            style={{
+              width: VIEWPORT.width,
+              height: VIEWPORT.height,
+              transform: 'translate(-50%, -50%)',
+            }}
+          >
+            {children}
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
@@ -47,6 +71,9 @@ type CameraControllerProps = {
 export function CameraController({ camera, setCamera, children }: CameraControllerProps) {
   const dragging = useRef(false);
   const last = useRef({ x: 0, y: 0 });
+  if (getConfig().isCameraBypassed) {
+    return <div className="w-full h-full">{children}</div>;
+  }
 
   return (
     <div
