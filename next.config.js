@@ -1,8 +1,8 @@
 import createMDX from '@next/mdx';
 import why from 'why-is-node-running';
-
-// import path from 'path'
 // import { fileURLToPath } from 'url'
+// import path from 'path'
+
 // const __filename = fileURLToPath(import.meta.url)
 // const __dirname = path.dirname(__filename)
 
@@ -181,6 +181,10 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const nextConfig = {
+  // experimental: {
+  //   // Sets the root to the parent directory to capture shared packages
+  //   outputFileTracingRoot: path.join(__dirname, '../../'),
+  // },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,
