@@ -1,105 +1,122 @@
+import * as types from './types';
+
 import { VIEWPORT_FRAME } from './constants/world';
 
-export const sceneFrameSized = [
+export const sceneFrameSized: types.SceneDefinition = [
   [
     {
       id: 'fromTop',
-      type: 'absolute',
+      type: 'absolute' as types.FrameType,
       ...VIEWPORT_FRAME,
-      motion: 'fromBottom',
+      motion: {
+        enter: 'fromBottom',
+      },
     },
   ],
   [
     {
       id: 'fromBottom',
-      type: 'relative',
+      type: 'relative' as types.FrameType,
       ...VIEWPORT_FRAME,
-      motion: 'fromBottom',
+      motion: {
+        enter: 'fromBottom',
+      },
     },
   ],
 ];
-export const sceneFrameTransformations = [
+export const sceneFrameTransformations: types.SceneDefinition = [
   [
     {
       id: 'fromBottom',
       type: 'shape',
       ...VIEWPORT_FRAME,
-      motion: 'fromBottom',
-      exitMotion: 'toTop',
+      motion: {
+        enter: 'fromBottom',
+        exit: 'toTop',
+      },
     },
   ],
 ];
-export const sceneViewPortBounded = [
+export const sceneViewPortBounded: types.SceneDefinition = [
   [
     {
       id: 'fromBottom',
       type: 'browserFrame',
       ...VIEWPORT_FRAME,
-      motion: 'fromBottom',
-      exitMotion: 'toTop',
+      motion: {
+        enter: 'fromBottom',
+        exit: 'toTop',
+      },
     },
   ],
-
   [
     {
       id: 'fromLeft',
       type: 'ideFrame',
       ...VIEWPORT_FRAME,
-      motion: 'fromLeft',
-      exitMotion: 'toRight',
+      motion: {
+        enter: 'fromLeft',
+        exit: 'toRight',
+      },
     },
   ],
-
   [
     {
       id: 'fromTop',
       type: 'browserFrame',
       ...VIEWPORT_FRAME,
-      motion: 'fromTop',
-      exitMotion: 'toBottom',
+      motion: {
+        enter: 'fromTop',
+        exit: 'toBottom',
+      },
     },
   ],
-
   [
     {
       id: 'fromRight',
       type: 'ideFrame',
       ...VIEWPORT_FRAME,
-      motion: 'fromRight',
-      exitMotion: 'toLeft',
+      motion: {
+        enter: 'fromRight',
+        exit: 'toLeft',
+      },
     },
   ],
 ];
-export const sceneComposition = [
+export const sceneComposition: types.SceneDefinition = [
   [
     {
       id: 'laptop',
-      type: 'laptopFrame',
+      type: 'laptopFrame' as types.FrameType,
       ...VIEWPORT_FRAME,
-      width: 1200,
-      height: 720,
-      motion: 'fromTop',
-      exitMotion: 'toBottom',
+
+      layout: {
+        width: 1200,
+        height: 720,
+      },
+
+      motion: {
+        enter: 'fromTop',
+        exit: 'toBottom',
+      },
 
       children: [
         {
           id: 'container',
-          type: 'containerFrame',
+          type: 'card',
           layout: {
-            type: 'flex',
-            direction: 'row',
-            gap: 40,
-            justify: 'center',
-            align: 'center',
+            x: 0,
+            y: 0,
           },
 
           children: [
             {
               id: 'browser-1',
               type: 'browserFrame',
-              width: 100,
-              height: 100,
-
+              layout: {
+                width: 100,
+                height: 100,
+              },
               transform: {
                 x: 500,
                 y: 500,
@@ -108,9 +125,10 @@ export const sceneComposition = [
             {
               id: 'browser-2',
               type: 'browserFrame',
-              width: 200,
-              height: 200,
-
+              layout: {
+                width: 200,
+                height: 200,
+              },
               transform: {
                 x: 0,
                 y: 0,

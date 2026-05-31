@@ -159,7 +159,7 @@ A common pattern becomes:
 
 ```tsx
 // layout.tsx
-export default async function Layout({ children }) {
+export default async function Layout({ children }): React.PropsWithChildren {
   const data = await getSharedData();
 
   return <LayoutClient data={data}>{children}</LayoutClient>;
@@ -246,7 +246,7 @@ A route transition animation becomes almost trivial:
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 
-export default function Template({ children }) {
+export default function Template({ children }): React.PropsWithChildren {
   const pathname = usePathname();
 
   return (

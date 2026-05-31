@@ -23,7 +23,7 @@ export function BriefExhibit() {
 
 export function SceneComposer({ time, camera, scene }) {
   return (
-    <div className="relative w-full h-full ">
+    <div className="relative w-full h-full">
       <AnimatePresence mode="wait">
         {scene.map((frame) => (
           <SceneFrame key={frame.id} frame={frame} time={time} camera={camera} />

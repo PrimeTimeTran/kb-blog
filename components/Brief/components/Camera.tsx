@@ -1,57 +1,24 @@
-import { useEffect, useRef, useState } from 'react';
+import * as types from '../types';
 
-import { WORLD } from '../constants/world';
+import { JSX, useRef } from 'react';
+
+import { VIEWPORT } from '../constants/world';
 import { dumpScene } from '../src';
-import { getConfig } from '../config';
 import { motion } from 'framer-motion';
 
-export function useCamera(
-  initial = getConfig().camera.position,
-  paths = getConfig().camera.paths,
-  interval = getConfig().cameraTickDuration,
-) {
-  const [camera, setCamera] = useState(initial);
-  const [index, setIndex] = useState(0);
-  const [offset, setOffset] = useState({
-    x: 0,
-    y: 0,
-    zoom: 0,
-  });
-  useEffect(() => {
-    if (!getConfig().isCameraTickOn) return;
-    if (!paths?.length) return;
+type WorldLayerType = {
+  camera: types.Camera;
+  children: JSX.Element;
+};
 
-    const id = setInterval(() => {
-      setIndex((i) => {
-        const next = (i + 1) % paths.length;
-        setCamera(paths[next]);
-        return next;
-      });
-    }, interval);
-
-    return () => clearInterval(id);
-  }, [paths, interval]);
-
-  function updateCamera(delta: Partial<typeof offset>) {
-    setOffset((o) => ({
-      x: o.x + (delta.x ?? 0),
-      y: o.y + (delta.y ?? 0),
-      zoom: o.zoom + (delta.zoom ?? 0),
-    }));
-  }
-  return {
-    camera,
-    index,
-    setCamera,
-    updateCamera,
-  };
-}
-export function WorldLayer({ camera, children }) {
+export function WorldLayer({ camera, children }: WorldLayerType) {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
         className="absolute left-1/2 top-1/2"
-        style={{ transformOrigin: '0 0' }}
+        style={{
+          transformOrigin: '0 0',
+        }}
         animate={{
           x: camera.x,
           y: camera.y,
@@ -61,9 +28,9 @@ export function WorldLayer({ camera, children }) {
         <div
           className="relative"
           style={{
-            width: WORLD.width,
-            height: WORLD.height,
-            transform: `translate(-50%, -50%)`,
+            width: VIEWPORT.width,
+            height: VIEWPORT.height,
+            transform: 'translate(-50%, -50%)',
           }}
         >
           {children}
@@ -72,7 +39,12 @@ export function WorldLayer({ camera, children }) {
     </div>
   );
 }
-export function CameraController({ camera, setCamera, children }) {
+
+type CameraControllerProps = {
+  camera: types.Camera;
+  children: JSX.Element;
+};
+export function CameraController({ camera, setCamera, children }: CameraControllerProps) {
   const dragging = useRef(false);
   const last = useRef({ x: 0, y: 0 });
 

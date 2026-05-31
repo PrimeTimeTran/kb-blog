@@ -64,7 +64,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
-  ],
+, "components/Brief/hooks/useSceneMetrics"  ],
   "exclude": [
     "node_modules"
   ]

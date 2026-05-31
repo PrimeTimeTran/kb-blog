@@ -4,6 +4,7 @@ import * as Brief from '@/components/Brief';
 
 import { SafeLink as Link } from '@/mdx/Link';
 import React from 'react';
+import { getFeatureFlags } from '@/getFeatureFlags';
 
 // https://prismic.io/blog/css-background-effects
 // - Awesome navbar
@@ -81,22 +82,20 @@ export function DropdownPanel({ item, scheduleClose }) {
   function renderRight() {
     function rightContent() {
       return (
-        <div className="flex h-full p-6 relative">
-          <div className="overflow-hidden h-130 w-full bg-level rounded-[28px] border border-lowest shadow-2xl">
-            {/* TOP BAR */}
-            <div className="flex h-12 px-4 bg-low/70 border-b border-lowest items-center gap-2">
-              <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
-              <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
-              <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
-
-              <div className="ml-3 px-2 py-1 text-[11px] text-on-surface-muted bg-level rounded-md border border-lowest">
-                {item.featured?.title ?? item.label}
+        <div className="flex h-full p-6 items-center justify-center">
+          <div className="w-full max-w-[1200px]">
+            <div className="rounded-[28px] border border-lowest shadow-2xl bg-level overflow-hidden">
+              <div className="flex h-12 px-4 bg-low/70 border-b border-lowest items-center gap-2">
+                <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
+                <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
+                <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
+                <div className="ml-3 px-2 py-1 text-[11px] text-on-surface-muted bg-level rounded-md border border-lowest">
+                  {item.featured?.title ?? item.label}
+                </div>
               </div>
-            </div>
-
-            {/* EXHIBIT */}
-            <div className="h-[calc(100%-48px)] w-full">
-              <Brief.BriefExhibit />
+              <div className="aspect-16/9 w-full relative overflow-hidden">
+                <Brief.BriefExhibit />
+              </div>
             </div>
           </div>
         </div>
@@ -115,7 +114,7 @@ export function DropdownPanel({ item, scheduleClose }) {
       className="overflow-hidden w-full shadow-2xl shrink-0 transition-all duration-300 will-change-transform min-h-0"
     >
       <div className="flex">
-        {/* {renderLeft()} */}
+        {!getFeatureFlags().isBriefFocused && renderLeft()}
         {renderRight()}
       </div>
     </div>

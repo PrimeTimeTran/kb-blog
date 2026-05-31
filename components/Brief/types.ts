@@ -1,118 +1,134 @@
-// =========================
-// BASIC PRIMITIVES
-// =========================
+import { Dispatch, SetStateAction } from 'react';
 
-export type Transform = {
-  x?: number;
-  y?: number;
-  scale?: number;
-  rotate?: number;
-  opacity?: number;
-};
+import { MOTIONS } from './motions';
 
-export type Style = {
+export type Coordinates = { x: number; y: number };
+
+type Layout = {
   x?: number;
   y?: number;
   width?: number;
   height?: number;
-  opacity?: number;
-  scale?: number;
-  rotate?: number;
+};
+
+type Style = {
   borderRadius?: number | string;
 };
 
-export type FrameProps = {
-  shape?: 'square' | 'circle' | 'pentagon' | 'octagon';
-  src?: string;
-  text?: string;
+type Transform = {
+  x?: number;
+  y?: number;
+  scale?: number;
+  rotate?: number;
+  opacity?: number;
 };
-
-// =========================
-// MOTION SYSTEM
-// =========================
-
-export type MotionKey = string;
 
 export type MotionDefinition = {
   initial: Transform;
   animate: Transform;
   exit?: Transform;
+
+  duration?: number;
+  delay?: number;
+  easing?: string;
 };
-
-export type MotionRegistry = Record<MotionKey, MotionDefinition>;
-
-// =========================
-// TIMELINE SYSTEM
-// =========================
+export type MotionRegistry = typeof MOTIONS;
+export type EnterMotionKey = keyof typeof MOTIONS.enter;
+export type ExitMotionKey = keyof typeof MOTIONS.exit;
 
 export type Keyframe = {
-  at: number;
+  at: number; // ms or normalized time
+  layout?: Partial<Layout>;
+  transform?: Partial<Transform>;
   style?: Partial<Style>;
 };
 
 export type Timeline = Keyframe[];
 
-// =========================
-// SCENE GRAPH (KEYNOTE CORE)
-// =========================
-
-export type NodeBase = {
+export type Node = {
   id: string;
+
   type: FrameType;
+
+  layout?: Layout;
+
+  transform?: Transform;
+
+  style?: Style;
+
   props?: FrameProps;
-};
-
-export type ShapeNode = NodeBase & {
-  type: 'shape';
-  style: Style;
-  timeline?: Timeline;
-
-  motion?: MotionKey;
-  exitMotion?: MotionKey;
 
   children?: Node[];
-};
 
-export type ContainerNode = NodeBase & {
-  type: 'container';
-  children: Node[];
+  motion?: {
+    enter?: EnterMotionKey;
+    exit?: ExitMotionKey;
+  };
+
   timeline?: Timeline;
 };
-
-export type MotionNode = NodeBase & {
-  type: 'motion';
-  children: Node[];
-  enter?: Timeline;
-  exit?: Timeline;
-};
-
-export type Node = ShapeNode | ContainerNode | MotionNode;
-
-// =========================
-// SCENE
-// =========================
 
 export type Scene = {
   id: string;
   nodes: Node[];
 };
 
+export type SceneLayer = Node[];
+export type SceneDefinition = SceneLayer[];
 export type SceneRegistry = Record<string, Scene>;
 
-// =========================
-// RUNTIME OUTPUT
-// =========================
+export type FrameType = 'shape' | 'image' | 'text' | 'browserFrame' | 'ideFrame' | 'terminal' | 'card';
+export type FrameProps =
+  | {
+      type: 'shape';
+      shape?: 'square' | 'circle' | 'pentagon' | 'octagon';
+    }
+  | {
+      type: 'image';
+      src: string;
+    }
+  | {
+      type: 'text';
+      text: string;
+    }
+  | {
+      type: 'browserFrame';
+      url?: string;
+    }
+  | {
+      type: 'card';
+      title?: string;
+      description?: string;
+    }
+  | {
+      type: 'terminal';
+      command?: string;
+    };
 
 export type ResolvedFrame = {
   id: string;
   type: FrameType;
-  style: Style;
+
+  layout: Required<Layout>;
   transform: Transform;
+  style: Style;
+
   props?: FrameProps;
 };
 
-// =========================
-// FRAME TYPE
-// =========================
+export type ResolvedNode = Node & {
+  resolved: Coordinates;
+};
 
-export type FrameType = 'shape' | 'container' | 'browserFrame' | 'ideFrame' | 'terminal' | 'card';
+export type Camera = {
+  x: number;
+  y: number;
+  zoom: number;
+};
+
+export type useCameraTypes = {
+  camera: Camera;
+  index: number;
+  setCamera: Dispatch<SetStateAction<Coordinates>>;
+  updateCamera: (delta: Partial<Camera>) => void;
+};

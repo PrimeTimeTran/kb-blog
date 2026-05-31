@@ -1,8 +1,10 @@
 import * as types from '../types';
 
+import React, { JSX } from 'react';
+
 import { AnimatedFrame } from './AnimatedFrame';
 import { MorphFrame } from './MorphFrame';
-import React from 'react';
+import { VIEWPORT } from '../constants/world';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
 
@@ -10,7 +12,7 @@ type ViewportProps = {
   className?: string;
   children: React.ReactNode;
 };
-export function FloatScene({ nodes }: { nodes: any[] }) {
+function FloatScene({ nodes }: { nodes: any[] }) {
   return (
     <div className="relative w-full h-full">
       {nodes.map((frame) => (
@@ -20,7 +22,7 @@ export function FloatScene({ nodes }: { nodes: any[] }) {
   );
 }
 
-export function FloatSceneComposer({ scene }) {
+function FloatSceneComposer({ scene }) {
   return (
     <div className="relative w-full h-full">
       <FloatScene nodes={scene} />
@@ -28,7 +30,7 @@ export function FloatSceneComposer({ scene }) {
   );
 }
 
-export function FloatFrame({ frame }: { frame: any }) {
+function FloatFrame({ frame }: { frame: any }) {
   return (
     <div className={`absolute ${frame.className ?? ''}`}>
       <FrameRenderer frame={frame} />
@@ -39,7 +41,6 @@ export function FloatFrame({ frame }: { frame: any }) {
 export function Viewport({ className = '', children }: ViewportProps) {
   return <div className={`relative overflow-hidden ${className}`}>{children}</div>;
 }
-
 export function LaptopFrame({ frame }) {
   return (
     <div
@@ -70,7 +71,6 @@ export function LaptopFrame({ frame }) {
     </div>
   );
 }
-
 export function Toolbar() {
   return (
     <div className="flex items-center gap-2 px-4 h-12 border-b border-white/5">
@@ -330,18 +330,9 @@ export function LaptopFrameBlock2() {
   );
 }
 export function LaptopFrameBlock({ frame, children }) {
-  const width = frame.width;
-  const height = frame.height;
-
   return (
     <div className="relative w-full h-full flex items-center justify-center p-8">
-      <div
-        className="relative rounded-[36px] bg-surface-laptop-shell shadow-2xl p-6"
-        style={{
-          width,
-          height,
-        }}
-      >
+      <div className="relative rounded-[36px] bg-surface-laptop-shell shadow-2xl p-6" style={VIEWPORT}>
         <div className="absolute inset-6 rounded-[28px] bg-surface-laptop-bezel" />
         <div className="absolute inset-4 rounded-[20px] overflow-hidden bg-surface-laptop-screen">{children}</div>
       </div>
@@ -363,38 +354,6 @@ export function LaptopBrowserBlock({ children }: { children?: ReactNodeProp }) {
   );
 }
 
-export function ShapeRenderer1({ frame, style = {} }: { frame: any; style?: any }) {
-  const shape = style.shape ?? 'square';
-  const scale = style.scale ?? 1;
-  const opacity = style.opacity ?? 1;
-
-  const base = 50; // normalized SVG space
-
-  const shapes: Record<string, string> = {
-    square: '0 0 100 0 100 100 0 100',
-    triangle: '50 0 100 100 0 100',
-    pentagon: '50 0 100 35 80 100 20 100 0 35',
-    octagon: '30 0 70 0 100 30 100 70 70 100 30 100 0 70 0 30',
-  };
-
-  const points = shapes[shape] ?? shapes.square;
-
-  return (
-    <svg
-      width="100%"
-      height="100%"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-      style={{
-        transform: `scale(${scale})`,
-        opacity,
-        display: 'block',
-      }}
-    >
-      <polygon points={points} fill="currentColor" />
-    </svg>
-  );
-}
 export function AbsoluteBox() {
   const name = `<AbsoluteBox />`;
   return (
@@ -431,19 +390,16 @@ export function BrowserFrameBlock({ childProps }) {
     </div>
   );
 }
-export function ContainerFrame({ children }: any) {
+export function ContainerFrame({ children }): JSX.Element {
   return (
     <div className="relative w-full h-full bg-red-500 border border-green-700 overflow-hidden rounded-xl">
       <div className="absolute inset-0 p-6 flex flex-col">
-        <div className="font-bold">{`<ContainerFrame />`}</div>
-
-        {/* CONTENT AREA */}
-        <div className="flex-1 bg-green-400 overflow-hidden relative ">{children}</div>
+        <div className="flex-1 bg-green-400 overflow-hidden relative h-[calc(100%-48px)] w-full">{children}</div>
       </div>
     </div>
   );
 }
-export function FrameRenderer({ frame, children, style, childProps }: { frame: types.Frame; children?: any }) {
+export function FrameRenderer({ frame, children, style }: { frame: types.Frame; children?: any }) {
   switch (frame.type) {
     case 'containerFrame':
       return <ContainerFrame style={style}>{children}</ContainerFrame>;
@@ -456,18 +412,18 @@ export function FrameRenderer({ frame, children, style, childProps }: { frame: t
           }}
         />
       );
+    case 'laptopFrame':
+      return <LaptopFrameBlock frame={frame} />; // NO children here
+
+    case 'browserWindow':
+      return <LaptopBrowserBlock />;
+
     case 'relative':
       return <RelativeBox />;
     case 'absolute':
       return <AbsoluteBox />;
     case 'shape':
       return <MorphFrame frame={frame} style={style} />;
-
-    case 'laptopFrame':
-      return <LaptopFrameBlock frame={frame} />; // NO children here
-
-    case 'browserWindow':
-      return <LaptopBrowserBlock />;
 
     case 'ideFrame':
       return <IDEFrameBlock />;

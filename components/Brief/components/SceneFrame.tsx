@@ -1,14 +1,25 @@
-import { useEffect, useRef } from 'react';
+import * as types from '../types';
 
 import { AnimatedFrame } from './AnimatedFrame-1';
+// import { AnimatedFrame } from './AnimatedFrame';
 import { FrameRenderer } from './Frames';
-import { getConfig } from '../config';
+import { MOTIONS } from '../motions';
 import { motion } from 'framer-motion';
 
-export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }) {
-  const enter = frame.motion && tmotion.enter[frame.motion];
-  const exit = frame.exitMotion && tmotion.exit?.[frame.exitMotion];
-  const mountTimeRef = useRef<number>(performance.now());
+type SceneFrameProps = {
+  frame: types.Node;
+  time: number;
+  camera: types.Node;
+  parent: {};
+};
+
+export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }: SceneFrameProps) {
+  const enter = frame.motion?.enter && MOTIONS.enter[frame.motion.enter];
+
+  const exit = frame.motion?.exit && MOTIONS.exit[frame.motion.exit];
+
+  const localTime = time;
+
   const variants = {
     initial: enter?.initial ?? { opacity: 0 },
     animate: enter?.animate ?? { opacity: 1 },
@@ -16,20 +27,17 @@ export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }) {
   };
 
   const resolved = resolveFrame(frame, parent);
-  const localTime = time - mountTimeRef.current;
-
-  useEffect(() => {
-    console.log('SceneFrame Render');
-  }, []);
 
   return (
     <motion.div
       className="absolute border bg-green-400/10 overflow-hidden"
       style={{
-        left: resolved.x,
-        top: resolved.y,
-        width: frame.width,
-        height: frame.height,
+        left: resolved.resolved.x - camera.x,
+        top: resolved.resolved.y - camera.y,
+
+        // IMPORTANT: layout now comes from layout, not root frame fields
+        width: frame.layout?.width,
+        height: frame.layout?.height,
       }}
       initial="initial"
       animate="animate"
@@ -51,45 +59,27 @@ export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }) {
         }}
       >
         {frame.children?.map((child) => (
-          <AnimatedFrame key={child.id} frame={child} time={localTime} parent={frame} />
+          <AnimatedFrame
+            key={child.id}
+            frame={child}
+            time={localTime}
+            parent={{
+              x: resolved.resolved.x,
+              y: resolved.resolved.y,
+            }}
+          />
         ))}
       </div>
     </motion.div>
   );
 }
 
-export const tmotion = {
-  enter: {
-    fromLeft: {
-      initial: { x: -getConfig().world.width, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromRight: {
-      initial: { x: getConfig().world.width, opacity: 0 },
-      animate: { x: 0, opacity: 1 },
-    },
-    fromTop: {
-      initial: { y: -getConfig().world.height, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-    fromBottom: {
-      initial: { y: getConfig().world.height, opacity: 0 },
-      animate: { y: 0, opacity: 1 },
-    },
-  },
-
-  exit: {
-    toLeft: { exit: { x: -getConfig().world.width, opacity: 0 } },
-    toRight: { exit: { x: getConfig().world.width, opacity: 0 } },
-    toTop: { exit: { y: -getConfig().world.height, opacity: 0 } },
-    toBottom: { exit: { y: getConfig().world.height, opacity: 0 } },
-  },
-};
-
-function resolveFrame(frame, parent = { x: 0, y: 0 }) {
+function resolveFrame(frame: types.Node, parent = { x: 0, y: 0 }) {
   return {
     ...frame,
-    x: parent.x + (frame.x ?? 0) + (frame.offset?.x ?? 0),
-    y: parent.y + (frame.y ?? 0) + (frame.offset?.y ?? 0),
+    resolved: {
+      x: parent.x + (frame.layout?.x ?? 0),
+      y: parent.y + (frame.layout?.y ?? 0),
+    },
   };
 }

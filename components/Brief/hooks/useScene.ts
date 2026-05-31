@@ -1,8 +1,10 @@
+import * as types from '../types';
+
 import { useEffect, useState } from 'react';
 
 import { getConfig } from '../config';
 
-export function useTickScenes(sceneSet: any[], interval = getConfig().sceneTickDuration) {
+export function useTickScenes(sceneSet: types.Scene, interval = getConfig().sceneTickDuration) {
   const [index, setIndex] = useState(0);
 
   const length = sceneSet?.length ?? 0;

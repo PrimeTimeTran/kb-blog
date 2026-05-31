@@ -21,7 +21,7 @@ export function dumpSceneWithCamera(
     };
   });
 }
-export function dumpScene(root: HTMLElement): types.FrameRecord[] {
+export function dumpScene(root: HTMLElement): types.SceneDefinition {
   const nodes = root.querySelectorAll("[data-frame='true']");
 
   return Array.from(nodes).map((el: any) => {
@@ -37,7 +37,7 @@ export function dumpScene(root: HTMLElement): types.FrameRecord[] {
     };
   });
 }
-export function toWorldCoords(rect: DOMRect, camera: { x: number; y: number; zoom: number }) {
+export function toWorldCoords(rect: DOMRect, camera: types.Camera) {
   return {
     x: (rect.left - camera.x) / camera.zoom,
     y: (rect.top - camera.y) / camera.zoom,

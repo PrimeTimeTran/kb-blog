@@ -14,15 +14,20 @@ export const WORLD_CENTER = Object.freeze({
   y: WORLD_H / 2,
 });
 
-const FRAME_W = 1200;
-const FRAME_H = 750;
+const VIEWPORT_W = 1200;
+const VIEWPORT_H = 675;
+
+export const VIEWPORT = {
+  width: VIEWPORT_W,
+  height: VIEWPORT_H,
+};
 
 export const VIEWPORT_FRAME = {
-  width: FRAME_W,
-  height: FRAME_H,
-
-  x: WORLD_CENTER.x - FRAME_W / 2,
-  y: WORLD_CENTER.y - FRAME_H / 2,
+  layout: {
+    x: 0,
+    y: 0,
+    ...VIEWPORT,
+  },
 };
 
 export const camera = {
@@ -31,7 +36,7 @@ export const camera = {
   position: {
     x: 0,
     y: 0,
-    zoom: 0.5,
+    zoom: 0.75,
   },
   paths: [],
 
