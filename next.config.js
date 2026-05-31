@@ -1,4 +1,5 @@
 import createMDX from '@next/mdx';
+import why from 'why-is-node-running';
 
 // import path from 'path'
 // import { fileURLToPath } from 'url'
@@ -171,8 +172,6 @@ import createMDX from '@next/mdx';
  */
 
 if (process.env.NODE_ENV === 'production') {
-  const why = require('why-is-node-running');
-
   // This will trigger if the process tries to exit, or you can
   // explicitly call it after a timeout
   setTimeout(() => {
