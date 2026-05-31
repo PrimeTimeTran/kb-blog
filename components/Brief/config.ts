@@ -6,6 +6,7 @@ export function getConfig() {
   return {
     isSceneTickOn: true,
     isCameraTickOn: false,
+    isCameraBypassed: true,
     sceneTickDuration: 10000,
     cameraTickDuration: 3000,
     camera,

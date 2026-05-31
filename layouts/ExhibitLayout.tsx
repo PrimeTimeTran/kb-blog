@@ -3,13 +3,15 @@ import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/l
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function ExhibitLayout({ left, right, children, childrenWrapperClassName }: ColProps) {
+  const pathName = usePathname();
   const { sizes, getHandleProps, isDragging } = useMultiSplitter();
   const { sidebarOpen } = useOverlayManager();
-
+  const className = `absolute inset-x-0 bottom-0 overflow-hidden ${pathName.startsWith('/playground') ? 'top-16' : 'top-0'}`;
   return (
-    <div className="absolute inset-x-0 top-16 bottom-0 overflow-hidden">
+    <div className={className}>
       <div className={`flex h-full min-h-0 overflow-hidden ${isDragging ? 'select-none' : ''}`}>
         <div
           className="relative min-h-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] overflow-hidden"

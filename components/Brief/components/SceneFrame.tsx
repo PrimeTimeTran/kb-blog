@@ -51,8 +51,8 @@ export function SceneFrame({ frame, time, camera, parent = { x: 0, y: 0 } }: Sce
       </div>
       {/* Renders Nested Scenes */}
       <div
-        // className="bg-red-400"
         style={{
+          pointerEvents: 'none',
           position: 'relative',
           zIndex: 1,
           width: '100%',

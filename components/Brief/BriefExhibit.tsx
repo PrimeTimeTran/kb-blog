@@ -8,7 +8,8 @@ import { getConfig } from './config';
 export function BriefExhibit() {
   const { camera, setCamera } = useCamera();
   const { scene } = useTickScenes(getConfig().activeScene);
-  const time = useSceneClock(4000);
+  // const time = useSceneClock(4000);
+  const time = 0;
 
   return (
     <div className="relative w-full h-full overflow-hidden ">
