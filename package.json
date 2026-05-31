@@ -19,7 +19,7 @@
     "start": "next start",
     "prettier": "npx prettier app components hooks layouts lib exhibit mdx providers pkg ui --write",
     "prebuild": "cp tsconfig.build.json tsconfig.json",
-    "build": "next build",
+    "build": "next build && node scripts/check-zombies.js",
     "build-vercel": "vercel build",
     "prepare": "husky install"
   },
@@ -140,7 +140,8 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.7",
-    "vscode-icons-js": "^11.6.1"
+    "vscode-icons-js": "^11.6.1",
+    "why-is-node-running": "^3.2.2"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [

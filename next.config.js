@@ -170,12 +170,21 @@ import createMDX from '@next/mdx';
  * @type {import('next').NextConfig}
  */
 
+if (process.env.NODE_ENV === 'production') {
+  const why = require('why-is-node-running');
+
+  // This will trigger if the process tries to exit, or you can
+  // explicitly call it after a timeout
+  setTimeout(() => {
+    console.log('--- DEBUG: Inspecting active handles ---');
+    why();
+  }, 10000); // Wait 10 seconds after build starts
+}
+
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   devIndicators: false,
   reactStrictMode: true,
-  // Note: Fixes vercel deploy --prebuilt
-  // output: 'standalone',
   typescript: {
     ignoreBuildErrors: true,
   },
