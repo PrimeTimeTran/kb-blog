@@ -11,9 +11,9 @@
   color: hsl(var(--primary)) !important;
 }
 
-.ace_marker-layer .ace_selection {
+/* .ace_marker-layer .ace_selection {
   background: hsl(var(--primary) / 0.15) !important;
-}
+} */
 
 .ace_active-line {
   background: hsl(var(--level) / 0.5) !important;

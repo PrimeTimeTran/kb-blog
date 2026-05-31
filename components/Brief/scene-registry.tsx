@@ -83,6 +83,7 @@ export const sceneComposition = [
 
       children: [
         {
+          id: 'container',
           type: 'containerFrame',
           layout: {
             type: 'flex',

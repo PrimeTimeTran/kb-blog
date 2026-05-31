@@ -4,6 +4,7 @@ import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import { SafeLink as Link } from '@/mdx/Link';
 import { MegaNavbar } from './MegaNavbar';
 import ThemeSwitch from '../ThemeSwitch';
+import { getFeatureFlags } from '@/getFeatureFlags';
 import headerNavLinks from '@/data/nav-links';
 import siteMetadata from '@/data/site-metadata';
 import { useMobileNav } from '@/providers/MobileNavProvider';
@@ -14,13 +15,11 @@ import { useMobileNav } from '@/providers/MobileNavProvider';
 import { usePathname } from 'next/navigation';
 import { useScroll } from '@/providers/ScrollProvider';
 
-const ENABLE_MEGA_MENU = true;
-
 export function AppNavbar() {
   const pathName = usePathname();
   const { scrollProgress } = useScroll();
   const { setOpen } = useMobileNav();
-  if (ENABLE_MEGA_MENU) return <MegaNavbar pathName={pathName} />;
+  if (getFeatureFlags().isMegaMenuOn) return <MegaNavbar pathName={pathName} />;
   return (
     // height: 4rem;
     // 4rem = 64px
@@ -48,7 +47,7 @@ export function AppNavbar() {
         <ThemeSwitch />
       </div>
 
-        <div className="h-0.5 pointer-events-none absolute inset-x-0 bottom-0">
+      <div className="h-0.5 pointer-events-none absolute inset-x-0 bottom-0">
         <div
           style={{
             transform: `scaleX(${scrollProgress})`,
