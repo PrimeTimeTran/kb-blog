@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "ES2020"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,49 +19,19 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./*"
-      ],
-      "@/app/*": [
-        "./app/*"
-      ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/data/*": [
-        "./data/*"
-      ],
-      "@/exhibit/*": [
-        "./exhibit/*"
-      ],
-      "@/hooks/*": [
-        "./hooks/*"
-      ],
-      "@/layouts/*": [
-        "./layouts/*"
-      ],
-      "@/lib/*": [
-        "./lib/*"
-      ],
-      "@/mdx/*": [
-        "./components/mdx/*"
-      ],
-      "@/providers/*": [
-        "./providers/*"
-      ],
-      "@/pkg/*": [
-        "./pkg/*"
-      ]
+      "@/*": ["./*"],
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"],
+      "@/data/*": ["./data/*"],
+      "@/exhibit/*": ["./exhibit/*"],
+      "@/hooks/*": ["./hooks/*"],
+      "@/layouts/*": ["./layouts/*"],
+      "@/lib/*": ["./lib/*"],
+      "@/mdx/*": ["./components/mdx/*"],
+      "@/providers/*": ["./providers/*"],
+      "@/pkg/*": ["./pkg/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    ".next/dev/types/**/*.ts"
-, "components/Brief/hooks/useSceneMetrics"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
