@@ -1,4 +1,4 @@
-const why = require('why-is-node-running');
+import why from 'why-is-node-running';
 
 console.log('Build finished, checking for active processes...');
 
