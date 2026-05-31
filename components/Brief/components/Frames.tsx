@@ -1,5 +1,7 @@
 import * as types from '../types';
 
+import { AnimatedFrame } from './AnimatedFrame';
+import { MorphFrame } from './MorphFrame';
 import React from 'react';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
@@ -38,53 +40,34 @@ export function Viewport({ className = '', children }: ViewportProps) {
   return <div className={`relative overflow-hidden ${className}`}>{children}</div>;
 }
 
-export function SquareBoxAbsolute() {
-  return (
-    <div className="w-[320px] h-80 bg-red-500 text-white flex items-center justify-center border border-red-700">
-      Absolute 320×320
-    </div>
-  );
-}
-
-export function SquareBoxRelativeDynamic({ style }: { style?: React.CSSProperties }) {
+export function LaptopFrame({ frame }) {
   return (
     <div
-      className="text-white bg-red-500 border border-green-700 p-6"
       style={{
-        width: '100%',
-        height: '100%',
-
-        // 🔥 critical: allow morphing
-        transition: 'all 600ms cubic-bezier(0.22,1,0.36,1)',
-
-        ...style,
+        position: 'absolute',
+        width: frame.width,
+        height: frame.height,
+        background: 'black', // bezel
+        borderRadius: 20,
       }}
     >
-      <div className="font-bold">Relative box</div>
-      <div className="text-sm opacity-80">shape is timeline-driven</div>
-    </div>
-  );
-}
-
-export function SquareBoxRelative() {
-  return (
-    <div className=" text-white bg-red-500 h-full w-full p-6 border border-green-700">
-      <div className="font-bold">Relative box</div>
-      <div className="text-sm opacity-80">size depends on content + parent constraints</div>
-    </div>
-  );
-}
-
-export function LaptopFrame({ children }: ReactNodeProp) {
-  return (
-    <Viewport className="w-225 h-140 rounded-[28px] border border-white/10  shadow-2xl">
-      <div className="w-full h-full rounded-[28px] bg-neutral-900 border border-white/10 overflow-hidden relative">
-        {/* screen */}
-        <div className="absolute left-[5%] top-[7%] right-[5%] bottom-[8%] rounded-xl bg-black overflow-hidden">
-          {children}
-        </div>
+      {/* viewport (screen) */}
+      <div
+        style={{
+          position: 'absolute',
+          left: frame.viewport.x,
+          top: frame.viewport.y,
+          width: frame.viewport.width,
+          height: frame.viewport.height,
+          background: '#111',
+          overflow: 'hidden',
+        }}
+      >
+        {frame.children?.map((child) => (
+          <AnimatedFrame key={child.id} frame={child} time={0} />
+        ))}
       </div>
-    </Viewport>
+    </div>
   );
 }
 
@@ -146,23 +129,7 @@ export function IDEFrameBlock() {
     </div>
   );
 }
-export function BrowserFrameBlock() {
-  return (
-    <div className="w-full h-full rounded-[28px] border border-white/10 bg-black/30 backdrop-blur-xl overflow-hidden">
-      <div className="h-10 flex items-center gap-2 px-4 border-b border-white/5">
-        <div className="w-3 h-3 rounded-full bg-red-400/40" />
-        <div className="w-3 h-3 rounded-full bg-yellow-400/40" />
-        <div className="w-3 h-3 rounded-full bg-green-400/40" />
-      </div>
 
-      <div className="h-10 px-4 flex items-center text-xs text-white/40 border-b border-white/5">
-        https://app.example.com
-      </div>
-
-      <div className="p-4 text-white/40 text-sm">Browser preview content area</div>
-    </div>
-  );
-}
 export function EditorBlock() {
   return (
     <FrameWrapper>
@@ -396,12 +363,21 @@ export function LaptopBrowserBlock({ children }: { children?: ReactNodeProp }) {
   );
 }
 
-export function ShapeRenderer({ frame, style }: { frame: types.Frame; style?: any }) {
-  const points = style?.points;
+export function ShapeRenderer1({ frame, style = {} }: { frame: any; style?: any }) {
+  const shape = style.shape ?? 'square';
+  const scale = style.scale ?? 1;
+  const opacity = style.opacity ?? 1;
 
-  if (!points) return null;
+  const base = 50; // normalized SVG space
 
-  const pointsString = points.map(([x, y]) => `${x * 100},${y * 100}`).join(' ');
+  const shapes: Record<string, string> = {
+    square: '0 0 100 0 100 100 0 100',
+    triangle: '50 0 100 100 0 100',
+    pentagon: '50 0 100 35 80 100 20 100 0 35',
+    octagon: '30 0 70 0 100 30 100 70 70 100 30 100 0 70 0 30',
+  };
+
+  const points = shapes[shape] ?? shapes.square;
 
   return (
     <svg
@@ -410,28 +386,86 @@ export function ShapeRenderer({ frame, style }: { frame: types.Frame; style?: an
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
       style={{
+        transform: `scale(${scale})`,
+        opacity,
         display: 'block',
       }}
     >
-      <polygon points={pointsString} fill="currentColor" />
+      <polygon points={points} fill="currentColor" />
     </svg>
   );
 }
+export function AbsoluteBox() {
+  const name = `<AbsoluteBox />`;
+  return (
+    <div className="w-[320px] h-80 bg-red-500 text-white flex items-center justify-center border border-red-700">
+      {name}
+      <p>320×320</p>
+    </div>
+  );
+}
 
-export function FrameRenderer({ frame, style }: { frame: types.Frame }) {
+export function RelativeBox() {
+  const name = `<RelativeBox />`;
+  return (
+    <div className=" text-white bg-red-500 h-full w-full p-6 border border-green-700">
+      <div className="font-bold">{name}</div>
+      <div className="text-sm opacity-80">size depends on content + parent constraints</div>
+    </div>
+  );
+}
+export function BrowserFrameBlock({ childProps }) {
+  return (
+    <div className="w-full h-full rounded-[28px] border border-white/10 bg-black/30 backdrop-blur-xl overflow-hidden">
+      <div className="h-10 flex items-center gap-2 px-4 border-b border-white/5">
+        <div className="w-3 h-3 rounded-full bg-red-400/40" />
+        <div className="w-3 h-3 rounded-full bg-yellow-400/40" />
+        <div className="w-3 h-3 rounded-full bg-green-400/40" />
+      </div>
+
+      <div className="h-10 px-4 flex items-center text-xs text-white/40 border-b border-white/5">
+        {childProps?.url || 'https://www.loitran.com'}
+      </div>
+
+      <div className="p-4 text-white/40 text-sm">Browser preview content area</div>
+    </div>
+  );
+}
+export function ContainerFrame({ children }: any) {
+  return (
+    <div className="relative w-full h-full bg-red-500 border border-green-700 overflow-hidden rounded-xl">
+      <div className="absolute inset-0 p-6 flex flex-col">
+        <div className="font-bold">{`<ContainerFrame />`}</div>
+
+        {/* CONTENT AREA */}
+        <div className="flex-1 bg-green-400 overflow-hidden relative ">{children}</div>
+      </div>
+    </div>
+  );
+}
+export function FrameRenderer({ frame, children, style, childProps }: { frame: types.Frame; children?: any }) {
   switch (frame.type) {
-    case 'shape':
-      return <ShapeRenderer frame={frame} style={style} />;
-    case 'container':
-      return <SquareBoxRelativeDynamic />;
-    case 'absolute':
-      return <SquareBoxAbsolute />;
+    case 'containerFrame':
+      return <ContainerFrame style={style}>{children}</ContainerFrame>;
+    case 'browserFrame':
+      return (
+        <BrowserFrameBlock
+          childProps={{
+            ...frame,
+            layout: frame.layoutResolved,
+          }}
+        />
+      );
     case 'relative':
-      return <SquareBoxRelative />;
+      return <RelativeBox />;
+    case 'absolute':
+      return <AbsoluteBox />;
+    case 'shape':
+      return <MorphFrame frame={frame} style={style} />;
+
     case 'laptopFrame':
       return <LaptopFrameBlock frame={frame} />; // NO children here
-    case 'browserFrame':
-      return <BrowserFrameBlock />;
+
     case 'browserWindow':
       return <LaptopBrowserBlock />;
 

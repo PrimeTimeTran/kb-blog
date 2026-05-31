@@ -1,6 +1,5 @@
-im
-port * as types from './types';
-import { CENTERED_FRAME, WORLD, WORLD_CENTER } from './constants';
+import * as types from './types';
+import { VIEWPORT_FRAME, WORLD } from './constants/world';
 
 export const demoScene = Object.freeze([
   {
@@ -74,7 +73,7 @@ export const compositionScene = [
     id: 'laptop',
     type: 'laptopFrame',
 
-    ...CENTERED_FRAME,
+    ...VIEWPORT_FRAME,
 
     width: 1200,
     height: 720,
@@ -84,7 +83,7 @@ export const compositionScene = [
         id: 'browser-1',
         type: 'browserWindow',
 
-        ...CENTERED_FRAME,
+        ...VIEWPORT_FRAME,
 
         offset: { x: -600, y: -120 },
 
@@ -98,7 +97,7 @@ export const compositionScene = [
         id: 'browser-2',
         type: 'browserWindow',
 
-        ...CENTERED_FRAME,
+        ...VIEWPORT_FRAME,
 
         offset: { x: 220, y: 40 },
 
@@ -157,7 +156,7 @@ export const motionScene = {
         {
           id: 'fromBottom',
           type: 'browserFrame',
-          ...CENTERED_FRAME,
+          ...VIEWPORT_FRAME,
           motion: 'fromBottom',
           exitMotion: 'toTop',
         },
@@ -170,7 +169,7 @@ export const motionScene = {
         {
           id: 'fromLeft',
           type: 'ideFrame',
-          ...CENTERED_FRAME,
+          ...VIEWPORT_FRAME,
           motion: 'fromLeft',
           exitMotion: 'toRight',
         },
@@ -183,7 +182,7 @@ export const motionScene = {
         {
           id: 'fromTop',
           type: 'browserFrame',
-          ...CENTERED_FRAME,
+          ...VIEWPORT_FRAME,
           motion: 'fromTop',
           exitMotion: 'toBottom',
         },
@@ -196,7 +195,7 @@ export const motionScene = {
         {
           id: 'fromRight',
           type: 'ideFrame',
-          ...CENTERED_FRAME,
+          ...VIEWPORT_FRAME,
           motion: 'fromRight',
           exitMotion: 'toLeft',
         },
@@ -211,7 +210,7 @@ export const sizing = {
       {
         id: 'fromTop',
         type: 'absolute',
-        ...CENTERED_FRAME,
+        ...VIEWPORT_FRAME,
         motion: 'fromBottom',
       },
     ],
@@ -219,7 +218,7 @@ export const sizing = {
       {
         id: 'fromBottom',
         type: 'relative',
-        ...CENTERED_FRAME,
+        ...VIEWPORT_FRAME,
         motion: 'fromBottom',
       },
     ],

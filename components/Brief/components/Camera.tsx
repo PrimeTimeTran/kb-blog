@@ -1,13 +1,14 @@
-import { ENABLE_CAMERA_TICK, WORLD, cameraConfig } from '../constants';
 import { useEffect, useRef, useState } from 'react';
 
+import { WORLD } from '../constants/world';
 import { dumpScene } from '../src';
+import { getConfig } from '../config';
 import { motion } from 'framer-motion';
 
 export function useCamera(
-  initial = cameraConfig.default.position,
-  paths = cameraConfig.default.paths,
-  interval = 1000,
+  initial = getConfig().camera.position,
+  paths = getConfig().camera.paths,
+  interval = getConfig().cameraTickDuration,
 ) {
   const [camera, setCamera] = useState(initial);
   const [index, setIndex] = useState(0);
@@ -17,7 +18,7 @@ export function useCamera(
     zoom: 0,
   });
   useEffect(() => {
-    if (!ENABLE_CAMERA_TICK) return;
+    if (!getConfig().isCameraTickOn) return;
     if (!paths?.length) return;
 
     const id = setInterval(() => {

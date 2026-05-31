@@ -1,8 +1,8 @@
-import { AnimatedFrame, getVisibleSteps } from './components/AnimatedFrame';
+import { AnimatedFrame, getVisibleSteps } from './components/SceneFrame';
 import { CameraController, WorldLayer, useCamera } from '.';
 import { useEffect, useMemo, useState } from 'react';
 
-import { sceneRegistry } from './scenes';
+import { sceneRegistry } from './scene-registry';
 
 export function BriefExhibit() {
   const time = useClock();

@@ -45,8 +45,8 @@ export function toWorldCoords(rect: DOMRect, camera: { x: number; y: number; zoo
     height: rect.height / camera.zoom,
   };
 }
-export function groupFrames(frames: types.Frame[]) {
-  return frames.reduce<Record<string, types.Frame[]>>((acc, frame) => {
+export function groupFrames(frames: types.Scene[]) {
+  return frames.reduce<Record<string, types.Scene[]>>((acc, frame) => {
     const key = frame.group ?? 'root';
 
     if (!acc[key]) acc[key] = [];

@@ -115,7 +115,7 @@ export function DropdownPanel({ item, scheduleClose }) {
       className="overflow-hidden w-full shadow-2xl shrink-0 transition-all duration-300 will-change-transform min-h-0"
     >
       <div className="flex">
-        {renderLeft()}
+        {/* {renderLeft()} */}
         {renderRight()}
       </div>
     </div>

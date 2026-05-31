@@ -65,6 +65,7 @@
     "@teispace/next-themes": "^0.5.0",
     "@testing-library/react": "^16.3.2",
     "@types/babel__standalone": "^7.1.9",
+    "@types/flubber": "^0.4.0",
     "@types/lodash": "^4.17.24",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.9.1",
@@ -90,10 +91,12 @@
     "eslint-plugin-tailwindcss": "^3.18.3",
     "fast-xml-parser": "^5.8.0",
     "file-loader": "^6.0.0",
+    "flubber": "^0.4.2",
     "framer-motion": "^12.40.0",
     "github-slugger": "^2.0.0",
     "globals": "^17.6.0",
     "globby": "^16.2.0",
+    "husky": "^8.0.0",
     "inquirer": "^14.0.0",
     "js-yaml": "^4.1.1",
     "jsdom": "^29.1.1",
@@ -137,8 +140,7 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.1.0",
     "vitest": "^4.1.7",
-    "vscode-icons-js": "^11.6.1",
-    "husky": "^8.0.0"
+    "vscode-icons-js": "^11.6.1"
   },
   "lint-staged": {
     "*.+(js|jsx|ts|tsx)": [

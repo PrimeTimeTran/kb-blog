@@ -1,79 +1,34 @@
 import { CameraController, WorldLayer, useCamera } from './';
-import { useEffect, useMemo, useState } from 'react';
+import { useSceneClock, useTickScenes } from './hooks/useScene';
 
 import { AnimatePresence } from 'framer-motion';
-import { AnimatedFrame } from './components/AnimatedFrame';
-import { groupFrames } from './src';
-import { sceneRegistry } from './scenes';
+import { SceneFrame } from './components/SceneFrame';
+import { getConfig } from './config';
 
 export function BriefExhibit() {
-  const { scene } = useTickScenes(sceneRegistry.motion.enter);
-
-  const time = useSceneClock(4000);
   const { camera, setCamera } = useCamera();
+  const { scene } = useTickScenes(getConfig().activeScene);
+  const time = useSceneClock(4000);
+
   return (
     <div className="relative w-full h-full overflow-hidden bg-red-100">
       <CameraController camera={camera} setCamera={setCamera}>
         <WorldLayer camera={camera}>
-          <SceneComposer camera={camera} sceneFrames={scene} time={time} />
+          <SceneComposer camera={camera} scene={scene} time={time} />
         </WorldLayer>
       </CameraController>
     </div>
   );
 }
 
-export function SceneComposer({ time, camera, sceneFrames }) {
-  const groups = useMemo(() => groupFrames(sceneFrames), [sceneFrames]);
-
+export function SceneComposer({ time, camera, scene }) {
   return (
-    <div className="relative w-full h-full bg-orange-400">
+    <div className="relative w-full h-full ">
       <AnimatePresence mode="wait">
-        {(groups.root ?? []).map((frame) => (
-          <AnimatedFrame key={frame.id} time={time} camera={camera} frame={frame} />
+        {scene.map((frame) => (
+          <SceneFrame key={frame.id} frame={frame} time={time} camera={camera} />
         ))}
       </AnimatePresence>
     </div>
   );
 }
-export function useTickScenes(sceneSet: any[], interval = 3000) {
-  const [index, setIndex] = useState(0);
-
-  const length = sceneSet?.length ?? 0;
-
-  useEffect(() => {
-    if (!length) return;
-
-    const id = setInterval(() => {
-      setIndex((i) => (i + 1) % length);
-    }, interval);
-
-    return () => clearInterval(id);
-  }, [length, interval]);
-
-  function tick() {
-    if (!length) return;
-    setIndex((i) => (i + 1) % length);
-  }
-
-  const scene = sceneSet[index] ?? null;
-
-  return {
-    scene,
-    index,
-    tick,
-  };
-}
-
-const useSceneClock = (duration: number, fps = 60) => {
-  const [t, setT] = useState(0);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      setT((prev) => (prev + 16) % duration);
-    }, 1000 / fps);
-
-    return () => clearInterval(id);
-  }, [duration, fps]);
-
-  return t;
-};

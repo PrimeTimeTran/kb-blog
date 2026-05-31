@@ -10,4 +10,9 @@
 
 # Version 2
 
-- [ ] Internal transformations/animations
+- [x] Internal transformations/animations
+
+# Version 3
+
+- [ ] Add child frames clipped by parent
+- [ ] Child frames can be positioned via flex layout and transforms.

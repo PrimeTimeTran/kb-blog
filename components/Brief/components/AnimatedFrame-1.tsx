@@ -129,7 +129,7 @@ function resolveLayout(frame, parent) {
     height: parent?.height ?? frame.height ?? 0,
   };
 
-  let next = {
+  const next = {
     ...frame,
   };
 
@@ -142,19 +142,21 @@ function resolveLayout(frame, parent) {
 
   next.viewport = viewport;
 
-  // 2. FLEX LAYOUT
+  // -----------------------------------
+  // FLEX LAYOUT
+  // -----------------------------------
   if (frame.layout?.type === 'flex') {
-    const children = frame.children ?? [];
+    const children = (frame.children ?? []).filter(Boolean);
     const gap = frame.layout.gap ?? 0;
 
-    const totalWidth = children.reduce((sum, c) => sum + (c.width ?? 0), 0) + gap * Math.max(children.length - 1, 0);
+    const totalWidth = children.reduce((sum, c) => sum + (c.width ?? 520), 0) + gap * Math.max(children.length - 1, 0);
 
     let cursorX = viewport.x + (viewport.width - totalWidth) / 2;
     const centerY = viewport.y + viewport.height / 2;
 
     next.children = children.map((child) => {
-      const width = child.width ?? 0;
-      const height = child.height ?? 0;
+      const width = child.width ?? 520;
+      const height = child.height ?? 300;
 
       const resolvedChild = {
         ...child,
@@ -168,20 +170,22 @@ function resolveLayout(frame, parent) {
 
       cursorX += width + gap;
 
-      return resolveLayout(resolvedChild, next); // 🔥 recurse here
+      // 🔥 recurse ONCE, return result
+      return resolveLayout(resolvedChild, next);
     });
 
     return next;
   }
 
-  // 3. NON-FLEX: still recurse
+  // -----------------------------------
+  // NON-FLEX RECURSION
+  // -----------------------------------
   if (frame.children?.length) {
-    next.children = frame.children.map((child) => resolveLayout(child, next));
+    next.children = frame.children.filter(Boolean).map((child) => resolveLayout(child, next));
   }
 
   return next;
 }
-
 function buildTransform(style: any) {
   const x = style.x ?? 0;
   const y = style.y ?? 0;
@@ -198,22 +202,29 @@ export function AnimatedFrame({ frame, time, phase }: any) {
   const timelineStyle = resolveTimelineStyle(frame, time, phase) ?? {};
 
   // -----------------------------------
-  // 🧠 RUN LAYOUT HERE (parent = frame)
+  // 🧠 RUN LAYOUT (ONLY FOR THIS NODE)
   // -----------------------------------
-  const layoutFrame = resolveLayout(frame, null);
+  const resolved = resolveLayout(frame, {
+    viewport: {
+      x: 0,
+      y: 0,
+      width: frame.width ?? 1200,
+      height: frame.height ?? 720,
+    },
+  });
+
+  const layout = resolved.layoutResolved ?? {};
+  const offset = resolved.layoutOffset ?? { x: 0, y: 0 };
+
+  const finalX = layout.x + offset.x;
+  const finalY = layout.y + offset.y;
 
   const style = {
-    ...layoutFrame.style,
+    ...resolved.style,
     ...timelineStyle,
     ...motionEnter,
     ...motionExit,
   };
-
-  const layout = layoutFrame.layoutResolved ?? {};
-  const offset = layoutFrame.layoutOffset ?? { x: 0, y: 0 };
-
-  const finalX = layout.x + offset.x;
-  const finalY = layout.y + offset.y;
 
   const transform = buildTransform({
     ...style,
@@ -223,22 +234,45 @@ export function AnimatedFrame({ frame, time, phase }: any) {
 
   const opacity = typeof style.opacity === 'number' ? style.opacity : 1;
 
+  // const containerStyle = {
+  //   position: 'absolute',
+  //   transform,
+  //   opacity,
+  //   transformOrigin: '0 0',
+  //   willChange: 'transform, opacity',
+
+  //   width: layout.width ?? frame.width ?? 300,
+  //   height: layout.height ?? frame.height ?? 200,
+  // };
+
   const containerStyle = {
     position: 'absolute',
-    inset: 0,
-    opacity,
     transform,
+    opacity,
     transformOrigin: '0 0',
-    willChange: 'transform, opacity',
+    width: layout.width ?? 520,
+    height: layout.height ?? 300,
   };
+
+  console.log('FRAME:', frame.id, frame.type, frame.layoutResolved);
+  console.log('CHILDREN:', frame.children);
 
   return (
     <div style={containerStyle}>
-      <FrameRenderer frame={layoutFrame}>
-        {layoutFrame.children?.map((child) => (
+      {/* 🧠 THIS RESTORES LOCAL SPACE */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          overflow: 'hidden',
+        }}
+      >
+        <FrameRenderer frame={frame} />
+
+        {frame.children?.filter(Boolean).map((child) => (
           <AnimatedFrame key={child.id} frame={child} time={time} phase={phase} />
         ))}
-      </FrameRenderer>
+      </div>
     </div>
   );
 }
