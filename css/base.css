@@ -82,15 +82,15 @@
 
 @layer base {
   :root {
-    --background: #f6f6f7;
-    --lowest: #f1f1f3;
-    --low: #ececef;
-    --level: #e6e6ea;
-    --high: #dddddf;
-    --highest: #d6d6da;
-    --surface: #ffffff;
+    --background: #ffffff;
+    --lowest: #fafafa;
+    --low: #f5f5f5;
+    --level: #f0f0f0;
+    --high: #ebebeb;
+    --highest: #e5e5e5;
+    --surface: #f7f7f8;
     --on-surface: #1c1b1f;
-    --surface-variant: #efeff2;
+    --surface-variant: #f1f1f3;
     --on-surface-variant: #5a5a63;
     --primary: #6750a4;
     --primary-hover: #715aae;
@@ -251,5 +251,11 @@
 
   .debug {
     @apply border border-red-500/50 bg-red-500/5;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: color-mix(in srgb, var(--outline) 20%, transparent);
   }
 }

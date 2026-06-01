@@ -52,7 +52,7 @@ export function RootLayout({ children }) {
     // If we implement "theme save"  then server and client can't resolve theme/dom.
     // Required here and ThemeProvider (in AppShell)
     <html suppressHydrationWarning>
-      <body>
+      <body className="bg-background">
         <AppShell>
           <div className="flex flex-col h-full">
             <div className="flex flex-1 min-h-0 pt-16">

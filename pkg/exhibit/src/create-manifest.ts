@@ -1,4 +1,4 @@
-import { ExhibitManifest, ExhibitProjectType } from '@/pkg/exhibit';
+import { ExhibitManifest, ExhibitProjectType } from '@/lib/types';
 import { buildManifestCore, buildTreeFromFiles } from '@/lib/fs/collect-files';
 
 import fs from 'fs';
@@ -6,8 +6,8 @@ import { getExhibitPath } from '@/lib/paths';
 import { loadFrameworkSeeds } from '@/pkg/exhibit';
 import { resolveRuntime } from '@/pkg/exhibit';
 
-export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitManifest {
-  const folderPath = slug.length > 0 ? slug.join('/') : '1-vanilla';
+export function createExhibitManifest(slug: string[] = ['02-react']): ExhibitManifest {
+  const folderPath = slug.length > 0 ? slug.join('/') : 'hello-world';
   const targetDir = getExhibitPath(folderPath);
 
   if (!fs.existsSync(targetDir)) {

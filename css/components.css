@@ -188,6 +188,6 @@
     @apply absolute top-2 right-2 text-xs px-2 py-1 bg-black/30 hover:bg-black/50 rounded opacity-0 group-hover:opacity-100;
   }
   .handlebar {
-    @apply w-[0.5] cursor-col-resize bg-white/10 hover:bg-white/20 border-r border-gray-300 dark:border-gray-600 z-10 transition-colors;
+    @apply w-[0.5] cursor-col-resize border-r z-10 transition-colors;
   }
 }
