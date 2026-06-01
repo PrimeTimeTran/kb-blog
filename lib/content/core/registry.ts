@@ -1,12 +1,11 @@
 import { ContentClientConfig, ContentCollection, ContentListConfig, ContentRegistry, ContentSource } from '../types';
 import { getContent, listContent } from '../api';
 
-import { ROOT } from '@/lib/paths';
+import { CONTENT_DIR } from '@/lib/paths';
 import { createFilesystemSource } from '../server/source/filesystem';
-import path from 'path';
 
 const filesystemSource = createFilesystemSource({
-  rootDir: path.join(ROOT, 'data'),
+  rootDir: CONTENT_DIR,
 });
 
 /**

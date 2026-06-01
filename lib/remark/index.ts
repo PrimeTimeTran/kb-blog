@@ -4,7 +4,6 @@ export * from './extract-headings';
 export * from './extract-toc';
 export * from './inject-embed-flags';
 export * from './inject-term-links-and-preview';
-export * from './mdx-components-paths';
 export * from './render-callouts';
 export * from './render-codeblocks';
 export * from './render-embeds';

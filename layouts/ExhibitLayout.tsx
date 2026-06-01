@@ -1,5 +1,5 @@
 import { OverlayHost, useOverlayManager } from './global/Overlay';
-import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/lib';
+import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/components/showcase/components';
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';

@@ -157,22 +157,3 @@ function createStage(trace: ReturnType<typeof createTrace>) {
     }
   };
 }
-
-// async function stage<T>(
-//   trace: ReturnType<typeof createTrace>,
-//   name: string,
-//   fn: () => Promise<T>,
-//   meta?: (result: T) => Record<string, unknown>,
-// ): Promise<T> {
-//   try {
-//     const result = await trace.span(name, fn);
-
-//     trace.debug(`${name}_COMPLETE`, meta?.(result));
-
-//     return result;
-//   } catch (err) {
-//     trace.error(`${name}_FAILED`, err);
-
-//     throw err;
-//   }
-// }

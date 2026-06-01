@@ -77,3 +77,6 @@ packages/docksystem/package-lock.json
 pkg/live-editor/lib/frameworks/base
 public/vscode-icons
 .env*.local
+
+# Local Netlify folder
+.netlify

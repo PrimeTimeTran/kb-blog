@@ -1,13 +1,11 @@
+import { BLOG_DIR } from '@/lib/paths';
 import fs from 'fs';
-import { getRootPath } from '@/lib/paths';
 import { isPublished } from '@/lib/content/core';
 import matter from 'gray-matter';
 import { walk } from '@/lib/fs';
 
 export async function getAllFrontMatter(type) {
-  const base = getRootPath('data', type);
-
-  const files = walk(base, { includeExtensions: ['.md', '.mdx'] });
+  const files = walk(BLOG_DIR, { includeExtensions: ['.md', '.mdx'] });
 
   return (files ?? [])
     .map((filePath) => {
@@ -18,7 +16,7 @@ export async function getAllFrontMatter(type) {
         ...data,
         filePath,
         slug: filePath
-          .replace(base, '')
+          .replace(BLOG_DIR, '')
           .replace(/\.mdx?$/, '')
           .replace(/\\/g, '/')
           .replace(/^\/|\/$/g, ''),
