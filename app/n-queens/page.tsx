@@ -3,7 +3,10 @@
 import { Grid2x2, Play, Sparkles, Timer, Trophy } from 'lucide-react';
 import { useRef, useState } from 'react';
 
-export default function NQueensVisualizer({ n = 8, delay = 0 }) {
+const n = 8;
+const delay = 0;
+
+export default function NQueensVisualizer() {
   const emptyBoard = () => Array.from({ length: n }, () => Array(n).fill('.'));
   const [board, setBoard] = useState<string[][]>(emptyBoard());
   const [solutions, setSolutions] = useState([]);
@@ -24,7 +27,7 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
       setElapsedMs(performance.now() - start);
     }, 50);
 
-    const size = n; // 🔥 LOCK n at execution time
+    const size = n;
 
     const COL = new Set<number>();
     const diagP = new Set<number>();
@@ -108,12 +111,8 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
           row.map((cell, c) => (
             <div
               key={`${r}-${c}`}
-              className={`
-              aspect-square
-              flex items-center justify-center
-              border
-              text-2xl sm:text-3xl
-              ${size <= 6 ? 'text-3xl' : 'text-2xl'}
+              className={`aspect-square flex items-center justify-center border text-2xl sm:text-3xl
+                ${size <= 6 ? 'text-3xl' : 'text-2xl'}
               ${(r + c) % 2 === 0 ? 'bg-gray-200 dark:bg-zinc-800' : 'bg-white dark:bg-zinc-900'}
             `}
             >
@@ -128,7 +127,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
   return (
     <div className="min-h-screen w-full pt-8 pb-16 px-6 flex flex-col items-center gap-8">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-stretch">
-        {/* Left VISUALIZER */}
         <div className="lg:col-span-1 flex flex-col gap-4 lg:sticky lg:top-16 h-[calc(100vh-4rem)] overflow-hidden">
           <div className="relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/90 dark:bg-zinc-950/90 backdrop-blur p-5 shadow-sm">
             <div className="absolute inset-0 pointer-events-none opacity-60 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.12),transparent_35%)]" />
@@ -147,7 +145,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
                 board state updates.
               </p>
 
-              {/* CTA */}
               <button
                 onClick={solve}
                 disabled={running}
@@ -158,7 +155,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
                 {running ? 'Solving...' : 'Run Solver'}
               </button>
 
-              {/* status */}
               <div className="mt-4 flex items-center gap-2 text-xs">
                 <span
                   className={`
@@ -179,9 +175,7 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
             </div>
           </div>
 
-          {/* Metrics */}
           <div className="grid grid-cols-3 gap-3">
-            {/* Solutions */}
             <div className="rounded-2xl border border-emerald-200 dark:border-emerald-500/20 bg-emerald-50/70 dark:bg-emerald-500/5 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Trophy className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
@@ -194,7 +188,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
               <div className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">{solutions.length}</div>
             </div>
 
-            {/* Runtime */}
             <div className="rounded-2xl border border-blue-200 dark:border-blue-500/20 bg-blue-50/70 dark:bg-blue-500/5 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Timer className="w-4 h-4 text-blue-600 dark:text-blue-400" />
@@ -207,7 +200,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
               </div>
             </div>
 
-            {/* Size */}
             <div className="rounded-2xl border border-violet-200 dark:border-violet-500/20 bg-violet-50/70 dark:bg-violet-500/5 p-3">
               <div className="flex items-center gap-2 mb-2">
                 <Grid2x2 className="w-4 h-4 text-violet-600 dark:text-violet-400" />
@@ -222,13 +214,11 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
           </div>
         </div>
 
-        {/* RIGHT VISUALIZER */}
         <div
           className={`lg:col-span-2 relative rounded-2xl border p-5 shadow-sm transition-colors duration-300 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950 min-h-130 flex flex-col
             ${completed ? 'border-emerald-400/70 dark:border-emerald-500/60' : 'border-zinc-200 dark:border-zinc-800'}
           `}
         >
-          {/* top status bar */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-2">
               <div
@@ -245,10 +235,7 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
             <div className="text-[10px] uppercase tracking-wide text-zinc-400">Live State</div>
           </div>
 
-          {/* board */}
           <div className="flex items-center justify-center min-h-90">{renderBoard(finalBoard ?? board)}</div>
-
-          {/* footer */}
           <div className="mt-3 h-5 flex items-center justify-center">
             <span
               className={`text-xs transition-opacity duration-300
@@ -259,7 +246,6 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
             </span>
           </div>
 
-          {/* SOLUTIONS (now under preview) */}
           {solutions.length > 0 && (
             <section ref={solutionsRef} className="mt-6 flex flex-col items-center gap-4">
               <h3 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">Solutions ({solutions.length})</h3>

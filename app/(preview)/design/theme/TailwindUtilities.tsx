@@ -1,4 +1,4 @@
-import type { JSX, PropsWithChildren } from 'react';
+import type { JSX } from 'react';
 
 const fontSizes = [
   'text-xs',
@@ -26,12 +26,11 @@ const fontWeights = [
 ];
 const textAlignments = ['text-left', 'text-center', 'text-right', 'text-justify'];
 
-export default function TailwindUtilities({ children }: PropsWithChildren): JSX.Element {
+export default function TailwindUtilities(): JSX.Element {
   return (
     <div className="min-h-screen bg-background text-on-background">
       <Hero />
       <Body />
-      {children}
     </div>
   );
 }

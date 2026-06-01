@@ -4,19 +4,17 @@ import fs from 'fs';
 
 const outlineKeys = ['outline', 'outline-variant'];
 export const surfacePalette = {
-  background: { light: '#f6f6f7', dark: '#09090b' },
+  background: { light: '#ffffff', dark: '#09090b' },
+  lowest: { light: '#fafafa', dark: '#111113' },
+  low: { light: '#f5f5f5', dark: '#161618' },
+  level: { light: '#f0f0f0', dark: '#1b1b1e' },
+  high: { light: '#ebebeb', dark: '#222225' },
+  highest: { light: '#e5e5e5', dark: '#2a2a2e' },
 
-  lowest: { light: '#f1f1f3', dark: '#111113' },
-  low: { light: '#ececef', dark: '#161618' },
-  level: { light: '#e6e6ea', dark: '#1b1b1e' },
-  high: { light: '#dddddf', dark: '#222225' },
-  highest: { light: '#d6d6da', dark: '#2a2a2e' },
-
-  surface: { light: '#ffffff', dark: '#141416' },
+  surface: { light: '#f7f7f8', dark: '#141416' },
 
   onSurface: { light: '#1c1b1f', dark: '#f4f4f5' },
-
-  surfaceVariant: { light: '#efeff2', dark: '#202127' },
+  surfaceVariant: { light: '#f1f1f3', dark: '#202127' },
   onSurfaceVariant: { light: '#5a5a63', dark: '#a8a8b2' },
 };
 

@@ -82,15 +82,15 @@
 
 @layer base {
   :root {
-    --background: #f6f6f7;
-    --lowest: #f1f1f3;
-    --low: #ececef;
-    --level: #e6e6ea;
-    --high: #dddddf;
-    --highest: #d6d6da;
-    --surface: #ffffff;
+    --background: #ffffff;
+    --lowest: #fafafa;
+    --low: #f5f5f5;
+    --level: #f0f0f0;
+    --high: #ebebeb;
+    --highest: #e5e5e5;
+    --surface: #f7f7f8;
     --on-surface: #1c1b1f;
-    --surface-variant: #efeff2;
+    --surface-variant: #f1f1f3;
     --on-surface-variant: #5a5a63;
     --primary: #6750a4;
     --primary-hover: #715aae;
@@ -242,28 +242,6 @@
   /* ==========================================================================
     1. BASE COLORS (Light Mode is the standard fallback)
    ========================================================================== */
-  :root {
-    --code-radius: 8px;
-    --code-font: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    --code-bg: #ffffff;
-    --code-header-bg: #f4f4f5;
-    --code-border: #e4e4e7;
-    --code-text: #18181b;
-    --code-muted: #71717a;
-    --code-accent: #2563eb;
-    --code-accent-dim: rgba(37, 99, 235, 0.08);
-  }
-
-  html.dark,
-  .dark :root {
-    --code-bg: #09090b;
-    --code-header-bg: #18181b;
-    --code-border: #27272a;
-    --code-text: #e4e4e7;
-    --code-muted: #71717a;
-    --code-accent: #3b82f6;
-    --code-accent-dim: rgba(59, 130, 246, 0.1);
-  }
   .dark {
     --gradient-primary: linear-gradient(135deg, #d0bcff, #a78bfa, #8b5cf6);
     --glass: rgba(33, 31, 38, 0.65);
@@ -273,5 +251,11 @@
 
   .debug {
     @apply border border-red-500/50 bg-red-500/5;
+  }
+
+  *,
+  ::before,
+  ::after {
+    border-color: color-mix(in srgb, var(--outline) 20%, transparent);
   }
 }

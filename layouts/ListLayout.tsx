@@ -14,28 +14,7 @@ import { useInView } from '@/hooks/useInView';
 import { usePosts } from '@/hooks/usePosts';
 import { useTypewriter } from '@/hooks/useTypeWriter';
 
-export function DebugWorkspace() {
-  return (
-    <div className="relative h-screen w-full overflow-hidden isolate bg-white">
-      {/* 🌌 atmosphere MUST be behind */}
-      <WorkspaceAtmosphere />
-
-      {/* 📜 scroll layer */}
-      <div className="relative z-10 flex h-full flex-col">
-        <div className="relative z-10 h-full overflow-y-auto px-10 py-10 space-y-10">
-          {Array.from({ length: 50 }).map((_, i) => (
-            <div key={i} className="h-40 rounded-2xl border bg-surface p-6">
-              Item {i + 1}
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagination }) {
-  // export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagination }) {
   const {
     posts,
     metrics,
@@ -51,7 +30,6 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
     sortOrder,
     setSortOrder,
   } = usePosts({ fetchedPosts });
-  // return <PostList posts={posts} />;
   return (
     <div className="relative flex-1 min-w-0 isolate  flex flex-col justify-center items-center h-full overflow-hidden">
       <div className="shrink-0">
@@ -155,87 +133,6 @@ function HeaderBlock({
     </div>
   );
 }
-function PostCard({ post }) {
-  const { ref, inView } = useInView();
-
-  const { slug, date, title, summary, tags = [] } = post;
-
-  // 🔥 latch: remembers if it was ever visible
-  const wasInView = React.useRef(false);
-
-  if (inView) {
-    wasInView.current = true;
-  }
-
-  // show stays true until exit animation finishes naturally
-  const show = inView || wasInView.current;
-
-  return (
-    <article
-      ref={ref}
-      className={`
-        xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group rounded-xl
-
-        transition-all duration-700 ease-out
-
-        ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-[0.98]'}
-      `}
-    >
-      {/* DATE */}
-      <dl
-        className={`
-          transition-all duration-700 ease-out delay-75
-
-          ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3'}
-        `}
-      >
-        <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
-          <FiCalendar className="text-primary opacity-80" />
-          <time dateTime={date}>{formatDate(date)}</time>
-        </dd>
-      </dl>
-
-      {/* CONTENT */}
-      <div className="space-y-3 xl:col-span-3 w-full">
-        {/* TITLE */}
-        <h3 className="transition-transform hover:rotate-[-0.3deg] hover:scale-[1.01] ">
-          <Link href={buildContentUrl('blog', slug)} className="block w-full">
-            <span className="aurora-text text-2xl font-extrabold transition-transform duration-500 ease-out hover:rotate-[0.3deg] hover:scale-[1.01]">
-              {title}
-            </span>
-          </Link>
-        </h3>
-
-        {/* SUMMARY */}
-        <p
-          className={`
-            text-on-surface-variant opacity-80
-            transition-all duration-700 ease-out delay-150 
-
-            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          {summary}
-        </p>
-
-        {/* TAGS */}
-        <div
-          className={`
-            flex flex-wrap gap-2
-            transition-all duration-700 ease-out delay-200
-
-            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          {tags.map((tag) => (
-            <TagLink key={tag} text={tag} />
-          ))}
-        </div>
-      </div>
-    </article>
-  );
-}
-
 function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrder, setSortOrder }) {
   // graffitiWords
   const { text, pause, resume, paused } = useTypewriter(graffitiWords);
@@ -314,21 +211,6 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
     </div>
   );
 }
-
-function PostList({ posts }) {
-  if (!posts.length) {
-    return <p className="py-6 text-on-surface-variant opacity-70">No posts found.</p>;
-  }
-
-  return (
-    <ul className="space-y-2 max-w-5xl">
-      {posts.map((post) => (
-        <PostCard key={post.slug} post={post} />
-      ))}
-    </ul>
-  );
-}
-
 function PostListSkeleton() {
   return (
     <div className="space-y-10">
@@ -363,83 +245,87 @@ function PostListSkeleton() {
     </div>
   );
 }
-
-function WorkspaceAtmosphere() {
-  // 1. MAIN ANCHOR BLOBS (this is what makes it look like your reference)
-  const anchors = [
-    {
-      top: '-10%',
-      left: '20%',
-      size: 700,
-      color: 'var(--primary)',
-      opacity: 0.22,
-    },
-    {
-      top: '60%',
-      left: '110%',
-      size: 800,
-      color: 'var(--secondary)',
-      opacity: 0.18,
-    },
-    {
-      top: '110%',
-      left: '30%',
-      size: 600,
-      color: 'var(--tertiary)',
-      opacity: 0.16,
-    },
-  ];
-
-  // 2. LIGHT BACKGROUND FILL BLOBS (very subtle, optional “fog layer”)
-  const noise = Array.from({ length: 12 }).map((_, i) => {
-    const seed = i * 9999;
-
-    const rand = (n: number) => (Math.sin(seed * n) + 1) / 2;
-
-    return {
-      top: `${rand(1) * 120}%`,
-      left: `${rand(2) * 120}%`,
-      size: 120 + rand(3) * 260,
-      color: i % 2 === 0 ? 'var(--primary)' : 'var(--secondary)',
-      opacity: 0.06,
-    };
-  });
+function PostList({ posts }) {
+  if (!posts.length) {
+    return <p className="py-6 text-on-surface-variant opacity-70">No posts found.</p>;
+  }
 
   return (
-    <div className="absolute inset-0 -z-10 pointer-events-none overflow-hidden">
-      {/* MAIN ATMOSPHERE LAYER */}
-      {anchors.map((b, i) => (
-        <div
-          key={`a-${i}`}
-          className="absolute rounded-full blur-3xl"
-          style={{
-            top: b.top,
-            left: b.left,
-            width: b.size,
-            height: b.size,
-            transform: 'translate(-50%, -50%)',
-            background: `radial-gradient(circle, ${b.color} 0%, transparent 65%)`,
-            opacity: b.opacity,
-          }}
-        />
+    <ul className="space-y-2 max-w-5xl">
+      {posts.map((post) => (
+        <PostCard key={post.slug} post={post} />
       ))}
+    </ul>
+  );
+}
+function PostCard({ post }) {
+  const { ref, inView } = useInView();
 
-      {/* SOFT FOG LAYER */}
-      {noise.map((b, i) => (
+  const { slug, date, title, summary, tags = [] } = post;
+
+  const wasInView = React.useRef(false);
+
+  if (inView) {
+    wasInView.current = true;
+  }
+
+  // show stays true until exit animation finishes naturally
+  const show = inView || wasInView.current;
+
+  return (
+    <article
+      ref={ref}
+      className={`xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0 group hover:bg-surface rounded-xl transition-all duration-700 ease-out p-4 ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-[0.98]'}
+      `}
+    >
+      {/* DATE */}
+      <dl
+        className={`
+          transition-all duration-700 ease-out delay-75 self-center
+
+          ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-3'}
+        `}
+      >
+        <dd className="text-sm flex items-center space-x-3 text-on-surface-variant opacity-80">
+          <FiCalendar className="text-primary opacity-80" />
+          <time dateTime={date}>{formatDate(date)}</time>
+        </dd>
+      </dl>
+
+      {/* CONTENT */}
+      <div className="space-y-3 xl:col-span-3 w-full">
+        {/* TITLE */}
+        <h3 className="transition-transform hover:rotate-[-0.3deg] hover:scale-[1.01] ">
+          <Link href={buildContentUrl('blog', slug)} className="block w-full hover:bg-transparent">
+            <span className="aurora-text text-2xl font-extrabold transition-transform duration-500 ease-out hover:rotate-[0.3deg] hover:scale-[1.01] ">
+              {title}
+            </span>
+          </Link>
+        </h3>
+
+        <p
+          className={`
+            text-on-surface-variant opacity-80
+            transition-all duration-700 ease-out delay-150 
+
+            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+          `}
+        >
+          {summary}
+        </p>
         <div
-          key={`n-${i}`}
-          className="absolute rounded-full blur-2xl"
-          style={{
-            top: b.top,
-            left: b.left,
-            width: b.size,
-            height: b.size,
-            transform: 'translate(-50%, -50%)',
-            background: `radial-gradient(circle, ${b.color} 0%, transparent 70%)`,
-            opacity: b.opacity,
-          }}
-        />
-      ))}
-    </div>
+          className={`
+            flex flex-wrap gap-2
+            transition-all duration-700 ease-out delay-200
+
+            ${show ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4'}
+          `}
+        >
+          {tags.map((tag) => (
+            <TagLink key={tag} text={tag} />
+          ))}
+        </div>
+      </div>
+    </article>
   );
 }

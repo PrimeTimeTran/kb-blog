@@ -1,13 +1,14 @@
-import PageClient from './PageClient';
+import { Metadata } from 'next/dist/types';
+import { PostsView } from './posts-view';
 import { content } from '@/lib/content/api/client';
 
 export default async function Page() {
   const posts = (await content.list({ type: 'blog' })) || [];
   if (!posts) return null;
-  return <PageClient posts={posts || []} />;
+  return <PostsView posts={posts || []} />;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: 'Loi Tran',
     template: '%s | Loi Tran',

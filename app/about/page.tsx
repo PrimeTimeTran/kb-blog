@@ -1,4 +1,5 @@
 import AboutLayout from '@/layouts/About';
+import { Metadata } from 'next/dist/types';
 import { content } from '@/lib/content/api/client';
 
 export default async function Page() {
@@ -12,7 +13,7 @@ export default async function Page() {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About',
   description: 'Learn more about this project, its goals, and its architecture.',
   keywords: ['about', 'project', 'developer', 'portfolio'],

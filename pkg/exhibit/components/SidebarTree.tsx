@@ -1,4 +1,4 @@
-import { SidebarTreeType, TreeNode, TreeViewOptions } from '@/lib/types';
+import { SidebarTreeType, TreeViewOptions, VFSNode } from '@/lib/types';
 import { useEffect, useMemo, useRef } from 'react';
 
 import { TreeItem } from './TreeItem';
@@ -8,7 +8,7 @@ const scrollMap = new Map<string, number>();
 
 export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
   const visibleTree = useMemo(() => {
-    return data
+    return (data ?? [])
       .map((node: any) =>
         applyTreeView({
           node,
@@ -42,61 +42,13 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
   );
 }
 
-export function buildTreeFromVFS(vfs: any): TreeNode[] {
-  const root: Record<string, any> = {};
-
-  for (const fullPath of Object.keys(vfs.files)) {
-    const cleanPath = fullPath.replace(/^\.\//, '');
-    const parts = cleanPath.split('/');
-
-    let cursor = root;
-
-    for (let i = 0; i < parts.length; i++) {
-      const part = parts[i];
-      const isFile = i === parts.length - 1;
-
-      const nodePath = `./${parts.slice(0, i + 1).join('/')}`;
-
-      if (!cursor[part]) {
-        cursor[part] = {
-          id: nodePath,
-          name: part,
-          path: nodePath,
-          kind: isFile ? 'file' : 'folder',
-          children: {},
-        };
-      } else {
-        // ensure folder stays folder if deeper structure appears later
-        if (!isFile) cursor[part].kind = 'folder';
-      }
-
-      cursor = cursor[part].children;
-    }
-  }
-
-  function toArray(map: Record<string, any>): TreeNode[] {
-    return Object.values(map)
-      .map((node: any) => ({
-        ...node,
-        children: node.children ? toArray(node.children) : [],
-      }))
-      .sort((a, b) => {
-        if (a.kind !== b.kind) return a.kind === 'folder' ? -1 : 1;
-        return a.name.localeCompare(b.name);
-      });
-  }
-
-  return toArray(root);
-}
-
 export function useTreeNavigation() {
   const router = useRouter();
 
   const onSelect = (path: string) => {
     if (!path) return;
 
-    const cleanPath = toRoutePath(path);
-
+    const cleanPath = toRoutePath(path).replace(/\.(md|mdx)$/, '');
     router.push(cleanPath, undefined, { scroll: false });
   };
   return { onSelect };
@@ -132,7 +84,7 @@ export function usePersistedScroll(key: string) {
   return ref;
 }
 
-export function applyTreeView({ node, opts }: { node: TreeNode; opts: TreeViewOptions }): any {
+export function applyTreeView({ node, opts }: { node: VFSNode; opts: TreeViewOptions }): any {
   if (!node) return null;
 
   if (opts.filter && !opts.filter(node)) return null;

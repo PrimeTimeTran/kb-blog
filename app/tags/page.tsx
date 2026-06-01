@@ -1,13 +1,13 @@
-import PageClient from './PageClient';
+import { Metadata } from 'next/dist/types';
+import { TagView } from './tag-view';
 import { content } from '@/lib/content/api/client';
 
-export default async function Page() {
+export default async function TagPage() {
   const tags = await content.list({ type: 'blog', by: 'tags', action: 'countBy' });
-  console.log({ tags });
-  return <PageClient tags={tags || {}} />;
+  return <TagView tags={tags || {}} />;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Tags',
   description: 'Browse content organized by topics and tags.',
   keywords: ['tags', 'topics', 'categories', 'index'],

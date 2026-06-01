@@ -1,4 +1,4 @@
-import { Metadata } from 'next/types';
+import { Metadata } from 'next/dist/types';
 import siteMetadata from './site-metadata';
 
 export const siteMetaDataBase: Metadata = {

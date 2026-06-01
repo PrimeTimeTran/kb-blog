@@ -3,7 +3,7 @@
 import { getIconForFile, getIconForFolder } from 'vscode-icons-js';
 
 import { ChevronRight } from 'lucide-react';
-import { TreeItemProps } from '@/pkg/exhibit';
+import { TreeItemProps } from '@/lib/types';
 import { useState } from 'react';
 
 export function TreeItem({ node, activePath, onSelect, depth }: TreeItemProps) {
@@ -20,12 +20,12 @@ export function TreeItem({ node, activePath, onSelect, depth }: TreeItemProps) {
     });
 
     return (
-      <div className="border-0 ">
+      <div className="border-0">
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
           style={{ paddingLeft }}
-          className="w-full text-left py-1 px-2 rounded hover:bg-white/5 flex items-center gap-1.5 text-zinc-400 hover:text-zinc-200 transition-colors group"
+          className="w-full text-left py-1 px-2 rounded flex items-center gap-1.5 text-zinc-400 hover:bg-level transition-colors group"
         >
           <span
             className="transition-transform duration-200"
@@ -88,10 +88,7 @@ interface IconProps {
 }
 
 function TreeIcon(props: IconProps) {
-  // Assuming resolve returns just the filename, e.g., "file.svg"
-  // We need to strip the extension to match the ID in the sprite
   const iconName = props.resolve(props.name || '').replace('.svg', '');
-
   return (
     <svg width={16} height={16} style={{ display: 'inline-block' }}>
       <use href={`/vscode-sprite.svg#${iconName}`} />

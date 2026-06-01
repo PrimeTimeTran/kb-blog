@@ -7,20 +7,6 @@ import { RailState, RailItemProps, RailTileSpec, RailOrientation, ThumbnailConfi
 import { workspaceRegistry } from './data';
 import { WorkspaceThemeProvider } from './theme';
 
-const CONTROL_LAYOUTS = {
-  'tl-horizontal': 'flex flex-row justify-start items-start',
-  'tl-vertical': 'flex flex-col justify-start items-start',
-
-  'tr-horizontal': 'flex flex-row justify-end items-start',
-  'tr-vertical': 'flex flex-col justify-start items-end',
-
-  'bl-horizontal': 'flex flex-row justify-start items-end',
-  'bl-vertical': 'flex flex-col justify-end items-start',
-
-  'br-horizontal': 'flex flex-row justify-end items-end',
-  'br-vertical': 'flex flex-col justify-end items-end',
-} as const;
-
 export function ViewportRail({ items, viewport }: ViewportRailProps): import('react').JSX.Element {
   const {
     orientation,
@@ -46,30 +32,24 @@ export function ViewportRail({ items, viewport }: ViewportRailProps): import('re
   );
 }
 export function RailItem({ item, active, viewport, onSelect, onPreview }: RailItemProps) {
-  // Keep for onMouseLeave. Just in case it begins being janky try this.
-  // let rafId: number | null = null
   const [isHovering, setIsHovering] = useState(false);
-  // const isPreview = item.id === previewId
   const Thumbnail = workspaceRegistry[item.id].component;
-
-  // const spec = isVertical ? RAIL_TILE_PRESETS.vertical : RAIL_TILE_PRESETS.horizontal
-  // const thumbStyle = getThumbnailTransform(spec.thumbnailScale)
 
   return (
     <div
       role="button"
       tabIndex={0}
       onClick={() => {
-        // DONT try to use viewport here.
+        // ! DONT try to use viewport here.
         onSelect(item.id);
       }}
       onMouseEnter={() => {
-        // Must destructive and pass it
+        // ! Must destructive and pass it
         setIsHovering(true);
         onPreview(item.id);
       }}
       onMouseLeave={() => {
-        // Here too
+        // ! Here too
         setIsHovering(false);
         onPreview(null);
       }}
@@ -104,18 +84,15 @@ export function RailItem({ item, active, viewport, onSelect, onPreview }: RailIt
           <div className="flex items-center justify-center">No preview</div>
         )}
       </div>
-      {/* 2. DARK OVERLAY */}
       <div
         className={clsx(
           'absolute inset-0 z-10 transition-opacity duration-300',
           isHovering || active ? 'opacity-0' : 'opacity-70 bg-black',
         )}
       />
-      {/* 3. FOREGROUND CONTENT (TEXT + ICONS) */}
       <div className="absolute inset-0 z-20 text-on-surface">
         {active && <GrRadialSelected className="absolute top-2 right-2 z-30 text-on-surface/95" />}
 
-        {/* EYE */}
         {!active && (
           <div className="absolute inset-0 flex items-center justify-center z-30 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             <VscPreview className={`text-sm text-on-surface/50`} size={64} />
@@ -155,10 +132,11 @@ export const RAIL_TILE_PRESETS = {
     aspectRatio: 1,
   },
 } satisfies Record<string, RailTileSpec>;
+
 export const THUMBNAIL_PRESETS: Record<string, ThumbnailConfig> = {
   rail: {
     scale: 0.15,
-    aspectRatio: 1, // square-ish rail tiles
+    aspectRatio: 1,
   },
   wide: {
     scale: 0.12,
@@ -169,12 +147,17 @@ export const THUMBNAIL_PRESETS: Record<string, ThumbnailConfig> = {
     aspectRatio: 9 / 16,
   },
 };
-function getThumbnailTransform(scale: number) {
-  const inverse = 1 / scale;
 
-  return {
-    transform: `scale(${scale})`,
-    width: `${inverse * 100}%`,
-    height: `${inverse * 100}%`,
-  };
-}
+const CONTROL_LAYOUTS = {
+  'tl-horizontal': 'flex flex-row justify-start items-start',
+  'tl-vertical': 'flex flex-col justify-start items-start',
+
+  'tr-horizontal': 'flex flex-row justify-end items-start',
+  'tr-vertical': 'flex flex-col justify-start items-end',
+
+  'bl-horizontal': 'flex flex-row justify-start items-end',
+  'bl-vertical': 'flex flex-col justify-end items-start',
+
+  'br-horizontal': 'flex flex-row justify-end items-end',
+  'br-vertical': 'flex flex-col justify-end items-end',
+} as const;

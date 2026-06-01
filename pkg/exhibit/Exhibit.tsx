@@ -1,11 +1,11 @@
 'use client';
 
-import { Editor, Previewer, SidebarTree, buildTreeFromVFS } from '@/pkg/exhibit/components';
+import { Editor, Previewer, SidebarTree } from '@/pkg/exhibit/components';
 import { JSX, useCallback, useEffect, useRef, useState } from 'react';
 import { useEditorLayout, useIframeController, useVFS } from '@/pkg/exhibit/hooks';
 
 import { ExhibitLayout } from '@/layouts/ExhibitLayout';
-import { ExhibitManifest } from '@/pkg/exhibit/types';
+import { ExhibitManifest } from '@/lib/types';
 import { SearchParams } from 'next/dist/server/request/search-params';
 
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
@@ -15,13 +15,13 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
   const vfs = useVFS({ iframeRef, manifest });
   useEffect(() => {
     const iframe = iframeRef.current;
-    const shellFile = manifest.seeds.files.find((f) => f.path === manifest.seeds.entry);
+    const shellFile = (manifest.seeds.filesFlat ?? [])?.find((f) => f.path === manifest.seeds.entry);
 
     if (iframe && shellFile?.content && !shellRef.current) {
       iframe.srcdoc = shellFile.content;
       shellRef.current = true;
     }
-  }, [manifest.seeds?.entry, manifest.seeds?.files, vfs.files]);
+  }, [manifest.seeds?.entry, manifest.seeds?.filesFlat, vfs.files]);
 
   const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [consoleError, setConsoleError] = useState<string | null>(null);
@@ -76,7 +76,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
     <ExhibitLayout
       manifest={manifest}
       isPreview={manifest.isPreview}
-      left={<SidebarTree data={buildTreeFromVFS(vfs)} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />}
+      left={<SidebarTree data={manifest.tree} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />}
       right={
         <aside className="h-full w-full relative bg-surface">
           <div className="absolute inset-0 overflow-y-auto">

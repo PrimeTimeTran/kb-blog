@@ -15,26 +15,16 @@ type WorldLayerType = {
 export function WorldLayer({ camera, children }: WorldLayerType) {
   const isBypassed = getConfig().isCameraBypassed;
 
-  // 1. Unified Transform Logic:
-  // If bypassed, we lock pan to 0,0 and zoom to 1 (or your desired default).
-  // If active, we use the camera props.
-  const transform = {
-    x: isBypassed ? 0 : camera.x,
-    y: isBypassed ? 0 : camera.y,
-    scale: isBypassed ? 0.73 : camera.zoom,
-  };
-
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
         className="absolute left-1/2 top-1/2"
         style={{ transformOrigin: '0 0' }}
         animate={{
-          x: transform.x,
-          y: transform.y,
-          scale: transform.scale,
+          x: camera.x,
+          y: camera.y,
+          scale: camera.zoom,
         }}
-        // Force immediate transition if bypassed so it doesn't "slide"
         transition={{ duration: isBypassed ? 0 : 0.3 }}
       >
         <div
@@ -57,22 +47,25 @@ type CameraControllerProps = {
   children: JSX.Element;
 };
 export function CameraController({ camera, setCamera, children }: CameraControllerProps) {
+  const isDisabled = getConfig().isCameraBypassed;
   const dragging = useRef(false);
   const last = useRef({ x: 0, y: 0 });
-  if (getConfig().isCameraBypassed) {
-    return <div className="w-full h-full">{children}</div>;
-  }
+  // if (getConfig().isCameraBypassed) {
+  //   return <div className="w-full h-full">{children}</div>;
+  // }
 
   return (
     <div
       className="w-full h-full"
       onMouseDown={(e) => {
+        if (isDisabled) return;
         dragging.current = true;
         last.current = { x: e.clientX, y: e.clientY };
       }}
       onMouseUp={() => (dragging.current = false)}
       onMouseLeave={() => (dragging.current = false)}
       onMouseMove={(e) => {
+        if (isDisabled) return;
         if (!dragging.current) return;
 
         // Use the bounding box of the element, not the zoom state,
@@ -86,11 +79,12 @@ export function CameraController({ camera, setCamera, children }: CameraControll
         setCamera((c) => ({
           ...c,
           // If bypassed, force zoom to 1 in the calculation
-          x: c.x + dx / (getConfig().isCameraBypassed ? 1 : c.zoom),
-          y: c.y + dy / (getConfig().isCameraBypassed ? 1 : c.zoom),
+          x: c.x + dx / (isDisabled ? 1 : c.zoom),
+          y: c.y + dy / (isDisabled ? 1 : c.zoom),
         }));
       }}
       onWheel={(e) => {
+        if (isDisabled) return;
         const zoomDelta = -e.deltaY * 0.001;
         setCamera((c) => ({
           ...c,

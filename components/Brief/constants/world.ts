@@ -30,18 +30,22 @@ export const VIEWPORT_FRAME = {
   },
 };
 
+export function getDefaultZoom() {
+  const zoomToFit = Math.min(VIEWPORT.width / WORLD.width, VIEWPORT.height / WORLD.height);
+
+  const ZOOM_OUT_MARGIN = 1.4;
+
+  return zoomToFit * ZOOM_OUT_MARGIN;
+}
+export const zoomToFit = Math.min(VIEWPORT.width / WORLD.width, VIEWPORT.height / WORLD.height);
+
 export const camera = {
   worldCenter: WORLD_CENTER,
   viewportFrame: VIEWPORT_FRAME,
   position: {
-    x: 0,
-    y: 0,
-    zoom: 0.75,
+    x: VIEWPORT_FRAME.layout.x,
+    y: VIEWPORT_FRAME.layout.y,
+    zoom: getDefaultZoom(),
   },
   paths: [],
-
-  // paths: [
-  //   { x: -250, y: 0, zoom: 1 },
-  //   { x: 250, y: 0, zoom: 1 },
-  // ],
 };

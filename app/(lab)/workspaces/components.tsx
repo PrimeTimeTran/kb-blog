@@ -2,11 +2,6 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 
 export function WorkspaceShell({ viewport, workspace, children }) {
   const scrollRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   setScrollRoot(window.__workspaceScrollRef?.current ?? window);
-  // }, []);
-  // 👇 expose globally (simple version)
   useEffect(() => {
     window.__workspaceScrollRef = scrollRef;
   }, []);

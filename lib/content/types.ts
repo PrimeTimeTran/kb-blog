@@ -116,10 +116,10 @@ export interface PipelineContext {
   diagnostics: unknown[];
   artifacts: Record<string, unknown>;
 }
-export interface TreeNode {
+export interface VFSNode {
   name: string;
   file: string | null;
-  children: TreeNode[];
+  children: VFSNode[];
   isFolder: boolean;
   isFile: boolean;
 }

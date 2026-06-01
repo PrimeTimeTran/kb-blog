@@ -1,18 +1,18 @@
 'use client';
 
-import React, { useState } from 'react';
-import { HiCube, HiSun, HiMoon } from 'react-icons/hi2';
-import { motion } from 'framer-motion';
-import { useTheme } from '@teispace/next-themes';
+import { HiCube, HiMoon, HiSun } from 'react-icons/hi2';
+
 import { OmniPanel } from '@/components/OmniPanel';
-import { BaseScroll } from '@/components/BaseScroll';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { useTheme } from '@teispace/next-themes';
 
 export function OmniShowcase() {
   const [currentTab, setCurrentTab] = useState('default');
   const { setTheme, resolvedTheme } = useTheme();
 
   return (
-    <div className="h-full min-h-0 flex flex-col">
+    <div className="h-full min-h-0 flex flex-col ">
       <div className="min-h-screen bg-surface">
         <header className="p-6 border-b border-outline-variant/30 bg-surface/80 backdrop-blur-xl sticky top-0 z-40 space-y-6">
           <div className="max-w-7xl mx-auto flex justify-between items-center">

@@ -1,8 +1,8 @@
-import { OverlayHost, useOverlayManager } from './global/Overlay';
 import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/components/showcase/components';
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';
+import { useOverlayManager } from './global/Overlay';
 
 export function ExhibitLayout({ manifest, isPreview, left, right, children, childrenWrapperClassName }: ColProps) {
   const { sizes, getHandleProps, isDragging } = useMultiSplitter(isPreview);
@@ -36,7 +36,7 @@ export function ExhibitLayout({ manifest, isPreview, left, right, children, chil
 
         <ResizeHandle {...getHandleProps(1)} />
 
-        <div style={{ width: sizes[2] }} className="relative min-h-0 border-l border-white/5">
+        <div style={{ width: sizes[2] }} className="relative min-h-0 border-l">
           <div className="absolute inset-0 overflow-y-auto overflow-x-hidden bg-surface">
             {right || <SurfacePreviewRight />}
           </div>
@@ -53,7 +53,7 @@ export function BottomPanel() {
   return (
     <div
       style={{ height: isOpen ? `${height}px` : '0px' }}
-      className={`z-20 absolute bottom-0 left-0 w-full bg-level transition-[height] duration-300 ease-in-out ${isOpen ? 'border-t-2 border-gray-600' : ''}`}
+      className={`z-20 absolute bottom-0 left-0 w-full bg-level transition-[height] duration-300 ease-in-out ${isOpen ? 'border-t' : ''}`}
     >
       <div {...resizeProps} className="w-full h-4 -top-2 absolute cursor-row-resize group">
         <div className="w-full bg-transparent group-hover:bg-gray-500 transition-colors" />

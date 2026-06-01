@@ -3,7 +3,7 @@ import { LargeScrollableSection, WorkspaceHero } from './components';
 import Material from '@/app/(preview)/design/material/page';
 import Product from '@/app/(preview)/design/product/page';
 import { ProductPageShell } from '@/app/(preview)/design/Shell';
-import Tailwind from '@/app/(preview)/design/design/page';
+import Tailwind from '@/app/(preview)/design/system/page';
 import TailwindUtilities from '@/app/(preview)/design/theme/TailwindUtilities';
 import { Workspace } from './types';
 

@@ -1,3 +1,5 @@
+import { Metadata } from 'next/dist/types';
+
 export default async function Layout({ left, children, right }) {
   return (
     <div className="w-full">
@@ -8,7 +10,7 @@ export default async function Layout({ left, children, right }) {
   );
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Knowledge Base',
   description: 'A structured collection of notes, explanations, and concepts for learning and reference.',
   keywords: ['knowledge base', 'notes', 'learning', 'reference', 'documentation'],

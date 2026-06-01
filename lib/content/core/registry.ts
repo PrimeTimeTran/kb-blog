@@ -8,18 +8,11 @@ const filesystemSource = createFilesystemSource({
   rootDir: CONTENT_DIR,
 });
 
-/**
- * Collection = safe abstraction over raw source
- */
 function createCollection(type: string, source: ContentSource): ContentCollection {
   return {
     id: source.id,
-
-    // IMPORTANT: only deal with string[] here
     async list() {
       const entries = await source.list(type);
-
-      // enforce safety: must be string[]
       return Array.isArray(entries) ? entries.filter((e): e is string => typeof e === 'string') : [];
     },
 
@@ -47,12 +40,9 @@ export const registry: ContentRegistry = {
   },
 };
 
-/**
- * Client API layer (NO recursion into registry/listContent)
- */
 export function createContentClient(registry: ContentRegistry, config?: ContentClientConfig) {
   return {
-    get: async (query: { type: string }) => {
+    get: async (query: { type: string; slug: string }) => {
       const collection = registry.get(query.type);
 
       if (!collection) {

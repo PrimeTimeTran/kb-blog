@@ -46,8 +46,8 @@ export default function AboutLayout({ children, frontMatter }) {
 
   const tabData = [
     { id: 'intro', label: 'Introduction', content: children },
-    { id: 'experience', label: 'Experience', content: <ExperienceList /> },
-    { id: 'contact', label: 'Contact', content: <ContactForm /> },
+    // { id: 'experience', label: 'Experience', content: <ExperienceList /> },
+    // { id: 'contact', label: 'Contact', content: <ContactForm /> },
   ];
 
   return (
@@ -182,7 +182,7 @@ export default function AboutLayout({ children, frontMatter }) {
 
         {/* ================= RIGHT ================= */}
         <div className="relative h-full min-h-0 w-full overflow-y-auto">
-          <ContentTabs tabs={tabData}  />
+          <ContentTabs tabs={tabData} />
         </div>
       </div>
     </div>
@@ -190,6 +190,6 @@ export default function AboutLayout({ children, frontMatter }) {
 }
 
 function ExperienceList() {
-  return <h1></h1>
+  return <h1></h1>;
 }
 function ContactForm() {}

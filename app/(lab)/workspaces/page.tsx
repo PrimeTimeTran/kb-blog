@@ -8,16 +8,7 @@ import { ViewportRail } from './Rail';
 import { WorkspaceShell } from './components';
 import { WorkspaceThemeProvider } from './theme';
 import clsx from 'clsx';
-import { useState } from 'react';
 import { workspaces } from './data';
-
-const Z = {
-  base: 0,
-  content: 10,
-  rail: 20,
-  overlay: 30,
-  debug: 40,
-} as const;
 
 // Context Isolate. We want to isolate the workspaces from the rest of the site z-index wise.
 // Isolate creates a new stacking context for z-index inside that element
@@ -53,18 +44,10 @@ export default function ShowcasePage() {
 export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) {
   const { rail } = viewport;
 
-  const anchorClass: Record<RailState['anchor'], string> = {
-    tl: 'top-0 left-0',
-    tr: 'top-0 right-0',
-    bl: 'bottom-0 left-0',
-    br: 'bottom-0 right-0',
-  };
-
   const sizeClass = viewport.isVertical ? 'top-0 bottom-0 w-64' : 'left-0 right-0 h-32';
 
   return (
     <div className="relative h-full w-full">
-      {/* RAIL */}
       <div
         className={clsx(
           'absolute z-10 pointer-events-auto',
@@ -76,8 +59,6 @@ export function Workspace({ children, viewport, viewportRail }: WorkspaceProps) 
       >
         {viewportRail}
       </div>
-
-      {/* CONTENT */}
       <div className="absolute inset-0 z-0 overflow-y-auto pointer-events-auto">{children}</div>
     </div>
   );
@@ -119,16 +100,8 @@ export function Viewport({ viewport, workspaces }: ViewportProps) {
   );
 }
 
-const RAILS = [
-  { anchor: 'tl', Icon: PanelTop, pos: 'top-4 left-4' },
-  { anchor: 'tr', Icon: PanelRight, pos: 'top-4 right-4' },
-  { anchor: 'bl', Icon: PanelLeft, pos: 'bottom-4 left-4' },
-  { anchor: 'br', Icon: PanelBottom, pos: 'bottom-4 right-4' },
-] as const;
-
 function ViewportController({ viewport }: ViewportControllerProps) {
   const { interactRail, handleLongPress, rail } = viewport;
-  const [isHovered, setIsHovered] = useState(false);
   const tl = useLongPress(() => handleLongPress('tl'));
   const tr = useLongPress(() => handleLongPress('tr'));
   const bl = useLongPress(() => handleLongPress('bl'));
@@ -144,17 +117,9 @@ function ViewportController({ viewport }: ViewportControllerProps) {
           <button
             key={anchor}
             className={clsx(
-              'absolute flex items-center justify-center h-10 w-10 rounded-full border',
-              'border-(--primary)/20 bg-surface/80 text-on-surface backdrop-blur-md shadow-lg',
-              'transition-all duration-300 hover:scale-105 hover:bg-surface pointer-events-auto',
-              'hover:border-(--primary)/40 active:scale-95 text-primary',
+              'absolute flex items-center justify-center h-10 w-10 rounded-full border border-(--primary)/20 bg-surface/80 text-on-surface backdrop-blur-md shadow-lg transition-all duration-300 hover:scale-105 hover:bg-surface pointer-events-auto hover:border-(--primary)/40 active:scale-95 text-primary',
               pos,
               isActive && 'animate-pulse-subtle',
-              /* LOGIC:
-                 1. If active, always opacity-100.
-                 2. If NOT active, hidden (opacity-0).
-                 3. If the PARENT is hovered (group-hover:opacity-100), show all.
-              */
               isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transition-opacity duration-300',
             )}
             onClick={() => {
@@ -170,3 +135,25 @@ function ViewportController({ viewport }: ViewportControllerProps) {
     </div>
   );
 }
+
+const Z = {
+  base: 0,
+  content: 10,
+  rail: 20,
+  overlay: 30,
+  debug: 40,
+} as const;
+
+const RAILS = [
+  { anchor: 'tl', Icon: PanelTop, pos: 'top-4 left-4' },
+  { anchor: 'tr', Icon: PanelRight, pos: 'top-4 right-4' },
+  { anchor: 'bl', Icon: PanelLeft, pos: 'bottom-4 left-4' },
+  { anchor: 'br', Icon: PanelBottom, pos: 'bottom-4 right-4' },
+] as const;
+
+const anchorClass: Record<RailState['anchor'], string> = {
+  tl: 'top-0 left-0',
+  tr: 'top-0 right-0',
+  bl: 'bottom-0 left-0',
+  br: 'bottom-0 right-0',
+};

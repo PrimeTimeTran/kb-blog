@@ -1,7 +1,9 @@
 'use client';
+
+import { EntrySource, ExhibitManifest, ResolvedEntry, VirtualFS, vfsAPI } from '@/pkg/exhibit/types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
+
 import { createTrace } from '@/lib/trace';
-import { EntrySource, ExhibitManifest, ResolvedEntry, vfsAPI, VirtualFS } from '@/pkg/exhibit/types';
 
 export function useVFS({
   manifest,
@@ -32,9 +34,8 @@ export function useVFS({
     return shellFile?.content || null;
   };
 
-  // Find the specific entrypoint for the React App
   const getEntryPath = () => {
-    return runtime?.entry || seeds?.entry || './page.tsx';
+    return 'page.tsx';
   };
 
   // -------------------------------------------------------------------------
@@ -100,12 +101,15 @@ export function useVFS({
   // FILE SWITCH
   // -------------------------------------------------------------------------
   const handleFileSelect = (path: string) => {
-    const resolvedPath = getCanonicalPath(path);
+    console.log('handleFileSelect');
+    const resolvedPath = path.replace(/^\.\//, '').trim();
 
     trace.mark('FILE_SELECT', {
       from: activePath,
       to: resolvedPath,
     });
+
+    if (!files[resolvedPath]) return;
 
     setActivePathState(resolvedPath);
   };
@@ -121,7 +125,7 @@ export function useVFS({
     }
 
     return file;
-  }, [files, activePath]);
+  }, [activePath, files]);
 
   const syncFullProject = () => {
     iframeRef.current?.contentWindow?.postMessage(
@@ -151,9 +155,9 @@ export function useVFS({
       files,
       entry: getEntryPath(),
     };
-  }, [files, runtime, seeds, entries]);
+  }, [files]);
 
-  const api: vfsAPI = {
+  return {
     createSnapshot,
     files,
     activePath,
@@ -174,10 +178,7 @@ export function useVFS({
       setActivePathState(resolved);
     },
   };
-
-  return api;
 }
-
 function resolveInitialEntry({
   runtimeEntry,
   seedEntry,
@@ -189,7 +190,12 @@ function resolveInitialEntry({
   entries: string[];
   files: VirtualFS;
 }): ResolvedEntry {
-  const exists = (p?: string | null) => !!p && !!files[p];
+  const normalize = (p?: string | null) => (p ? (p.startsWith('./') ? p : `./${p}`) : null);
+
+  const exists = (p?: string | null) => {
+    const np = normalize(p);
+    return !!np && !!files[np];
+  };
 
   // 1. runtime (strongest)
   if (exists(runtimeEntry)) {

@@ -8,16 +8,16 @@ import { DropdownPanel } from './DropdownPanel';
 import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import ThemeSwitch from '../ThemeSwitch';
 import clsx from 'clsx';
-import { getFeatureFlags } from '@/getFeatureFlags';
+import { getFeatureFlags } from '@/lib/feature-flags';
 
 export function MegaNavbar({ pathName }: { pathName: string }) {
   const { scrollProgress } = useScroll();
   const { setOpen } = useMobileNav();
   const { containerRef, mounted, setHasEntered, open, scheduleClose, motionDiv } = useNavDropdown();
   return (
-    <div ref={containerRef} className="fixed inset-x-0 top-0 z-20 bg-lowest border-b border-outline/40">
+    <div ref={containerRef} className="fixed inset-x-0 top-0 z-20 bg-surface border-b border-outline/40">
       <div className="h-10 w-full absolute top-16 left-0" />
-      <div className="w-full h-16 relative bg-lowest">
+      <div className="w-full h-16 relative">
         <nav className="flex h-16 px-8 relative justify-between">
           <div className="flex flex-1 justify-center items-center">
             <DynamicLogo className="h-9 w-9 rounded-xl shadow-sm" />
@@ -63,7 +63,7 @@ export function MegaNavbar({ pathName }: { pathName: string }) {
     return (
       <AnimatePresence>
         {mounted && (
-          <motion.aside {...asideMotion} className="overflow-hidden bg-low shadow-lg">
+          <motion.aside {...asideMotion} className="overflow-hidden shadow-lg ">
             <div className="overflow-hidden w-full relative">
               <motion.div
                 initial={false}
@@ -107,7 +107,7 @@ type ChevronDownProps = {
   className?: string;
 };
 
-export function ChevronDown({ size = 14, className }: ChevronDownProps) {
+export function ChevronDown({ size = 18, className }: ChevronDownProps) {
   return (
     <svg
       viewBox="0 0 20 20"
@@ -159,10 +159,9 @@ type UseNavDropdownOptions = {
   ease?: any;
 };
 
-export function useNavDropdown({
-  initialState = getFeatureFlags().megaMenu.state,
-  closeDelay = 180,
-}: UseNavDropdownOptions = {}) {
+const initialState = getFeatureFlags().megaMenu.state;
+
+export function useNavDropdown({ closeDelay = 180 }: UseNavDropdownOptions = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
