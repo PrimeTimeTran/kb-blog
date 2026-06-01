@@ -1,20 +1,19 @@
 'use client';
-import React from 'react';
 
 import { Difficulty, PremiumFilter } from '@/hooks/useProblemEngine';
-import { RichTooltip } from '@/components/ToolTipRich';
-import { AnimatedSortIcon } from '@/components/AnimatedSortIcon';
-
 import {
-  HiOutlineRefresh,
   HiOutlineChevronRight,
+  HiOutlineCubeTransparent,
+  HiOutlineRefresh,
   HiOutlineSortAscending,
   HiOutlineSortDescending,
-  HiOutlineCubeTransparent,
 } from 'react-icons/hi';
 import { VscBeaker, VscLayers, VscListFilter } from 'react-icons/vsc';
 
+import { AnimatedSortIcon } from '@/components/AnimatedSortIcon';
 import { OmniPanel } from '../../components/OmniPanel';
+import React from 'react';
+import { RichTooltip } from '@/components/ToolTipRich';
 import { StyledButton } from '../../components/StyledButton';
 import { StyledSelection } from '../../components/StyledSelection';
 

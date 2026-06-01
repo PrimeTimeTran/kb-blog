@@ -31,7 +31,7 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
     setSortOrder,
   } = usePosts({ fetchedPosts });
   return (
-    <div className="relative flex-1 min-w-0 isolate  flex flex-col justify-center items-center h-full overflow-hidden">
+    <div className="relative flex-1 min-w-0 isolate flex flex-col justify-center items-center h-full overflow-hidden">
       <div className="shrink-0">
         <HeaderBlock
           title={title}
@@ -64,7 +64,6 @@ function filterSection(filteredTopics, toggleTag) {
     <div className="relative">
       <div className="pointer-events-none absolute left-0 top-0 h-full w-8 bg-linear-to-r from-surface to-transparent" />
       <div className="pointer-events-none absolute right-0 top-0 h-full w-8 bg-linear-to-l from-surface to-transparent" />
-
       <div className="my-2 mb-6 flex space-x-2 overflow-x-auto no-scrollbar">
         {Object.entries(TOPICS).map(([topic, tags]) => {
           const active = !filteredTopics.includes(topic);
@@ -134,14 +133,11 @@ function HeaderBlock({
   );
 }
 function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrder, setSortOrder }) {
-  // graffitiWords
   const { text, pause, resume, paused } = useTypewriter(graffitiWords);
   const toggleSort = (field) => {
     if (sortField === field) {
-      // same field → toggle direction
       setSortOrder((prev) => (prev === 'asc' ? 'desc' : 'asc'));
     } else {
-      // new field → default to desc (your rule)
       setSortField(field);
       setSortOrder('desc');
     }
@@ -165,25 +161,26 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
 
   return (
     <div className="w-full">
-      {/* SINGLE TOOLBAR ROW */}
-      <div className="flex items-center justify-center space-x-5">
-        {/* METRICS (between input and sort) */}
-        <div className="shrink-0 text-sm font-medium text-on-surface whitespace-nowrap tabular-nums tracking-tight">
-          <span>{metrics.filtered}</span>
-          <span className="px-1 text-on-surface-variant">/</span>
-          <span>{metrics.total}</span>
+      <div className="flex items-center justify-center justify-center gap-4">
+        {/* LEFT: SORT */}
+        <div className="flex items-center gap-2 shrink-0 text-xs">
+          <button onClick={() => toggleSort('date')} className={`${labelBase} ${getStateClass('date')}`}>
+            {sortLabel('date')}
+          </button>
+
+          <button onClick={() => toggleSort('title')} className={`${labelBase} ${getStateClass('title')}`}>
+            {sortLabel('title')}
+          </button>
         </div>
-        {/* SEARCH */}
-        {/* TODO: Add base design tokens for input(hover, active, etc.) */}
-        <div className="relative w-full max-w-lg">
+
+        {/* CENTER: SEARCH */}
+        <div className="relative w-full max-w-xl justify-self-center">
           <div className="relative w-full">
-            {/* ghost text */}
             <div className="absolute inset-0 flex items-center px-3 py-2 pointer-events-none text-on-surface-variant">
               {!paused && text}
               <span className="animate-pulse">|</span>
             </div>
 
-            {/* real input */}
             <input
               aria-label="Search articles"
               type="text"
@@ -197,15 +194,17 @@ function SearchBar({ value, onChange, metrics, sortField, setSortField, sortOrde
           </div>
         </div>
 
-        {/* SORT BUTTONS */}
-        <div className="flex items-center gap-2 shrink-0 text-xs">
-          <button onClick={() => toggleSort('date')} className={`${labelBase} ${getStateClass('date')}`}>
-            {sortLabel('date')}
-          </button>
+        {/* RIGHT: METRICS */}
+        <div className="flex items-center gap-2 rounded-md px-3 py-1.5 bg-level/40 border border-outline-variant/50">
+          <span className="inline-flex justify-end w-[3ch] tabular-nums text-sm font-semibold text-on-surface">
+            <NumberRoll value={metrics.filtered} />
+          </span>
 
-          <button onClick={() => toggleSort('title')} className={`${labelBase} ${getStateClass('title')}`}>
-            {sortLabel('title')}
-          </button>
+          <span className="text-on-surface-variant text-sm">/</span>
+
+          <span className="w-[3ch] inline-block text-right text-sm font-medium tabular-nums text-on-surface-variant">
+            {metrics.total}
+          </span>
         </div>
       </div>
     </div>
@@ -220,20 +219,13 @@ function PostListSkeleton() {
           <div className="mb-3 xl:mb-0">
             <div className="h-4 w-32 bg-on-surface/10 rounded animate-pulse" />
           </div>
-
-          {/* CONTENT */}
           <div className="space-y-4 xl:col-span-3 w-full">
-            {/* TITLE */}
             <div className="h-8 w-3/4 bg-on-surface/10 rounded animate-pulse" />
-
-            {/* SUMMARY */}
             <div className="space-y-2">
               <div className="h-4 w-full bg-on-surface/10 rounded animate-pulse" />
               <div className="h-4 w-5/6 bg-on-surface/10 rounded animate-pulse" />
               <div className="h-4 w-2/3 bg-on-surface/10 rounded animate-pulse" />
             </div>
-
-            {/* TAGS */}
             <div className="flex gap-2 flex-wrap pt-2">
               <div className="h-6 w-16 bg-on-surface/10 rounded-full animate-pulse" />
               <div className="h-6 w-20 bg-on-surface/10 rounded-full animate-pulse" />
@@ -295,9 +287,9 @@ function PostCard({ post }) {
       {/* CONTENT */}
       <div className="space-y-3 xl:col-span-3 w-full">
         {/* TITLE */}
-        <h3 className="transition-transform hover:rotate-[-0.3deg] hover:scale-[1.01] ">
+        <h3 className="transition-transform hover:rotate-[-0.3deg] hover:scale-[1.01]">
           <Link href={buildContentUrl('blog', slug)} className="block w-full hover:bg-transparent">
-            <span className="aurora-text text-2xl font-extrabold transition-transform duration-500 ease-out hover:rotate-[0.3deg] hover:scale-[1.01] ">
+            <span className="aurora-text text-2xl font-extrabold transition-transform duration-500 ease-out hover:rotate-[0.3deg] hover:scale-[1.01]">
               {title}
             </span>
           </Link>
@@ -327,5 +319,34 @@ function PostCard({ post }) {
         </div>
       </div>
     </article>
+  );
+}
+
+function Digit({ value }: { value: number }) {
+  return (
+    <span className="relative inline-block h-5 overflow-hidden leading-none align-middle">
+      <span
+        className="block transition-transform duration-300 ease-out"
+        style={{ transform: `translateY(-${value * 20}px)` }}
+      >
+        {Array.from({ length: 10 }).map((_, i) => (
+          <span key={i} className="flex items-center justify-center h-5 tabular-nums">
+            {i}
+          </span>
+        ))}
+      </span>
+    </span>
+  );
+}
+
+function NumberRoll({ value }: { value: number }) {
+  return (
+    <span className="flex tabular-nums">
+      {String(value)
+        .split('')
+        .map((d, i) => (
+          <Digit key={i} value={Number(d)} />
+        ))}
+    </span>
   );
 }

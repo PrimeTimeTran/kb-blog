@@ -59,7 +59,7 @@ export function PageClient() {
   return (
     <div className="h-full w-full min-h-0 flex flex-col justify-center items-center not-prose">
       <BaseScroll>
-        <div className="space-y-2 px-2 mt-2 w-full mb-2 max-w-5xl">
+        <div className="space-y-2 px-2 mt-2 w-full mb-2 max-w-5xl ">
           <TagExplorer actions={actions} filters={filters} orderedTags={orderedTags} tagCounts={tagCounts} />
           <FilterToolbar
             actions={actions}

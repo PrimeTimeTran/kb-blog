@@ -2,7 +2,7 @@
 
 import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import { SafeLink as Link } from '@/mdx/Link';
-import { MegaNavbar } from './MegaNavbar';
+import { MegaNavbar } from './Menu/MegaNavbar';
 import ThemeSwitch from '../ThemeSwitch';
 import { getFeatureFlags } from '@/lib/feature-flags';
 import headerNavLinks from '@/data/nav-links';

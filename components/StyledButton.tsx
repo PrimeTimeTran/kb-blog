@@ -5,7 +5,7 @@ interface StyledButtonProps {
   onClick: () => void;
   isActive: boolean;
   text?: string;
-  count?: number | string; // Support for the (n) count
+  count?: number | string;
   tone?: 'success' | 'warning' | 'error' | 'default';
   icon?: React.ReactNode;
   tooltipTitle?: string;
@@ -23,7 +23,6 @@ export function StyledButton({
   tone = 'default',
   icon,
   className = '',
-  // Tooltip Props
   tooltipTitle,
   tooltipDescription,
   tooltipActions,
@@ -55,7 +54,6 @@ export function StyledButton({
 
   const theme = themeMap[tone] || themeMap.default;
 
-  // Define the Button JSX as a constant to keep the return clean
   const ButtonContent = (
     <button
       type="button"
@@ -67,11 +65,7 @@ export function StyledButton({
           borderColor: isActive ? 'transparent' : `color-mix(in srgb, ${theme.color}, transparent 70%)`,
         } as React.CSSProperties
       }
-      className={`
-        flex items-center justify-center gap-2 
-        px-4 py-2 text-[10px] font-black uppercase tracking-widest
-        rounded-xl border transition-all duration-300 
-        hover:scale-105 active:scale-95
+      className={`flex items-center justify-center gap-2 px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-xl border transition-all duration-300 hover:scale-105 active:scale-95
         ${isActive ? 'shadow-lg shadow-black/5' : 'hover:bg-low'}
         ${className}
       `}
@@ -87,8 +81,6 @@ export function StyledButton({
       )}
     </button>
   );
-
-  // Return with Tooltip wrap if data exists
   if (tooltipTitle || tooltipDescription) {
     return (
       <RichTooltip

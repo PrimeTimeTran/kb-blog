@@ -1,5 +1,5 @@
-import React from 'react';
 import Link from 'next/link';
+import React from 'react';
 import { slug } from 'github-slugger';
 
 export type TagMap = Record<string, number>;
@@ -48,13 +48,7 @@ export function TagLink({ text, count, href }: TagLinkProps) {
   return (
     <Link
       href={url}
-      className="
-        inline-flex items-center gap-1 px-2 py-1 rounded-md text-sm
-        text-on-surface-variant
-        hover:text-primary
-        hover:bg-primary-container
-        transition-colors
-      "
+      className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-sm text-on-surface-variant hover:text-primary hover:bg-primary-container transition-colors"
     >
       <span>{text}</span>
       {count && <span className="text-xs opacity-70">({count})</span>}

@@ -10,7 +10,7 @@ interface StyledInputProps {
 export function StyledInput({ value, onChange, placeholder = 'Search...', className = '' }: StyledInputProps) {
   return (
     <div className={`relative group flex items-center ${className}`}>
-      <div className="absolute left-3 text-primary/40 group-focus-within:text-primary transition-colors pointer-events-none">
+      <div className="absolute left-3 text-on-surface-variant group-focus-within:text-primary transition-colors pointer-events-none">
         <HiOutlineSearch className="text-sm" />
       </div>
 
@@ -20,29 +20,26 @@ export function StyledInput({ value, onChange, placeholder = 'Search...', classN
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="
-          /* Layout & Typography */
-          w-full pl-9 pr-3 py-1.5
-          text-[11px] font-medium tracking-tight
-          rounded-md transition-all
-          
-          /* Theming: Background & Text */
-          bg-background
-          text-(--on-surface) 
-          placeholder:text-(--on-surface-variant)/50
-          
-          /* Theming: Border Logic */
-          border border-outline-variant 
-            
-          /* Hover: High-contrast feedback */
-          hover:border-slate-400 
-          dark:hover:border-slate-600
-          
-          /* Focus: Brand color emphasis */
-          focus:border-(--primary) 
-          dark:focus:border-(--primary-container)
-          focus:ring-0 focus:outline-none
-          focus:bg-(--level-high)
-        "
+      w-full pl-9 pr-3 py-2
+
+      text-sm font-medium tracking-tight
+
+      rounded-lg
+
+      bg-surface
+      text-on-surface
+      placeholder:text-on-surface-variant/60
+
+      border border-outline-variant
+
+      hover:border-outline hover:bg-level
+
+      focus:border-primary
+      focus:ring-4 focus:ring-primary/15
+      focus:outline-none
+
+      transition-all
+    "
       />
     </div>
   );

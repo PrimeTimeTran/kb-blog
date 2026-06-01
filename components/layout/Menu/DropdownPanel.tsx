@@ -6,7 +6,7 @@ import Exhibit from '@/pkg/exhibit/Exhibit';
 import { SafeLink as Link } from '@/mdx/Link';
 import React from 'react';
 import { getFeatureFlags } from '@/lib/feature-flags';
-import { manifest } from '../Brief/components/data';
+import { manifest } from '../../Brief/components/data';
 
 const idePreview = (
   <div className="aspect-16/9 w-full relative overflow-hidden bg-background">
@@ -61,24 +61,31 @@ export function DropdownPanel({ item, scheduleClose }) {
 
   function renderLeft() {
     return (
-      <div className="flex flex-col w-95 shrink-0 border-r">
-        <div className="px-8 py-8 bg-linear-to-b from-level/60 to-transparent border-b">
-          <div className="flex items-center gap-5">
-            {item.icon && (
-              <div className="flex h-14 w-14 shadow-sm rounded-3xl items-center justify-center relative">
-                <div className="bg-primary/20 rounded-3xl absolute inset-0 blur-2xl" />
-                <NavIcon icon={item.icon} />
-              </div>
-            )}
-            <div className="min-w-0">
-              <h2 className="text-lg font-semibold text-on-surface tracking-tight">{item.label}</h2>
-              <p className="mt-1 text-sm text-on-surface-muted">{item.description}</p>
-            </div>
+      <div className="flex flex-col w-95 shrink-0 border-r h-full min-h-0">
+        <div className="flex items-center gap-4 p-4 border-b">
+          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-level border border-outline-variant">
+            <NavIcon icon={item.icon} className="h-5 w-5 text-on-surface" />
+          </div>
+
+          <div>
+            <h2 className="text-base font-semibold text-on-surface">{item.label}</h2>
+            <p className="text-sm text-on-surface-muted">{item.description}</p>
           </div>
         </div>
 
         {/* LINKS: Increased gap and clearer focus states */}
-        <div className="flex flex-col flex-1 min-h-0 p-4 gap-3 overflow-y-auto">
+        {renderLinks()}
+
+        <div className="shrink-0 px-6 py-4 flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase text-on-surface-muted/60 bg-low border-t">
+          <div className="h-1.5 w-1.5 rounded-full bg-primary/50 animate-pulse" />
+          Experimental runtime systems
+        </div>
+      </div>
+    );
+
+    function renderLinks() {
+      return (
+        <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-3 p-4">
           {item.links.map(({ href, title, description, icon: Icon }) => (
             <Link
               key={title}
@@ -89,14 +96,14 @@ export function DropdownPanel({ item, scheduleClose }) {
                   scheduleClose();
                 }, 2500);
               }}
-              className={`group relative flex items-start gap-4 p-4 rounded-2xl transition-colors duration-200 hover:bg-low
+              className={`group relative flex items-start gap-4 p-4 rounded-2xl transition-colors duration-200 bg-low
                 ${href == '#' ? 'opacity-40 pointer-events-none' : ''}
               `}
             >
               {/* Active Indicator */}
               <div className="absolute left-0 top-4 bottom-4 w-1 bg-primary/30 opacity-0 group-hover:opacity-100 transition-opacity rounded-r-full" />
 
-              <div className="flex h-11 w-11 bg-low rounded-xl items-center justify-center">
+              <div className="flex h-11 w-11 bg-lowest rounded-xl items-center justify-center">
                 <Icon className="h-5 w-5 text-on-surface-muted bg-level" />
               </div>
 
@@ -107,20 +114,15 @@ export function DropdownPanel({ item, scheduleClose }) {
             </Link>
           ))}
         </div>
-
-        {/* FOOTER: Anchored and refined */}
-        <div className="px-6 py-4 flex items-center gap-2 text-[11px] font-medium tracking-wider uppercase text-on-surface-muted/60 bg-low border-t">
-          <div className="h-1.5 w-1.5 rounded-full bg-primary/50 animate-pulse" />
-          Experimental runtime systems
-        </div>
-      </div>
-    );
+      );
+    }
   }
   function renderRight() {
     function rightContent() {
       return (
-        <div className="flex h-full p-6 items-center justify-center">
-          <div className="w-full max-w-[1200px]">
+        <div className="flex h-full p-6 items-start justify-start ">
+          <div className="w-full max-w-[1200px] space-y-2">
+            {/* <h1 className="max-w-2xl text-xl font-black leading-[0.95] tracking-tight md:text-3xl">Hello World</h1> */}
             <div className="rounded-[28px] shadow-2xl overflow-hidden bg-surface border">
               <div className="flex h-12 px-4 bg-low/70 border items-center gap-2">
                 <div className="h-2 w-2 bg-on-surface-muted/30 rounded-full" />
@@ -148,7 +150,7 @@ export function DropdownPanel({ item, scheduleClose }) {
       key={item.label}
       className="overflow-hidden w-full shadow-2xl shrink-0 transition-all duration-300 will-change-transform min-h-0 bg-surface"
     >
-      <div className="flex ">
+      <div className="h-screen flex">
         {!getFeatureFlags().megaMenu.isBriefFocus && renderLeft()}
         {renderRight()}
       </div>

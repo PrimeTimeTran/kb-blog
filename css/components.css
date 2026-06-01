@@ -132,10 +132,10 @@
     @apply border-r border-slate-200 dark:border-slate-800;
   }
   .scroll-bar {
-    @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
+    @apply [&::-webkit-scrollbar]:w-1 scrollbar-thin;
   }
   .no-scroll-bar {
-    @apply [&::-webkit-scrollbar]:w-1 [scrollbar-width:thin];
+    @apply [&::-webkit-scrollbar]:w-1 scrollbar-thin;
   }
 
   .card {
@@ -162,7 +162,7 @@
 
   /* INACTIVE */
   .chip-inactive {
-    @apply bg-level text-surface;
+    @apply bg-level/50 text-on-surface;
   }
 
   .chip-inactive:hover {
@@ -171,7 +171,7 @@
 
   /* DISABLED */
   .chip-disabled {
-    @apply opacity-40 cursor-not-allowed;
+    @apply cursor-not-allowed pointer-events-none bg-level/10 text-on-surface/25 border-outline-variant/20 grayscale;
   }
 
   /* LABEL (secondary text inside chip) */

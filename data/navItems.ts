@@ -6,15 +6,18 @@ import {
   Box,
   Boxes,
   Braces,
+  BrainCircuit,
   Code2,
   Cpu,
   Database,
   FileCode2,
   FlaskConical,
   GitBranch,
+  GlobeLock,
   Info,
   Layers3,
   LineChart,
+  Monitor,
   Newspaper,
   Package,
   Package2,
@@ -31,6 +34,7 @@ export type MenuLink = {
   title: string;
   description: string;
   href: string;
+  tags?: string[];
   icon: ComponentType<{
     className?: string;
   }>;
@@ -48,6 +52,7 @@ export type NavItem = {
     icon: ComponentType<{ className?: string }>;
   };
   links: MenuLink[];
+  tags?: string[];
 };
 
 export const navItems: NavItem[] = [
@@ -95,41 +100,70 @@ export const navItems: NavItem[] = [
   {
     label: 'Solutions',
     icon: Layers3,
-    description: 'Systems, workflows, and developer surfaces built on the runtime core',
-    href: '',
+    href: '#',
+    description:
+      'A collection of runtime-powered tools, developer surfaces, and distributed workflows that extend the core system across editor, browser, and CLI environments.',
 
     featured: {
-      title: 'Developer-First Runtime Ecosystem',
+      title: 'Runtime-Driven Developer Ecosystem',
       subtitle:
-        'Interactive workspaces, material-driven documentation, and extensible tooling across browser, editor, and CLI surfaces.',
+        'I build tools that treat execution as a first-class layer across environments—so your workflows don’t stop at the editor, browser, or terminal boundary.',
       icon: Workflow,
     },
 
     links: [
       {
-        title: 'Design System',
-        description: 'Previews, references, interactive runtime-driven articles',
+        title: 'Design System & Interactive Docs',
+        description:
+          'A runtime-aware design system where components, documentation, and examples execute live instead of being static references.',
         href: '/showcases',
         icon: Palette,
-      },
-      {
-        title: 'Workspaces',
-        description: 'Isolated runtime environments for experiments and apps',
-        href: '/workspaces',
-        icon: Boxes,
+        tags: ['system', 'docs', 'ui-runtime'],
       },
 
       {
-        title: 'VSCode Integrations',
-        description: 'Editor extensions for runtime-aware development workflows',
-        href: '#',
-        icon: Code2,
+        title: 'Workspaces Runtime',
+        description:
+          'Isolated execution environments for prototyping apps, running experiments, and testing runtime behavior in controlled contexts.',
+        href: '/workspaces',
+        icon: Boxes,
+        tags: ['runtime', 'sandbox', 'experiments'],
       },
+
       {
-        title: 'NPM Tooling (Future)',
-        description: 'CLI + packages for embedding runtime execution anywhere',
+        title: 'VS Code Runtime Extension',
+        description:
+          'Brings runtime introspection and execution awareness directly into the editor—bridging code, output, and system state in real time.',
+        href: 'https://marketplace.visualstudio.com/', // replace when ready
+        icon: Monitor, // better than Code2 (more “environment aware”)
+        tags: ['editor', 'vscode', 'dx'],
+      },
+
+      {
+        title: 'Chrome Runtime Extension',
+        description:
+          'Injects runtime debugging and instrumentation into browser contexts, allowing live inspection of in-app behavior.',
+        href: 'https://chrome.google.com/webstore', // replace when ready
+        icon: GlobeLock, // or Activity / Radar depending on your icon set
+        tags: ['browser', 'extension', 'runtime'],
+      },
+
+      {
+        title: 'LogTracer CLI',
+        description:
+          'A structured logging and trace aggregation tool for understanding runtime execution across distributed systems.',
+        href: 'https://www.npmjs.com/package/logtracer', // future
+        icon: TerminalSquare,
+        tags: ['cli', 'observability', 'npm'],
+      },
+
+      {
+        title: 'Runtime Tooling SDK (NPM)',
+        description:
+          'Core libraries for embedding runtime-aware execution, tracing, and instrumentation into any JavaScript environment.',
         href: '#',
-        icon: Package,
+        icon: Package2,
+        tags: ['sdk', 'npm', 'infra'],
       },
     ],
   },
@@ -137,39 +171,62 @@ export const navItems: NavItem[] = [
   {
     label: 'Developers',
     icon: Code2,
-    description: 'APIs, tooling, and integration guides',
+    description:
+      'Developer-facing runtime primitives, tooling surfaces, and system-level interfaces for extending execution, designing tokens, and building computational workflows.',
     href: '#',
 
     featured: {
-      title: 'Build on the Runtime',
-      subtitle: 'APIs and primitives for embedding execution and extending the system.',
+      title: 'Extend the Runtime System',
+      subtitle:
+        'Build on top of execution primitives—ranging from learning environments to design-system compilers and embedded developer tooling.',
       icon: TerminalSquare,
     },
 
     links: [
       {
-        title: 'Getting Started',
-        description: 'Setup and first runtime integration',
-        href: '#',
-        icon: Rocket,
+        title: 'DSA Practice Runtime',
+
+        description:
+          'An interactive problem-solving environment for data structures and algorithms with execution-aware feedback and step-level evaluation.',
+        href: '/dsa',
+        icon: BrainCircuit,
+        tags: ['learning', 'algorithms', 'runtime'],
       },
+
       {
-        title: 'API Reference',
-        description: 'Core runtime and module APIs',
+        title: 'Tailwind Token Generator',
+        description:
+          'Generate, preview, and iterate design tokens that map directly into Tailwind-based systems and replace static base styles with structured primitives.',
+        href: '/tokens',
+        icon: Palette, // or SwatchBook / Layers2 depending on your set
+        tags: ['design-system', 'tailwind', 'tokens'],
+      },
+
+      {
+        title: 'API Reference Surface',
+        description:
+          'Low-level runtime APIs for executing modules, managing stateful contexts, and interfacing with embedded computation layers.',
         href: '#',
         icon: Braces,
+        tags: ['api', 'runtime', 'core'],
       },
+
       {
         title: 'Client SDK',
-        description: 'JS/TS SDK for embedding runtimes',
+        description:
+          'TypeScript SDK for embedding runtime execution into applications, editors, and external environments.',
         href: '#',
         icon: Package2,
+        tags: ['sdk', 'typescript', 'integration'],
       },
+
       {
-        title: 'Architecture Guide',
-        description: 'How the runtime system is structured',
+        title: 'System Architecture Guide',
+        description:
+          'Explains how execution flows through the runtime system—from input parsing to evaluation, state management, and output rendering.',
         href: '#',
         icon: Blocks,
+        tags: ['architecture', 'system', 'internals'],
       },
     ],
   },

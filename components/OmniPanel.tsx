@@ -23,14 +23,10 @@ export function OmniPanel({
   const [mounted, setMounted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Error: Calling setState synchronously within an effect can trigger cascading renders
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  /**
-   * 1. ALWAYS SAFE DERIVATIONS (NO EARLY RETURN BEFORE THIS)
-   */
   const id = useId();
   const isDark = theme === 'dark';
   const isSemantic = color !== 'surface';
@@ -71,9 +67,6 @@ export function OmniPanel({
     [baseShadow, hoverShadow],
   );
 
-  /**
-   * 2. ONLY AFTER EVERYTHING: RENDER GUARD
-   */
   if (!mounted || !theme) {
     return <div className="opacity-0">{children}</div>;
   }
@@ -82,7 +75,7 @@ export function OmniPanel({
     <motion.div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`group brelative rounded-[28px] ${className}`}
+      className={`group relative rounded-[28px] ${className}`}
       animate={isHoverable && isHovered ? motionVariants[hoverEffect] : motionVariants.initial}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
@@ -124,15 +117,13 @@ export function OmniPanel({
 
       <div
         className={`
-        relative z-10 h-full w-full overflow-hidden rounded-[28px] border transition-all duration-500
+        relative z-10 h-full w-full overflow-hidden rounded-[28px] transition-all duration-500
         ${borderStyle} ${bgStyle}
-        ${isHoverable && isHovered && hoverEffect === 'shadow' ? 'bg-primary/[0.04] ring-1 ring-inset ring-primary/10 shadow-inner' : ''}
+        ${isHoverable && isHovered && hoverEffect === 'shadow' ? 'bg-primary/4 ring-1 ring-inset ring-primary/10 shadow-inner' : ''}
       `}
       >
         {header && (
-          <header
-            className={`px-5 py-3 border-b border-outline-variant/10 backdrop-blur-sm ${isSemantic ? semantic.header : 'bg-high'} ${headerClassName}`}
-          >
+          <header className={`px-5 border-b ${isSemantic ? semantic.header : 'bg-high'} ${headerClassName}`}>
             <span className={`font-bold tracking-tight ${isSemantic ? semantic.brandText : 'text-on-surface'}`}>
               {header}
             </span>
