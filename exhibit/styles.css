@@ -1,9 +1,15 @@
 /* =========================================================
   RESET
-========================================================== */
+========================================================= */
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
 h1,
@@ -19,8 +25,12 @@ blockquote {
   margin: 0;
 }
 
+ul,
+ol {
+  padding-left: 20px;
+}
+
 body {
-  margin: 0;
   font-family: Inter, system-ui, sans-serif;
   line-height: 1.5;
 
@@ -29,26 +39,20 @@ body {
 }
 
 button,
-input {
+input,
+textarea {
   font: inherit;
 }
 
 /* =========================================================
-  DESIGN TOKENS
-========================================================== */
+  TOKENS
+========================================================= */
 
 :root {
-  --space-1: 8px;
-  --space-2: 12px;
-  --space-3: 16px;
-  --space-4: 24px;
-  --space-5: 32px;
-  --space-6: 48px;
-
   --bg: #f6f7fb;
 
   --panel: #ffffff;
-  --panel-soft: rgba(255, 255, 255, 0.7);
+  --panel-soft: rgba(255, 255, 255, 0.72);
 
   --text: #0f172a;
   --muted: rgba(15, 23, 42, 0.65);
@@ -58,6 +62,7 @@ input {
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 
   --concept: #2563eb;
+  --info: #0891b2;
   --fixed: #22c55e;
   --wrong: #ef4444;
 
@@ -78,30 +83,29 @@ input {
 
     --border: rgba(255, 255, 255, 0.08);
 
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 
     --code-bg: #0b0f17;
     --code-text: #e5e7eb;
-    --code-border: rgba(255, 255, 255, 0.1);
+    --code-border: rgba(255, 255, 255, 0.08);
   }
 }
 
 /* =========================================================
   PAGE
-========================================================== */
+========================================================= */
 
 .page {
   width: 100%;
-
   max-width: 1100px;
 
   margin: 0 auto;
 
-  padding: clamp(12px, 3vw, 48px);
+  padding: clamp(16px, 3vw, 48px);
 
   display: flex;
   flex-direction: column;
-  gap: clamp(16px, 3vw, 32px);
+  gap: clamp(20px, 3vw, 32px);
 }
 
 /* =========================================================
@@ -111,20 +115,22 @@ input {
 .hero {
   border-radius: 18px;
 
-  overflow: hidden;
-
   border: 1px solid var(--border);
 
   background: var(--panel-soft);
 
-  padding: clamp(16px, 4vw, 32px);
+  overflow: hidden;
+
+  padding: clamp(20px, 4vw, 36px);
+
+  box-shadow: var(--shadow);
 }
 
 .hero-top {
   display: flex;
 
-  align-items: flex-start;
   justify-content: space-between;
+  align-items: flex-start;
 
   gap: 20px;
 
@@ -132,28 +138,14 @@ input {
 }
 
 .hero-title {
-  font-size: clamp(24px, 5vw, 36px);
+  font-size: clamp(28px, 5vw, 40px);
 
   line-height: 1.05;
 
-  letter-spacing: -0.03em;
-
   font-weight: 700;
+
+  letter-spacing: -0.03em;
 }
-
-.hero-desc {
-  margin-top: 12px;
-
-  max-width: 65ch;
-
-  color: var(--muted);
-
-  font-size: clamp(14px, 2vw, 16px);
-}
-
-/* =========================================================
-  TAGS
-========================================================= */
 
 .hero-meta {
   display: flex;
@@ -165,57 +157,90 @@ input {
   align-items: center;
 }
 
-.tag {
-  white-space: nowrap;
-}
-
-.tag {
-  padding: 4px 10px;
-
-  border-radius: 999px;
-
-  font-size: 11px;
-  font-weight: 600;
-
-  border: 1px solid var(--border);
-
-  background: var(--panel);
-  color: var(--muted);
-}
-
-.tag.proposition {
-  color: var(--concept);
-}
-
-.tag.fixed {
-  color: var(--fixed);
-}
-
-.tag.warning {
-  color: var(--wrong);
-}
-
 .hero-desc {
-  margin-top: 14px;
+  margin-top: 16px;
 
   max-width: 75ch;
 
   color: var(--muted);
 }
 
-/* =========================================================
-  CARD
-========================================================== */
+.hero-legend {
+  margin-top: 20px;
+
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+}
 
 /* =========================================================
-  DEMO CARD
+  TAGS
+========================================================= */
+
+.tag {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 4px 10px;
+
+  border-radius: 999px;
+
+  border: 1px solid var(--border);
+
+  background: var(--panel);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+.tag.concept {
+  color: var(--concept);
+}
+
+.tag.proposition {
+  color: var(--concept);
+}
+
+.tag.info {
+  color: var(--info);
+}
+
+.tag.warning {
+  color: var(--wrong);
+}
+
+.tag.wrong {
+  color: var(--wrong);
+}
+
+.tag.fixed {
+  color: var(--fixed);
+}
+
+/* =========================================================
+  GRID
+========================================================= */
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 24px;
+}
+
+/* =========================================================
+  EXHIBIT / DEMO
 ========================================================= */
 
 .demo {
-  width: 100%;
-}
+  position: relative;
 
-.demo-surface {
   border-radius: 18px;
 
   overflow: hidden;
@@ -223,12 +248,16 @@ input {
   border: 1px solid var(--border);
 
   background: var(--panel-soft);
+
+  box-shadow: var(--shadow);
 }
 
 .demo-header {
   padding: clamp(14px, 2vw, 18px);
 
   border-bottom: 1px solid var(--border);
+
+  background: color-mix(in srgb, var(--panel) 80%, transparent);
 }
 
 .demo-header h2 {
@@ -237,12 +266,21 @@ input {
   line-height: 1.2;
 }
 
-.role {
-  position: relative;
+.demo-body {
+  padding: clamp(16px, 3vw, 28px);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 18px;
 }
 
+/* =========================================================
+  ROLE SYSTEM
+========================================================= */
+
 .role::before {
-  content: "";
+  content: '';
 
   position: absolute;
 
@@ -251,26 +289,70 @@ input {
   bottom: 0;
 
   width: 4px;
+}
 
+.role-neutral::before {
+  background: var(--border);
+}
+
+.role-proposition::before {
   background: var(--concept);
 }
 
-.demo-body {
-  padding: clamp(14px, 3vw, 28px);
+.role-info::before {
+  background: var(--info);
+}
 
-  display: flex;
-  flex-direction: column;
+.role-wrong::before {
+  background: var(--wrong);
+}
 
-  gap: 20px;
+.role-fixed::before {
+  background: var(--fixed);
 }
 
 /* =========================================================
-  CODE BLOCK
+  BOX
+========================================================= */
+
+.box {
+  padding: 20px;
+
+  border-radius: 14px;
+
+  background: var(--panel);
+
+  border: 1px solid var(--border);
+}
+
+.box h3 {
+  margin-bottom: 12px;
+
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.box p + p {
+  margin-top: 12px;
+}
+
+.box li + li {
+  margin-top: 8px;
+}
+
+/* =========================================================
+  NOTE
+========================================================= */
+
+.note {
+  color: var(--muted);
+}
+
+/* =========================================================
+  CODE
 ========================================================= */
 
 .code {
-  width: 100%;
-
   overflow-x: auto;
 
   padding: 14px;
@@ -281,7 +363,50 @@ input {
 
   border: 1px solid var(--code-border);
 
-  font-size: 13px;
+  color: var(--code-text);
 
-  line-height: 1.5;
+  font-size: 13px;
+  line-height: 1.6;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  white-space: pre-wrap;
+}
+
+/* =========================================================
+  TYPOGRAPHY SIGNALS
+========================================================= */
+
+b {
+  font-weight: 600;
+}
+
+i {
+  font-style: italic;
+}
+
+s {
+  opacity: 0.6;
+}
+
+/* =========================================================
+  MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .hero-top {
+    flex-direction: column;
+  }
+
+  .demo-body {
+    padding: 14px;
+  }
+
+  .box {
+    padding: 16px;
+  }
+
+  .code {
+    font-size: 12px;
+  }
 }
