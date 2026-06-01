@@ -5,6 +5,7 @@ import { AppNavbar, MobileNavbarOnOverlay } from './AppNavbar';
 import Head from 'next/head';
 import { LayoutProvider } from '@/providers/LayoutProvider';
 import { MobileNavProvider } from '@/providers/MobileNavProvider';
+import { OverlayHost } from '@/layouts/global/Overlay';
 import { ScrollProvider } from '@/providers/ScrollProvider';
 import { ThemeProvider } from '@teispace/next-themes';
 import { ThemeWatcher } from '@/lib/theme/ThemeWatcher';
@@ -42,6 +43,7 @@ export function AppShell({ children }) {
             <LayoutProvider>
               <AppNavbar />
               {children}
+              <OverlayHost />
 
               {/* {false && screen && (
                 <div className="fixed bottom-0 left-0 right-0 z-50 h-16 w-screen bg-surface-variant">

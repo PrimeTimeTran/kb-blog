@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavItem, navItems } from '@/data/navItems';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useMobileNav, useScroll } from '@/providers';
 
 import { CornerDownLeft } from 'lucide-react';
 import { DropdownPanel } from './DropdownPanel';
@@ -8,10 +9,10 @@ import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import ThemeSwitch from '../ThemeSwitch';
 import clsx from 'clsx';
 import { getFeatureFlags } from '@/getFeatureFlags';
-import { useScroll } from '@/providers';
 
 export function MegaNavbar({ pathName }: { pathName: string }) {
   const { scrollProgress } = useScroll();
+  const { setOpen } = useMobileNav();
   const { containerRef, mounted, setHasEntered, open, scheduleClose, motionDiv } = useNavDropdown();
   return (
     <div ref={containerRef} className="fixed inset-x-0 top-0 z-20 bg-lowest border-b border-outline/40">
@@ -36,7 +37,7 @@ export function MegaNavbar({ pathName }: { pathName: string }) {
               );
             })}
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2" onClick={() => setOpen(true)}>
             <button aria-label="Open menu" className="icon-button md:hidden">
               ☰
             </button>

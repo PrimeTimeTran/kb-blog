@@ -3,7 +3,6 @@ import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/c
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
 import { JSX } from 'react';
-import { usePathname } from 'next/navigation';
 
 export function ExhibitLayout({ manifest, isPreview, left, right, children, childrenWrapperClassName }: ColProps) {
   const { sizes, getHandleProps, isDragging } = useMultiSplitter(isPreview);
@@ -44,7 +43,6 @@ export function ExhibitLayout({ manifest, isPreview, left, right, children, chil
         </div>
       </div>
       <BottomPanel />
-      <OverlayHost />
     </div>
   );
 }

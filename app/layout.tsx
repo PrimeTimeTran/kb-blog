@@ -2,9 +2,7 @@ import 'katex/dist/katex.min.css';
 import '../css/tailwind.css';
 
 import { AppShell } from '@/components';
-import Layout2 from './z.layout';
 import { Metadata } from 'next/types';
-import ShowcasePage from './(lab)/workspaces/page';
 import { siteMetaDataBase } from '../data/site-metadata-header';
 
 export const dynamic = 'force-dynamic';
