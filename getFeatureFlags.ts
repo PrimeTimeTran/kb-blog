@@ -1,9 +1,14 @@
 export function getFeatureFlags() {
-  return {
-    isMegaMenuOn: true,
-    isBriefFocused: false,
+  const isMegaMenuOn = true;
 
-    isSceneTickOn: true,
+  return {
+    isMegaMenuOn,
+    megaMenu: {
+      isOn: isMegaMenuOn,
+      state: isMegaMenuOn ? { mounted: false, activeIdx: null } : { mounted: false, activeIdx: null },
+      isBriefFocus: false,
+    },
+    isSceneTickOn: false,
     isCameraTickOn: false,
     sceneTickDuration: 3000,
     cameraTickDuration: 3000,

@@ -7,6 +7,7 @@ import { DropdownPanel } from './DropdownPanel';
 import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import ThemeSwitch from '../ThemeSwitch';
 import clsx from 'clsx';
+import { getFeatureFlags } from '@/getFeatureFlags';
 
 export function MegaNavbar({ pathName }: { pathName: string }) {
   const { containerRef, mounted, setHasEntered, open, scheduleClose, motionDiv } = useNavDropdown();
@@ -146,15 +147,10 @@ type UseNavDropdownOptions = {
   ease?: any;
 };
 
-const IS_OPEN = true;
-const navState = IS_OPEN
-  ? {
-      mounted: true,
-      activeIdx: 0,
-    }
-  : { mounted: false, activeIdx: null };
-
-export function useNavDropdown({ initialState = navState, closeDelay = 180 }: UseNavDropdownOptions = {}) {
+export function useNavDropdown({
+  initialState = getFeatureFlags().megaMenu.state,
+  closeDelay = 180,
+}: UseNavDropdownOptions = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
