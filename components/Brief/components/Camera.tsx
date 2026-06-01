@@ -77,7 +77,7 @@ export function CameraController({ camera, setCamera, children }: CameraControll
 
         // Use the bounding box of the element, not the zoom state,
         // to calculate the movement speed.
-        const rect = e.currentTarget.getBoundingClientRect();
+        // const rect = e.currentTarget.getBoundingClientRect();
         const dx = e.clientX - last.current.x;
         const dy = e.clientY - last.current.y;
 

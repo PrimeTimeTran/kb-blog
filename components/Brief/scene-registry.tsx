@@ -8,11 +8,6 @@ export const sceneFrameFocused: types.SceneDefinition = [
       id: 'ideFrame',
       type: 'ideFrame',
       ...VIEWPORT_FRAME,
-
-      // motion: {
-      //   enter: 'fromLeft',
-      //   exit: 'toRight',
-      // },
     },
   ],
 ];

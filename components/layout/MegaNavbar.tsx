@@ -37,8 +37,8 @@ export function MegaNavbar({ pathName }: { pathName: string }) {
               );
             })}
           </div>
-          <div className="flex items-center gap-2" onClick={() => setOpen(true)}>
-            <button aria-label="Open menu" className="icon-button md:hidden">
+          <div className="flex items-center gap-2">
+            <button aria-label="Open menu" className="icon-button md:hidden" onClick={() => setOpen(true)}>
               ☰
             </button>
             <ThemeSwitch />
