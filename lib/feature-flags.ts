@@ -5,7 +5,7 @@ export function getFeatureFlags() {
     isMegaMenuOn,
     megaMenu: {
       isOn: isMegaMenuOn,
-      state: isMegaMenuOn ? { mounted: false, activeIdx: null } : { mounted: false, activeIdx: null },
+      state: isMegaMenuOn ? { mounted: false, activeIdx: null } : { mounted: true, activeIdx: 0 },
       isBriefFocus: false,
     },
     isSceneTickOn: false,

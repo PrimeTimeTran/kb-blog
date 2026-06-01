@@ -1,7 +1,6 @@
 import { Layout3ColumnCenter, Layout3ColumnLeft, Layout3ColumnRight } from '@/components/layout/ThreeColumnLayout';
 
 import { BlogContent } from '@/components/blog';
-import type { ComponentType } from 'react';
 import type { MDXContent } from 'mdx/types';
 import TableOfContents from '@/components/TableOfContents';
 import { content } from '@/lib/content/api/client';

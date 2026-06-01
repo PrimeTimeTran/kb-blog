@@ -1,13 +1,12 @@
-import Link from 'next/link';
-import { TiTags } from 'react-icons/ti';
-import { RiBloggerLine } from 'react-icons/ri';
-import { SiThealgorithms } from 'react-icons/si';
-import { GoProjectSymlink } from 'react-icons/go';
-import { GiGiftOfKnowledge } from 'react-icons/gi';
-import { SiLibreofficewriter } from 'react-icons/si';
+import { SiLibreofficewriter, SiThealgorithms } from 'react-icons/si';
 
-import { terms } from '../../../data/generated/terms';
+import { GiGiftOfKnowledge } from 'react-icons/gi';
+import { GoProjectSymlink } from 'react-icons/go';
+import Link from 'next/link';
+import { RiBloggerLine } from 'react-icons/ri';
+import { TiTags } from 'react-icons/ti';
 import { termBacklinks } from '../../../data/generated/backlinks';
+import { terms } from '../../../data/generated/terms';
 
 export default async function TermPage({ params }) {
   let { slug } = await params;
@@ -26,7 +25,6 @@ export default async function TermPage({ params }) {
 
   return (
     <article className="mx-auto max-w-3xl p-8">
-      {/* HEADER */}
       <header className="mb-10 border-b border-gray-200 pb-6 dark:border-gray-800">
         <div className="flex items-center gap-2 text-sm text-gray-500">
           <GiGiftOfKnowledge className="text-lg" />
@@ -40,10 +38,7 @@ export default async function TermPage({ params }) {
         )}
       </header>
 
-      {/* META GRID */}
       <div className="space-y-10">
-        {/* TAGS */}
-
         {term.tags?.length > 0 && (
           <section>
             <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
@@ -66,7 +61,6 @@ export default async function TermPage({ params }) {
             </div>
           </section>
         )}
-        {/* ALIASES */}
         {term.aliases?.length > 0 && (
           <section>
             <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
@@ -86,7 +80,6 @@ export default async function TermPage({ params }) {
             </div>
           </section>
         )}
-        {/* RELATED (future graph layer) */}
         <section>
           <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
             <GoProjectSymlink className="text-base" />
@@ -95,7 +88,6 @@ export default async function TermPage({ params }) {
 
           <div className="text-sm text-gray-500 dark:text-gray-400">No relations indexed yet.</div>
         </section>
-        {/* CATEGORY / DOMAIN (future expansion) */}
         <section>
           <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
             <SiThealgorithms className="text-base" />
@@ -104,7 +96,6 @@ export default async function TermPage({ params }) {
 
           <div className="text-sm text-gray-500 dark:text-gray-400">Unclassified</div>
         </section>
-        {/* NOTES / EXTENSION HOOK */}
         <section>
           <div className="mb-3 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
             <RiBloggerLine className="text-base" />
@@ -113,7 +104,6 @@ export default async function TermPage({ params }) {
 
           <div className="text-sm text-gray-500 dark:text-gray-400">No additional notes.</div>
         </section>
-        {/* BACKLINKS */}
         {backlinks.length > 0 && (
           <section className="mt-10">
             <h2 className="mb-3 text-sm font-semibold uppercase text-gray-500">Mentions</h2>

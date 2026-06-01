@@ -159,10 +159,9 @@ type UseNavDropdownOptions = {
   ease?: any;
 };
 
-export function useNavDropdown({
-  initialState = getFeatureFlags().megaMenu.state,
-  closeDelay = 180,
-}: UseNavDropdownOptions = {}) {
+const initialState = getFeatureFlags().megaMenu.state;
+
+export function useNavDropdown({ closeDelay = 180 }: UseNavDropdownOptions = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 

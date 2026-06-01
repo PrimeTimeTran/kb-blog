@@ -1,4 +1,4 @@
-import { DesignSystem } from '@/exhibit/5-design-system/2-DesignSystem';
+import { DesignSystem } from '@/exhibit/05-design-system/2-DesignSystem';
 
 // Inspiration Sites.
 // https://list.swajp.me/

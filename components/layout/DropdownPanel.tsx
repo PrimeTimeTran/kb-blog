@@ -2,12 +2,42 @@
 
 import * as Brief from '@/components/Brief';
 
-import React, { useEffect } from 'react';
-
+import Exhibit from '@/pkg/exhibit/Exhibit';
 import { SafeLink as Link } from '@/mdx/Link';
+import React from 'react';
 import { getFeatureFlags } from '@/lib/feature-flags';
-import { usePathname } from 'next/navigation';
+import { manifest } from '../Brief/components/data';
 
+const idePreview = (
+  <div className="aspect-16/9 w-full relative overflow-hidden bg-background">
+    <div
+      style={{
+        inset: 0,
+        display: 'flex',
+        alignItems: 'center',
+        position: 'absolute',
+        justifyContent: 'center',
+      }}
+    >
+      <div
+        style={{
+          width: 1920,
+          height: 1080,
+          transform: 'scale(var(--scale))',
+          transformOrigin: 'center',
+        }}
+      >
+        <Exhibit manifest={manifest} />
+      </div>
+    </div>
+  </div>
+);
+
+const brief = (
+  <div className="aspect-16/9 w-full relative overflow-hidden bg-background">
+    <Brief.BriefExhibit />
+  </div>
+);
 // https://prismic.io/blog/css-background-effects
 // - Awesome navbar
 // - Nav links may have a dropdown panel
@@ -21,11 +51,6 @@ export function DropdownPanel({ item, scheduleClose }) {
       </div>
     );
   }
-  const pathname = usePathname();
-
-  useEffect(() => {
-    scheduleClose();
-  }, [pathname]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (href === '#') {
@@ -58,7 +83,12 @@ export function DropdownPanel({ item, scheduleClose }) {
             <Link
               key={title}
               href={href}
-              onClick={(e) => handleClick(e, href)}
+              onClick={(e) => {
+                handleClick(e, href);
+                setTimeout(() => {
+                  scheduleClose();
+                }, 2500);
+              }}
               className={`group relative flex items-start gap-4 p-4 rounded-2xl transition-colors duration-200
                 ${href == '#' ? 'opacity-40 pointer-events-none' : 'hover:bg-level'}
               `}
@@ -100,9 +130,7 @@ export function DropdownPanel({ item, scheduleClose }) {
                   {item.featured?.title ?? item.label}
                 </div>
               </div>
-              <div className="aspect-16/9 w-full relative overflow-hidden bg-background">
-                <Brief.BriefExhibit />
-              </div>
+              {idePreview}
             </div>
           </div>
         </div>

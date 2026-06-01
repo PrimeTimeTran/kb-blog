@@ -1,9 +1,10 @@
 'use client';
 
+import { FiBookOpen, FiClock, FiFilter, FiSearch } from 'react-icons/fi';
 import { useMemo, useState } from 'react';
-import { RiBloggerLine } from 'react-icons/ri';
-import { FiSearch, FiFilter, FiBookOpen, FiClock } from 'react-icons/fi';
+
 import { HiOutlineSortAscending } from 'react-icons/hi';
+import { RiBloggerLine } from 'react-icons/ri';
 
 const MOCK_TERMS = [
   {
@@ -28,7 +29,7 @@ const MOCK_TERMS = [
 
 export default function TermsPage() {
   const [query, setQuery] = useState('');
-  const [sort, setSort] = useState('title'); // title | recent
+  const [sort, setSort] = useState('title');
   const [category, setCategory] = useState('all');
 
   const categories = useMemo(() => {
@@ -38,18 +39,15 @@ export default function TermsPage() {
   const filtered = useMemo(() => {
     let data = [...MOCK_TERMS];
 
-    // filter by category
     if (category !== 'all') {
       data = data.filter((t) => t.category === category);
     }
 
-    // search
     if (query.trim()) {
       const q = query.toLowerCase();
       data = data.filter((t) => t.title.toLowerCase().includes(q) || t.description.toLowerCase().includes(q));
     }
 
-    // sort
     if (sort === 'title') {
       data.sort((a, b) => a.title.localeCompare(b.title));
     } else if (sort === 'recent') {
@@ -61,7 +59,6 @@ export default function TermsPage() {
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
-      {/* Header */}
       <header className="border-b bg-white">
         <div className="mx-auto max-w-5xl px-6 py-10">
           <div className="flex items-center gap-3">
@@ -77,10 +74,8 @@ export default function TermsPage() {
         </div>
       </header>
 
-      {/* Controls */}
       <section className="mx-auto max-w-5xl px-6 py-6">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          {/* Search */}
           <div className="flex items-center gap-2 rounded-xl border bg-white px-3 py-2 shadow-sm w-full md:w-1/2">
             <FiSearch className="text-neutral-500" />
             <input
@@ -91,9 +86,7 @@ export default function TermsPage() {
             />
           </div>
 
-          {/* Filters */}
           <div className="flex items-center gap-2">
-            {/* Category */}
             <div className="flex items-center gap-2 rounded-xl border bg-white px-3 py-2">
               <FiFilter className="text-neutral-500" />
               <select
@@ -109,7 +102,6 @@ export default function TermsPage() {
               </select>
             </div>
 
-            {/* Sort */}
             <div className="flex items-center gap-2 rounded-xl border bg-white px-3 py-2">
               <HiOutlineSortAscending className="text-neutral-500" />
               <select value={sort} onChange={(e) => setSort(e.target.value)} className="bg-transparent outline-none">
@@ -121,14 +113,11 @@ export default function TermsPage() {
         </div>
       </section>
 
-      {/* Content */}
       <main className="mx-auto max-w-5xl px-6 pb-20">
-        {/* Stats */}
         <div className="mb-4 text-sm text-neutral-500">
           {filtered.length} result{filtered.length !== 1 ? 's' : ''}
         </div>
 
-        {/* Grid */}
         <div className="grid gap-4 md:grid-cols-2">
           {filtered.map((term) => (
             <a
@@ -154,8 +143,6 @@ export default function TermsPage() {
             </a>
           ))}
         </div>
-
-        {/* Empty state */}
         {filtered.length === 0 && (
           <div className="mt-10 rounded-2xl border bg-white p-10 text-center text-neutral-500">
             No terms found. Try adjusting search or filters.

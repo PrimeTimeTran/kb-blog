@@ -1,23 +1,22 @@
 'use client';
 
-import { GrSystem } from 'react-icons/gr';
-import { SiFramework } from 'react-icons/si';
+import { Category, TagList } from '@/components/Taxonomy';
+import { databases, devops, dsa, finance, frameworks, maths, misc, security, tech, tools } from '@/data/constants';
+
+import { BasePage } from '@/components/BasePage';
 import { CiMoneyBill } from 'react-icons/ci';
 import { FaLaptopCode } from 'react-icons/fa6';
-import { TbMathSymbols } from 'react-icons/tb';
+import { GrSystem } from 'react-icons/gr';
 import { LiaToolsSolid } from 'react-icons/lia';
-import { SiThealgorithms } from 'react-icons/si';
 import { MdOutlineSecurity } from 'react-icons/md';
-import { TbDatabaseSearch } from 'react-icons/tb';
-
-import siteMetadata from '@/data/site-metadata';
 import { PageSEO } from '@/components/SEO';
-import { BasePage } from '@/components/BasePage';
-import { TagList, Category } from '@/components/Taxonomy';
+import { SiFramework } from 'react-icons/si';
+import { SiThealgorithms } from 'react-icons/si';
+import { TbDatabaseSearch } from 'react-icons/tb';
+import { TbMathSymbols } from 'react-icons/tb';
+import siteMetadata from '@/data/site-metadata';
 
-import { dsa, tech, misc, maths, tools, devops, finance, security, databases, frameworks } from '@/data/constants';
-
-export default function PageClient({ tags }) {
+export function TagView({ tags }) {
   const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   return (
     <BasePage>

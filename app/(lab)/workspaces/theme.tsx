@@ -1,13 +1,8 @@
 'use client';
+
 import React from 'react';
-
+import { WorkspaceThemeProviderProps } from './types';
 import { useTheme } from '@teispace/next-themes';
-
-type WorkspaceThemeProviderProps = {
-  theme: keyof typeof themes;
-
-  children: React.ReactNode;
-};
 
 export function WorkspaceThemeProvider({ theme, children }: WorkspaceThemeProviderProps) {
   const { resolvedTheme } = useTheme();
@@ -27,7 +22,6 @@ export function WorkspaceThemeProvider({ theme, children }: WorkspaceThemeProvid
     </div>
   );
 }
-
 export const themeSassLight = {
   // ======================================================
   // CORE SURFACES

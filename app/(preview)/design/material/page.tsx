@@ -1,3 +1,3 @@
-import { DesignSystem } from '@/exhibit/5-design-system/2-Material';
+import { DesignSystem } from '@/exhibit/05-design-system/2-Material';
 
 export default DesignSystem;

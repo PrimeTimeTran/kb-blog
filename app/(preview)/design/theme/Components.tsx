@@ -1,5 +1,5 @@
-import React from 'react';
 import { HiCollection, HiColorSwatch, HiPlus } from 'react-icons/hi';
+
 import { THEME_VAULT } from '@/lib/theme/palette';
 
 interface ColorBoxProps {
@@ -118,7 +118,6 @@ export const DataPreview = () => (
   </section>
 );
 
-// Section: Navigation & Selection
 export const SelectionPreview = () => (
   <section className="space-y-4">
     <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Selection</h3>
@@ -143,27 +142,19 @@ export const SelectionPreview = () => (
 export const FormsAndTables = () => (
   <section className="lg:col-span-12 space-y-8 mt-12">
     <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-      {/* INPUT STATES COLUMN */}
       <div className="space-y-4">
         <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">Input States</h3>
         <div className="bg-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
           <div className="bg-low border border-outline/10 rounded-[2rem] p-8 space-y-6">
-            {/* Standard states */}
             <InputGroup label="Default State" placeholder="Standard input..." />
-
-            {/* The new Hovered preview */}
             <InputGroup label="Hovered State" placeholder="Soft primary border..." isHovered />
-
             <InputGroup label="Focused State" placeholder="Primary glow..." isFocused />
-
             <InputGroup label="Error State" placeholder="Invalid data..." error="This field is required" />
-
             <InputGroup label="Disabled State" placeholder="You cannot edit this" isDisabled />
           </div>
         </div>
       </div>
 
-      {/* DATA TABLE COLUMN */}
       <div className="space-y-4">
         <h3 className="text-[10px] font-black uppercase opacity-40 tracking-widest">System Logs</h3>
         <div className="bg-low border border-outline/10 rounded-[2rem] overflow-hidden">

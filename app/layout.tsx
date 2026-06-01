@@ -2,7 +2,7 @@ import 'katex/dist/katex.min.css';
 import '../css/tailwind.css';
 
 import { AppShell } from '@/components';
-import { Metadata } from 'next/types';
+import { Metadata } from 'next/dist/types';
 import { siteMetaDataBase } from '../data/site-metadata-header';
 
 export const dynamic = 'force-dynamic';
@@ -63,35 +63,6 @@ export function RootLayout({ children }) {
               </div> */}
             </div>
           </div>
-          {/*
-            CONTEXT: GLOBAL SCROLL CAPTURE
-            Requires specific root structure to work on "deeply" nested children.
-            Used by:
-              - Navigation progress bar
-              - Graffiti background
-              - Table of contents indicator
-            CONTEXT:
-            New pages that dont use BasePage must use these classes to 
-            restore page scroll
-            h-full w-full overflow-y-scroll
-          */}
-          {/* 
-          Option 1: Scroll Capture: Minimum Structure
-            <div className="flex h-full flex-col">
-              <div className="flex flex-1 min-h-0">{children}</div>
-            </div> 
-          */}
-          {/* 
-          Option 2: Scroll Capture: Nested (Example)  
-            ! DO NOT DELETE Option 2 without verifying scroll spy STILL WORKS on home, kb, blog post screens.
-            <div className="flex h-full flex-col">
-              <div className="flex h-full flex-col">
-                <div className="flex h-full flex-col">
-                  <div className="flex flex-1 min-h-0">{children}</div>
-                </div>
-              </div>
-            </div> 
-          */}
         </AppShell>
       </body>
     </html>

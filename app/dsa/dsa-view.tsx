@@ -8,10 +8,7 @@ import { CenterRegion } from '@/components/layout/CenterRegion';
 import { FilterToolbar } from './FilterToolbar';
 import { Solution } from '@/components/Solution';
 import { TagExplorer } from './TagExplorer';
-import { Tooltip } from '@/components/ToolTip';
 import { useProblemEngine } from '@/hooks/useProblemEngine';
-
-// import siteMetadata from '../data/site-metadata.js'
 
 export function PageClient() {
   const {
@@ -169,7 +166,6 @@ export function PageClient() {
     );
   }
 }
-
 export function ProblemListSkeleton({ rows = 10 }: { rows?: number }) {
   const widths = ['w-[85%]', 'w-[65%]', 'w-[75%]', 'w-[50%]', 'w-[80%]'];
   return (

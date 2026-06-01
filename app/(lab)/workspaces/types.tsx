@@ -1,6 +1,7 @@
 import React, { RefObject } from 'react';
-import { useViewport } from '@/hooks/useViewport';
+
 import { themes } from './theme';
+import { useViewport } from '@/hooks/useViewport';
 
 export type WorkspaceId = string;
 export type WorkspaceNavigationMode = 'idle' | 'select' | 'preview';
@@ -22,7 +23,6 @@ export type WorkspaceComponentProps = {
 export interface ViewportAPI {
   isVertical: boolean;
   isHorizontal: boolean;
-
   activeId: WorkspaceId;
   previewId: WorkspaceId | null;
   select: (id: WorkspaceId) => void;
@@ -81,22 +81,11 @@ export type RailState = {
 };
 export type ThumbnailConfig = {
   scale: number;
-  aspectRatio: number; // width / height
+  aspectRatio: number;
 };
 
-// export interface WorkspaceHistory {
-//   index: number
-//   stack: WorkspaceId[]
-// }
-// export interface ViewportState {
-//   activeId: WorkspaceId
-//   previewId: WorkspaceId | null
+export type WorkspaceThemeProviderProps = {
+  theme: keyof typeof themes;
 
-//   railPosition: RailPosition
-//   orientation: RailOrientation
-
-//   navigationMode: WorkspaceNavigationMode
-// }
-// export type ComponentProps = {
-//   workspaceId: string
-// }
+  children: React.ReactNode;
+};

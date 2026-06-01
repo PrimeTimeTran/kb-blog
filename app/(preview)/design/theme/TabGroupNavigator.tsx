@@ -1,14 +1,14 @@
 'use client';
 
-import { useTheme } from '@teispace/next-themes';
+import { AnimatePresence, motion } from 'framer-motion';
+import { HiCube, HiMoon, HiSun } from 'react-icons/hi2';
 import React, { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { HiCube, HiSun, HiMoon } from 'react-icons/hi2';
+import { applyMaterialTheme, applyTheme } from '@/lib/theme/palette';
 
 import { FloatingPicker } from './Components';
-import { useThemeStore } from '@/hooks/useThemeStore';
-import { applyMaterialTheme, applyTheme } from '@/lib/theme/palette';
 import clsx from 'clsx';
+import { useTheme } from '@teispace/next-themes';
+import { useThemeStore } from '@/hooks/useThemeStore';
 
 export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN SYSTEM' }: TabGroupNavigatorProps) {
   const { seed, setSeed } = useThemeStore();
@@ -24,10 +24,11 @@ export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN 
   }, [seed, isDark]);
 
   return (
-    <div className="h-full w-full min-h-0 flex flex-col bg-background">
-      {renderHeader()}
-      {renderMainContent()}
-
+    <div className="h-full w-full">
+      <div className="flex flex-col">
+        {renderHeader()}
+        {renderMainContent()}
+      </div>
       <FloatingPicker
         seed={seed}
         setSeed={(seed) => {
@@ -40,7 +41,7 @@ export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN 
 
   function renderMainContent() {
     return (
-      <main className="max-w-7xl mx-auto">
+      <main>
         <AnimatePresence mode="wait">
           <motion.div
             key={currentTab}
@@ -57,10 +58,9 @@ export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN 
   }
   function renderHeader() {
     return (
-      <div className="max-w-7xl mx-auto">
+      <div className="">
         <div className="flex justify-between items-center">
-          {/* LEFT */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center pt-8">
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
               <HiCube size={24} />
             </div>
@@ -69,29 +69,31 @@ export function TabGroupNavigator({ tabs, title = 'OMNI UI', subtitle = 'DESIGN 
               <p className="text-[9px] font-bold opacity-40 uppercase tracking-[0.2em] mt-1">{subtitle}</p>
             </div>
           </div>
+          <div className="pt-8 overflow-x-scroll no-scrollbar">
+            <nav className="h-16 flex items-center justify-center px-16">
+              <div className="flex  px-16">
+                {tabs.map((tab) => {
+                  const isActive = currentTab === tab.id;
 
-          {/* RIGHT */}
-          <nav className="flex items-center overflow-x-auto no-scrollbar">
-            {tabs.map((tab) => {
-              const isActive = currentTab === tab.id;
-
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setCurrentTab(tab.id)}
-                  className={clsx(
-                    'relative px-4 rounded-full text-sm font-bold whitespace-nowrap transition-all',
-                    isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface',
-                  )}
-                >
-                  <span className="relative z-10 flex items-center">
-                    {tab.icon && <span className="text-base mx-1">{tab.icon}</span>}
-                    {tab.label}
-                  </span>
-                </button>
-              );
-            })}
-          </nav>
+                  return (
+                    <button
+                      key={tab.id}
+                      onClick={() => setCurrentTab(tab.id)}
+                      className={clsx(
+                        'relative px-4 rounded-full text-sm font-bold whitespace-nowrap transition-all',
+                        isActive ? 'text-primary' : 'text-on-surface-variant hover:text-on-surface',
+                      )}
+                    >
+                      <span className="relative z-10 flex items-center">
+                        {tab.icon && <span className="text-base mx-1">{tab.icon}</span>}
+                        {tab.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </nav>
+          </div>
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
             className="p-2.5 rounded-xl bg-highest text-primary border border-outline-variant/50 hover:bg-primary/10 transition-colors"

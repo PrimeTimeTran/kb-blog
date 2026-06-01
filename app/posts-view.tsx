@@ -1,16 +1,15 @@
 'use client';
 
-import Link from 'next/link';
-import ListLayout from '@/layouts/ListLayout';
-import { MAX_DISPLAY } from '@/data/constants';
-import siteMetadata from '@/data/site-metadata';
-import NewsletterForm from '@/components/NewsletterForm';
 import { BaseScroll } from '../components/BaseScroll';
 import GraffitiWrapper from '../components/mdx/GraffitiWrapper';
+import ListLayout from '@/layouts/ListLayout';
+import { MAX_DISPLAY } from '@/data/constants';
+import NewsletterForm from '@/components/NewsletterForm';
+import siteMetadata from '@/data/site-metadata';
 
 // No card example
 // https://gal.hagever.com/
-export default function PageClient({ posts }) {
+export function PostsView({ posts }) {
   return (
     // TODO:Home:
     // - [ ] Add left sidebar nav for series suggestions

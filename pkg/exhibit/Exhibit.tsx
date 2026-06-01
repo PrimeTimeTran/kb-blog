@@ -15,7 +15,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
   const vfs = useVFS({ iframeRef, manifest });
   useEffect(() => {
     const iframe = iframeRef.current;
-    const shellFile = manifest.seeds.filesFlat.find((f) => f.path === manifest.seeds.entry);
+    const shellFile = (manifest.seeds.filesFlat ?? [])?.find((f) => f.path === manifest.seeds.entry);
 
     if (iframe && shellFile?.content && !shellRef.current) {
       iframe.srcdoc = shellFile.content;

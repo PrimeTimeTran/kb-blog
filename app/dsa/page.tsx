@@ -1,12 +1,11 @@
-import { PageClient } from '@/app/dsa/PageClient';
-
-// import siteMetadata from '@/data/site-metadata.js'
+import { Metadata } from 'next/dist/types';
+import { PageClient } from '@/app/dsa/dsa-view';
 
 export default function Page() {
   return <PageClient />;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Data Structures & Algorithms',
   description: 'Curated problems, explanations, and patterns for mastering DSA.',
   keywords: ['DSA', 'algorithms', 'data structures', 'coding problems', 'leetcode'],

@@ -1,3 +1,5 @@
+import { discussUrl, editUrl } from '../../lib/utils';
+
 // import { TagButton } from '../Taxonomy'
 import { SafeLink as Link } from '../mdx/Link';
 import { useScroll } from '@/providers/ScrollProvider';
@@ -6,13 +8,11 @@ import { useScroll } from '@/providers/ScrollProvider';
 // import { CiCalendarDate } from 'react-icons/ci'
 // import PageTitle from '../../components/PageTitle'
 
-import { discussUrl, editUrl } from '../../lib/utils';
-
 export function BlogHeader({ title, date }) {
   const { shrunk } = useScroll();
 
   return (
-    <header className="sticky top-0 z-30 border-b border-surface">
+    <header className="sticky top-0 z-5 border-b border-surface">
       <div
         className={`flex h-full flex-col justify-center bg-surface text-on-surface px-4 transition-all duration-300
           ${false ? 'scale-[0.92] origin-top translate-y-[-10px]' : ''}

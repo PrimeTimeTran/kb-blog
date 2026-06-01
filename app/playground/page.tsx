@@ -1,2 +1,2 @@
-import Page from './client';
-export default Page;
+import { PlaygroundView } from './playground-view';
+export default PlaygroundView;

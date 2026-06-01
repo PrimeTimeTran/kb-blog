@@ -11,6 +11,10 @@ import { ThemeProvider } from '@teispace/next-themes';
 import { ThemeWatcher } from '@/lib/theme/ThemeWatcher';
 import { usePathname } from 'next/navigation';
 
+// import AppShellDemo from '@/exhibit/01-web-foundations/navbar/1';
+// import AppShellDemo from '@/exhibit/01-web-foundations/navbar/2';
+// import AppShellDemo from '@/exhibit/01-web-foundations/navbar/3';
+
 const screens = {
   kb: {
     prompt: 'KB Screen',
@@ -26,6 +30,7 @@ export function AppShell({ children }) {
   const pathBaseSegment = pathname.split('/')[1];
   const screen = screens[pathBaseSegment];
 
+  // return <AppShellDemo>{children}</AppShellDemo>;
   return (
     <div className="flex h-full flex-col">
       <Head>
@@ -44,12 +49,6 @@ export function AppShell({ children }) {
               <AppNavbar />
               {children}
               <OverlayHost />
-
-              {/* {false && screen && (
-                <div className="fixed bottom-0 left-0 right-0 z-50 h-16 w-screen bg-surface-variant">
-                  {screen.prompt}
-                </div>
-              )} */}
               <MobileNavbarOnOverlay />
             </LayoutProvider>
           </MobileNavProvider>

@@ -73,7 +73,7 @@ export const navItems: NavItem[] = [
       {
         title: 'Exhibit System',
         description: 'View exhibitions of frameworks, features, & more',
-        href: '/playground/01-exhibit-mini-react',
+        href: '/playground/01-mini-react',
         icon: Shield,
       },
       {
