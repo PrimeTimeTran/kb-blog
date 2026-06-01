@@ -12,7 +12,7 @@ export function BriefExhibit() {
   const time = 0;
 
   return (
-    <div className="relative w-full h-full overflow-hidden ">
+    <div className="relative w-full h-full overflow-hidden">
       <CameraController camera={camera} setCamera={setCamera}>
         <WorldLayer camera={camera}>
           <SceneComposer camera={camera} scene={scene} time={time} />

@@ -5,12 +5,10 @@ import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayo
 import { JSX } from 'react';
 import { usePathname } from 'next/navigation';
 
-export function ExhibitLayout({ left, right, children, childrenWrapperClassName }: ColProps) {
-  const pathName = usePathname();
-  const isPreview = !pathName.startsWith('/playground');
+export function ExhibitLayout({ manifest, isPreview, left, right, children, childrenWrapperClassName }: ColProps) {
   const { sizes, getHandleProps, isDragging } = useMultiSplitter(isPreview);
   const { sidebarOpen } = useOverlayManager();
-  const className = `absolute inset-x-0 bottom-0 overflow-hidden ${pathName.startsWith('/playground') ? 'top-16' : 'top-0'}`;
+  const className = `absolute inset-x-0 bottom-0 overflow-hidden ${isPreview ? 'top-0' : 'top-16'}`;
   return (
     <div className={className}>
       <div className={`flex h-full min-h-0 overflow-hidden ${isDragging ? 'select-none' : ''}`}>

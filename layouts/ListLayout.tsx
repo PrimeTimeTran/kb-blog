@@ -1,17 +1,17 @@
 'use client';
+
 import React, { Suspense } from 'react';
-import { FiCalendar } from 'react-icons/fi';
-
-import { usePosts } from '@/hooks/usePosts';
-import { useInView } from '@/hooks/useInView';
-
-import { TOPICS } from '@/data/constants';
-import formatDate from '@/lib/utils/formate-date';
-import { buildContentUrl } from '@/lib/content/core/url';
-import Pagination from '@/components/Pagination';
-import { SafeLink as Link } from '@/components/mdx/Link';
 import { TagButton, TagLink } from '@/components/Taxonomy';
+
+import { FiCalendar } from 'react-icons/fi';
+import { SafeLink as Link } from '@/components/mdx/Link';
+import Pagination from '@/components/Pagination';
+import { TOPICS } from '@/data/constants';
+import { buildContentUrl } from '@/lib/content/core/url';
+import formatDate from '@/lib/utils/formate-date';
 import { graffitiWords } from '@/data/graffiti';
+import { useInView } from '@/hooks/useInView';
+import { usePosts } from '@/hooks/usePosts';
 import { useTypewriter } from '@/hooks/useTypeWriter';
 
 export function DebugWorkspace() {
@@ -51,38 +51,33 @@ export default function ListLayout({ posts: fetchedPosts, title, subtitle, pagin
     sortOrder,
     setSortOrder,
   } = usePosts({ fetchedPosts });
-
+  // return <PostList posts={posts} />;
   return (
-    <div className="relative flex-1 min-w-0 isolate ">
-      {/* <WorkspaceAtmosphere /> */}
-      <div className="relative z-10 flex h-full flex-col">
-        <div className="shrink-0">
-          <HeaderBlock
-            title={title}
-            subtitle={subtitle}
-            props={{
-              posts,
-              metrics,
-              searchTerm,
-              setSearchTerm,
-              filteredTopics,
-              toggleTag,
-              sortField,
-              setSortField,
-              sortOrder,
-              setSortOrder,
-            }}
-          />
-        </div>
-        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-6 ">
-          <Suspense fallback={<PostListSkeleton />}>
-            <PostList posts={posts} />
-          </Suspense>
-          {pagination?.totalPages > 1 && !searchTerm && (
-            <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-          )}
-        </div>
+    <div className="relative flex-1 min-w-0 isolate  flex flex-col justify-center items-center h-full overflow-hidden">
+      <div className="shrink-0">
+        <HeaderBlock
+          title={title}
+          subtitle={subtitle}
+          props={{
+            posts,
+            metrics,
+            searchTerm,
+            setSearchTerm,
+            filteredTopics,
+            toggleTag,
+            sortField,
+            setSortField,
+            sortOrder,
+            setSortOrder,
+          }}
+        />
       </div>
+      <Suspense fallback={<PostListSkeleton />}>
+        <PostList posts={posts} />
+      </Suspense>
+      {pagination?.totalPages > 1 && !searchTerm && (
+        <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
+      )}
     </div>
   );
 }
@@ -326,7 +321,7 @@ function PostList({ posts }) {
   }
 
   return (
-    <ul className="h-full w-full space-y-2">
+    <ul className="space-y-2 max-w-5xl">
       {posts.map((post) => (
         <PostCard key={post.slug} post={post} />
       ))}

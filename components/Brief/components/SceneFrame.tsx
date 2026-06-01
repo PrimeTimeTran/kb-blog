@@ -4,7 +4,6 @@ import { AnimatedFrame } from './AnimatedFrame-1';
 // import { AnimatedFrame } from './AnimatedFrame';
 import { FrameRenderer } from './Frames';
 import { MOTIONS } from '../motions';
-import React from 'react';
 import { motion } from 'framer-motion';
 
 type SceneFrameProps = {

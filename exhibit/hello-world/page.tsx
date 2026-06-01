@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <div
-      className="relative h-screen w-screen overflow-hidden flex flex-col items-center justify-center text-[rgb(var(--fg))] bg-[rgb(var(--bg))]"
+      className="relative h-full w-full overflow-hidden flex flex-col items-center justify-center text-[rgb(var(--fg))] bg-[rgb(var(--bg))]"
       onPointerMove={onPointerMove}
       onPointerUp={onPointerUp}
       onPointerLeave={onPointerUp}
@@ -86,8 +86,7 @@ export default function App() {
           style={{
             width: `${boxWidth}px`,
             height: `260px`,
-            borderRadius: `${shape.r + Math.sin(active * 0.3) * 10}px`,
-            transform: `none`,
+            borderRadius: shape.r,
           }}
         >
           {/* glow */}
@@ -170,56 +169,54 @@ function ControlButton({ onClick, icon, children, variant = 'default' }) {
 function useMotionBox() {
   const boxRef = React.useRef(null);
 
-  // --- SandBox State Engine ---
   const [scale, setScale] = React.useState(0);
-  const [rotationStep, setRotationStep] = React.useState(0);
   const [showGrid, setShowGrid] = React.useState(true);
   const [shapeMode, setShapeMode] = React.useState(0);
   const [morphs, setMorphs] = React.useState(0);
 
-  // Dynamically calculate the perfect circle radius based on current scale state
-  const boxWidth = 260 + scale * 10;
-  const circleRadius = boxWidth / 2;
+  const rotationRef = React.useRef(0);
+  const velocityRef = React.useRef(0.2);
 
-  const shapes = [
-    { r: 22, skew: 0, rot: 0 },
-    { r: 40, skew: 0, rot: 2 },
-    { r: 12, skew: 6, rot: -2 },
-    { r: circleRadius, skew: 0, rot: 0 }, // Dynamic perfect circle mode
-  ];
-
-  const shape = shapes[shapeMode % shapes.length];
-
-  // --- Drag-and-Drop Mutation Tracking ---
   const dragging = React.useRef(false);
   const start = React.useRef({ x: 0, y: 0 });
   const pos = React.useRef({ x: 0, y: 0 });
+  const [active, setActive] = React.useState(0);
 
-  const active = scale + rotationStep;
+  const boxWidth = 260 + scale * 10;
+  const circleRadius = boxWidth / 2;
+  const shapes = [
+    { r: 20, rot: 0 },
+    { r: 40, rot: 2 },
+    { r: 10, rot: -2 },
+    { r: circleRadius, rot: 0 },
+  ];
+  const shape = shapes[shapeMode % shapes.length];
+  const applyRef = React.useRef(null);
 
-  const apply = React.useCallback(() => {
-    if (!boxRef.current) return;
+  React.useEffect(() => {
+    applyRef.current = () => {
+      const el = boxRef.current;
+      if (!el) return;
 
-    const newScale = 1 + scale * 0.03;
-    const rotate = rotationStep + shape.rot;
+      const base = shapes[shapeModeRef.current % shapes.length];
 
-    if (dragging.current) {
-      boxRef.current.style.transitionProperty = 'colors, border-radius, width, height';
-    } else {
-      boxRef.current.style.transitionProperty = 'transform, colors, border-radius, width, height';
-    }
+      const shape = {
+        ...base,
+        skew: Math.sin(morphRef.current * 0.3) * 8,
+      };
 
-    boxRef.current.style.transform = `
+      const rotate = rotationRef.current + shape.rot;
+
+      el.style.transform = `
       translate(${pos.current.x}px, ${pos.current.y}px)
       rotate(${rotate}deg)
-      scale(${newScale})
+      scale(${1 + scaleRef.current * 0.03})
     `;
-  }, [scale, rotationStep, shape]); // Removed 'morphs' dependency as it's purely visual metadata
+    };
+  }, []);
 
-  // --- Event Handlers ---
   function onPointerDown(e) {
     dragging.current = true;
-
     if (boxRef.current) {
       boxRef.current.style.transitionProperty = 'colors, border-radius, width, height';
     }
@@ -235,8 +232,7 @@ function useMotionBox() {
 
     pos.current.x = e.clientX - start.current.x;
     pos.current.y = e.clientY - start.current.y;
-
-    apply();
+    applyRef.current?.();
   }
 
   function onPointerUp() {
@@ -245,33 +241,67 @@ function useMotionBox() {
       boxRef.current.style.transitionProperty = 'transform, colors, border-radius, width, height';
     }
   }
+  const cycleShape = () => {
+    morphRef.current += 1;
+    shapeModeRef.current += 1;
+
+    setMorphs(morphRef.current);
+    setShapeMode(shapeModeRef.current);
+  };
+
+  const morphRef = React.useRef(morphs);
+  const scaleRef = React.useRef(scale);
+  const shapeModeRef = React.useRef(shapeMode);
 
   React.useEffect(() => {
-    apply();
-  }, [apply]);
+    morphRef.current = morphs;
+  }, [morphs]);
+  React.useEffect(() => {
+    scaleRef.current = scale;
+  }, [scale]);
+  React.useEffect(() => {
+    shapeModeRef.current = shapeMode;
+  }, [shapeMode]);
+
+  React.useEffect(() => {
+    let raf;
+
+    const tick = () => {
+      rotationRef.current += velocityRef.current;
+
+      velocityRef.current += (0.2 - velocityRef.current) * 0.02;
+
+      applyRef.current?.();
+
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   const grow = () => setScale((v) => v + 1);
-  const rotate = () => setRotationStep((v) => v + 45);
 
-  // FIX: Using functional state updates removes the stale closure bug completely
-  const cycleShape = () => {
-    setMorphs((m) => m + 1);
-    setShapeMode((s) => s + 1);
+  const rotate = () => {
+    velocityRef.current += 3; // impulse spin
   };
 
   const toggleBacklight = () => setShowGrid((v) => !v);
 
   function resetAll() {
     setScale(0);
-    setRotationStep(0);
     setShapeMode(0);
     setMorphs(0);
-    pos.current = { x: 0, y: 0 };
 
+    rotationRef.current = 0;
+    velocityRef.current = 0.2;
+
+    pos.current = { x: 0, y: 0 };
     if (boxRef.current) {
       boxRef.current.style.transitionProperty = 'transform, colors, border-radius, width, height';
     }
-    apply();
+    applyRef.current?.();
   }
 
   return {
@@ -281,7 +311,7 @@ function useMotionBox() {
     onPointerUp,
     active,
     scale,
-    rotationStep,
+    rotationStep: rotationRef.current.toPrecision,
     showGrid,
     shapeMode,
     shape,

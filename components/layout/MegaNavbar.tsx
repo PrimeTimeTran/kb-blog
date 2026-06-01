@@ -8,8 +8,10 @@ import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import ThemeSwitch from '../ThemeSwitch';
 import clsx from 'clsx';
 import { getFeatureFlags } from '@/getFeatureFlags';
+import { useScroll } from '@/providers';
 
 export function MegaNavbar({ pathName }: { pathName: string }) {
+  const { scrollProgress } = useScroll();
   const { containerRef, mounted, setHasEntered, open, scheduleClose, motionDiv } = useNavDropdown();
   return (
     <div ref={containerRef} className="fixed inset-x-0 top-0 z-20 bg-lowest border-b border-outline/40">
@@ -41,6 +43,15 @@ export function MegaNavbar({ pathName }: { pathName: string }) {
             <ThemeSwitch />
           </div>
         </nav>
+        <div className="h-0.5 pointer-events-none absolute inset-x-0 bottom-0">
+          <div
+            style={{
+              transform: `scaleX(${scrollProgress})`,
+              transformOrigin: 'left',
+            }}
+            className="h-full bg-primary animate-pulse"
+          />
+        </div>
 
         {AnimatedDropdowns()}
       </div>

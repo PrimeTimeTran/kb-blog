@@ -74,6 +74,8 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
 
   return (
     <ExhibitLayout
+      manifest={manifest}
+      isPreview={manifest.isPreview}
       left={<SidebarTree data={buildTreeFromVFS(vfs)} activePath={vfs.activePath} onSelect={vfs.handleFileSelect} />}
       right={
         <aside className="h-full w-full relative bg-surface">

@@ -13,41 +13,29 @@ type WorldLayerType = {
 };
 
 export function WorldLayer({ camera, children }: WorldLayerType) {
-  if (getConfig().isCameraBypassed) {
-    return (
-      <div className="absolute inset-0 overflow-hidden">
-        <div
-          className="absolute left-1/2 top-1/2"
-          style={{
-            transform: `translate(0px, 0px) scale(1)`,
-            transformOrigin: '0 0',
-          }}
-        >
-          <div
-            style={{
-              width: VIEWPORT.width,
-              height: VIEWPORT.height,
-              transform: 'translate(-50%, -50%)',
-            }}
-          >
-            {children}
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const isBypassed = getConfig().isCameraBypassed;
+
+  // 1. Unified Transform Logic:
+  // If bypassed, we lock pan to 0,0 and zoom to 1 (or your desired default).
+  // If active, we use the camera props.
+  const transform = {
+    x: isBypassed ? 0 : camera.x,
+    y: isBypassed ? 0 : camera.y,
+    scale: isBypassed ? 0.73 : camera.zoom,
+  };
+
   return (
     <div className="absolute inset-0 overflow-hidden">
       <motion.div
         className="absolute left-1/2 top-1/2"
-        style={{
-          transformOrigin: '0 0',
-        }}
+        style={{ transformOrigin: '0 0' }}
         animate={{
-          x: camera.x,
-          y: camera.y,
-          scale: camera.zoom,
+          x: transform.x,
+          y: transform.y,
+          scale: transform.scale,
         }}
+        // Force immediate transition if bypassed so it doesn't "slide"
+        transition={{ duration: isBypassed ? 0 : 0.3 }}
       >
         <div
           className="relative"
@@ -87,6 +75,9 @@ export function CameraController({ camera, setCamera, children }: CameraControll
       onMouseMove={(e) => {
         if (!dragging.current) return;
 
+        // Use the bounding box of the element, not the zoom state,
+        // to calculate the movement speed.
+        const rect = e.currentTarget.getBoundingClientRect();
         const dx = e.clientX - last.current.x;
         const dy = e.clientY - last.current.y;
 
@@ -94,8 +85,9 @@ export function CameraController({ camera, setCamera, children }: CameraControll
 
         setCamera((c) => ({
           ...c,
-          x: c.x + dx / c.zoom,
-          y: c.y + dy / c.zoom,
+          // If bypassed, force zoom to 1 in the calculation
+          x: c.x + dx / (getConfig().isCameraBypassed ? 1 : c.zoom),
+          y: c.y + dy / (getConfig().isCameraBypassed ? 1 : c.zoom),
         }));
       }}
       onWheel={(e) => {
