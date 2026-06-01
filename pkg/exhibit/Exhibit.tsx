@@ -21,7 +21,7 @@ export default function Exhibit({ manifest }: { manifest: ExhibitManifest; param
       iframe.srcdoc = shellFile.content;
       shellRef.current = true;
     }
-  }, [manifest.seeds.entry, manifest.seeds.files, vfs.files]);
+  }, [manifest.seeds?.entry, manifest.seeds?.files, vfs.files]);
 
   const errorTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const [consoleError, setConsoleError] = useState<string | null>(null);

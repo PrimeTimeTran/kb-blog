@@ -36,7 +36,7 @@
 
 ```jsx
 // layout
-export default async function AppLayout({ children }) {
+export default async function AppLayout({ children }) : React.PropsWithChildren {
   return (
     <html className="h-full">
       <body className="h-full overflow-hidden">
@@ -78,7 +78,7 @@ export default async function Page() {
 
 import { useScroll } from '@/providers/ScrollProvider'
 
-export function ScrollContainer({ children }) {
+export function ScrollContainer({ children }) : React.PropsWithChildren {
   const { setScrollEl } = useScroll()
 
   return (

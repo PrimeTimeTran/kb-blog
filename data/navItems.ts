@@ -1,36 +1,61 @@
 import {
-  Box,
-  Cpu,
-  Blocks,
-  Shield,
-  Package,
-  Layers3,
-  Workflow,
-  BookOpenText,
-  Boxes,
-  Code2,
-  TerminalSquare,
-  Rocket,
-  Braces,
-  Package2,
   BarChart3,
-  LineChart,
-  Bot,
-  Palette,
+  Blocks,
   BookOpen,
+  Bot,
+  Box,
+  Boxes,
+  Braces,
+  Code2,
+  Cpu,
   Database,
-  Newspaper,
-  FlaskConical,
   FileCode2,
+  FlaskConical,
   GitBranch,
-  LucideIcon,
+  Info,
+  Layers3,
+  LineChart,
+  Newspaper,
+  Package,
+  Package2,
+  Palette,
+  Rocket,
+  Shield,
+  TerminalSquare,
+  Workflow,
 } from 'lucide-react';
+
+import type { ComponentType } from 'react';
+
+export type MenuLink = {
+  title: string;
+  description: string;
+  href: string;
+  icon: ComponentType<{
+    className?: string;
+  }>;
+};
+export type NavItem = {
+  label: string;
+  description: string;
+  href: string;
+  icon: ComponentType<{
+    className?: string;
+  }>;
+  featured?: {
+    title: string;
+    subtitle: string;
+    icon: ComponentType<{ className?: string }>;
+  };
+  links: MenuLink[];
+};
 
 export const navItems: NavItem[] = [
   {
     label: 'Product',
     icon: Box,
     description: 'Core platform capabilities and runtime system',
+    href: '#',
 
     featured: {
       title: 'Browser-Native Runtime Platform',
@@ -40,27 +65,28 @@ export const navItems: NavItem[] = [
 
     links: [
       {
-        title: 'Runtime Engine',
-        description: 'Core execution layer for in-browser code',
-        href: '/product/runtime',
+        title: 'Playground Sandbox',
+        description: 'Execute in-browser IDE with language, syntax, and execution support. HMR of course!',
+        href: '/playground',
         icon: Cpu,
+      },
+      {
+        title: 'Exhibit System',
+        description: 'View exhibitions of frameworks, features, & more',
+        href: '/playground/01-exhibit-mini-react',
+        icon: Shield,
       },
       {
         title: 'Module System',
         description: 'Dynamic module loading and dependency graphing',
-        href: '/product/modules',
+        href: '#',
         icon: Blocks,
       },
-      {
-        title: 'Sandbox Environment',
-        description: 'Isolated execution with iframe + VM boundaries',
-        href: '/product/sandbox',
-        icon: Shield,
-      },
+
       {
         title: 'Bundler Core',
         description: 'Client-side transpilation and bundling pipeline',
-        href: '/product/bundler',
+        href: '#',
         icon: Package,
       },
     ],
@@ -70,6 +96,7 @@ export const navItems: NavItem[] = [
     label: 'Solutions',
     icon: Layers3,
     description: 'Systems, workflows, and developer surfaces built on the runtime core',
+    href: '',
 
     featured: {
       title: 'Developer-First Runtime Ecosystem',
@@ -80,33 +107,28 @@ export const navItems: NavItem[] = [
 
     links: [
       {
-        title: 'Material Pages',
-        description: 'Composable docs + interactive runtime-driven articles',
-        href: '/solutions/material',
-        icon: BookOpenText,
+        title: 'Design System',
+        description: 'Previews, references, interactive runtime-driven articles',
+        href: '/showcases',
+        icon: Palette,
       },
       {
         title: 'Workspaces',
         description: 'Isolated runtime environments for experiments and apps',
-        href: '/solutions/workspaces',
+        href: '/workspaces',
         icon: Boxes,
       },
-      {
-        title: 'Live Playgrounds',
-        description: 'In-browser TSX, React, and Python execution environments',
-        href: '/solutions/playgrounds',
-        icon: Blocks,
-      },
+
       {
         title: 'VSCode Integrations',
         description: 'Editor extensions for runtime-aware development workflows',
-        href: '/solutions/vscode',
+        href: '#',
         icon: Code2,
       },
       {
         title: 'NPM Tooling (Future)',
         description: 'CLI + packages for embedding runtime execution anywhere',
-        href: '/solutions/npm',
+        href: '#',
         icon: Package,
       },
     ],
@@ -116,6 +138,7 @@ export const navItems: NavItem[] = [
     label: 'Developers',
     icon: Code2,
     description: 'APIs, tooling, and integration guides',
+    href: '#',
 
     featured: {
       title: 'Build on the Runtime',
@@ -127,25 +150,25 @@ export const navItems: NavItem[] = [
       {
         title: 'Getting Started',
         description: 'Setup and first runtime integration',
-        href: '/dev/getting-started',
+        href: '#',
         icon: Rocket,
       },
       {
         title: 'API Reference',
         description: 'Core runtime and module APIs',
-        href: '/dev/api',
+        href: '#',
         icon: Braces,
       },
       {
         title: 'Client SDK',
         description: 'JS/TS SDK for embedding runtimes',
-        href: '/dev/sdk',
+        href: '#',
         icon: Package2,
       },
       {
         title: 'Architecture Guide',
         description: 'How the runtime system is structured',
-        href: '/dev/architecture',
+        href: '#',
         icon: Blocks,
       },
     ],
@@ -155,6 +178,7 @@ export const navItems: NavItem[] = [
     label: 'Case Studies',
     icon: BarChart3,
     description: 'Real-world applications and system breakdowns',
+    href: '#',
 
     featured: {
       title: 'Systems in Production',
@@ -164,22 +188,22 @@ export const navItems: NavItem[] = [
 
     links: [
       {
+        title: 'Design Systems',
+        description: 'Component-driven runtime UI systems',
+        href: '/system/design',
+        icon: Palette,
+      },
+      {
         title: 'Interactive Editors',
         description: 'Live coding environments at scale',
-        href: '/cases/editors',
+        href: '/playground',
         icon: Code2,
       },
       {
         title: 'AI Tooling',
         description: 'Runtime-based AI execution workflows',
-        href: '/cases/ai-tools',
+        href: '#',
         icon: Bot,
-      },
-      {
-        title: 'Design Systems',
-        description: 'Component-driven runtime UI systems',
-        href: '/cases/design-systems',
-        icon: Palette,
       },
     ],
   },
@@ -188,6 +212,7 @@ export const navItems: NavItem[] = [
     label: 'Resources',
     icon: BookOpen,
     description: 'Docs, writing, experiments, and knowledge base',
+    href: '',
 
     featured: {
       title: 'Engineering Knowledge Base',
@@ -199,51 +224,33 @@ export const navItems: NavItem[] = [
       {
         title: 'Blog',
         description: 'Technical writing and system design notes',
-        href: '/resources/blog',
+        href: '/',
         icon: Newspaper,
-      },
-      {
-        title: 'Experiments',
-        description: 'Prototypes and runtime explorations',
-        href: '/resources/experiments',
-        icon: FlaskConical,
       },
       {
         title: 'Knowledge Base',
         description: 'Internal system notes and references',
-        href: '/resources/kb',
+        href: '/kb',
         icon: FileCode2,
       },
       {
-        title: 'Changelog',
-        description: 'Platform updates and iteration history',
-        href: '/resources/changelog',
-        icon: GitBranch,
-      },
-      {
         title: 'About',
-        description: 'About the team',
+        description: 'Personal information about the developer behind this project',
         href: '/about',
-        icon: GitBranch,
+        icon: Info,
       },
+      // {
+      //   title: 'Experiments',
+      //   description: 'Prototypes and runtime explorations',
+      //   href: '#',
+      //   icon: FlaskConical,
+      // },
+      // {
+      //   title: 'Changelog',
+      //   description: 'Platform updates and iteration history',
+      //   href: '#',
+      //   icon: GitBranch,
+      // },
     ],
   },
 ];
-
-type NavLink = {
-  title: string;
-  description: string;
-  href: string;
-  icon?: LucideIcon;
-};
-type NavItem = {
-  label: string;
-  description: string;
-  icon?: LucideIcon;
-  featured?: {
-    title: string;
-    subtitle: string;
-    icon?: LucideIcon;
-  };
-  links: NavLink[];
-};

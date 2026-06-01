@@ -1,158 +1,73 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { COMMANDS, COMMAND_MAP, GROUPS } from './Commands';
+import React, { useEffect, useMemo, useState } from 'react';
 
+import { CommandRef } from './types';
 import { createPortal } from 'react-dom';
 
 export function CommandPalette({ open, onClose }: { open: boolean; onClose: () => void }) {
   if (!open) return null;
 
-  return createPortal(<PaletteU1 close={onClose} />, document.body);
+  return createPortal(<PaletteUI close={onClose} />, document.body);
 }
-
-export function PaletteUI() {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      const isMac = navigator.platform.toLowerCase().includes('mac');
-      const hotkey = isMac ? e.metaKey : e.ctrlKey;
-
-      if (hotkey && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        setOpen((v) => !v);
-      }
-
-      if (e.key === 'Escape') {
-        setOpen(false);
-      }
-      if (e.key === 'k' && e.altKey && e.shiftKey) {
-        e.preventDefault();
-        setOpen((v) => !v);
-      }
-    };
-
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, []);
-
-  if (!open) return null;
-
-  return createPortal(
-    <div className="fixed inset-0 z-9999">
-      {/* backdrop */}
-      <div
-        className="absolute inset-0 bg-linear-to-b from-black/40 via-black/50 to-black/60"
-        onClick={() => setOpen(false)}
-      />
-
-      {/* palette */}
-      <div className="absolute left-1/2 top-24 w-full max-w-xl -translate-x-1/2">
-        <div className="rounded-2xl border border-white/10 bg-[#0b0f19] shadow-2xl">
-          {/* input */}
-          <div className="flex items-center gap-2 border-b border-white/10 px-3 py-2">
-            <span className="text-white/40">⌘K</span>
-            <input
-              autoFocus
-              placeholder="Search commands, files, settings..."
-              className="w-full bg-transparent text-sm text-white outline-none placeholder:text-white/30"
-            />
-          </div>
-
-          {/* results */}
-          <div className="max-h-72 overflow-y-auto p-2">
-            <CommandItem label="Configure hotkeys" hint="Settings" />
-            <CommandItem label="Search files" hint="Future" />
-            <CommandItem label="Open workspace" hint="Cmd+O" />
-          </div>
-        </div>
-      </div>
-    </div>,
-    document.body,
-  );
-}
-
-type CommandGroup = {
-  label: string;
-  items: CommandItemType[];
-};
-
-type CommandItemType = {
-  id: string;
-  label: string;
-  hint?: string;
-  keywords?: string[];
-  run?: () => void;
-};
-
-const GROUPS: CommandGroup[] = [
-  {
-    label: 'Recent',
-    items: [
-      {
-        id: 'help',
-        label: 'Open Help Panel',
-        hint: '⌘/',
-        keywords: ['help', 'shortcuts'],
-        run: () => {
-          window.dispatchEvent(new CustomEvent('overlay:help'));
-        },
-      },
-      {
-        id: 'hotkeys',
-        label: 'Configure Hotkeys',
-        hint: 'Settings',
-      },
-    ],
-  },
-
-  {
-    label: 'Suggested',
-    items: [
-      {
-        id: 'search-files',
-        label: 'Search Files',
-        hint: 'Future',
-      },
-      {
-        id: 'workspace',
-        label: 'Open Workspace',
-        hint: '⌘O',
-      },
-    ],
-  },
-];
-
-export function PaletteU1({ close }: { close: () => void }) {
+export function PaletteUI({ close }: { close: () => void }) {
+  const MAX_PREVIEW_ITEMS = 5;
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState(0);
-
   const filteredGroups = useMemo(() => {
     const q = query.trim().toLowerCase();
+    const isSearching = q.length > 0;
 
-    if (!q) return GROUPS;
+    return GROUPS.map((group) => {
+      const items = group.items
+        .filter((cmd) => {
+          if (!isSearching) return true;
 
-    return GROUPS.map((group) => ({
-      ...group,
-      items: group.items.filter((item) => {
-        const haystack = [item.label, item.hint, ...(item.keywords ?? [])].join(' ').toLowerCase();
+          const haystack = [cmd.label, cmd.hint, ...(cmd.keywords ?? [])].join(' ').toLowerCase();
 
-        return haystack.includes(q);
-      }),
-    })).filter((g) => g.items.length > 0);
+          return haystack.includes(q);
+        })
+        .slice(0, isSearching ? undefined : MAX_PREVIEW_ITEMS);
+
+      return {
+        ...group,
+        items,
+      };
+    }).filter((g) => g.items.length > 0);
   }, [query]);
 
-  const flatItems = useMemo(() => filteredGroups.flatMap((g) => g.items), [filteredGroups]);
+  const flatItems = useMemo(() => {
+    let out: any[] = [];
+
+    filteredGroups.forEach((group) => {
+      group.items.forEach((item) => {
+        out.push({
+          ...item,
+          group: group.label,
+        });
+      });
+    });
+
+    return out;
+  }, [filteredGroups]);
 
   useEffect(() => {
     setSelected(0);
   }, [query]);
 
-  const execute = (item: CommandItemType) => {
+  const execute = (item: CommandRef) => {
     close();
 
     requestAnimationFrame(() => {
-      item.run?.();
+      const command = COMMAND_MAP[item.id];
+
+      if (!command) {
+        console.warn(`[Command] missing: ${item.id}`);
+        return;
+      }
+
+      command.run();
     });
   };
 
@@ -191,7 +106,7 @@ export function PaletteU1({ close }: { close: () => void }) {
   let absoluteIndex = -1;
 
   return (
-    <div className="fixed inset-0 z-[9999]">
+    <div className="fixed inset-0 z-99">
       {/* backdrop */}
       <div className="absolute inset-0 bg-black/40" onClick={close} />
 
@@ -220,6 +135,7 @@ export function PaletteU1({ close }: { close: () => void }) {
 
                 <div className="space-y-0.5">
                   {group.items.map((item) => {
+                    const resolveItem = (item) => COMMANDS[item.id];
                     absoluteIndex += 1;
 
                     const active = absoluteIndex === selected;
@@ -245,15 +161,6 @@ export function PaletteU1({ close }: { close: () => void }) {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function CommandItem({ label, hint }: { label: string; hint?: string }) {
-  return (
-    <div className="flex cursor-pointer items-center justify-between rounded-md px-2 py-1.5 text-xs text-white/80 hover:bg-white/10">
-      <span>{label}</span>
-      {hint && <span className="text-xs text-white/40">{hint}</span>}
     </div>
   );
 }

@@ -2,6 +2,26 @@
   body {
     @apply bg-background text-on-surface;
   }
+  .nav-link {
+    /*  */
+    @apply flex items-center justify-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10;
+  }
+
+  .nav-link-icon {
+    @apply h-4 w-4 shrink-0;
+  }
+
+  .nav-link-label {
+    @apply hidden md:block;
+  }
+
+  .nav-link-chevron {
+    @apply hidden md:block h-3 w-3 opacity-50 transition-transform duration-300;
+  }
+
+  .group:hover .nav-link-chevron {
+    @apply rotate-180 opacity-80;
+  }
   .mdx-code-wrapper {
     background-color: var(--code-bg);
     border: 1px solid var(--code-border);
@@ -127,86 +147,6 @@
   .group:hover .controls {
     opacity: 1;
   }
-  /* -------------------------
-   * BASE LINK
-   * ------------------------- */
-  .nav-link {
-    @apply relative flex items-center;
-    @apply transition-colors duration-200;
-  }
-
-  /* -------------------------
-   * ICON + LABEL
-   * ------------------------- */
-  .nav-link-icon {
-    @apply shrink-0 transition-colors;
-  }
-
-  .nav-link-label {
-    @apply font-medium;
-  }
-
-  /* -------------------------
-   * ACTIVE STATE (GLOBAL)
-   * ------------------------- */
-  .nav-link[data-active='true'] {
-    @apply text-primary;
-  }
-
-  /* =========================
-   * DESKTOP VARIANT
-   * ========================= */
-  .nav-link[data-variant='desktop'] {
-    @apply gap-2 rounded-full px-4 py-2;
-    @apply text-sm font-medium tracking-tight;
-
-    @apply hover:bg-level hover:text-primary;
-  }
-
-  .nav-link[data-variant='desktop'] .nav-link-icon {
-    @apply h-4 w-4 opacity-70;
-  }
-
-  .nav-link[data-variant='desktop'] .nav-link-label {
-    @apply hidden lg:inline;
-  }
-
-  /* active desktop */
-  .nav-link[data-active='true'][data-variant='desktop'] {
-    @apply bg-secondary-container text-primary;
-  }
-
-  .nav-link[data-active='true'][data-variant='desktop'] .nav-link-icon {
-    @apply text-primary opacity-100;
-  }
-
-  /* =========================
-   * MOBILE VARIANT
-   * ========================= */
-  .nav-link[data-variant='mobile'] {
-    @apply gap-3 rounded-2xl px-4 py-3;
-    @apply text-sm font-medium tracking-tight;
-
-    @apply hover:bg-high hover:text-primary;
-  }
-
-  .nav-link[data-variant='mobile'] .nav-link-icon {
-    @apply h-5 w-5 opacity-80;
-  }
-
-  .nav-link[data-variant='mobile'] .nav-link-label {
-    @apply inline;
-  }
-
-  /* active mobile */
-  .nav-link[data-active='true'][data-variant='mobile'] {
-    @apply bg-secondary-container text-primary;
-  }
-
-  .nav-link[data-active='true'][data-variant='mobile'] .nav-link-icon {
-    @apply text-primary opacity-100;
-  }
-
   /* -------------------------
    * ICON BUTTON (hamburger, close, theme toggle)
    * ------------------------- */

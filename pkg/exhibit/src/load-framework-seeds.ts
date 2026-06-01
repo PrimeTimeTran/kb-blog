@@ -1,6 +1,6 @@
 import { FrameworkSeeds, SeedFile } from '@/pkg/exhibit';
 
-import { ROOT } from '@/lib/paths';
+import { SEEDS_DIR } from '@/lib/paths';
 import fs from 'fs';
 import path from 'path';
 
@@ -13,7 +13,7 @@ function classifyFile(file: string): SeedFile['type'] {
 }
 
 export function loadFrameworkSeeds(framework: string): FrameworkSeeds {
-  const root = path.join(ROOT, 'pkg/exhibit/seeds', framework);
+  const root = path.join(SEEDS_DIR, framework);
 
   const files: SeedFile[] = [];
 

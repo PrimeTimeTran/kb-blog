@@ -1,6 +1,6 @@
+import { EXHIBIT_DIR, assertInside, getExhibitPath } from '@/lib/paths';
 import { ExhibitManifest, ExhibitProjectType, VirtualFS } from '@/pkg/exhibit';
 
-import { ROOT } from '@/lib/paths';
 import fs from 'fs';
 import { loadFrameworkSeeds } from '@/pkg/exhibit';
 import path from 'path';
@@ -13,8 +13,7 @@ export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitMani
   const extensions = new Set<string>();
   const folderPath = slug.length > 0 ? slug.join('/') : '1-vanilla';
 
-  const exhibitRoot = path.join(ROOT, 'exhibit');
-  const targetDir = path.join(exhibitRoot, folderPath);
+  const targetDir = getExhibitPath(folderPath);
 
   try {
     if (!fs.existsSync(targetDir)) {
@@ -63,8 +62,8 @@ export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitMani
           }
         }
 
-        const relativePath = './' + path.relative(exhibitRoot, fullPath).replace(/\\/g, '/');
-
+        const relative = assertInside(EXHIBIT_DIR, fullPath);
+        const relativePath = './' + relative.replace(/\\/g, '/');
         const ext = entry.name.split('.').pop() ?? 'js';
 
         const language = ext === 'tsx' || ext === 'jsx' ? 'jsx' : ext === 'ts' ? 'typescript' : ext;

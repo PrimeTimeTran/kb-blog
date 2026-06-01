@@ -27,7 +27,7 @@ import { useScrollState } from '../hooks/useScrollState';
 
 const ScrollContext = createContext(null);
 
-export function ScrollProvider({ children }) {
+export function ScrollProvider({ children }) : React.PropsWithChildren {
   const [toc, setToc] = useState([]);
 
   // DOM element lives here
@@ -220,7 +220,7 @@ export function Graffiti() {
 'use client';
 import { useScroll } from '@/providers/ScrollProvider';
 
-export function ScrollContainer({ children }) {
+export function ScrollContainer({ children }) : React.PropsWithChildren {
   const { setScrollEl } = useScroll();
 
   return (

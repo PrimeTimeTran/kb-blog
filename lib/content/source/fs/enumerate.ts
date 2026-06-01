@@ -1,4 +1,4 @@
-import { BLOG_DIR, KB_DIR } from '@/lib/content/core';
+import { BLOG_DIR, KB_DIR } from '@/lib/paths';
 
 import { getAllFiles } from '@/lib/content/server/files';
 

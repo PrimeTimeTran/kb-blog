@@ -1,13 +1,13 @@
 'use client';
+
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+
 import type { Ace } from 'ace-builds';
-import { debounce } from 'lodash';
-
-import dynamic from 'next/dynamic';
-import { useTheme } from '@teispace/next-themes';
-import { useMemo, useRef, useEffect, useState } from 'react';
-
 import { EditorProps } from '@/pkg/exhibit';
+import { debounce } from 'lodash';
+import dynamic from 'next/dynamic';
 import { initAceExtensions } from '@/lib/syntax-registry';
+import { useTheme } from '@teispace/next-themes';
 
 export function Editor({
   vfs,
@@ -85,13 +85,13 @@ export function Editor({
   }
 
   return (
-    <div className="w-full h-full relative group">
+    <div className="w-full h-full relative group overflow-hidden bg-surface">
       <button
         type="button"
-        onClick={handleFormat}
+        // onClick={handleFormat}
         className="absolute top-2 right-4 z-20 px-2 py-1 text-[10px] tracking-wider font-mono backdrop-blur border border-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/30 hover:bg-black/50 text-white rounded"
       >
-        Format (⌘S)
+        CMD Palette (⌘K)
       </button>
 
       <AceEditor
@@ -225,7 +225,7 @@ export const useEditorHotkeys = (
     return () => {
       editor.commands.removeCommand('formatCode');
     };
-  }, [editorInstance, setEditorReady]);
+  }, [editorInstance, setEditorReady, stateRef]);
 };
 
 type AceEditorInstance = {

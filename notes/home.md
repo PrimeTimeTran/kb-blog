@@ -18,7 +18,7 @@
 ```jsx
 'use client'
 // ./app/shell/layout.tsx
-export default function Layout({ children }) {
+export default function Layout({ children }) : React.PropsWithChildren {
   return (
     <div>
       <div>Left</div>
@@ -28,7 +28,7 @@ export default function Layout({ children }) {
 }
 
 
-export default function Layout({ children }) {
+export default function Layout({ children }) : React.PropsWithChildren {
   return (
     <div>
       {children}

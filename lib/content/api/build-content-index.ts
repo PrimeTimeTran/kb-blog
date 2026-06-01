@@ -5,8 +5,6 @@ import { isPublished } from '@/lib/content/core';
 import matter from 'gray-matter';
 import path from 'path';
 
-// import getAllFilesRecursively from '@/lib/content/server/files';
-
 type ContentIndexOptions = {
   rootDir: string;
   filter?: (file: string) => boolean;

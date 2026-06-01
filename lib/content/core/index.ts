@@ -1,5 +1,3 @@
-export * from '../constants';
-
 export * from './audit-wikilinks';
 export * from './content';
 export * from './extract-toc';

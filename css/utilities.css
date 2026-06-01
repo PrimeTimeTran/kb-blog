@@ -1,9 +1,12 @@
 @layer utilities {
+  .border {
+    @apply border border-outline/20;
+  }
   .no-scrollbar-indicator {
     box-shadow: inset -10px 0 10px -10px rgba(0, 0, 0, 0.2);
   }
   .no-scrollbar {
-    @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+    @apply scrollbar-none [&::-webkit-scrollbar]:hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
 

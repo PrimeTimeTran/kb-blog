@@ -1,41 +1,42 @@
 'use client';
-import { useState } from 'react';
-import { PageSEO } from '../components/SEO';
 
-function ContentTabs({ children }) {
-  const [tab, setTab] = useState('intro');
+import { PageSEO } from '../components/SEO';
+import { useState } from 'react';
+
+/**
+ * @param {Object[]} tabs - Array of { id: string, label: string, content: React.ReactNode }
+ */
+function ContentTabs({ tabs }) {
+  const [activeTab, setActiveTab] = useState(tabs[0].id);
 
   return (
     <div className="flex flex-col items-center px-16 overflow-hidden">
-      {/* Tabs */}
+      {/* Tabs Header */}
       <div className="flex gap-6 mb-10 text-sm border-b border-outline-variant text-on-surface-variant pt-6">
-        {[
-          { id: 'intro', label: 'Introduction' },
-          // { id: 'spam', label: 'Spam' },
-        ].map((t) => (
+        {tabs.map((tab) => (
           <button
-            key={t.id}
-            onClick={() => setTab(t.id)}
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
             className={`
               pb-3 transition-colors border-b
-              ${tab === t.id ? 'border-primary text-on-surface' : 'border-transparent hover:text-on-surface'}
+              ${activeTab === tab.id ? 'border-primary text-on-surface' : 'border-transparent hover:text-on-surface'}
             `}
           >
-            {t.label}
+            {tab.label}
           </button>
         ))}
       </div>
 
-      {/* CONTENT AREA (single source of truth) */}
-      <div className="relative w-full max-w-2xl flex-1 min-h-0 flex items-center justify-center">
-        <div className="space-y-6 text-on-surface-variant leading-relaxed text-[15px]">
-          {tab === 'intro' && children}
-          {tab === 'spam' && children}
+      {/* Content Area */}
+      <div className="relative w-full max-w-2xl flex-1 min-h-0 flex justify-center">
+        <div className="w-full space-y-6 text-on-surface-variant leading-relaxed text-[15px]">
+          {/* Dynamically render the content based on activeTab */}
+          {tabs.find((t) => t.id === activeTab)?.content}
         </div>
       </div>
 
-      {/* BACKGROUND GLOW (now safely behind content) */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-tr from-(--surface-variant)/20 via-(--surface)/0 to-(--primary-container)/10 dark:from-(--surface-variant)/40 dark:to-(--primary-container)/25" />
+      {/* Background Glow */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-tr from-(--surface-variant)/20 via-(--surface)/0 to-(--primary-container)/10" />
     </div>
   );
 }
@@ -43,19 +44,25 @@ function ContentTabs({ children }) {
 export default function AboutLayout({ children, frontMatter }) {
   const { name = 'Loi Tran' } = frontMatter || {};
 
+  const tabData = [
+    { id: 'intro', label: 'Introduction', content: children },
+    { id: 'experience', label: 'Experience', content: <ExperienceList /> },
+    { id: 'contact', label: 'Contact', content: <ContactForm /> },
+  ];
+
   return (
     <div className="h-full w-full overflow-hidden">
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
 
       {/* IMPORTANT: isolate creates proper stacking context */}
-      <div className="relative isolate h-screen w-full flex overflow-hidden  pt-8">
+      <div className="relative isolate h-screen w-full flex overflow-hidden">
         {/* ================= BACKGROUND LAYERS ================= */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           {/* Blob 1 (top-left / primary) */}
-          <div className="animate-blob-1 absolute -top-40 left-1/4 w-[600px] h-[600px] rounded-full blur-3xl bg-radial from-primary/30 via-primary/10 to-transparent dark:from-primary/25 dark:via-primary/5" />
+          <div className="animate-blob-1 absolute -top-40 left-1/4 w-150 h-150 rounded-full blur-3xl bg-radial from-primary/30 via-primary/10 to-transparent dark:from-primary/25 dark:via-primary/5" />
 
           {/* Blob 2 (bottom-right / secondary) */}
-          <div className="animate-blob-2 absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl bg-radial from-secondary/30 via-secondary/10 to-transparent dark:from-secondary/25 dark:via-secondary/5" />
+          <div className="animate-blob-2 absolute bottom-0 right-0 w-125 h-125 rounded-full blur-3xl bg-radial from-secondary/30 via-secondary/10 to-transparent dark:from-secondary/25 dark:via-secondary/5" />
         </div>
 
         {/* ================= LEFT ================= */}
@@ -175,13 +182,14 @@ export default function AboutLayout({ children, frontMatter }) {
 
         {/* ================= RIGHT ================= */}
         <div className="relative h-full min-h-0 w-full overflow-y-auto">
-          <ContentTabs>
-            <div className="h-full overflow-y-auto flex items-center justify-center">
-              <div className="flex flex-col justify-center items-center space-y-6">{children}</div>
-            </div>
-          </ContentTabs>
+          <ContentTabs tabs={tabData}  />
         </div>
       </div>
     </div>
   );
 }
+
+function ExperienceList() {
+  return <h1></h1>
+}
+function ContactForm() {}

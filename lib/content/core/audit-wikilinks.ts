@@ -1,4 +1,4 @@
-import { KB_DIR } from '@/lib/content/constants';
+import { KB_DIR } from '@/lib/paths';
 import fs from 'fs';
 import path from 'path';
 import { walk } from '@/lib/fs';

@@ -1,4 +1,4 @@
-export const motions = {
+export const motions1 = {
   fromTop: {
     initial: { y: -200, opacity: 0 },
     animate: { y: 0, opacity: 1 },

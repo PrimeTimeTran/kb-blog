@@ -1,4 +1,3 @@
-export * from './constants';
 export * from './types';
 export * from './api/build-back-links';
 export * from './api/build-content-index';

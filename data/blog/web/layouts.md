@@ -150,7 +150,7 @@ The center and right columns should belong to the page layer.
 Your root app layout should establish the viewport and prevent body scrolling.
 
 ```jsx
-export default async function AppLayout({ children }) {
+export default async function AppLayout({ children }) : React.PropsWithChildren {
   return (
     <html>
       <body className="h-full overflow-hidden">
@@ -196,7 +196,7 @@ Next, create a persistent knowledge-base layout.
 import { KBLayout } from '@/layouts/ThreeColumnLayout';
 import { getKbTree } from '@/lib/content/domain/kb/kb.server';
 
-export default async function Layout({ children }) {
+export default async function Layout({ children }) : React.PropsWithChildren {
   const tree = await getKbTree();
 
   return <KBLayout tree={tree}>{children}</KBLayout>;
@@ -344,7 +344,7 @@ Instead:
 
 import { useScroll } from '@/providers/ScrollProvider';
 
-export function ScrollContainer({ children }) {
+export function ScrollContainer({ children }) : React.PropsWithChildren {
   const { setScrollEl } = useScroll();
 
   return (

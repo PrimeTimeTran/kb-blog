@@ -1,3 +1,12 @@
+import { JSX, useEffect, useRef, useState } from 'react';
+import { useVFS, vfsAPI } from './hooks/useVFS';
+
+import { Editor } from './components/Editor';
+import { Sidebar } from './components/Sidebar';
+import { useEditorLayout } from './hooks/ui/useEditorLayout';
+import { useIframeController } from './hooks/useIframeController';
+import { useStarterCode } from './hooks/useStarterCode';
+
 export default async function Page({
   params,
   searchParams,
@@ -10,16 +19,6 @@ export default async function Page({
 
   return <Exhibit slug={slug} />;
 }
-
-import { JSX, useEffect, useRef, useState } from 'react';
-
-import { Editor } from './components/Editor';
-import { Sidebar } from './components/Sidebar';
-
-import { useVFS, vfsAPI } from './hooks/useVFS';
-import { useStarterCode } from './hooks/useStarterCode';
-import { useEditorLayout } from './hooks/ui/useEditorLayout';
-import { useIframeController } from './hooks/useIframeController';
 
 interface EditorProps {
   slug: string;

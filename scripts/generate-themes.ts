@@ -1,6 +1,5 @@
 import { darken, lighten, transparentize } from 'polished';
 
-import { colord } from 'colord';
 import fs from 'fs';
 
 const outlineKeys = ['outline', 'outline-variant'];

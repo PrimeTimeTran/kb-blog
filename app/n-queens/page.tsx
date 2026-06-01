@@ -1,5 +1,6 @@
 'use client';
-import { Play, Timer, Trophy, Grid2x2, Sparkles } from 'lucide-react';
+
+import { Grid2x2, Play, Sparkles, Timer, Trophy } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 export default function NQueensVisualizer({ n = 8, delay = 0 }) {
@@ -161,16 +162,16 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
               <div className="mt-4 flex items-center gap-2 text-xs">
                 <span
                   className={`
-            w-2 h-2 rounded-full transition-colors
-            ${completed ? 'bg-emerald-500' : running ? 'bg-blue-500 animate-pulse' : 'bg-zinc-400'}
-          `}
+                    w-2 h-2 rounded-full transition-colors
+                    ${completed ? 'bg-emerald-500' : running ? 'bg-blue-500 animate-pulse' : 'bg-zinc-400'}
+                  `}
                 />
 
                 <span
                   className={`
-            transition-colors
-            ${completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-500'}
-          `}
+                    transition-colors
+                    ${completed ? 'text-emerald-600 dark:text-emerald-400' : 'text-zinc-500'}
+                  `}
                 >
                   {completed ? 'Search completed successfully' : running ? 'Searching solution space...' : 'Ready'}
                 </span>
@@ -223,13 +224,7 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
 
         {/* RIGHT VISUALIZER */}
         <div
-          className={`
-            lg:col-span-2
-            relative rounded-2xl border p-5 shadow-sm
-            transition-colors duration-300
-            bg-linear-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950
-            min-h-[520px]
-            flex flex-col
+          className={`lg:col-span-2 relative rounded-2xl border p-5 shadow-sm transition-colors duration-300 bg-linear-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-950 min-h-130 flex flex-col
             ${completed ? 'border-emerald-400/70 dark:border-emerald-500/60' : 'border-zinc-200 dark:border-zinc-800'}
           `}
         >
@@ -251,7 +246,7 @@ export default function NQueensVisualizer({ n = 8, delay = 0 }) {
           </div>
 
           {/* board */}
-          <div className="flex items-center justify-center min-h-[360px]">{renderBoard(finalBoard ?? board)}</div>
+          <div className="flex items-center justify-center min-h-90">{renderBoard(finalBoard ?? board)}</div>
 
           {/* footer */}
           <div className="mt-3 h-5 flex items-center justify-center">

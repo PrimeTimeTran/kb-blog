@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { generateCSS, intentPalette, resolvedIntentPalette, surfacePalette } from '../scripts/generate-themes';
+import { generateCSS, resolvedIntentPalette, surfacePalette } from '../scripts/generate-themes';
 
 const elevations = ['background', 'lowest', 'low', 'level', 'high', 'highest', 'surface'];
 
