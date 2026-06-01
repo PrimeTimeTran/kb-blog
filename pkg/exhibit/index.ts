@@ -1,5 +1,4 @@
 export * from './Exhibit';
-export * from './types';
 export * from './components/Editor';
 export * from './components/TreeItem';
 export * from './hooks/useEditorLayout';
