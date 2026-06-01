@@ -20,7 +20,7 @@ export function TreeItem({ node, activePath, onSelect, depth }: TreeItemProps) {
     });
 
     return (
-      <div className="border-0">
+      <div className="border-0" onClick={() => node.kind === 'file' && onSelect(node)}>
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
@@ -71,7 +71,7 @@ export function TreeItem({ node, activePath, onSelect, depth }: TreeItemProps) {
   return (
     <button
       type="button"
-      onClick={() => node.kind === 'file' && onSelect(node.path)}
+      onClick={() => node.kind === 'file' && onSelect(node)}
       style={{ paddingLeft: `${depth * 12 + 20}px` }}
       data-active={isActiveNode}
       className="tree-item"

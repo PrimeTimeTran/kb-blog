@@ -1,6 +1,7 @@
-import { nextVfs } from '../generated/next-vfs';
-import type { Plugin } from 'esbuild';
 import { Framework, ProjectSpec } from './types';
+
+import type { Plugin } from 'esbuild';
+import { nextVfs } from '../generated/next-vfs';
 
 export function buildVFS({ framework, base }: { framework: Framework; base: Record<string, string> }) {
   const vfs: Record<string, string> = {};

@@ -1,83 +1,75 @@
-import { ExhibitProjectType, ExhibitRuntime } from '@/pkg/exhibit';
+import { ExhibitManifest, ExhibitProjectType, SeedFile } from '@/lib/types';
 
 type FileMap = Record<string, { content: string; language: string }>;
 
-function pickFirst(files: FileMap, matchers: ((name: string) => boolean)[]) {
-  const keys = Object.keys(files);
-
-  for (const matcher of matchers) {
-    for (const key of keys) {
-      if (matcher(key)) return key;
-    }
-  }
-
-  return null;
+export function resolveRuntime(
+  projectType: ExhibitProjectType,
+  entries: string[],
+  files: FileMap,
+): ExhibitManifest['runtime'] {
+  return {
+    framework: projectType,
+    entry: findEntryByProjectType(projectType, entries),
+    assets: buildAssets(projectType),
+  };
 }
 
-export function resolveRuntime(projectType: ExhibitProjectType, files: FileMap): ExhibitRuntime {
-  const assetMap = {
-    next: {
-      framework: 'next',
-      entryMatchers: [
-        (f: string) => f === 'page.tsx',
-        (f: string) => f === 'app.tsx',
-        (f: string) => /page\.(tsx|ts|jsx|js)$/.test(f),
-        (f: string) => /app\.(tsx|ts|jsx|js)$/.test(f),
-      ],
+function findWebEntry(entries: string[]) {
+  return entries.find((e) => /(^|\/)(main|index|app)\.(tsx|ts|jsx|js)$/.test(e)) || null;
+}
+
+function findRNEntry(entries: string[]) {
+  return entries.find((e) => /index\.(js|ts|tsx)$/.test(e)) || null;
+}
+
+function findFlutterEntry(entries: string[]) {
+  return entries.find((e) => e === 'lib/main.dart') || entries.find((e) => e.endsWith('main.dart')) || null;
+}
+
+function findEntryByProjectType(projectType: ExhibitProjectType, entries: string[]) {
+  switch (projectType) {
+    case 'react-native':
+      return findRNEntry(entries);
+
+    case 'flutter':
+      return findFlutterEntry(entries);
+
+    case 'next':
+      return entries.find((e) => /(^|\/)(page|app)\.(tsx|ts|jsx|js)$/.test(e)) || null;
+
+    case 'react':
+      return findWebEntry(entries);
+
+    case 'vue':
+    case 'nuxt':
+      return entries.find((e) => e === 'main.ts') || null;
+
+    default:
+      return findWebEntry(entries);
+  }
+}
+
+function buildAssets(projectType: ExhibitProjectType): SeedFile[] {
+  const base = [
+    {
+      type: 'html',
+      path: `@/pkg/exhibit/templates/${projectType}/shell.html`,
     },
-
-    react: {
-      framework: 'react',
-      entryMatchers: [
-        (f: string) => f === 'main.tsx',
-        (f: string) => f === 'main.jsx',
-        (f: string) => f === 'index.tsx',
-        (f: string) => f === 'index.jsx',
-        (f: string) => f === 'app.tsx',
-        (f: string) => f === 'app.jsx',
-      ],
+    {
+      type: 'script',
+      path: `@/pkg/exhibit/templates/${projectType}/runtime.js`,
     },
+  ] as SeedFile[];
 
-    vue: {
-      framework: 'vue',
-      entryMatchers: [(f: string) => f === 'main.ts'],
+  const needsMount = projectType !== 'vanilla';
+
+  if (!needsMount) return base;
+
+  return [
+    ...base,
+    {
+      type: 'script',
+      path: `@/pkg/exhibit/templates/${projectType}/mount.js`,
     },
-
-    nuxt: {
-      framework: 'nuxt',
-      entryMatchers: [(f: string) => f === 'main.ts'],
-    },
-
-    vanilla: {
-      framework: 'vanilla',
-      entryMatchers: [(f: string) => f === 'index.html', (f: string) => f === 'main.js'],
-    },
-  } as const;
-
-  const config = assetMap[projectType] ?? assetMap.vanilla;
-
-  const entry = pickFirst(files, config.entryMatchers);
-
-  return {
-    framework: config.framework as any,
-    entry,
-    assets: [
-      {
-        type: 'html',
-        path: `@/pkg/exhibit/templates/${config.framework}/shell.html`,
-      },
-      {
-        type: 'script',
-        path: `@/pkg/exhibit/templates/${config.framework}/runtime.js`,
-      },
-      ...(config.framework !== 'vanilla'
-        ? [
-            {
-              type: 'script',
-              path: `@/pkg/exhibit/templates/${config.framework}/mount.js`,
-            },
-          ]
-        : []),
-    ],
-  };
+  ];
 }

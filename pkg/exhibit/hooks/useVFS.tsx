@@ -1,7 +1,14 @@
 'use client';
 
-import { EntrySource, ExhibitManifest, ResolvedEntry, VirtualFS, vfsAPI } from '@/pkg/exhibit/types';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  EntrySource,
+  ExhibitManifest,
+  ResolvedEntry,
+  TreeNode,
+  VirtualFileSystem,
+  VirtualFileSystemAPI,
+} from '@/lib/types';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { createTrace } from '@/lib/trace';
 
@@ -11,7 +18,7 @@ export function useVFS({
 }: {
   manifest: ExhibitManifest;
   iframeRef: React.RefObject<HTMLIFrameElement | null>;
-}): vfsAPI {
+}): VirtualFileSystemAPI {
   // -------------------------------------------------------------------------
   // INIT
   // -------------------------------------------------------------------------
@@ -24,7 +31,7 @@ export function useVFS({
   });
 
   const { slug, files: initialFiles, entries, runtime, seeds } = manifest;
-  const [files, setFiles] = useState<VirtualFS>(initialFiles);
+  const [files, setFiles] = useState<VirtualFileSystem>(initialFiles);
 
   const getCanonicalPath = (path: string) => (path.startsWith('./') ? path : `./${path}`);
 
@@ -100,16 +107,16 @@ export function useVFS({
   // -------------------------------------------------------------------------
   // FILE SWITCH
   // -------------------------------------------------------------------------
-  const handleFileSelect = (path: string) => {
-    console.log('handleFileSelect');
-    const resolvedPath = path.replace(/^\.\//, '').trim();
+  const handleFileSelect = (node: TreeNode) => {
+    const resolvedPath = node.path.replace(/^(\.\/|\/)+/, '');
 
-    trace.mark('FILE_SELECT', {
-      from: activePath,
-      to: resolvedPath,
-    });
-
-    if (!files[resolvedPath]) return;
+    if (!files[resolvedPath]) {
+      console.warn('File not found', {
+        node,
+        resolvedPath,
+      });
+      return;
+    }
 
     setActivePathState(resolvedPath);
   };
@@ -188,7 +195,7 @@ function resolveInitialEntry({
   runtimeEntry?: string | null;
   seedEntry?: string | null;
   entries: string[];
-  files: VirtualFS;
+  files: VirtualFileSystem;
 }): ResolvedEntry {
   const normalize = (p?: string | null) => (p ? (p.startsWith('./') ? p : `./${p}`) : null);
 

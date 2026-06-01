@@ -1,46 +1,162 @@
-export type VFS = Record<string, VFSFile>;
-export type VFSFile = {
+export type FileRecord = {
+  relPath: string; // canonical ID (NEVER optional)
+  absPath: string;
+
+  name: string;
+  ext: string;
+
+  content: string;
+};
+
+export type VirtualFileSystem = Record<string, VirtualFile>;
+
+export type SeedFileType = 'script' | 'style' | 'html' | 'json' | 'asset';
+export type FileRole =
+  | 'seed' // project scaffolding
+  | 'vfs' // live editor state
+  | 'runtime' // execution/bootstrap layer
+  | 'unknown';
+
+export type FileDescriptor = {
+  type: SeedFileType;
+  role: FileRole;
+};
+export type SeedFile = {
+  kind: 'seed';
+  path: string;
+  content: string;
+  type: SeedFileType;
+};
+
+export type RuntimeAsset = {
+  kind: 'runtime';
+  type: 'script' | 'html' | 'style';
+  path: string;
+};
+
+export type VirtualFile = {
+  kind: 'vfs';
+
   content?: string;
   language?: string;
+
   absPath: string;
   relPath: string;
   name: string;
   ext: string;
 };
-export type VFSNode = {
+
+export type FileEntity = SeedFile | RuntimeAsset | VirtualFile;
+
+export type TreeNode = {
   id: string;
   name: string;
   path: string;
   kind: 'file' | 'folder';
-  isFolder?: boolean;
-  isFile?: boolean;
-  children: VFSNode[];
+  children: TreeNode[];
 };
+
 export type TreeViewOptions = {
   hideFiles?: boolean;
   hideFolders?: boolean;
-  sort?: (a: VFSNode, b: VFSNode) => number;
-  filter?: (node: VFSNode) => boolean;
-  node: VFSNode;
+  sort?: (a: TreeNode, b: TreeNode) => number;
+  filter?: (node: TreeNode) => boolean;
+  node: TreeNode;
 };
-export type SidebarTreeType = {
-  data: VFSNode[];
+
+export type SidebarTreeProps = {
+  data: TreeNode[];
   activePath: string | null;
   onSelect: (id: string) => void;
 };
+
 export type ManifestOptions = {
   rootDir: string;
   baseUrl?: string;
   include?: RegExp;
 };
+
 export type EntrySource = 'runtime' | 'seed' | 'convention' | 'heuristic';
-export type ExhibitProjectType = 'vanilla' | 'next' | 'react' | 'nuxt' | 'vue';
+export type ExhibitProjectType = 'vanilla' | 'react' | 'next' | 'vue' | 'nuxt' | 'react-native' | 'flutter';
+
 export type ResolvedEntry = {
   path: string | null;
   source: EntrySource;
 };
+
+export type ManifestKind = 'npm' | 'flutter' | 'dart' | 'unknown';
+
+export type RuntimeConfig = {
+  framework: ExhibitProjectType;
+  entry: string | null;
+  assets: SeedFile[];
+};
+
+export type SeedConfig = {
+  framework: string;
+  files: Record<string, SeedFile>;
+  filesFlat: SeedFile[];
+  entry?: string | null;
+};
+
+export type ExhibitManifest = {
+  slug: string[];
+  root: string;
+
+  kind: ManifestKind;
+
+  files: VirtualFileSystem;
+  tree: TreeNode[];
+
+  entries: string[];
+
+  runtime: RuntimeConfig;
+
+  seeds: SeedConfig;
+
+  extensions: string[];
+
+  hasApp: boolean;
+  hasPage: boolean;
+
+  projectType: ExhibitProjectType;
+
+  isVirtual?: boolean;
+};
+
+export type VirtualFileSystemAPI = {
+  files: VirtualFile;
+  activeFile: VirtualFile | null;
+  activePath: string | null;
+
+  entrySource: EntrySource;
+
+  createSnapshot: () => {
+    files: VirtualFile;
+    entry: string;
+  };
+
+  handleFileSelect: (path: string) => void;
+  updateActiveFileContent: (content: string) => void;
+  setActivePath: (path: string) => void;
+
+  syncFullProject: (path: string) => void;
+  syncFilePatch: (path: string, content: string) => void;
+
+  getEntryPath: () => string | null;
+  getShellContent: () => string | null;
+};
+
+export interface TreeItemProps {
+  node: TreeNode;
+  activePath: string | null;
+  onSelect: (id: string) => void;
+  depth: number;
+  children: TreeNode[];
+}
+
 export interface EditorProps {
-  vfs?: vfsAPI;
+  vfs?: VirtualFileSystemAPI;
   value: string;
   mode?: string;
   key?: string;
@@ -52,69 +168,11 @@ export interface EditorProps {
   highlightActiveLine?: boolean;
   showPrintMargin?: boolean;
 }
-export type ExhibitManifest = {
-  slug: string[];
-  root: string;
-  files: {
-    [x: string]: VFS;
-  };
-  tree: any;
-  entries: string[];
-  runtime: {
-    framework: ExhibitProjectType;
-    entry: string | null;
-    assets: ExhibitRuntimeAsset[];
-  };
-  seeds: {
-    framework: string;
-    files: SeedFile[];
-    entry?: string | null;
-  };
-  extensions: string[];
-  hasApp: boolean;
-  hasPage: boolean;
-  projectType: ExhibitProjectType;
+
+export type WalkOptions<T> = {
+  includeExtensions?: string[];
+  ignoreDirs?: string[];
+  root?: string;
+
+  map: (input: { full: string; relative: string; content: string; name: string; ext: string }) => T;
 };
-export type ExhibitRuntimeAsset = {
-  type: 'html' | 'script' | 'style';
-  path: string;
-};
-export type ExhibitRuntime = {
-  framework: ExhibitProjectType;
-  entry: string | null;
-  assets: ExhibitRuntimeAsset[];
-};
-export interface vfsAPI {
-  files: VFSFile;
-  activeFile: VFS | null;
-  activePath: string | null;
-  entrySource: EntrySource;
-  createSnapshot: () => {
-    files: VFSFile;
-    entry: string;
-  };
-  handleFileSelect: (path: string) => void;
-  updateActiveFileContent: (content: string) => void;
-  setActivePath: (path: string) => void;
-  syncFullProject: (path: string) => void;
-  syncFilePatch: (path: string, content: string) => void;
-  getEntryPath: () => string | null;
-  getShellContent: () => string | null;
-}
-export type SeedFile = {
-  path: string;
-  content: string;
-  type: 'script' | 'html' | 'style' | 'json' | 'asset';
-};
-export type FrameworkSeeds = {
-  framework: string;
-  files: SeedFile[];
-  entry?: string | null;
-};
-export interface TreeItemProps {
-  node: VFSNode;
-  activePath: string | null;
-  onSelect: (id: string) => void;
-  depth: number;
-  children: VFSNode[];
-}

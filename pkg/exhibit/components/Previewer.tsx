@@ -1,7 +1,12 @@
-import { ExhibitManifest, vfsAPI } from '@/lib/types';
+import { ExhibitManifest, VirtualFileSystemAPI } from '@/lib/types';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
-type PreviewType = { manifest: ExhibitManifest; vfs: vfsAPI; codeState: string | undefined; className: string };
+type PreviewType = {
+  manifest: ExhibitManifest;
+  vfs: VirtualFileSystemAPI;
+  codeState: string | undefined;
+  className: string;
+};
 
 export const Previewer = ({ className, vfs }: PreviewType) => {
   const [blobUrl, setBlobUrl] = useState('');

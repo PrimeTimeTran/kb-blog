@@ -1,5 +1,5 @@
 import { ExhibitManifest, ExhibitProjectType } from '@/lib/types';
-import { buildManifestCore, buildTreeFromFiles } from '@/lib/fs/collect-files';
+import { buildManifestCore, buildTreeFromFiles } from '@/lib/fs/walk';
 
 import fs from 'fs';
 import { getExhibitPath } from '@/lib/paths';
@@ -10,20 +10,8 @@ export function createExhibitManifest(slug: string[] = ['02-react']): ExhibitMan
   const folderPath = slug.length > 0 ? slug.join('/') : 'hello-world';
   const targetDir = getExhibitPath(folderPath);
 
-  if (!fs.existsSync(targetDir)) {
-    console.warn(`Directory not found at: ${targetDir}`);
-    return {
-      slug,
-      root: folderPath,
-      files: {},
-      entries: [],
-      extensions: [],
-
-      hasApp: false,
-      hasPage: false,
-
-      projectType: 'vanilla',
-    };
+  if (isVirtualProject(targetDir)) {
+    return createEmptyManifest(slug);
   }
 
   const core = buildManifestCore({
@@ -41,43 +29,16 @@ export function createExhibitManifest(slug: string[] = ['02-react']): ExhibitMan
     slug,
     root: folderPath,
     files: core.files,
-
-    // ✅ unified tree source (same model as KB system)
     tree: buildTreeFromFiles(core.files),
-
     entries: core.entries,
     extensions: [...core.extensions],
-
     hasApp: signals.hasApp,
     hasPage: signals.hasPage,
-
     projectType,
     runtime,
     seeds,
   };
 }
-
-function detectProjectType(entries: string[], files: Record<string, any>, packageJson: any) {
-  const signals = collectFrameworkSignals(entries, files);
-
-  // -----------------------------
-  // 1. dependency-based detection (strongest signal)
-  // -----------------------------
-  const fromDeps = detectFromDependencies(packageJson);
-
-  if (fromDeps) return fromDeps;
-
-  // -----------------------------
-  // 2. heuristic fallback
-  // -----------------------------
-  if (signals.hasNextSignals) return 'next';
-  if (signals.hasReactSignals) return 'react';
-  if (signals.hasNuxtConfig) return 'nuxt';
-  if (signals.hasVueFiles) return 'vue';
-
-  return 'vanilla';
-}
-
 function collectFrameworkSignals(entries: string[], files: Record<string, any>) {
   const normalize = (p: string) => p.replace(/^\.\//, '');
 
@@ -109,7 +70,24 @@ function collectFrameworkSignals(entries: string[], files: Record<string, any>) 
     hasReactSignals,
   };
 }
+function detectProjectType(entries: string[], files: Record<string, any>, packageJson: any) {
+  const signals = collectFrameworkSignals(entries, files);
 
+  // 1. JS ecosystem deps first
+  const fromDeps = detectFromDependencies(packageJson);
+  if (fromDeps) return fromDeps;
+
+  // 2. Flutter (NOT npm-based)
+  if (detectFlutterFromFiles(entries, files)) return 'flutter';
+
+  // 3. heuristics fallback
+  if (signals.hasNextSignals) return 'next';
+  if (signals.hasReactSignals) return 'react';
+  if (signals.hasNuxtConfig) return 'nuxt';
+  if (signals.hasVueFiles) return 'vue';
+
+  return 'vanilla';
+}
 function detectFromDependencies(packageJson: any): ExhibitProjectType | null {
   if (!packageJson) return null;
 
@@ -122,6 +100,42 @@ function detectFromDependencies(packageJson: any): ExhibitProjectType | null {
   if (deps?.react || deps?.['react-dom']) return 'react';
   if (deps?.vue) return 'vue';
   if (deps?.nuxt) return 'nuxt';
+  if (deps?.['react-native']) return 'react-native';
 
   return null;
+}
+function detectFlutterFromFiles(entries: string[], files: Record<string, any>) {
+  const hasPubspec = entries.some((p) => p === 'pubspec.yaml');
+
+  if (!hasPubspec) return false;
+
+  const hasDartFiles = entries.some((p) => p.endsWith('.dart'));
+
+  const hasFlutterImports = Object.values(files).some((f: any) => {
+    const c = f?.content ?? '';
+    return c.includes('package:flutter') || c.includes('WidgetsFlutterBinding') || c.includes('runApp(');
+  });
+
+  return hasPubspec && (hasDartFiles || hasFlutterImports);
+}
+function isVirtualProject(targetDir: string) {
+  return !fs.existsSync(targetDir);
+}
+function createEmptyManifest(slug: string[]): ExhibitManifest {
+  const folderPath = slug.length > 0 ? slug.join('/') : 'hello-world';
+
+  return {
+    slug,
+    root: folderPath,
+    files: {},
+    entries: [],
+    extensions: [],
+
+    tree: {},
+
+    hasApp: false,
+    hasPage: false,
+
+    projectType: 'vanilla',
+  };
 }
