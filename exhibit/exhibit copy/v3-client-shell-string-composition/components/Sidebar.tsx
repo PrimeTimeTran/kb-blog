@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useMemo } from 'react';
-import { vfsAPI, VirtualFS } from '../hooks/useVFS';
+import { VirtualFS, vfsAPI } from '../hooks/useVFS';
+import { useMemo, useState } from 'react';
 
-interface TreeNode {
+interface VFSNode {
   name: string;
   path: string; // Empty if it's a folder
   isFolder: boolean;
-  children: Record<string, TreeNode>;
+  children: Record<string, VFSNode>;
 }
 
 interface SidebarProps {
@@ -17,8 +17,8 @@ interface SidebarProps {
 }
 
 // Helper: Converts your flat array of keys into a nested tree structure
-function buildTree(paths: string[]): TreeNode {
-  const root: TreeNode = { name: 'root', path: '', isFolder: true, children: {} };
+function buildTree(paths: string[]): VFSNode {
+  const root: VFSNode = { name: 'root', path: '', isFolder: true, children: {} };
 
   paths.forEach((fullPath) => {
     // Strip the starting "./" and split by folders
@@ -69,7 +69,7 @@ export function Sidebar({ vfs, files, activePath }: SidebarProps) {
 }
 
 interface FileNodeProps {
-  node: TreeNode;
+  node: VFSNode;
   activePath: string;
   onSelect: (path: string) => void;
   depth: number;

@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import type { Ace } from 'ace-builds';
-import { EditorProps } from '@/pkg/exhibit';
+import { EditorProps } from '@/lib/types';
 import { debounce } from 'lodash';
 import dynamic from 'next/dynamic';
 import { initAceExtensions } from '@/lib/syntax-registry';

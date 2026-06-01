@@ -1,3 +1,4 @@
+import { Metadata } from 'next/types';
 import PageClient from './PageClient';
 import { content } from '@/lib/content/api/client';
 
@@ -7,7 +8,7 @@ export default async function Page() {
   return <PageClient posts={posts || []} />;
 }
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
     default: 'Loi Tran',
     template: '%s | Loi Tran',

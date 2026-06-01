@@ -1,117 +1,83 @@
 import { ExhibitProjectType, ExhibitRuntime } from '@/pkg/exhibit';
 
-export function resolveRuntime(projectType: ExhibitProjectType, entries: string[]): ExhibitRuntime {
-  switch (projectType) {
-    // =========================================================================
-    // NEXT
-    // =========================================================================
+type FileMap = Record<string, { content: string; language: string }>;
 
-    case 'next':
-      return {
-        framework: 'next',
+function pickFirst(files: FileMap, matchers: ((name: string) => boolean)[]) {
+  const keys = Object.keys(files);
 
-        entry: entries.find((p) => p.endsWith('/page.tsx')) ?? entries.find((p) => p.endsWith('/app.tsx')) ?? null,
-
-        assets: [
-          {
-            type: 'html',
-            path: '@/pkg/exhibit/templates/next/shell.html',
-          },
-
-          {
-            type: 'script',
-            path: '@/pkg/exhibit/templates/next/runtime.js',
-          },
-
-          {
-            type: 'script',
-            path: '@/pkg/exhibit/templates/next/mount.js',
-          },
-        ],
-      };
-
-    // =========================================================================
-    // REACT
-    // =========================================================================
-
-    case 'react':
-      return {
-        framework: 'react',
-
-        entry:
-          entries.find((p) => /main\.(tsx|jsx)$/.test(p)) ??
-          entries.find((p) => /index\.(tsx|jsx)$/.test(p)) ??
-          entries.find((p) => /app\.(tsx|jsx)$/.test(p)) ??
-          null,
-
-        assets: [
-          {
-            type: 'html',
-            path: '@/pkg/exhibit/templates/react/shell.html',
-          },
-
-          {
-            type: 'script',
-            path: '@/pkg/exhibit/templates/react/runtime.js',
-          },
-
-          {
-            type: 'script',
-            path: '@/pkg/exhibit/templates/react/mount.js',
-          },
-        ],
-      };
-
-    // =========================================================================
-    // VUE
-    // =========================================================================
-
-    case 'vue':
-    case 'nuxt':
-      return {
-        framework: projectType,
-
-        entry: entries.find((p) => p.endsWith('/main.ts')) ?? entries.find((p) => p.endsWith('/main.js')) ?? null,
-
-        assets: [
-          {
-            type: 'html',
-            path: `@/pkg/exhibit/templates/${projectType}/shell.html`,
-          },
-
-          {
-            type: 'script',
-            path: `@/pkg/exhibit/templates/${projectType}/runtime.js`,
-          },
-
-          {
-            type: 'script',
-            path: `@/pkg/exhibit/templates/${projectType}/mount.js`,
-          },
-        ],
-      };
-
-    // =========================================================================
-    // VANILLA
-    // =========================================================================
-
-    default:
-      return {
-        framework: 'vanilla',
-
-        entry: entries.find((p) => p.endsWith('/index.html')) ?? entries.find((p) => p.endsWith('/main.js')) ?? null,
-
-        assets: [
-          {
-            type: 'html',
-            path: '@/pkg/exhibit/templates/vanilla/shell.html',
-          },
-
-          {
-            type: 'script',
-            path: '@/pkg/exhibit/templates/vanilla/runtime.js',
-          },
-        ],
-      };
+  for (const matcher of matchers) {
+    for (const key of keys) {
+      if (matcher(key)) return key;
+    }
   }
+
+  return null;
+}
+
+export function resolveRuntime(projectType: ExhibitProjectType, files: FileMap): ExhibitRuntime {
+  const assetMap = {
+    next: {
+      framework: 'next',
+      entryMatchers: [
+        (f: string) => f === 'page.tsx',
+        (f: string) => f === 'app.tsx',
+        (f: string) => /page\.(tsx|ts|jsx|js)$/.test(f),
+        (f: string) => /app\.(tsx|ts|jsx|js)$/.test(f),
+      ],
+    },
+
+    react: {
+      framework: 'react',
+      entryMatchers: [
+        (f: string) => f === 'main.tsx',
+        (f: string) => f === 'main.jsx',
+        (f: string) => f === 'index.tsx',
+        (f: string) => f === 'index.jsx',
+        (f: string) => f === 'app.tsx',
+        (f: string) => f === 'app.jsx',
+      ],
+    },
+
+    vue: {
+      framework: 'vue',
+      entryMatchers: [(f: string) => f === 'main.ts'],
+    },
+
+    nuxt: {
+      framework: 'nuxt',
+      entryMatchers: [(f: string) => f === 'main.ts'],
+    },
+
+    vanilla: {
+      framework: 'vanilla',
+      entryMatchers: [(f: string) => f === 'index.html', (f: string) => f === 'main.js'],
+    },
+  } as const;
+
+  const config = assetMap[projectType] ?? assetMap.vanilla;
+
+  const entry = pickFirst(files, config.entryMatchers);
+
+  return {
+    framework: config.framework as any,
+    entry,
+    assets: [
+      {
+        type: 'html',
+        path: `@/pkg/exhibit/templates/${config.framework}/shell.html`,
+      },
+      {
+        type: 'script',
+        path: `@/pkg/exhibit/templates/${config.framework}/runtime.js`,
+      },
+      ...(config.framework !== 'vanilla'
+        ? [
+            {
+              type: 'script',
+              path: `@/pkg/exhibit/templates/${config.framework}/mount.js`,
+            },
+          ]
+        : []),
+    ],
+  };
 }

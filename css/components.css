@@ -3,7 +3,6 @@
     @apply bg-background text-on-surface;
   }
   .nav-link {
-    /*  */
     @apply flex items-center justify-center gap-2 px-4 py-2 rounded-lg hover:bg-primary/10;
   }
 
@@ -21,88 +20,6 @@
 
   .group:hover .nav-link-chevron {
     @apply rotate-180 opacity-80;
-  }
-  .mdx-code-wrapper {
-    background-color: var(--code-bg);
-    border: 1px solid var(--code-border);
-    border-radius: var(--code-radius);
-    overflow: hidden;
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  .mdx-code-header {
-    background-color: var(--code-header-bg);
-    border-bottom: 1px solid var(--code-border);
-    color: var(--code-muted);
-    font-family: var(--code-font);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease,
-      color 0.15s ease;
-  }
-
-  /* --- Tab Group Integrations --- */
-  .mdx-tab-nav {
-    background-color: var(--code-header-bg);
-    border-top-left-radius: var(--code-radius);
-    border-top-right-radius: var(--code-radius);
-    border-top: 1px solid var(--code-border);
-    border-left: 1px solid var(--code-border);
-    border-right: 1px solid var(--code-border);
-    border-bottom: 1px solid var(--code-border);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  /* Strip top rounding & border off Pre when it sits under tabs */
-  .mdx-tab-group .mdx-code-wrapper {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-top: none;
-  }
-
-  .mdx-tab-btn {
-    font-family: var(--code-font);
-    color: var(--code-muted);
-    transition: all 0.15s ease;
-    margin-bottom: -1px; /* Pulls active tab border over the header bottom line */
-  }
-
-  .mdx-tab-btn:hover {
-    color: var(--code-text);
-  }
-
-  .mdx-tab-btn[data-active='true'] {
-    background-color: var(--code-bg);
-    color: var(--code-accent);
-    border-top: 1px solid var(--code-border);
-    border-left: 1px solid var(--code-border);
-    border-right: 1px solid var(--code-border);
-    border-bottom: 1px solid var(--code-bg); /* Matches canvas background to visually cut the bottom rule */
-  }
-
-  /* --- Line Highlighting & Numbers --- */
-  .mdx-code-line {
-    border-left: 2px solid transparent;
-    font-family: var(--code-font);
-    transition:
-      background-color 0.15s ease,
-      border-color 0.15s ease;
-  }
-
-  .mdx-code-line[data-highlighted='true'] {
-    background-color: var(--code-accent-dim);
-    border-left-color: var(--code-accent);
-  }
-
-  .mdx-code-wrapper pre,
-  .mdx-code-wrapper code {
-    font-family: var(--code-font) !important;
-    color: var(--code-text);
-    transition: color 0.15s ease;
   }
 
   .tree-item {
@@ -125,7 +42,6 @@
     active:bg-highest;
   }
 
-  /* Text child should truncate, not necessarily the container */
   .tree-item-label {
     @apply truncate min-w-0 flex-1;
   }
@@ -147,32 +63,25 @@
   .group:hover .controls {
     opacity: 1;
   }
-  /* -------------------------
-   * ICON BUTTON (hamburger, close, theme toggle)
-   * ------------------------- */
+
   .icon-button {
+    /* layout */
     @apply inline-flex h-9 w-9 items-center justify-center;
 
-    @apply rounded-full;
+    /* appearance */
+    @apply rounded-full backdrop-blur-md shadow-sm;
 
-    @apply backdrop-blur-md;
-    @apply shadow-sm;
-
+    /* animation */
     @apply transition-all duration-200 ease-out;
 
-    /* base surface */
+    /* base */
     @apply bg-transparent;
 
-    /* hover state */
-    @apply hover:bg-level;
-    @apply hover:shadow-md;
-    @apply hover:-translate-y-0.5;
-    @apply hover:text-on-surface;
+    /* hover */
+    @apply hover:bg-level hover:shadow-md hover:-translate-y-0.5 hover:text-on-surface;
 
-    /* active (press) */
-    @apply active:bg-high;
-    @apply active:translate-y-0;
-    @apply active:scale-95;
+    /* active */
+    @apply active:bg-high active:translate-y-0 active:scale-95;
   }
 
   /* -------------------------
@@ -272,8 +181,7 @@
 
   /* BADGE (count / meta) */
   .chip-badge {
-    @apply text-xs font-medium leading-none px-1.5 py-0.5 rounded-md
-         border border-outline-variant;
+    @apply text-xs font-medium leading-none px-1.5 py-0.5 rounded-md border border-outline-variant;
   }
 
   .hover-button {

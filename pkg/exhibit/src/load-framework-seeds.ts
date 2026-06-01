@@ -15,7 +15,8 @@ function classifyFile(file: string): SeedFile['type'] {
 export function loadFrameworkSeeds(framework: string): FrameworkSeeds {
   const root = path.join(SEEDS_DIR, framework);
 
-  const files: SeedFile[] = [];
+  const files: Record<string, SeedFile> = {};
+  const filesFlat: SeedFile[] = [];
 
   if (!fs.existsSync(root)) {
     console.warn(`Seed directory not found: ${root}`);
@@ -35,9 +36,15 @@ export function loadFrameworkSeeds(framework: string): FrameworkSeeds {
 
       const content = fs.readFileSync(full, 'utf-8');
 
-      const rel = path.relative(root, full).replace(/\\/g, '/');
+      // 🔥 flatten to filename-only key (same VFS rule)
+      const rel = path.relative(root, full).replace(/\\/g, '/').split('/').pop()!;
 
-      files.push({
+      files[rel] = {
+        path: rel,
+        content,
+        type: classifyFile(entry.name),
+      };
+      filesFlat.push({
         path: rel,
         content,
         type: classifyFile(entry.name),
@@ -47,16 +54,16 @@ export function loadFrameworkSeeds(framework: string): FrameworkSeeds {
 
   walk(root);
 
-  // pick entry intelligently (optional)
   const entry =
-    files.find((f) => f.path.endsWith('main.tsx'))?.path ??
-    files.find((f) => f.path.endsWith('main.jsx'))?.path ??
-    files.find((f) => f.type === 'html')?.path ??
+    files['main.tsx']?.path ??
+    files['main.jsx']?.path ??
+    Object.values(files).find((f) => f.type === 'html')?.path ??
     null;
 
   return {
-    framework,
     files,
     entry,
+    framework,
+    filesFlat,
   };
 }

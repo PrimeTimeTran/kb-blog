@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        --bg: 255 255 255;
+        --fg: 15 15 15;
+        --muted: 120 120 120;
+        --accent: 34 197 94;
+      }
+
+      :root[data-theme='dark'] {
+        --bg: 9 9 11;
+        --fg: 255 255 255;
+        --muted: 161 161 170;
+        --accent: 59 130 246;
+      }
+      /* Dark Theme */
+      [data-theme='dark'] {
+        --bg-color: #1a1a1a;
+        --text-color: #f0f0f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        overflow-y: auto; /* This enables the internal scrollbar */
+      }
+
+      body {
+        background-color: blue;
+        background: var(--bg);
+        color: rgb(var(--fg)) !important;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      #error-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(9, 9, 11, 0.95);
+        color: #ef4444;
+        padding: 24px;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow: auto;
+        z-index: 99999;
+        display: none;
+      }
+      #error-overlay-text {
+        white-space: pre-wrap; /* Preserves newlines and wraps text */
+        word-wrap: break-word; /* Prevents long lines from breaking your layout */
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <script>
+      window.AppCore = window.AppCore || { messageQueue: [] };
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+        // If the method exists, route it; otherwise, queue it
+        if (typeof window.AppCore.processMessage === 'function') {
+          window.AppCore.processMessage(data);
+        } else {
+          window.AppCore.messageQueue.push(data);
+        }
+      });
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="/react.js"></script>
+    <script src="/reactdom.js"></script>
+  </head>
+
+  <body>
+    <div id="root" className="bg-surface h-full w-full"></div>
+    <div
+      id="error-overlay"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
+    >
+      <div id="error-overlay-text"></div>
+    </div>
+
+    <script>
+      window.AppCore = {
+        isReady: false,
+        // --- 1. CONFIGURATION & STATE ---
+        vfs: {},
+        root: null,
+        // Which file contains the root component?
+        // <App />?.
+        // That's the purpose of this
+        ENTRY_PATH: null,
+        messageQueue: [],
+        moduleRegistry: {},
+
+        // --- 2. LIFECYCLE & RENDERING ---
+        init() {
+          // 1. Listen for standard postMessages (from the IDE)
+          window.addEventListener('message', (event) => {
+            // Use the arrow function () => to bind 'this' automatically
+            this.processMessage(event.data);
+          });
+
+          // 3. Process queued messages
+          while (this.messageQueue.length > 0) {
+            this.processMessage(this.messageQueue.shift());
+          }
+        },
+        ensureRoot() {
+          if (!this.root) {
+            const rootEl =
+              document.getElementById('root') ||
+              document.body.appendChild(Object.assign(document.createElement('div'), { id: 'root' }));
+            this.root = ReactDOM.createRoot(rootEl);
+          }
+          return this.root;
+        },
+        notifyErrorless() {
+          window.AppCore.clearErrorOverlay();
+          window.parent.postMessage({ type: 'ui:errorless' }, '*');
+        },
+        render(path) {
+          const mod = this.customRequire(path);
+
+          // -----------------------------
+          // 1. STATIC ASSETS
+          // -----------------------------
+          if (mod?.type === 'static' || typeof mod?.default === 'string') {
+            return this.renderStatic(path, mod);
+          }
+
+          // -----------------------------
+          // 2. HTML MODULES
+          // -----------------------------
+          if (mod?.__type === 'html') {
+            return this.renderHTML(mod.__html);
+          }
+
+          // -----------------------------
+          // 3. CSS MODULES
+          // -----------------------------
+          if (mod?.__type === 'css') {
+            return this.loadCSS(path, mod);
+          }
+
+          // -----------------------------
+          // 4. JSON / DATA MODULES
+          // -----------------------------
+          if (mod && typeof mod === 'object' && !mod.default && !mod.render) {
+            console.log('📦 Data module (no render):', mod);
+            return mod;
+          }
+
+          // -----------------------------
+          // 5. REACT MODULES (ONLY VALID CASE)
+          // -----------------------------
+          const Component = mod.default ?? mod;
+
+          if (typeof Component !== 'function') {
+            throw new Error(`Unsupported entry type: ${typeof Component}. Path: ${path}`);
+          }
+          window.AppCore.notifyErrorless();
+          const root = this.ensureRoot();
+          root.render(window.React.createElement(Component));
+        },
+        renderStatic(path, mod) {
+          const ext = path.split('.').pop();
+
+          switch (ext) {
+            case 'html':
+              return this.renderHTML(mod.default);
+
+            case 'css':
+              return this.loadCSS(path, mod.default);
+
+            case 'md':
+              return this.renderMarkdown(mod.default);
+
+            case 'txt':
+              return this.renderText(mod.default);
+
+            default:
+              console.log('📄 Static asset ignored:', path);
+          }
+        },
+
+        renderHTML(html) {
+          const root = this.ensureRoot();
+          root.innerHTML = html;
+        },
+
+        renderText(text) {
+          const root = this.ensureRoot();
+          root.innerText = text;
+        },
+
+        renderMarkdown(md) {
+          const html = window.marked?.parse?.(md) ?? md;
+          return this.renderHTML(html);
+        },
+        mountHTML(html) {
+          let container = document.getElementById('html-root');
+
+          if (!container) {
+            container = document.createElement('div');
+            container.id = 'html-root';
+            document.body.appendChild(container);
+          }
+
+          container.innerHTML = html;
+        },
+        addErrorOverlay(payload) {
+          const overlay = document.getElementById('error-overlay');
+          let msg = `❌ Runtime Error\n\n`;
+          if (payload.loc) {
+            msg += `Line ${payload.loc.line}, Col ${payload.loc.column}\n`;
+          }
+          msg += `${payload.message}\n\n`;
+          const textBody = document.getElementById('error-overlay-text');
+          textBody.textContent = msg;
+          overlay.style.display = 'block';
+        },
+        clearErrorOverlay() {
+          const overlay = document.getElementById('error-overlay');
+          if (overlay) {
+            overlay.style.display = 'none';
+          }
+        },
+
+        // --- 3. MODULE SYSTEM (VFS ENGINE) ---
+        syncRegistry(files) {
+          this.moduleRegistry = {};
+          Object.entries(files || {}).forEach(([path, file]) => {
+            this.registerModule(path, file.content);
+          });
+        },
+        loadFile(path, callerPath = './') {
+          const resolvedPath = this.resolvePath?.(path, callerPath) ?? path;
+
+          const file = this.vfs?.[resolvedPath];
+
+          if (!file) {
+            throw new Error(`Cannot resolve file: ${path} from ${callerPath}`);
+          }
+
+          const type = getFileType(resolvedPath);
+
+          switch (type) {
+            case 'module':
+              return this.loadModule(resolvedPath);
+
+            case 'html':
+              return this.loadHTML(resolvedPath, file.content);
+
+            case 'css':
+              return this.loadCSS(resolvedPath, file.content);
+
+            case 'markdown':
+              return this.loadMarkdown(file.content);
+
+            case 'json':
+              try {
+                return JSON.parse(file.content);
+              } catch (e) {
+                this.reportError(e);
+                return null;
+              }
+
+            case 'text':
+              return file.content;
+
+            default:
+              return file.content;
+          }
+        },
+        loadHTML(path, html) {
+          // OPTION A: just return for JSX-style usage
+          return {
+            __type: 'html',
+            __html: html,
+          };
+
+          // OPTION B (IDE mode): auto-mount
+          // this.mountHTML(html);
+          // return {};
+        },
+        loadCSS(path, css) {
+          if (typeof document === 'undefined') return;
+
+          let styleTag = document.querySelector(`style[data-vfs="${path}"]`);
+
+          if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.setAttribute('data-vfs', path);
+            document.head.appendChild(styleTag);
+          }
+
+          styleTag.textContent = css;
+
+          return { __type: 'css' };
+        },
+        loadMarkdown(md) {
+          // optional dependency-safe fallback
+          if (typeof window === 'undefined') return md;
+
+          if (window.marked) {
+            return {
+              __type: 'markdown',
+              __html: window.marked.parse(md),
+            };
+          }
+
+          return md;
+        },
+        resolvePath(target, base) {
+          if (!target.startsWith('.')) return target;
+
+          const baseDir = base.substring(0, base.lastIndexOf('/'));
+          return `${baseDir}/${target.replace('./', '')}`.replace(/\/+/g, '/');
+        },
+        registerModule(path, content) {
+          try {
+            const ext = path.split('.').pop()?.toLowerCase();
+
+            // --------------------------------------------
+            // 1. STATIC ASSETS (NO EXECUTION)
+            // --------------------------------------------
+            const STATIC_EXT = new Set(['html', 'md', 'txt', 'css', 'json']);
+
+            if (STATIC_EXT.has(ext)) {
+              let exports;
+
+              switch (ext) {
+                case 'json':
+                  exports = JSON.parse(content);
+                  break;
+                default:
+                  exports = content; // html/md/txt/css => raw string
+              }
+
+              this.moduleRegistry[path] = {
+                exports: { default: exports },
+                factory: null,
+                wasExecuted: true,
+                type: 'static',
+              };
+
+              console.log(`📄 Registered static asset: ${path}`);
+              return;
+            }
+
+            // --------------------------------------------
+            // 2. EXECUTABLE MODULES (JS/TS/REACT)
+            // --------------------------------------------
+            const transformed = Babel.transform(content, {
+              filename: path,
+              presets: [['typescript', { isTSX: true, allExtensions: true }], ['react', { runtime: 'classic' }], 'env'],
+              plugins: ['transform-modules-commonjs'],
+            }).code;
+
+            const module = { exports: {} };
+
+            const factory = new Function('module', 'exports', 'require', transformed);
+
+            this.moduleRegistry[path] = {
+              exports: {},
+              factory,
+              wasExecuted: false,
+              type: 'module',
+            };
+
+            console.log(`⚙️ Registered module: ${path}`);
+          } catch (err) {
+            console.error(`❌ Execution error in ${path}:`, err);
+            this.reportError(err);
+            throw err;
+          }
+        },
+        customRequire(modulePath, callerPath = './') {
+          const external = this.getExternalDep(modulePath);
+          const resolvedPath = this.resolvePath?.(modulePath, callerPath) ?? modulePath;
+          const fullPath = this.resolvePath(modulePath, callerPath);
+          if (external) {
+            return external;
+          }
+
+          console.log(`🔍 Requiring: ${resolvedPath}`);
+          const mod = this.moduleRegistry[modulePath];
+
+          if (!mod) {
+            throw new Error(`Cannot resolve: ${modulePath}`);
+          }
+
+          // 4. Execution
+          if (!mod.wasExecuted && mod.factory) {
+            const boundRequire = (p) => this.customRequire(p, fullPath);
+            mod.factory(mod, mod.exports, boundRequire);
+            mod.wasExecuted = true;
+          }
+
+          if (mod.type === 'static') {
+            return {
+              type: 'static',
+              default: mod.exports.default,
+            };
+          }
+
+          if (!mod.wasExecuted && mod.factory) {
+            const boundRequire = (p) => this.customRequire(p, modulePath);
+
+            const result = mod.factory(mod, mod.exports, boundRequire);
+
+            // 🚨 HARD GUARD: prevent async leakage
+            if (result instanceof Promise) {
+              throw new Error(`Module ${modulePath} returned a Promise. Async modules are not supported in runtime.`);
+            }
+
+            mod.wasExecuted = true;
+          }
+
+          return mod.exports;
+        },
+        getExternalDep(name) {
+          return {
+            react: window.React,
+            lodash: window.lodash,
+            'react-dom': window.ReactDOM,
+            'lucide-react': window.lucide,
+          }[name];
+        },
+        Handlers: {
+          'runtime:boot': (ctx, payload) => {
+            // [SETUP FRAMEWORK/RUNTIME]
+            ctx.ENTRY_PATH = payload.entry;
+            ctx.vfs = payload.files;
+            ctx.processMessage({ type: 'vfs:update', payload: { files: payload.files } });
+          },
+          // --- UI & System Operations ---
+          // theme:change, ui:error, vfs:update, vfs: sync, file:select,
+          'theme:change': (ctx, { theme }) => {
+            const newTheme = theme == 'dark';
+            console.info('🎨 Change', { theme });
+            document.documentElement.dataset.theme = theme;
+            document.body.style.background = theme === 'dark' ? '#0b0b0f' : '#ffffff';
+          },
+          'ui:error': (ctx, { message, stack, loc }) => {
+            console.error('❌ ui:error ');
+            ctx.onError(message, { loc, stack });
+          },
+          'vfs:update': (ctx, payload) => {
+            // [SETUP VFS]
+            console.log('🗂️ vfs:update!');
+            if (!payload?.files) {
+              console.error("⚠️ vfs:update received but 'files' missing!");
+              return;
+            }
+            // ctx.ENTRY_PATH = payload.entryPoint || './hello-world/page.tsx';
+            ctx.syncRegistry(payload.files);
+            ctx.bootRender(payload.entryPoint || ctx.ENTRY_PATH);
+          },
+          'vfs:sync': (ctx, payload) => {
+            console.log('🗂️ vfs:sync');
+            // File update, name change, meta data (which directory, extension, etc)
+            if (!payload?.path || payload.content === undefined) {
+              console.warn('⚠️ vfs:sync received invalid data');
+              return;
+            }
+            ctx.registerModule(payload.path, payload.content);
+            ctx.render(ctx.ENTRY_PATH);
+          },
+          'vfs:file:select': (ctx, { path }) => {
+            console.log('🗂️ vfs:file:select');
+            // Logic: Change active state without re-rendering the whole app
+            ctx.activeFile = path;
+            console.log(`📂 Editor focused on: ${path}`);
+            // Potentially notify parent to update editor cursor position
+            window.parent.postMessage({ type: 'ui:editor-focus', path }, '*');
+          },
+        },
+        // --- 4. COMMUNICATION & HMR ---
+        processMessage(msg) {
+          // console.log('[IFRAME APP CORE MSG] ...msg');
+          // 1. Ensure a basic structure exists
+          if (!msg || !msg.type) return;
+
+          if (!this.isReady) {
+            this.messageQueue.push(e.msg);
+            return;
+          }
+
+          const handler = this.Handlers[msg.type];
+
+          if (!handler) {
+            console.warn(`⚠️ Unhandled message type: ${msg.type}`);
+            return;
+          }
+
+          // 2. Defensive Payload Extraction
+          // Even if the IDE sends nothing, we pass an empty object {}
+          const payload = msg.payload || {};
+
+          try {
+            handler(this, payload);
+          } catch (err) {
+            // 3. Centralized Error Handling
+            this.reportError(err);
+          }
+        },
+        setupHMR() {
+          const socket = new WebSocket('ws://localhost:8080/browser');
+          console.log('✅ WS Connected');
+          socket.onmessage = async (event) => {
+            console.log('📝 WS Connected');
+            const data = JSON.parse(event.data instanceof Blob ? await event.data.text() : event.data);
+            this.processMessage(data);
+          };
+        },
+        reportError(err) {
+          console.log({ err });
+          console.error('⛔️ Error: Module System Error:', err);
+          window.AppCore.addErrorOverlay(err);
+          window.parent.postMessage({ type: 'iframe:error', payload: { message: err.message } }, '*');
+        },
+        markReady() {
+          this.isReady = true;
+          // Process anything that arrived while we were booting
+          this.messageQueue.forEach((msg) => this.processMessage({ data: msg }));
+          this.messageQueue = [];
+        },
+        bootRender(path = '') {
+          const mod = this.customRequire(path);
+
+          // -----------------------------------
+          // 1. STATIC FILES
+          // -----------------------------------
+          if (mod?.type === 'static') {
+            const ext = path.split('.').pop()?.toLowerCase();
+
+            switch (ext) {
+              case 'html':
+                this.mountHTML(mod.default);
+                return;
+
+              case 'css':
+                this.loadCSS(path, mod.default);
+                return;
+
+              case 'md':
+                this.renderMarkdown(mod.default);
+                return;
+
+              case 'json':
+                console.log('JSON entry:', mod.default);
+                return;
+
+              case 'txt':
+                this.mountText(mod.default);
+                return;
+
+              default:
+                throw new Error(`Unsupported static entry: ${path}`);
+            }
+          }
+
+          // -----------------------------------
+          // 2. REACT MODULES
+          // -----------------------------------
+          const Component = mod?.default ?? mod;
+
+          if (typeof Component === 'function') {
+            const root = this.ensureRoot();
+            root.render(React.createElement(Component));
+            return;
+          }
+
+          throw new Error(`Unsupported entry type: ${typeof Component}`);
+        },
+        boot: () => {
+          console.log('✅ DOMContentLoaded');
+          window.AppCore.setupHMR();
+          window.AppCore.markReady();
+          window.parent.postMessage({ type: 'iframe:ready' }, '*');
+        },
+      };
+    </script>
+    <script>
+      // 1. Setup the "One-Time" Listener
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+
+        // If Core isn't defined, queue it
+        if (!window.AppCore.processMessage) {
+          console.log('Iframe not ready, queuing:', data.type);
+          window.AppCore.messageQueue.push(data);
+          return;
+        }
+
+        // Otherwise, just route the message
+        window.AppCore.processMessage(data);
+      });
+
+      window.addEventListener('error', (e) => {
+        if (window.AppCore && window.AppCore.reportError) {
+          window.AppCore.reportError(e);
+        } else {
+          console.error('System Error before AppCore ready:', e);
+        }
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', window.AppCore.boot);
+      } else {
+        window.AppCore.boot();
+      }
+    </script>
+  </body>
+</html>

@@ -177,7 +177,7 @@ export const navItems: NavItem[] = [
   {
     label: 'Case Studies',
     icon: BarChart3,
-    description: 'Real-world applications and system breakdowns',
+    description: 'Demos not memos. See systems in action',
     href: '#',
 
     featured: {
@@ -188,23 +188,29 @@ export const navItems: NavItem[] = [
 
     links: [
       {
-        title: 'Design Systems',
+        title: 'Product Pages',
         description: 'Component-driven runtime UI systems',
-        href: '/system/design',
+        href: '/design',
         icon: Palette,
       },
       {
-        title: 'Interactive Editors',
-        description: 'Live coding environments at scale',
-        href: '/playground',
-        icon: Code2,
+        title: 'Design Systems',
+        description: 'Primitives exhibitions including surfaces, components, utilities',
+        href: '/design/system',
+        icon: Palette,
       },
-      {
-        title: 'AI Tooling',
-        description: 'Runtime-based AI execution workflows',
-        href: '#',
-        icon: Bot,
-      },
+      // {
+      //   title: 'Interactive Editors',
+      //   description: 'Live coding environments at scale',
+      //   href: '/playground',
+      //   icon: Code2,
+      // },
+      // {
+      //   title: 'AI Tooling',
+      //   description: 'Runtime-based AI execution workflows',
+      //   href: '#',
+      //   icon: Bot,
+      // },
     ],
   },
 
@@ -230,7 +236,7 @@ export const navItems: NavItem[] = [
       {
         title: 'Knowledge Base',
         description: 'Internal system notes and references',
-        href: '/kb',
+        href: '/kb/table-of-contents',
         icon: FileCode2,
       },
       {

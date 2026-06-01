@@ -8,7 +8,7 @@ import { DropdownPanel } from './DropdownPanel';
 import { DynamicLogo } from '@/components/brand/DynamicLogo';
 import ThemeSwitch from '../ThemeSwitch';
 import clsx from 'clsx';
-import { getFeatureFlags } from '@/getFeatureFlags';
+import { getFeatureFlags } from '@/lib/feature-flags';
 
 export function MegaNavbar({ pathName }: { pathName: string }) {
   const { scrollProgress } = useScroll();
@@ -107,7 +107,7 @@ type ChevronDownProps = {
   className?: string;
 };
 
-export function ChevronDown({ size = 14, className }: ChevronDownProps) {
+export function ChevronDown({ size = 18, className }: ChevronDownProps) {
   return (
     <svg
       viewBox="0 0 20 20"

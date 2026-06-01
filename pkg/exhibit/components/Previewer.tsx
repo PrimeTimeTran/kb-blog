@@ -1,24 +1,23 @@
-import { ExhibitManifest, vfsAPI } from '../types';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { ExhibitManifest, vfsAPI } from '@/lib/types';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 type PreviewType = { manifest: ExhibitManifest; vfs: vfsAPI; codeState: string | undefined; className: string };
 
-export const Previewer = ({ className, vfs, manifest }: PreviewType) => {
+export const Previewer = ({ className, vfs }: PreviewType) => {
   const [blobUrl, setBlobUrl] = useState('');
 
   useEffect(() => {
     const files = vfs.files || {};
-    const root = manifest.root;
+    const htmlEntry = Object.entries(files).find(([p]) => p.endsWith('.html'));
 
-    const resolve = (path: string) => {
-      const clean = path.replace(/^\.\//, '');
-      const key = `./${root}/${clean}`;
-      return files[key]?.content;
-    };
-
-    const html = Object.entries(files).find(([p]) => p.endsWith('.html'))?.[1]?.content || '';
+    const html = htmlEntry?.[1]?.content || '';
 
     if (!html) return;
+
+    const resolve = (href: string) => {
+      const clean = href.replace(/^\.\//, '');
+      return files[clean]?.content ?? null;
+    };
 
     let output = html;
 
@@ -41,7 +40,7 @@ export const Previewer = ({ className, vfs, manifest }: PreviewType) => {
     });
 
     return () => URL.revokeObjectURL(nextUrl);
-  }, [vfs.files, manifest.root]);
+  }, [vfs.files]);
 
   const { iframeRef: scrollRef } = useIframeScrollPreservation(blobUrl);
 

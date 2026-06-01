@@ -1,10 +1,10 @@
 'use client';
-import Prism from 'prismjs';
-import { useState } from 'react';
-
-import { LANG_MAP } from '@/data/constants';
 
 import '@/lib/syntax-registry';
+
+import { LANG_MAP } from '@/data/constants';
+import Prism from 'prismjs';
+import { useState } from 'react';
 
 const safeJsonParse = (str: string, fallback: any) => {
   try {
@@ -66,7 +66,7 @@ export function Pre(props: any) {
   const hasHighlights = highlightSet.size > 0;
 
   return (
-    <div className="mdx-code-wrapper not-prose shadow-lg w-full max-w-full">
+    <div className="mdx-code-wrapper not-prose shadow-sm w-full max-w-full">
       {title && <div className="mdx-code-header py-2 text-xs truncate">{title}</div>}
       <pre className={`m-0! overflow-x-auto py-2 text-sm leading-relaxed ${isTabGroup ? 'px-2' : ''}`}>
         <code className="block min-w-full w-max">

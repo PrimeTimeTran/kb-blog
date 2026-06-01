@@ -42,5 +42,6 @@
 
 @import './vendors.css';
 @import './prism.css';
+@import './code.css';
 
 @import './app.css';

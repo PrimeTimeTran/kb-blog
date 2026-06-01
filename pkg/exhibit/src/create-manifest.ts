@@ -1,152 +1,127 @@
-import { EXHIBIT_DIR, assertInside, getExhibitPath } from '@/lib/paths';
-import { ExhibitManifest, ExhibitProjectType, VirtualFS } from '@/pkg/exhibit';
+import { ExhibitManifest, ExhibitProjectType } from '@/pkg/exhibit';
+import { buildManifestCore, buildTreeFromFiles } from '@/lib/fs/collect-files';
 
 import fs from 'fs';
+import { getExhibitPath } from '@/lib/paths';
 import { loadFrameworkSeeds } from '@/pkg/exhibit';
-import path from 'path';
 import { resolveRuntime } from '@/pkg/exhibit';
 
 export function createExhibitManifest(slug: string[] = ['2-react']): ExhibitManifest {
-  let packageJson: any = null;
-  const files: VirtualFS = {};
-  const entries: string[] = [];
-  const extensions = new Set<string>();
   const folderPath = slug.length > 0 ? slug.join('/') : '1-vanilla';
-
   const targetDir = getExhibitPath(folderPath);
 
-  try {
-    if (!fs.existsSync(targetDir)) {
-      console.warn(`Directory not found at: ${targetDir}`);
+  if (!fs.existsSync(targetDir)) {
+    console.warn(`Directory not found at: ${targetDir}`);
+    return {
+      slug,
+      root: folderPath,
+      files: {},
+      entries: [],
+      extensions: [],
 
-      return {
-        slug,
-        root: folderPath,
+      hasApp: false,
+      hasPage: false,
 
-        files,
-        entries,
-        extensions: [],
-
-        hasApp: false,
-        hasPage: false,
-
-        projectType: 'vanilla',
-      };
-    }
-
-    const readDirectoryRecursive = (currentDir: string) => {
-      const entriesInDir = fs.readdirSync(currentDir, {
-        withFileTypes: true,
-      });
-
-      for (const entry of entriesInDir) {
-        const fullPath = path.join(currentDir, entry.name);
-
-        if (entry.isDirectory()) {
-          readDirectoryRecursive(fullPath);
-          continue;
-        }
-
-        if (!entry.isFile()) continue;
-
-        if (!/\.(tsx|ts|jsx|js|css|html|vue)$/.test(entry.name)) {
-          continue;
-        }
-
-        const content = fs.readFileSync(fullPath, 'utf-8');
-        if (entry.name === 'package.json') {
-          try {
-            packageJson = JSON.parse(content);
-          } catch (e) {
-            console.warn('Invalid package.json', e);
-          }
-        }
-
-        const relative = assertInside(EXHIBIT_DIR, fullPath);
-        const relativePath = './' + relative.replace(/\\/g, '/');
-        const ext = entry.name.split('.').pop() ?? 'js';
-
-        const language = ext === 'tsx' || ext === 'jsx' ? 'jsx' : ext === 'ts' ? 'typescript' : ext;
-
-        files[relativePath] = {
-          content,
-          language,
-        };
-
-        entries.push(relativePath);
-        extensions.add(ext);
-      }
+      projectType: 'vanilla',
     };
-
-    readDirectoryRecursive(targetDir);
-  } catch (error) {
-    console.error('Error compiling exhibit manifest:', error);
   }
 
-  // =========================================================================
-  // PROJECT DETECTION
-  // =========================================================================
+  const core = buildManifestCore({
+    rootDir: targetDir,
+  });
 
-  const hasApp = entries.some((p) => /\/app\.(tsx|jsx|ts|js)$/.test(p));
+  const projectType = detectProjectType(core.entries, core.files, core.packageJson);
 
-  const hasPage = entries.some((p) => /\/page\.(tsx|jsx|ts|js)$/.test(p));
-
-  const hasVueFiles = entries.some((p) => p.endsWith('.vue'));
-
-  const hasNuxtConfig = entries.some((p) => /nuxt\.config\.(ts|js)$/.test(p));
-
-  const hasNextSignals = hasApp || hasPage || entries.some((p) => /\/layout\.(tsx|jsx|ts|js)$/.test(p));
-
-  const hasReactSignals =
-    entries.some((p) => /(main|index|app)\.(tsx|jsx)$/.test(p)) ||
-    entries.some((p) => {
-      const file = files[p];
-
-      return (
-        file?.content.includes('react') || file?.content.includes('ReactDOM') || file?.content.includes('createRoot')
-      );
-    });
-
-  let projectType: ExhibitProjectType = 'vanilla';
-
-  if (packageJson) {
-    const deps = {
-      ...packageJson.dependencies,
-      ...packageJson.devDependencies,
-    };
-
-    if (deps?.next) projectType = 'next';
-    else if (deps?.react || deps?.['react-dom']) projectType = 'react';
-    else if (deps?.vue) projectType = 'vue';
-    else if (deps?.nuxt) projectType = 'nuxt';
-  }
-  // ----------------------------------------
-  // 2. HEURISTICS (FALLBACK ONLY)
-  // ----------------------------------------
-  if (projectType === 'vanilla') {
-    if (hasNextSignals) projectType = 'next';
-    else if (hasReactSignals) projectType = 'react';
-    else if (hasNuxtConfig) projectType = 'nuxt';
-    else if (hasVueFiles) projectType = 'vue';
-  }
-
-  const runtime = resolveRuntime(projectType, entries);
-
+  const runtime = resolveRuntime(projectType, core.entries);
   const seeds = loadFrameworkSeeds(projectType);
 
-  const exhibitManifest = {
+  const signals = collectFrameworkSignals(core.entries, core.files);
+
+  return {
     slug,
     root: folderPath,
-    files,
-    entries,
-    runtime,
-    seeds,
-    extensions: [...extensions],
+    files: core.files,
 
-    hasApp,
-    hasPage,
+    // ✅ unified tree source (same model as KB system)
+    tree: buildTreeFromFiles(core.files),
+
+    entries: core.entries,
+    extensions: [...core.extensions],
+
+    hasApp: signals.hasApp,
+    hasPage: signals.hasPage,
 
     projectType,
+    runtime,
+    seeds,
   };
-  return exhibitManifest;
+}
+
+function detectProjectType(entries: string[], files: Record<string, any>, packageJson: any) {
+  const signals = collectFrameworkSignals(entries, files);
+
+  // -----------------------------
+  // 1. dependency-based detection (strongest signal)
+  // -----------------------------
+  const fromDeps = detectFromDependencies(packageJson);
+
+  if (fromDeps) return fromDeps;
+
+  // -----------------------------
+  // 2. heuristic fallback
+  // -----------------------------
+  if (signals.hasNextSignals) return 'next';
+  if (signals.hasReactSignals) return 'react';
+  if (signals.hasNuxtConfig) return 'nuxt';
+  if (signals.hasVueFiles) return 'vue';
+
+  return 'vanilla';
+}
+
+function collectFrameworkSignals(entries: string[], files: Record<string, any>) {
+  const normalize = (p: string) => p.replace(/^\.\//, '');
+
+  const normalizedEntries = entries.map(normalize);
+
+  const hasApp = normalizedEntries.some((p) => /(^|\/)app\.(tsx|jsx|ts|js)$/.test(p));
+
+  const hasPage = normalizedEntries.some((p) => p === 'page.tsx' || /(^|\/)page\.(tsx|jsx|ts|js)$/.test(p));
+
+  const hasVueFiles = normalizedEntries.some((p) => p.endsWith('.vue'));
+
+  const hasNuxtConfig = normalizedEntries.some((p) => /nuxt\.config\.(ts|js)$/.test(p));
+
+  const hasNextSignals = hasApp || hasPage || normalizedEntries.some((p) => /(^|\/)layout\.(tsx|jsx|ts|js)$/.test(p));
+
+  const hasReactSignals =
+    normalizedEntries.some((p) => /(main|index|app)\.(tsx|jsx)$/.test(p.split('/').pop() ?? '')) ||
+    Object.values(files).some((f: any) => {
+      const content = f?.content ?? '';
+      return content.includes('react') || content.includes('ReactDOM') || content.includes('createRoot');
+    });
+
+  return {
+    hasApp,
+    hasPage,
+    hasVueFiles,
+    hasNuxtConfig,
+    hasNextSignals,
+    hasReactSignals,
+  };
+}
+
+function detectFromDependencies(packageJson: any): ExhibitProjectType | null {
+  if (!packageJson) return null;
+
+  const deps = {
+    ...packageJson.dependencies,
+    ...packageJson.devDependencies,
+  };
+
+  if (deps?.next) return 'next';
+  if (deps?.react || deps?.['react-dom']) return 'react';
+  if (deps?.vue) return 'vue';
+  if (deps?.nuxt) return 'nuxt';
+
+  return null;
 }

@@ -2,9 +2,11 @@
 
 import * as Brief from '@/components/Brief';
 
+import React, { useEffect } from 'react';
+
 import { SafeLink as Link } from '@/mdx/Link';
-import React from 'react';
-import { getFeatureFlags } from '@/getFeatureFlags';
+import { getFeatureFlags } from '@/lib/feature-flags';
+import { usePathname } from 'next/navigation';
 
 // https://prismic.io/blog/css-background-effects
 // - Awesome navbar
@@ -19,14 +21,19 @@ export function DropdownPanel({ item, scheduleClose }) {
       </div>
     );
   }
-  const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (e, href: string) => {
-    if (href == '#') {
+  const pathname = usePathname();
+
+  useEffect(() => {
+    scheduleClose();
+  }, [pathname]);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '#') {
       e.preventDefault();
       return;
     }
-
-    scheduleClose();
   };
+
   function renderLeft() {
     return (
       <div className="flex flex-col w-95 bg-surface shrink-0">

@@ -1,4 +1,4 @@
-import { SidebarTreeType, TreeNode, TreeViewOptions } from '@/lib/types';
+import { SidebarTreeType, TreeViewOptions, VFSNode } from '@/lib/types';
 import { useEffect, useMemo, useRef } from 'react';
 
 import { TreeItem } from './TreeItem';
@@ -42,7 +42,7 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
   );
 }
 
-export function buildTreeFromVFS(vfs: any): TreeNode[] {
+export function buildTreeFromVFS(vfs: any): VFSNode[] {
   const root: Record<string, any> = {};
 
   for (const fullPath of Object.keys(vfs.files)) {
@@ -74,7 +74,7 @@ export function buildTreeFromVFS(vfs: any): TreeNode[] {
     }
   }
 
-  function toArray(map: Record<string, any>): TreeNode[] {
+  function toArray(map: Record<string, any>): VFSNode[] {
     return Object.values(map)
       .map((node: any) => ({
         ...node,
@@ -132,7 +132,7 @@ export function usePersistedScroll(key: string) {
   return ref;
 }
 
-export function applyTreeView({ node, opts }: { node: TreeNode; opts: TreeViewOptions }): any {
+export function applyTreeView({ node, opts }: { node: VFSNode; opts: TreeViewOptions }): any {
   if (!node) return null;
 
   if (opts.filter && !opts.filter(node)) return null;
