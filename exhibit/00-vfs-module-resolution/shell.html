@@ -434,7 +434,6 @@
           throw new Error(`Cannot resolve module: ${modulePath} (resolved: ${fullPath})`);
         },
         customRequire(modulePath, callerPath = '/') {
-          const fullPath = this.resolvePath(modulePath, callerPath);
           const { mod, key } = this.resolveModule(modulePath, callerPath);
 
           if (mod) {
