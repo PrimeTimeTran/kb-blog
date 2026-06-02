@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        --bg: 255 255 255;
+        --fg: 15 15 15;
+        --muted: 120 120 120;
+        --accent: 34 197 94;
+      }
+
+      :root[data-theme='dark'] {
+        --bg: 9 9 11;
+        --fg: 255 255 255;
+        --muted: 161 161 170;
+        --accent: 59 130 246;
+      }
+      /* Dark Theme */
+      [data-theme='dark'] {
+        --bg-color: #1a1a1a;
+        --text-color: #f0f0f0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        overflow-y: auto; /* This enables the internal scrollbar */
+      }
+
+      body {
+        background-color: blue;
+        background: var(--bg);
+        color: rgb(var(--fg)) !important;
+        transition:
+          background 0.2s ease,
+          color 0.2s ease;
+      }
+
+      #error-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(9, 9, 11, 0.95);
+        color: #ef4444;
+        padding: 24px;
+        font-family: monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow: auto;
+        z-index: 99999;
+        display: none;
+      }
+      #error-overlay-text {
+        white-space: pre-wrap; /* Preserves newlines and wraps text */
+        word-wrap: break-word; /* Prevents long lines from breaking your layout */
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <script>
+      window.AppCore = window.AppCore || { messageQueue: [] };
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+        // If the method exists, route it; otherwise, queue it
+        if (typeof window.AppCore.processMessage === 'function') {
+          window.AppCore.processMessage(data);
+        } else {
+          window.AppCore.messageQueue.push(data);
+        }
+      });
+    </script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <script src="/react.js"></script>
+    <script src="/reactdom.js"></script>
+  </head>
+
+  <body>
+    <div id="root" className="bg-surface h-full w-full"></div>
+    <div
+      id="error-overlay"
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9999"
+    >
+      <div id="error-overlay-text"></div>
+    </div>
+    <script>
+      // 🟢 PHASE 1 — VFS INIT + runtime injection
+      window.addEventListener('message', (e) => {
+        if (e.data?.type !== 'VFS_READY') return;
+
+        const runtime = window.parent.runtime;
+
+        window.__VFS__ = runtime;
+        window.require = (id) => runtime.customRequire(id);
+
+        window.module = { exports: {} };
+        window.exports = window.module.exports;
+
+        console.log('VFS ready');
+        console.log(Object.keys(runtime.moduleRegistry));
+
+        window.AppCore = window.require('/pkg/exhibit/seeds/app-core.ts').default;
+
+        window.AppCore?.markReady?.();
+      });
+    </script>
+    <script>
+      // 🟡 PHASE 2 — message router (SAFE QUEUE VERSION)
+      // 1. Setup the "One-Time" Listener
+      window.addEventListener('message', ({ data }) => {
+        if (!data?.type) return;
+
+        // If Core isn't defined, queue it
+        if (!window.AppCore.processMessage) {
+          console.log('Iframe not ready, queuing:', data.type);
+          window.AppCore.messageQueue.push(data);
+          return;
+        }
+
+        // Otherwise, just route the message
+        window.AppCore.processMessage(data);
+      });
+
+      window.addEventListener('error', (e) => {
+        if (window.AppCore && window.AppCore.reportError) {
+          window.AppCore.reportError(e);
+        } else {
+          console.error('System Error before AppCore ready:', e);
+        }
+      });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', window.AppCore.boot);
+      } else {
+        window.AppCore.boot();
+      }
+    </script>
+  </body>
+</html>

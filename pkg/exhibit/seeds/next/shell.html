@@ -32,7 +32,7 @@
         margin: 0;
         padding: 0;
         overflow: hidden;
-        overflow-y: auto; /* This enables the internal scrollbar */
+        overflow-y: auto;
       }
 
       body {
@@ -58,8 +58,8 @@
         display: none;
       }
       #error-overlay-text {
-        white-space: pre-wrap; /* Preserves newlines and wraps text */
-        word-wrap: break-word; /* Prevents long lines from breaking your layout */
+        white-space: pre-wrap;
+        word-wrap: break-word;
       }
     </style>
     <meta charset="UTF-8" />
@@ -67,7 +67,6 @@
       window.AppCore = window.AppCore || { messageQueue: [] };
       window.addEventListener('message', ({ data }) => {
         if (!data?.type) return;
-        // If the method exists, route it; otherwise, queue it
         if (typeof window.AppCore.processMessage === 'function') {
           window.AppCore.processMessage(data);
         } else {
@@ -204,17 +203,14 @@
               console.log('📄 Static asset ignored:', path);
           }
         },
-
         renderHTML(html) {
           const root = this.ensureRoot();
           root.innerHTML = html;
         },
-
         renderText(text) {
           const root = this.ensureRoot();
           root.innerText = text;
         },
-
         renderMarkdown(md) {
           const html = window.marked?.parse?.(md) ?? md;
           return this.renderHTML(html);
@@ -247,7 +243,6 @@
             overlay.style.display = 'none';
           }
         },
-
         // --- 3. MODULE SYSTEM (VFS ENGINE) ---
         syncRegistry(files) {
           this.moduleRegistry = {};
@@ -333,21 +328,30 @@
 
           return md;
         },
+        normalizePath(p) {
+          return '/' + p?.replace(/^\/+/, '').replace(/\/+/g, '/');
+        },
         resolvePath(target, base) {
           if (!target.startsWith('.')) return target;
 
           const baseDir = base.substring(0, base.lastIndexOf('/'));
           return `${baseDir}/${target.replace('./', '')}`.replace(/\/+/g, '/');
         },
+        isBareModule(id) {
+          return !id.startsWith('.') && !id.startsWith('/');
+        },
+        toKey(p) {
+          return this.normalizePath('/' + p.replace(/^\/+/, ''));
+        },
         registerModule(path, content) {
           try {
             const ext = path.split('.').pop()?.toLowerCase();
+            const key = this.toKey(path);
 
             // --------------------------------------------
             // 1. STATIC ASSETS (NO EXECUTION)
             // --------------------------------------------
             const STATIC_EXT = new Set(['html', 'md', 'txt', 'css', 'json']);
-
             if (STATIC_EXT.has(ext)) {
               let exports;
 
@@ -356,10 +360,10 @@
                   exports = JSON.parse(content);
                   break;
                 default:
-                  exports = content; // html/md/txt/css => raw string
+                  exports = content;
               }
 
-              this.moduleRegistry[path] = {
+              this.moduleRegistry[key] = {
                 exports: { default: exports },
                 factory: null,
                 wasExecuted: true,
@@ -378,18 +382,26 @@
               presets: [['typescript', { isTSX: true, allExtensions: true }], ['react', { runtime: 'classic' }], 'env'],
               plugins: ['transform-modules-commonjs'],
             }).code;
+            if (transformed.includes('export default') || transformed.includes('export {')) {
+              throw new Error('Babel ESM output detected — CommonJS transform failed');
+            }
+            const factory = new Function(
+              'module',
+              'exports',
+              'require',
+              `
+            return (function(module, exports, require) {
+              ${transformed}
+            })(module, exports, require);
+            `,
+            );
 
-            const module = { exports: {} };
-
-            const factory = new Function('module', 'exports', 'require', transformed);
-
-            this.moduleRegistry[path] = {
+            this.moduleRegistry[key] = {
               exports: {},
               factory,
               wasExecuted: false,
               type: 'module',
             };
-
             console.log(`⚙️ Registered module: ${path}`);
           } catch (err) {
             console.error(`❌ Execution error in ${path}:`, err);
@@ -397,28 +409,28 @@
             throw err;
           }
         },
-        customRequire(modulePath, callerPath = './') {
-          const external = this.getExternalDep(modulePath);
-          const resolvedPath = this.resolvePath?.(modulePath, callerPath) ?? modulePath;
+        customRequire(modulePath, callerPath = '/') {
+          // --------------------------------------------
+          // 1. EXTERNAL / BARE MODULES
+          // --------------------------------------------
+          if (this.isBareModule(modulePath)) {
+            const external = this.getExternalDep(modulePath);
+            if (external) return external;
+            throw new Error(`Missing external dependency: ${modulePath}`);
+          }
+          // --------------------------------------------
+          // 2. RESOLVE PATH (ONLY RELATIVE HANDLING HERE)
+          // --------------------------------------------
           const fullPath = this.resolvePath(modulePath, callerPath);
-          if (external) {
-            return external;
-          }
-
-          console.log(`🔍 Requiring: ${resolvedPath}`);
-          const mod = this.moduleRegistry[modulePath];
-
+          const key = this.toKey(fullPath);
+          const mod = this.moduleRegistry[key];
+          console.log(`🔍 Requiring: ${key}`);
           if (!mod) {
-            throw new Error(`Cannot resolve: ${modulePath}`);
+            throw new Error(`Cannot resolve: ${modulePath} (resolved: ${key})`);
           }
-
-          // 4. Execution
-          if (!mod.wasExecuted && mod.factory) {
-            const boundRequire = (p) => this.customRequire(p, fullPath);
-            mod.factory(mod, mod.exports, boundRequire);
-            mod.wasExecuted = true;
-          }
-
+          // --------------------------------------------
+          // 3. STATIC MODULE
+          // --------------------------------------------
           if (mod.type === 'static') {
             return {
               type: 'static',
@@ -426,17 +438,15 @@
             };
           }
 
-          if (!mod.wasExecuted && mod.factory) {
-            const boundRequire = (p) => this.customRequire(p, modulePath);
-
-            const result = mod.factory(mod, mod.exports, boundRequire);
-
-            // 🚨 HARD GUARD: prevent async leakage
-            if (result instanceof Promise) {
-              throw new Error(`Module ${modulePath} returned a Promise. Async modules are not supported in runtime.`);
-            }
-
+          // --------------------------------------------
+          // 4. EXECUTION (STRICT ONCE GUARANTEE)
+          // --------------------------------------------
+          if (mod.factory && !mod.wasExecuted) {
             mod.wasExecuted = true;
+
+            const boundRequire = (p) => this.customRequire(p, key);
+
+            mod.factory(mod, mod.exports, boundRequire);
           }
 
           return mod.exports;
@@ -632,6 +642,7 @@
       } else {
         window.AppCore.boot();
       }
+      console.log('Hi Next');
     </script>
   </body>
 </html>

@@ -4,7 +4,7 @@ import { getIconForFile, getIconForFolder } from 'vscode-icons-js';
 
 import { ChevronRight } from 'lucide-react';
 import { TreeItemProps } from '@/lib/types';
-import { normalizePath } from '@/lib/fs/normalize';
+import { normalizePath } from '@/lib/fs/normalize-path';
 import { useState } from 'react';
 
 export function TreeItem({ node, activePath, onSelect, depth }: TreeItemProps) {

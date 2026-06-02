@@ -8,11 +8,19 @@ import { ExhibitLayout } from '@/layouts/ExhibitLayout';
 import { ExhibitManifest } from '@/lib/types';
 import { SearchParams } from 'next/dist/server/request/search-params';
 
+// import runtime from '@/pkg/exhibit/seeds/app-core';
+
+// export const VFSRuntime = runtime;
+
 export default function Exhibit({ manifest }: { manifest: ExhibitManifest; params: SearchParams }): JSX.Element {
-  console.log({ manifest });
   const shellRef = useRef(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
-
+  // useEffect(() => {
+  //   window.runtime = VFSRuntime;
+  //   iframeRef.current?.contentWindow?.postMessage({
+  //     type: 'VFS_READY',
+  //   });
+  // }, []);
   const vfs = useVFS({ iframeRef, manifest });
   useEffect(() => {
     const iframe = iframeRef.current;
