@@ -12,6 +12,26 @@ type WalkInput = {
   includeExtensions?: string[];
 };
 
+type IncludeFn = (file: FileRecord) => boolean;
+
+function createIncludeFn(input: WalkInput): (f: FileRecord) => boolean {
+  if (input.includeExtensions?.length) {
+    const set = new Set(input.includeExtensions);
+    return (f) => set.has(`.${f.ext}`);
+  }
+
+  if (input.include instanceof RegExp) {
+    return (f) => input.include.test(f.name);
+  }
+
+  if (typeof input.include === 'string') {
+    const regex = new RegExp(input.include);
+    return (f) => regex.test(f.name);
+  }
+
+  return () => true;
+}
+
 export function walkFS<T>(
   input: WalkInput,
   map: (file: { absPath: string; relPath: string; name: string; ext: string; content: string }) => T,
@@ -19,7 +39,7 @@ export function walkFS<T>(
   const root = input.root ?? input.dir;
   const out: T[] = [];
 
-  const regex = input.include instanceof RegExp ? input.include : input.include ? new RegExp(input.include) : /.*/;
+  const includeFn = createIncludeFn(input);
 
   const walk = (dir: string) => {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -35,23 +55,24 @@ export function walkFS<T>(
 
       if (!entry.isFile()) continue;
 
-      if (!regex.test(entry.name)) continue;
-
       const content = fs.readFileSync(absPath, 'utf8');
 
-      // 🔥 CRITICAL FIX: match core behavior exactly
-      const relPath = assertInside(root, absPath).replace(/\\/g, '/');
+      const relPath = '/' + path.relative(root, absPath).replace(/\\/g, '/');
+
       const ext = path.extname(entry.name).replace('.', '');
 
-      out.push(
-        map({
-          absPath,
-          relPath,
-          name: entry.name,
-          ext,
-          content,
-        }),
-      );
+      const file = {
+        absPath,
+        relPath,
+        name: entry.name,
+        ext,
+        content,
+      };
+
+      // 👇 SINGLE source of truth filtering
+      if (!includeFn(file)) continue;
+
+      out.push(map(file));
     }
   };
 

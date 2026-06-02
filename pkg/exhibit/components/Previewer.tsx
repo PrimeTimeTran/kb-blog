@@ -13,15 +13,22 @@ export const Previewer = ({ className, vfs }: PreviewType) => {
 
   useEffect(() => {
     const files = vfs.files || {};
-    const htmlEntry = Object.entries(files).find(([p]) => p.endsWith('.html'));
 
+    const htmlEntry = Object.entries(files).find(([p]) => p.endsWith('.html'));
+    const htmlPath = htmlEntry?.[0];
     const html = htmlEntry?.[1]?.content || '';
 
-    if (!html) return;
+    if (!html || !htmlPath) return;
+
+    const getDir = (p: string) => '/' + p.split('/').slice(0, -1).join('/');
 
     const resolve = (href: string) => {
       const clean = href.replace(/^\.\//, '');
-      return files[clean]?.content ?? null;
+
+      const baseDir = getDir(htmlPath);
+      const resolvedPath = `${baseDir}/${clean}`.replace(/\/+/g, '/');
+
+      return files[resolvedPath]?.content ?? null;
     };
 
     let output = html;

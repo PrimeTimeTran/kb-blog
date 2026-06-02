@@ -11,6 +11,7 @@ import {
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { createTrace } from '@/lib/trace';
+import { normalizePath } from '@/lib/fs/normalize';
 
 export function useVFS({
   manifest,
@@ -108,8 +109,7 @@ export function useVFS({
   // FILE SWITCH
   // -------------------------------------------------------------------------
   const handleFileSelect = (node: TreeNode) => {
-    const resolvedPath = node.path.replace(/^(\.\/|\/)+/, '');
-
+    const resolvedPath = normalizePath(node.path);
     if (!files[resolvedPath]) {
       console.warn('File not found', {
         node,
