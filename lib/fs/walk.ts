@@ -1,22 +1,35 @@
-import type { FileRecord, ManifestOptions, TreeNode, VirtualFile } from '@/lib/types';
+import type { FileRecord, ManifestOptions, TreeNode, VirtualFileSystem } from '@/lib/types';
 
 import { assertInside } from '../paths';
 import fs from 'fs';
 import path from 'path';
 
-export function walkFilesCore(rootDir: string, include: RegExp | string = /.*/): FileRecord[] {
-  const out: FileRecord[] = [];
+type WalkInput = {
+  dir: string;
+  root?: string;
+  include?: RegExp;
+  ignoreDirs?: string[];
+  includeExtensions?: string[];
+};
 
-  const regex = include instanceof RegExp ? include : new RegExp(include);
+export function walkFS<T>(
+  input: WalkInput,
+  map: (file: { absPath: string; relPath: string; name: string; ext: string; content: string }) => T,
+): T[] {
+  const root = input.root ?? input.dir;
+  const out: T[] = [];
+
+  const regex = input.include instanceof RegExp ? input.include : input.include ? new RegExp(input.include) : /.*/;
 
   const walk = (dir: string) => {
     const entries = fs.readdirSync(dir, { withFileTypes: true });
 
     for (const entry of entries) {
-      const full = path.join(dir, entry.name);
+      const absPath = path.join(dir, entry.name);
 
       if (entry.isDirectory()) {
-        walk(full);
+        if (input.ignoreDirs?.some((d) => absPath.includes(d))) continue;
+        walk(absPath);
         continue;
       }
 
@@ -24,68 +37,35 @@ export function walkFilesCore(rootDir: string, include: RegExp | string = /.*/):
 
       if (!regex.test(entry.name)) continue;
 
-      const content = fs.readFileSync(full, 'utf8');
+      const content = fs.readFileSync(absPath, 'utf8');
 
-      const rel = assertInside(rootDir, full).replace(/\\/g, '/');
+      // 🔥 CRITICAL FIX: match core behavior exactly
+      const relPath = assertInside(root, absPath).replace(/\\/g, '/');
+      const ext = path.extname(entry.name).replace('.', '');
 
-      out.push({
-        absPath: full,
-        relPath: rel,
-        name: entry.name,
-        ext: path.extname(entry.name).replace('.', ''),
-        content,
-      });
+      out.push(
+        map({
+          absPath,
+          relPath,
+          name: entry.name,
+          ext,
+          content,
+        }),
+      );
     }
   };
 
-  walk(rootDir);
+  walk(input.dir);
 
   return out;
 }
-
 export function walk<T>(
   dir: string,
-  options: {
-    includeExtensions?: string[];
-    include?: RegExp | string;
-    ignoreDirs?: string[];
-    root?: string;
+  options: Omit<WalkInput, 'dir'> & {
     map: (file: FileRecord) => T;
   },
 ): T[] {
-  const { includeExtensions, include, ignoreDirs = [], root = dir, map } = options;
-
-  // ----------------------------
-  // normalize filter (SAFE)
-  // ----------------------------
-
-  let regex: RegExp = /.*/;
-
-  if (include instanceof RegExp) {
-    regex = include;
-  } else if (typeof include === 'string') {
-    regex = new RegExp(include);
-  } else if (includeExtensions?.length) {
-    regex = new RegExp(includeExtensions.map((e) => e.replace('.', '\\.')).join('|'));
-  }
-
-  // ----------------------------
-  // reuse core walker
-  // ----------------------------
-
-  const files = walkFilesCore(dir, regex);
-
-  // ----------------------------
-  // optional ignoreDirs filter (post-pass)
-  // ----------------------------
-
-  const filtered = ignoreDirs.length ? files.filter((f) => !ignoreDirs.some((d) => f.absPath.includes(d))) : files;
-
-  // ----------------------------
-  // pure projection
-  // ----------------------------
-
-  return filtered.map(map);
+  return walkFS({ dir, ...options }, options.map);
 }
 
 export function buildTreeFromFiles(files: FileRecord[] | Record<string, FileRecord>): TreeNode[] {
@@ -132,50 +112,9 @@ export function buildTreeFromFiles(files: FileRecord[] | Record<string, FileReco
   return toArray(root);
 }
 
-export function walkFiles(rootDir: string, include: RegExp) {
-  const results: VirtualFile[] = [];
-
-  const walk = (dir: string) => {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-
-      if (entry.isDirectory()) {
-        walk(fullPath);
-        continue;
-      }
-
-      if (!entry.isFile()) continue;
-
-      if (!include.test(entry.name)) continue;
-
-      const content = fs.readFileSync(fullPath, 'utf-8');
-
-      const rel = assertInside(rootDir, fullPath);
-      const relPath = rel.replace(/\\/g, '/');
-
-      const ext = entry.name.split('.').pop() ?? 'js';
-
-      results.push({
-        ext,
-        content,
-        relPath,
-        absPath: fullPath,
-        name: entry.name,
-      });
-    }
-  };
-
-  walk(rootDir);
-
-  return results;
-}
-
 export function buildManifestCore({ rootDir, include = /\.(tsx|ts|jsx|js|css|html|vue|md|mdx)$/ }: ManifestOptions) {
-  const rawFiles = walkFilesCore(rootDir, include);
-
-  const files: Record<string, FileRecord> = {};
+  const rawFiles: FileRecord[] = walk<FileRecord>(rootDir, { root: rootDir, map: (f) => f });
+  const files: VirtualFileSystem = {};
   const entries: string[] = [];
   const extensions = new Set<string>();
 
@@ -185,7 +124,9 @@ export function buildManifestCore({ rootDir, include = /\.(tsx|ts|jsx|js|css|htm
     if (file.name === 'package.json') {
       try {
         packageJson = JSON.parse(file.content);
-      } catch {}
+      } catch (error) {
+        console.log('Error: ', error);
+      }
     }
 
     const normalized: FileRecord = {
@@ -197,6 +138,7 @@ export function buildManifestCore({ rootDir, include = /\.(tsx|ts|jsx|js|css|htm
     };
 
     files[file.relPath] = {
+      kind: 'file',
       ...normalized,
       language: inferLanguage(file.ext),
     };
@@ -213,20 +155,6 @@ export function buildManifestCore({ rootDir, include = /\.(tsx|ts|jsx|js|css|htm
     rawFiles,
   };
 }
-
-export function createManifest(rootDir: string) {
-  const core = buildManifestCore({ rootDir });
-
-  return {
-    files: core.files,
-    entries: core.entries,
-    extensions: core.extensions,
-    packageJson: core.packageJson,
-
-    tree: buildTreeFromFiles(core.rawFiles), // 🔥 no recomputation
-  };
-}
-
 export function inferLanguage(ext: string): string {
   switch (ext.toLowerCase()) {
     case 'ts':

@@ -32,6 +32,14 @@
       "@/pkg/*": ["./pkg/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "lib/content/api/list-content.ts",
+    "lib/content/core/audit-wikilinks.ts"
+  ],
   "exclude": ["node_modules"]
 }

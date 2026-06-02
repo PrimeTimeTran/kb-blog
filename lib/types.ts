@@ -1,21 +1,29 @@
-export type FileRecord = {
-  relPath: string; // canonical ID (NEVER optional)
-  absPath: string;
+export type FileKind = 'file' | 'folder' | 'source' | 'runtime' | 'seed' | 'unknown';
+export type FileRole = 'source' | 'runtime' | 'seed' | 'unknown';
 
+export type FileRecord = {
+  relPath: string;
+  absPath: string;
   name: string;
   ext: string;
-
   content: string;
+  language?: string;
 };
 
 export type VirtualFileSystem = Record<string, VirtualFile>;
 
+export type VirtualFile = {
+  kind: FileKind;
+  content?: string;
+  language?: string;
+
+  absPath: string;
+  relPath: string;
+  name: string;
+  ext: string;
+};
+
 export type SeedFileType = 'script' | 'style' | 'html' | 'json' | 'asset';
-export type FileRole =
-  | 'seed' // project scaffolding
-  | 'vfs' // live editor state
-  | 'runtime' // execution/bootstrap layer
-  | 'unknown';
 
 export type FileDescriptor = {
   type: SeedFileType;
@@ -25,25 +33,13 @@ export type SeedFile = {
   kind: 'seed';
   path: string;
   content: string;
+  relPath: string;
   type: SeedFileType;
 };
-
 export type RuntimeAsset = {
   kind: 'runtime';
   type: 'script' | 'html' | 'style';
   path: string;
-};
-
-export type VirtualFile = {
-  kind: 'vfs';
-
-  content?: string;
-  language?: string;
-
-  absPath: string;
-  relPath: string;
-  name: string;
-  ext: string;
 };
 
 export type FileEntity = SeedFile | RuntimeAsset | VirtualFile;
@@ -122,6 +118,7 @@ export type ExhibitManifest = {
   projectType: ExhibitProjectType;
 
   isVirtual?: boolean;
+  isPreview?: true;
 };
 
 export type VirtualFileSystemAPI = {

@@ -1,6 +1,7 @@
 import { SurfacePreviewLeft, SurfacePreviewMain, SurfacePreviewRight } from '@/components/showcase/components';
 import { useMultiSplitter, useOverlay, useResizablePanel } from '@/hooks/useLayout';
 
+import { ExhibitManifest } from '@/lib/types';
 import { JSX } from 'react';
 import { useOverlayManager } from './global/Overlay';
 
@@ -70,6 +71,8 @@ const ResizeHandle = ({ ...props }) => (
 );
 
 type ColProps = {
+  manifest: ExhibitManifest;
+  isPreview: boolean;
   left: JSX.Element;
   right: JSX.Element;
   children: JSX.Element;

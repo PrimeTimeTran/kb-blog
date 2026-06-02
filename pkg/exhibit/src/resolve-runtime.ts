@@ -5,7 +5,7 @@ type FileMap = Record<string, { content: string; language: string }>;
 export function resolveRuntime(
   projectType: ExhibitProjectType,
   entries: string[],
-  files: FileMap,
+  // files: FileMap,
 ): ExhibitManifest['runtime'] {
   return {
     framework: projectType,

@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import { walk } from '@/lib/fs';
 
 export async function getAllFrontMatter(type) {
-  const files = walk(BLOG_DIR, { includeExtensions: ['.md', '.mdx'] });
+  const files = walk(BLOG_DIR, { includeExtensions: ['.md', '.mdx'], map: (f) => f });
 
   return (files ?? [])
     .map((filePath) => {

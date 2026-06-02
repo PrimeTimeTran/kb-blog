@@ -3,7 +3,7 @@ import { FileDescriptor, FileRole, SeedConfig, SeedFile, SeedFileType } from '@/
 import { SEEDS_DIR } from '@/lib/paths';
 import fs from 'fs';
 import path from 'path';
-import { walk } from '@/lib/fs/walk';
+import { walkFS } from '@/lib/fs/walk';
 
 export function inferFileDescriptor(file: string): FileDescriptor {
   const lower = file.toLowerCase();
@@ -60,16 +60,25 @@ export function loadFrameworkSeeds(framework: string): SeedConfig {
     };
   }
 
-  const filesFlat = walk<SeedFile>(root, {
-    include: /\.(ts|tsx|js|jsx|html|css|json)$/,
+  const filesFlat = walkFS<SeedFile>({ dir: root }, (f) => ({
+    kind: 'seed',
+    path: f.relPath,
+    relPath: f.relPath,
+    absPath: f.absPath,
+    content: f.content,
+    type: classifyFile(f.name),
+  }));
 
-    map: (file) => ({
-      kind: 'seed',
-      path: file.relPath,
-      content: file.content,
-      type: classifyFile(file.name),
-    }),
-  });
+  // const filesFlat = walk<SeedFile>(root, {
+  //   include: /\.(ts|tsx|js|jsx|html|css|json)$/,
+
+  //   map: (file) => ({
+  //     kind: 'seed',
+  //     path: file.relPath,
+  //     content: file.content,
+  //     type: classifyFile(file.name),
+  //   }),
+  // });
 
   const files: Record<string, SeedFile> = {};
 

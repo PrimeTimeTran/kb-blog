@@ -4,7 +4,7 @@
 ───────────────────────────────────────────── */
 
 export { getContent } from './get-content';
-export { listContent } from './list-content';
+export { listContent } from './list-content.ts';
 
 export { getAuthor } from './get-author';
 export { listAuthor } from './list-author';
