@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WASM Exhibit</title>
+  </head>
+
+  <body>
+    <h1>WASM Demo</h1>
+
+    <pre id="out"></pre>
+    
+    <script type="module">
+      import go from './go.js';
+    </script>
+
+    <script type="module">
+      import init, {
+        ping,
+        reverse,
+        upper,
+        count_chars,
+        json_echo,
+        build_edges,
+        simple_hash,
+        counter_increment,
+        counter_get,
+        counter_reset,
+      } from './wasm/exhibit_wasm.js';
+
+      const out = document.getElementById('out');
+      const log = (...args) => {
+        out.textContent += args.join(' ') + '\n';
+      };
+
+      // MUST initialize WASM first
+      await init();
+
+      // =========================
+      // string utils
+      // =========================
+      log('ping:', ping('hello'));
+      log('reverse:', reverse('rust'));
+      log('upper:', upper('wasm'));
+      log('count:', count_chars('hello world'));
+
+      // =========================
+      // JSON
+      // =========================
+      log('json:', json_echo(JSON.stringify({ a: 1, b: 2 })));
+
+      // =========================
+      // graph
+      // =========================
+      log(
+        'graph:',
+        build_edges(
+          JSON.stringify({
+            'a.ts': ['b.ts', 'c.ts'],
+            'b.ts': [],
+          }),
+        ),
+      );
+
+      // =========================
+      // hash
+      // =========================
+      log('hash:', simple_hash('cache-key'));
+
+      // =========================
+      // counter state
+      // =========================
+      log('counter:', counter_increment());
+      log('counter:', counter_increment());
+      log('counter:', counter_get());
+      counter_reset();
+      log('counter reset:', counter_get());
+    </script>
+  </body>
+</html>
