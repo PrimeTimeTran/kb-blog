@@ -25,7 +25,6 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeProps) {
   }, [data]);
 
   const scrollRef = usePersistedScroll('kb-sidebar-scroll');
-  console.log({ activePath });
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto sidebar-tree bg-lowest border-0">
       {visibleTree.map((node) => (
@@ -46,14 +45,9 @@ export function useTreeNavigation() {
   const router = useRouter();
 
   const onSelect = (node: TreeNode) => {
-    console.log(node.kind);
-    console.log(node.path);
     if (node.kind !== 'file') return;
 
     const cleanPath = toRoutePath(node.path).replace(/\.(md|mdx)$/, '');
-    // http://localhost:3000/kb/atom/math/calc/core/integral/integration
-    console.log(cleanPath);
-
     router.push(cleanPath, undefined, { scroll: false });
   };
 

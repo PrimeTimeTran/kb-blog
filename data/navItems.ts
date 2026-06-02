@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 
 import type { ComponentType } from 'react';
+import { getFeatureFlags } from '@/lib/feature-flags';
 
 export type MenuLink = {
   title: string;
@@ -55,20 +56,8 @@ export type NavItem = {
   tags?: string[];
 };
 
-export const navItems: NavItem[] = [
-  {
-    label: 'Product',
-    icon: Box,
-    description: 'Core platform capabilities and runtime system',
-    href: '#',
-
-    featured: {
-      title: 'Browser-Native Runtime Platform',
-      subtitle: 'A unified system for executing React, TSX, Python, and sandboxed modules directly in the browser.',
-      icon: Cpu,
-    },
-
-    links: [
+const devLinks = getFeatureFlags().isDev
+  ? [
       {
         title: 'VFS',
         description: 'VFS',
@@ -87,7 +76,24 @@ export const navItems: NavItem[] = [
         href: '/playground/02-react',
         icon: Package,
       },
+    ]
+  : [];
 
+export const navItems: NavItem[] = [
+  {
+    label: 'Product',
+    icon: Box,
+    description: 'Core platform capabilities and runtime system',
+    href: '#',
+
+    featured: {
+      title: 'Browser-Native Runtime Platform',
+      subtitle: 'A unified system for executing React, TSX, Python, and sandboxed modules directly in the browser.',
+      icon: Cpu,
+    },
+
+    links: [
+      ...devLinks,
       {
         title: 'Playground Sandbox',
         description: 'Execute in-browser IDE with language, syntax, and execution support. HMR of course!',

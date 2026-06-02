@@ -1,6 +1,6 @@
 import type { ISODateString, Slug } from '../types';
 
-import type { VFSNode } from '@/lib/types';
+import type { TreeNode } from '@/lib/types';
 
 export function normalizeDate(input: unknown): ISODateString {
   if (!input) return null;
@@ -98,7 +98,7 @@ export function normalizeFrontMatter(fm: FrontMatterBase, slug: string) {
   };
 }
 
-export function normalizeTree(tree: Record<string, any>): VFSNode[] {
+export function normalizeTree(tree: Record<string, any>): TreeNode[] {
   return (Object.values(tree) ?? []).map((node: any) => ({
     name: node.name,
 

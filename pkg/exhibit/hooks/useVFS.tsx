@@ -11,7 +11,7 @@ import {
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { createTrace } from '@/lib/trace';
-import { normalizePath } from '@/lib/fs/normalize';
+import { normalizePath } from '@/lib/fs/normalize-path';
 
 export function useVFS({
   manifest,
@@ -133,8 +133,6 @@ export function useVFS({
 
     return file;
   }, [activePath, files]);
-  // activePath /css/2-escape-fixed-container copy 2/index-2.html
-  // activePath /css/2-escape-fixed-container/index-1.html
 
   const syncFullProject = () => {
     iframeRef.current?.contentWindow?.postMessage(

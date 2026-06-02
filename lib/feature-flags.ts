@@ -1,7 +1,8 @@
 export function getFeatureFlags() {
   const isMegaMenuOn = true;
-
+  const isDev = process.env.NODE_ENV === 'development';
   return {
+    isDev,
     isMegaMenuOn,
     megaMenu: {
       isOn: isMegaMenuOn,
