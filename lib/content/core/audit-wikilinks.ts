@@ -112,7 +112,7 @@ function resolveLink(linkPath: string, lookup: ReturnType<typeof buildIndex>) {
 export function auditWikiLinks() {
   console.log('\n[wiki-audit] scanning vault...');
 
-  const files = walk(KB_DIR, { ignoreDirs: IGNORE_DIRS });
+  const files = walk(KB_DIR, { ignoreDirs: IGNORE_DIRS, map: (f) => f });
 
   console.log(`[wiki-audit] found ${files.length} markdown files\n`);
 

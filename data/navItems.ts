@@ -70,6 +70,25 @@ export const navItems: NavItem[] = [
 
     links: [
       {
+        title: 'VFS',
+        description: 'VFS',
+        href: '/playground/00-vfs',
+        icon: Blocks,
+      },
+      {
+        title: 'Vanilla',
+        description: 'Vanilla',
+        href: '/playground/00-web-development',
+        icon: Blocks,
+      },
+      {
+        title: 'React',
+        description: 'React',
+        href: '/playground/02-react',
+        icon: Package,
+      },
+
+      {
         title: 'Playground Sandbox',
         description: 'Execute in-browser IDE with language, syntax, and execution support. HMR of course!',
         href: '/playground',
@@ -81,19 +100,20 @@ export const navItems: NavItem[] = [
         href: '/playground/01-mini-react',
         icon: Shield,
       },
-      {
-        title: 'Module System',
-        description: 'Dynamic module loading and dependency graphing',
-        href: '#',
-        icon: Blocks,
-      },
 
-      {
-        title: 'Bundler Core',
-        description: 'Client-side transpilation and bundling pipeline',
-        href: '#',
-        icon: Package,
-      },
+      // {
+      //   title: 'Module System',
+      //   description: 'Dynamic module loading and dependency graphing',
+      //   href: '#',
+      //   icon: Blocks,
+      // },
+
+      // {
+      //   title: 'Bundler Core',
+      //   description: 'Client-side transpilation and bundling pipeline',
+      //   href: '#',
+      //   icon: Package,
+      // },
     ],
   },
 

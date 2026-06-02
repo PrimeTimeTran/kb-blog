@@ -9,9 +9,9 @@
 // public/static/assets/assets1/...
 'use client';
 
-import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
 
-import { useEffect, useState, useMemo } from 'react';
+import Image from 'next/image';
 
 type SVGAsset = {
   path: string;

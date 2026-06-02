@@ -41,7 +41,6 @@ export function Editor({
     stateRef.current = { onChange, value, formatter };
   }, [onChange, value, formatter]);
 
-  // 1. Create the debounced function using useMemo
   const debouncedOnChange = useMemo(() => {
     return debounce((val) => {
       onChange(val);
@@ -106,7 +105,6 @@ export function Editor({
         showPrintMargin={showPrintMargin}
         highlightActiveLine={highlightActiveLine}
         onLoad={setEditorInstance}
-        // Run clean format passes immediately when the user finishes and clicks away
         onBlur={handleFormat}
         setOptions={{
           useWorker: false,
@@ -199,10 +197,8 @@ export const useEditorHotkeys = (
         const folds = session.getAllFolds();
 
         if (folds.length > 0) {
-          // If there are any folded regions, unfold everything
           session.unfold(null, true);
         } else {
-          // Otherwise, fold all
           session.foldAll();
         }
       },
@@ -214,14 +210,9 @@ export const useEditorHotkeys = (
       exec: (ed) => {
         const session = ed.getSession();
         const row = ed.getCursorPosition().row;
-
-        // toggleFoldWidget automatically handles the logic of
-        // collapsing if expanded, and expanding if collapsed.
         session.toggleFoldWidget(row);
       },
     });
-
-    // Cleanup when the editor unmounts
     return () => {
       editor.commands.removeCommand('formatCode');
     };

@@ -1,4 +1,4 @@
-import { SidebarTreeType, TreeViewOptions, VFSNode } from '@/lib/types';
+import { SidebarTreeProps, TreeNode, TreeViewOptions } from '@/lib/types';
 import { useEffect, useMemo, useRef } from 'react';
 
 import { TreeItem } from './TreeItem';
@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 const scrollMap = new Map<string, number>();
 
-export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
+export function SidebarTree({ data, activePath, onSelect }: SidebarTreeProps) {
   const visibleTree = useMemo(() => {
     return (data ?? [])
       .map((node: any) =>
@@ -25,7 +25,7 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
   }, [data]);
 
   const scrollRef = usePersistedScroll('kb-sidebar-scroll');
-
+  console.log({ activePath });
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto sidebar-tree bg-lowest border-0">
       {visibleTree.map((node) => (
@@ -45,12 +45,18 @@ export function SidebarTree({ data, activePath, onSelect }: SidebarTreeType) {
 export function useTreeNavigation() {
   const router = useRouter();
 
-  const onSelect = (path: string) => {
-    if (!path) return;
+  const onSelect = (node: TreeNode) => {
+    console.log(node.kind);
+    console.log(node.path);
+    if (node.kind !== 'file') return;
 
-    const cleanPath = toRoutePath(path).replace(/\.(md|mdx)$/, '');
+    const cleanPath = toRoutePath(node.path).replace(/\.(md|mdx)$/, '');
+    // http://localhost:3000/kb/atom/math/calc/core/integral/integration
+    console.log(cleanPath);
+
     router.push(cleanPath, undefined, { scroll: false });
   };
+
   return { onSelect };
 }
 
@@ -84,7 +90,7 @@ export function usePersistedScroll(key: string) {
   return ref;
 }
 
-export function applyTreeView({ node, opts }: { node: VFSNode; opts: TreeViewOptions }): any {
+export function applyTreeView({ node, opts }: { node: TreeNode; opts: TreeViewOptions }): any {
   if (!node) return null;
 
   if (opts.filter && !opts.filter(node)) return null;

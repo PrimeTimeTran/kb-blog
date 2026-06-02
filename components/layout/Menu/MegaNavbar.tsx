@@ -15,7 +15,7 @@ export function MegaNavbar({ pathName }: { pathName: string }) {
   const { containerRef, mounted, setHasEntered, open, scheduleClose, motionDiv } = useNavDropdown();
   return (
     <div ref={containerRef} className="fixed inset-x-0 top-0 z-20 bg-surface border-b border-outline/40">
-      <div className="h-10 w-full absolute top-16 left-0" />
+      <div className="h-10 w-full absolute top-16 left-0 pointer-events-none" />
       <div className="w-full h-16 relative">
         <nav className="flex h-16 px-8 relative justify-between">
           <div className="flex flex-1 justify-center items-center">

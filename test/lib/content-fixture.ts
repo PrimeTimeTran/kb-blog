@@ -1,6 +1,5 @@
-// test/utils/content-fixture.ts
-import matter from 'gray-matter';
 import { createContentClient } from '@/lib/content/api/client';
+import matter from 'gray-matter';
 
 export function createMockCollection(files: Record<string, string>) {
   return {
@@ -32,7 +31,7 @@ export function createMockRegistry(files: Record<string, string>) {
       if (type !== 'blog') return undefined;
 
       return {
-        id: 'fs:blog', // 👈 MOVE ID HERE (IMPORTANT)
+        id: 'fs:blog',
         async read(slug: string) {
           const raw = files[slug];
           if (!raw) return null;

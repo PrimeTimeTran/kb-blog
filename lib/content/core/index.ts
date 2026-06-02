@@ -1,4 +1,4 @@
-export * from './audit-wikilinks';
+export * from './audit-wikilinks.ts';
 export * from './content';
 export * from './extract-toc';
 export * from './is-published';

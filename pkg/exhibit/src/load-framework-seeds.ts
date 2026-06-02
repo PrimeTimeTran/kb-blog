@@ -1,69 +1,98 @@
-import { FrameworkSeeds, SeedFile } from '@/pkg/exhibit';
+import { FileDescriptor, FileRole, SeedConfig, SeedFile, SeedFileType } from '@/lib/types';
 
 import { SEEDS_DIR } from '@/lib/paths';
 import fs from 'fs';
 import path from 'path';
+import { walkFS } from '@/lib/fs/walk';
 
+export function inferFileDescriptor(file: string): FileDescriptor {
+  const lower = file.toLowerCase();
+
+  const is = (ext: string) => lower.endsWith(ext);
+  const has = (s: string) => lower.includes(s);
+
+  // -------------------
+  // TYPE
+  // -------------------
+  let type: SeedFileType = 'asset';
+
+  if (is('.html')) type = 'html';
+  else if (is('.css')) type = 'style';
+  else if (is('.json')) type = 'json';
+  else if (/\.(ts|tsx|js|jsx)$/.test(lower)) type = 'script';
+
+  // -------------------
+  // ROLE
+  // -------------------
+  let role: FileRole = 'seed';
+
+  if (has('runtime/') || has('mount') || has('bootstrap')) {
+    role = 'runtime';
+  }
+
+  if (has('.vfs') || has('temp')) {
+    role = 'vfs';
+  }
+
+  return { type, role };
+}
 function classifyFile(file: string): SeedFile['type'] {
-  if (file.endsWith('.html')) return 'html';
-  if (file.endsWith('.css')) return 'style';
-  if (file.endsWith('.json')) return 'json';
-  if (/\.(ts|tsx|js|jsx)$/.test(file)) return 'script';
+  const lower = file.toLowerCase();
+
+  if (lower.endsWith('.html')) return 'html';
+  if (lower.endsWith('.css')) return 'style';
+  if (lower.endsWith('.json')) return 'json';
+  if (/\.(ts|tsx|js|jsx)$/.test(lower)) return 'script';
+
   return 'asset';
 }
 
-export function loadFrameworkSeeds(framework: string): FrameworkSeeds {
+export function loadFrameworkSeeds(framework: string): SeedConfig {
   const root = path.join(SEEDS_DIR, framework);
-
-  const files: Record<string, SeedFile> = {};
-  const filesFlat: SeedFile[] = [];
 
   if (!fs.existsSync(root)) {
     console.warn(`Seed directory not found: ${root}`);
-    return { framework, files, entry: null };
+    return {
+      framework,
+      files: {},
+      filesFlat: [],
+      entry: null,
+    };
   }
 
-  const walk = (dir: string) => {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const filesFlat = walkFS<SeedFile>({ dir: root }, (f) => ({
+    kind: 'seed',
+    path: f.relPath,
+    relPath: f.relPath,
+    absPath: f.absPath,
+    content: f.content,
+    type: classifyFile(f.name),
+  }));
 
-    for (const entry of entries) {
-      const full = path.join(dir, entry.name);
+  // const filesFlat = walk<SeedFile>(root, {
+  //   include: /\.(ts|tsx|js|jsx|html|css|json)$/,
 
-      if (entry.isDirectory()) {
-        walk(full);
-        continue;
-      }
+  //   map: (file) => ({
+  //     kind: 'seed',
+  //     path: file.relPath,
+  //     content: file.content,
+  //     type: classifyFile(file.name),
+  //   }),
+  // });
 
-      const content = fs.readFileSync(full, 'utf-8');
+  const files: Record<string, SeedFile> = {};
 
-      // 🔥 flatten to filename-only key (same VFS rule)
-      const rel = path.relative(root, full).replace(/\\/g, '/').split('/').pop()!;
-
-      files[rel] = {
-        path: rel,
-        content,
-        type: classifyFile(entry.name),
-      };
-      filesFlat.push({
-        path: rel,
-        content,
-        type: classifyFile(entry.name),
-      });
-    }
-  };
-
-  walk(root);
+  for (const file of filesFlat) {
+    files[file.relPath] = file;
+  }
 
   const entry =
-    files['main.tsx']?.path ??
-    files['main.jsx']?.path ??
-    Object.values(files).find((f) => f.type === 'html')?.path ??
-    null;
+    files['main.tsx']?.path ?? files['main.jsx']?.path ?? filesFlat.find((f) => f.type === 'html')?.path ?? null;
 
   return {
-    files,
-    entry,
     framework,
+    files,
     filesFlat,
+    entry,
   };
 }
